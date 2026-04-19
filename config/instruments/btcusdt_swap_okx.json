@@ -1,0 +1,11 @@
+{
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "symbol": "BTCUSDT_SWAP_OKX",
+  "exchange": "GLOBAL",
+  "name": "BTC-USDT-SWAP",
+  "size": 0.01,
+  "pricetick": 0.1,
+  "min_volume": 0.01,
+  "gateway_name": "OKX",
+  "history_data": true
+}

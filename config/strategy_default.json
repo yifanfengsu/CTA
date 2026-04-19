@@ -1,0 +1,29 @@
+{
+  "class_name": "OkxAdaptiveMhfStrategy",
+  "strategy_name": "btc_mhf_v1",
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "setting": {
+    "capital_per_strategy": 5000,
+    "risk_per_trade": 0.003,
+    "fixed_size": 0,
+    "fast_window": 12,
+    "slow_window": 48,
+    "breakout_window": 20,
+    "atr_window": 14,
+    "rsi_window": 14,
+    "rsi_long": 55,
+    "rsi_short": 45,
+    "vol_floor": 0.001,
+    "vol_ceiling": 0.02,
+    "stop_atr": 1.2,
+    "trail_atr": 1.8,
+    "take_profit_atr": 2.4,
+    "max_hold_bars": 30,
+    "cooldown_bars": 3,
+    "payup_ticks": 2,
+    "init_days": 10,
+    "contract_size": 0.0,
+    "min_volume": 0.0,
+    "pricetick": 0.0
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "gateway_name": "OKX",
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "bar_interval": "1m",
+  "regime_interval": "5m",
+  "strategy_name": "btc_mhf_v1"
+}

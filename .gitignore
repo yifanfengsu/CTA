@@ -1,0 +1,14 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vntrader/
+logs/*
+!logs/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+reports/*
+!reports/.gitkeep
