@@ -20,6 +20,7 @@ SLIPPAGE ?= 2
 REPORT_DIR ?=
 COMPARE_REPORT_DIR ?=
 OUTPUT_DIR ?=
+FORMAT ?=
 STRATEGY_CONFIG ?= config/strategy_default.json
 SANITY_CONFIG ?= config/strategy_sanity_min_size.json
 MAX_RETRIES ?= 8
@@ -34,7 +35,7 @@ TAIL_LINES ?= 80
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
 .PHONY: download-history-dry-run download-history repair-history verify-history
-.PHONY: backtest backtest-no-cost backtest-sanity analyze-alpha alpha-sweep
+.PHONY: backtest backtest-no-cost backtest-sanity analyze-alpha analyze-trades alpha-sweep
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -63,6 +64,7 @@ help:
 		"  make backtest-no-cost     No-cost backtest for gross-alpha comparison" \
 		"  make backtest-sanity      Conservative min-size sanity backtest using SANITY_CONFIG" \
 		"  make analyze-alpha REPORT_DIR=reports/backtest/cost COMPARE_REPORT_DIR=reports/backtest/no_cost" \
+		"  make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
 		"" \
 		"Quality and cleanup:" \
@@ -247,6 +249,21 @@ analyze-alpha:
 	); \
 	if [[ -n "$(strip $(COMPARE_REPORT_DIR))" ]]; then args+=(--compare-report-dir "$(COMPARE_REPORT_DIR)"); fi; \
 	if [[ -n "$(strip $(OUTPUT_DIR))" ]]; then args+=(--output-dir "$(OUTPUT_DIR)"); fi; \
+	$(PYTHON) "$${args[@]}"
+
+analyze-trades:
+	@if [[ -z "$(strip $(REPORT_DIR))" ]]; then \
+		echo "ERROR: REPORT_DIR is required. Example: make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331"; \
+		exit 2; \
+	fi
+	@echo "Analyzing trade attribution for $(REPORT_DIR)"
+	@args=( \
+		scripts/analyze_trade_attribution.py \
+		--report-dir "$(REPORT_DIR)" \
+		--timezone "$(TIMEZONE)" \
+	); \
+	if [[ -n "$(strip $(OUTPUT_DIR))" ]]; then args+=(--output-dir "$(OUTPUT_DIR)"); fi; \
+	if [[ -n "$(strip $(FORMAT))" ]]; then args+=(--format "$(FORMAT)"); fi; \
 	$(PYTHON) "$${args[@]}"
 
 alpha-sweep:

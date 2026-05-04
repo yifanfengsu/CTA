@@ -73,8 +73,9 @@ OKX_PROXY_PORT=0
 7. `make backtest`
 8. `make backtest-no-cost`
 9. `make analyze-alpha REPORT_DIR=... COMPARE_REPORT_DIR=...`
-10. `make alpha-sweep`
-11. 满足条件后再考虑补 demo runner/模拟盘。
+10. `make analyze-trades REPORT_DIR=...`
+11. `make alpha-sweep`
+12. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -98,6 +99,7 @@ OKX_PROXY_PORT=0
 | `REPORT_DIR` | 空 | alpha 诊断主报告目录，必填 |
 | `COMPARE_REPORT_DIR` | 空 | alpha 诊断对照报告目录 |
 | `OUTPUT_DIR` | 空 | 指定输出目录；为空时脚本自动生成 |
+| `FORMAT` | 空 | `analyze-trades` 输出格式，支持 `json`、`csv`、`md`，为空时全部输出 |
 | `STRATEGY_CONFIG` | `config/strategy_default.json` | 默认策略配置 |
 | `SANITY_CONFIG` | `config/strategy_sanity_min_size.json` | 保守 sanity 配置 |
 | `MAX_RETRIES` | `8` | 历史下载每源重试次数 |
@@ -122,6 +124,7 @@ OKX_PROXY_PORT=0
 | `make backtest-no-cost` | 无成本回测，用于判断毛 alpha | 否 | 否 | 回测报告目录 | `make backtest-no-cost OUTPUT_DIR=reports/backtest/manual_no_cost` |
 | `make backtest-sanity` | 使用保守最小手数配置回测 | 否 | 否 | 回测报告目录 | `make backtest-sanity` |
 | `make analyze-alpha` | 分析一个或两个回测报告 | 否 | 否 | `REPORT_DIR/alpha_diagnostics/` 或 `OUTPUT_DIR` | `make analyze-alpha REPORT_DIR=... COMPARE_REPORT_DIR=...` |
+| `make analyze-trades` | 交易归因诊断，按方向、时段、星期、月份和频率拆解亏损 | 否 | 否 | `REPORT_DIR/trade_attribution/` 或 `OUTPUT_DIR` | `make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |
 | `make test-one` | 运行单个测试文件 | 否 | 否 | 终端输出 | `make test-one TEST=tests/test_history_time_utils.py` |
@@ -296,6 +299,17 @@ make analyze-alpha REPORT_DIR=reports/backtest/manual_cost COMPARE_REPORT_DIR=re
 
 `REPORT_DIR` 必填。`COMPARE_REPORT_DIR` 为空时只分析单个报告；非空时传入 `--compare-report-dir`，通常用于成本版 vs 无成本版。默认输出到 `REPORT_DIR/alpha_diagnostics/`，也可以用 `OUTPUT_DIR` 覆盖。
 
+### `make analyze-trades`
+
+对某个回测报告做交易归因诊断：
+
+```bash
+make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331
+make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331 FORMAT=json
+```
+
+`REPORT_DIR` 必填。默认输出到 `REPORT_DIR/trade_attribution/`，也可以用 `OUTPUT_DIR` 覆盖。脚本读取 `stats.json`、`diagnostics.json`、`trades.csv`、`orders.csv`、`daily_pnl.csv`；缺少非关键文件时只写 warning，不直接崩溃。
+
 ### `make alpha-sweep`
 
 运行保守参数 shortlist sweep：
@@ -380,6 +394,7 @@ make verify-history START=2025-01-01 END=2026-03-31
 make backtest START=2025-01-01 END=2026-03-31 OUTPUT_DIR=reports/backtest/manual_cost
 make backtest-no-cost OUTPUT_DIR=reports/backtest/manual_no_cost
 make analyze-alpha REPORT_DIR=reports/backtest/manual_cost COMPARE_REPORT_DIR=reports/backtest/manual_no_cost
+make analyze-trades REPORT_DIR=reports/backtest/manual_no_cost
 make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001
 ```
 
@@ -415,6 +430,29 @@ make check-okx SERVER=REAL
 - 不能只看收益曲线：收益曲线可能掩盖交易频率、成本拖累、局部大亏、样本偶然性和破产风险。
 
 诊断输出默认在 `REPORT_DIR/alpha_diagnostics/`，包括 `alpha_summary.json`、`alpha_diagnostics.md`、月/周/日/时段/方向/持仓时长等 CSV。
+
+## 交易归因诊断
+
+`make analyze-trades` 用在参数 sweep 已经证明没有正收益候选、继续调参没有意义时。它不修改策略交易逻辑，只把一个回测目录里的成交、委托、日级盈亏和统计结果拆开看，定位亏损来自方向、小时、星期、月份、交易频率，还是无成本版本本身就没有毛 alpha。
+
+它和 `make analyze-alpha` 的区别：
+
+- `analyze-alpha` 重点比较成本版和无成本版，回答“有没有毛 alpha、成本拖累多大”。
+- `analyze-trades` 重点解释单个报告内部的交易归因，回答“哪些方向、时段、日期、频率桶在亏钱”。
+- `analyze-trades` 会在默认命名约定下自动寻找 sibling 成本/无成本报告辅助判断，但主分析仍以 `REPORT_DIR` 为准。
+
+默认输出在 `REPORT_DIR/trade_attribution/`：
+
+- `attribution_summary.json`
+- `attribution_by_side.csv`
+- `attribution_by_hour.csv`
+- `attribution_by_weekday.csv`
+- `attribution_by_month.csv`
+- `attribution_daily_worst.csv`
+- `attribution_frequency_distribution.csv`
+- `attribution_report.md`
+
+如果无成本版 `total_net_pnl` 仍为负，报告会标记 `gross_alpha_negative=true`。这种情况下当前策略不能进入 OKX DEMO，也不应继续做扩大仓位或更激进的参数优化；应先回到信号归因、降频过滤和策略假设复核。
 
 ## 防止过拟合的工作流
 
