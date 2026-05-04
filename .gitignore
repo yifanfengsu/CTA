@@ -6,10 +6,13 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .vntrader/
+database.db
+*.db
+*.db-journal
+*.sqlite
 logs/*
 !logs/.gitkeep
 data/raw/*
 !data/raw/.gitkeep
 reports/*
 !reports/.gitkeep
-
