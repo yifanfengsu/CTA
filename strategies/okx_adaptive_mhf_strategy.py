@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR
+from math import isfinite
 from pathlib import Path
 from typing import Any
 
@@ -35,8 +36,21 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
     author: str = "Codex"
 
     capital_per_strategy: float = 5_000.0
-    risk_per_trade: float = 0.003
+    risk_per_trade: float = 0.001
     fixed_size: float = 0.0
+    max_leverage: float = 1.0
+    max_notional_ratio: float = 1.0
+    max_volume: float = 0.0
+    min_stop_pct: float = 0.0015
+    max_trades_per_day: int = 20
+    daily_loss_limit_pct: float = 0.02
+    disable_after_daily_loss: bool = True
+    disable_after_bankrupt_guard: bool = True
+    min_atr_pct_for_entry: float = 0.0
+    max_atr_pct_for_entry: float = 0.0
+    require_regime_persistence_bars: int = 0
+    min_breakout_atr: float = 0.0
+    min_bars_between_entries: int = 0
     fast_window: int = 12
     slow_window: int = 48
     breakout_window: int = 20
@@ -72,11 +86,34 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
     breakout_high: float = 0.0
     breakout_low: float = 0.0
     vol_ratio_5m: float = 0.0
+    daily_trade_count: int = 0
+    daily_realized_pnl: float = 0.0
+    estimated_realized_pnl_total: float = 0.0
+    estimated_equity: float = 5_000.0
+    daily_loss_limit_triggered: bool = False
+    bankrupt_guard_triggered: bool = False
+    current_trading_date: str = ""
+    regime_persistence_bars: int = 0
+    bar_index_1m: int = 0
+    last_entry_bar_index: int | None = None
 
     parameters: list[str] = [
         "capital_per_strategy",
         "risk_per_trade",
         "fixed_size",
+        "max_leverage",
+        "max_notional_ratio",
+        "max_volume",
+        "min_stop_pct",
+        "max_trades_per_day",
+        "daily_loss_limit_pct",
+        "disable_after_daily_loss",
+        "disable_after_bankrupt_guard",
+        "min_atr_pct_for_entry",
+        "max_atr_pct_for_entry",
+        "require_regime_persistence_bars",
+        "min_breakout_atr",
+        "min_bars_between_entries",
         "fast_window",
         "slow_window",
         "breakout_window",
@@ -114,6 +151,16 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         "breakout_high",
         "breakout_low",
         "vol_ratio_5m",
+        "daily_trade_count",
+        "daily_realized_pnl",
+        "estimated_realized_pnl_total",
+        "estimated_equity",
+        "daily_loss_limit_triggered",
+        "bankrupt_guard_triggered",
+        "current_trading_date",
+        "regime_persistence_bars",
+        "bar_index_1m",
+        "last_entry_bar_index",
     ]
 
     def __init__(
@@ -144,6 +191,8 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         self.last_bar_dt: datetime | None = None
         self.last_5m_bar_dt: datetime | None = None
         self.contract_specs_logged: bool = False
+        self.estimated_equity = float(self.capital_per_strategy)
+        self.entry_filter_log_counts: dict[str, int] = {}
 
     def on_init(self) -> None:
         """Initialize strategy and warm up indicators from local database."""
@@ -206,7 +255,10 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
 
         try:
             self.last_bar_dt = bar.datetime
+            self.bar_index_1m += 1
+            self.sync_daily_risk_state(bar.datetime.date())
             self.refresh_contract_specifications(log_changes=False)
+            self.update_bankrupt_guard()
 
             self.am_1m.update_bar(bar)
             self.bg_5m.update_bar(bar)
@@ -248,12 +300,8 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                 self.put_event()
                 return
 
-            volume: float = self.compute_order_volume()
-            effective_min_volume: float = self.get_effective_min_volume()
-            if volume < effective_min_volume or volume <= 0:
-                self.write_log(
-                    f"放弃信号: 下单量不足 volume={volume:.8f}, min_volume={effective_min_volume:.8f}"
-                )
+            volume: float = self.compute_order_volume(bar.close_price)
+            if volume <= 0:
                 self.put_event()
                 return
 
@@ -322,10 +370,17 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
 
         try:
             self.last_signal_ts = trade.datetime.isoformat() if trade.datetime else ""
+            if trade.datetime:
+                self.sync_daily_risk_state(trade.datetime.date())
             self.write_log(
                 f"成交回报 vt_tradeid={trade.vt_tradeid}, direction={trade.direction.value if trade.direction else ''}, "
                 f"offset={trade.offset.value}, price={trade.price:.8f}, volume={trade.volume:.8f}, pos={self.pos:.8f}"
             )
+
+            if trade.offset == Offset.OPEN:
+                self.register_open_trade(trade)
+            else:
+                self.register_close_trade(trade)
 
             if self.pos == 0:
                 self.write_log("持仓归零，进入冷却期")
@@ -367,6 +422,30 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         self.hold_bars = 0
         self.write_log("重置交易状态 entry/highest/lowest/hold_bars -> 0")
 
+    def log_entry_filter(self, reason: str, message: str) -> None:
+        """Log entry filter decisions without flooding the log output."""
+
+        count = self.entry_filter_log_counts.get(reason, 0) + 1
+        self.entry_filter_log_counts[reason] = count
+        if count <= 3 or count % 100 == 0:
+            self.write_log(f"{message} [count={count}]")
+
+    def sync_daily_risk_state(self, trading_date: date) -> None:
+        """Reset daily counters when the bar/trade date changes."""
+
+        trading_date_str = trading_date.isoformat()
+        if self.current_trading_date == trading_date_str:
+            return
+
+        previous_date = self.current_trading_date
+        self.current_trading_date = trading_date_str
+        self.daily_trade_count = 0
+        self.daily_realized_pnl = 0.0
+        self.daily_loss_limit_triggered = False
+        self.write_log(
+            f"重置日内风控状态 date={self.current_trading_date}, previous_date={previous_date or 'N/A'}"
+        )
+
     def update_regime(self) -> None:
         """Update 5m long/short/neutral regime state."""
 
@@ -398,11 +477,19 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         else:
             self.regime = "neutral"
 
+        if self.regime == "neutral":
+            self.regime_persistence_bars = 0
+        elif previous_regime == self.regime:
+            self.regime_persistence_bars += 1
+        else:
+            self.regime_persistence_bars = 1
+
         if previous_regime != self.regime:
             self.write_log(
                 f"5m regime切换 {previous_regime} -> {self.regime}, "
                 f"fast={self.fast_ema_5m:.8f}, slow={self.slow_ema_5m:.8f}, "
-                f"atr5={self.atr_5m_value:.8f}, vol_ratio={self.vol_ratio_5m:.6f}"
+                f"atr5={self.atr_5m_value:.8f}, vol_ratio={self.vol_ratio_5m:.6f}, "
+                f"persistence={self.regime_persistence_bars}"
             )
 
     def generate_entry_signal(self, bar: BarData) -> int:
@@ -412,6 +499,51 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
             return 0
 
         if self.breakout_high <= 0 or self.breakout_low <= 0:
+            return 0
+
+        if self.disable_after_bankrupt_guard and self.bankrupt_guard_triggered:
+            self.write_log("放弃信号: bankrupt_guard_triggered=True")
+            return 0
+
+        if self.disable_after_daily_loss and self.daily_loss_limit_triggered:
+            self.write_log(
+                f"放弃信号: daily_loss_limit_triggered=True, daily_realized_pnl={self.daily_realized_pnl:.8f}"
+            )
+            return 0
+
+        if self.max_trades_per_day > 0 and self.daily_trade_count >= self.max_trades_per_day:
+            self.write_log(
+                f"放弃信号: daily_trade_count={self.daily_trade_count} 已达到 "
+                f"max_trades_per_day={self.max_trades_per_day}"
+            )
+            return 0
+
+        if (
+            self.min_bars_between_entries > 0
+            and self.last_entry_bar_index is not None
+            and self.bar_index_1m - self.last_entry_bar_index < self.min_bars_between_entries
+        ):
+            self.log_entry_filter(
+                "min_bars_between_entries",
+                "放弃信号: 与上次开仓间隔不足 "
+                f"bars_since_last_entry={self.bar_index_1m - self.last_entry_bar_index}, "
+                f"min_bars_between_entries={self.min_bars_between_entries}",
+            )
+            return 0
+
+        atr_pct = self.get_entry_atr_pct(bar.close_price)
+        if self.min_atr_pct_for_entry > 0 and atr_pct < self.min_atr_pct_for_entry:
+            self.log_entry_filter(
+                "min_atr_pct_for_entry",
+                f"放弃信号: atr_pct={atr_pct:.6f} < min_atr_pct_for_entry={self.min_atr_pct_for_entry:.6f}",
+            )
+            return 0
+
+        if self.max_atr_pct_for_entry > 0 and atr_pct > self.max_atr_pct_for_entry:
+            self.log_entry_filter(
+                "max_atr_pct_for_entry",
+                f"放弃信号: atr_pct={atr_pct:.6f} > max_atr_pct_for_entry={self.max_atr_pct_for_entry:.6f}",
+            )
             return 0
 
         long_breakout: bool = bar.close_price > self.breakout_high
@@ -433,11 +565,31 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                     f"但 regime={self.regime}"
                 )
                 return 0
+            if (
+                self.require_regime_persistence_bars > 0
+                and self.regime_persistence_bars < self.require_regime_persistence_bars
+            ):
+                self.log_entry_filter(
+                    "require_regime_persistence_bars_long",
+                    "放弃多头信号: regime persistence 不足 "
+                    f"{self.regime_persistence_bars} < {self.require_regime_persistence_bars}",
+                )
+                return 0
             if self.rsi_1m_value < self.rsi_long:
                 self.write_log(
                     f"放弃多头信号: rsi1={self.rsi_1m_value:.2f} < rsi_long={self.rsi_long:.2f}"
                 )
                 return 0
+            if self.min_breakout_atr > 0:
+                breakout_distance = bar.close_price - self.breakout_high
+                required_distance = max(self.atr_1m_value, 0.0) * self.min_breakout_atr
+                if breakout_distance < required_distance:
+                    self.log_entry_filter(
+                        "min_breakout_atr_long",
+                        "放弃多头信号: breakout_distance 不足 "
+                        f"{breakout_distance:.8f} < {required_distance:.8f}",
+                    )
+                    return 0
 
             self.write_log(
                 f"生成多头信号 close={bar.close_price:.8f}, hh={self.breakout_high:.8f}, "
@@ -452,11 +604,31 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                     f"但 regime={self.regime}"
                 )
                 return 0
+            if (
+                self.require_regime_persistence_bars > 0
+                and self.regime_persistence_bars < self.require_regime_persistence_bars
+            ):
+                self.log_entry_filter(
+                    "require_regime_persistence_bars_short",
+                    "放弃空头信号: regime persistence 不足 "
+                    f"{self.regime_persistence_bars} < {self.require_regime_persistence_bars}",
+                )
+                return 0
             if self.rsi_1m_value > self.rsi_short:
                 self.write_log(
                     f"放弃空头信号: rsi1={self.rsi_1m_value:.2f} > rsi_short={self.rsi_short:.2f}"
                 )
                 return 0
+            if self.min_breakout_atr > 0:
+                breakout_distance = self.breakout_low - bar.close_price
+                required_distance = max(self.atr_1m_value, 0.0) * self.min_breakout_atr
+                if breakout_distance < required_distance:
+                    self.log_entry_filter(
+                        "min_breakout_atr_short",
+                        "放弃空头信号: breakout_distance 不足 "
+                        f"{breakout_distance:.8f} < {required_distance:.8f}",
+                    )
+                    return 0
 
             self.write_log(
                 f"生成空头信号 close={bar.close_price:.8f}, ll={self.breakout_low:.8f}, "
@@ -484,12 +656,13 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
             self.lowest_since_entry = min(self.lowest_since_entry, bar.low_price)
 
         atr1: float = max(self.atr_1m_value, self.get_effective_pricetick())
+        stop_distance: float = self.compute_stop_distance(bar.close_price)
         exit_reason: str = ""
         order_price: float = 0.0
         volume: float = abs(self.pos)
 
         if self.pos > 0:
-            initial_stop: float = self.entry_price - self.stop_atr * atr1
+            initial_stop: float = self.entry_price - stop_distance
             trailing_stop: float = self.highest_since_entry - self.trail_atr * atr1
             protective_stop: float = max(initial_stop, trailing_stop)
             take_profit: float = self.entry_price + self.take_profit_atr * atr1
@@ -518,7 +691,7 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                     self.write_log(f"平多委托发送失败 reason={exit_reason}, volume={volume:.8f}")
 
         elif self.pos < 0:
-            initial_stop = self.entry_price + self.stop_atr * atr1
+            initial_stop = self.entry_price + stop_distance
             trailing_stop = self.lowest_since_entry + self.trail_atr * atr1
             protective_stop = min(initial_stop, trailing_stop)
             take_profit = self.entry_price - self.take_profit_atr * atr1
@@ -546,33 +719,29 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                 else:
                     self.write_log(f"平空委托发送失败 reason={exit_reason}, volume={volume:.8f}")
 
-    def compute_order_volume(self) -> float:
+    def compute_order_volume(self, close_price: float) -> float:
         """Compute strategy order size using fixed-size or ATR risk sizing."""
 
         effective_min_volume: float = self.get_effective_min_volume()
         effective_contract_size: float = self.get_effective_contract_size()
-        effective_pricetick: float = self.get_effective_pricetick()
 
         if effective_min_volume <= 0:
             self.write_log("放弃信号: min_volume 未就绪")
             return 0.0
 
+        if close_price <= 0:
+            self.write_log(f"放弃信号: close_price 无效 {close_price:.8f}")
+            return 0.0
+
         if self.fixed_size > 0:
-            rounded_fixed_size: float = self.round_volume(self.fixed_size)
-            if rounded_fixed_size < effective_min_volume:
-                self.write_log(
-                    f"放弃信号: fixed_size={self.fixed_size:.8f} 经取整后为 {rounded_fixed_size:.8f}，"
-                    f"低于 min_volume={effective_min_volume:.8f}"
-                )
-                return 0.0
-            return rounded_fixed_size
+            return self.apply_volume_hard_caps(self.fixed_size, close_price, "fixed_size")
 
         if effective_contract_size <= 0:
             self.write_log("放弃信号: contract_size 未就绪，无法进行风控仓位计算")
             return 0.0
 
         risk_cash: float = self.capital_per_strategy * self.risk_per_trade
-        stop_distance: float = max(self.atr_1m_value * self.stop_atr, effective_pricetick * 3)
+        stop_distance: float = self.compute_stop_distance(close_price)
         if risk_cash <= 0 or stop_distance <= 0:
             self.write_log(
                 f"放弃信号: risk_cash={risk_cash:.8f}, stop_distance={stop_distance:.8f}"
@@ -580,14 +749,183 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
             return 0.0
 
         raw_volume: float = risk_cash / (stop_distance * effective_contract_size)
-        rounded_volume: float = self.round_volume(raw_volume)
-        if rounded_volume < effective_min_volume:
+        return self.apply_volume_hard_caps(raw_volume, close_price, "risk_sizing")
+
+    def compute_stop_distance(self, close_price: float) -> float:
+        """Compute a conservative stop distance floor from ATR, percentage, and tick size."""
+
+        atr_component = max(float(self.atr_1m_value), 0.0) * max(float(self.stop_atr), 0.0)
+        pct_component = max(float(close_price), 0.0) * max(float(self.min_stop_pct), 0.0)
+        tick_component = self.get_effective_pricetick() * 3.0
+        stop_distance = max(atr_component, pct_component, tick_component)
+
+        if stop_distance <= 0:
             self.write_log(
-                f"放弃信号: raw_volume={raw_volume:.8f}, rounded_volume={rounded_volume:.8f}, "
-                f"min_volume={effective_min_volume:.8f}"
+                f"止损距离无效 atr_component={atr_component:.8f}, "
+                f"pct_component={pct_component:.8f}, tick_component={tick_component:.8f}"
+            )
+        return stop_distance
+
+    def get_entry_atr_pct(self, close_price: float) -> float:
+        """Return 1m ATR as a fraction of current close price."""
+
+        if close_price <= 0:
+            return 0.0
+        return max(float(self.atr_1m_value), 0.0) / float(close_price)
+
+    def apply_volume_hard_caps(
+        self,
+        requested_volume: float,
+        close_price: float,
+        source: str,
+    ) -> float:
+        """Apply min-volume rounding plus max leverage/notional/absolute volume caps."""
+
+        effective_min_volume: float = self.get_effective_min_volume()
+        effective_contract_size: float = self.get_effective_contract_size()
+        capital_limit: float = max(float(self.capital_per_strategy), 0.0)
+
+        if requested_volume <= 0 or not isfinite(requested_volume):
+            self.write_log(
+                f"放弃信号: requested_volume 无效 source={source}, requested_volume={requested_volume}"
             )
             return 0.0
+
+        if close_price <= 0 or effective_contract_size <= 0 or capital_limit <= 0:
+            self.write_log(
+                f"放弃信号: 无法应用仓位上限 source={source}, close_price={close_price:.8f}, "
+                f"contract_size={effective_contract_size:.8f}, capital={capital_limit:.8f}"
+            )
+            return 0.0
+
+        notional_per_contract: float = close_price * effective_contract_size
+        if notional_per_contract <= 0 or not isfinite(notional_per_contract):
+            self.write_log(
+                f"放弃信号: notional_per_contract 无效 source={source}, "
+                f"notional_per_contract={notional_per_contract}"
+            )
+            return 0.0
+
+        cap_candidates: list[float] = []
+        cap_details: list[str] = []
+
+        if self.max_leverage > 0:
+            max_volume_by_leverage = capital_limit * self.max_leverage / notional_per_contract
+            cap_candidates.append(max_volume_by_leverage)
+            cap_details.append(f"max_volume_by_leverage={max_volume_by_leverage:.8f}")
+
+        if self.max_notional_ratio > 0:
+            max_volume_by_notional = capital_limit * self.max_notional_ratio / notional_per_contract
+            cap_candidates.append(max_volume_by_notional)
+            cap_details.append(f"max_volume_by_notional_ratio={max_volume_by_notional:.8f}")
+
+        if self.max_volume > 0:
+            cap_candidates.append(float(self.max_volume))
+            cap_details.append(f"max_volume={float(self.max_volume):.8f}")
+
+        clipped_volume = float(requested_volume)
+        if cap_candidates:
+            positive_caps = [cap for cap in cap_candidates if cap > 0 and isfinite(cap)]
+            if not positive_caps:
+                self.write_log(
+                    f"放弃信号: 风控上限无有效正值 source={source}, "
+                    f"requested_volume={requested_volume:.8f}, {', '.join(cap_details)}"
+                )
+                return 0.0
+
+            max_allowed_volume = min(positive_caps)
+            if requested_volume > max_allowed_volume:
+                self.write_log(
+                    f"仓位被风控裁剪 source={source}, requested_volume={requested_volume:.8f}, "
+                    f"clipped_volume={max_allowed_volume:.8f}, notional_per_contract={notional_per_contract:.8f}, "
+                    f"{', '.join(cap_details)}"
+                )
+            clipped_volume = min(requested_volume, max_allowed_volume)
+
+        rounded_volume: float = self.round_volume(clipped_volume)
+        if rounded_volume < effective_min_volume:
+            self.write_log(
+                f"放弃信号: 最终下单量低于 min_volume source={source}, "
+                f"requested_volume={requested_volume:.8f}, clipped_volume={clipped_volume:.8f}, "
+                f"rounded_volume={rounded_volume:.8f}, min_volume={effective_min_volume:.8f}"
+            )
+            return 0.0
+
         return rounded_volume
+
+    def register_open_trade(self, trade: TradeData) -> None:
+        """Track daily open-trade count after an entry fill."""
+
+        self.daily_trade_count += 1
+        self.last_entry_bar_index = self.bar_index_1m
+        self.write_log(
+            f"记录开仓成交 daily_trade_count={self.daily_trade_count}, "
+            f"max_trades_per_day={self.max_trades_per_day}, trade_volume={trade.volume:.8f}, "
+            f"last_entry_bar_index={self.last_entry_bar_index}"
+        )
+
+    def register_close_trade(self, trade: TradeData) -> None:
+        """Update realized pnl and protective disable flags after an exit fill."""
+
+        realized_pnl = self.estimate_realized_trade_pnl(trade)
+        self.daily_realized_pnl += realized_pnl
+        self.estimated_realized_pnl_total += realized_pnl
+        self.estimated_equity = self.capital_per_strategy + self.estimated_realized_pnl_total
+
+        self.write_log(
+            f"记录平仓成交 realized_pnl={realized_pnl:.8f}, daily_realized_pnl={self.daily_realized_pnl:.8f}, "
+            f"estimated_realized_pnl_total={self.estimated_realized_pnl_total:.8f}, "
+            f"estimated_equity={self.estimated_equity:.8f}"
+        )
+
+        self.update_daily_loss_guard()
+        self.update_bankrupt_guard()
+
+    def estimate_realized_trade_pnl(self, trade: TradeData) -> float:
+        """Estimate realized pnl for one exit fill using strategy entry_price."""
+
+        contract_size = self.get_effective_contract_size()
+        if contract_size <= 0 or self.entry_price <= 0 or trade.volume <= 0:
+            return 0.0
+
+        if trade.direction == Direction.SHORT:
+            return (trade.price - self.entry_price) * trade.volume * contract_size
+        if trade.direction == Direction.LONG:
+            return (self.entry_price - trade.price) * trade.volume * contract_size
+        return 0.0
+
+    def update_daily_loss_guard(self) -> None:
+        """Disable new entries for the day after crossing the daily realized loss limit."""
+
+        if not self.disable_after_daily_loss:
+            return
+
+        if self.daily_loss_limit_pct <= 0 or self.capital_per_strategy <= 0:
+            return
+
+        daily_loss_limit_cash = self.capital_per_strategy * self.daily_loss_limit_pct
+        if self.daily_realized_pnl <= -daily_loss_limit_cash and not self.daily_loss_limit_triggered:
+            self.daily_loss_limit_triggered = True
+            self.write_log(
+                f"触发日内亏损停机 daily_realized_pnl={self.daily_realized_pnl:.8f}, "
+                f"daily_loss_limit_cash={daily_loss_limit_cash:.8f}"
+            )
+
+    def update_bankrupt_guard(self) -> None:
+        """Disable new entries permanently when internal equity estimate becomes abnormal."""
+
+        if not self.disable_after_bankrupt_guard:
+            return
+
+        if self.bankrupt_guard_triggered:
+            return
+
+        if not isfinite(self.estimated_equity) or self.estimated_equity <= 0:
+            self.bankrupt_guard_triggered = True
+            self.write_log(
+                f"触发权益异常停机 estimated_equity={self.estimated_equity}, "
+                f"estimated_realized_pnl_total={self.estimated_realized_pnl_total:.8f}"
+            )
 
     def round_volume(self, volume: float) -> float:
         """Round volume down to the nearest valid min-volume step."""

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "interval": "1m",
+  "start": "2025-01-01T00:00:00+00:00",
+  "end": "2025-01-03T23:59:59.999999+00:00",
+  "chunk_days": 1,
+  "source": "auto",
+  "created_at": "2026-04-19T09:27:54.903194+00:00",
+  "updated_at": "2026-04-19T09:28:26.441581+00:00",
+  "chunks": [
+    {
+      "index": 1,
+      "start": "2025-01-01T00:00:00+00:00",
+      "end": "2025-01-01T23:59:00+00:00",
+      "status": "failed",
+      "attempts": 1,
+      "source_used": "gateway",
+      "bar_count": 1439,
+      "first_dt": "2025-01-01T00:00:00+00:00",
+      "last_dt": "2025-01-01T23:58:00+00:00",
+      "last_error": "sqlite coverage incomplete after save: missing_count=1, gap_count=1",
+      "saved_at": "2026-04-19T09:28:08.599053+00:00",
+      "verified_at": null
+    },
+    {
+      "index": 2,
+      "start": "2025-01-02T00:00:00+00:00",
+      "end": "2025-01-02T23:59:00+00:00",
+      "status": "failed",
+      "attempts": 1,
+      "source_used": "gateway",
+      "bar_count": 1439,
+      "first_dt": "2025-01-02T00:00:00+00:00",
+      "last_dt": "2025-01-02T23:58:00+00:00",
+      "last_error": "sqlite coverage incomplete after save: missing_count=1, gap_count=1",
+      "saved_at": "2026-04-19T09:28:17.156308+00:00",
+      "verified_at": null
+    },
+    {
+      "index": 3,
+      "start": "2025-01-03T00:00:00+00:00",
+      "end": "2025-01-03T23:59:00+00:00",
+      "status": "failed",
+      "attempts": 1,
+      "source_used": "gateway",
+      "bar_count": 1439,
+      "first_dt": "2025-01-03T00:00:00+00:00",
+      "last_dt": "2025-01-03T23:58:00+00:00",
+      "last_error": "sqlite coverage incomplete after save: missing_count=1, gap_count=1",
+      "saved_at": "2026-04-19T09:28:26.387134+00:00",
+      "verified_at": null
+    }
+  ]
+}

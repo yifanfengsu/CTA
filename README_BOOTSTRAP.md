@@ -69,3 +69,79 @@ python scripts/doctor.py
 
 - `doctor.py` 会在项目根目录自动准备 `.vntrader/` 运行目录，避免把运行时文件写到用户家目录。
 - 后续新增脚本统一使用 `argparse`，保证可以直接从命令行 headless 运行。
+
+## 历史数据下载失败/断点续传/修复缺口
+
+所有历史数据命令默认使用 `--timezone Asia/Shanghai`。
+
+- `--start 2025-01-01` 表示 `2025-01-01 00:00:00 Asia/Shanghai`。
+- `--end 2025-01-03` 表示包含 `2025-01-03` 整天，内部会转换成 `end_exclusive=2025-01-04 00:00:00 Asia/Shanghai`。
+- 下载、验证、缺口修复和回测 preflight 全部使用同一套半开区间规则：`[start, end_exclusive)`。
+
+推荐先用支持断点续传、逐 chunk 写库、写后校验、REST fallback 和缺口修复的下载命令：
+
+```bash
+python scripts/download_okx_history.py \
+  --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL \
+  --interval 1m \
+  --start 2025-01-01 \
+  --end 2026-03-31 \
+  --chunk-days 3 \
+  --server DEMO \
+  --timezone Asia/Shanghai \
+  --resume \
+  --source auto \
+  --save-per-chunk \
+  --verify-db \
+  --repair-missing \
+  --max-retries 8 \
+  --retry-base-delay 2 \
+  --retry-max-delay 120 \
+  --throttle-seconds 0.35 \
+  --csv-copy
+```
+
+推荐先用短区间做边界验证：
+
+```bash
+python scripts/download_okx_history.py \
+  --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL \
+  --interval 1m \
+  --start 2025-01-01 \
+  --end 2025-01-03 \
+  --chunk-days 1 \
+  --server DEMO \
+  --timezone Asia/Shanghai \
+  --resume \
+  --source auto \
+  --save-per-chunk \
+  --verify-db \
+  --repair-missing \
+  --strict-completeness
+```
+
+下载完成后，建议独立验证本地数据库覆盖是否完整：
+
+```bash
+python scripts/verify_okx_history.py \
+  --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL \
+  --interval 1m \
+  --start 2025-01-01 \
+  --end 2025-01-03 \
+  --timezone Asia/Shanghai \
+  --strict
+```
+
+回测脚本默认会在 `BacktestingEngine.load_data()` 前做数据完整性 preflight。推荐命令：
+
+```bash
+python scripts/backtest_okx_mhf.py \
+  --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL \
+  --start 2025-01-01 \
+  --end 2026-03-31 \
+  --timezone Asia/Shanghai \
+  --capital 5000 \
+  --rate 0.0005 \
+  --slippage-mode ticks \
+  --slippage 2
+```

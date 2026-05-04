@@ -11,6 +11,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+
 
 PROJECT_ROOT: Path = Path(__file__).resolve().parents[1]
 LOG_DIR: Path = PROJECT_ROOT / "logs"
@@ -64,6 +66,9 @@ def to_jsonable(value: Any) -> Any:
 
     if isinstance(value, datetime):
         return value.isoformat()
+
+    if isinstance(value, np.generic):
+        return value.item()
 
     if isinstance(value, Enum):
         return value.value
