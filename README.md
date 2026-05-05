@@ -74,8 +74,22 @@ OKX_PROXY_PORT=0
 8. `make backtest-no-cost`
 9. `make analyze-alpha REPORT_DIR=... COMPARE_REPORT_DIR=...`
 10. `make analyze-trades REPORT_DIR=...`
-11. `make alpha-sweep`
-12. 满足条件后再考虑补 demo runner/模拟盘。
+11. `make backtest-trace START=... END=... OUTPUT_DIR=...`
+12. `make analyze-signals REPORT_DIR=...`
+13. `make research-entry REPORT_DIR=reports/research/trace_train`
+14. `make research-entry REPORT_DIR=reports/research/trace_validation`
+15. `make research-entry REPORT_DIR=reports/research/trace_oos`
+16. `make research-features REPORT_DIR=reports/research/trace_train`
+17. `make research-features REPORT_DIR=reports/research/trace_validation`
+18. `make research-features REPORT_DIR=reports/research/trace_oos`
+19. `make compare-features TRAIN_DIR=... VALIDATION_DIR=... OOS_DIR=...`
+20. `make research-htf SPLIT=train`
+21. `make research-htf SPLIT=validation`
+22. `make research-htf SPLIT=oos`
+23. `make compare-htf`
+24. `make ablation SPLIT=train|validation|oos OUTPUT_DIR=...`
+25. `make alpha-sweep`
+26. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -99,9 +113,33 @@ OKX_PROXY_PORT=0
 | `REPORT_DIR` | 空 | alpha 诊断主报告目录，必填 |
 | `COMPARE_REPORT_DIR` | 空 | alpha 诊断对照报告目录 |
 | `OUTPUT_DIR` | 空 | 指定输出目录；为空时脚本自动生成 |
+| `SIGNAL_TRACE_PATH` | 空 | signal trace CSV 路径；为空时使用 `REPORT_DIR/signal_trace.csv` 或 `OUTPUT_DIR/signal_trace.csv` |
 | `FORMAT` | 空 | `analyze-trades` 输出格式，支持 `json`、`csv`、`md`，为空时全部输出 |
+| `SPLIT` | `train` | 样本切分：`full`、`train`、`validation`、`oos`；HTF research 默认用 `train` |
+| `HORIZONS` | `5,15,30,60,120` | signal outcome 分析的未来分钟窗口 |
+| `ENTRY_HORIZONS` | `15,30,60,120` | entry policy bracket 研究的未来分钟窗口 |
+| `FEATURE_HORIZONS` | `15,30,60,120` | Signal Lab 特征研究的未来收益窗口 |
+| `HTF_HORIZONS` | `60,120,240,480` | HTF Signal Research 的未来分钟窗口 |
+| `FEATURE_BINS` | `5` | Signal Lab 数值特征 quantile 分箱数 |
+| `FEATURE_MIN_COUNT` | `50` | Signal Lab 报告判定候选特征时使用的最小样本数 |
+| `FEATURE_LIST` | 空 | Signal Lab 指定特征列表；为空时分析全部特征 |
+| `ENTRY_MAX_WAIT_BARS` | `10` | delayed/pullback/followthrough policy 最多等待的 1m bar 数 |
+| `STOP_ATR_GRID` | `1.0,1.5,2.0,2.5,3.0,4.0` | entry policy 虚拟 bracket 的止损 ATR 网格 |
+| `TP_ATR_GRID` | `1.5,2.0,2.5,3.0,4.0,5.0` | entry policy 虚拟 bracket 的止盈 ATR 网格 |
+| `HTF_STOP_ATR_GRID` | `1.5,2.0,2.5,3.0,4.0` | HTF no-cost bracket 的止损 ATR 网格 |
+| `HTF_TP_ATR_GRID` | `2.0,3.0,4.0,5.0,6.0` | HTF no-cost bracket 的止盈 ATR 网格 |
+| `HTF_COOLDOWN_BARS_5M` | `6` | HTF 同 policy/同方向信号冷却 5m bar 数 |
+| `HTF_OUTPUT_DIR` | `reports/research/htf_signals/$(SPLIT)` | `research-htf` 输出目录 |
+| `HTF_TRAIN_DIR` | `reports/research/htf_signals/train` | `compare-htf` 默认 train 目录 |
+| `HTF_VALIDATION_DIR` | `reports/research/htf_signals/validation` | `compare-htf` 默认 validation 目录 |
+| `HTF_OOS_DIR` | `reports/research/htf_signals/oos` | `compare-htf` 默认 oos 目录 |
+| `HTF_COMPARE_OUTPUT_DIR` | `reports/research/htf_compare` | `compare-htf` 输出目录 |
+| `TRAIN_DIR` | 空 | `compare-features` 的 train `signal_feature_research` 目录 |
+| `VALIDATION_DIR` | 空 | `compare-features` 的 validation `signal_feature_research` 目录 |
+| `OOS_DIR` | 空 | `compare-features` 的 oos `signal_feature_research` 目录 |
 | `STRATEGY_CONFIG` | `config/strategy_default.json` | 默认策略配置 |
 | `SANITY_CONFIG` | `config/strategy_sanity_min_size.json` | 保守 sanity 配置 |
+| `MAX_RUNS` | `100` | ablation 最多候选数 |
 | `MAX_RETRIES` | `8` | 历史下载每源重试次数 |
 | `THROTTLE_SECONDS` | `0.35` | 历史下载请求间隔 |
 
@@ -122,10 +160,18 @@ OKX_PROXY_PORT=0
 | `make verify-history` | 独立验证本地历史完整性 | 否 | 否 | `reports/history_verify_latest.json` | `make verify-history` |
 | `make backtest` | 成本版回测 | 否 | 否 | `reports/backtest/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make backtest OUTPUT_DIR=reports/backtest/manual_cost` |
 | `make backtest-no-cost` | 无成本回测，用于判断毛 alpha | 否 | 否 | 回测报告目录 | `make backtest-no-cost OUTPUT_DIR=reports/backtest/manual_no_cost` |
+| `make backtest-trace` | 无成本回测并导出 `signal_trace.csv` | 否 | 否 | 回测报告目录和 `signal_trace.csv` | `make backtest-trace START=2025-01-01 END=2025-03-31 OUTPUT_DIR=reports/research/trace_2025q1` |
 | `make backtest-sanity` | 使用保守最小手数配置回测 | 否 | 否 | 回测报告目录 | `make backtest-sanity` |
 | `make analyze-alpha` | 分析一个或两个回测报告 | 否 | 否 | `REPORT_DIR/alpha_diagnostics/` 或 `OUTPUT_DIR` | `make analyze-alpha REPORT_DIR=... COMPARE_REPORT_DIR=...` |
 | `make analyze-trades` | 交易归因诊断，按方向、时段、星期、月份和频率拆解亏损 | 否 | 否 | `REPORT_DIR/trade_attribution/` 或 `OUTPUT_DIR` | `make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331` |
+| `make analyze-signals` | 分析 entry signal 后的 MFE/MAE 和突破延续性 | 否 | 否 | `REPORT_DIR/signal_outcomes/` 或 `OUTPUT_DIR` | `make analyze-signals REPORT_DIR=reports/research/trace_2025q1` |
+| `make research-entry` | 用 signal trace 和未来 1m bar 离线研究 delayed confirm、pullback 和 breakout distance filter | 否 | 否 | `REPORT_DIR/entry_policy_research/` 或 `OUTPUT_DIR` | `make research-entry REPORT_DIR=reports/research/trace_train` |
+| `make research-features` | 用 signal trace 和 1m bar 研究特征对未来收益/MFE/MAE 的预测力 | 否 | 否 | `REPORT_DIR/signal_feature_research/` 或 `OUTPUT_DIR` | `make research-features REPORT_DIR=reports/research/trace_train` |
+| `make compare-features` | 比较 train/validation/oos 的 Signal Lab 特征稳定性 | 否 | 否 | `reports/research/feature_compare/` 或 `OUTPUT_DIR` | `make compare-features TRAIN_DIR=... VALIDATION_DIR=... OOS_DIR=...` |
+| `make research-htf` | 离线研究 1h regime + 15m structure + 5m pullback/reclaim 信号质量 | 否 | 否 | `reports/research/htf_signals/$(SPLIT)` | `make research-htf SPLIT=train` |
+| `make compare-htf` | 比较 train/validation/oos 的 HTF policy 稳定性 | 否 | 否 | `reports/research/htf_compare/` | `make compare-htf` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
+| `make ablation` | 方向、周末、小时过滤诊断实验 | 否 | 否 | `reports/ablation/main_20250101_20260331/` 或 `OUTPUT_DIR` | `make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |
 | `make test-one` | 运行单个测试文件 | 否 | 否 | 终端输出 | `make test-one TEST=tests/test_history_time_utils.py` |
 | `make compile` | 编译检查脚本、策略、测试 | 否 | 否 | `__pycache__/` | `make compile` |
@@ -278,6 +324,16 @@ make backtest-no-cost OUTPUT_DIR=reports/backtest/manual_no_cost
 
 固定 `--rate 0 --slippage-mode absolute --slippage 0`，其他参数同 `make backtest`。这个目标只用于判断毛 alpha，不用于模拟实盘收益判断。
 
+### `make backtest-trace`
+
+运行无成本回测并导出信号级 trace：
+
+```bash
+make backtest-trace START=2025-01-01 END=2025-03-31 OUTPUT_DIR=reports/research/trace_2025q1
+```
+
+这个目标等价于 no-cost 回测加 `--export-signal-trace`。默认输出 `OUTPUT_DIR/signal_trace.csv`；如需覆盖路径，可设置 `SIGNAL_TRACE_PATH=...`。trace 默认关闭，普通 `make backtest` 和 `make backtest-no-cost` 不会导出该文件。
+
 ### `make backtest-sanity`
 
 使用 `config/strategy_sanity_min_size.json` 运行保守最小手数回测：
@@ -310,6 +366,119 @@ make analyze-trades REPORT_DIR=reports/backtest/main_no_cost_20250101_20260331 F
 
 `REPORT_DIR` 必填。默认输出到 `REPORT_DIR/trade_attribution/`，也可以用 `OUTPUT_DIR` 覆盖。脚本读取 `stats.json`、`diagnostics.json`、`trades.csv`、`orders.csv`、`daily_pnl.csv`；缺少非关键文件时只写 warning，不直接崩溃。
 
+### `make analyze-signals`
+
+分析带 `signal_trace.csv` 的回测报告目录：
+
+```bash
+make analyze-signals REPORT_DIR=reports/research/trace_2025q1
+make analyze-signals REPORT_DIR=reports/research/trace_2025q1 HORIZONS=5,15,30,60
+```
+
+`REPORT_DIR` 必填。默认读取 `REPORT_DIR/signal_trace.csv`，从本地 vn.py sqlite 读取 1m bar，并输出到 `REPORT_DIR/signal_outcomes/`。如果 signal trace 放在其他位置，可用 `SIGNAL_TRACE_PATH=...` 覆盖；如果要改输出目录，可用 `OUTPUT_DIR=...`。
+
+### `make research-entry`
+
+用已经导出的 `signal_trace.csv` 做离线入场时机研究：
+
+```bash
+make research-entry REPORT_DIR=reports/research/trace_train
+make research-entry REPORT_DIR=reports/research/trace_validation
+make research-entry REPORT_DIR=reports/research/trace_oos
+```
+
+默认读取 `REPORT_DIR/signal_trace.csv`，从本地 vn.py sqlite 读取未来 1m bar，输出到 `REPORT_DIR/entry_policy_research/`。可用 `SIGNAL_TRACE_PATH=...` 指定 trace，用 `OUTPUT_DIR=...` 改输出目录，用 `ENTRY_HORIZONS`、`ENTRY_MAX_WAIT_BARS`、`STOP_ATR_GRID`、`TP_ATR_GRID` 覆盖 bracket 研究参数。
+
+输出文件：
+
+- `entry_policy_summary.json`
+- `entry_policy_leaderboard.csv`
+- `bracket_grid.csv`
+- `policy_by_side.csv`
+- `policy_by_hour.csv`
+- `policy_report.md`
+
+### `make research-features`
+
+用 `signal_trace.csv` 和本地 vn.py sqlite 中的 1m bar 生成 Signal Lab 特征数据集：
+
+```bash
+make research-features REPORT_DIR=reports/research/trace_train
+make research-features REPORT_DIR=reports/research/trace_validation
+make research-features REPORT_DIR=reports/research/trace_oos
+```
+
+默认读取 `REPORT_DIR/signal_trace.csv`，优先合并 `REPORT_DIR/signal_outcomes/signal_outcomes.csv`；如果没有已有 outcome，则脚本内部用 1m bar 计算 `future_return_15m/30m/60m/120m`、`mfe_60m`、`mae_60m`、`mfe_atr`、`mae_atr`、`stop_first`、`tp_first`、`good_signal_60m` 和 `bad_signal_60m`。输出到 `REPORT_DIR/signal_feature_research/`，可用 `SIGNAL_TRACE_PATH`、`OUTPUT_DIR`、`FEATURE_HORIZONS`、`FEATURE_BINS`、`FEATURE_MIN_COUNT`、`FEATURE_LIST` 覆盖。
+
+输出文件：
+
+- `feature_dataset.csv`
+- `feature_summary.json`
+- `feature_ic.csv`
+- `feature_bins.csv`
+- `categorical_feature_bins.csv`
+- `feature_report.md`
+
+### `make compare-features`
+
+比较三段 Signal Lab 结果：
+
+```bash
+make compare-features \
+  TRAIN_DIR=reports/research/trace_train/signal_feature_research \
+  VALIDATION_DIR=reports/research/trace_validation/signal_feature_research \
+  OOS_DIR=reports/research/trace_oos/signal_feature_research
+```
+
+输出到 `reports/research/feature_compare/`，可用 `OUTPUT_DIR` 覆盖。报告会标记哪些特征在 train / validation / oos 方向一致，哪些只在单段有效疑似过拟合，以及是否存在可进入策略候选的稳定特征。
+
+### `make research-htf`
+
+离线研究 HTF signal candidates，不修改现有策略交易逻辑，也不进入 demo：
+
+```bash
+make research-htf SPLIT=train
+make research-htf SPLIT=validation
+make research-htf SPLIT=oos
+```
+
+默认 split 范围：
+
+- `train`: 2025-01-01 到 2025-09-30
+- `validation`: 2025-10-01 到 2025-12-31
+- `oos`: 2026-01-01 到 2026-03-31
+- `full`: 2025-01-01 到 2026-03-31
+
+脚本从本地 vn.py sqlite 读取 1m bar，内部 resample 出 5m、15m、1h，并输出 `data_quality.json`。默认输出到 `reports/research/htf_signals/$(SPLIT)`，可用 `HTF_OUTPUT_DIR` 覆盖。
+
+输出文件：
+
+- `htf_signal_dataset.csv`
+- `htf_policy_summary.json`
+- `htf_policy_leaderboard.csv`
+- `htf_bracket_grid.csv`
+- `htf_policy_by_side.csv`
+- `htf_policy_by_hour.csv`
+- `htf_policy_by_weekday.csv`
+- `htf_research_report.md`
+- `data_quality.json`
+
+### `make compare-htf`
+
+比较三段 HTF Signal Research 结果：
+
+```bash
+make compare-htf
+```
+
+默认读取：
+
+- `reports/research/htf_signals/train`
+- `reports/research/htf_signals/validation`
+- `reports/research/htf_signals/oos`
+
+输出到 `reports/research/htf_compare/`。报告会判断哪些 policy 在三段方向一致，哪些只在单一 split 有效，是否存在稳定候选进入 Strategy V2；如果没有，`htf_compare_report.md` 会输出 `no_stable_htf_policy=true`。
+
 ### `make alpha-sweep`
 
 运行保守参数 shortlist sweep：
@@ -320,6 +489,26 @@ make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001
 ```
 
 默认以 `config/strategy_sanity_min_size.json` 为 base config，固定 `--max-runs 100 --data-check-strict`。脚本内部会强制保守风控上限，例如 `fixed_size=0.01`、`risk_per_trade<=0.0005`、`max_leverage<=0.5`、`max_notional_ratio<=0.5`、`max_trades_per_day<=10`。
+
+### `make ablation`
+
+运行策略入场过滤 ablation 诊断：
+
+```bash
+make ablation START=2025-01-01 END=2026-03-31 OUTPUT_DIR=reports/ablation/main_full
+make ablation SPLIT=train OUTPUT_DIR=reports/ablation/train
+make ablation SPLIT=validation OUTPUT_DIR=reports/ablation/validation
+make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos
+```
+
+默认使用 `config/strategy_sanity_min_size.json`，固定 `--data-check-strict`，并对每个候选分别运行无成本和成本版回测。`SPLIT=full` 使用 `START/END`；`SPLIT=train|validation|oos` 默认使用脚本内置区间，除非显式传入 `START` 或 `END`。
+
+输出文件：
+
+- `ablation_summary.json`
+- `ablation_leaderboard.csv`
+- `ablation_report.md`
+- `candidates/*/{no_cost,cost}/`：每个候选对应的回测报告目录。
 
 ### `make test`
 
@@ -395,7 +584,13 @@ make backtest START=2025-01-01 END=2026-03-31 OUTPUT_DIR=reports/backtest/manual
 make backtest-no-cost OUTPUT_DIR=reports/backtest/manual_no_cost
 make analyze-alpha REPORT_DIR=reports/backtest/manual_cost COMPARE_REPORT_DIR=reports/backtest/manual_no_cost
 make analyze-trades REPORT_DIR=reports/backtest/manual_no_cost
+make backtest-trace START=2025-01-01 END=2025-03-31 OUTPUT_DIR=reports/research/trace_2025q1
+make analyze-signals REPORT_DIR=reports/research/trace_2025q1
+make research-entry REPORT_DIR=reports/research/trace_train
+make research-entry REPORT_DIR=reports/research/trace_validation
+make research-entry REPORT_DIR=reports/research/trace_oos
 make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001
+make ablation SPLIT=train OUTPUT_DIR=reports/ablation/train
 ```
 
 覆盖方式统一是 `make 目标 变量=值`。例如要切换 REAL 连接检查：
@@ -416,6 +611,7 @@ make check-okx SERVER=REAL
 - `trades.csv`：成交明细。
 - `orders.csv`：委托明细。
 - `chart.html`：回测图表 HTML。headless 环境不会自动打开浏览器，可把文件路径交给已有浏览器打开。
+- `signal_trace.csv`：仅在 `--export-signal-trace` 或 `make backtest-trace` 开启时生成，记录候选/entry 信号快照。
 
 ## Alpha 诊断说明
 
@@ -453,6 +649,166 @@ make check-okx SERVER=REAL
 - `attribution_report.md`
 
 如果无成本版 `total_net_pnl` 仍为负，报告会标记 `gross_alpha_negative=true`。这种情况下当前策略不能进入 OKX DEMO，也不应继续做扩大仓位或更激进的参数优化；应先回到信号归因、降频过滤和策略假设复核。
+
+## 信号级研究：MFE/MAE 与突破延续性诊断
+
+这个阶段不是为了赚钱，而是验证入场信号是否有预测力。`make backtest-trace` 只开启信号快照导出，不改变策略入场、出场、止损或止盈逻辑；`make analyze-signals` 再用 entry signal 之后的 1m bar 计算未来收益、MFE 和 MAE。
+
+推荐流程：
+
+```bash
+make backtest-trace START=2025-01-01 END=2025-03-31 OUTPUT_DIR=reports/research/trace_2025q1
+make analyze-signals REPORT_DIR=reports/research/trace_2025q1
+```
+
+`signal_trace.csv` 字段包括 `signal_id`、`datetime`、`vt_symbol`、`direction`、`action`、`price`、`close_1m`、`donchian_high`、`donchian_low`、`breakout_distance`、`breakout_distance_atr`、`atr_1m`、`atr_pct`、`rsi`、`fast_ema_5m`、`slow_ema_5m`、`ema_spread`、`ema_spread_pct`、`regime`、`regime_persistence_count`、`hour`、`weekday`、`is_weekend`、`filter_reject_reason`、`position_before`、`volume`、`stop_price`、`take_profit_price`、`trail_stop_price`。当前策略没有的字段会留空，不硬凑。
+
+`make analyze-signals` 默认输出：
+
+- `signal_outcomes.csv`
+- `outcome_summary.json`
+- `outcome_by_side.csv`
+- `outcome_by_hour.csv`
+- `outcome_by_weekday.csv`
+- `outcome_by_regime.csv`
+- `outcome_by_breakout_distance_bucket.csv`
+- `outcome_report.md`
+
+解读规则：
+
+- 如果未来 15/30/60m 的 MFE/MAE 没有优势，应重构入场逻辑，而不是继续盲目参数优化。
+- 如果信号有 MFE 但最终亏，优先检查出场、止损、止盈和持仓时间逻辑。
+- 如果信号没有 MFE，说明入场逻辑本身无效。
+- 如果 `future_return_60m` 中位数仍为负，报告会提示 `breakout continuation hypothesis failed`。
+
+## 入场时机研究：Delayed Confirm / Pullback / Breakout Distance Filter
+
+`make research-entry` 和 `scripts/research_entry_policies.py` 用 `signal_trace.csv` 加未来 1m bar 做虚拟 bracket 回放，只输出 no-cost 离线研究结果。它不修改现有策略交易逻辑，也不等于生产策略。
+
+推荐必须按 train / validation / oos 三段分别运行：
+
+```bash
+make research-entry REPORT_DIR=reports/research/trace_train
+make research-entry REPORT_DIR=reports/research/trace_validation
+make research-entry REPORT_DIR=reports/research/trace_oos
+```
+
+默认研究这些 policy：
+
+- `immediate_baseline`：按 trace price 立即入场，作为基准。
+- `skip_large_breakout_gt_1atr`：跳过 `breakout_distance_atr > 1` 的立即入场。
+- `skip_large_breakout_gt_2atr`：跳过 `breakout_distance_atr > 2` 的立即入场。
+- `small_to_mid_breakout_0_25_to_1atr`：只保留 `0.25 <= breakout_distance_atr <= 1` 的立即入场。
+- `delayed_confirm_1bar`：等待 1 根 1m bar，收盘仍确认突破方向才入场。
+- `delayed_confirm_3bar`：等待 3 根 1m bar，第三根收盘仍确认突破方向才入场。
+- `pullback_to_breakout_level_5bar`：最多等 5 根 1m bar 回踩原突破位，触及后虚拟入场。
+- `pullback_to_breakout_level_10bar`：最多等 10 根 1m bar 回踩原突破位，触及后虚拟入场。
+- `momentum_followthrough_3bar`：等待 3 根 1m bar，至少出现 0.25 ATR 顺向推进才入场。
+- `avoid_stop_first_profile`：用前 3 根 1m bar 过滤早期 1 ATR adverse-first 的信号。
+
+研究逻辑：
+
+- long / short 分别按方向计算 stop、take profit 和 horizon close 出场。
+- 同一根 1m bar 同时触发 stop 和 take profit 时，保守按 stop first。
+- 如果 horizon 内没有触发 stop / take profit，则按 horizon 最后一根 close 出场。
+- `bracket_grid.csv` 会遍历 `ENTRY_HORIZONS`、`STOP_ATR_GRID`、`TP_ATR_GRID`；`entry_policy_leaderboard.csv` 对每个 policy 取 no-cost `expectancy_r` 最好的组合。
+
+解读规则：
+
+- 必须跨 train / validation / oos 稳定，不能只看单段样本。
+- 只有 OOS 仍为正 expectancy，才有资格转成策略逻辑。
+- 如果三段没有任何 policy 稳定为正，报告会输出 `entry_policy_hypothesis_failed=true`，应继续复核入场假设，而不是直接把离线 policy 搬进生产。
+
+## Signal Lab：特征研究与跨样本稳定性
+
+Signal Lab 是研究工具，不是生产策略。它只读取 `signal_trace.csv` 和 1m bar，生成特征、标签和统计报告，不修改现有策略交易逻辑。
+
+当前默认特征包括：
+
+- trace 快照特征：`breakout_distance_atr`、`atr_pct`、`ema_spread_pct`、`rsi`、`hour`、`weekday`、`is_weekend`、`direction`、`regime`
+- Donchian 结构：`donchian_width_atr`、`close_location_in_donchian`
+- 信号前行情：`recent_return_5m`、`recent_return_15m`、`recent_return_30m`、`recent_volatility_30m`、`volume_zscore_30m`
+- 信号 bar 形态：`upper_wick_ratio`、`lower_wick_ratio`、`body_ratio`、`range_atr`
+
+推荐必须按 train / validation / oos 三段分别运行，再做跨样本比较：
+
+```bash
+make research-features REPORT_DIR=reports/research/trace_train
+make research-features REPORT_DIR=reports/research/trace_validation
+make research-features REPORT_DIR=reports/research/trace_oos
+
+make compare-features \
+  TRAIN_DIR=reports/research/trace_train/signal_feature_research \
+  VALIDATION_DIR=reports/research/trace_validation/signal_feature_research \
+  OOS_DIR=reports/research/trace_oos/signal_feature_research
+```
+
+解读规则：
+
+- 只有跨 train / validation / oos 方向一致的特征，才可以进入下一步策略设计。
+- 单一 split 有效不能用，尤其不能用单段 OOS 大尾部结果直接转策略。
+- `feature_report.md` 如果输出 `signal_feature_hypothesis_failed=true`，说明单段内没有足够强的特征证据。
+- `feature_compare_report.md` 如果输出 `no_stable_feature_edge=true`，当前信号体系应放弃，而不是继续优化 Donchian breakout 参数。
+
+## HTF Signal Research：1h regime + 15m structure + 5m pullback/reclaim
+
+HTF Signal Research 是研究框架，不是生产策略。它用于验证方案 A：1h 判断大方向，15m 确认趋势结构，5m 等待回踩后重新转强，1m 只用于下单价格、止损跟踪和未来 bar outcome 计算，不再产生方向。
+
+Signal Lab 第一阶段发现，高波动、大突破距离、过度延伸、放量和大实体 bar 更像风险特征，而不是可追的毛 alpha。因此 HTF research 默认加入 vol cap 和 no overextension 候选，用来检验过滤“过热/衰竭风险”后，信号质量是否改善。
+
+默认 policy candidates：
+
+- `htf_1h_ema_regime_only`: 1h close/EMA50/EMA200 regime baseline。
+- `htf_1h_ema_15m_ema_structure`: 1h regime + 15m close > EMA21 且 EMA21 > EMA55。
+- `htf_1h_ema_15m_vwap_structure`: 1h regime + 15m close > rolling VWAP 且 EMA21 > EMA55。
+- `htf_1h_ema_15m_donchian_structure`: 1h regime + 15m close > Donchian mid 且 Donchian high slope 非负。
+- `htf_1h_15m_structure_with_vol_cap`: EMA structure + 15m ATR_pct/recent volatility percentile <= 0.8。
+- `htf_1h_15m_structure_strict_vol_cap`: EMA structure + 15m ATR_pct/recent volatility percentile <= 0.6。
+- `htf_1h_15m_structure_no_overextension`: EMA structure + directional recent return、volume z-score、body ratio percentile <= 0.8。
+- `htf_1h_15m_structure_5m_pullback_reclaim`: 1h/15m 顺势后，5m 曾回踩接近 15m EMA21 或 VWAP，再重新站上 5m EMA21。
+- `htf_1h_15m_structure_5m_pullback_reclaim_vol_cap`: pullback/reclaim + loose vol cap。
+- `htf_1h_15m_structure_5m_pullback_reclaim_strict`: pullback/reclaim + strict vol cap + no overextension。
+
+推荐流程：
+
+```bash
+make research-htf SPLIT=train
+make research-htf SPLIT=validation
+make research-htf SPLIT=oos
+make compare-htf
+```
+
+解读规则：
+
+- 只有 train / validation / oos 都稳定的 policy，才可以进入 `OkxHtfPullbackStrategy` 或 Strategy V2 设计。
+- 单一 split 有效必须标记为 overfit risk，不能直接转生产。
+- `htf_research_report.md` 如果输出 `htf_signal_hypothesis_failed=true`，说明当前 HTF 假设在该证据标准下仍不成立。
+- `htf_compare_report.md` 如果输出 `no_stable_htf_policy=true`，不要进入 demo，也不要把单段有效 policy 写成生产策略。
+
+## 策略 Ablation 实验
+
+`make ablation` 和 `scripts/run_ablation_experiments.py` 用于诊断方向过滤、周末过滤、小时过滤和样本切分后的稳定性，不等于参数优化，也不应直接产出生产参数。
+
+默认候选：
+
+- `baseline`：原始 sanity 配置。
+- `long_only`：禁止新开空，只测试多头侧。
+- `short_only`：禁止新开多，只测试空头侧。
+- `no_weekend`：禁止周六/周日新开仓。
+- `weekdays_only`：只允许周一到周五新开仓。
+- `no_worst_hours_from_current_report`：屏蔽当前 full sample 交易归因里的最差小时，属于 in-sample diagnostic，不能直接用于实盘。
+- `no_weekend_no_worst_hours`：同时禁止周末和当前归因最差小时，仍然属于 in-sample diagnostic。
+- `thursday_only`：只允许周四新开仓，属于 sample-mined / high overfit risk。
+- `weekday_no_worst_hours`：工作日过滤叠加当前归因最差小时过滤，仍需样本外验证。
+
+解读规则：
+
+- 从 full sample 得到的 `no_weekend`、`no_worst_hours_from_current_report`、`no_weekend_no_worst_hours`、`weekday_no_worst_hours` 不能直接用于实盘。
+- 必须同时检查 `train`、`validation`、`oos` 是否方向一致；只看 full sample 容易把噪声当规律。
+- 只要 no-cost 仍然为负，就不能进入 OKX DEMO。
+- 如果 no-cost 为正但 cost 为负，说明成本拖累或交易频率仍然不可接受。
+- 如果 full 为正但 oos 为负，说明过拟合风险很高。
+- ablation 结论只能决定下一轮研究重点，不能替代正式训练/验证/样本外流程。
 
 ## 防止过拟合的工作流
 

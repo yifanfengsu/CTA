@@ -48,6 +48,14 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
     disable_after_bankrupt_guard: bool = True
     min_atr_pct_for_entry: float = 0.0
     max_atr_pct_for_entry: float = 0.0
+    export_signal_trace: bool = False
+    enable_long: bool = True
+    enable_short: bool = True
+    entry_weekday_allowlist: str = ""
+    entry_hour_allowlist: str = ""
+    entry_hour_blocklist: str = ""
+    block_weekend_entries: bool = False
+    entry_filter_tag: str = ""
     require_regime_persistence_bars: int = 0
     min_breakout_atr: float = 0.0
     min_bars_between_entries: int = 0
@@ -111,6 +119,14 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         "disable_after_bankrupt_guard",
         "min_atr_pct_for_entry",
         "max_atr_pct_for_entry",
+        "export_signal_trace",
+        "enable_long",
+        "enable_short",
+        "entry_weekday_allowlist",
+        "entry_hour_allowlist",
+        "entry_hour_blocklist",
+        "block_weekend_entries",
+        "entry_filter_tag",
         "require_regime_persistence_bars",
         "min_breakout_atr",
         "min_bars_between_entries",
@@ -193,6 +209,11 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         self.contract_specs_logged: bool = False
         self.estimated_equity = float(self.capital_per_strategy)
         self.entry_filter_log_counts: dict[str, int] = {}
+        self.signal_trace_records: list[dict[str, Any]] = []
+        self.signal_trace_counter: int = 0
+        self.last_entry_signal_trace_id: str = ""
+        self.last_entry_signal_direction: str = ""
+        self.pending_entry_signal_traces: dict[str, dict[str, Any]] = {}
 
     def on_init(self) -> None:
         """Initialize strategy and warm up indicators from local database."""
@@ -302,10 +323,17 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
 
             volume: float = self.compute_order_volume(bar.close_price)
             if volume <= 0:
+                self.update_signal_trace_reject(
+                    self.last_entry_signal_trace_id,
+                    "volume_non_positive",
+                    volume=volume,
+                )
                 self.put_event()
                 return
 
             self.last_signal_ts = bar.datetime.isoformat()
+            signal_direction = "long" if signal > 0 else "short"
+            position_before_entry = float(self.pos)
             if signal > 0:
                 order_price: float = self.get_marketable_price(bar.close_price, is_buy=True)
                 vt_orderids: list[str] = self.buy(order_price, volume)
@@ -317,12 +345,25 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
 
             if vt_orderids:
                 self.active_orderids.update(vt_orderids)
+                self.bind_entry_signal_orders(
+                    vt_orderids=vt_orderids,
+                    signal_id=self.last_entry_signal_trace_id,
+                    direction=signal_direction,
+                    order_price=order_price,
+                    volume=volume,
+                    position_before=position_before_entry,
+                )
                 self.write_log(
                     f"{action}委托已发送 price={order_price:.8f}, volume={volume:.8f}, "
                     f"regime={self.regime}, hh={self.breakout_high:.8f}, ll={self.breakout_low:.8f}, "
                     f"rsi1={self.rsi_1m_value:.2f}, atr1={self.atr_1m_value:.8f}"
                 )
             else:
+                self.update_signal_trace_reject(
+                    self.last_entry_signal_trace_id,
+                    "order_send_failed",
+                    volume=volume,
+                )
                 self.write_log(
                     f"{action}信号触发但委托发送失败 price={order_price:.8f}, volume={volume:.8f}"
                 )
@@ -378,6 +419,7 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
             )
 
             if trade.offset == Offset.OPEN:
+                self.record_entry_signal_trace_from_trade(trade)
                 self.register_open_trade(trade)
             else:
                 self.register_close_trade(trade)
@@ -429,6 +471,373 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         self.entry_filter_log_counts[reason] = count
         if count <= 3 or count % 100 == 0:
             self.write_log(f"{message} [count={count}]")
+
+    def build_signal_trace_id(self, bar: BarData) -> str:
+        """Build a stable per-strategy signal trace identifier."""
+
+        self.signal_trace_counter += 1
+        timestamp = bar.datetime.strftime("%Y%m%d%H%M%S") if bar.datetime else "unknown"
+        return f"{self.strategy_name}-{timestamp}-{self.signal_trace_counter:06d}"
+
+    def nullable_float(self, value: Any) -> float | None:
+        """Return a finite float or None for CSV-friendly signal traces."""
+
+        try:
+            number = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not isfinite(number):
+            return None
+        return number
+
+    def nullable_ratio(self, numerator: float | None, denominator: float | None) -> float | None:
+        """Return a finite ratio or None."""
+
+        if numerator is None or denominator is None or denominator == 0:
+            return None
+        ratio = numerator / denominator
+        return ratio if isfinite(ratio) else None
+
+    def compute_signal_risk_levels(
+        self,
+        direction: str,
+        price: float | None,
+        close_price: float | None,
+    ) -> tuple[float | None, float | None, float | None]:
+        """Compute projected stop/take-profit/trailing levels without changing orders."""
+
+        if direction not in {"long", "short"} or price is None or price <= 0:
+            return None, None, None
+
+        return self.compute_signal_risk_levels_from_values(
+            direction=direction,
+            price=price,
+            close_price=close_price,
+            atr_value=max(float(self.atr_1m_value), 0.0),
+        )
+
+    def compute_signal_risk_levels_from_values(
+        self,
+        direction: str,
+        price: float | None,
+        close_price: float | None,
+        atr_value: float | None,
+    ) -> tuple[float | None, float | None, float | None]:
+        """Compute projected risk levels from explicit trace values."""
+
+        if direction not in {"long", "short"} or price is None or price <= 0:
+            return None, None, None
+
+        reference_price = close_price if close_price is not None and close_price > 0 else price
+        atr_number = max(float(atr_value or 0.0), 0.0)
+        tick_value = self.get_effective_pricetick()
+        atr_for_exit = max(atr_number, tick_value)
+        stop_distance = max(
+            atr_number * max(float(self.stop_atr), 0.0),
+            reference_price * max(float(self.min_stop_pct), 0.0),
+            tick_value * 3.0,
+        )
+
+        stop_price: float | None = None
+        take_profit_price: float | None = None
+        trail_stop_price: float | None = None
+
+        if stop_distance > 0:
+            stop_price = price - stop_distance if direction == "long" else price + stop_distance
+
+        if atr_for_exit > 0:
+            take_profit_distance = max(float(self.take_profit_atr), 0.0) * atr_for_exit
+            trail_distance = max(float(self.trail_atr), 0.0) * atr_for_exit
+            take_profit_price = (
+                price + take_profit_distance
+                if direction == "long"
+                else price - take_profit_distance
+            )
+            trail_stop_price = (
+                price - trail_distance
+                if direction == "long"
+                else price + trail_distance
+            )
+
+        return stop_price, take_profit_price, trail_stop_price
+
+    def record_signal_trace(
+        self,
+        bar: BarData,
+        direction: str,
+        action: str,
+        signal_id: str = "",
+        price: float | None = None,
+        filter_reject_reason: str | None = None,
+        position_before: float | None = None,
+        volume: float | None = None,
+    ) -> str:
+        """Record one candidate/entry signal snapshot when tracing is enabled."""
+
+        if not self.export_signal_trace:
+            return signal_id
+
+        trace_id = signal_id or self.build_signal_trace_id(bar)
+        close_1m = self.nullable_float(bar.close_price)
+        trace_price = self.nullable_float(price if price is not None else bar.close_price)
+        atr_1m = self.nullable_float(self.atr_1m_value)
+        donchian_high = self.nullable_float(self.breakout_high)
+        donchian_low = self.nullable_float(self.breakout_low)
+
+        breakout_distance: float | None = None
+        if direction == "long" and close_1m is not None and donchian_high is not None:
+            breakout_distance = close_1m - donchian_high
+        elif direction == "short" and close_1m is not None and donchian_low is not None:
+            breakout_distance = donchian_low - close_1m
+
+        fast_ema = self.nullable_float(self.fast_ema_5m)
+        slow_ema = self.nullable_float(self.slow_ema_5m)
+        ema_spread = None
+        if fast_ema is not None and slow_ema is not None:
+            ema_spread = fast_ema - slow_ema
+
+        stop_price, take_profit_price, trail_stop_price = self.compute_signal_risk_levels(
+            direction=direction,
+            price=trace_price,
+            close_price=close_1m,
+        )
+        signal_dt = bar.datetime
+        weekday = int(signal_dt.weekday()) if signal_dt else None
+
+        record = {
+            "signal_id": trace_id,
+            "datetime": signal_dt.isoformat() if signal_dt else None,
+            "vt_symbol": self.vt_symbol,
+            "direction": direction,
+            "action": action,
+            "price": trace_price,
+            "close_1m": close_1m,
+            "donchian_high": donchian_high,
+            "donchian_low": donchian_low,
+            "breakout_distance": breakout_distance,
+            "breakout_distance_atr": self.nullable_ratio(breakout_distance, atr_1m),
+            "atr_1m": atr_1m,
+            "atr_pct": self.nullable_ratio(atr_1m, close_1m),
+            "rsi": self.nullable_float(self.rsi_1m_value),
+            "fast_ema_5m": fast_ema,
+            "slow_ema_5m": slow_ema,
+            "ema_spread": ema_spread,
+            "ema_spread_pct": self.nullable_ratio(ema_spread, close_1m),
+            "regime": self.regime,
+            "regime_persistence_count": int(self.regime_persistence_bars),
+            "hour": int(signal_dt.hour) if signal_dt else None,
+            "weekday": weekday,
+            "is_weekend": bool(weekday is not None and weekday >= 5),
+            "filter_reject_reason": filter_reject_reason,
+            "position_before": self.nullable_float(self.pos if position_before is None else position_before),
+            "volume": self.nullable_float(volume),
+            "stop_price": self.nullable_float(stop_price),
+            "take_profit_price": self.nullable_float(take_profit_price),
+            "trail_stop_price": self.nullable_float(trail_stop_price),
+        }
+        self.signal_trace_records.append(record)
+        return trace_id
+
+    def find_signal_trace_record(self, signal_id: str, action: str) -> dict[str, Any] | None:
+        """Return the latest signal trace record for a signal id and action."""
+
+        if not signal_id:
+            return None
+        for record in reversed(self.signal_trace_records):
+            if record.get("signal_id") == signal_id and record.get("action") == action:
+                return record
+        return None
+
+    def bind_entry_signal_orders(
+        self,
+        vt_orderids: list[str],
+        signal_id: str,
+        direction: str,
+        order_price: float,
+        volume: float,
+        position_before: float,
+    ) -> None:
+        """Bind accepted entry orders to the signal snapshot for later fill tracing."""
+
+        if not self.export_signal_trace or not signal_id:
+            return
+
+        candidate_record = self.find_signal_trace_record(signal_id, "candidate")
+        for vt_orderid in vt_orderids:
+            self.pending_entry_signal_traces[vt_orderid] = {
+                "candidate_record": dict(candidate_record) if candidate_record else {},
+                "signal_id": signal_id,
+                "direction": direction,
+                "order_price": self.nullable_float(order_price),
+                "volume": self.nullable_float(volume),
+                "position_before": self.nullable_float(position_before),
+            }
+
+    def record_entry_signal_trace_from_trade(self, trade: TradeData) -> None:
+        """Record an actual entry fill using the bound signal snapshot."""
+
+        if not self.export_signal_trace:
+            return
+
+        context = self.pending_entry_signal_traces.get(trade.vt_orderid, {})
+        base_record = dict(context.get("candidate_record") or {})
+        signal_id = str(context.get("signal_id") or base_record.get("signal_id") or "")
+        if not signal_id:
+            signal_id = f"{self.strategy_name}-trade-{trade.vt_tradeid or trade.tradeid}"
+
+        direction = str(context.get("direction") or base_record.get("direction") or "")
+        if not direction:
+            if trade.direction == Direction.LONG:
+                direction = "long"
+            elif trade.direction == Direction.SHORT:
+                direction = "short"
+
+        trade_price = self.nullable_float(trade.price)
+        close_1m = self.nullable_float(base_record.get("close_1m"))
+        atr_1m = self.nullable_float(base_record.get("atr_1m"))
+        stop_price, take_profit_price, trail_stop_price = self.compute_signal_risk_levels_from_values(
+            direction=direction,
+            price=trade_price,
+            close_price=close_1m,
+            atr_value=atr_1m,
+        )
+
+        entry_record = dict(base_record)
+        entry_record.update(
+            {
+                "signal_id": signal_id,
+                "datetime": trade.datetime.isoformat() if trade.datetime else base_record.get("datetime"),
+                "vt_symbol": self.vt_symbol,
+                "direction": direction,
+                "action": "entry",
+                "price": trade_price,
+                "filter_reject_reason": None,
+                "position_before": context.get("position_before"),
+                "volume": self.nullable_float(trade.volume),
+                "stop_price": self.nullable_float(stop_price),
+                "take_profit_price": self.nullable_float(take_profit_price),
+                "trail_stop_price": self.nullable_float(trail_stop_price),
+            }
+        )
+        self.signal_trace_records.append(entry_record)
+
+    def update_signal_trace_reject(
+        self,
+        signal_id: str,
+        reason: str,
+        volume: float | None = None,
+    ) -> None:
+        """Attach a late reject reason to a previously recorded candidate."""
+
+        if not self.export_signal_trace or not signal_id:
+            return
+
+        for record in reversed(self.signal_trace_records):
+            if record.get("signal_id") != signal_id or record.get("action") != "candidate":
+                continue
+            if not record.get("filter_reject_reason"):
+                record["filter_reject_reason"] = reason
+            if volume is not None:
+                record["volume"] = self.nullable_float(volume)
+            return
+
+    def parse_entry_filter_values(
+        self,
+        raw_value: str,
+        minimum: int,
+        maximum: int,
+        field_name: str,
+    ) -> tuple[set[int] | None, bool]:
+        """Parse comma-separated integer filter values."""
+
+        raw_text = str(raw_value or "").strip()
+        if not raw_text:
+            return None, True
+
+        parsed_values: set[int] = set()
+        for token in raw_text.split(","):
+            token_text = token.strip()
+            if not token_text:
+                continue
+            try:
+                value = int(token_text)
+            except ValueError:
+                self.log_entry_filter(
+                    f"invalid_{field_name}",
+                    f"放弃信号: {field_name} 包含非法值 {token_text!r}",
+                )
+                return set(), False
+
+            if value < minimum or value > maximum:
+                self.log_entry_filter(
+                    f"invalid_{field_name}",
+                    f"放弃信号: {field_name} 超出范围 {value}, expected={minimum}-{maximum}",
+                )
+                return set(), False
+            parsed_values.add(value)
+
+        return parsed_values, True
+
+    def entry_time_filter_allows(self, bar: BarData) -> bool:
+        """Return whether current bar time permits a new entry."""
+
+        entry_dt = bar.datetime
+        weekday = int(entry_dt.weekday())
+        hour = int(entry_dt.hour)
+
+        if self.block_weekend_entries and weekday >= 5:
+            self.log_entry_filter(
+                "block_weekend_entries",
+                f"放弃信号: block_weekend_entries=True, weekday={weekday}, datetime={entry_dt.isoformat()}",
+            )
+            return False
+
+        weekdays, weekdays_valid = self.parse_entry_filter_values(
+            self.entry_weekday_allowlist,
+            0,
+            6,
+            "entry_weekday_allowlist",
+        )
+        if not weekdays_valid:
+            return False
+        if weekdays is not None and weekday not in weekdays:
+            self.log_entry_filter(
+                "entry_weekday_allowlist",
+                f"放弃信号: weekday={weekday} 不在 entry_weekday_allowlist={self.entry_weekday_allowlist!r}",
+            )
+            return False
+
+        allowed_hours, allowed_hours_valid = self.parse_entry_filter_values(
+            self.entry_hour_allowlist,
+            0,
+            23,
+            "entry_hour_allowlist",
+        )
+        if not allowed_hours_valid:
+            return False
+        if allowed_hours is not None and hour not in allowed_hours:
+            self.log_entry_filter(
+                "entry_hour_allowlist",
+                f"放弃信号: hour={hour} 不在 entry_hour_allowlist={self.entry_hour_allowlist!r}",
+            )
+            return False
+
+        blocked_hours, blocked_hours_valid = self.parse_entry_filter_values(
+            self.entry_hour_blocklist,
+            0,
+            23,
+            "entry_hour_blocklist",
+        )
+        if not blocked_hours_valid:
+            return False
+        if blocked_hours is not None and hour in blocked_hours:
+            self.log_entry_filter(
+                "entry_hour_blocklist",
+                f"放弃信号: hour={hour} 命中 entry_hour_blocklist={self.entry_hour_blocklist!r}",
+            )
+            return False
+
+        return True
 
     def sync_daily_risk_state(self, trading_date: date) -> None:
         """Reset daily counters when the bar/trade date changes."""
@@ -501,22 +910,46 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
         if self.breakout_high <= 0 or self.breakout_low <= 0:
             return 0
 
+        long_breakout: bool = bar.close_price > self.breakout_high
+        short_breakout: bool = bar.close_price < self.breakout_low
+        candidate_direction = ""
+        candidate_signal_id = ""
+        if long_breakout or short_breakout:
+            candidate_direction = "long" if long_breakout else "short"
+            candidate_signal_id = (
+                self.build_signal_trace_id(bar) if self.export_signal_trace else ""
+            )
+
+        def reject_candidate(reason: str) -> int:
+            if candidate_direction:
+                self.record_signal_trace(
+                    bar=bar,
+                    direction=candidate_direction,
+                    action="candidate",
+                    signal_id=candidate_signal_id,
+                    price=bar.close_price,
+                    filter_reject_reason=reason,
+                    position_before=float(self.pos),
+                    volume=None,
+                )
+            return 0
+
         if self.disable_after_bankrupt_guard and self.bankrupt_guard_triggered:
             self.write_log("放弃信号: bankrupt_guard_triggered=True")
-            return 0
+            return reject_candidate("bankrupt_guard_triggered")
 
         if self.disable_after_daily_loss and self.daily_loss_limit_triggered:
             self.write_log(
                 f"放弃信号: daily_loss_limit_triggered=True, daily_realized_pnl={self.daily_realized_pnl:.8f}"
             )
-            return 0
+            return reject_candidate("daily_loss_limit_triggered")
 
         if self.max_trades_per_day > 0 and self.daily_trade_count >= self.max_trades_per_day:
             self.write_log(
                 f"放弃信号: daily_trade_count={self.daily_trade_count} 已达到 "
                 f"max_trades_per_day={self.max_trades_per_day}"
             )
-            return 0
+            return reject_candidate("max_trades_per_day")
 
         if (
             self.min_bars_between_entries > 0
@@ -529,7 +962,7 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                 f"bars_since_last_entry={self.bar_index_1m - self.last_entry_bar_index}, "
                 f"min_bars_between_entries={self.min_bars_between_entries}",
             )
-            return 0
+            return reject_candidate("min_bars_between_entries")
 
         atr_pct = self.get_entry_atr_pct(bar.close_price)
         if self.min_atr_pct_for_entry > 0 and atr_pct < self.min_atr_pct_for_entry:
@@ -537,34 +970,38 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                 "min_atr_pct_for_entry",
                 f"放弃信号: atr_pct={atr_pct:.6f} < min_atr_pct_for_entry={self.min_atr_pct_for_entry:.6f}",
             )
-            return 0
+            return reject_candidate("min_atr_pct_for_entry")
 
         if self.max_atr_pct_for_entry > 0 and atr_pct > self.max_atr_pct_for_entry:
             self.log_entry_filter(
                 "max_atr_pct_for_entry",
                 f"放弃信号: atr_pct={atr_pct:.6f} > max_atr_pct_for_entry={self.max_atr_pct_for_entry:.6f}",
             )
-            return 0
+            return reject_candidate("max_atr_pct_for_entry")
 
-        long_breakout: bool = bar.close_price > self.breakout_high
-        short_breakout: bool = bar.close_price < self.breakout_low
         if not long_breakout and not short_breakout:
             return 0
+
+        if not self.entry_time_filter_allows(bar):
+            return reject_candidate("entry_time_filter")
 
         if self.cooldown_left > 0:
             self.write_log(
                 f"放弃信号: cooldown_left={self.cooldown_left}, close={bar.close_price:.8f}, "
                 f"hh={self.breakout_high:.8f}, ll={self.breakout_low:.8f}"
             )
-            return 0
+            return reject_candidate("cooldown_left")
 
         if long_breakout:
+            if not self.enable_long:
+                self.log_entry_filter("enable_long", "放弃多头信号: enable_long=False")
+                return reject_candidate("enable_long")
             if self.regime != "long":
                 self.write_log(
                     f"放弃多头信号: close={bar.close_price:.8f} 已突破 hh={self.breakout_high:.8f}，"
                     f"但 regime={self.regime}"
                 )
-                return 0
+                return reject_candidate("regime_mismatch_long")
             if (
                 self.require_regime_persistence_bars > 0
                 and self.regime_persistence_bars < self.require_regime_persistence_bars
@@ -574,12 +1011,12 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                     "放弃多头信号: regime persistence 不足 "
                     f"{self.regime_persistence_bars} < {self.require_regime_persistence_bars}",
                 )
-                return 0
+                return reject_candidate("require_regime_persistence_bars_long")
             if self.rsi_1m_value < self.rsi_long:
                 self.write_log(
                     f"放弃多头信号: rsi1={self.rsi_1m_value:.2f} < rsi_long={self.rsi_long:.2f}"
                 )
-                return 0
+                return reject_candidate("rsi_long")
             if self.min_breakout_atr > 0:
                 breakout_distance = bar.close_price - self.breakout_high
                 required_distance = max(self.atr_1m_value, 0.0) * self.min_breakout_atr
@@ -589,8 +1026,19 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                         "放弃多头信号: breakout_distance 不足 "
                         f"{breakout_distance:.8f} < {required_distance:.8f}",
                     )
-                    return 0
+                    return reject_candidate("min_breakout_atr_long")
 
+            self.last_entry_signal_trace_id = self.record_signal_trace(
+                bar=bar,
+                direction="long",
+                action="candidate",
+                signal_id=candidate_signal_id,
+                price=bar.close_price,
+                filter_reject_reason=None,
+                position_before=float(self.pos),
+                volume=None,
+            )
+            self.last_entry_signal_direction = "long"
             self.write_log(
                 f"生成多头信号 close={bar.close_price:.8f}, hh={self.breakout_high:.8f}, "
                 f"rsi1={self.rsi_1m_value:.2f}, regime={self.regime}"
@@ -598,12 +1046,15 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
             return 1
 
         if short_breakout:
+            if not self.enable_short:
+                self.log_entry_filter("enable_short", "放弃空头信号: enable_short=False")
+                return reject_candidate("enable_short")
             if self.regime != "short":
                 self.write_log(
                     f"放弃空头信号: close={bar.close_price:.8f} 已跌破 ll={self.breakout_low:.8f}，"
                     f"但 regime={self.regime}"
                 )
-                return 0
+                return reject_candidate("regime_mismatch_short")
             if (
                 self.require_regime_persistence_bars > 0
                 and self.regime_persistence_bars < self.require_regime_persistence_bars
@@ -613,12 +1064,12 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                     "放弃空头信号: regime persistence 不足 "
                     f"{self.regime_persistence_bars} < {self.require_regime_persistence_bars}",
                 )
-                return 0
+                return reject_candidate("require_regime_persistence_bars_short")
             if self.rsi_1m_value > self.rsi_short:
                 self.write_log(
                     f"放弃空头信号: rsi1={self.rsi_1m_value:.2f} > rsi_short={self.rsi_short:.2f}"
                 )
-                return 0
+                return reject_candidate("rsi_short")
             if self.min_breakout_atr > 0:
                 breakout_distance = self.breakout_low - bar.close_price
                 required_distance = max(self.atr_1m_value, 0.0) * self.min_breakout_atr
@@ -628,8 +1079,19 @@ class OkxAdaptiveMhfStrategy(CtaTemplate):
                         "放弃空头信号: breakout_distance 不足 "
                         f"{breakout_distance:.8f} < {required_distance:.8f}",
                     )
-                    return 0
+                    return reject_candidate("min_breakout_atr_short")
 
+            self.last_entry_signal_trace_id = self.record_signal_trace(
+                bar=bar,
+                direction="short",
+                action="candidate",
+                signal_id=candidate_signal_id,
+                price=bar.close_price,
+                filter_reject_reason=None,
+                position_before=float(self.pos),
+                volume=None,
+            )
+            self.last_entry_signal_direction = "short"
             self.write_log(
                 f"生成空头信号 close={bar.close_price:.8f}, ll={self.breakout_low:.8f}, "
                 f"rsi1={self.rsi_1m_value:.2f}, regime={self.regime}"

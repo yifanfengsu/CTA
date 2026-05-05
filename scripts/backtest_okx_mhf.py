@@ -29,6 +29,37 @@ WARNING_TEXT: str = (
     "标准 vn.py CTA BacktestingEngine 未自动计入 OKX perpetual funding fee，"
     "本结果仅包含价格盈亏、手续费、滑点等常规项。"
 )
+SIGNAL_TRACE_COLUMNS: list[str] = [
+    "signal_id",
+    "datetime",
+    "vt_symbol",
+    "direction",
+    "action",
+    "price",
+    "close_1m",
+    "donchian_high",
+    "donchian_low",
+    "breakout_distance",
+    "breakout_distance_atr",
+    "atr_1m",
+    "atr_pct",
+    "rsi",
+    "fast_ema_5m",
+    "slow_ema_5m",
+    "ema_spread",
+    "ema_spread_pct",
+    "regime",
+    "regime_persistence_count",
+    "hour",
+    "weekday",
+    "is_weekend",
+    "filter_reject_reason",
+    "position_before",
+    "volume",
+    "stop_price",
+    "take_profit_price",
+    "trail_stop_price",
+]
 
 
 class ConfigurationError(Exception):
@@ -143,6 +174,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         help="Optional custom output directory. Relative paths are resolved from project root.",
+    )
+    parser.add_argument(
+        "--export-signal-trace",
+        action="store_true",
+        help="Export candidate/entry signal snapshots to signal_trace.csv. Default: disabled.",
+    )
+    parser.add_argument(
+        "--signal-trace-path",
+        help="Optional signal trace CSV path. Default: <output-dir>/signal_trace.csv.",
     )
     parser.add_argument(
         "--skip-data-check",
@@ -411,6 +451,47 @@ def export_dataframe_csv(df: pd.DataFrame, output_path: Path) -> None:
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_path, encoding="utf-8", index=False)
+
+
+def resolve_signal_trace_path(signal_trace_path_arg: str | None, output_dir: Path) -> Path:
+    """Resolve the signal trace output path."""
+
+    if not signal_trace_path_arg:
+        return output_dir / "signal_trace.csv"
+
+    path = Path(signal_trace_path_arg)
+    if not path.is_absolute():
+        path = PROJECT_ROOT / path
+    return path
+
+
+def collect_signal_trace_records(engine: Any) -> list[dict[str, Any]]:
+    """Collect signal trace records from the backtesting strategy instance."""
+
+    strategy = getattr(engine, "strategy", None)
+    if strategy is None:
+        return []
+
+    records = getattr(strategy, "signal_trace_records", [])
+    if not isinstance(records, list):
+        return []
+    return [dict(record) for record in records if isinstance(record, dict)]
+
+
+def export_signal_trace_csv(records: list[dict[str, Any]], output_path: Path) -> None:
+    """Export signal trace records with a stable column order."""
+
+    df = pd.DataFrame(records)
+    if df.empty:
+        df = pd.DataFrame(columns=SIGNAL_TRACE_COLUMNS)
+    else:
+        for column in SIGNAL_TRACE_COLUMNS:
+            if column not in df.columns:
+                df[column] = None
+        extra_columns = [column for column in df.columns if column not in SIGNAL_TRACE_COLUMNS]
+        df = df[SIGNAL_TRACE_COLUMNS + extra_columns]
+
+    export_dataframe_csv(df, output_path)
 
 
 def prepare_daily_pnl_dataframe(
@@ -789,6 +870,10 @@ def build_run_config(
         "strategy_name": strategy_config.get("strategy_name"),
         "strategy_setting": strategy_setting,
         "data_check_summary": data_check_summary,
+        "export_signal_trace": bool(args.export_signal_trace),
+        "signal_trace_path": resolve_signal_trace_path(args.signal_trace_path, output_dir)
+        if args.export_signal_trace
+        else None,
     }
 
 
@@ -1013,6 +1098,7 @@ def main() -> int:
             logger,
             setting_overrides=setting_overrides,
         )
+        strategy_setting["export_signal_trace"] = bool(args.export_signal_trace)
         strategy_class_name = str(strategy_config.get("class_name", "")).strip()
         if not strategy_class_name:
             raise ConfigurationError(f"策略配置缺少 class_name: {strategy_config_path}")
@@ -1027,6 +1113,7 @@ def main() -> int:
 
         output_dir = resolve_output_dir(args.output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
+        signal_trace_path = resolve_signal_trace_path(args.signal_trace_path, output_dir)
 
         warning_path = output_dir / "warning.txt"
         warning_path.write_text(WARNING_TEXT + "\n", encoding="utf-8")
@@ -1115,6 +1202,7 @@ def main() -> int:
 
         trade_records = [trade_to_record(trade) for trade in trades]
         order_records = [order_to_record(order) for order in orders]
+        signal_trace_records = collect_signal_trace_records(engine) if args.export_signal_trace else []
 
         stats_payload = build_stats_payload(
             statistics=statistics,
@@ -1185,6 +1273,13 @@ def main() -> int:
             ("stats.json", lambda: write_json_file(output_dir / "stats.json", stats_payload)),
             ("diagnostics.json", lambda: write_json_file(output_dir / "diagnostics.json", diagnostics)),
         ]
+        if args.export_signal_trace:
+            exports.append(
+                (
+                    "signal_trace.csv",
+                    lambda: export_signal_trace_csv(signal_trace_records, signal_trace_path),
+                )
+            )
 
         for artifact_name, exporter in exports:
             try:
@@ -1211,6 +1306,9 @@ def main() -> int:
             "orders_csv": output_dir / "orders.csv",
             "chart_html": chart_path,
         }
+        if args.export_signal_trace:
+            run_config["generated_files"]["signal_trace_csv"] = signal_trace_path
+            run_config["signal_trace_count"] = int(len(signal_trace_records))
         run_config["export_errors"] = export_errors
         write_json_file(output_dir / "run_config.json", run_config)
 
@@ -1235,6 +1333,8 @@ def main() -> int:
             "win_rate": stats_payload.get("win_rate"),
             "profit_loss_ratio": stats_payload.get("profit_loss_ratio"),
             "statistics_total_trade_count": stats_payload.get("statistics_total_trade_count"),
+            "signal_trace_path": signal_trace_path if args.export_signal_trace else None,
+            "signal_trace_count": int(len(signal_trace_records)),
             "export_errors": export_errors,
         }
 
