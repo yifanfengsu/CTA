@@ -88,8 +88,9 @@ OKX_PROXY_PORT=0
 22. `make research-htf SPLIT=oos`
 23. `make compare-htf`
 24. `make ablation SPLIT=train|validation|oos OUTPUT_DIR=...`
-25. `make alpha-sweep`
-26. 满足条件后再考虑补 demo runner/模拟盘。
+25. `make postmortem-trend-v3`
+26. `make alpha-sweep`
+27. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -100,11 +101,13 @@ OKX_PROXY_PORT=0
 | `PYTHON` | `.venv/bin/python` | Python 解释器路径 |
 | `PIP` | `$(PYTHON) -m pip` | pip 调用方式 |
 | `VT_SYMBOL` | `BTCUSDT_SWAP_OKX.GLOBAL` | 回测/下载/验证标的 |
+| `SYMBOLS` | `BTCUSDT_SWAP_OKX.GLOBAL ETHUSDT_SWAP_OKX.GLOBAL SOLUSDT_SWAP_OKX.GLOBAL LINKUSDT_SWAP_OKX.GLOBAL DOGEUSDT_SWAP_OKX.GLOBAL` | 批量下载/批量验证的第一批多品种标的 |
+| `INST_IDS` | `BTC-USDT-SWAP,ETH-USDT-SWAP,SOL-USDT-SWAP,LINK-USDT-SWAP,DOGE-USDT-SWAP` | OKX metadata 刷新的第一批合约 ID |
 | `INTERVAL` | `1m` | 历史 K 线周期 |
 | `START` | `2025-01-01` | 起始日期，包含当天 |
 | `END` | `2026-03-31` | 结束日期，包含当天 |
 | `TIMEZONE` | `Asia/Shanghai` | 日期解释时区 |
-| `CHUNK_DAYS` | `5` | 历史下载分块天数 |
+| `CHUNK_DAYS` | `3` | 历史下载分块天数 |
 | `SERVER` | `DEMO` | OKX 环境，`DEMO` 或 `REAL` |
 | `CAPITAL` | `5000` | 回测初始资金 |
 | `RATE` | `0.0005` | 手续费率 |
@@ -134,6 +137,12 @@ OKX_PROXY_PORT=0
 | `HTF_VALIDATION_DIR` | `reports/research/htf_signals/validation` | `compare-htf` 默认 validation 目录 |
 | `HTF_OOS_DIR` | `reports/research/htf_signals/oos` | `compare-htf` 默认 oos 目录 |
 | `HTF_COMPARE_OUTPUT_DIR` | `reports/research/htf_compare` | `compare-htf` 输出目录 |
+| `TREND_V3_OUTPUT_DIR` | `reports/research/trend_following_v3/$(SPLIT)` | `research-trend-v3` 输出目录 |
+| `TREND_V3_TRAIN_DIR` | `reports/research/trend_following_v3/train` | `compare-trend-v3` 默认 train 目录 |
+| `TREND_V3_VALIDATION_DIR` | `reports/research/trend_following_v3/validation` | `compare-trend-v3` 默认 validation 目录 |
+| `TREND_V3_OOS_DIR` | `reports/research/trend_following_v3/oos` | `compare-trend-v3` 默认 oos 目录 |
+| `TREND_V3_COMPARE_OUTPUT_DIR` | `reports/research/trend_following_v3_compare` | `compare-trend-v3` 输出目录 |
+| `TREND_V3_POSTMORTEM_OUTPUT_DIR` | `reports/research/trend_following_v3_postmortem` | `postmortem-trend-v3` 输出目录 |
 | `TRAIN_DIR` | 空 | `compare-features` 的 train `signal_feature_research` 目录 |
 | `VALIDATION_DIR` | 空 | `compare-features` 的 validation `signal_feature_research` 目录 |
 | `OOS_DIR` | 空 | `compare-features` 的 oos `signal_feature_research` 目录 |
@@ -154,10 +163,16 @@ OKX_PROXY_PORT=0
 | `make doctor` | 本地依赖和 vn.py sqlite 自检 | 否 | 否 | `logs/doctor.log` | `make doctor` |
 | `make inspect-okx` | 本地 OKX gateway 字段检查 | 否 | 否 | `logs/inspect_okx_gateway.log` | `make inspect-okx` |
 | `make check-okx` | OKX 登录和合约元数据检查，不下单 | 是 | 否 | `config/instruments/*.json`、日志 | `make check-okx SERVER=DEMO` |
+| `make refresh-okx-metadata-dry-run` | 读取 OKX public metadata 并生成报告，不写 instrument | 是，public REST | 否 | `reports/research/multisymbol_readiness/okx_metadata_refresh*` | `make refresh-okx-metadata-dry-run` |
+| `make refresh-okx-metadata` | 读取 OKX public metadata 并更新 instrument JSON | 是，public REST | 否 | `config/instruments/*.json`、metadata refresh 报告 | `make refresh-okx-metadata` |
 | `make download-history-dry-run` | 生成下载计划，不下载、不写 bar | 否 | 否 | 终端计划、日志 | `make download-history-dry-run START=2025-01-01 END=2025-01-02 CHUNK_DAYS=1` |
 | `make download-history` | 下载历史数据、逐块保存、校验完整性 | 是 | 是 | sqlite、`data/history_manifests/`、日志 | `make download-history CHUNK_DAYS=3` |
+| `make download-history-batch-dry-run` | 对 `SYMBOLS` 逐个生成下载计划，不写数据库 | 否 | 否 | 终端计划、日志 | `make download-history-batch-dry-run START=2025-01-01 END=2025-01-07` |
+| `make download-history-batch` | 对 `SYMBOLS` 逐个下载 1m 历史数据 | 是 | 是 | sqlite、manifest、日志 | `make download-history-batch START=2025-01-01 END=2026-03-31 CHUNK_DAYS=3` |
 | `make repair-history` | 按本地缺口修复历史数据 | 是 | 是 | sqlite、manifest、日志 | `make repair-history START=2025-01-01 END=2025-01-31` |
 | `make verify-history` | 独立验证本地历史完整性 | 否 | 否 | `reports/history_verify_latest.json` | `make verify-history` |
+| `make verify-history-batch` | 对 `SYMBOLS` 逐个验证历史覆盖 | 否 | 否 | `reports/history_verify/*` | `make verify-history-batch START=2025-01-01 END=2026-03-31` |
+| `make audit-multisymbol` | 审计多品种 metadata、sqlite 覆盖和 Makefile readiness | 否 | 否 | `reports/research/multisymbol_readiness/` | `make audit-multisymbol` |
 | `make backtest` | 成本版回测 | 否 | 否 | `reports/backtest/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make backtest OUTPUT_DIR=reports/backtest/manual_cost` |
 | `make backtest-no-cost` | 无成本回测，用于判断毛 alpha | 否 | 否 | 回测报告目录 | `make backtest-no-cost OUTPUT_DIR=reports/backtest/manual_no_cost` |
 | `make backtest-trace` | 无成本回测并导出 `signal_trace.csv` | 否 | 否 | 回测报告目录和 `signal_trace.csv` | `make backtest-trace START=2025-01-01 END=2025-03-31 OUTPUT_DIR=reports/research/trace_2025q1` |
@@ -170,6 +185,9 @@ OKX_PROXY_PORT=0
 | `make compare-features` | 比较 train/validation/oos 的 Signal Lab 特征稳定性 | 否 | 否 | `reports/research/feature_compare/` 或 `OUTPUT_DIR` | `make compare-features TRAIN_DIR=... VALIDATION_DIR=... OOS_DIR=...` |
 | `make research-htf` | 离线研究 1h regime + 15m structure + 5m pullback/reclaim 信号质量 | 否 | 否 | `reports/research/htf_signals/$(SPLIT)` | `make research-htf SPLIT=train` |
 | `make compare-htf` | 比较 train/validation/oos 的 HTF policy 稳定性 | 否 | 否 | `reports/research/htf_compare/` | `make compare-htf` |
+| `make research-trend-v3` | 多品种组合级趋势跟踪研究 | 否 | 否 | `reports/research/trend_following_v3/$(SPLIT)` | `make research-trend-v3 SPLIT=train` |
+| `make compare-trend-v3` | 比较 Trend V3 train/validation/oos 稳定性 | 否 | 否 | `reports/research/trend_following_v3_compare/` | `make compare-trend-v3` |
+| `make postmortem-trend-v3` | Trend V3.0 失败归因复盘 | 否 | 否 | `reports/research/trend_following_v3_postmortem/` | `make postmortem-trend-v3` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
 | `make ablation` | 方向、周末、小时过滤诊断实验 | 否 | 否 | `reports/ablation/main_20250101_20260331/` 或 `OUTPUT_DIR` | `make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |
@@ -253,6 +271,22 @@ make check-okx SERVER=REAL
 
 只有 `.env` 已填完整并且 `OKX_SERVER` 与密钥环境匹配时才执行该命令。
 
+### `make refresh-okx-metadata-dry-run` / `make refresh-okx-metadata`
+
+通过 OKX public instruments endpoint 刷新 SWAP 合约元数据；不需要 API key，不连接真实交易，不下单。
+
+```bash
+make refresh-okx-metadata-dry-run
+make refresh-okx-metadata
+```
+
+默认读取 `INST_IDS`，输出：
+
+- `reports/research/multisymbol_readiness/okx_metadata_refresh.json`
+- `reports/research/multisymbol_readiness/okx_metadata_refresh_report.md`
+
+`dry-run` 只写报告，不写 `config/instruments/`。`write` 成功时会把 OKX 返回的 `instId/instType/ctVal/tickSz/minSz` 映射为 canonical `okx_inst_id/product/size/pricetick/min_volume`，保留 `name`，并把 `needs_okx_contract_metadata_refresh` 改为 `false`；失败时不会填假值，placeholder 会继续保持 `needs_okx_contract_metadata_refresh=true`。
+
 ### `make download-history-dry-run`
 
 生成历史下载计划：
@@ -283,6 +317,17 @@ make download-history START=2025-01-01 END=2026-03-31 CHUNK_DAYS=3
 
 主要输出是本地 sqlite 数据库、`data/history_manifests/` 断点续传文件、`logs/download_okx_history.log`。
 
+### `make download-history-batch-dry-run` / `make download-history-batch`
+
+对 `SYMBOLS` 逐个调用 `scripts/download_okx_history.py`。每个 symbol 开始前会打印当前 symbol，任一 symbol 失败时整个 Make target 返回非 0。
+
+```bash
+make download-history-batch-dry-run START=2025-01-01 END=2025-01-07
+make download-history-batch START=2025-01-01 END=2026-03-31 CHUNK_DAYS=3
+```
+
+`download-history-batch-dry-run` 固定带 `--dry-run`，不下载、不写数据库。真实批量下载固定带 `--source auto --resume --save-per-chunk --verify-db --strict-completeness`，不会被默认目标自动执行，必须手动运行。
+
 ### `make repair-history`
 
 按本地 sqlite 缺口进行修复：
@@ -302,6 +347,42 @@ make verify-history START=2025-01-01 END=2026-03-31
 ```
 
 输出固定为 `reports/history_verify_latest.json`，避免把 `VT_SYMBOL` 中的特殊字符拼进文件名。严格模式下发现缺口会返回非零退出码，并打印建议的 repair 命令。
+
+### `make verify-history-batch`
+
+对 `SYMBOLS` 逐个验证本地历史覆盖：
+
+```bash
+make verify-history-batch START=2025-01-01 END=2026-03-31
+```
+
+每个 symbol 输出单独 JSON 到 `reports/history_verify/`，文件名会把 `.` 和 `/` 替换成 `_`。
+
+### `make audit-multisymbol`
+
+运行多品种数据准备能力审计：
+
+```bash
+make audit-multisymbol
+make audit-multisymbol START=2025-01-01 END=2025-01-07
+```
+
+该命令只读取本地文件和 sqlite，不下载真实数据、不连接 OKX、不修改策略交易逻辑。输出：
+
+- `reports/research/multisymbol_readiness/multisymbol_readiness.json`
+- `reports/research/multisymbol_readiness/multisymbol_readiness_report.md`
+
+审计内容包括：
+
+- 扫描 `config/instruments/*.json`；
+- 检查每个 instrument 是否包含 canonical `okx_inst_id/product/size/pricetick/min_volume`；
+- 检查本地 sqlite 是否完整覆盖 audit window 内对应 `symbol/exchange/interval` 历史数据；
+- 检查 Makefile 是否存在多品种批量下载和批量 verify 目标；
+- 判断是否可以进入 Trend V3 多品种研究设计。
+
+`metadata_complete` 和 `history_ready` 是两件事：前者只表示 instrument JSON 的 canonical metadata 完整且不需要刷新；后者表示当前 audit window 的 `expected_count/total_count/missing_count/gap_count` 完整通过。默认 audit window 是 `START=2025-01-01 END=2026-03-31 INTERVAL=1m TIMEZONE=Asia/Shanghai`。7 天短区间验证只用于验收下载链路，不代表可以进入完整 Trend V3。
+
+凡是带有 `needs_okx_contract_metadata_refresh=true`、缺少 `okx_inst_id/product` 或 `size/pricetick/min_volume` 非正数的 instrument，都不能直接用于正式回测。`ready_symbols` 只统计 metadata 完整且当前 audit window 完整覆盖的 symbol；`can_enter_trend_v3` 至少要求 3 个 ready symbol，并包含 BTC 和 ETH，同时 Makefile 具备 batch download / batch verify 目标。使用短区间 `START/END` 覆盖 audit window 时，报告中的 ready 只代表该短窗口 ready，不代表完整 Trend V3 readiness。
 
 ### `make backtest`
 
@@ -478,6 +559,187 @@ make compare-htf
 - `reports/research/htf_signals/oos`
 
 输出到 `reports/research/htf_compare/`。报告会判断哪些 policy 在三段方向一致，哪些只在单一 split 有效，是否存在稳定候选进入 Strategy V2；如果没有，`htf_compare_report.md` 会输出 `no_stable_htf_policy=true`。
+
+### Trend V3 Data Preparation：多品种数据准备
+
+Trend V3 仍然是趋势跟踪方向。readiness 未通过前，不开发 Trend V3 多品种研究器，也不把 metadata 不完整的 instrument 用于正式回测。第一批建议 symbols 是 BTC / ETH / SOL / LINK / DOGE；BNB / XRP 作为第二批，占位文件可以存在，但未刷新成功时必须保持 `needs_okx_contract_metadata_refresh=true`。
+
+标准流程：
+
+```bash
+make refresh-okx-metadata-dry-run
+make refresh-okx-metadata
+make download-history-batch-dry-run START=2025-01-01 END=2025-01-07
+make download-history-batch START=2025-01-01 END=2026-03-31 CHUNK_DAYS=3
+make verify-history-batch START=2025-01-01 END=2026-03-31
+make audit-multisymbol START=2025-01-01 END=2026-03-31
+```
+
+流程说明：
+
+- 先刷新 OKX public contract metadata，确认 `okx_inst_id/product/size/pricetick/min_volume` 来自 OKX 返回值；
+- 再用 batch dry-run 检查每个 symbol 的下载计划；
+- 再手动运行真实 batch download，写入本地 sqlite；
+- 再运行 batch verify，保存每个 symbol 的单独 verify JSON；
+- 最后按完整窗口运行 audit readiness，确认 `ready_symbols`、`can_enter_trend_v3` 和 blocking reasons。
+
+完整进入 Trend V3 前必须执行：
+
+```bash
+make refresh-okx-metadata
+make download-history-batch START=2025-01-01 END=2026-03-31 CHUNK_DAYS=3
+make verify-history-batch START=2025-01-01 END=2026-03-31
+make audit-multisymbol START=2025-01-01 END=2026-03-31
+```
+
+`audit-multisymbol` 只读本地文件和 sqlite，不下载数据、不连接 OKX、不修改策略交易逻辑。`ready_symbols` 只统计 metadata 完整且 audit window 内 1m history 完整覆盖的 symbol；`can_enter_trend_v3` 至少要求 3 个 ready symbol，并包含 BTC 和 ETH，同时 Makefile 具备 batch download / batch verify 目标。短区间 audit 例如 `make audit-multisymbol START=2025-01-01 END=2025-01-07` 可以验证 7 天数据链路，但不能替代默认完整窗口 `2025-01-01` 到 `2026-03-31`。
+
+重要限制：当前研究结果暂未纳入 OKX perpetual funding fee，后续进入 Trend V3 后必须单独做 funding fee 敏感性分析。
+
+### Trend Following V2：低频趋势跟踪研究
+
+Trend Following V2 是离线研究框架，不修改现有策略交易逻辑，不进入 demo/live。它不是均值回归，目标是研究真正低频、长持仓的趋势跟踪，而不是 1m 短线追突破或 signal 后固定 horizon return。
+
+```bash
+make research-trend-v2 SPLIT=train
+make research-trend-v2 SPLIT=validation
+make research-trend-v2 SPLIT=oos
+make compare-trend-v2
+```
+
+默认 split 范围：
+
+- `train`: 2025-01-01 到 2025-09-30
+- `validation`: 2025-10-01 到 2025-12-31
+- `oos`: 2026-01-01 到 2026-03-31
+- `full`: 2025-01-01 到 2026-03-31
+
+脚本从本地 vn.py sqlite 读取 1m bar，内部 resample 出 `15m`、`1h`、`4h`。高周期信号只使用已完成 bar，并用下一根 `15m` close 近似执行价格。默认输出到 `reports/research/trend_following_v2/$(SPLIT)`，跨样本比较输出到 `reports/research/trend_following_v2_compare`。
+
+成本和仓位口径：`fixed_size` / trade `volume` 按合约张数解释，OKX `contract_size` 来自 `config/instruments/*.json` 的 `size` 字段。PnL、手续费、滑点和 R 风险距离均使用 `price_diff * volume * contract_size` 口径；滑点不直接改写 `entry_price` / `exit_price`，而是作为双边不利成交的独立成本项记录到 `slippage`。
+
+默认研究 policy：
+
+- `tf_1h_donchian_20_10`
+- `tf_1h_donchian_55_20`
+- `tf_4h_donchian_20_10`
+- `tf_1h_ema_cross_atr_trail`
+- `tf_4h_ema_cross_atr_trail`
+- `tf_1h_vol_compression_breakout`
+- `tf_1h_donchian_55_with_risk_filters`
+- `tf_4h_donchian_20_with_risk_filters`
+
+每个基础 policy 默认测试 ATR trailing multiplier `3.0`、`4.0`、`5.0`，并完整模拟持仓、出场、MFE/MAE、手续费和滑点。趋势跟踪允许低胜率，也允许中位数单笔收益为负；判断重点是总收益、尾部收益、成本后表现、回撤、交易集中度和 OOS。只有跨 train / validation / oos 稳定，才可以进入 Strategy V2；当前不会进入 demo。
+
+输出文件：
+
+- `trend_policy_summary.json`
+- `trend_policy_leaderboard.csv`
+- `trend_trades.csv`
+- `trend_daily_pnl.csv`
+- `trend_equity_curve.csv`
+- `trend_policy_by_side.csv`
+- `trend_policy_by_month.csv`
+- `trend_report.md`
+- `data_quality.json`
+- `trend_research_audit.json`
+
+跨样本比较读取三段 `trend_policy_leaderboard.csv`，输出：
+
+- `trend_compare_summary.json`
+- `trend_compare_leaderboard.csv`
+- `trend_compare_report.md`
+
+### Trend Following V3：多品种组合级趋势跟踪研究
+
+Trend Following V3 不是实盘策略，而是离线研究框架；它不修改 `OkxAdaptiveMhfStrategy`，不新增 demo/live runner，也不允许直接进入模拟盘或实盘。目标是验证多品种趋势跟踪是否比 BTC 单品种 Trend V2 更稳定。
+
+```bash
+make research-trend-v3 SPLIT=train
+make research-trend-v3 SPLIT=validation
+make research-trend-v3 SPLIT=oos
+make compare-trend-v3
+```
+
+当前默认 symbols：
+
+- `BTCUSDT_SWAP_OKX.GLOBAL`
+- `ETHUSDT_SWAP_OKX.GLOBAL`
+- `SOLUSDT_SWAP_OKX.GLOBAL`
+- `LINKUSDT_SWAP_OKX.GLOBAL`
+- `DOGEUSDT_SWAP_OKX.GLOBAL`
+
+研究使用 `4h` / `1d` Donchian、EMA 50/200、volatility compression breakout，并在组合层面模拟持仓、权益曲线、回撤、symbol contribution、top trade concentration 和最大并发仓位。每个 policy 都输出 no-cost 与 cost-aware 两套结果；cost-aware 包含手续费和滑点，但当前不计 OKX perpetual funding fee，报告会固定写出 funding fee warning。
+
+默认 split 范围：
+
+- `train`: 2025-01-01 到 2025-09-30
+- `validation`: 2025-10-01 到 2025-12-31
+- `oos`: 2026-01-01 到 2026-03-31
+- `full`: 2025-01-01 到 2026-03-31
+
+核心输出：
+
+- `trend_v3_summary.json`
+- `trend_v3_policy_leaderboard.csv`
+- `trend_v3_portfolio_equity_curve.csv`
+- `trend_v3_portfolio_daily_pnl.csv`
+- `trend_v3_trades.csv`
+- `trend_v3_policy_by_symbol.csv`
+- `trend_v3_policy_by_month.csv`
+- `trend_v3_symbol_contribution.csv`
+- `trend_v3_drawdown.csv`
+- `trend_v3_report.md`
+- `trend_v3_research_audit.json`
+- `data_quality.json`
+
+跨样本比较输出：
+
+- `trend_v3_compare_summary.json`
+- `trend_v3_compare_leaderboard.csv`
+- `trend_v3_compare_report.md`
+
+只有 `trend_v3_compare_summary.json` 中 `stable_candidate_exists=true` 时，才允许进入 Strategy V3 原型开发；否则保持研究失败结论，不能直接进入 demo/live。
+
+### Trend V3 Postmortem：趋势跟踪失败归因
+
+Trend V3 Postmortem 不是策略开发，也不是参数优化。它只读取已经生成的 Trend V3 train / validation / oos 和 compare 报告，用于解释 V3.0 为什么没有 stable candidate。
+
+```bash
+make postmortem-trend-v3
+```
+
+默认读取：
+
+- `reports/research/trend_following_v3/train`
+- `reports/research/trend_following_v3/validation`
+- `reports/research/trend_following_v3/oos`
+- `reports/research/trend_following_v3_compare`
+
+Postmortem 会检查：
+
+- policy family：Donchian、EMA、vol compression、ensemble、risk filtered；
+- symbol contribution：是否过度依赖单一 symbol，是否去掉某个 symbol 后更好；
+- monthly / quarterly regime：validation 和 OOS 的月份结构是否切换；
+- tail concentration：top 1 / top 5% / top 10% 盈利交易贡献；
+- funding stress：在没有真实 funding 数据时，只做明确标记的 synthetic funding stress。
+
+输出目录默认是 `reports/research/trend_following_v3_postmortem/`，核心文件包括：
+
+- `trend_v3_postmortem_summary.json`
+- `trend_v3_postmortem_report.md`
+- `policy_family_analysis.csv`
+- `symbol_contribution_postmortem.csv`
+- `by_month.csv`
+- `by_quarter.csv`
+- `by_symbol_month.csv`
+- `by_policy_month.csv`
+- `top_trade_concentration.csv`
+- `funding_sensitivity.csv`
+- `rejected_candidate_reasons.csv`
+- `v3_1_recommendations.json`
+
+只有 postmortem 建议 `proceed_to_v3_1=true` 时，才允许进入 V3.1 研究设计；即使进入 V3.1，也仍然是离线研究，不允许直接进入 Strategy V3 原型、demo 或 live。Postmortem 不会修改 `OkxAdaptiveMhfStrategy`，不新增 demo/live runner，也不会连接真实交易或下单。
 
 ### `make alpha-sweep`
 

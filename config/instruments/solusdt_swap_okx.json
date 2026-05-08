@@ -1,0 +1,14 @@
+{
+  "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+  "symbol": "SOLUSDT_SWAP_OKX",
+  "exchange": "GLOBAL",
+  "name": "SOL-USDT-SWAP",
+  "size": 1.0,
+  "pricetick": 0.01,
+  "min_volume": 0.01,
+  "gateway_name": "OKX",
+  "history_data": true,
+  "okx_inst_id": "SOL-USDT-SWAP",
+  "product": "SWAP",
+  "needs_okx_contract_metadata_refresh": false
+}

@@ -1,0 +1,14 @@
+{
+  "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+  "symbol": "LINKUSDT_SWAP_OKX",
+  "exchange": "GLOBAL",
+  "name": "LINK-USDT-SWAP",
+  "size": 1.0,
+  "pricetick": 0.001,
+  "min_volume": 0.01,
+  "gateway_name": "OKX",
+  "history_data": true,
+  "okx_inst_id": "LINK-USDT-SWAP",
+  "product": "SWAP",
+  "needs_okx_contract_metadata_refresh": false
+}

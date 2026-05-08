@@ -7,11 +7,13 @@ PYTHON ?= .venv/bin/python
 PIP ?= $(PYTHON) -m pip
 
 VT_SYMBOL ?= BTCUSDT_SWAP_OKX.GLOBAL
+SYMBOLS ?= BTCUSDT_SWAP_OKX.GLOBAL ETHUSDT_SWAP_OKX.GLOBAL SOLUSDT_SWAP_OKX.GLOBAL LINKUSDT_SWAP_OKX.GLOBAL DOGEUSDT_SWAP_OKX.GLOBAL
+INST_IDS ?= BTC-USDT-SWAP,ETH-USDT-SWAP,SOL-USDT-SWAP,LINK-USDT-SWAP,DOGE-USDT-SWAP
 INTERVAL ?= 1m
 START ?= 2025-01-01
 END ?= 2026-03-31
 TIMEZONE ?= Asia/Shanghai
-CHUNK_DAYS ?= 5
+CHUNK_DAYS ?= 3
 SERVER ?= DEMO
 CAPITAL ?= 5000
 RATE ?= 0.0005
@@ -42,6 +44,19 @@ HTF_TRAIN_DIR ?= reports/research/htf_signals/train
 HTF_VALIDATION_DIR ?= reports/research/htf_signals/validation
 HTF_OOS_DIR ?= reports/research/htf_signals/oos
 HTF_COMPARE_OUTPUT_DIR ?= reports/research/htf_compare
+TREND_OUTPUT_DIR ?= reports/research/trend_following_v2/$(SPLIT)
+TREND_TRAIN_DIR ?= reports/research/trend_following_v2/train
+TREND_VALIDATION_DIR ?= reports/research/trend_following_v2/validation
+TREND_OOS_DIR ?= reports/research/trend_following_v2/oos
+TREND_COMPARE_OUTPUT_DIR ?= reports/research/trend_following_v2_compare
+TREND_MAX_RUNS ?=
+TREND_V3_OUTPUT_DIR ?= reports/research/trend_following_v3/$(SPLIT)
+TREND_V3_TRAIN_DIR ?= reports/research/trend_following_v3/train
+TREND_V3_VALIDATION_DIR ?= reports/research/trend_following_v3/validation
+TREND_V3_OOS_DIR ?= reports/research/trend_following_v3/oos
+TREND_V3_COMPARE_OUTPUT_DIR ?= reports/research/trend_following_v3_compare
+TREND_V3_POSTMORTEM_OUTPUT_DIR ?= reports/research/trend_following_v3_postmortem
+TREND_V3_MAX_RUNS ?=
 TRAIN_DIR ?=
 VALIDATION_DIR ?=
 OOS_DIR ?=
@@ -59,8 +74,8 @@ TAIL_LINES ?= 80
 .PHONY: help
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
-.PHONY: download-history-dry-run download-history repair-history verify-history
-.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf alpha-sweep ablation
+.PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch
+.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 postmortem-trend-v3 audit-multisymbol alpha-sweep ablation
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -79,10 +94,15 @@ help:
 		"  make check-okx SERVER=DEMO  Connect to OKX without placing orders" \
 		"" \
 		"History:" \
+		"  make refresh-okx-metadata-dry-run  Fetch OKX metadata report without writing instruments" \
+		"  make refresh-okx-metadata          Fetch OKX metadata and update instrument files" \
 		"  make download-history-dry-run START=2025-01-01 END=2025-01-02 CHUNK_DAYS=1" \
 		"  make download-history     Download and verify sqlite history chunks" \
+		"  make download-history-batch-dry-run START=2025-01-01 END=2025-01-07" \
+		"  make download-history-batch START=2025-01-01 END=2026-03-31 CHUNK_DAYS=3" \
 		"  make repair-history       Repair missing sqlite history ranges" \
 		"  make verify-history       Verify sqlite coverage and write reports/history_verify_latest.json" \
+		"  make verify-history-batch START=2025-01-01 END=2026-03-31" \
 		"" \
 		"Backtest and diagnostics:" \
 		"  make backtest             Cost-aware backtest using STRATEGY_CONFIG" \
@@ -97,6 +117,12 @@ help:
 		"  make compare-features TRAIN_DIR=reports/research/trace_train/signal_feature_research VALIDATION_DIR=reports/research/trace_validation/signal_feature_research OOS_DIR=reports/research/trace_oos/signal_feature_research" \
 		"  make research-htf SPLIT=train" \
 		"  make compare-htf" \
+		"  make research-trend-v2 SPLIT=train" \
+		"  make compare-trend-v2" \
+		"  make research-trend-v3 SPLIT=train" \
+		"  make compare-trend-v3" \
+		"  make postmortem-trend-v3" \
+		"  make audit-multisymbol  Audit multi-symbol metadata and sqlite readiness" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
 		"  make ablation            Entry-filter ablation diagnostics" \
 		"" \
@@ -110,7 +136,8 @@ help:
 		"  make tail-log LOG_FILE=logs/download_okx_history.log" \
 		"" \
 		"Common overrides:" \
-		"  VT_SYMBOL=$(VT_SYMBOL) INTERVAL=$(INTERVAL) START=$(START) END=$(END)" \
+		"  VT_SYMBOL=$(VT_SYMBOL) SYMBOLS=\"$(SYMBOLS)\" INST_IDS=$(INST_IDS)" \
+		"  INTERVAL=$(INTERVAL) START=$(START) END=$(END)" \
 		"  TIMEZONE=$(TIMEZONE) CHUNK_DAYS=$(CHUNK_DAYS) SERVER=$(SERVER)" \
 		"  CAPITAL=$(CAPITAL) RATE=$(RATE) SLIPPAGE_MODE=$(SLIPPAGE_MODE) SLIPPAGE=$(SLIPPAGE)" \
 		"  OUTPUT_DIR=reports/backtest/manual_cost REPORT_DIR=reports/backtest/manual_cost" \
@@ -120,6 +147,9 @@ help:
 		"  FEATURE_HORIZONS=$(FEATURE_HORIZONS) FEATURE_BINS=$(FEATURE_BINS) FEATURE_MIN_COUNT=$(FEATURE_MIN_COUNT)" \
 		"  FEATURE_LIST=$(FEATURE_LIST) TRAIN_DIR=$(TRAIN_DIR) VALIDATION_DIR=$(VALIDATION_DIR) OOS_DIR=$(OOS_DIR)" \
 		"  HTF_HORIZONS=$(HTF_HORIZONS) HTF_OUTPUT_DIR=$(HTF_OUTPUT_DIR) HTF_COOLDOWN_BARS_5M=$(HTF_COOLDOWN_BARS_5M)" \
+		"  TREND_OUTPUT_DIR=$(TREND_OUTPUT_DIR) TREND_MAX_RUNS=$(TREND_MAX_RUNS)" \
+		"  TREND_V3_OUTPUT_DIR=$(TREND_V3_OUTPUT_DIR) TREND_V3_MAX_RUNS=$(TREND_V3_MAX_RUNS)" \
+		"  TREND_V3_POSTMORTEM_OUTPUT_DIR=$(TREND_V3_POSTMORTEM_OUTPUT_DIR)" \
 		"  SPLIT=$(SPLIT) MAX_RUNS=$(MAX_RUNS)"
 
 venv:
@@ -218,6 +248,70 @@ verify-history:
 		--timezone "$(TIMEZONE)" \
 		--strict \
 		--output-json reports/history_verify_latest.json
+
+refresh-okx-metadata-dry-run:
+	@echo "Refreshing OKX instrument metadata report without writing config files"
+	$(PYTHON) scripts/refresh_okx_instrument_metadata.py \
+		--inst-ids "$(INST_IDS)" \
+		--server "$(SERVER)" \
+		--dry-run
+
+refresh-okx-metadata:
+	@echo "Refreshing OKX instrument metadata into config/instruments"
+	$(PYTHON) scripts/refresh_okx_instrument_metadata.py \
+		--inst-ids "$(INST_IDS)" \
+		--server "$(SERVER)" \
+		--write
+
+download-history-batch-dry-run:
+	@for symbol in $(SYMBOLS); do \
+		echo "Planning history download for $$symbol"; \
+		$(PYTHON) scripts/download_okx_history.py \
+			--vt-symbol "$$symbol" \
+			--interval "$(INTERVAL)" \
+			--start "$(START)" \
+			--end "$(END)" \
+			--timezone "$(TIMEZONE)" \
+			--chunk-days "$(CHUNK_DAYS)" \
+			--server "$(SERVER)" \
+			--source auto \
+			--resume \
+			--dry-run; \
+	done
+
+download-history-batch:
+	@for symbol in $(SYMBOLS); do \
+		echo "Downloading history for $$symbol"; \
+		$(PYTHON) scripts/download_okx_history.py \
+			--vt-symbol "$$symbol" \
+			--interval "$(INTERVAL)" \
+			--start "$(START)" \
+			--end "$(END)" \
+			--timezone "$(TIMEZONE)" \
+			--chunk-days "$(CHUNK_DAYS)" \
+			--server "$(SERVER)" \
+			--source auto \
+			--resume \
+			--save-per-chunk \
+			--verify-db \
+			--strict-completeness; \
+	done
+
+verify-history-batch:
+	@mkdir -p reports/history_verify
+	@for symbol in $(SYMBOLS); do \
+		safe_symbol="$${symbol//./_}"; \
+		safe_symbol="$${safe_symbol//\//_}"; \
+		echo "Verifying history for $$symbol"; \
+		$(PYTHON) scripts/verify_okx_history.py \
+			--vt-symbol "$$symbol" \
+			--interval "$(INTERVAL)" \
+			--start "$(START)" \
+			--end "$(END)" \
+			--timezone "$(TIMEZONE)" \
+			--strict \
+			--output-json "reports/history_verify/$${safe_symbol}_$(START)_$(END).json"; \
+	done
 
 backtest:
 	@echo "Running cost-aware backtest"
@@ -422,6 +516,83 @@ compare-htf:
 		--validation-dir "$(HTF_VALIDATION_DIR)" \
 		--oos-dir "$(HTF_OOS_DIR)" \
 		--output-dir "$(HTF_COMPARE_OUTPUT_DIR)"
+
+research-trend-v2:
+	@echo "Researching Trend Following V2 split=$(SPLIT) output=$(TREND_OUTPUT_DIR)"
+	@args=( \
+		scripts/research_trend_following_v2.py \
+		--vt-symbol "$(VT_SYMBOL)" \
+		--split "$(SPLIT)" \
+		--timezone "$(TIMEZONE)" \
+		--output-dir "$(TREND_OUTPUT_DIR)" \
+		--capital "$(CAPITAL)" \
+		--rate "$(RATE)" \
+		--slippage-mode "$(SLIPPAGE_MODE)" \
+		--slippage "$(SLIPPAGE)" \
+		--data-check-strict \
+	); \
+	if [[ "$(origin START)" == "command line" ]]; then args+=(--start "$(START)"); fi; \
+	if [[ "$(origin END)" == "command line" ]]; then args+=(--end "$(END)"); fi; \
+	if [[ -n "$(strip $(TREND_MAX_RUNS))" ]]; then args+=(--max-runs "$(TREND_MAX_RUNS)"); fi; \
+	$(PYTHON) "$${args[@]}"
+
+compare-trend-v2:
+	@echo "Comparing Trend Following V2 research across train/validation/oos"
+	$(PYTHON) scripts/compare_trend_following_v2.py \
+		--train-dir "$(TREND_TRAIN_DIR)" \
+		--validation-dir "$(TREND_VALIDATION_DIR)" \
+		--oos-dir "$(TREND_OOS_DIR)" \
+		--output-dir "$(TREND_COMPARE_OUTPUT_DIR)"
+
+research-trend-v3:
+	@echo "Researching Trend Following V3 split=$(SPLIT) output=$(TREND_V3_OUTPUT_DIR)"
+	@args=( \
+		scripts/research_trend_following_v3.py \
+		--symbols "$(SYMBOLS)" \
+		--split "$(SPLIT)" \
+		--timezone "$(TIMEZONE)" \
+		--interval "$(INTERVAL)" \
+		--output-dir "$(TREND_V3_OUTPUT_DIR)" \
+		--capital "$(CAPITAL)" \
+		--capital-mode portfolio_fixed \
+		--position-sizing fixed_contract \
+		--fixed-size "0.01" \
+		--rate "$(RATE)" \
+		--slippage-mode "$(SLIPPAGE_MODE)" \
+		--slippage "$(SLIPPAGE)" \
+		--max-symbol-weight "0.35" \
+		--max-portfolio-positions "3" \
+		--data-check-strict \
+	); \
+	if [[ "$(origin START)" == "command line" ]]; then args+=(--start "$(START)"); fi; \
+	if [[ "$(origin END)" == "command line" ]]; then args+=(--end "$(END)"); fi; \
+	if [[ -n "$(strip $(TREND_V3_MAX_RUNS))" ]]; then args+=(--max-runs "$(TREND_V3_MAX_RUNS)"); fi; \
+	$(PYTHON) "$${args[@]}"
+
+compare-trend-v3:
+	@echo "Comparing Trend Following V3 research across train/validation/oos"
+	$(PYTHON) scripts/compare_trend_following_v3.py \
+		--train-dir "$(TREND_V3_TRAIN_DIR)" \
+		--validation-dir "$(TREND_V3_VALIDATION_DIR)" \
+		--oos-dir "$(TREND_V3_OOS_DIR)" \
+		--output-dir "$(TREND_V3_COMPARE_OUTPUT_DIR)"
+
+postmortem-trend-v3:
+	@echo "Running Trend Following V3 postmortem diagnostics"
+	$(PYTHON) scripts/postmortem_trend_following_v3.py \
+		--train-dir "$(TREND_V3_TRAIN_DIR)" \
+		--validation-dir "$(TREND_V3_VALIDATION_DIR)" \
+		--oos-dir "$(TREND_V3_OOS_DIR)" \
+		--compare-dir "$(TREND_V3_COMPARE_OUTPUT_DIR)" \
+		--output-dir "$(TREND_V3_POSTMORTEM_OUTPUT_DIR)"
+
+audit-multisymbol:
+	@echo "Auditing multi-symbol data readiness"
+	$(PYTHON) scripts/audit_multisymbol_readiness.py \
+		--start "$(START)" \
+		--end "$(END)" \
+		--interval "$(INTERVAL)" \
+		--timezone "$(TIMEZONE)"
 
 alpha-sweep:
 	@if [[ ! -f "$(SANITY_CONFIG)" ]]; then \

@@ -1,0 +1,15 @@
+{
+  "vt_symbol": "BNBUSDT_SWAP_OKX.GLOBAL",
+  "symbol": "BNBUSDT_SWAP_OKX",
+  "exchange": "GLOBAL",
+  "okx_inst_id": "BNB-USDT-SWAP",
+  "name": "BNB-USDT-SWAP",
+  "product": "SWAP",
+  "size": null,
+  "pricetick": null,
+  "min_volume": null,
+  "gateway_name": "OKX",
+  "history_data": true,
+  "needs_okx_contract_metadata_refresh": true,
+  "metadata_note": "Placeholder only. Refresh size/pricetick/min_volume from OKX contract metadata before formal backtests."
+}
