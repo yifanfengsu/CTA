@@ -123,6 +123,43 @@ class CompareTrendFollowingV3Test(unittest.TestCase):
 
         self.assertTrue(payload["stable_candidate_exists"])
 
+    def test_extended_compare_reads_extended_dirs_and_writes_extended_outputs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            train_dir = root / "train_ext"
+            validation_dir = root / "validation_ext"
+            oos_dir = root / "oos_ext"
+            for split, directory in [("train", train_dir), ("validation", validation_dir), ("oos", oos_dir)]:
+                write_v3_leaderboard(directory, split)
+
+            output_dir = root / "extended_compare"
+            summary = compare_mod.run_compare(
+                train_dir,
+                validation_dir,
+                oos_dir,
+                output_dir,
+                split_scheme="extended",
+                funding_bps_values=[1.0, 3.0, 5.0, 10.0],
+            )
+            compare_df = pd.read_csv(output_dir / "trend_v3_extended_compare_leaderboard.csv")
+
+            for filename in [
+                "trend_v3_extended_compare_summary.json",
+                "trend_v3_extended_compare_leaderboard.csv",
+                "trend_v3_extended_compare_report.md",
+                "trend_v3_extended_compare_funding_stress.csv",
+            ]:
+                self.assertTrue((output_dir / filename).exists(), filename)
+            payload = json.loads((output_dir / "trend_v3_extended_compare_summary.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(summary["split_scheme"], "extended")
+        self.assertEqual(summary["split_labels"]["train"], "train_ext")
+        self.assertIn("train_ext_no_cost_net_pnl", set(compare_df.columns))
+        self.assertTrue(payload["funding_sensitivity_required"])
+        self.assertGreater(len(payload["funding_stress"]), 0)
+        self.assertFalse(payload["can_enter_strategy_v3_prototype"])
+        self.assertIn("stable", payload["all_no_cost_positive_policies"])
+
 
 if __name__ == "__main__":
     unittest.main()

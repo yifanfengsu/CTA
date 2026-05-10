@@ -3,12 +3,11 @@
   "symbol": "DOGEUSDT_SWAP_OKX",
   "exchange": "GLOBAL",
   "name": "DOGE-USDT-SWAP",
+  "okx_inst_id": "DOGE-USDT-SWAP",
+  "product": "SWAP",
   "size": 1000.0,
   "pricetick": 5e-05,
   "min_volume": 0.01,
   "gateway_name": "OKX",
-  "history_data": true,
-  "okx_inst_id": "DOGE-USDT-SWAP",
-  "product": "SWAP",
-  "needs_okx_contract_metadata_refresh": false
+  "history_data": true
 }

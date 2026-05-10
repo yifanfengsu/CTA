@@ -3,15 +3,11 @@
   "symbol": "BTCUSDT_SWAP_OKX",
   "exchange": "GLOBAL",
   "name": "BTC-USDT-SWAP",
+  "okx_inst_id": "BTC-USDT-SWAP",
+  "product": "SWAP",
   "size": 0.01,
   "pricetick": 0.1,
   "min_volume": 0.01,
   "gateway_name": "OKX",
-  "history_data": true,
-  "okx_inst_id": "BTC-USDT-SWAP",
-  "product": "SWAP",
-  "needs_okx_contract_metadata_refresh": false,
-  "metadata_note": "Refreshed from OKX public instruments endpoint.",
-  "okx_metadata_source": "https://www.okx.com/api/v5/public/instruments",
-  "okx_metadata_refreshed_at": "2026-05-07T11:19:10.963244+00:00"
+  "history_data": true
 }

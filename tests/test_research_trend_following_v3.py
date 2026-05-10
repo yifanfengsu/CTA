@@ -130,6 +130,28 @@ class ResearchTrendFollowingV3Test(unittest.TestCase):
                 instrument_meta_by_symbol={SYMBOL_A: meta(SYMBOL_A)},
             )
 
+    def test_extended_split_ranges_use_closed_interval_dates(self) -> None:
+        train_ext = trend_mod.resolve_split_range("train_ext", None, None, "Asia/Shanghai", "extended")
+        validation_ext = trend_mod.resolve_split_range("validation_ext", None, None, "Asia/Shanghai", "extended")
+        oos_ext = trend_mod.resolve_split_range("oos_ext", None, None, "Asia/Shanghai", "extended")
+        full_ext = trend_mod.resolve_split_range("full_ext", None, None, "Asia/Shanghai", "extended")
+
+        self.assertEqual(train_ext.start.isoformat(), "2023-01-01T00:00:00+08:00")
+        self.assertEqual(train_ext.end_display.isoformat(), "2024-06-30T23:59:00+08:00")
+        self.assertEqual(train_ext.end_exclusive.isoformat(), "2024-07-01T00:00:00+08:00")
+        self.assertEqual(validation_ext.start.isoformat(), "2024-07-01T00:00:00+08:00")
+        self.assertEqual(validation_ext.end_exclusive.isoformat(), "2025-07-01T00:00:00+08:00")
+        self.assertEqual(oos_ext.start.isoformat(), "2025-07-01T00:00:00+08:00")
+        self.assertEqual(oos_ext.end_exclusive.isoformat(), "2026-04-01T00:00:00+08:00")
+        self.assertEqual(full_ext.start.isoformat(), "2023-01-01T00:00:00+08:00")
+        self.assertEqual(full_ext.end_exclusive.isoformat(), "2026-04-01T00:00:00+08:00")
+
+    def test_cli_accepts_extended_split_scheme(self) -> None:
+        args = trend_mod.parse_args(["--split-scheme", "extended", "--split", "oos_ext"])
+
+        self.assertEqual(args.split_scheme, "extended")
+        self.assertEqual(trend_mod.resolve_split_name(args.split_scheme, args.split, args.split_name), "oos_ext")
+
     def test_resample_4h_and_1d_uses_only_closed_bars(self) -> None:
         incomplete_4h = make_1m_bars(SYMBOL_A, 239)
         complete_4h = make_1m_bars(SYMBOL_A, 240)
@@ -381,7 +403,11 @@ class ResearchTrendFollowingV3Test(unittest.TestCase):
             audit = json.loads((output_dir / "trend_v3_research_audit.json").read_text(encoding="utf-8"))
 
         self.assertEqual(summary["ready_symbols"], [SYMBOL_A, SYMBOL_B])
+        self.assertEqual(summary["split_scheme"], "default")
+        self.assertIn("end", summary)
+        self.assertIn("end_exclusive", summary)
         self.assertTrue(data_quality["all_required_symbols_ready"])
+        self.assertEqual(data_quality["split"], "train")
         self.assertIn("no_lookahead_checks", audit)
         self.assertIn("sample_trades", audit)
 

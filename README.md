@@ -10,6 +10,24 @@
 
 当前仓库没有 `scripts/run_cta.py`。Makefile 只覆盖模拟盘前置检查，真正 demo runner 需要后续补 `scripts/run_cta.py` 后再加入运行命令。
 
+## Trend Regime Diagnostics：趋势环境诊断
+
+`make diagnose-trend-regimes` 是 Trend Following V3.0 失败后的研究诊断入口，不是策略、不是参数搜索、不是 demo/live runner。
+
+诊断目标是判断 2023-2026 五品种样本里是否存在可观测趋势 regime，并检查 V3.0 失败是否主要因为没有过滤 `choppy` / `high_vol_choppy` 环境。脚本会从本地 vn.py sqlite 读取 1m bar，重采样到 closed-bar `4h` / `1d`，输出 regime 分布、趋势评分和 V3 extended trades 的 regime 归因。
+
+只有当 `reports/research/trend_regime_diagnostics/v3_1_regime_recommendations.json` 明确支持 `proceed_to_v3_1_research=true` 时，才允许进入 research-only V3.1。即使允许 V3.1 research，也仍然必须保持 `strategy_development_allowed=false` 和 `demo_live_allowed=false`。
+
+不允许把本诊断结果直接转成 Strategy V3、demo runner 或 live runner；funding fee 与收益集中度风险必须继续作为硬约束处理。
+
+## Research Decision Dossier
+
+`make research-dossier` 用于归档当前趋势跟踪研究结论和最终决策，不开发策略、不新增参数搜索、不进入 demo/live。
+
+该 dossier 汇总原始 backtest、Signal Lab、HTF、Trend V2、Trend V3、Extended V3、Postmortem、Regime Diagnostics 和数据准备报告，用来明确哪些策略 family 已失败、为什么当前 Strategy V3 被阻断，以及下一阶段是否只允许在扩大品种、加入真实 funding 研究、外部 regime classifier 或暂停开发之间选择。
+
+输出目录为 `reports/research/research_decision_dossier/`，核心决策必须保持 `strategy_development_allowed=false`、`demo_live_allowed=false`、`proceed_to_v3_1_research=false`，直到新的研究前提和验收标准被重新满足。
+
 ## 目录结构
 
 - `config/`：运行配置和策略配置。
@@ -89,8 +107,15 @@ OKX_PROXY_PORT=0
 23. `make compare-htf`
 24. `make ablation SPLIT=train|validation|oos OUTPUT_DIR=...`
 25. `make postmortem-trend-v3`
-26. `make alpha-sweep`
-27. 满足条件后再考虑补 demo runner/模拟盘。
+26. `make audit-extended-history`
+27. `make research-trend-v3-extended SPLIT=train_ext`
+28. `make research-trend-v3-extended SPLIT=validation_ext`
+29. `make research-trend-v3-extended SPLIT=oos_ext`
+30. `make compare-trend-v3-extended`
+31. `make diagnose-trend-regimes`
+32. `make research-dossier`
+33. `make alpha-sweep`
+34. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -143,6 +168,13 @@ OKX_PROXY_PORT=0
 | `TREND_V3_OOS_DIR` | `reports/research/trend_following_v3/oos` | `compare-trend-v3` 默认 oos 目录 |
 | `TREND_V3_COMPARE_OUTPUT_DIR` | `reports/research/trend_following_v3_compare` | `compare-trend-v3` 输出目录 |
 | `TREND_V3_POSTMORTEM_OUTPUT_DIR` | `reports/research/trend_following_v3_postmortem` | `postmortem-trend-v3` 输出目录 |
+| `TREND_V3_EXT_OUTPUT_DIR` | `reports/research/trend_following_v3_extended/$(EXT_SPLIT)` | `research-trend-v3-extended` 输出目录 |
+| `TREND_V3_EXT_TRAIN_DIR` | `reports/research/trend_following_v3_extended/train_ext` | `compare-trend-v3-extended` 默认 train_ext 目录 |
+| `TREND_V3_EXT_VALIDATION_DIR` | `reports/research/trend_following_v3_extended/validation_ext` | `compare-trend-v3-extended` 默认 validation_ext 目录 |
+| `TREND_V3_EXT_OOS_DIR` | `reports/research/trend_following_v3_extended/oos_ext` | `compare-trend-v3-extended` 默认 oos_ext 目录 |
+| `TREND_V3_EXT_COMPARE_OUTPUT_DIR` | `reports/research/trend_following_v3_extended_compare` | `compare-trend-v3-extended` 输出目录 |
+| `EXTENDED_HISTORY_OUTPUT_DIR` | `reports/research/extended_history_availability` | `audit-extended-history` 输出目录 |
+| `RESEARCH_DOSSIER_OUTPUT_DIR` | `reports/research/research_decision_dossier` | `research-dossier` 输出目录 |
 | `TRAIN_DIR` | 空 | `compare-features` 的 train `signal_feature_research` 目录 |
 | `VALIDATION_DIR` | 空 | `compare-features` 的 validation `signal_feature_research` 目录 |
 | `OOS_DIR` | 空 | `compare-features` 的 oos `signal_feature_research` 目录 |
@@ -187,7 +219,11 @@ OKX_PROXY_PORT=0
 | `make compare-htf` | 比较 train/validation/oos 的 HTF policy 稳定性 | 否 | 否 | `reports/research/htf_compare/` | `make compare-htf` |
 | `make research-trend-v3` | 多品种组合级趋势跟踪研究 | 否 | 否 | `reports/research/trend_following_v3/$(SPLIT)` | `make research-trend-v3 SPLIT=train` |
 | `make compare-trend-v3` | 比较 Trend V3 train/validation/oos 稳定性 | 否 | 否 | `reports/research/trend_following_v3_compare/` | `make compare-trend-v3` |
+| `make research-trend-v3-extended` | 2023-2026 长样本复测同一 Trend V3.0 policy set | 否 | 否 | `reports/research/trend_following_v3_extended/$(EXT_SPLIT)` | `make research-trend-v3-extended SPLIT=train_ext` |
+| `make compare-trend-v3-extended` | 比较 train_ext/validation_ext/oos_ext 并输出 funding stress | 否 | 否 | `reports/research/trend_following_v3_extended_compare/` | `make compare-trend-v3-extended` |
 | `make postmortem-trend-v3` | Trend V3.0 失败归因复盘 | 否 | 否 | `reports/research/trend_following_v3_postmortem/` | `make postmortem-trend-v3` |
+| `make audit-extended-history` | 审计 2025/2023/2021 长历史可用性和下载计划 | 否 | 否 | `reports/research/extended_history_availability/` | `make audit-extended-history` |
+| `make research-dossier` | 归档当前研究结论、失败方向和下一步研究选项 | 否 | 否 | `reports/research/research_decision_dossier/` | `make research-dossier` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
 | `make ablation` | 方向、周末、小时过滤诊断实验 | 否 | 否 | `reports/ablation/main_20250101_20260331/` 或 `OUTPUT_DIR` | `make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |
@@ -383,6 +419,29 @@ make audit-multisymbol START=2025-01-01 END=2025-01-07
 `metadata_complete` 和 `history_ready` 是两件事：前者只表示 instrument JSON 的 canonical metadata 完整且不需要刷新；后者表示当前 audit window 的 `expected_count/total_count/missing_count/gap_count` 完整通过。默认 audit window 是 `START=2025-01-01 END=2026-03-31 INTERVAL=1m TIMEZONE=Asia/Shanghai`。7 天短区间验证只用于验收下载链路，不代表可以进入完整 Trend V3。
 
 凡是带有 `needs_okx_contract_metadata_refresh=true`、缺少 `okx_inst_id/product` 或 `size/pricetick/min_volume` 非正数的 instrument，都不能直接用于正式回测。`ready_symbols` 只统计 metadata 完整且当前 audit window 完整覆盖的 symbol；`can_enter_trend_v3` 至少要求 3 个 ready symbol，并包含 BTC 和 ETH，同时 Makefile 具备 batch download / batch verify 目标。使用短区间 `START/END` 覆盖 audit window 时，报告中的 ready 只代表该短窗口 ready，不代表完整 Trend V3 readiness。
+
+### `make audit-extended-history`
+
+运行趋势跟踪长样本可用性审计：
+
+```bash
+make audit-extended-history
+```
+
+该命令只读取本地 instrument JSON 和 vn.py sqlite，不下载数据、不连接私有交易、不下单、不修改策略逻辑。默认审计 BTC / ETH / SOL / LINK / DOGE 的三个窗口：
+
+- `2025-01-01:2026-03-31`
+- `2023-01-01:2026-03-31`
+- `2021-01-01:2026-03-31`
+
+输出：
+
+- `reports/research/extended_history_availability/extended_history_availability.json`
+- `reports/research/extended_history_availability/extended_history_availability_report.md`
+- `reports/research/extended_history_availability/extended_history_missing_ranges.csv`
+- `reports/research/extended_history_availability/extended_history_download_plan.csv`
+
+报告会回答当前 2025 window 是否完整、扩展到 2023 或 2021 需要补哪些 symbol 和区间、是否存在 listing time unknown、推荐下一步下载窗口，以及是否可以进入 Extended Trend Research。`--check-okx-listing-metadata` 是可选 public metadata 检查；如果 OKX metadata 没有 `listTime` 或网络不可用，报告记录 `unknown`/warning，不会伪造上市时间，也不会让审计失败。
 
 ### `make backtest`
 
@@ -740,6 +799,58 @@ Postmortem 会检查：
 - `v3_1_recommendations.json`
 
 只有 postmortem 建议 `proceed_to_v3_1=true` 时，才允许进入 V3.1 研究设计；即使进入 V3.1，也仍然是离线研究，不允许直接进入 Strategy V3 原型、demo 或 live。Postmortem 不会修改 `OkxAdaptiveMhfStrategy`，不新增 demo/live runner，也不会连接真实交易或下单。
+
+### Extended History Availability：趋势跟踪长样本准备
+
+Trend V3.0 已经完成多品种组合级研究和 postmortem；当 `stable_candidate_exists=false` 时，不直接开发 V3.1，也不进入正式策略、demo 或 live。下一步先判断多品种趋势跟踪是否具备更长历史样本，而不是继续扩大当前 V3.0 参数搜索。
+
+```bash
+make audit-extended-history
+```
+
+`audit-extended-history` 不下载数据，只生成本地覆盖审计、缺口区间和下载计划。长历史下载前必须确认：
+
+- 目标 symbol 的 `okx_inst_id/product/size/pricetick/min_volume` metadata 完整；
+- 本地 sqlite 对 `2023-01-01:2026-03-31` 或 `2021-01-01:2026-03-31` 的缺口范围明确；
+- OKX listing metadata 已确认，或者报告明确标记 `listing_before_window_start=unknown`，不能猜测合约上市时间；
+- 下载命令经过人工确认，不能由 audit 自动执行。
+
+只有扩展历史数据准备完成，且 report 中 `can_enter_extended_trend_research=true`，才进入 Extended Trend Research。availability audit 只是数据准备结论，不是策略收益结论。
+
+### Extended Trend Research：2023-2026 长样本趋势跟踪复测
+
+Extended Trend Research 是离线研究，不是正式策略开发，不修改 `OkxAdaptiveMhfStrategy`，不新增 demo/live runner，也不连接真实交易或下单。目的只是检查 V3.0 失败是否由 2025-2026 短样本导致。
+
+复测必须复用同一组 Trend V3.0 policy set，不新增参数网格，不调整 policy 逻辑，不引入均值回归。长样本 split 使用闭区间日期语义：
+
+| split | start | end |
+| --- | --- | --- |
+| `train_ext` | 2023-01-01 | 2024-06-30 |
+| `validation_ext` | 2024-07-01 | 2025-06-30 |
+| `oos_ext` | 2025-07-01 | 2026-03-31 |
+| `full_ext` | 2023-01-01 | 2026-03-31 |
+
+运行：
+
+```bash
+make research-trend-v3-extended SPLIT=train_ext
+make research-trend-v3-extended SPLIT=validation_ext
+make research-trend-v3-extended SPLIT=oos_ext
+make research-trend-v3-extended SPLIT=full_ext
+make compare-trend-v3-extended
+```
+
+research 输出到 `reports/research/trend_following_v3_extended/<split>/`，仍生成 `trend_v3_summary.json`、`trend_v3_policy_leaderboard.csv`、`trend_v3_trades.csv`、`trend_v3_report.md`、`data_quality.json` 和 `trend_v3_research_audit.json` 等 V3.0 同结构文件。
+
+compare 输出到 `reports/research/trend_following_v3_extended_compare/`：
+
+- `trend_v3_extended_compare_summary.json`
+- `trend_v3_extended_compare_leaderboard.csv`
+- `trend_v3_extended_compare_report.md`
+
+compare 只用 `train_ext` / `validation_ext` / `oos_ext` 判定 `stable_candidate`。规则保持保守：三段 no-cost 都必须为正，`oos_ext` cost-aware 不亏，`oos_ext` 回撤不超过 30%，三段交易次数都 >=10，且 OOS 不依赖单一 symbol 或极少数交易。报告还会输出 synthetic funding stress（1/3/5/10 bps per 8h），并明确它不是实际 OKX funding fee。
+
+只有 `stable_candidate_exists=true` 且集中度和 funding 风险可控时，才允许进入 V3.1 research audit；即使出现候选，也不能直接进入 Strategy V3 原型、demo 或 live。若 extended compare 仍无 stable candidate，则停止当前 V3.0 family，不继续扩大参数搜索。
 
 ### `make alpha-sweep`
 

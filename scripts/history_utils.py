@@ -130,9 +130,26 @@ def analyze_history_coverage(
         if history_range.start <= normalized < history_range.end_exclusive:
             actual_times.add(normalized)
 
+    return analyze_datetime_coverage(actual_times, history_range)
+
+
+def analyze_datetime_coverage(
+    datetimes: Iterable["datetime"],
+    history_range: HistoryRange,
+) -> HistoryCoverageSummary:
+    """Analyze normalized datetimes against a half-open history range."""
+
+    actual_times = {
+        timestamp
+        for timestamp in datetimes
+        if history_range.start <= timestamp < history_range.end_exclusive
+    }
     actual_sorted = sorted(actual_times)
-    expected_times = list(iter_expected_datetimes(history_range))
-    missing_times = [timestamp for timestamp in expected_times if timestamp not in actual_times]
+    missing_times = [
+        timestamp
+        for timestamp in iter_expected_datetimes(history_range)
+        if timestamp not in actual_times
+    ]
     missing_ranges = _build_missing_ranges(missing_times, history_range.interval_delta)
 
     return HistoryCoverageSummary(

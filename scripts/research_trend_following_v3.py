@@ -58,6 +58,17 @@ SPLIT_RANGES = {
     "oos": ("2026-01-01", "2026-03-31"),
     "full": ("2025-01-01", "2026-03-31"),
 }
+EXTENDED_SPLIT_RANGES = {
+    "train_ext": ("2023-01-01", "2024-06-30"),
+    "validation_ext": ("2024-07-01", "2025-06-30"),
+    "oos_ext": ("2025-07-01", "2026-03-31"),
+    "full_ext": ("2023-01-01", "2026-03-31"),
+}
+SPLIT_SCHEMES = {
+    "default": SPLIT_RANGES,
+    "extended": EXTENDED_SPLIT_RANGES,
+}
+ALL_SPLIT_NAMES = sorted({split for ranges in SPLIT_SCHEMES.values() for split in ranges})
 FUNDING_WARNING = "OKX perpetual funding fee is not included in Trend Following V3 research outputs."
 
 TRADE_COLUMNS = [
@@ -205,7 +216,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
     parser = argparse.ArgumentParser(description="Research Trend Following V3 multi-symbol portfolio policies.")
     parser.add_argument("--symbols", default=DEFAULT_SYMBOLS_ARG, help=f"Comma or space separated symbols. Default: {DEFAULT_SYMBOLS_ARG}.")
-    parser.add_argument("--split", choices=sorted(SPLIT_RANGES), default="train")
+    parser.add_argument("--split-scheme", choices=sorted(SPLIT_SCHEMES), default="default")
+    parser.add_argument("--split", choices=ALL_SPLIT_NAMES, default="train")
+    parser.add_argument("--split-name", choices=ALL_SPLIT_NAMES, help="Explicit split name; overrides --split.")
     parser.add_argument("--start")
     parser.add_argument("--end")
     parser.add_argument("--timezone", default=DEFAULT_TIMEZONE)
@@ -250,10 +263,30 @@ def resolve_path(path_arg: str | Path | None, default_path: Path) -> Path:
     return path
 
 
-def resolve_split_range(split: str, start_arg: str | None, end_arg: str | None, timezone_name: str) -> HistoryRange:
+def resolve_split_name(split_scheme: str, split_arg: str, split_name_arg: str | None = None) -> str:
+    """Resolve and validate a split name within one split scheme."""
+
+    if split_scheme not in SPLIT_SCHEMES:
+        raise TrendFollowingV3Error(f"unknown split scheme: {split_scheme}")
+    split = split_name_arg or split_arg
+    scheme_ranges = SPLIT_SCHEMES[split_scheme]
+    if split not in scheme_ranges:
+        allowed = ", ".join(sorted(scheme_ranges))
+        raise TrendFollowingV3Error(f"--split {split!r} 不属于 --split-scheme {split_scheme!r}; allowed: {allowed}")
+    return split
+
+
+def resolve_split_range(
+    split: str,
+    start_arg: str | None,
+    end_arg: str | None,
+    timezone_name: str,
+    split_scheme: str = "default",
+) -> HistoryRange:
     """Resolve split preset and optional explicit bounds."""
 
-    default_start, default_end = SPLIT_RANGES[split]
+    split = resolve_split_name(split_scheme, split)
+    default_start, default_end = SPLIT_SCHEMES[split_scheme][split]
     try:
         return parse_history_range(start_arg or default_start, end_arg or default_end, pd.Timedelta(minutes=1).to_pytimedelta(), timezone_name)
     except ValueError as exc:
@@ -2030,8 +2063,9 @@ def load_btc_v2_reference(split: str) -> dict[str, Any]:
 def build_diagnostic_answers(split: str, leaderboard_df: pd.DataFrame, btc_v2_reference: dict[str, Any]) -> dict[str, Any]:
     """Build report answers for V3 acceptance questions."""
 
+    is_oos_split = split in {"oos", "oos_ext"}
     if leaderboard_df.empty:
-        return {"trend_following_v3_failed": split == "oos", "notes": "leaderboard empty"}
+        return {"trend_following_v3_failed": is_oos_split, "notes": "leaderboard empty"}
     no_cost_positive = leaderboard_df[pd.to_numeric(leaderboard_df["no_cost_net_pnl"], errors="coerce") > 0]
     cost_positive = leaderboard_df[pd.to_numeric(leaderboard_df["net_pnl"], errors="coerce") > 0]
     concentrated_symbol = leaderboard_df[pd.to_numeric(leaderboard_df["largest_symbol_pnl_share"], errors="coerce") > 0.7]
@@ -2056,9 +2090,9 @@ def build_diagnostic_answers(split: str, leaderboard_df: pd.DataFrame, btc_v2_re
         "top_trade_concentration_policies": concentrated_trades["policy_name"].tolist(),
         "high_drawdown_policies_over_30pct": high_dd["policy_name"].tolist(),
         "low_trade_count_policies_under_10": trade_count_low["policy_name"].tolist(),
-        "oos_stability_note": "Formal OOS stability is decided by scripts/compare_trend_following_v3.py across train/validation/oos.",
-        "strategy_v3_prototype_note": "Only stable_candidate_exists=true in trend_v3_compare_summary.json can enter Strategy V3 prototype development.",
-        "trend_following_v3_failed": bool(split == "oos" and cost_positive.empty),
+        "oos_stability_note": "Formal OOS stability is decided by scripts/compare_trend_following_v3.py across train/validation/oos or train_ext/validation_ext/oos_ext.",
+        "strategy_v3_prototype_note": "Only stable_candidate_exists=true in the compare summary can enter further research audit; extended research does not directly allow Strategy V3 or demo/live.",
+        "trend_following_v3_failed": bool(is_oos_split and cost_positive.empty),
     }
 
 
@@ -2119,7 +2153,8 @@ def render_markdown(summary: dict[str, Any], leaderboard_df: pd.DataFrame, polic
     return (
         "# Trend Following V3 多品种组合级趋势跟踪研究\n\n"
         "## 核心结论\n"
-        f"- split={summary.get('split')}, symbols={summary.get('ready_symbols')}, trade_count={summary.get('trade_count')}\n"
+        f"- split_scheme={summary.get('split_scheme')}, split={summary.get('split')}, symbols={summary.get('ready_symbols')}, trade_count={summary.get('trade_count')}\n"
+        f"- start={summary.get('start')}, end={summary.get('end')}, end_exclusive={summary.get('end_exclusive')}\n"
         f"- no_cost_positive_policy_count={answers.get('no_cost_positive_policy_count')}\n"
         f"- cost_aware_positive_policy_count={answers.get('cost_aware_positive_policy_count')}\n"
         f"- trend_following_v3_failed={str(bool(answers.get('trend_following_v3_failed'))).lower()}\n"
@@ -2181,6 +2216,7 @@ def write_dataframe(path: Path, df: pd.DataFrame) -> None:
 def build_summary(
     *,
     split: str,
+    split_scheme: str,
     history_range: HistoryRange,
     output_dir: Path,
     symbols: list[str],
@@ -2208,8 +2244,10 @@ def build_summary(
     btc_v2_reference = load_btc_v2_reference(split)
     answers = build_diagnostic_answers(split, leaderboard_df, btc_v2_reference)
     return {
+        "split_scheme": split_scheme,
         "split": split,
         "start": history_range.start.isoformat(),
+        "end": history_range.end_display.isoformat(),
         "end_exclusive": history_range.end_exclusive.isoformat(),
         "timezone": history_range.timezone_name,
         "output_dir": str(output_dir),
@@ -2277,6 +2315,7 @@ def run_research(
     output_dir: Path,
     timezone_name: str,
     *,
+    split_scheme: str = "default",
     interval: str = "1m",
     capital: float = DEFAULT_CAPITAL,
     capital_mode: str = "portfolio_fixed",
@@ -2312,6 +2351,11 @@ def run_research(
         bars_by_symbol=bars_by_symbol,
         instrument_meta_by_symbol=instrument_meta_by_symbol,
     )
+    data_quality["split_scheme"] = split_scheme
+    data_quality["split"] = split
+    data_quality["start"] = history_range.start.isoformat()
+    data_quality["end"] = history_range.end_display.isoformat()
+    data_quality["end_exclusive"] = history_range.end_exclusive.isoformat()
     ready_symbols = list(contexts)
     portfolio_capital = float(capital if capital_mode == "portfolio_fixed" else capital * len(ready_symbols))
     policies = build_policy_runs(max_runs)
@@ -2342,6 +2386,7 @@ def run_research(
     drawdown_df = equity_curve_df[["policy_name", "time", "equity", "drawdown", "ddpercent"]].copy() if not equity_curve_df.empty else pd.DataFrame(columns=["policy_name", "time", "equity", "drawdown", "ddpercent"])
     summary = build_summary(
         split=split,
+        split_scheme=split_scheme,
         history_range=history_range,
         output_dir=output_dir,
         symbols=symbols,
@@ -2410,17 +2455,20 @@ def main(argv: list[str] | None = None) -> int:
     logger = setup_logging("research_trend_following_v3", verbose=args.verbose)
     try:
         symbols = parse_symbols(args.symbols)
-        history_range = resolve_split_range(args.split, args.start, args.end, args.timezone)
+        split = resolve_split_name(args.split_scheme, args.split, args.split_name)
+        history_range = resolve_split_range(split, args.start, args.end, args.timezone, args.split_scheme)
+        default_root = "trend_following_v3_extended" if args.split_scheme == "extended" else "trend_following_v3"
         output_dir = resolve_path(
             args.output_dir,
-            PROJECT_ROOT / "reports" / "research" / "trend_following_v3" / args.split,
+            PROJECT_ROOT / "reports" / "research" / default_root / split,
         )
         summary = run_research(
             symbols=symbols,
-            split=args.split,
+            split=split,
             history_range=history_range,
             output_dir=output_dir,
             timezone_name=args.timezone,
+            split_scheme=args.split_scheme,
             interval=args.interval,
             capital=args.capital,
             capital_mode=args.capital_mode,
@@ -2440,7 +2488,11 @@ def main(argv: list[str] | None = None) -> int:
             "Trend Following V3 summary:",
             {
                 "output_dir": output_dir,
-                "split": args.split,
+                "split_scheme": args.split_scheme,
+                "split": split,
+                "start": summary.get("start"),
+                "end": summary.get("end"),
+                "end_exclusive": summary.get("end_exclusive"),
                 "ready_symbols": summary.get("ready_symbols"),
                 "trade_count": summary.get("trade_count"),
                 "trend_following_v3_failed": summary.get("trend_following_v3_failed"),

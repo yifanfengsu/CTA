@@ -57,6 +57,16 @@ TREND_V3_OOS_DIR ?= reports/research/trend_following_v3/oos
 TREND_V3_COMPARE_OUTPUT_DIR ?= reports/research/trend_following_v3_compare
 TREND_V3_POSTMORTEM_OUTPUT_DIR ?= reports/research/trend_following_v3_postmortem
 TREND_V3_MAX_RUNS ?=
+TREND_V3_EXT_SPLIT ?= train_ext
+EXT_SPLIT = $(if $(filter train,$(SPLIT)),$(TREND_V3_EXT_SPLIT),$(SPLIT))
+TREND_V3_EXT_OUTPUT_DIR ?= reports/research/trend_following_v3_extended/$(EXT_SPLIT)
+TREND_V3_EXT_TRAIN_DIR ?= reports/research/trend_following_v3_extended/train_ext
+TREND_V3_EXT_VALIDATION_DIR ?= reports/research/trend_following_v3_extended/validation_ext
+TREND_V3_EXT_OOS_DIR ?= reports/research/trend_following_v3_extended/oos_ext
+TREND_V3_EXT_COMPARE_OUTPUT_DIR ?= reports/research/trend_following_v3_extended_compare
+EXTENDED_HISTORY_OUTPUT_DIR ?= reports/research/extended_history_availability
+TREND_REGIME_OUTPUT_DIR ?= reports/research/trend_regime_diagnostics
+RESEARCH_DOSSIER_OUTPUT_DIR ?= reports/research/research_decision_dossier
 TRAIN_DIR ?=
 VALIDATION_DIR ?=
 OOS_DIR ?=
@@ -75,7 +85,7 @@ TAIL_LINES ?= 80
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
 .PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch
-.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 postmortem-trend-v3 audit-multisymbol alpha-sweep ablation
+.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-dossier audit-multisymbol audit-extended-history alpha-sweep ablation
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -121,8 +131,13 @@ help:
 		"  make compare-trend-v2" \
 		"  make research-trend-v3 SPLIT=train" \
 		"  make compare-trend-v3" \
+		"  make research-trend-v3-extended SPLIT=train_ext" \
+		"  make compare-trend-v3-extended" \
 		"  make postmortem-trend-v3" \
+		"  make diagnose-trend-regimes  Diagnose 2023-2026 trend regimes and V3 trade attribution" \
+		"  make research-dossier  Archive final research decision and blocked directions" \
 		"  make audit-multisymbol  Audit multi-symbol metadata and sqlite readiness" \
+		"  make audit-extended-history  Audit long-history availability and download plan" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
 		"  make ablation            Entry-filter ablation diagnostics" \
 		"" \
@@ -149,7 +164,10 @@ help:
 		"  HTF_HORIZONS=$(HTF_HORIZONS) HTF_OUTPUT_DIR=$(HTF_OUTPUT_DIR) HTF_COOLDOWN_BARS_5M=$(HTF_COOLDOWN_BARS_5M)" \
 		"  TREND_OUTPUT_DIR=$(TREND_OUTPUT_DIR) TREND_MAX_RUNS=$(TREND_MAX_RUNS)" \
 		"  TREND_V3_OUTPUT_DIR=$(TREND_V3_OUTPUT_DIR) TREND_V3_MAX_RUNS=$(TREND_V3_MAX_RUNS)" \
+		"  TREND_V3_EXT_OUTPUT_DIR=$(TREND_V3_EXT_OUTPUT_DIR) TREND_V3_EXT_COMPARE_OUTPUT_DIR=$(TREND_V3_EXT_COMPARE_OUTPUT_DIR)" \
 		"  TREND_V3_POSTMORTEM_OUTPUT_DIR=$(TREND_V3_POSTMORTEM_OUTPUT_DIR)" \
+		"  EXTENDED_HISTORY_OUTPUT_DIR=$(EXTENDED_HISTORY_OUTPUT_DIR) TREND_REGIME_OUTPUT_DIR=$(TREND_REGIME_OUTPUT_DIR)" \
+		"  RESEARCH_DOSSIER_OUTPUT_DIR=$(RESEARCH_DOSSIER_OUTPUT_DIR)" \
 		"  SPLIT=$(SPLIT) MAX_RUNS=$(MAX_RUNS)"
 
 venv:
@@ -577,6 +595,41 @@ compare-trend-v3:
 		--oos-dir "$(TREND_V3_OOS_DIR)" \
 		--output-dir "$(TREND_V3_COMPARE_OUTPUT_DIR)"
 
+research-trend-v3-extended:
+	@echo "Researching Trend Following V3 extended split=$(EXT_SPLIT) output=$(TREND_V3_EXT_OUTPUT_DIR)"
+	@args=( \
+		scripts/research_trend_following_v3.py \
+		--symbols "$(SYMBOLS)" \
+		--split-scheme extended \
+		--split "$(EXT_SPLIT)" \
+		--timezone "$(TIMEZONE)" \
+		--interval "$(INTERVAL)" \
+		--output-dir "$(TREND_V3_EXT_OUTPUT_DIR)" \
+		--capital "$(CAPITAL)" \
+		--capital-mode portfolio_fixed \
+		--position-sizing fixed_contract \
+		--fixed-size "0.01" \
+		--rate "$(RATE)" \
+		--slippage-mode "$(SLIPPAGE_MODE)" \
+		--slippage "$(SLIPPAGE)" \
+		--max-symbol-weight "0.35" \
+		--max-portfolio-positions "3" \
+		--data-check-strict \
+	); \
+	if [[ "$(origin START)" == "command line" ]]; then args+=(--start "$(START)"); fi; \
+	if [[ "$(origin END)" == "command line" ]]; then args+=(--end "$(END)"); fi; \
+	if [[ -n "$(strip $(TREND_V3_MAX_RUNS))" ]]; then args+=(--max-runs "$(TREND_V3_MAX_RUNS)"); fi; \
+	$(PYTHON) "$${args[@]}"
+
+compare-trend-v3-extended:
+	@echo "Comparing Trend Following V3 extended research across train_ext/validation_ext/oos_ext"
+	$(PYTHON) scripts/compare_trend_following_v3.py \
+		--split-scheme extended \
+		--train-dir "$(TREND_V3_EXT_TRAIN_DIR)" \
+		--validation-dir "$(TREND_V3_EXT_VALIDATION_DIR)" \
+		--oos-dir "$(TREND_V3_EXT_OOS_DIR)" \
+		--output-dir "$(TREND_V3_EXT_COMPARE_OUTPUT_DIR)"
+
 postmortem-trend-v3:
 	@echo "Running Trend Following V3 postmortem diagnostics"
 	$(PYTHON) scripts/postmortem_trend_following_v3.py \
@@ -586,6 +639,21 @@ postmortem-trend-v3:
 		--compare-dir "$(TREND_V3_COMPARE_OUTPUT_DIR)" \
 		--output-dir "$(TREND_V3_POSTMORTEM_OUTPUT_DIR)"
 
+diagnose-trend-regimes:
+	@echo "Diagnosing multi-symbol trend regimes"
+	$(PYTHON) scripts/diagnose_trend_regimes.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--output-dir "$(TREND_REGIME_OUTPUT_DIR)" \
+		--data-check-strict
+
+research-dossier:
+	@echo "Building research decision dossier"
+	$(PYTHON) scripts/build_research_decision_dossier.py \
+		--output-dir "$(RESEARCH_DOSSIER_OUTPUT_DIR)"
+
 audit-multisymbol:
 	@echo "Auditing multi-symbol data readiness"
 	$(PYTHON) scripts/audit_multisymbol_readiness.py \
@@ -593,6 +661,14 @@ audit-multisymbol:
 		--end "$(END)" \
 		--interval "$(INTERVAL)" \
 		--timezone "$(TIMEZONE)"
+
+audit-extended-history:
+	@echo "Auditing extended local history availability without downloading data"
+	$(PYTHON) scripts/audit_extended_history_availability.py \
+		--symbols "$(SYMBOLS)" \
+		--interval "$(INTERVAL)" \
+		--timezone "$(TIMEZONE)" \
+		--output-dir "$(EXTENDED_HISTORY_OUTPUT_DIR)"
 
 alpha-sweep:
 	@if [[ ! -f "$(SANITY_CONFIG)" ]]; then \

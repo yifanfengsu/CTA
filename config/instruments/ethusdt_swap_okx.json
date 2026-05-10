@@ -3,12 +3,11 @@
   "symbol": "ETHUSDT_SWAP_OKX",
   "exchange": "GLOBAL",
   "name": "ETH-USDT-SWAP",
+  "okx_inst_id": "ETH-USDT-SWAP",
+  "product": "SWAP",
   "size": 0.1,
   "pricetick": 0.01,
   "min_volume": 0.01,
   "gateway_name": "OKX",
-  "history_data": true,
-  "okx_inst_id": "ETH-USDT-SWAP",
-  "product": "SWAP",
-  "needs_okx_contract_metadata_refresh": false
+  "history_data": true
 }
