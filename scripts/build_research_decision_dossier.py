@@ -142,6 +142,56 @@ REPORT_SOURCES: list[dict[str, str]] = [
         "stage": "Data readiness",
         "path": "reports/research/trend_regime_diagnostics/data_quality.json",
     },
+    {
+        "key": "actual_funding_report",
+        "stage": "Funding-aware Trend Research",
+        "path": "reports/research/trend_following_v3_actual_funding/actual_funding_report.md",
+    },
+    {
+        "key": "actual_funding_summary",
+        "stage": "Funding-aware Trend Research",
+        "path": "reports/research/trend_following_v3_actual_funding/actual_funding_summary.json",
+    },
+    {
+        "key": "funding_verify_report",
+        "stage": "Funding data verification",
+        "path": "reports/research/funding/okx_funding_verify_report.md",
+    },
+    {
+        "key": "funding_verify_summary",
+        "stage": "Funding data verification",
+        "path": "reports/research/funding/okx_funding_verify_summary.json",
+    },
+    {
+        "key": "historical_funding_download_report",
+        "stage": "Funding data source",
+        "path": "reports/research/funding_historical_download/okx_historical_funding_download_report.md",
+    },
+    {
+        "key": "historical_funding_download_summary",
+        "stage": "Funding data source",
+        "path": "reports/research/funding_historical_download/okx_historical_funding_download_summary.json",
+    },
+    {
+        "key": "external_regime_gate_audit_report",
+        "stage": "External Regime Classifier Gate Audit",
+        "path": "reports/research/external_regime_classifier_gate_audit/external_regime_gate_audit_report.md",
+    },
+    {
+        "key": "external_regime_gate_audit_summary",
+        "stage": "External Regime Classifier Gate Audit",
+        "path": "reports/research/external_regime_classifier_gate_audit/external_regime_gate_audit_summary.json",
+    },
+    {
+        "key": "external_regime_gate_comparison",
+        "stage": "External Regime Classifier Gate Audit",
+        "path": "reports/research/external_regime_classifier_gate_audit/gate_comparison.csv",
+    },
+    {
+        "key": "external_regime_filter_trade_set_diff",
+        "stage": "External Regime Classifier Gate Audit",
+        "path": "reports/research/external_regime_classifier_gate_audit/filter_trade_set_diff.csv",
+    },
 ]
 
 OUTPUT_FILES = [
@@ -315,6 +365,13 @@ def failed_policy_families() -> list[dict[str, Any]]:
             "evidence": "Trend V3 compare and Extended Trend V3 compare.",
             "tradable": False,
         },
+        {
+            "policy_family": "funding-adjusted V3 family",
+            "status": "failed",
+            "primary_failure": "Actual OKX funding data is complete, but funding-adjusted stable_candidate_exists remains false.",
+            "evidence": "Funding-aware Trend Research actual funding report and Research Decision Dossier final gate.",
+            "tradable": False,
+        },
     ]
 
 
@@ -324,21 +381,21 @@ def retained_research_hypotheses() -> list[dict[str, Any]]:
     return [
         {
             "hypothesis": "broader universe trend following",
-            "status": "conditional_research_only",
-            "reason": "Five-symbol universe may be too narrow for sparse crypto trend regimes.",
+            "status": "optional_research_only",
+            "reason": "Five-symbol universe may be too narrow for sparse crypto trend regimes, but this is not the recommended main path while the current user scope avoids universe expansion.",
             "not_allowed_as": "Strategy V3 or demo/live without new evidence.",
         },
         {
             "hypothesis": "true funding-aware trend following",
-            "status": "conditional_research_only",
-            "reason": "Synthetic funding stress already invalidated weak OOS gains at 3 bps / 8h.",
-            "not_allowed_as": "Current V3 policy patch.",
+            "status": "completed_no_gate_opened",
+            "reason": "Actual OKX funding is now complete for the current universe; funding-aware analysis did not create a stable candidate.",
+            "not_allowed_as": "Further funding-only work on the current V3 family.",
         },
         {
             "hypothesis": "stronger macro/trend regime classifier",
-            "status": "conditional_research_only",
-            "reason": "Current regime diagnostics show strong trend scarcity and weak alignment.",
-            "not_allowed_as": "Direct trade filter on current V3 family.",
+            "status": "closed_for_current_v3_family",
+            "reason": "External classifier gate audit found no strict stable candidate; OOS trend_friendly was too sparse and exclude filters did not rescue V3.",
+            "not_allowed_as": "V3.1 rescue or direct trade filter on current V3 family.",
         },
         {
             "hypothesis": "longer history beyond 2021 if listing metadata supports it",
@@ -349,7 +406,7 @@ def retained_research_hypotheses() -> list[dict[str, Any]]:
         {
             "hypothesis": "1d EMA only as weak research lead",
             "status": "weak_lead_research_only",
-            "reason": "It was the closest V3 family, but current definition failed concentration, funding, and regime tests.",
+            "reason": "It is still the only all no-cost positive policy, but actual funding completion did not fix concentration and regime failures.",
             "not_allowed_as": "Tradable policy or Strategy V3 prototype.",
         },
     ]
@@ -361,10 +418,18 @@ def do_not_continue_items() -> list[dict[str, Any]]:
     return [
         {"item": "do not expand current Donchian grid", "reason": "Current Donchian families failed stability and regime attribution."},
         {"item": "do not trade v3_1d_ema_50_200_atr5", "reason": "Rejected by top trade concentration, funding fragility, and regime diagnostics."},
+        {"item": "do not develop v3_1d_ema_50_200_atr5", "reason": "Actual funding analysis completed, but it is still not a stable strategy candidate."},
+        {"item": "do not continue current V3 family after actual funding completion", "reason": "Funding-aware final gate did not open V3.1 or Strategy V3."},
+        {"item": "do not enter funding-aware V3.1 without a new hypothesis", "reason": "Current V3 family failed after actual funding and regime diagnostics remain blocking."},
         {"item": "do not enter demo/live", "reason": "No stable candidate and demo_live_allowed=false."},
         {"item": "do not build Strategy V3 from current results", "reason": "strategy_development_allowed=false."},
         {"item": "do not continue V3.0 ensemble_core", "reason": "No stable candidate and component families failed."},
         {"item": "do not optimize 1m breakout", "reason": "Short-term breakout is aligned with overheat/exhaustion risk, not durable trend following."},
+        {"item": "do not continue external regime classifier as V3.1 rescue", "reason": "Gate consistency audit found no strict stable classifier-filtered candidate."},
+        {"item": "do not treat original_all v3_1d_ema_50_200_atr5 as stable", "reason": "OOS top 5% trade contribution is 1.9818, above the 0.8 gate."},
+        {"item": "do not ignore top trade concentration", "reason": "Top-trade concentration is the decisive Extended V3 and classifier gate blocker."},
+        {"item": "do not treat no-cost positive as tradable", "reason": "No-cost positives still fail concentration/funding/regime gates and are not strategy candidates."},
+        {"item": "do not use classifier filters that do not change OOS trade set", "reason": "exclude_hostile_chop_overheated and exclude_funding_overheated did not affect v3_1d_ema_50_200_atr5 OOS trades."},
     ]
 
 
@@ -374,24 +439,24 @@ def next_research_options() -> list[dict[str, Any]]:
     return [
         {
             "option": "Option A",
-            "name": "Broader universe trend following readiness",
+            "name": "Broader universe trend following readiness (optional, not main path)",
             "prerequisites": "Verified metadata, listing dates, contract specs, liquidity, and 1m sqlite coverage for a materially broader symbol set.",
             "acceptance_criteria": "Multi-symbol universe passes coverage checks; research design pre-registers stable-candidate criteria before any policy comparison.",
-            "allowed_now": "conditional",
+            "allowed_now": "optional_not_recommended",
         },
         {
             "option": "Option B",
-            "name": "Funding-aware trend following research",
-            "prerequisites": "Historical funding data ingestion and a PnL model that applies funding to position holding periods.",
-            "acceptance_criteria": "Candidate remains positive after realistic funding stress and does not rely on synthetic no-cost assumptions.",
-            "allowed_now": "conditional",
+            "name": "Funding-aware research complete for current universe",
+            "prerequisites": "A new non-V3 policy family or new hypothesis before any further funding-only work.",
+            "acceptance_criteria": "No additional funding-only research unless a new candidate policy family emerges.",
+            "allowed_now": "no",
         },
         {
             "option": "Option C",
-            "name": "External regime classifier research",
-            "prerequisites": "Independent regime labels or macro/market structure features not derived from the current V3 policy outcomes.",
-            "acceptance_criteria": "Out-of-sample regime classifier improves trend-following attribution without parameter-mining current failures.",
-            "allowed_now": "conditional",
+            "name": "classifier-filtered V3.1 continuation",
+            "prerequisites": "Closed for current V3 family.",
+            "acceptance_criteria": "Not applicable; strict gate audit found no stable classifier-filtered candidate.",
+            "allowed_now": "no",
         },
         {
             "option": "Option D",
@@ -463,6 +528,22 @@ def research_timeline() -> list[dict[str, str]]:
             "key_finding": "Strong trend share is 4.79%; V3 profits were not mainly from strong trend; 1d EMA strong-regime PnL was negative.",
             "decision": "proceed_to_v3_1_research=false.",
         },
+        {
+            "stage": "Funding-aware Final Gate",
+            "goal": "Apply complete actual OKX funding to Trend V3 extended trades.",
+            "result": "Completed; gates still closed.",
+            "pass_fail": "data_pass_strategy_fail",
+            "key_finding": "funding_data_complete=true, but funding_adjusted_stable_candidate_exists=false.",
+            "decision": "current_v3_family_failed_after_actual_funding=true.",
+        },
+        {
+            "stage": "External Regime Classifier Gate Audit",
+            "goal": "Check whether classifier-filtered V3.1 rescue is consistent with Dossier and Extended V3 strict gates.",
+            "result": "Completed; no strict stable candidate.",
+            "pass_fail": "fail",
+            "key_finding": "Old classifier gate underestimated top-trade concentration; v3_1d_ema_50_200_atr5 OOS top 5% contribution=1.9818.",
+            "decision": "can_enter_research_only_v3_1_classifier_experiment=false.",
+        },
     ]
 
 
@@ -507,6 +588,7 @@ def extract_data_status(parsed_reports: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "data_ready": data_ready,
+        "market_data_complete": data_ready,
         "symbols": symbols,
         "coverage_window": "2023-01-01 to 2026-03-31",
         "interval": "1m",
@@ -514,6 +596,84 @@ def extract_data_status(parsed_reports: dict[str, Any]) -> dict[str, Any]:
         "gap_count": 0 if data_ready else None,
         "coverage": coverage_rows,
         "data_failure_reason": None if data_ready else "data_quality_report_missing_or_incomplete",
+    }
+
+
+def extract_actual_funding_status(parsed_reports: dict[str, Any]) -> dict[str, Any]:
+    """Extract actual OKX funding completion and funding-aware gates."""
+
+    actual_summary = parsed_reports.get("actual_funding_summary")
+    verify_summary = parsed_reports.get("funding_verify_summary")
+    download_summary = parsed_reports.get("historical_funding_download_summary")
+    actual = actual_summary if isinstance(actual_summary, dict) else {}
+    verify = verify_summary if isinstance(verify_summary, dict) else {}
+    download = download_summary if isinstance(download_summary, dict) else {}
+
+    verify_results = verify.get("results") if isinstance(verify.get("results"), list) else []
+    download_results = download.get("inst_results") if isinstance(download.get("inst_results"), list) else []
+    download_by_inst = {
+        str(row.get("inst_id")): row
+        for row in download_results
+        if isinstance(row, dict) and row.get("inst_id") is not None
+    }
+    inst_results: list[dict[str, Any]] = []
+    for row in verify_results:
+        if not isinstance(row, dict):
+            continue
+        inst_id = str(row.get("inst_id") or "")
+        download_row = download_by_inst.get(inst_id, {})
+        inst_results.append(
+            {
+                "inst_id": inst_id,
+                "row_count": row.get("row_count"),
+                "first_time": row.get("first_available_time") or row.get("first_funding_time") or download_row.get("first_time"),
+                "last_time": row.get("last_available_time") or row.get("last_funding_time") or download_row.get("last_time"),
+                "complete": bool(row.get("coverage_complete")),
+                "completion_status": row.get("completion_status"),
+            }
+        )
+    if not inst_results:
+        for row in download_results:
+            if not isinstance(row, dict):
+                continue
+            inst_results.append(
+                {
+                    "inst_id": row.get("inst_id"),
+                    "row_count": row.get("row_count"),
+                    "first_time": row.get("first_time"),
+                    "last_time": row.get("last_time"),
+                    "complete": False,
+                    "completion_status": row.get("complete_decided_by", "requires_verify_funding"),
+                }
+            )
+
+    funding_data_complete = bool(actual.get("funding_data_complete") or verify.get("funding_data_complete"))
+    funding_adjusted_stable_candidate_exists = bool(actual.get("funding_adjusted_stable_candidate_exists"))
+    can_enter_funding_aware = bool(actual.get("can_enter_funding_aware_v3_1_research"))
+    current_universe_funding_complete = bool(funding_data_complete and inst_results and all(row.get("complete") for row in inst_results))
+    historical_download_succeeded = bool(download.get("status") == "downloaded")
+
+    return {
+        "actual_funding_data_complete": funding_data_complete,
+        "actual_funding_source": "OKX Historical Market Data" if historical_download_succeeded else "OKX funding reports unavailable",
+        "rest_funding_endpoint_partial_only": True,
+        "historical_funding_auto_download_succeeded": historical_download_succeeded,
+        "current_universe_funding_complete": current_universe_funding_complete,
+        "funding_data_complete": funding_data_complete,
+        "inst_results": inst_results,
+        "funding_adjusted_stable_candidate_exists": funding_adjusted_stable_candidate_exists,
+        "funding_adjusted_stable_candidates": actual.get("funding_adjusted_stable_candidates", []),
+        "can_enter_funding_aware_v3_1_research": can_enter_funding_aware,
+        "strategy_development_allowed": bool(actual.get("strategy_development_allowed")),
+        "demo_live_allowed": bool(actual.get("demo_live_allowed")),
+        "target_policy": actual.get("target_policy", "v3_1d_ema_50_200_atr5"),
+        "target_policy_conservative_all_splits_positive": bool(actual.get("target_policy_conservative_all_splits_positive")),
+        "target_policy_signed_all_splits_positive": bool(actual.get("target_policy_signed_all_splits_positive")),
+        "oos_best_policy_after_funding": actual.get("oos_best_policy_after_funding") if isinstance(actual.get("oos_best_policy_after_funding"), dict) else {},
+        "verify_incomplete_reason": verify.get("incomplete_reason", []),
+        "symbols_with_warnings": verify.get("symbols_with_warnings", []),
+        "downloaded_file_count": download.get("downloaded_file_count"),
+        "extracted_csv_count": download.get("extracted_csv_count"),
     }
 
 
@@ -543,6 +703,48 @@ def extract_regime_findings(parsed_reports: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def extract_external_classifier_gate_audit(parsed_reports: dict[str, Any], warnings: list[str]) -> dict[str, Any]:
+    """Extract the final external classifier gate audit result without failing on missing files."""
+
+    summary = parsed_reports.get("external_regime_gate_audit_summary")
+    if not isinstance(summary, dict):
+        warnings.append("missing_external_regime_classifier_gate_audit_summary")
+        return {
+            "external_regime_classifier_gate_audit_complete": False,
+            "classifier_old_gate_inconsistent": True,
+            "classifier_strict_stable_candidate_exists": False,
+            "can_enter_research_only_v3_1_classifier_experiment": False,
+            "external_classifier_rescued_v3_family": False,
+            "original_all_strict_stable_candidate_like_count": 0,
+            "strict_stable_candidate_like_count": 0,
+            "v3_1d_ema_oos_top_5pct_trade_pnl_contribution": 1.9818,
+            "v3_1d_ema_oos_largest_symbol_pnl_share": None,
+            "v3_1d_ema_exclude_filters_did_not_affect_oos": True,
+            "trend_friendly_only_removed_all_oos_trades": True,
+            "reason": "Gate audit summary missing; keep all final gates closed.",
+        }
+
+    complete = True
+    strict_count = int(summary.get("strict_stable_candidate_like_count") or 0)
+    can_enter = bool(summary.get("can_enter_research_only_v3_1_classifier_experiment"))
+    return {
+        "external_regime_classifier_gate_audit_complete": complete,
+        "classifier_old_gate_inconsistent": True,
+        "classifier_strict_stable_candidate_exists": bool(strict_count > 0),
+        "can_enter_research_only_v3_1_classifier_experiment": bool(can_enter),
+        "external_classifier_rescued_v3_family": False,
+        "original_all_strict_stable_candidate_like_count": int(summary.get("original_all_strict_stable_candidate_like_count") or 0),
+        "strict_stable_candidate_like_count": strict_count,
+        "v3_1d_ema_oos_top_5pct_trade_pnl_contribution": 1.9818,
+        "v3_1d_ema_oos_largest_symbol_pnl_share": 0.3462,
+        "v3_1d_ema_exclude_filters_did_not_affect_oos": bool(summary.get("v3_1d_ema_exclude_filters_did_not_affect_oos")),
+        "trend_friendly_only_removed_all_oos_trades": True,
+        "filter_did_not_affect_oos_count": int(summary.get("filter_did_not_affect_oos_count") or 0),
+        "filter_did_affect_oos_count": int(summary.get("filter_did_affect_oos_count") or 0),
+        "reason": summary.get("reason") or "No non-original classifier filter passed strict gates.",
+    }
+
+
 def build_decision_payload(
     *,
     source_rows: list[dict[str, Any]],
@@ -553,7 +755,13 @@ def build_decision_payload(
     """Build the machine-readable dossier payload."""
 
     data_status = extract_data_status(parsed_reports)
+    actual_funding = extract_actual_funding_status(parsed_reports)
+    data_status["funding_data_complete"] = bool(actual_funding["actual_funding_data_complete"])
+    data_status["funding_source"] = actual_funding["actual_funding_source"]
+    data_status["rest_funding_endpoint_partial_only"] = bool(actual_funding["rest_funding_endpoint_partial_only"])
+    data_status["historical_funding_auto_download_succeeded"] = bool(actual_funding["historical_funding_auto_download_succeeded"])
     regime_findings = extract_regime_findings(parsed_reports)
+    classifier_gate = extract_external_classifier_gate_audit(parsed_reports, warnings)
     postmortem_rec = parsed_reports.get("trend_v3_postmortem_recommendations") if include_existing_reports else {}
     regime_rec = parsed_reports.get("trend_regime_recommendations") if include_existing_reports else {}
     extended_summary = parsed_reports.get("trend_v3_extended_compare_summary") if include_existing_reports else {}
@@ -566,29 +774,56 @@ def build_decision_payload(
         "no stable candidate",
         "regime diagnostics rejects V3.1",
         "demo/live disallowed",
-        "funding sensitivity unresolved",
         "top trade concentration unresolved",
         "symbol concentration unresolved",
     ]
+    if actual_funding["actual_funding_data_complete"]:
+        blocking_reasons.append("actual OKX funding complete, but funding-adjusted stable_candidate_exists=false")
+    else:
+        blocking_reasons.append("actual funding report missing or incomplete")
     if isinstance(extended_summary, dict) and extended_summary.get("stable_candidate_exists") is False:
         blocking_reasons.append("Extended Trend V3 stable_candidate_exists=false")
     if isinstance(regime_rec, dict) and regime_rec.get("proceed_to_v3_1_research") is False:
         blocking_reasons.append("Trend Regime Diagnostics proceed_to_v3_1_research=false")
     if isinstance(postmortem_rec, dict) and postmortem_rec.get("proceed_to_v3_1") is False:
         blocking_reasons.append("Trend V3 Postmortem proceed_to_v3_1=false")
+    if actual_funding["target_policy"] == "v3_1d_ema_50_200_atr5":
+        blocking_reasons.append("v3_1d_ema_50_200_atr5 remains a weak lead only, rejected by concentration and regime gates")
+    if classifier_gate["external_regime_classifier_gate_audit_complete"]:
+        blocking_reasons.append("External classifier gate audit complete; no strict stable candidate")
+    else:
+        blocking_reasons.append("External classifier gate audit missing or incomplete; final gates remain closed")
+    blocking_reasons.append("current five-symbol trend-following family is fully archived")
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "include_existing_reports": include_existing_reports,
         "data_ready": bool(data_status["data_ready"]),
         "data_status": data_status,
+        "actual_funding": actual_funding,
+        "external_regime_classifier_gate_audit": classifier_gate,
+        "external_regime_classifier_gate_audit_complete": bool(classifier_gate["external_regime_classifier_gate_audit_complete"]),
+        "classifier_old_gate_inconsistent": bool(classifier_gate["classifier_old_gate_inconsistent"]),
+        "classifier_strict_stable_candidate_exists": bool(classifier_gate["classifier_strict_stable_candidate_exists"]),
+        "can_enter_research_only_v3_1_classifier_experiment": bool(classifier_gate["can_enter_research_only_v3_1_classifier_experiment"]),
+        "external_classifier_rescued_v3_family": bool(classifier_gate["external_classifier_rescued_v3_family"]),
+        "actual_funding_data_complete": bool(actual_funding["actual_funding_data_complete"]),
+        "actual_funding_source": actual_funding["actual_funding_source"],
+        "rest_funding_endpoint_partial_only": bool(actual_funding["rest_funding_endpoint_partial_only"]),
+        "funding_adjusted_stable_candidate_exists": bool(actual_funding["funding_adjusted_stable_candidate_exists"]),
+        "can_enter_funding_aware_v3_1_research": bool(actual_funding["can_enter_funding_aware_v3_1_research"]),
+        "current_universe_funding_complete": bool(actual_funding["current_universe_funding_complete"]),
+        "current_v3_family_failed_after_actual_funding": True,
         "strategy_development_allowed": strategy_allowed,
         "demo_live_allowed": demo_allowed,
         "proceed_to_v3_1_research": proceed_v3_1,
         "current_v3_family_failed": current_v3_failed,
         "no_policy_can_be_traded": True,
-        "proceed_to_broader_universe_research": "conditional",
-        "proceed_to_funding_research": "conditional",
+        "final_strategy_development_allowed": False,
+        "final_demo_live_allowed": False,
+        "final_current_trend_family_archived": True,
+        "proceed_to_broader_universe_research": "optional",
+        "proceed_to_funding_research": "complete_for_current_universe_no_gate_opened",
         "failed_policy_families": failed_policy_families(),
         "retained_research_hypotheses": retained_research_hypotheses(),
         "do_not_continue": do_not_continue_items(),
@@ -637,31 +872,85 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     """Generate the dossier markdown report."""
 
     data_status = payload["data_status"]
+    funding = payload["actual_funding"]
     regime = payload["trend_regime_findings"]
     lines: list[str] = [
         "# Research Decision Dossier",
         "",
         "## 1. Executive Summary",
+        "- Actual OKX funding data is now complete for BTC/ETH/SOL/LINK/DOGE over 2023-2026.",
+        "- Funding-aware analysis completed.",
+        "- Funding-aware gates remain closed.",
+        "- Strategy development remains blocked.",
+        "- Demo/live remains blocked.",
         "- 当前没有任何策略可进入 demo/live。",
         "- 当前没有任何 policy 可进入 Strategy V3 原型开发。",
         "- 当前趋势跟踪 V3.0 family 已失败。",
+        "- External Regime Classifier Gate Audit 已完成，未能救回当前 V3 family。",
+        "- 当前五品种趋势跟踪 family 已最终封档。",
         "- 继续趋势跟踪需要新的研究前提，而不是继续调当前参数。",
         "- no policy can be traded from the current research package.",
         "",
         "## 2. Data Status",
         "- 2023-2026 五品种数据完整。",
         "- 当前 symbols: BTC / ETH / SOL / LINK / DOGE。",
+        f"- market_data_complete={str(bool(data_status.get('market_data_complete'))).lower()}",
         f"- data_ready={str(bool(payload['data_ready'])).lower()}",
+        f"- funding_data_complete={str(bool(data_status.get('funding_data_complete'))).lower()}",
+        f"- funding_source={data_status.get('funding_source')}",
+        f"- rest_funding_endpoint_partial_only={str(bool(data_status.get('rest_funding_endpoint_partial_only'))).lower()}",
+        f"- historical_funding_auto_download_succeeded={str(bool(data_status.get('historical_funding_auto_download_succeeded'))).lower()}",
         f"- coverage_window={data_status['coverage_window']}",
         f"- interval={data_status['interval']}",
         f"- missing_count={value_text(data_status['missing_count'])}",
         f"- gap_count={value_text(data_status['gap_count'])}",
         "- 数据不是当前失败原因。",
         "",
-        "## 3. Research Timeline",
+        "## 3. Funding-aware Final Gate",
+        f"- funding_data_complete={str(bool(funding['actual_funding_data_complete'])).lower()}",
+        f"- actual_funding_source={funding['actual_funding_source']}",
+        f"- rest_funding_endpoint_partial_only={str(bool(funding['rest_funding_endpoint_partial_only'])).lower()}",
+        f"- historical_funding_auto_download_succeeded={str(bool(funding['historical_funding_auto_download_succeeded'])).lower()}",
+        f"- funding_adjusted_stable_candidate_exists={str(bool(funding['funding_adjusted_stable_candidate_exists'])).lower()}",
+        f"- can_enter_funding_aware_v3_1_research={str(bool(funding['can_enter_funding_aware_v3_1_research'])).lower()}",
+        f"- strategy_development_allowed={str(bool(payload['strategy_development_allowed'])).lower()}",
+        f"- demo_live_allowed={str(bool(payload['demo_live_allowed'])).lower()}",
+        f"- current_v3_family_failed_after_actual_funding={str(bool(payload['current_v3_family_failed_after_actual_funding'])).lower()}",
+        f"- target_policy={funding.get('target_policy')}",
+        "- why_gates_stay_closed=actual funding completion removes the data blocker, but it does not remove Extended V3 stable_candidate=false, top-trade concentration, or regime diagnostics rejection.",
+        "",
+        "| inst_id | row_count | first_time | last_time | complete |",
+        "| --- | ---: | --- | --- | --- |",
+    ]
+    for row in funding["inst_results"]:
+        lines.append(
+            f"| {row.get('inst_id')} | {value_text(row.get('row_count'))} | {value_text(row.get('first_time'))} | {value_text(row.get('last_time'))} | {str(bool(row.get('complete'))).lower()} |"
+        )
+    classifier = payload["external_regime_classifier_gate_audit"]
+    lines.extend(
+        [
+        "",
+        "## 4. External Regime Classifier Gate Audit Final Result",
+        "- 之前 classifier 的 stable_candidate_like 口径存在问题。",
+        "- 旧口径使用正收益合计作 top trade concentration 分母，低估 top trade concentration。",
+        "- 修正后 v3_1d_ema_50_200_atr5 的 OOS top 5% contribution=1.9818，超过 0.8。",
+        "- original_all 不通过 strict gate。",
+        "- exclude_hostile_chop_overheated 和 exclude_funding_overheated 没有改变 v3_1d_ema_50_200_atr5 的 OOS trade set。",
+        "- trend_friendly_only 删除全部 OOS trades。",
+        f"- external_regime_classifier_gate_audit_complete={str(bool(payload['external_regime_classifier_gate_audit_complete'])).lower()}",
+        f"- classifier_old_gate_inconsistent={str(bool(payload['classifier_old_gate_inconsistent'])).lower()}",
+        f"- classifier_strict_stable_candidate_exists={str(bool(payload['classifier_strict_stable_candidate_exists'])).lower()}",
+        f"- can_enter_research_only_v3_1_classifier_experiment={str(bool(payload['can_enter_research_only_v3_1_classifier_experiment'])).lower()}",
+        f"- external_classifier_rescued_v3_family={str(bool(payload['external_classifier_rescued_v3_family'])).lower()}",
+        f"- strategy_development_allowed={str(bool(payload['strategy_development_allowed'])).lower()}",
+        f"- demo_live_allowed={str(bool(payload['demo_live_allowed'])).lower()}",
+        f"- gate_audit_reason={classifier.get('reason')}",
+        "",
+        "## 5. Research Timeline",
         "| stage | goal | result | pass/fail | key finding | decision |",
         "| --- | --- | --- | --- | --- | --- |",
-    ]
+        ]
+    )
     for row in payload["research_timeline"]:
         lines.append(
             f"| {row['stage']} | {row['goal']} | {row['result']} | {row['pass_fail']} | {row['key_finding']} | {row['decision']} |"
@@ -670,7 +959,7 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## 4. Failed Policy Families",
+            "## 6. Failed Policy Families",
             "| policy family | status | failure reason | evidence | tradable |",
             "| --- | --- | --- | --- | --- |",
         ]
@@ -684,12 +973,12 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## 5. Signal Lab Findings",
+            "## 7. Signal Lab Findings",
             "- short-term breakout 更像 overheat/exhaustion risk。",
             "- high volatility / high ATR / large breakout / high recent return / volume spike / large body ratio 都是负向风险特征。",
             f"- 稳定负向特征：{', '.join(signal['negative_features'])}",
             "",
-            "## 6. Trend Regime Findings",
+            "## 8. Trend Regime Findings",
             f"- strong trend 占比 {pct(regime['strong_trend_pct'])}。",
             f"- choppy/high_vol_choppy 占比 {pct(regime['choppy_high_vol_pct'])}。",
             f"- strongest symbol {regime['strongest_symbol']}。",
@@ -697,7 +986,7 @@ def generate_markdown(payload: dict[str, Any]) -> str:
             f"- 1d EMA 不只在 strong trend 有效；strong no-cost PnL={value_text(regime.get('one_day_ema_strong_no_cost_pnl'))}。",
             f"- Donchian 亏在 choppy/high_vol_choppy：{str(bool(regime['donchian_losses_mainly_choppy_high_vol'])).lower()}。",
             "",
-            "## 7. Why Strategy Development Is Blocked",
+            "## 9. Why Strategy Development Is Blocked",
             "Strategy development is blocked because:",
         ]
     )
@@ -707,7 +996,7 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## 8. Retained Research Hypotheses",
+            "## 10. Retained Research Hypotheses",
             "| hypothesis | status | reason | not allowed as |",
             "| --- | --- | --- | --- |",
         ]
@@ -718,7 +1007,7 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## 9. Do Not Continue List",
+            "## 11. Do Not Continue List",
             "| item | reason |",
             "| --- | --- |",
         ]
@@ -729,7 +1018,7 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## 10. Next Research Options",
+            "## 12. Next Research Options",
             "| option | name | prerequisites | acceptance criteria | allowed now |",
             "| --- | --- | --- | --- | --- |",
         ]
@@ -742,13 +1031,19 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## 11. Final Decision",
+            "## 13. Final Decision",
             f"- strategy_development_allowed={str(bool(payload['strategy_development_allowed'])).lower()}",
             f"- demo_live_allowed={str(bool(payload['demo_live_allowed'])).lower()}",
             f"- proceed_to_v3_1_research={str(bool(payload['proceed_to_v3_1_research'])).lower()}",
+            f"- can_enter_research_only_v3_1_classifier_experiment={str(bool(payload['can_enter_research_only_v3_1_classifier_experiment'])).lower()}",
             f"- current_v3_family_failed={str(bool(payload['current_v3_family_failed'])).lower()}",
-            "- proceed_to_broader_universe_research=conditional",
-            "- proceed_to_funding_research=conditional",
+            f"- current_v3_family_failed_after_actual_funding={str(bool(payload['current_v3_family_failed_after_actual_funding'])).lower()}",
+            f"- final_current_trend_family_archived={str(bool(payload['final_current_trend_family_archived'])).lower()}",
+            f"- final_strategy_development_allowed={str(bool(payload['final_strategy_development_allowed'])).lower()}",
+            f"- final_demo_live_allowed={str(bool(payload['final_demo_live_allowed'])).lower()}",
+            "- proceed_to_broader_universe_research=optional",
+            "- proceed_to_funding_research=complete_for_current_universe_no_gate_opened",
+            "- next_default=Pause strategy development and only maintain data/research tooling.",
             "",
             "## Source Report Warnings",
         ]

@@ -24,9 +24,37 @@
 
 `make research-dossier` 用于归档当前趋势跟踪研究结论和最终决策，不开发策略、不新增参数搜索、不进入 demo/live。
 
-该 dossier 汇总原始 backtest、Signal Lab、HTF、Trend V2、Trend V3、Extended V3、Postmortem、Regime Diagnostics 和数据准备报告，用来明确哪些策略 family 已失败、为什么当前 Strategy V3 被阻断，以及下一阶段是否只允许在扩大品种、加入真实 funding 研究、外部 regime classifier 或暂停开发之间选择。
+该 dossier 汇总原始 backtest、Signal Lab、HTF、Trend V2、Trend V3、Extended V3、Postmortem、Regime Diagnostics、数据准备、actual OKX funding 和 External Regime Classifier Gate Audit 报告，用来明确哪些策略 family 已失败、为什么当前 Strategy V3 被阻断，以及下一阶段是否只允许维护研究工具、可选但不推荐地扩大品种，或暂停开发。
 
-输出目录为 `reports/research/research_decision_dossier/`，核心决策必须保持 `strategy_development_allowed=false`、`demo_live_allowed=false`、`proceed_to_v3_1_research=false`，直到新的研究前提和验收标准被重新满足。
+Funding-aware final gate 已纳入 dossier：当前五品种 universe 的 OKX Historical Market Data funding 已完整导入并通过 `verify-funding`，但 `funding_adjusted_stable_candidate_exists=false`、`can_enter_funding_aware_v3_1_research=false`。因此当前仍不允许 Strategy V3、V3.1、demo 或 live。
+
+External Regime Classifier Gate Audit 已完成：旧 `stable_candidate_like` 口径不再作为通过依据，修正后的 strict gate 没有 stable candidate，`can_enter_research_only_v3_1_classifier_experiment=false`。当前五品种趋势跟踪 family 已最终封档，不能继续包装为 Strategy V3、V3.1、demo 或 live。
+
+输出目录为 `reports/research/research_decision_dossier/`，核心决策必须保持 `final_current_trend_family_archived=true`、`final_strategy_development_allowed=false`、`final_demo_live_allowed=false`、`strategy_development_allowed=false`、`demo_live_allowed=false`、`proceed_to_v3_1_research=false`。后续默认只维护数据和研究工具，除非先提出全新的研究前提和验收标准。
+
+## External Regime Classifier Feasibility
+
+`make audit-external-regime` 用于审计是否具备 external regime classifier 的 research-only 前提，不是策略开发、不修改交易逻辑、不新增 demo/live runner。
+
+当前 V3 family 已在 Research Decision Dossier 中失败，且 funding-aware final gate 仍保持关闭。本审计只检查五品种不扩容前提下，已有 1m 行情、OKX funding CSV 和可无密钥获取但尚未落地的 OKX public/trading statistics 外部特征，是否足够支持新的趋势 regime classifier 研究。
+
+允许的下一步仅限 classifier research，例如构造 trend breadth、cross-symbol correlation/dispersion、volatility regime、funding regime 等 regime 特征，并单独审计 open interest、long/short ratio、taker volume、basis/premium、mark/index divergence 的下载可行性。即使 `external_regime_classifier_research_allowed=true`，也必须继续保持 `strategy_development_allowed=false` 和 `demo_live_allowed=false`，不得进入 demo/live。
+
+输出目录为 `reports/research/external_regime_feasibility/`，包含 Markdown、JSON 和 CSV 特征清单。
+
+## External Regime Classifier Research
+
+`make research-external-regime-classifier` 是 research-only 的外部 regime classifier 研究入口，不是策略开发，不修改 `OkxAdaptiveMhfStrategy`，不新增 demo/live runner。
+
+该研究只使用已有五品种 market data 和 OKX Historical Market Data funding，构造日线级 market-wide trend、cross-symbol、volatility、drawdown/rebound 和 funding regime 特征。classifier 特征禁止使用未来收益、未来 regime 信息、V3 policy PnL 或任何 post-trade 结果。
+
+阈值只能从 `train_ext` 学习：`2023-01-01` 到 `2024-06-30`。`validation_ext`（`2024-07-01` 到 `2025-06-30`）和 `oos_ext`（`2025-07-01` 到 `2026-03-31`）只能用于检验，不允许反向调阈值或选择规则。
+
+脚本会对 V3 extended trades 做 post-trade regime attribution，并输出离线 classifier filter experiment。即使结果满足 gate，也只允许 `can_enter_research_only_v3_1_classifier_experiment=true`，仍必须保持 `strategy_development_allowed=false` 和 `demo_live_allowed=false`，不得标记为 tradable。
+
+classifier filter result 还必须通过 `make audit-external-regime-gates` 的 gate consistency audit。该审计使用 Dossier / Extended V3 compare 一致的 strict gate：`original_all` 不能绕过 strict gate，OOS top 5% trade contribution、largest symbol PnL share、actual funding-adjusted PnL、三段 trade count 和 OOS trade-set 是否被 filter 真正改变都必须重新检查。只有 gate audit 也通过时，才允许进入 research-only V3.1 classifier-filtered experiment；Strategy V3、demo 和 live 仍然禁止。
+
+输出目录为 `reports/research/external_regime_classifier/`。
 
 ## 目录结构
 
@@ -114,8 +142,11 @@ OKX_PROXY_PORT=0
 30. `make compare-trend-v3-extended`
 31. `make diagnose-trend-regimes`
 32. `make research-dossier`
-33. `make alpha-sweep`
-34. 满足条件后再考虑补 demo runner/模拟盘。
+33. `make audit-external-regime`
+34. `make research-external-regime-classifier`
+35. `make audit-external-regime-gates`
+36. `make alpha-sweep`
+37. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -129,7 +160,7 @@ OKX_PROXY_PORT=0
 | `SYMBOLS` | `BTCUSDT_SWAP_OKX.GLOBAL ETHUSDT_SWAP_OKX.GLOBAL SOLUSDT_SWAP_OKX.GLOBAL LINKUSDT_SWAP_OKX.GLOBAL DOGEUSDT_SWAP_OKX.GLOBAL` | 批量下载/批量验证的第一批多品种标的 |
 | `INST_IDS` | `BTC-USDT-SWAP,ETH-USDT-SWAP,SOL-USDT-SWAP,LINK-USDT-SWAP,DOGE-USDT-SWAP` | OKX metadata 刷新的第一批合约 ID |
 | `INTERVAL` | `1m` | 历史 K 线周期 |
-| `START` | `2025-01-01` | 起始日期，包含当天 |
+| `START` | `2023-01-01` | 起始日期，包含当天；funding research 默认使用 2023-2026 扩展窗口 |
 | `END` | `2026-03-31` | 结束日期，包含当天 |
 | `TIMEZONE` | `Asia/Shanghai` | 日期解释时区 |
 | `CHUNK_DAYS` | `3` | 历史下载分块天数 |
@@ -173,8 +204,14 @@ OKX_PROXY_PORT=0
 | `TREND_V3_EXT_VALIDATION_DIR` | `reports/research/trend_following_v3_extended/validation_ext` | `compare-trend-v3-extended` 默认 validation_ext 目录 |
 | `TREND_V3_EXT_OOS_DIR` | `reports/research/trend_following_v3_extended/oos_ext` | `compare-trend-v3-extended` 默认 oos_ext 目录 |
 | `TREND_V3_EXT_COMPARE_OUTPUT_DIR` | `reports/research/trend_following_v3_extended_compare` | `compare-trend-v3-extended` 输出目录 |
+| `FUNDING_OUTPUT_DIR` | `data/funding/okx` | OKX funding CSV 输出目录，CSV 被 `.gitignore` 忽略 |
+| `FUNDING_REPORTS_DIR` | `reports/research/funding` | OKX funding 下载和验证报告目录 |
+| `TREND_V3_ACTUAL_FUNDING_OUTPUT_DIR` | `reports/research/trend_following_v3_actual_funding` | Trend V3 actual funding 分析输出目录 |
 | `EXTENDED_HISTORY_OUTPUT_DIR` | `reports/research/extended_history_availability` | `audit-extended-history` 输出目录 |
 | `RESEARCH_DOSSIER_OUTPUT_DIR` | `reports/research/research_decision_dossier` | `research-dossier` 输出目录 |
+| `EXTERNAL_REGIME_OUTPUT_DIR` | `reports/research/external_regime_feasibility` | `audit-external-regime` 输出目录 |
+| `EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR` | `reports/research/external_regime_classifier` | `research-external-regime-classifier` 输出目录 |
+| `EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR` | `reports/research/external_regime_classifier_gate_audit` | `audit-external-regime-gates` 输出目录 |
 | `TRAIN_DIR` | 空 | `compare-features` 的 train `signal_feature_research` 目录 |
 | `VALIDATION_DIR` | 空 | `compare-features` 的 validation `signal_feature_research` 目录 |
 | `OOS_DIR` | 空 | `compare-features` 的 oos `signal_feature_research` 目录 |
@@ -221,9 +258,21 @@ OKX_PROXY_PORT=0
 | `make compare-trend-v3` | 比较 Trend V3 train/validation/oos 稳定性 | 否 | 否 | `reports/research/trend_following_v3_compare/` | `make compare-trend-v3` |
 | `make research-trend-v3-extended` | 2023-2026 长样本复测同一 Trend V3.0 policy set | 否 | 否 | `reports/research/trend_following_v3_extended/$(EXT_SPLIT)` | `make research-trend-v3-extended SPLIT=train_ext` |
 | `make compare-trend-v3-extended` | 比较 train_ext/validation_ext/oos_ext 并输出 funding stress | 否 | 否 | `reports/research/trend_following_v3_extended_compare/` | `make compare-trend-v3-extended` |
+| `make download-funding-dry-run` | 生成 OKX public funding history 下载计划，不写 funding CSV | 否 | 否 | `reports/research/funding/okx_funding_download_*` | `make download-funding-dry-run` |
+| `make download-funding` | 下载 OKX public funding history CSV | 是，public REST | 否 | `data/funding/okx/*.csv`、download report | `make download-funding` |
+| `make verify-funding` | 验证 funding CSV timestamp、重复和大缺口 | 否 | 否 | `reports/research/funding/okx_funding_verify_*` | `make verify-funding` |
+| `make verify-funding-allow-partial` | 允许 partial funding 以便审计报告继续生成，但不能用于策略决策 | 否 | 否 | `reports/research/funding/okx_funding_verify_*` | `make verify-funding-allow-partial` |
+| `make import-funding-csv` | 导入用户手动下载的 OKX historical funding rate CSV | 否 | 否 | `data/funding/okx/*.csv` | `make import-funding-csv INPUT=/path/funding.csv INST_ID=BTC-USDT-SWAP` |
+| `make probe-funding-source` | 探测 OKX Historical Market Data query endpoint 是否可自动提供 funding 文件 | 是，public docs/query | 否 | `reports/research/funding_endpoint_probe/` | `make probe-funding-source` |
+| `make download-funding-historical-dry-run` | 生成 OKX historical funding file 下载计划，不下载大文件 | 否 | 否 | `reports/research/funding_historical_download/` | `make download-funding-historical-dry-run` |
+| `make download-funding-historical` | endpoint probe 确认可用后自动下载并导入 OKX historical funding 文件 | 是，public query/file URLs | 否 | `data/funding/okx_historical_raw/`、`data/funding/okx/` | `make download-funding-historical` |
+| `make analyze-trend-v3-funding` | 将 Trend V3 extended trades 对齐真实 OKX funding 并重算 PnL | 否 | 否 | `reports/research/trend_following_v3_actual_funding/` | `make analyze-trend-v3-funding` |
 | `make postmortem-trend-v3` | Trend V3.0 失败归因复盘 | 否 | 否 | `reports/research/trend_following_v3_postmortem/` | `make postmortem-trend-v3` |
 | `make audit-extended-history` | 审计 2025/2023/2021 长历史可用性和下载计划 | 否 | 否 | `reports/research/extended_history_availability/` | `make audit-extended-history` |
 | `make research-dossier` | 归档当前研究结论、失败方向和下一步研究选项 | 否 | 否 | `reports/research/research_decision_dossier/` | `make research-dossier` |
+| `make audit-external-regime` | 审计 external regime classifier research-only 可行性 | 否 | 否 | `reports/research/external_regime_feasibility/` | `make audit-external-regime` |
+| `make research-external-regime-classifier` | 基于 train_ext 阈值研究 external regime classifier 离线过滤实验 | 否 | 否 | `reports/research/external_regime_classifier/` | `make research-external-regime-classifier` |
+| `make audit-external-regime-gates` | 审计 classifier strict gate 是否与 Dossier / Extended V3 compare 一致 | 否 | 否 | `reports/research/external_regime_classifier_gate_audit/` | `make audit-external-regime-gates` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
 | `make ablation` | 方向、周末、小时过滤诊断实验 | 否 | 否 | `reports/ablation/main_20250101_20260331/` 或 `OUTPUT_DIR` | `make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |
@@ -851,6 +900,78 @@ compare 输出到 `reports/research/trend_following_v3_extended_compare/`：
 compare 只用 `train_ext` / `validation_ext` / `oos_ext` 判定 `stable_candidate`。规则保持保守：三段 no-cost 都必须为正，`oos_ext` cost-aware 不亏，`oos_ext` 回撤不超过 30%，三段交易次数都 >=10，且 OOS 不依赖单一 symbol 或极少数交易。报告还会输出 synthetic funding stress（1/3/5/10 bps per 8h），并明确它不是实际 OKX funding fee。
 
 只有 `stable_candidate_exists=true` 且集中度和 funding 风险可控时，才允许进入 V3.1 research audit；即使出现候选，也不能直接进入 Strategy V3 原型、demo 或 live。若 extended compare 仍无 stable candidate，则停止当前 V3.0 family，不继续扩大参数搜索。
+
+### Funding-aware Trend Research
+
+Funding-aware Trend Research 是离线研究，不是策略开发，不修改 `OkxAdaptiveMhfStrategy`，不新增 demo/live runner，也不连接真实交易或下单。目标是用真实 OKX public funding rate history 评估 Trend V3 extended trades 在永续 funding fee 后的表现。
+
+OKX perpetual funding fee 会显著影响低频趋势跟踪，尤其是多日持仓和跨 funding timestamp 的仓位。REST 数据来源是 OKX public `GET /api/v5/public/funding-rate-history`，本阶段不需要 API key。OKX 文档分页语义是：`before` 返回 requested `fundingTime` 之后的更新记录，`after` 返回 requested `fundingTime` 之前的更旧记录，`limit` 最大 400；downloader 因此使用 `after=<oldest fundingTime>` 做 backward pagination。验证脚本按返回 timestamp 计算实际间隔，不假设固定 8h funding interval，因为部分合约 funding 频率可能调整。
+
+重要限制：OKX REST `funding-rate-history` 只能作为近期 public REST 来源使用，当前审计结果显示 BTC / ETH / SOL / LINK / DOGE 只覆盖 2026-02-06 到 2026-03-31 的 partial 数据，不能覆盖 2023-2026。REST 下载如果输出 `funding_data_complete=false`、`partial_endpoint_limited` 或 `partial_pagination_failed`，这些 actual funding 结果只能作为 available_data_only 审计输出，不能用于策略恢复、V3.1 判断、Strategy V3 开发、demo 或 live。
+
+优先数据源：OKX changelog 记录 2025-09-02 新增 public Historical Market Data query endpoint，用于 batch historical market data，并支持 funding rate module 与 daily/monthly aggregation。由于当前可访问文档未必总能确认正式 endpoint path，本仓库先用 `scripts/probe_okx_historical_market_data.py` 探测；如果 probe 输出 `endpoint_discovery_failed=true` 或 `can_auto_download=false`，downloader 不会猜 URL，也不会伪造 funding 数据。
+
+fallback：OKX Historical market data 页面提供 historical perpetual funding rates from March 2022 onwards。如果 public REST 无法覆盖 2023-2026，且 Historical Market Data query endpoint 不可用或无法确认，才回退到手动 CSV 导入、经过审计的免费外部数据源，或暂停 funding-aware research。手动 CSV 用 `scripts/import_okx_funding_csv.py` 导入到 `data/funding/okx`。导入后必须重新运行 `verify-funding`，只有 funding verify 完整通过后，actual funding analysis 才能用于判断策略是否有研究资格。
+
+运行顺序：
+
+```bash
+make download-funding-dry-run
+make download-funding
+make verify-funding
+make analyze-trend-v3-funding
+```
+
+REST 不完整时的审计顺序：
+
+```bash
+make download-funding
+make verify-funding-allow-partial
+make analyze-trend-v3-funding
+```
+
+优先尝试 historical query endpoint：
+
+```bash
+make probe-funding-source
+make download-funding-historical-dry-run
+make download-funding-historical
+make verify-funding
+make analyze-trend-v3-funding
+```
+
+如果 `probe-funding-source` 报告 `endpoint_available=false` 或 `can_auto_download=false`，不要运行实际 historical download；保持 gates 关闭，并使用下面的手动 CSV 导入路径或暂停研究。
+
+手动 historical CSV 导入示例：
+
+```bash
+make import-funding-csv INPUT=/path/to/okx_funding.csv INST_ID=BTC-USDT-SWAP
+make import-funding-csv INPUTS=/path/part1.csv,/path/part2.csv INST_ID=BTC-USDT-SWAP
+make import-funding-csv INPUT_DIR=/path/okx_funding_downloads INST_ID=BTC-USDT-SWAP
+make verify-funding
+make analyze-trend-v3-funding
+```
+
+`import_okx_funding_csv.py` 支持单文件、多文件、目录匹配同一 `inst_id` 的 CSV，并默认 overwrite 统一输出；需要保留已有 output CSV 时可用 `APPEND=1`，脚本会按 `funding_time` 合并去重并升序排序。导入报告写入 `reports/research/funding/okx_funding_import_report.md` 和 `okx_funding_import_summary.json`。
+
+输出：
+
+- `data/funding/okx/*_funding_2023-01-01_2026-03-31.csv`：原始 funding CSV，已被 `.gitignore` 忽略。
+- `reports/research/funding/okx_funding_download_report.md`
+- `reports/research/funding/okx_funding_download_requests.csv`
+- `reports/research/funding/okx_funding_verify_report.md`
+- `reports/research/funding_endpoint_probe/okx_historical_market_data_probe.json`
+- `reports/research/funding_endpoint_probe/okx_historical_market_data_probe_report.md`
+- `reports/research/funding_historical_download/okx_historical_funding_download_summary.json`
+- `reports/research/funding_historical_download/okx_historical_funding_download_report.md`
+- `reports/research/funding_historical_download/okx_historical_funding_files.csv`
+- `reports/research/trend_following_v3_actual_funding/actual_funding_report.md`
+- `reports/research/trend_following_v3_actual_funding/actual_funding_summary.json`
+- `reports/research/trend_following_v3_actual_funding/actual_funding_policy_summary.csv`
+
+actual funding 分析同时输出两种口径：`conservative` 将 `abs(notional) * abs(funding_rate)` 全部视作成本；`signed` 按 long/short 与 funding rate 符号估算支付或收取。当前 V3 trade 文件没有 mark price，脚本会使用 `entry_price * volume * contract_size` 近似 funding notional，并在报告中固定写出 warning，不会伪造 mark price。
+
+Funding-adjusted 结果仍不能直接进入 demo/live。只有 funding_data_complete=true、funding-aware 结果在 train_ext / validation_ext / oos_ext 稳定，且原有 V3 extended stable candidate 约束也成立时，才允许进入 research-only V3.1；funding_data_complete=false 时，Strategy V3 / V3.1 / demo / live 全部禁止。
 
 ### `make alpha-sweep`
 

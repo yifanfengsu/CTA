@@ -10,7 +10,7 @@ VT_SYMBOL ?= BTCUSDT_SWAP_OKX.GLOBAL
 SYMBOLS ?= BTCUSDT_SWAP_OKX.GLOBAL ETHUSDT_SWAP_OKX.GLOBAL SOLUSDT_SWAP_OKX.GLOBAL LINKUSDT_SWAP_OKX.GLOBAL DOGEUSDT_SWAP_OKX.GLOBAL
 INST_IDS ?= BTC-USDT-SWAP,ETH-USDT-SWAP,SOL-USDT-SWAP,LINK-USDT-SWAP,DOGE-USDT-SWAP
 INTERVAL ?= 1m
-START ?= 2025-01-01
+START ?= 2023-01-01
 END ?= 2026-03-31
 TIMEZONE ?= Asia/Shanghai
 CHUNK_DAYS ?= 3
@@ -64,9 +64,15 @@ TREND_V3_EXT_TRAIN_DIR ?= reports/research/trend_following_v3_extended/train_ext
 TREND_V3_EXT_VALIDATION_DIR ?= reports/research/trend_following_v3_extended/validation_ext
 TREND_V3_EXT_OOS_DIR ?= reports/research/trend_following_v3_extended/oos_ext
 TREND_V3_EXT_COMPARE_OUTPUT_DIR ?= reports/research/trend_following_v3_extended_compare
+FUNDING_OUTPUT_DIR ?= data/funding/okx
+FUNDING_REPORTS_DIR ?= reports/research/funding
+TREND_V3_ACTUAL_FUNDING_OUTPUT_DIR ?= reports/research/trend_following_v3_actual_funding
 EXTENDED_HISTORY_OUTPUT_DIR ?= reports/research/extended_history_availability
 TREND_REGIME_OUTPUT_DIR ?= reports/research/trend_regime_diagnostics
 RESEARCH_DOSSIER_OUTPUT_DIR ?= reports/research/research_decision_dossier
+EXTERNAL_REGIME_OUTPUT_DIR ?= reports/research/external_regime_feasibility
+EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR ?= reports/research/external_regime_classifier
+EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR ?= reports/research/external_regime_classifier_gate_audit
 TRAIN_DIR ?=
 VALIDATION_DIR ?=
 OOS_DIR ?=
@@ -84,8 +90,8 @@ TAIL_LINES ?= 80
 .PHONY: help
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
-.PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch
-.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-dossier audit-multisymbol audit-extended-history alpha-sweep ablation
+.PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch download-funding-dry-run download-funding verify-funding verify-funding-allow-partial import-funding-csv probe-funding-source download-funding-historical-dry-run download-funding-historical analyze-trend-v3-funding
+.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates alpha-sweep ablation
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -113,6 +119,15 @@ help:
 		"  make repair-history       Repair missing sqlite history ranges" \
 		"  make verify-history       Verify sqlite coverage and write reports/history_verify_latest.json" \
 		"  make verify-history-batch START=2025-01-01 END=2026-03-31" \
+		"  make download-funding-dry-run  Plan OKX public funding history download" \
+		"  make download-funding          Download OKX public funding history CSVs" \
+		"  make verify-funding            Verify funding CSV coverage and gaps" \
+		"  make verify-funding-allow-partial  Verify funding CSVs but return 0 for audited partial data" \
+		"  make import-funding-csv INPUT=... INST_ID=...  Import manually downloaded OKX funding CSV" \
+		"  make probe-funding-source      Probe OKX historical market data funding query endpoint" \
+		"  make download-funding-historical-dry-run  Plan OKX historical funding file download" \
+		"  make download-funding-historical          Download OKX historical funding files when probe confirms endpoint" \
+		"  make analyze-trend-v3-funding  Analyze Trend V3 extended trades with actual funding" \
 		"" \
 		"Backtest and diagnostics:" \
 		"  make backtest             Cost-aware backtest using STRATEGY_CONFIG" \
@@ -136,6 +151,9 @@ help:
 		"  make postmortem-trend-v3" \
 		"  make diagnose-trend-regimes  Diagnose 2023-2026 trend regimes and V3 trade attribution" \
 		"  make research-dossier  Archive final research decision and blocked directions" \
+		"  make audit-external-regime  Audit research-only external regime classifier feasibility" \
+		"  make research-external-regime-classifier  Research external regime classifier filters offline" \
+		"  make audit-external-regime-gates  Audit external regime classifier gate consistency" \
 		"  make audit-multisymbol  Audit multi-symbol metadata and sqlite readiness" \
 		"  make audit-extended-history  Audit long-history availability and download plan" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
@@ -165,9 +183,11 @@ help:
 		"  TREND_OUTPUT_DIR=$(TREND_OUTPUT_DIR) TREND_MAX_RUNS=$(TREND_MAX_RUNS)" \
 		"  TREND_V3_OUTPUT_DIR=$(TREND_V3_OUTPUT_DIR) TREND_V3_MAX_RUNS=$(TREND_V3_MAX_RUNS)" \
 		"  TREND_V3_EXT_OUTPUT_DIR=$(TREND_V3_EXT_OUTPUT_DIR) TREND_V3_EXT_COMPARE_OUTPUT_DIR=$(TREND_V3_EXT_COMPARE_OUTPUT_DIR)" \
+		"  FUNDING_OUTPUT_DIR=$(FUNDING_OUTPUT_DIR) FUNDING_REPORTS_DIR=$(FUNDING_REPORTS_DIR)" \
 		"  TREND_V3_POSTMORTEM_OUTPUT_DIR=$(TREND_V3_POSTMORTEM_OUTPUT_DIR)" \
 		"  EXTENDED_HISTORY_OUTPUT_DIR=$(EXTENDED_HISTORY_OUTPUT_DIR) TREND_REGIME_OUTPUT_DIR=$(TREND_REGIME_OUTPUT_DIR)" \
-		"  RESEARCH_DOSSIER_OUTPUT_DIR=$(RESEARCH_DOSSIER_OUTPUT_DIR)" \
+		"  RESEARCH_DOSSIER_OUTPUT_DIR=$(RESEARCH_DOSSIER_OUTPUT_DIR) EXTERNAL_REGIME_OUTPUT_DIR=$(EXTERNAL_REGIME_OUTPUT_DIR)" \
+		"  EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR=$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR) EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR=$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)" \
 		"  SPLIT=$(SPLIT) MAX_RUNS=$(MAX_RUNS)"
 
 venv:
@@ -330,6 +350,105 @@ verify-history-batch:
 			--strict \
 			--output-json "reports/history_verify/$${safe_symbol}_$(START)_$(END).json"; \
 	done
+
+download-funding-dry-run:
+	@echo "Planning OKX public funding history download without writing funding CSVs"
+	$(PYTHON) scripts/download_okx_funding_history.py \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--timezone "$(TIMEZONE)" \
+		--output-dir "$(FUNDING_OUTPUT_DIR)" \
+		--reports-dir "$(FUNDING_REPORTS_DIR)" \
+		--dry-run
+
+download-funding:
+	@echo "Downloading OKX public funding history"
+	$(PYTHON) scripts/download_okx_funding_history.py \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--timezone "$(TIMEZONE)" \
+		--output-dir "$(FUNDING_OUTPUT_DIR)" \
+		--reports-dir "$(FUNDING_REPORTS_DIR)" \
+		--throttle-seconds "$(THROTTLE_SECONDS)" \
+		--max-retries "$(MAX_RETRIES)"
+
+verify-funding:
+	@echo "Verifying OKX funding history coverage"
+	$(PYTHON) scripts/verify_okx_funding_history.py \
+		--funding-dir "$(FUNDING_OUTPUT_DIR)" \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--timezone "$(TIMEZONE)" \
+		--output-dir "$(FUNDING_REPORTS_DIR)"
+
+verify-funding-allow-partial:
+	@echo "Verifying OKX funding history coverage; partial data is allowed only for audit/reporting"
+	$(PYTHON) scripts/verify_okx_funding_history.py \
+		--funding-dir "$(FUNDING_OUTPUT_DIR)" \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--timezone "$(TIMEZONE)" \
+		--output-dir "$(FUNDING_REPORTS_DIR)" \
+		--allow-partial
+
+import-funding-csv:
+	@if [[ -z "$${INPUT:-}" && -z "$${INPUTS:-}" && -z "$${INPUT_DIR:-}" ]]; then \
+		echo "INPUT, INPUTS, or INPUT_DIR is required, e.g. make import-funding-csv INPUT=/path/funding.csv INST_ID=BTC-USDT-SWAP" >&2; \
+		exit 2; \
+	fi
+	@if [[ -z "$${INST_ID:-}" ]]; then \
+		echo "INST_ID is required, e.g. make import-funding-csv INPUT=/path/funding.csv INST_ID=BTC-USDT-SWAP" >&2; \
+		exit 2; \
+	fi
+	@echo "Importing manually downloaded OKX funding CSV"
+	@args=(scripts/import_okx_funding_csv.py \
+		--inst-id "$${INST_ID}" \
+		--output-dir "$(FUNDING_OUTPUT_DIR)" \
+		--reports-dir "$(FUNDING_REPORTS_DIR)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--timezone "$(TIMEZONE)"); \
+	if [[ -n "$${INPUT:-}" ]]; then args+=(--input "$${INPUT}"); fi; \
+	if [[ -n "$${INPUTS:-}" ]]; then args+=(--inputs "$${INPUTS}"); fi; \
+	if [[ -n "$${INPUT_DIR:-}" ]]; then args+=(--input-dir "$${INPUT_DIR}"); fi; \
+	if [[ "$${APPEND:-0}" == "1" || "$${APPEND:-false}" == "true" ]]; then args+=(--append); else args+=(--overwrite); fi; \
+	$(PYTHON) "$${args[@]}"
+
+probe-funding-source:
+	@echo "Probing OKX historical market data funding source"
+	$(PYTHON) scripts/probe_okx_historical_market_data.py \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--dry-run
+
+download-funding-historical-dry-run:
+	@echo "Planning OKX historical funding file download"
+	$(PYTHON) scripts/download_okx_historical_funding_files.py \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)" \
+		--dry-run
+
+download-funding-historical:
+	@echo "Downloading OKX historical funding files"
+	$(PYTHON) scripts/download_okx_historical_funding_files.py \
+		--inst-ids "$(INST_IDS)" \
+		--start "$(START)" \
+		--end "$(END)"
+
+analyze-trend-v3-funding:
+	@echo "Analyzing Trend V3 extended trades with actual OKX funding"
+	$(PYTHON) scripts/analyze_trend_v3_actual_funding.py \
+		--funding-dir "$(FUNDING_OUTPUT_DIR)" \
+		--trend-v3-extended-dir "reports/research/trend_following_v3_extended" \
+		--compare-dir "$(TREND_V3_EXT_COMPARE_OUTPUT_DIR)" \
+		--output-dir "$(TREND_V3_ACTUAL_FUNDING_OUTPUT_DIR)" \
+		--timezone "$(TIMEZONE)"
 
 backtest:
 	@echo "Running cost-aware backtest"
@@ -669,6 +788,31 @@ audit-extended-history:
 		--interval "$(INTERVAL)" \
 		--timezone "$(TIMEZONE)" \
 		--output-dir "$(EXTENDED_HISTORY_OUTPUT_DIR)"
+
+audit-external-regime:
+	@echo "Auditing external regime classifier feasibility without strategy development"
+	$(PYTHON) scripts/audit_external_regime_classifier_feasibility.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--output-dir "$(EXTERNAL_REGIME_OUTPUT_DIR)"
+
+research-external-regime-classifier:
+	@echo "Researching external regime classifier filters offline"
+	$(PYTHON) scripts/research_external_regime_classifier.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--output-dir "$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR)" \
+		--data-check-strict
+
+audit-external-regime-gates:
+	@echo "Auditing external regime classifier gate consistency"
+	$(PYTHON) scripts/audit_external_regime_classifier_gates.py \
+		--classifier-dir "$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR)" \
+		--gate-audit-dir "$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)"
 
 alpha-sweep:
 	@if [[ ! -f "$(SANITY_CONFIG)" ]]; then \
