@@ -14,5 +14,7 @@ logs/*
 !logs/.gitkeep
 data/raw/*
 !data/raw/.gitkeep
+data/funding/okx/*.csv
+data/funding/okx_historical_raw/*
 reports/*
 !reports/.gitkeep
