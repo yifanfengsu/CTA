@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import csv
 import sys
 import tempfile
 import unittest
@@ -68,6 +69,70 @@ def write_gate_audit_fixture(root: Path) -> None:
                 "keep_trend_friendly,v3_1d_ema_50_200_atr5,oos_ext,36,0,36,True",
             ]
         ),
+    )
+
+
+def write_derivatives_fixture(root: Path) -> None:
+    derivatives_dir = root / "reports/research/derivatives_data_readiness"
+    write_text(
+        derivatives_dir / "derivatives_data_readiness_report.md",
+        "# OKX Derivatives Data Readiness Audit\n\ncan_enter_derivatives_confirmed_trend_research=false\n",
+    )
+    write_json(
+        derivatives_dir / "derivatives_data_readiness.json",
+        {
+            "local_funding": {
+                "funding_source": "OKX Historical Market Data",
+                "funding_data_complete": True,
+            },
+            "decision": {
+                "can_enter_derivatives_confirmed_trend_research": False,
+                "strategy_development_allowed": False,
+                "demo_live_allowed": False,
+                "recommended_next_step": "pause research",
+                "open_interest_available": False,
+                "taker_flow_available": False,
+                "long_short_ratio_available": False,
+                "non_price_derivatives_feature_category_count": 2,
+                "non_price_derivatives_feature_categories_available": ["funding", "basis_premium"],
+                "blocking_reasons": [
+                    "open_interest_feature_missing_or_not_2023_2026",
+                    "taker_flow_or_long_short_ratio_missing_or_not_2023_2026",
+                ],
+            },
+            "endpoint_probe_results": [
+                {
+                    "endpoint_name": "Open Interest",
+                    "endpoint_available": True,
+                    "can_cover_2023_2026": False,
+                    "usable_for_research": False,
+                    "warning": "current_snapshot_only",
+                },
+                {
+                    "endpoint_name": "Taker Buy/Sell Volume",
+                    "endpoint_available": True,
+                    "can_cover_2023_2026": False,
+                    "usable_for_research": False,
+                    "warning": "start_boundary_probe_failed_or_empty",
+                },
+            ],
+            "proposed_derivatives_features": [
+                {"feature_name": "mark price", "usable_for_research": True},
+                {"feature_name": "index price", "usable_for_research": True},
+            ],
+        },
+    )
+    write_text(
+        derivatives_dir / "endpoint_probe_results.csv",
+        "endpoint_name,endpoint_available,can_cover_2023_2026\nOpen Interest,true,false\n",
+    )
+    write_text(
+        derivatives_dir / "proposed_derivatives_features.csv",
+        "feature_name,status\nactual funding rate,available_2023_2026\n",
+    )
+    write_text(
+        derivatives_dir / "unavailable_derivatives_features.csv",
+        "feature_name,reason\nprivate account level features,forbidden_private_key_required\n",
     )
 
 
@@ -159,6 +224,21 @@ class BuildResearchDecisionDossierTest(unittest.TestCase):
         output_dir = Path(tmpdir.name) / "dossier"
         root.mkdir()
         write_gate_audit_fixture(root)
+        payload = dossier_mod.build_dossier(
+            output_dir=output_dir,
+            include_existing_reports=True,
+            project_root=root,
+            logger=logging.getLogger("test_build_research_decision_dossier"),
+        )
+        return output_dir, payload
+
+    def run_temp_dossier_with_derivatives(self) -> tuple[Path, dict[str, object]]:
+        tmpdir = tempfile.TemporaryDirectory()
+        self.addCleanup(tmpdir.cleanup)
+        root = Path(tmpdir.name) / "project"
+        output_dir = Path(tmpdir.name) / "dossier"
+        root.mkdir()
+        write_derivatives_fixture(root)
         payload = dossier_mod.build_dossier(
             output_dir=output_dir,
             include_existing_reports=True,
@@ -281,6 +361,55 @@ class BuildResearchDecisionDossierTest(unittest.TestCase):
         self.assertFalse(payload["classifier_strict_stable_candidate_exists"])
         self.assertFalse(payload["can_enter_research_only_v3_1_classifier_experiment"])
         self.assertTrue(any("missing_external_regime_classifier_gate_audit_summary" in str(warning) for warning in payload["warnings"]))
+
+    def test_derivatives_data_readiness_fields_written_to_json(self) -> None:
+        output_dir, payload = self.run_temp_dossier_with_derivatives()
+
+        self.assertTrue(payload["derivatives_data_readiness_audit_complete"])
+        self.assertFalse(payload["can_enter_derivatives_confirmed_trend_research"])
+        self.assertTrue(payload["derivatives_data_blocker"])
+        self.assertFalse(payload["strategy_development_allowed"])
+        self.assertFalse(payload["demo_live_allowed"])
+        loaded = json.loads((output_dir / "research_decision_dossier.json").read_text(encoding="utf-8"))
+        self.assertTrue(loaded["derivatives_data_readiness_audit_complete"])
+        self.assertEqual(loaded["derivatives_research_recommended_next_step"], "pause_research")
+
+    def test_do_not_continue_contains_current_oi_snapshot_stop(self) -> None:
+        output_dir, payload = self.run_temp_dossier_with_derivatives()
+
+        items = [str(row["item"]) for row in payload["do_not_continue"]]
+        self.assertTrue(any("current open interest snapshot" in item for item in items))
+        with (output_dir / "do_not_continue_list.csv").open("r", encoding="utf-8", newline="") as handle:
+            csv_items = [row["item"] for row in csv.DictReader(handle)]
+        self.assertTrue(any("current open interest snapshot" in item for item in csv_items))
+
+    def test_retained_research_hypotheses_contains_derivatives_data_blocked(self) -> None:
+        output_dir, payload = self.run_temp_dossier_with_derivatives()
+
+        derivatives_rows = [
+            row
+            for row in payload["retained_research_hypotheses"]
+            if row["hypothesis"] == "derivatives-confirmed trend following"
+        ]
+        self.assertEqual(derivatives_rows[0]["status"], "data_blocked_research_hypothesis")
+        with (output_dir / "retained_research_hypotheses.csv").open("r", encoding="utf-8", newline="") as handle:
+            rows = list(csv.DictReader(handle))
+        self.assertTrue(
+            any(
+                row["hypothesis"] == "derivatives-confirmed trend following"
+                and row["status"] == "data_blocked_research_hypothesis"
+                for row in rows
+            )
+        )
+
+    def test_missing_derivatives_report_warns_without_crashing(self) -> None:
+        output_dir, payload = self.run_temp_dossier()
+
+        self.assertTrue(output_dir.exists())
+        self.assertFalse(payload["derivatives_data_readiness_audit_complete"])
+        self.assertFalse(payload["can_enter_derivatives_confirmed_trend_research"])
+        self.assertTrue(payload["derivatives_data_blocker"])
+        self.assertTrue(any("missing_derivatives_data_readiness_summary" in str(warning) for warning in payload["warnings"]))
 
 
 if __name__ == "__main__":

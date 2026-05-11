@@ -73,6 +73,10 @@ RESEARCH_DOSSIER_OUTPUT_DIR ?= reports/research/research_decision_dossier
 EXTERNAL_REGIME_OUTPUT_DIR ?= reports/research/external_regime_feasibility
 EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR ?= reports/research/external_regime_classifier
 EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR ?= reports/research/external_regime_classifier_gate_audit
+VSVCB_OUTPUT_DIR ?= reports/research/vsvcb_v1
+VSVCB_POSTMORTEM_OUTPUT_DIR ?= reports/research/vsvcb_v1_postmortem
+DERIVATIVES_DATA_READINESS_OUTPUT_DIR ?= reports/research/derivatives_data_readiness
+CSRB_OUTPUT_DIR ?= reports/research/csrb_v1
 TRAIN_DIR ?=
 VALIDATION_DIR ?=
 OOS_DIR ?=
@@ -91,7 +95,7 @@ TAIL_LINES ?= 80
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
 .PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch download-funding-dry-run download-funding verify-funding verify-funding-allow-partial import-funding-csv probe-funding-source download-funding-historical-dry-run download-funding-historical analyze-trend-v3-funding
-.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates alpha-sweep ablation
+.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates research-vsvcb-v1 postmortem-vsvcb-v1 audit-derivatives-data research-csrb-v1 alpha-sweep ablation
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -154,6 +158,10 @@ help:
 		"  make audit-external-regime  Audit research-only external regime classifier feasibility" \
 		"  make research-external-regime-classifier  Research external regime classifier filters offline" \
 		"  make audit-external-regime-gates  Audit external regime classifier gate consistency" \
+		"  make research-vsvcb-v1  Run VSVCB-v1 Phase 1 event study and fixed-hold benchmark" \
+		"  make postmortem-vsvcb-v1  Run VSVCB-v1 Phase 1 failure postmortem" \
+		"  make audit-derivatives-data  Audit OKX public derivatives data readiness" \
+		"  make research-csrb-v1  Run CSRB-v1 Phase 1 session breakout event study" \
 		"  make audit-multisymbol  Audit multi-symbol metadata and sqlite readiness" \
 		"  make audit-extended-history  Audit long-history availability and download plan" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
@@ -188,6 +196,7 @@ help:
 		"  EXTENDED_HISTORY_OUTPUT_DIR=$(EXTENDED_HISTORY_OUTPUT_DIR) TREND_REGIME_OUTPUT_DIR=$(TREND_REGIME_OUTPUT_DIR)" \
 		"  RESEARCH_DOSSIER_OUTPUT_DIR=$(RESEARCH_DOSSIER_OUTPUT_DIR) EXTERNAL_REGIME_OUTPUT_DIR=$(EXTERNAL_REGIME_OUTPUT_DIR)" \
 		"  EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR=$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR) EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR=$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)" \
+		"  VSVCB_OUTPUT_DIR=$(VSVCB_OUTPUT_DIR) DERIVATIVES_DATA_READINESS_OUTPUT_DIR=$(DERIVATIVES_DATA_READINESS_OUTPUT_DIR) CSRB_OUTPUT_DIR=$(CSRB_OUTPUT_DIR)" \
 		"  SPLIT=$(SPLIT) MAX_RUNS=$(MAX_RUNS)"
 
 venv:
@@ -813,6 +822,45 @@ audit-external-regime-gates:
 	$(PYTHON) scripts/audit_external_regime_classifier_gates.py \
 		--classifier-dir "$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR)" \
 		--gate-audit-dir "$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)"
+
+research-vsvcb-v1:
+	@echo "Researching VSVCB-v1 Phase 1 event study and fixed-hold benchmark"
+	$(PYTHON) scripts/research_vsvcb_v1.py \
+		--symbols "BTCUSDT_SWAP_OKX.GLOBAL,ETHUSDT_SWAP_OKX.GLOBAL,SOLUSDT_SWAP_OKX.GLOBAL" \
+		--timeframes "15m,30m,1h" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--output-dir "$(VSVCB_OUTPUT_DIR)" \
+		--data-check-strict
+
+postmortem-vsvcb-v1:
+	@echo "Running VSVCB-v1 Phase 1 postmortem diagnostics"
+	$(PYTHON) scripts/postmortem_vsvcb_v1.py \
+		--research-dir reports/research/vsvcb_v1 \
+		--output-dir reports/research/vsvcb_v1_postmortem
+
+audit-derivatives-data:
+	@echo "Auditing OKX public derivatives data readiness without strategy development"
+	$(PYTHON) scripts/audit_okx_derivatives_data_readiness.py \
+		--inst-ids "$(INST_IDS)" \
+		--ccys "BTC,ETH,SOL,LINK,DOGE" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--output-dir "$(DERIVATIVES_DATA_READINESS_OUTPUT_DIR)"
+
+research-csrb-v1:
+	@echo "Researching CSRB-v1 Phase 1 session breakout event study"
+	$(PYTHON) scripts/research_csrb_v1.py \
+		--symbols "BTCUSDT_SWAP_OKX.GLOBAL,ETHUSDT_SWAP_OKX.GLOBAL,SOLUSDT_SWAP_OKX.GLOBAL" \
+		--timeframes "15m,30m,1h" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--session-timezone UTC \
+		--report-timezone Asia/Shanghai \
+		--output-dir reports/research/csrb_v1 \
+		--data-check-strict
 
 alpha-sweep:
 	@if [[ ! -f "$(SANITY_CONFIG)" ]]; then \

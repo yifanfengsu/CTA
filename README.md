@@ -24,13 +24,51 @@
 
 `make research-dossier` 用于归档当前趋势跟踪研究结论和最终决策，不开发策略、不新增参数搜索、不进入 demo/live。
 
-该 dossier 汇总原始 backtest、Signal Lab、HTF、Trend V2、Trend V3、Extended V3、Postmortem、Regime Diagnostics、数据准备、actual OKX funding 和 External Regime Classifier Gate Audit 报告，用来明确哪些策略 family 已失败、为什么当前 Strategy V3 被阻断，以及下一阶段是否只允许维护研究工具、可选但不推荐地扩大品种，或暂停开发。
+该 dossier 汇总原始 backtest、Signal Lab、HTF、Trend V2、Trend V3、Extended V3、Postmortem、Regime Diagnostics、数据准备、actual OKX funding、External Regime Classifier Gate Audit 和 Derivatives Data Readiness Audit 报告，用来明确哪些策略 family 已失败、为什么当前 Strategy V3 被阻断，以及下一阶段是否只允许维护研究工具、可选但不推荐地扩大品种，或暂停开发。
 
 Funding-aware final gate 已纳入 dossier：当前五品种 universe 的 OKX Historical Market Data funding 已完整导入并通过 `verify-funding`，但 `funding_adjusted_stable_candidate_exists=false`、`can_enter_funding_aware_v3_1_research=false`。因此当前仍不允许 Strategy V3、V3.1、demo 或 live。
 
 External Regime Classifier Gate Audit 已完成：旧 `stable_candidate_like` 口径不再作为通过依据，修正后的 strict gate 没有 stable candidate，`can_enter_research_only_v3_1_classifier_experiment=false`。当前五品种趋势跟踪 family 已最终封档，不能继续包装为 Strategy V3、V3.1、demo 或 live。
 
-输出目录为 `reports/research/research_decision_dossier/`，核心决策必须保持 `final_current_trend_family_archived=true`、`final_strategy_development_allowed=false`、`final_demo_live_allowed=false`、`strategy_development_allowed=false`、`demo_live_allowed=false`、`proceed_to_v3_1_research=false`。后续默认只维护数据和研究工具，除非先提出全新的研究前提和验收标准。
+Derivatives Data Readiness Audit 已完成：funding 和 mark/index candle 可用，但 OI/taker/long-short 等关键历史衍生品特征未证明能覆盖 `2023-01-01` 到 `2026-03-31`，因此 `can_enter_derivatives_confirmed_trend_research=false`。Funding alone 和 mark/index basis proxy 不能视为 derivatives confirmation 已满足。
+
+输出目录为 `reports/research/research_decision_dossier/`，核心决策必须保持 `final_current_trend_family_archived=true`、`final_current_research_archived=true`、`final_strategy_development_allowed=false`、`final_demo_live_allowed=false`、`strategy_development_allowed=false`、`demo_live_allowed=false`、`proceed_to_v3_1_research=false`、`can_enter_derivatives_confirmed_trend_research=false`。后续默认暂停策略开发，只维护数据与研究工具，除非先提出全新的研究前提和验收标准。
+
+## VSVCB-v1：低波动率挤压后的成交量确认突破
+
+`make research-vsvcb-v1` 是全新的 Research-Only Phase 1 研究入口，用于检验 Volatility Squeeze with Volume Confirmation Breakout 假设：普通突破如果同时发生在低 Bollinger Band Width 挤压之后，并伴随突破 K 线成交量显著放大，是否比普通突破更容易延续。
+
+本阶段只做事件研究和固定持有 T 根 K 线基准回测，输出 A/B/C/D/E 消融对照、no-cost / cost-aware / funding-adjusted 结果、集中度、MFE/MAE、反向测试和 Phase 1 裁决。脚本读取本地 vn.py sqlite 1m OHLCV，并使用 `data/funding/okx` 下的 OKX funding CSV；不会连接交易接口，不会下单。
+
+VSVCB-v1 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，也不允许把 Phase 1 结果直接标记为可交易。无论 Phase 1 是否通过，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 都必须保持不变。
+
+如果 Phase 1 不通过，必须进入 postmortem，不允许根据 OOS 调参重试，不允许执行参数高原、随机化测试或任何“救回”VSVCB-v1 的参数搜索。如果 Phase 1 通过，也只能进入 Phase 2 参数高原和随机化研究，仍不能进入正式策略开发、demo 或 live。
+
+`make postmortem-vsvcb-v1` 只读取 `reports/research/vsvcb_v1/` 下已经完成的 Phase 1 输出，生成 `reports/research/vsvcb_v1_postmortem/`。Postmortem 用来确认失败不是数据缺失或明显实现错误，并解释 D 组失败、E 组反向为正、symbol / direction / timeframe / horizon / feature-bin 和 conflict filter 影响；它不是调参工具。
+
+如果 E 组明显优于 D，只能标记 `possible_false_breakout_research_hypothesis=true`，不能把 E 组反向收益解释为趋势跟踪 edge，也不能把 Phase 1 失败结果标记为可交易。VSVCB-v1 不允许直接修改正式策略，不允许新增 Strategy class，不允许进入 demo/live。
+
+## CSRB-v1：Crypto Session Range Breakout
+
+`make research-csrb-v1` 是新的 Research-Only Phase 1 研究入口，用于检验 Crypto Session Range Breakout 假设：虽然 crypto 24/7 交易，但 Asia / Europe / US 时段切换仍可能带来流动性和参与者结构变化；当低活跃时段形成清晰区间后，高活跃时段开始的突破可能代表新的方向性订单流。
+
+CSRB-v1 借鉴 opening range breakout / London Breakout / Dual Thrust 的 session range breakout 思路，但实现为适配 OKX crypto perpetual 的独立离线研究框架。第一阶段只做事件研究和固定持有基准回测，默认从本地 vn.py sqlite 读取 1m OHLCV，按 closed-bar 重采样到 `15m,30m,1h`，并使用 `data/funding/okx` 下的 actual OKX funding CSV 输出 no-cost / cost-aware / funding-adjusted 三层结果。
+
+本研究输出 Asia range → Europe breakout、Europe range → US breakout、session-agnostic ordinary breakout、randomized session time control 和 reverse test。它必须保留 random breakout 对照组，不使用 EMA / MACD / ADX 作为第一版过滤器，不用未来收益、MFE 或 MAE 作为入场特征，不根据 OOS 结果调参。
+
+CSRB-v1 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接真实交易，也不写 API key。无论 Phase 1 是否通过，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 都必须保持不变；若全部 gate 通过，也只允许进入 Phase 2 research，不允许直接标记为可交易。
+
+## Derivatives-confirmed Trend Research
+
+当前 V3 family 已在 Research Decision Dossier 中失败，且 actual OKX funding 纳入后仍不能进入 Strategy V3、V3.1、demo 或 live。VSVCB-v1 Phase 1 的正向趋势延续假设也已失败，不能通过反向测试或 OOS 调参把它包装成趋势跟踪策略。
+
+新的研究前提是 `price trend + derivatives confirmation`：价格趋势本身不够，只有当趋势同时得到 open interest、taker flow、long/short ratio、basis/premium、funding 等衍生品参与度确认时，才可能继续研究其稳定性。
+
+`make audit-derivatives-data` 只做 OKX public/no-key derivatives data readiness audit。它会对 Open Interest、Funding Rate、Mark Price、Index Price、Taker Buy/Sell Volume、Long/Short Account Ratio、Contracts Open Interest and Volume、Premium/Basis proxy 等数据源做小样本 endpoint probe，输出可用特征、不可用特征、分段下载计划和 research-only gate。
+
+Derivatives Data Readiness Audit 已完成，最终 gate 为 `can_enter_derivatives_confirmed_trend_research=false`。原因是 current open interest 只能作为 snapshot，taker buy/sell volume、long/short account ratio、contracts OI/volume、OI history、premium history 都没有证明能覆盖 `2023-01-01` 到 `2026-03-31`；funding 完整和 mark/index candle 可用仍不足以替代 OI/taker/long-short confirmation。
+
+本阶段不下载多年大数据，不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接真实交易，也不引入均值回归。当前推荐暂停策略开发，只维护数据与研究工具；Strategy V3、V3.1、demo 和 live 仍然禁止。
 
 ## External Regime Classifier Feasibility
 
@@ -145,8 +183,12 @@ OKX_PROXY_PORT=0
 33. `make audit-external-regime`
 34. `make research-external-regime-classifier`
 35. `make audit-external-regime-gates`
-36. `make alpha-sweep`
-37. 满足条件后再考虑补 demo runner/模拟盘。
+36. `make research-vsvcb-v1`
+37. `make postmortem-vsvcb-v1`
+38. `make audit-derivatives-data`
+39. `make research-csrb-v1`
+40. `make alpha-sweep`
+41. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -212,6 +254,10 @@ OKX_PROXY_PORT=0
 | `EXTERNAL_REGIME_OUTPUT_DIR` | `reports/research/external_regime_feasibility` | `audit-external-regime` 输出目录 |
 | `EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR` | `reports/research/external_regime_classifier` | `research-external-regime-classifier` 输出目录 |
 | `EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR` | `reports/research/external_regime_classifier_gate_audit` | `audit-external-regime-gates` 输出目录 |
+| `VSVCB_OUTPUT_DIR` | `reports/research/vsvcb_v1` | `research-vsvcb-v1` 输出目录 |
+| `VSVCB_POSTMORTEM_OUTPUT_DIR` | `reports/research/vsvcb_v1_postmortem` | `postmortem-vsvcb-v1` 输出目录 |
+| `DERIVATIVES_DATA_READINESS_OUTPUT_DIR` | `reports/research/derivatives_data_readiness` | `audit-derivatives-data` 输出目录 |
+| `CSRB_OUTPUT_DIR` | `reports/research/csrb_v1` | `research-csrb-v1` 输出目录 |
 | `TRAIN_DIR` | 空 | `compare-features` 的 train `signal_feature_research` 目录 |
 | `VALIDATION_DIR` | 空 | `compare-features` 的 validation `signal_feature_research` 目录 |
 | `OOS_DIR` | 空 | `compare-features` 的 oos `signal_feature_research` 目录 |
@@ -273,6 +319,10 @@ OKX_PROXY_PORT=0
 | `make audit-external-regime` | 审计 external regime classifier research-only 可行性 | 否 | 否 | `reports/research/external_regime_feasibility/` | `make audit-external-regime` |
 | `make research-external-regime-classifier` | 基于 train_ext 阈值研究 external regime classifier 离线过滤实验 | 否 | 否 | `reports/research/external_regime_classifier/` | `make research-external-regime-classifier` |
 | `make audit-external-regime-gates` | 审计 classifier strict gate 是否与 Dossier / Extended V3 compare 一致 | 否 | 否 | `reports/research/external_regime_classifier_gate_audit/` | `make audit-external-regime-gates` |
+| `make research-vsvcb-v1` | VSVCB-v1 Research-Only Phase 1 事件研究和固定持有基准 | 否 | 否 | `reports/research/vsvcb_v1/` | `make research-vsvcb-v1` |
+| `make postmortem-vsvcb-v1` | VSVCB-v1 Phase 1 失败复盘，不调参、不开发策略 | 否 | 否 | `reports/research/vsvcb_v1_postmortem/` | `make postmortem-vsvcb-v1` |
+| `make audit-derivatives-data` | OKX public/no-key 衍生品数据可得性审计，不下载多年数据 | 否 | 否 | `reports/research/derivatives_data_readiness/` | `make audit-derivatives-data` |
+| `make research-csrb-v1` | CSRB-v1 Research-Only Phase 1 session range breakout 事件研究和固定持有基准 | 否 | 否 | `reports/research/csrb_v1/` | `make research-csrb-v1` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
 | `make ablation` | 方向、周末、小时过滤诊断实验 | 否 | 否 | `reports/ablation/main_20250101_20260331/` 或 `OUTPUT_DIR` | `make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |

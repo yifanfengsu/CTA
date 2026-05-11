@@ -192,6 +192,31 @@ REPORT_SOURCES: list[dict[str, str]] = [
         "stage": "External Regime Classifier Gate Audit",
         "path": "reports/research/external_regime_classifier_gate_audit/filter_trade_set_diff.csv",
     },
+    {
+        "key": "derivatives_data_readiness_report",
+        "stage": "Derivatives Data Readiness Audit",
+        "path": "reports/research/derivatives_data_readiness/derivatives_data_readiness_report.md",
+    },
+    {
+        "key": "derivatives_data_readiness_summary",
+        "stage": "Derivatives Data Readiness Audit",
+        "path": "reports/research/derivatives_data_readiness/derivatives_data_readiness.json",
+    },
+    {
+        "key": "derivatives_endpoint_probe_results",
+        "stage": "Derivatives Data Readiness Audit",
+        "path": "reports/research/derivatives_data_readiness/endpoint_probe_results.csv",
+    },
+    {
+        "key": "derivatives_proposed_features",
+        "stage": "Derivatives Data Readiness Audit",
+        "path": "reports/research/derivatives_data_readiness/proposed_derivatives_features.csv",
+    },
+    {
+        "key": "derivatives_unavailable_features",
+        "stage": "Derivatives Data Readiness Audit",
+        "path": "reports/research/derivatives_data_readiness/unavailable_derivatives_features.csv",
+    },
 ]
 
 OUTPUT_FILES = [
@@ -372,6 +397,13 @@ def failed_policy_families() -> list[dict[str, Any]]:
             "evidence": "Funding-aware Trend Research actual funding report and Research Decision Dossier final gate.",
             "tradable": False,
         },
+        {
+            "policy_family": "VSVCB-v1 positive breakout hypothesis",
+            "status": "failed",
+            "primary_failure": "Breakout + squeeze + volume confirmation failed train/validation/OOS and reverse test was stronger than the positive breakout hypothesis.",
+            "evidence": "VSVCB-v1 Phase 1 and postmortem.",
+            "tradable": False,
+        },
     ]
 
 
@@ -409,6 +441,12 @@ def retained_research_hypotheses() -> list[dict[str, Any]]:
             "reason": "It is still the only all no-cost positive policy, but actual funding completion did not fix concentration and regime failures.",
             "not_allowed_as": "Tradable policy or Strategy V3 prototype.",
         },
+        {
+            "hypothesis": "derivatives-confirmed trend following",
+            "status": "data_blocked_research_hypothesis",
+            "reason": "Historical OI/taker/long-short coverage not proven for 2023-2026; funding plus mark/index alone is not enough derivatives confirmation.",
+            "not_allowed_as": "Strategy V3, V3.1, demo/live, or a tradable policy from readiness audit output.",
+        },
     ]
 
 
@@ -430,6 +468,22 @@ def do_not_continue_items() -> list[dict[str, Any]]:
         {"item": "do not ignore top trade concentration", "reason": "Top-trade concentration is the decisive Extended V3 and classifier gate blocker."},
         {"item": "do not treat no-cost positive as tradable", "reason": "No-cost positives still fail concentration/funding/regime gates and are not strategy candidates."},
         {"item": "do not use classifier filters that do not change OOS trade set", "reason": "exclude_hostile_chop_overheated and exclude_funding_overheated did not affect v3_1d_ema_50_200_atr5 OOS trades."},
+        {
+            "item": "do not start derivatives-confirmed trend research without historical OI/taker/long-short coverage",
+            "reason": "Derivatives readiness audit did not prove the required 2023-2026 historical derivatives feature coverage.",
+        },
+        {
+            "item": "do not use current open interest snapshot as historical feature",
+            "reason": "The public open-interest endpoint probe is current snapshot only and cannot stand in for 2023-2026 history.",
+        },
+        {
+            "item": "do not treat funding alone as derivatives confirmation",
+            "reason": "Funding data is complete, but funding alone does not satisfy the required OI/taker/long-short confirmation mix.",
+        },
+        {
+            "item": "do not develop Strategy V3 from derivatives readiness audit",
+            "reason": "Endpoint availability audit is not a strategy result and can_enter_derivatives_confirmed_trend_research=false.",
+        },
     ]
 
 
@@ -460,10 +514,24 @@ def next_research_options() -> list[dict[str, Any]]:
         },
         {
             "option": "Option D",
-            "name": "Pause strategy development and only maintain data/research tooling",
+            "name": "Pause strategy development and maintain tooling",
             "prerequisites": "None beyond maintaining data integrity and reproducible reports.",
             "acceptance_criteria": "No new strategy work starts until a new research premise is documented and approved.",
             "allowed_now": "yes",
+        },
+        {
+            "option": "Option E",
+            "name": "Derivatives-confirmed trend research",
+            "prerequisites": "historical derivatives metrics coverage proven",
+            "acceptance_criteria": "Historical OI or contracts OI/volume plus taker volume or long/short ratio must cover 2023-2026 without private API keys; funding alone is insufficient.",
+            "allowed_now": "no",
+        },
+        {
+            "option": "Option F",
+            "name": "Third-party/external derivatives data audit",
+            "prerequisites": "user explicitly agrees to external data source or paid/free vendor evaluation",
+            "acceptance_criteria": "External source must provide reproducible 2023-2026 coverage, licensing clarity, and no strategy conclusion before data audit passes.",
+            "allowed_now": "optional",
         },
     ]
 
@@ -543,6 +611,14 @@ def research_timeline() -> list[dict[str, str]]:
             "pass_fail": "fail",
             "key_finding": "Old classifier gate underestimated top-trade concentration; v3_1d_ema_50_200_atr5 OOS top 5% contribution=1.9818.",
             "decision": "can_enter_research_only_v3_1_classifier_experiment=false.",
+        },
+        {
+            "stage": "Derivatives Data Readiness Audit",
+            "goal": "Check whether public/no-key OKX derivatives data can support a new derivatives-confirmed trend hypothesis.",
+            "result": "Completed; data readiness gate blocked.",
+            "pass_fail": "data_fail_research_blocked",
+            "key_finding": "Funding and mark/index candles are available, but historical OI/taker/long-short coverage for 2023-2026 was not proven.",
+            "decision": "can_enter_derivatives_confirmed_trend_research=false.",
         },
     ]
 
@@ -745,6 +821,103 @@ def extract_external_classifier_gate_audit(parsed_reports: dict[str, Any], warni
     }
 
 
+def normalize_derivatives_next_step(value: Any) -> str:
+    """Normalize derivatives audit next-step text to dossier enum style."""
+
+    normalized = str(value or "").strip().lower().replace(" ", "_").replace("-", "_")
+    if normalized in {"pause_research", "pause_strategy_development"}:
+        return "pause_research"
+    if normalized in {"download_derivatives_metrics", "import_historical_files"}:
+        return normalized
+    return "pause_research"
+
+
+def extract_derivatives_data_readiness(parsed_reports: dict[str, Any], warnings: list[str]) -> dict[str, Any]:
+    """Extract the final derivatives data readiness gate without failing on missing files."""
+
+    summary = parsed_reports.get("derivatives_data_readiness_summary")
+    missing_features = [
+        "open_interest_history",
+        "taker_buy_sell_volume",
+        "long_short_account_ratio",
+        "contracts_open_interest_volume",
+        "premium_history",
+    ]
+    available_features = [
+        "actual_funding_rate",
+        "funding_dispersion",
+        "funding_sign_breadth",
+        "funding_trend",
+        "mark_index_price_candles",
+    ]
+    if not isinstance(summary, dict):
+        warnings.append("missing_derivatives_data_readiness_summary")
+        return {
+            "derivatives_data_readiness_audit_complete": False,
+            "can_enter_derivatives_confirmed_trend_research": False,
+            "derivatives_data_blocker": True,
+            "derivatives_missing_historical_features": missing_features,
+            "derivatives_available_features": available_features,
+            "derivatives_research_recommended_next_step": "pause_research",
+            "funding_complete_but_not_sufficient": True,
+            "mark_index_available_but_not_sufficient": True,
+            "current_open_interest_snapshot_only": True,
+            "key_historical_features_coverage_not_proven": True,
+            "endpoint_probe_results": [],
+            "reason": "Derivatives data readiness summary missing; keep derivatives-confirmed trend research blocked.",
+        }
+
+    decision = summary.get("decision") if isinstance(summary.get("decision"), dict) else {}
+    endpoints = summary.get("endpoint_probe_results") if isinstance(summary.get("endpoint_probe_results"), list) else []
+    features = summary.get("proposed_derivatives_features") if isinstance(summary.get("proposed_derivatives_features"), list) else []
+    local_funding = summary.get("local_funding") if isinstance(summary.get("local_funding"), dict) else {}
+
+    can_enter = bool(decision.get("can_enter_derivatives_confirmed_trend_research"))
+    endpoint_by_name = {
+        str(row.get("endpoint_name")): row
+        for row in endpoints
+        if isinstance(row, dict) and row.get("endpoint_name") is not None
+    }
+    feature_by_name = {
+        str(row.get("feature_name")): row
+        for row in features
+        if isinstance(row, dict) and row.get("feature_name") is not None
+    }
+    current_oi = endpoint_by_name.get("Open Interest", {})
+    mark_feature = feature_by_name.get("mark price", {})
+    index_feature = feature_by_name.get("index price", {})
+
+    return {
+        "derivatives_data_readiness_audit_complete": True,
+        "can_enter_derivatives_confirmed_trend_research": can_enter,
+        "derivatives_data_blocker": not can_enter,
+        "derivatives_missing_historical_features": missing_features,
+        "derivatives_available_features": available_features,
+        "derivatives_research_recommended_next_step": normalize_derivatives_next_step(
+            decision.get("recommended_next_step")
+        ),
+        "funding_complete_but_not_sufficient": bool(local_funding.get("funding_data_complete")) and not can_enter,
+        "mark_index_available_but_not_sufficient": bool(
+            mark_feature.get("usable_for_research") or index_feature.get("usable_for_research")
+        )
+        and not can_enter,
+        "current_open_interest_snapshot_only": str(current_oi.get("warning") or "").find("current_snapshot_only") >= 0,
+        "key_historical_features_coverage_not_proven": not bool(
+            decision.get("open_interest_available")
+            and (decision.get("taker_flow_available") or decision.get("long_short_ratio_available"))
+        ),
+        "non_price_derivatives_feature_category_count": int(
+            decision.get("non_price_derivatives_feature_category_count") or 0
+        ),
+        "non_price_derivatives_feature_categories_available": decision.get(
+            "non_price_derivatives_feature_categories_available", []
+        ),
+        "blocking_reasons": decision.get("blocking_reasons", []),
+        "endpoint_probe_results": endpoints,
+        "reason": "Historical OI/taker/long-short coverage not proven; funding plus mark/index alone is not enough.",
+    }
+
+
 def build_decision_payload(
     *,
     source_rows: list[dict[str, Any]],
@@ -762,6 +935,7 @@ def build_decision_payload(
     data_status["historical_funding_auto_download_succeeded"] = bool(actual_funding["historical_funding_auto_download_succeeded"])
     regime_findings = extract_regime_findings(parsed_reports)
     classifier_gate = extract_external_classifier_gate_audit(parsed_reports, warnings)
+    derivatives_gate = extract_derivatives_data_readiness(parsed_reports, warnings)
     postmortem_rec = parsed_reports.get("trend_v3_postmortem_recommendations") if include_existing_reports else {}
     regime_rec = parsed_reports.get("trend_regime_recommendations") if include_existing_reports else {}
     extended_summary = parsed_reports.get("trend_v3_extended_compare_summary") if include_existing_reports else {}
@@ -793,6 +967,8 @@ def build_decision_payload(
         blocking_reasons.append("External classifier gate audit complete; no strict stable candidate")
     else:
         blocking_reasons.append("External classifier gate audit missing or incomplete; final gates remain closed")
+    if derivatives_gate["derivatives_data_blocker"]:
+        blocking_reasons.append("Derivatives data readiness blocks derivatives-confirmed trend research")
     blocking_reasons.append("current five-symbol trend-following family is fully archived")
 
     return {
@@ -802,11 +978,20 @@ def build_decision_payload(
         "data_status": data_status,
         "actual_funding": actual_funding,
         "external_regime_classifier_gate_audit": classifier_gate,
+        "derivatives_data_readiness": derivatives_gate,
         "external_regime_classifier_gate_audit_complete": bool(classifier_gate["external_regime_classifier_gate_audit_complete"]),
         "classifier_old_gate_inconsistent": bool(classifier_gate["classifier_old_gate_inconsistent"]),
         "classifier_strict_stable_candidate_exists": bool(classifier_gate["classifier_strict_stable_candidate_exists"]),
         "can_enter_research_only_v3_1_classifier_experiment": bool(classifier_gate["can_enter_research_only_v3_1_classifier_experiment"]),
         "external_classifier_rescued_v3_family": bool(classifier_gate["external_classifier_rescued_v3_family"]),
+        "derivatives_data_readiness_audit_complete": bool(derivatives_gate["derivatives_data_readiness_audit_complete"]),
+        "can_enter_derivatives_confirmed_trend_research": bool(
+            derivatives_gate["can_enter_derivatives_confirmed_trend_research"]
+        ),
+        "derivatives_data_blocker": bool(derivatives_gate["derivatives_data_blocker"]),
+        "derivatives_missing_historical_features": derivatives_gate["derivatives_missing_historical_features"],
+        "derivatives_available_features": derivatives_gate["derivatives_available_features"],
+        "derivatives_research_recommended_next_step": derivatives_gate["derivatives_research_recommended_next_step"],
         "actual_funding_data_complete": bool(actual_funding["actual_funding_data_complete"]),
         "actual_funding_source": actual_funding["actual_funding_source"],
         "rest_funding_endpoint_partial_only": bool(actual_funding["rest_funding_endpoint_partial_only"]),
@@ -822,6 +1007,7 @@ def build_decision_payload(
         "final_strategy_development_allowed": False,
         "final_demo_live_allowed": False,
         "final_current_trend_family_archived": True,
+        "final_current_research_archived": True,
         "proceed_to_broader_universe_research": "optional",
         "proceed_to_funding_research": "complete_for_current_universe_no_gate_opened",
         "failed_policy_families": failed_policy_families(),
@@ -874,6 +1060,7 @@ def generate_markdown(payload: dict[str, Any]) -> str:
     data_status = payload["data_status"]
     funding = payload["actual_funding"]
     regime = payload["trend_regime_findings"]
+    derivatives = payload["derivatives_data_readiness"]
     lines: list[str] = [
         "# Research Decision Dossier",
         "",
@@ -887,8 +1074,10 @@ def generate_markdown(payload: dict[str, Any]) -> str:
         "- 当前没有任何 policy 可进入 Strategy V3 原型开发。",
         "- 当前趋势跟踪 V3.0 family 已失败。",
         "- External Regime Classifier Gate Audit 已完成，未能救回当前 V3 family。",
+        "- Derivatives Data Readiness Audit 已完成，但关键历史衍生品特征覆盖未通过。",
         "- 当前五品种趋势跟踪 family 已最终封档。",
         "- 继续趋势跟踪需要新的研究前提，而不是继续调当前参数。",
+        "- 当前推荐暂停策略开发，只维护数据与研究工具。",
         "- no policy can be traded from the current research package.",
         "",
         "## 2. Data Status",
@@ -945,6 +1134,27 @@ def generate_markdown(payload: dict[str, Any]) -> str:
         f"- strategy_development_allowed={str(bool(payload['strategy_development_allowed'])).lower()}",
         f"- demo_live_allowed={str(bool(payload['demo_live_allowed'])).lower()}",
         f"- gate_audit_reason={classifier.get('reason')}",
+        "",
+        "## Derivatives Data Readiness Final Gate",
+        "- Derivatives-confirmed trend hypothesis 是新的研究假设，不是当前 V3 family 的延续。",
+        "- 本次 audit 没有证明有足够历史衍生品数据支持研究。",
+        "- Funding 数据完整，但 funding alone 不足以构成 derivatives confirmation。",
+        "- Mark/index candle 可用，但只能构造 basis proxy，不足以替代 OI/taker/long-short。",
+        "- Open interest 当前只支持 current snapshot，不能用于 2023-2026 historical research。",
+        "- Taker buy/sell volume、long/short ratio、contracts OI/volume、OI history、premium history 均未证明能覆盖 2023-2026。",
+        f"- derivatives_data_readiness_audit_complete={str(bool(payload['derivatives_data_readiness_audit_complete'])).lower()}",
+        f"- can_enter_derivatives_confirmed_trend_research={str(bool(payload['can_enter_derivatives_confirmed_trend_research'])).lower()}",
+        f"- derivatives_data_blocker={str(bool(payload['derivatives_data_blocker'])).lower()}",
+        f"- derivatives_missing_historical_features={', '.join(payload['derivatives_missing_historical_features'])}",
+        f"- derivatives_available_features={', '.join(payload['derivatives_available_features'])}",
+        f"- derivatives_research_recommended_next_step={payload['derivatives_research_recommended_next_step']}",
+        f"- funding_complete_but_not_sufficient={str(bool(derivatives['funding_complete_but_not_sufficient'])).lower()}",
+        f"- mark_index_available_but_not_sufficient={str(bool(derivatives['mark_index_available_but_not_sufficient'])).lower()}",
+        f"- current_open_interest_snapshot_only={str(bool(derivatives['current_open_interest_snapshot_only'])).lower()}",
+        f"- key_historical_features_coverage_not_proven={str(bool(derivatives['key_historical_features_coverage_not_proven'])).lower()}",
+        "- strategy_development_allowed=false",
+        "- demo_live_allowed=false",
+        "- recommended_next_step=pause strategy development and maintain research/data tooling.",
         "",
         "## 5. Research Timeline",
         "| stage | goal | result | pass/fail | key finding | decision |",
@@ -1036,14 +1246,18 @@ def generate_markdown(payload: dict[str, Any]) -> str:
             f"- demo_live_allowed={str(bool(payload['demo_live_allowed'])).lower()}",
             f"- proceed_to_v3_1_research={str(bool(payload['proceed_to_v3_1_research'])).lower()}",
             f"- can_enter_research_only_v3_1_classifier_experiment={str(bool(payload['can_enter_research_only_v3_1_classifier_experiment'])).lower()}",
+            f"- can_enter_derivatives_confirmed_trend_research={str(bool(payload['can_enter_derivatives_confirmed_trend_research'])).lower()}",
+            f"- derivatives_data_blocker={str(bool(payload['derivatives_data_blocker'])).lower()}",
             f"- current_v3_family_failed={str(bool(payload['current_v3_family_failed'])).lower()}",
             f"- current_v3_family_failed_after_actual_funding={str(bool(payload['current_v3_family_failed_after_actual_funding'])).lower()}",
             f"- final_current_trend_family_archived={str(bool(payload['final_current_trend_family_archived'])).lower()}",
+            f"- final_current_research_archived={str(bool(payload['final_current_research_archived'])).lower()}",
             f"- final_strategy_development_allowed={str(bool(payload['final_strategy_development_allowed'])).lower()}",
             f"- final_demo_live_allowed={str(bool(payload['final_demo_live_allowed'])).lower()}",
             "- proceed_to_broader_universe_research=optional",
             "- proceed_to_funding_research=complete_for_current_universe_no_gate_opened",
-            "- next_default=Pause strategy development and only maintain data/research tooling.",
+            "- derivatives_research_recommended_next_step=pause_research",
+            "- next_default=Pause strategy development and maintain research/data tooling.",
             "",
             "## Source Report Warnings",
         ]
