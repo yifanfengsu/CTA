@@ -20,6 +20,62 @@
 
 不允许把本诊断结果直接转成 Strategy V3、demo runner 或 live runner；funding fee 与收益集中度风险必须继续作为硬约束处理。
 
+## Trend Opportunity Map
+
+`make research-trend-opportunity-map` 是趋势跟踪重启前的研究诊断入口，不是策略开发、不是参数搜索、不是 demo/live runner。
+
+该诊断读取本地 2023-2026 五品种 1m 行情，重采样到 closed-bar `4h` / `1d`，用 ex-post ATR move、trend efficiency 和 run length 标签识别客观趋势机会段，并把已有 V3 extended / VSVCB-v1 / CSRB-v1 trade 文件对齐到这些趋势段，分析旧策略是没进场、进晚了、过早退出，还是主要在 non-trend periods 亏损。
+
+趋势标签允许使用未来数据，因为它们只用于事后标注趋势机会；这些标签不能作为入场特征，不能用于生成交易信号，也不能根据 OOS 结果调参。输出目标是回答市场中趋势在哪里、趋势是否足够分散、旧策略为什么没有抓住，以及下一步只应研究什么方向。
+
+Trend Opportunity Map 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接真实交易，不下单，不写 API key。无论诊断结果如何，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 必须保持不变，研究结果也不能标记为 tradable。
+
+## Trend Capture & Exit Convexity Research
+
+`make research-trend-exit-convexity` 是 Trend Opportunity Map 之后的 research-only 诊断入口，不是策略开发、不是参数搜索、不是 demo/live runner。
+
+该诊断读取 Trend Opportunity Map 的趋势段和 legacy coverage，并读取 V3 extended、VSVCB-v1、CSRB-v1 的既有 trade 文件。它不修改任何入场规则，只把每笔 legacy trade 的 entry 固定不变，研究旧策略是否进晚、是否过早退出，以及 counterfactual exit 机制是否能提高趋势段捕捉比例。
+
+脚本会测试 `original_exit`、更长固定持有、ATR chandelier、swing trailing、time stop 和 `oracle_hold_to_trend_end`。其中 `oracle_hold_to_trend_end` 只用于上限诊断，使用 ex-post trend segment end，不可交易，也不能计入 stable-like gate。
+
+只有 non-oracle exit 在 train_ext / validation_ext / oos_ext、成本、actual OKX funding 和集中度 gate 下通过，才允许进入 Exit Convexity Phase 2 research。无论是否通过，本阶段仍保持 `strategy_development_allowed=false` 和 `demo_live_allowed=false`，不允许直接修改正式策略或进入 demo/live。
+
+## Trend Health State Exit Research
+
+`make research-trend-health-exit` 是 Trend Capture & Exit Convexity Research 之后的离线反事实出场研究入口，不是策略开发、不是入场过滤器、不是 demo/live runner。
+
+该研究固定旧 V3 extended entries 不变，只替换出场逻辑。健康状态由效率、能量、回撤和时间四个维度组成：direction-aware `(close - EMA) / ATR` 或 `(EMA - close) / ATR` 判断趋势效率，`volume / volume_sma20.shift(1)` 判断参与能量，entry ATR 归一化回撤判断趋势破坏，`max_hold_bars` 提供极大持有上限。所有出场判断只使用已闭合 bar，触发后在下一根 bar open 执行。
+
+Trend Health State Exit 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接真实交易，不下单，也不允许使用 trend segment label 作为可交易出场条件。`oracle_hold_to_trend_end` 只作为上限诊断，不参与 stable-like gate。
+
+只有 non-oracle health exit 同时通过 train_ext / validation_ext / oos_ext no-cost、OOS cost-aware、actual OKX funding、集中度、captured_fraction 改善和 early_exit_share 降低 gate，才允许进入 research-only Health Exit Phase 2。即使通过，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 仍必须保持不变；如果失败，下一步应回到 entry timing research 或暂停。
+
+## Trend Entry Timing Research
+
+`make research-trend-entry-timing` 是 Trend Capture & Exit Convexity Research 失败后的 research-only 诊断入口，不是策略开发、不是参数搜索、不是 demo/live runner。
+
+该研究使用 Trend Opportunity Map 的趋势段作为事后标签，分析旧 V3 extended trades 是否进场太晚，并生成若干只使用事件发生前 closed-bar 数据的 candidate early-entry events。趋势段标签只能用于事后评估 recall、entry lag、direction match 和 missed MFE，不能作为入场条件或特征。
+
+候选 family 包括 pre-breakout momentum acceleration、breakout retest reclaim、cross-symbol breadth acceleration、funding-neutral momentum 和 relative-strength leader。所有阈值必须只从 `train_ext` 定义；`validation_ext` 和 `oos_ext` 只能检验，不能反向调参。
+
+只有 candidate family 通过 train / validation / oos、成本、actual OKX funding、reverse test、random time control 和集中度 gate，才允许进入 Entry Timing Phase 2 research。无论是否通过，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 仍必须保持不变，不允许进入 Strategy V3、demo 或 live。
+
+## Trend Entry Timing Postmortem
+
+`make postmortem-trend-entry-timing` 只读取 `reports/research/trend_entry_timing/` 下已经完成的 Trend Entry Timing 产物，生成 `reports/research/trend_entry_timing_postmortem/`。这是失败复盘和候选审计，不是策略开发、不是调参、不是 demo/live runner。
+
+本复盘重点审计 `cross_symbol_breadth_acceleration`：即使它 train / validation / oos 三段 no-cost 为正，也不能忽略 OOS cost-aware 为负、成本脆弱性、funding 依赖、集中度、top trade 依赖、random control 和 reverse test。`research_asset=true` 只表示可以进入 Phase 1.5 diagnostic，仍不等于 strategy candidate，也不允许修改正式策略。
+
+无论 postmortem 结论如何，`strategy_development_allowed=false`、`demo_live_allowed=false` 和 `can_enter_entry_timing_phase2=false` 必须保持不变；如果 `cross_symbol_breadth_acceleration` 不满足 research asset 条件，下一步应为 `pause_or_new_hypothesis`。
+
+## Cross-Symbol Breadth Acceleration Phase 1.5
+
+`make research-breadth-phase15` 是 `cross_symbol_breadth_acceleration` near-miss lead 的 Phase 1.5 诊断入口，不是策略开发、不是正式参数优化、不是 demo/live runner。
+
+该诊断只读取 Trend Entry Timing 和 Postmortem 已生成的离线产物，审计成本边际、funding 依赖、集中度修复、top trade 依赖、信号强度分桶、early-entry 改进迹象，以及 random/reverse control 鲁棒性。低成本场景只能作为执行敏感性诊断，不能当作正式通过。
+
+即使该 lead 被升级为 `research_asset=true`，也只允许进入 threshold plateau / execution diagnostic 研究；`research_asset` 不等于 tradable policy。该阶段不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接交易接口，也不允许把结果标记为可交易。
+
 ## Research Decision Dossier
 
 `make research-dossier` 用于归档当前趋势跟踪研究结论和最终决策，不开发策略、不新增参数搜索、不进入 demo/live。
@@ -57,6 +113,8 @@ CSRB-v1 借鉴 opening range breakout / London Breakout / Dual Thrust 的 sessio
 本研究输出 Asia range → Europe breakout、Europe range → US breakout、session-agnostic ordinary breakout、randomized session time control 和 reverse test。它必须保留 random breakout 对照组，不使用 EMA / MACD / ADX 作为第一版过滤器，不用未来收益、MFE 或 MAE 作为入场特征，不根据 OOS 结果调参。
 
 CSRB-v1 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接真实交易，也不写 API key。无论 Phase 1 是否通过，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 都必须保持不变；若全部 gate 通过，也只允许进入 Phase 2 research，不允许直接标记为可交易。
+
+CSRB-v1 Phase 1 失败后必须进入 `make postmortem-csrb-v1`。Postmortem 只做失败复盘和对照组实现审计，不允许调 session 时间救策略，不允许调参，不允许参数高原，不允许随机化优化。如果 E reverse test 明显优于正向，只能说明 false-breakout research hypothesis 可能存在，不能把 E 组标记为趋势跟踪 edge 或可交易策略；如果 D random time control 为正，必须通过多 seed robustness 审计判断当前 seed 是否偶然。无论 postmortem 结论如何，CSRB-v1 不允许直接修改正式策略或进入 demo/live。
 
 ## Derivatives-confirmed Trend Research
 
@@ -187,8 +245,9 @@ OKX_PROXY_PORT=0
 37. `make postmortem-vsvcb-v1`
 38. `make audit-derivatives-data`
 39. `make research-csrb-v1`
-40. `make alpha-sweep`
-41. 满足条件后再考虑补 demo runner/模拟盘。
+40. `make postmortem-csrb-v1`
+41. `make alpha-sweep`
+42. 满足条件后再考虑补 demo runner/模拟盘。
 
 ## Makefile 变量
 
@@ -258,6 +317,7 @@ OKX_PROXY_PORT=0
 | `VSVCB_POSTMORTEM_OUTPUT_DIR` | `reports/research/vsvcb_v1_postmortem` | `postmortem-vsvcb-v1` 输出目录 |
 | `DERIVATIVES_DATA_READINESS_OUTPUT_DIR` | `reports/research/derivatives_data_readiness` | `audit-derivatives-data` 输出目录 |
 | `CSRB_OUTPUT_DIR` | `reports/research/csrb_v1` | `research-csrb-v1` 输出目录 |
+| `CSRB_POSTMORTEM_OUTPUT_DIR` | `reports/research/csrb_v1_postmortem` | `postmortem-csrb-v1` 输出目录 |
 | `TRAIN_DIR` | 空 | `compare-features` 的 train `signal_feature_research` 目录 |
 | `VALIDATION_DIR` | 空 | `compare-features` 的 validation `signal_feature_research` 目录 |
 | `OOS_DIR` | 空 | `compare-features` 的 oos `signal_feature_research` 目录 |
@@ -323,6 +383,7 @@ OKX_PROXY_PORT=0
 | `make postmortem-vsvcb-v1` | VSVCB-v1 Phase 1 失败复盘，不调参、不开发策略 | 否 | 否 | `reports/research/vsvcb_v1_postmortem/` | `make postmortem-vsvcb-v1` |
 | `make audit-derivatives-data` | OKX public/no-key 衍生品数据可得性审计，不下载多年数据 | 否 | 否 | `reports/research/derivatives_data_readiness/` | `make audit-derivatives-data` |
 | `make research-csrb-v1` | CSRB-v1 Research-Only Phase 1 session range breakout 事件研究和固定持有基准 | 否 | 否 | `reports/research/csrb_v1/` | `make research-csrb-v1` |
+| `make postmortem-csrb-v1` | CSRB-v1 Phase 1 失败复盘和 random/reverse 对照组审计，不调参、不开发策略 | 否 | 否 | `reports/research/csrb_v1_postmortem/` | `make postmortem-csrb-v1` |
 | `make alpha-sweep` | 保守参数 shortlist sweep | 否 | 否 | `reports/alpha_sweep/YYYYMMDD_HHMMSS/` 或 `OUTPUT_DIR` | `make alpha-sweep OUTPUT_DIR=reports/alpha_sweep/manual_001` |
 | `make ablation` | 方向、周末、小时过滤诊断实验 | 否 | 否 | `reports/ablation/main_20250101_20260331/` 或 `OUTPUT_DIR` | `make ablation SPLIT=oos OUTPUT_DIR=reports/ablation/oos` |
 | `make test` | 运行全部单元测试 | 否 | 否 | 终端输出 | `make test` |

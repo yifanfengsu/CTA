@@ -69,6 +69,12 @@ FUNDING_REPORTS_DIR ?= reports/research/funding
 TREND_V3_ACTUAL_FUNDING_OUTPUT_DIR ?= reports/research/trend_following_v3_actual_funding
 EXTENDED_HISTORY_OUTPUT_DIR ?= reports/research/extended_history_availability
 TREND_REGIME_OUTPUT_DIR ?= reports/research/trend_regime_diagnostics
+TREND_OPPORTUNITY_OUTPUT_DIR ?= reports/research/trend_opportunity_map
+TREND_CAPTURE_EXIT_OUTPUT_DIR ?= reports/research/trend_capture_exit_convexity
+TREND_HEALTH_EXIT_OUTPUT_DIR ?= reports/research/trend_health_state_exit
+TREND_ENTRY_TIMING_OUTPUT_DIR ?= reports/research/trend_entry_timing
+TREND_ENTRY_TIMING_POSTMORTEM_OUTPUT_DIR ?= reports/research/trend_entry_timing_postmortem
+BREADTH_PHASE15_OUTPUT_DIR ?= reports/research/cross_symbol_breadth_phase15
 RESEARCH_DOSSIER_OUTPUT_DIR ?= reports/research/research_decision_dossier
 EXTERNAL_REGIME_OUTPUT_DIR ?= reports/research/external_regime_feasibility
 EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR ?= reports/research/external_regime_classifier
@@ -77,6 +83,7 @@ VSVCB_OUTPUT_DIR ?= reports/research/vsvcb_v1
 VSVCB_POSTMORTEM_OUTPUT_DIR ?= reports/research/vsvcb_v1_postmortem
 DERIVATIVES_DATA_READINESS_OUTPUT_DIR ?= reports/research/derivatives_data_readiness
 CSRB_OUTPUT_DIR ?= reports/research/csrb_v1
+CSRB_POSTMORTEM_OUTPUT_DIR ?= reports/research/csrb_v1_postmortem
 TRAIN_DIR ?=
 VALIDATION_DIR ?=
 OOS_DIR ?=
@@ -95,7 +102,7 @@ TAIL_LINES ?= 80
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
 .PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch download-funding-dry-run download-funding verify-funding verify-funding-allow-partial import-funding-csv probe-funding-source download-funding-historical-dry-run download-funding-historical analyze-trend-v3-funding
-.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates research-vsvcb-v1 postmortem-vsvcb-v1 audit-derivatives-data research-csrb-v1 alpha-sweep ablation
+.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-trend-opportunity-map research-trend-exit-convexity research-trend-health-exit research-trend-entry-timing postmortem-trend-entry-timing research-breadth-phase15 research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates research-vsvcb-v1 postmortem-vsvcb-v1 audit-derivatives-data research-csrb-v1 postmortem-csrb-v1 alpha-sweep ablation
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -154,6 +161,12 @@ help:
 		"  make compare-trend-v3-extended" \
 		"  make postmortem-trend-v3" \
 		"  make diagnose-trend-regimes  Diagnose 2023-2026 trend regimes and V3 trade attribution" \
+		"  make research-trend-opportunity-map  Build ex-post trend opportunity diagnostics" \
+		"  make research-trend-exit-convexity  Research legacy trend capture and counterfactual exits" \
+		"  make research-trend-health-exit  Research trend health-state exits offline" \
+		"  make research-trend-entry-timing  Research early-entry timing candidates offline" \
+		"  make postmortem-trend-entry-timing  Postmortem and audit Trend Entry Timing candidates" \
+		"  make research-breadth-phase15  Diagnose cross-symbol breadth near-miss lead" \
 		"  make research-dossier  Archive final research decision and blocked directions" \
 		"  make audit-external-regime  Audit research-only external regime classifier feasibility" \
 		"  make research-external-regime-classifier  Research external regime classifier filters offline" \
@@ -162,6 +175,7 @@ help:
 		"  make postmortem-vsvcb-v1  Run VSVCB-v1 Phase 1 failure postmortem" \
 		"  make audit-derivatives-data  Audit OKX public derivatives data readiness" \
 		"  make research-csrb-v1  Run CSRB-v1 Phase 1 session breakout event study" \
+		"  make postmortem-csrb-v1  Run CSRB-v1 Phase 1 postmortem and control audit" \
 		"  make audit-multisymbol  Audit multi-symbol metadata and sqlite readiness" \
 		"  make audit-extended-history  Audit long-history availability and download plan" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
@@ -193,10 +207,10 @@ help:
 		"  TREND_V3_EXT_OUTPUT_DIR=$(TREND_V3_EXT_OUTPUT_DIR) TREND_V3_EXT_COMPARE_OUTPUT_DIR=$(TREND_V3_EXT_COMPARE_OUTPUT_DIR)" \
 		"  FUNDING_OUTPUT_DIR=$(FUNDING_OUTPUT_DIR) FUNDING_REPORTS_DIR=$(FUNDING_REPORTS_DIR)" \
 		"  TREND_V3_POSTMORTEM_OUTPUT_DIR=$(TREND_V3_POSTMORTEM_OUTPUT_DIR)" \
-		"  EXTENDED_HISTORY_OUTPUT_DIR=$(EXTENDED_HISTORY_OUTPUT_DIR) TREND_REGIME_OUTPUT_DIR=$(TREND_REGIME_OUTPUT_DIR)" \
+		"  EXTENDED_HISTORY_OUTPUT_DIR=$(EXTENDED_HISTORY_OUTPUT_DIR) TREND_REGIME_OUTPUT_DIR=$(TREND_REGIME_OUTPUT_DIR) TREND_OPPORTUNITY_OUTPUT_DIR=$(TREND_OPPORTUNITY_OUTPUT_DIR) TREND_CAPTURE_EXIT_OUTPUT_DIR=$(TREND_CAPTURE_EXIT_OUTPUT_DIR) TREND_HEALTH_EXIT_OUTPUT_DIR=$(TREND_HEALTH_EXIT_OUTPUT_DIR) TREND_ENTRY_TIMING_OUTPUT_DIR=$(TREND_ENTRY_TIMING_OUTPUT_DIR) TREND_ENTRY_TIMING_POSTMORTEM_OUTPUT_DIR=$(TREND_ENTRY_TIMING_POSTMORTEM_OUTPUT_DIR) BREADTH_PHASE15_OUTPUT_DIR=$(BREADTH_PHASE15_OUTPUT_DIR)" \
 		"  RESEARCH_DOSSIER_OUTPUT_DIR=$(RESEARCH_DOSSIER_OUTPUT_DIR) EXTERNAL_REGIME_OUTPUT_DIR=$(EXTERNAL_REGIME_OUTPUT_DIR)" \
 		"  EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR=$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR) EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR=$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)" \
-		"  VSVCB_OUTPUT_DIR=$(VSVCB_OUTPUT_DIR) DERIVATIVES_DATA_READINESS_OUTPUT_DIR=$(DERIVATIVES_DATA_READINESS_OUTPUT_DIR) CSRB_OUTPUT_DIR=$(CSRB_OUTPUT_DIR)" \
+		"  VSVCB_OUTPUT_DIR=$(VSVCB_OUTPUT_DIR) DERIVATIVES_DATA_READINESS_OUTPUT_DIR=$(DERIVATIVES_DATA_READINESS_OUTPUT_DIR) CSRB_OUTPUT_DIR=$(CSRB_OUTPUT_DIR) CSRB_POSTMORTEM_OUTPUT_DIR=$(CSRB_POSTMORTEM_OUTPUT_DIR)" \
 		"  SPLIT=$(SPLIT) MAX_RUNS=$(MAX_RUNS)"
 
 venv:
@@ -777,6 +791,70 @@ diagnose-trend-regimes:
 		--output-dir "$(TREND_REGIME_OUTPUT_DIR)" \
 		--data-check-strict
 
+research-trend-opportunity-map:
+	@echo "Building research-only Trend Opportunity Map"
+	$(PYTHON) scripts/research_trend_opportunity_map.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--timeframes "4h,1d" \
+		--output-dir "$(TREND_OPPORTUNITY_OUTPUT_DIR)" \
+		--data-check-strict
+
+research-trend-exit-convexity:
+	@echo "Researching trend capture and exit convexity without strategy changes"
+	$(PYTHON) scripts/research_trend_capture_exit_convexity.py \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--trend-v3-dir reports/research/trend_following_v3_extended \
+		--vsvcb-dir reports/research/vsvcb_v1 \
+		--csrb-dir reports/research/csrb_v1 \
+		--funding-dir data/funding/okx \
+		--output-dir reports/research/trend_capture_exit_convexity \
+		--timezone Asia/Shanghai \
+		--data-check-strict
+
+research-trend-health-exit:
+	@echo "Researching trend health-state exits without strategy changes"
+	$(PYTHON) scripts/research_trend_health_state_exit.py \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--trend-v3-dir reports/research/trend_following_v3_extended \
+		--funding-dir data/funding/okx \
+		--output-dir reports/research/trend_health_state_exit \
+		--timezone Asia/Shanghai \
+		--data-check-strict
+
+research-trend-entry-timing:
+	@echo "Researching trend entry timing without strategy changes"
+	$(PYTHON) scripts/research_trend_entry_timing.py \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--trend-v3-dir reports/research/trend_following_v3_extended \
+		--funding-dir data/funding/okx \
+		--output-dir reports/research/trend_entry_timing \
+		--timezone Asia/Shanghai \
+		--data-check-strict
+
+postmortem-trend-entry-timing:
+	@echo "Running Trend Entry Timing postmortem and breadth candidate audit"
+	$(PYTHON) scripts/postmortem_trend_entry_timing.py \
+		--research-dir reports/research/trend_entry_timing \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--funding-dir data/funding/okx \
+		--output-dir reports/research/trend_entry_timing_postmortem \
+		--focus-family cross_symbol_breadth_acceleration \
+		--timezone Asia/Shanghai
+
+research-breadth-phase15:
+	@echo "Running cross-symbol breadth acceleration Phase 1.5 diagnostics"
+	$(PYTHON) scripts/research_cross_symbol_breadth_phase15.py \
+		--entry-timing-dir reports/research/trend_entry_timing \
+		--postmortem-dir reports/research/trend_entry_timing_postmortem \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--funding-dir data/funding/okx \
+		--output-dir reports/research/cross_symbol_breadth_phase15 \
+		--focus-family cross_symbol_breadth_acceleration \
+		--timezone Asia/Shanghai
+
 research-dossier:
 	@echo "Building research decision dossier"
 	$(PYTHON) scripts/build_research_decision_dossier.py \
@@ -861,6 +939,12 @@ research-csrb-v1:
 		--report-timezone Asia/Shanghai \
 		--output-dir reports/research/csrb_v1 \
 		--data-check-strict
+
+postmortem-csrb-v1:
+	@echo "Running CSRB-v1 Phase 1 postmortem and control audit"
+	$(PYTHON) scripts/postmortem_csrb_v1.py \
+		--research-dir reports/research/csrb_v1 \
+		--output-dir reports/research/csrb_v1_postmortem
 
 alpha-sweep:
 	@if [[ ! -f "$(SANITY_CONFIG)" ]]; then \
