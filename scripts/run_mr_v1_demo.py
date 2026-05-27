@@ -167,7 +167,7 @@ def main():
         if accounts:
             logged_in = True
             for acc in accounts:
-                print(f"  OKX {args.server} | {acc.currency} balance: {acc.balance}")
+                print(f"  OKX {args.server} | {acc.accountid} balance: {acc.balance}")
             break
 
     if not logged_in:
