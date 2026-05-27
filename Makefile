@@ -84,6 +84,13 @@ VSVCB_POSTMORTEM_OUTPUT_DIR ?= reports/research/vsvcb_v1_postmortem
 DERIVATIVES_DATA_READINESS_OUTPUT_DIR ?= reports/research/derivatives_data_readiness
 CSRB_OUTPUT_DIR ?= reports/research/csrb_v1
 CSRB_POSTMORTEM_OUTPUT_DIR ?= reports/research/csrb_v1_postmortem
+ETC_V1_OUTPUT_DIR ?= reports/research/early_trend_classifier_v1
+ETC_V1_INVERSE_OUTPUT_DIR ?= reports/research/early_trend_classifier_v1_inverse
+EXIT_ONLY_BC_OUTPUT_DIR ?= reports/research/exit_only_bc
+MR_V1_OUTPUT_DIR ?= reports/research/mr_v1
+MR_V1_PHASE2_OUTPUT_DIR ?= reports/research/mr_v1_phase2
+MR_V1_PHASE3_OUTPUT_DIR ?= reports/research/mr_v1_phase3
+MR_V1_DEMO_SYMBOLS ?= BTCUSDT_SWAP_OKX.GLOBAL,ETHUSDT_SWAP_OKX.GLOBAL,SOLUSDT_SWAP_OKX.GLOBAL,LINKUSDT_SWAP_OKX.GLOBAL,DOGEUSDT_SWAP_OKX.GLOBAL
 TRAIN_DIR ?=
 VALIDATION_DIR ?=
 OOS_DIR ?=
@@ -102,7 +109,7 @@ TAIL_LINES ?= 80
 .PHONY: venv install env
 .PHONY: doctor inspect-okx check-okx
 .PHONY: download-history-dry-run download-history repair-history verify-history refresh-okx-metadata-dry-run refresh-okx-metadata download-history-batch-dry-run download-history-batch verify-history-batch download-funding-dry-run download-funding verify-funding verify-funding-allow-partial import-funding-csv probe-funding-source download-funding-historical-dry-run download-funding-historical analyze-trend-v3-funding
-.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-trend-opportunity-map research-trend-exit-convexity research-trend-health-exit research-trend-entry-timing postmortem-trend-entry-timing research-breadth-phase15 research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates research-vsvcb-v1 postmortem-vsvcb-v1 audit-derivatives-data research-csrb-v1 postmortem-csrb-v1 alpha-sweep ablation
+.PHONY: backtest backtest-no-cost backtest-trace backtest-sanity analyze-alpha analyze-trades analyze-signals research-entry research-features compare-features research-htf compare-htf research-trend-v2 compare-trend-v2 research-trend-v3 compare-trend-v3 research-trend-v3-extended compare-trend-v3-extended postmortem-trend-v3 diagnose-trend-regimes research-trend-opportunity-map research-trend-exit-convexity research-trend-health-exit research-trend-entry-timing postmortem-trend-entry-timing research-breadth-phase15 research-dossier audit-multisymbol audit-extended-history audit-external-regime research-external-regime-classifier audit-external-regime-gates research-vsvcb-v1 postmortem-vsvcb-v1 audit-derivatives-data research-csrb-v1 postmortem-csrb-v1 research-etc-v1 research-etc-v1-inverse research-exit-only-bc research-mr-v1 research-mr-v1-phase2 research-mr-v1-phase3 research-mr-v1-demo alpha-sweep ablation
 .PHONY: test test-one compile
 .PHONY: clean-cache clean-logs clean-reports tail-log
 
@@ -176,6 +183,13 @@ help:
 		"  make audit-derivatives-data  Audit OKX public derivatives data readiness" \
 		"  make research-csrb-v1  Run CSRB-v1 Phase 1 session breakout event study" \
 		"  make postmortem-csrb-v1  Run CSRB-v1 Phase 1 postmortem and control audit" \
+		"  make research-etc-v1  Run ETC-v1 early trend classifier feature discovery" \
+		"  make research-etc-v1-inverse  Run ETC-v1 Inverse (sign-flipped) early trend classifier" \
+		"  make research-exit-only-bc  Run Exit-Only Research (B+C) on 20-bar breakout entries" \
+		"  make research-mr-v1  Run MR-v1 Mean Reversion (fade 20-bar breakouts) with exit mechanisms" \
+		"  make research-mr-v1-phase2  Run MR-v1 Phase 2 parameter sweep and robustness" \
+		"  make research-mr-v1-phase3  Run MR-v1 Phase 3 formal 4h backtest" \
+		"  make research-mr-v1-demo  Run MR-v1 demo on OKX DEMO" \
 		"  make audit-multisymbol  Audit multi-symbol metadata and sqlite readiness" \
 		"  make audit-extended-history  Audit long-history availability and download plan" \
 		"  make alpha-sweep          Guarded conservative shortlist sweep" \
@@ -210,7 +224,7 @@ help:
 		"  EXTENDED_HISTORY_OUTPUT_DIR=$(EXTENDED_HISTORY_OUTPUT_DIR) TREND_REGIME_OUTPUT_DIR=$(TREND_REGIME_OUTPUT_DIR) TREND_OPPORTUNITY_OUTPUT_DIR=$(TREND_OPPORTUNITY_OUTPUT_DIR) TREND_CAPTURE_EXIT_OUTPUT_DIR=$(TREND_CAPTURE_EXIT_OUTPUT_DIR) TREND_HEALTH_EXIT_OUTPUT_DIR=$(TREND_HEALTH_EXIT_OUTPUT_DIR) TREND_ENTRY_TIMING_OUTPUT_DIR=$(TREND_ENTRY_TIMING_OUTPUT_DIR) TREND_ENTRY_TIMING_POSTMORTEM_OUTPUT_DIR=$(TREND_ENTRY_TIMING_POSTMORTEM_OUTPUT_DIR) BREADTH_PHASE15_OUTPUT_DIR=$(BREADTH_PHASE15_OUTPUT_DIR)" \
 		"  RESEARCH_DOSSIER_OUTPUT_DIR=$(RESEARCH_DOSSIER_OUTPUT_DIR) EXTERNAL_REGIME_OUTPUT_DIR=$(EXTERNAL_REGIME_OUTPUT_DIR)" \
 		"  EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR=$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR) EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR=$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)" \
-		"  VSVCB_OUTPUT_DIR=$(VSVCB_OUTPUT_DIR) DERIVATIVES_DATA_READINESS_OUTPUT_DIR=$(DERIVATIVES_DATA_READINESS_OUTPUT_DIR) CSRB_OUTPUT_DIR=$(CSRB_OUTPUT_DIR) CSRB_POSTMORTEM_OUTPUT_DIR=$(CSRB_POSTMORTEM_OUTPUT_DIR)" \
+		"  VSVCB_OUTPUT_DIR=$(VSVCB_OUTPUT_DIR) DERIVATIVES_DATA_READINESS_OUTPUT_DIR=$(DERIVATIVES_DATA_READINESS_OUTPUT_DIR) CSRB_OUTPUT_DIR=$(CSRB_OUTPUT_DIR) CSRB_POSTMORTEM_OUTPUT_DIR=$(CSRB_POSTMORTEM_OUTPUT_DIR) ETC_V1_OUTPUT_DIR=$(ETC_V1_OUTPUT_DIR)" \
 		"  SPLIT=$(SPLIT) MAX_RUNS=$(MAX_RUNS)"
 
 venv:
@@ -945,6 +959,80 @@ postmortem-csrb-v1:
 	$(PYTHON) scripts/postmortem_csrb_v1.py \
 		--research-dir reports/research/csrb_v1 \
 		--output-dir reports/research/csrb_v1_postmortem
+
+research-etc-v1:
+	@echo "Running ETC-v1 Early Trend Classifier feature discovery"
+	$(PYTHON) scripts/research_early_trend_classifier_v1.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--timeframes "4h,1d" \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--funding-dir data/funding/okx \
+		--output-dir "$(ETC_V1_OUTPUT_DIR)" \
+		--data-check-strict
+
+research-etc-v1-inverse:
+	@echo "Running ETC-v1 Inverse (Sign-Flipped) Early Trend Classifier feature discovery"
+	$(PYTHON) scripts/research_early_trend_classifier_v1_inverse.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--timeframes "4h,1d" \
+		--trend-map-dir reports/research/trend_opportunity_map \
+		--funding-dir data/funding/okx \
+		--output-dir "$(ETC_V1_INVERSE_OUTPUT_DIR)" \
+		--data-check-strict
+
+research-exit-only-bc:
+	@echo "Running Exit-Only Research: Trend Drawdown (B) + 1d Lock (C)"
+	$(PYTHON) scripts/research_exit_only_bc.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--funding-dir data/funding/okx \
+		--output-dir "$(EXIT_ONLY_BC_OUTPUT_DIR)" \
+		--data-check-strict
+
+research-mr-v1:
+	@echo "Running MR-v1 Mean Reversion: fade 20-bar breakouts"
+	$(PYTHON) scripts/research_mr_v1.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--funding-dir data/funding/okx \
+		--output-dir "$(MR_V1_OUTPUT_DIR)" \
+		--data-check-strict
+
+research-mr-v1-phase2:
+	@echo "Running MR-v1 Phase 2: parameter sweep + robustness"
+	$(PYTHON) scripts/research_mr_v1_phase2.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--funding-dir data/funding/okx \
+		--output-dir "$(MR_V1_PHASE2_OUTPUT_DIR)"
+
+research-mr-v1-phase3:
+	@echo "Running MR-v1 Phase 3: formal 4h backtest"
+	$(PYTHON) scripts/backtest_mr_v1.py \
+		--symbols "$(SYMBOLS)" \
+		--start 2023-01-01 \
+		--end 2026-03-31 \
+		--timezone Asia/Shanghai \
+		--funding-dir data/funding/okx \
+		--output-dir "$(MR_V1_PHASE3_OUTPUT_DIR)"
+
+research-mr-v1-demo:
+	@echo "Starting MR-v1 Demo on OKX DEMO"
+	$(PYTHON) scripts/run_mr_v1_demo.py \
+		--symbols "$(MR_V1_DEMO_SYMBOLS)" \
+		--server DEMO
 
 alpha-sweep:
 	@if [[ ! -f "$(SANITY_CONFIG)" ]]; then \

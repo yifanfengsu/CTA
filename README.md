@@ -60,6 +60,16 @@ Trend Health State Exit 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy 
 
 只有 candidate family 通过 train / validation / oos、成本、actual OKX funding、reverse test、random time control 和集中度 gate，才允许进入 Entry Timing Phase 2 research。无论是否通过，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 仍必须保持不变，不允许进入 Strategy V3、demo 或 live。
 
+## ETC-v1：Early Trend Classifier
+
+`make research-etc-v1` 是趋势早期识别特征发现研究入口，不是策略开发、不是参数搜索、不是 demo/live runner。
+
+ETC-v1 使用 Trend Opportunity Map 的趋势段构造 ex-post research labels，包括 `early_uptrend`、`early_downtrend`、`middle_trend`、`late_trend`、`nontrend` 和 `excluded_ambiguous`。这些趋势标签只允许用于研究和评估，不可用于真实入场，也不可作为可交易条件。
+
+特征必须全部来自 timestamp 之前已经完成的 closed-bar 数据，包括趋势效率、跨品种广度、相对强弱、波动状态转换、actual OKX funding、回撤位置和成交结构。第一版只做单特征分桶、预注册线性 composite score、top-score event study、random control 和 reverse direction control，不使用 XGBoost、深度学习、强化学习或其他复杂模型。
+
+ETC-v1 不修改 `OkxAdaptiveMhfStrategy`，不新增 Strategy class，不新增 demo/live runner，不连接交易接口，也不允许把结果标记为可交易。只有 Phase 1 通过后，才允许设计 Phase 2 research；即使允许 Phase 2，`strategy_development_allowed=false` 和 `demo_live_allowed=false` 仍必须保持不变。
+
 ## Trend Entry Timing Postmortem
 
 `make postmortem-trend-entry-timing` 只读取 `reports/research/trend_entry_timing/` 下已经完成的 Trend Entry Timing 产物，生成 `reports/research/trend_entry_timing_postmortem/`。这是失败复盘和候选审计，不是策略开发、不是调参、不是 demo/live runner。

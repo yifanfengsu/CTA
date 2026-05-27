@@ -1,0 +1,13 @@
+{
+  "class_name": "MrV1Strategy",
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "setting": {
+    "notional_per_trade": 500.0,
+    "lookback": 8,
+    "atr_window": 14,
+    "atr_stop": 1.0,
+    "max_hold": 60,
+    "init_days": 60,
+    "price_offset": 2
+  }
+}
