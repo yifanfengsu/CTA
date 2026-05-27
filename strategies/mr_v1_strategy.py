@@ -149,7 +149,10 @@ class MrV1Strategy(CtaTemplate):
             self._update_extremes(bar)
 
             stop_price = self._stop_price()
-            hit = (self.pos > 0 and bar.low_price <= stop_price) or (self.pos < 0 and bar.high_price >= stop_price)
+            hit = self._stop_valid() and (
+                (self.pos > 0 and bar.low_price <= stop_price)
+                or (self.pos < 0 and bar.high_price >= stop_price)
+            )
             if hit:
                 self._exit_position(bar, "stop")
             elif self.hold_bars >= self.max_hold:
@@ -160,7 +163,6 @@ class MrV1Strategy(CtaTemplate):
         if self.active_orders:
             return
 
-        # Entry signals
         if close <= 0 or self.atr_value <= 0:
             return
 
@@ -196,13 +198,14 @@ class MrV1Strategy(CtaTemplate):
         """Calculate contract count from notional target and contract value."""
         if price <= 0 or self.notional_per_trade <= 0:
             return 0
-        # Contract multiplier from exchange (e.g. 0.01 for BTC perpetual)
         multiplier = self.get_size()
+        if multiplier <= 0:
+            multiplier = 0.01  # fallback: OKX perpetual default
         contract_value = price * multiplier
         if contract_value <= 0:
             return 1
         size = round(self.notional_per_trade / contract_value)
-        return max(1, min(size, 1000))  # min 1, max 1000 contracts
+        return max(1, min(size, 1000))
 
     def _exit_position(self, bar: BarData, reason: str) -> None:
         if self.pos > 0:
@@ -218,6 +221,10 @@ class MrV1Strategy(CtaTemplate):
         if self.pos > 0:
             return self.entry_price - self.atr_stop * self.atr_value
         return self.entry_price + self.atr_stop * self.atr_value
+
+    def _stop_valid(self) -> bool:
+        """Stop price is only valid if we have a real entry price."""
+        return self.entry_price > 0
 
     def _buy_price(self, base: float) -> float:
         return base + self.get_pricetick() * self.price_offset

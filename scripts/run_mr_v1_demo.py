@@ -93,7 +93,7 @@ def set_leverage_okx(symbol: str, leverage: int = 1, server: str = "DEMO") -> bo
     if server != "DEMO":
         base_url = "https://www.okx.com"  # REAL — verify with user
 
-    timestamp = datetime.datetime.utcnow().isoformat("T", "milliseconds") + "Z"
+    timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat("T", "milliseconds") + "Z"
     method = "POST"
     path = "/api/v5/account/set-leverage"
     body = json.dumps({
