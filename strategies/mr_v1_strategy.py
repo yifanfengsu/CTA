@@ -143,20 +143,21 @@ class MrV1Strategy(CtaTemplate):
 
         close = bar.close_price
 
-        # Position management (always run, even with pending orders)
+        # Position management (always update state, but only send orders when clear)
         if self.pos != 0:
             self.hold_bars += 1
             self._update_extremes(bar)
 
-            stop_price = self._stop_price()
-            hit = self._stop_valid() and (
-                (self.pos > 0 and bar.low_price <= stop_price)
-                or (self.pos < 0 and bar.high_price >= stop_price)
-            )
-            if hit:
-                self._exit_position(bar, "stop")
-            elif self.hold_bars >= self.max_hold:
-                self._exit_position(bar, "max_hold")
+            if not self.active_orders:
+                stop_price = self._stop_price()
+                hit = self._stop_valid() and (
+                    (self.pos > 0 and bar.low_price <= stop_price)
+                    or (self.pos < 0 and bar.high_price >= stop_price)
+                )
+                if hit:
+                    self._exit_position(bar, "stop")
+                elif self.hold_bars >= self.max_hold:
+                    self._exit_position(bar, "max_hold")
             return
 
         # Entry signals (only when no pending orders and flat)

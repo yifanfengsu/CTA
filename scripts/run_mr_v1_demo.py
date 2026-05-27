@@ -137,7 +137,6 @@ def main():
     sys.path.insert(0, str(PROJECT_ROOT))
 
     from vnpy.trader.engine import MainEngine
-    from vnpy.trader.event import EventEngine
     from vnpy.trader.setting import SETTINGS
     from vnpy_okx import OkxGateway
     from vnpy_ctastrategy import CtaEngine
@@ -146,8 +145,7 @@ def main():
     symbols = [s.strip() for s in args.symbols.split(",")]
 
     # --- Engine setup ---
-    event_engine = EventEngine()
-    main_engine = MainEngine(event_engine)
+    main_engine = MainEngine()
     main_engine.add_gateway(OkxGateway)
 
     # CTA engine
