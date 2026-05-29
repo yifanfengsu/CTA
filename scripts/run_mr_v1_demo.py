@@ -67,7 +67,7 @@ def strategy_setting() -> dict:
         "atr_window": 14,
         "atr_stop": 1.0,
         "max_hold": 60,
-        "init_days": 60,
+        "init_days": 90,
         "price_offset": 2,
     }
 
@@ -93,7 +93,7 @@ def set_leverage_okx(symbol: str, leverage: int = 1, server: str = "DEMO") -> bo
     if server != "DEMO":
         base_url = "https://www.okx.com"  # REAL — verify with user
 
-    timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat("T", "milliseconds") + "Z"
+    now = datetime.datetime.now(datetime.timezone.utc); timestamp = now.strftime("%Y-%m-%dT%H:%M:%S.") + f"{now.microsecond//1000:03d}Z"
     method = "POST"
     path = "/api/v5/account/set-leverage"
     body = json.dumps({
@@ -114,6 +114,8 @@ def set_leverage_okx(symbol: str, leverage: int = 1, server: str = "DEMO") -> bo
         "OK-ACCESS-PASSPHRASE": passphrase,
         "Content-Type": "application/json",
     }
+    if server == "DEMO":
+        headers["x-simulated-trading"] = "1"
 
     try:
         resp = requests.post(base_url + path, data=body, headers=headers, timeout=10)
@@ -150,6 +152,7 @@ def main():
 
     # CTA engine
     cta: CtaEngine = main_engine.add_engine(CtaEngine)
+    cta.init_engine()
     cta.load_strategy_class_from_module(args.strategy_module)
 
     # --- Connect ---

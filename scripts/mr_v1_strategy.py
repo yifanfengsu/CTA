@@ -68,7 +68,7 @@ class MrV1Strategy(CtaTemplate):
         self._4h_minute_count: int = 0            # minutes collected in current 4h
         self._4h_last_hour: int = -1              # slot tracking
 
-        self.am_4h = ArrayManager(size=max(20, self.lookback + self.atr_window + 5))
+        self.am_4h = ArrayManager(size=max(200, self.lookback + 50))
         self.active_orders: set[str] = set()
         self._bar_count: int = 0                # debug: 1m bar counter
         self._4h_count: int = 0                 # debug: 4h bar counter
