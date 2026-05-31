@@ -4,7 +4,7 @@
   "exchange": "GLOBAL",
   "name": "DOGE-USDT-SWAP",
   "size": 1000.0,
-  "pricetick": 1e-07,
+  "pricetick": 0.00001,
   "min_volume": 0.01,
   "gateway_name": "OKX",
   "history_data": true
