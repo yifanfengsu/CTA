@@ -160,6 +160,7 @@ def main():
 
     # CTA engine
     cta: CtaEngine = main_engine.add_engine(CtaEngine)
+    cta.init_engine()
     cta.load_strategy_class_from_module(args.strategy_module)
 
     # --- Connect ---
