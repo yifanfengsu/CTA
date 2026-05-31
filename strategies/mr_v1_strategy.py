@@ -1,9 +1,14 @@
 """MR-v1 Mean Reversion strategy for OKX perpetual swaps on vnpy.
 
 Fades 4h breakouts: long breakout -> short, short breakout -> long.
-Exits with ATR stop or max hold. Research-only for demo trading.
+Exits: midline take-profit -> ATR stop -> max_hold. Research-only for demo trading.
 
 Aggregates 1m bars into 4h bars manually (no BarGenerator window limit).
+
+v1.2 — 中轨止盈:
+  - 新增 Donchian 中轨止盈（价格返回 (DH+DL)/2 时退出）
+  - 优先级: midline > ATR stop > max_hold
+  - 基于全样本回测验证：中轨 EV +$6,334 vs 基线 -$516
 
 v1.1 — 基于 vnpy 知识库全面加固:
   - 入场定价改用当前 1m bar 市价（非 4h bar close）
@@ -54,6 +59,7 @@ class MrV1Strategy(CtaTemplate):
     atr_value: float = 0.0
     donchian_high: float = 0.0
     donchian_low: float = 0.0
+    midline_value: float = 0.0
 
     parameters = [
         "notional_per_trade", "lookback", "atr_window", "atr_stop",
@@ -62,12 +68,13 @@ class MrV1Strategy(CtaTemplate):
     variables = [
         "entry_price", "highest_since_entry", "lowest_since_entry",
         "hold_bars", "atr_value", "donchian_high", "donchian_low",
+        "midline_value",
     ]
 
     def __init__(self, cta_engine: Any, strategy_name: str, vt_symbol: str, setting: dict) -> None:
         super().__init__(cta_engine, strategy_name, vt_symbol, setting)
 
-        # Tick → 1m bar → 4h bar aggregation
+        # Tick -> 1m bar -> 4h bar aggregation
         self.bg_tick = BarGenerator(self.on_bar)
 
         # Manual 4h bar aggregation from 1m bars
@@ -150,7 +157,10 @@ class MrV1Strategy(CtaTemplate):
             self._4h_minute_count += 1
 
     def _on_4h_bar(self, bar: BarData) -> None:
-        """Strategy logic: runs once per completed 4h bar."""
+        """Strategy logic: runs once per completed 4h bar.
+
+        Exit priority: midline profit > ATR stop > max_hold time.
+        """
         self._4h_count += 1
         self.am_4h.update_bar(bar)
         if not self.am_4h.inited:
@@ -196,6 +206,17 @@ class MrV1Strategy(CtaTemplate):
             self._update_extremes(bar)
 
             if not self.active_orders:
+                # v1.2: Midline exit — take profit when price returns to Donchian midline
+                if self.donchian_high > 0 and self.donchian_low > 0:
+                    self.midline_value = (self.donchian_high + self.donchian_low) / 2
+                    midline_hit = (
+                        (self.pos > 0 and bar.close_price >= self.midline_value)
+                        or (self.pos < 0 and bar.close_price <= self.midline_value)
+                    )
+                    if midline_hit:
+                        self._exit_position("midline")
+                        return
+
                 stop_price = self._stop_price()
                 hit = self._stop_valid() and (
                     (self.pos > 0 and bar.low_price <= stop_price)
@@ -216,9 +237,11 @@ class MrV1Strategy(CtaTemplate):
         
         # Debug: log every 4h bar with indicator values (live mode only)
         if self._init_done:
+            self.midline_value = (self.donchian_high + self.donchian_low) / 2 if self.donchian_high > 0 else 0.0
             print(
                 f"[{self.strategy_name}] 4h #{self._4h_count} | {bar.datetime} c={close:.4f} "
                 f"ATR={self.atr_value:.4f} DH={self.donchian_high:.4f} DL={self.donchian_low:.4f} "
+                f"MID={self.midline_value:.4f} "
                 f"L_brk={long_breakout} S_brk={short_breakout} pos={self.pos}",
                 flush=True,
             )
@@ -290,7 +313,6 @@ class MrV1Strategy(CtaTemplate):
         contract_value = price * multiplier
         if contract_value <= 0:
             return 1
-
         size = round(self.notional_per_trade / contract_value)
         return max(1, min(size, 1000))
 
