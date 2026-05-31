@@ -3,8 +3,6 @@
   "symbol": "LINKUSDT_SWAP_OKX",
   "exchange": "GLOBAL",
   "name": "LINK-USDT-SWAP",
-  "okx_inst_id": "LINK-USDT-SWAP",
-  "product": "SWAP",
   "size": 1.0,
   "pricetick": 0.001,
   "min_volume": 0.01,
