@@ -55,6 +55,7 @@ LOOKBACK = 24
 ATR_WINDOW = 14
 ATR_STOP = 1.0
 MAX_HOLD = 48
+LEVERAGE = 5
 NOTIONAL_PER_TRADE = 500.0
 PRICE_OFFSET = 2
 BARS_PER_5M = 5  # 5 × 1m = 5m
@@ -210,6 +211,7 @@ class BarAggregator:
         self.pending_order_sz: int = 0
         self.pending_entry_side: str = ""    # "long" or "short"
         self.ORDER_TIMEOUT: int = 30  # seconds
+        self.entry_order_id: str = ""        # stored on entry fill, used to query entry fee at exit
 
         # FIX: problem 2 — deferred position verify after exit order cancel
         # Set True when exit order times out; verified against OKX on next bar
@@ -387,7 +389,7 @@ def calc_size(inst_id: str, price: float) -> int:
     contract_value = price * multiplier
     if contract_value <= 0:
         return 1
-    size = round(NOTIONAL_PER_TRADE / contract_value)
+    size = round(NOTIONAL_PER_TRADE * LEVERAGE / contract_value)
     return max(1, min(size, 1000))
 
 
@@ -478,6 +480,23 @@ def cancel_order(inst_id: str, ord_id: str) -> bool:
     return result.get("code") == "0"
 
 
+def get_fills_fee(inst_id: str, ord_id: str) -> float:
+    """Query fills for a given ordId and sum the fee (negative = cost).
+    Returns fee in USDT (negative number). Returns 0.0 on failure."""
+    if not ord_id:
+        return 0.0
+    result = okx_get("/api/v5/trade/fills?instId=" + inst_id + "&ordId=" + ord_id)
+    if not result or result.get("code") != "0":
+        return 0.0
+    total_fee = 0.0
+    for fill in result.get("data", []):
+        try:
+            total_fee += float(fill.get("fee", 0))
+        except (ValueError, TypeError):
+            pass
+    return total_fee
+
+
 def sync_positions_from_okx(aggregators: dict):
     """Sync local position state from OKX REST API (call at startup and on reconnect)."""
     result = okx_get("/api/v5/account/positions?instType=SWAP")
@@ -495,7 +514,12 @@ def sync_positions_from_okx(aggregators: dict):
         # Determine direction: pos>0 = long, pos<0 = short
         agg.pos = float(p["pos"])
         agg.entry_price = float(p["avgPx"])
-        agg.entry_time = p.get("cTime", "")
+        ctime_raw = p.get("cTime", "")
+        try:
+            ctime_s = int(ctime_raw) / 1000
+            agg.entry_time = datetime.datetime.fromtimestamp(ctime_s, tz=datetime.timezone.utc).isoformat()
+        except (ValueError, TypeError):
+            agg.entry_time = ctime_raw
         agg.hold_bars = 0  # unknown, reset
         side = "long" if agg.pos > 0 else "short"
         print(
@@ -604,6 +628,7 @@ def reset_position(agg: BarAggregator):
     agg.pending_order_time = 0.0
     agg.pending_order_sz = 0
     agg.pending_entry_side = ""
+    agg.entry_order_id = ""
 
 
 def _verify_position(inst_id: str, agg: BarAggregator, name: str):
@@ -804,6 +829,7 @@ class OKXTickerFeed:
                     agg.pos = fill_sz if agg.pending_entry_side == "long" else -fill_sz
                     agg.entry_price = fill_px
                     agg.entry_time = datetime.datetime.now(datetime.timezone.utc).isoformat()
+                    agg.entry_order_id = agg.pending_order_id  # save for fee query at exit
                     agg.hold_bars = 0
                     if agg.pending_entry_side == "long":
                         agg.highest_since_entry = bar["high"]
@@ -821,6 +847,11 @@ class OKXTickerFeed:
                     pnl = (fill_px - agg.entry_price) * fill_sz if agg.pos > 0 else (agg.entry_price - fill_px) * fill_sz
                     multiplier = CONTRACT_SPECS[inst_id]["ctVal"]
                     pnl_usd = pnl * multiplier
+                    # Query actual fees from OKX fills API
+                    exit_fee = get_fills_fee(inst_id, agg.pending_order_id)
+                    entry_fee = get_fills_fee(inst_id, agg.entry_order_id)
+                    total_fee = exit_fee + entry_fee  # both negative
+                    net_pnl_usd = pnl_usd + total_fee
                     log_trade({
                         "time": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                         "symbol": name,
@@ -830,7 +861,9 @@ class OKXTickerFeed:
                         "exit_price": fill_px,
                         "exit_reason": agg.pending_order_side,
                         "size": fill_sz,
-                        "pnl_usd": round(pnl_usd, 2),
+                        "gross_pnl_usd": round(pnl_usd, 4),
+                        "fee_usd": round(total_fee, 4),
+                        "net_pnl_usd": round(net_pnl_usd, 4),
                     })
                     self.notifier.send(
                         f"MR-5m {name} EXIT filled",
@@ -1065,7 +1098,7 @@ def main():
     # Set leverage
     if not args.no_trade:
         for inst_id, _, _ in SYMBOLS:
-            set_leverage(inst_id)
+            set_leverage(inst_id, LEVERAGE)
 
     # Start WebSocket feed (pass no_trade so run() can gate sync calls)
     feed = OKXTickerFeed(notifier, no_trade=args.no_trade)
