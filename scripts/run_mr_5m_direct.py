@@ -16,6 +16,7 @@ import base64
 import datetime
 import hmac
 import json
+import math
 import os
 import signal
 import sys
@@ -352,17 +353,22 @@ def round_price(inst_id: str, price: float) -> float:
     return round(price / tick) * tick
 
 
-def place_order(inst_id: str, side: str, price: float, sz: int) -> dict | None:
-    """Place a limit order via OKX REST API."""
-    px = round_price(inst_id, price)
+def place_order(inst_id: str, side: str, price: float, sz: int, ord_type: str = "limit") -> dict | None:
+    """Place an order via OKX REST API.
+    
+    ord_type: "limit" (default) or "market".
+    Market orders omit px — OKX fills at best available price.
+    """
     body = {
         "instId": inst_id,
         "tdMode": "cross",
         "side": side,
-        "ordType": "limit",
-        "px": str(px),
+        "ordType": ord_type,
         "sz": str(sz),
     }
+    if ord_type == "limit":
+        px = round_price(inst_id, price)
+        body["px"] = str(px)
     result = okx_post("/api/v5/trade/order", body)
     return result
 
@@ -376,20 +382,50 @@ def set_leverage(inst_id: str, leverage: int = 1):
         print(f"  Leverage FAILED {inst_id}: {result.get('msg', 'unknown')}")
 
 
-def check_order_filled(inst_id: str, ord_id: str) -> dict | None:
-    """Query order status. Returns order dict if filled, None if still open/error."""
+def check_order_filled(inst_id: str, ord_id: str, side: str = "") -> dict | None:
+    """Query order status. Returns order dict if resolved, None if still pending.
+    
+    Falls back to position check when OKX clears the order record (51603)."""
     result = okx_get(f"/api/v5/trade/order?instId={inst_id}&ordId={ord_id}")
-    if not result or result.get("code") != "0":
-        return None
-    data = result.get("data", [])
-    if not data:
-        return None
-    order = data[0]
-    if order["state"] == "filled":
-        return order
-    if order["state"] == "canceled":
-        return {"state": "canceled", "sz": order["sz"], "fillSz": order["fillSz"]}
-    return None  # still live
+    if result and result.get("code") == "0":
+        data = result.get("data", [])
+        if data:
+            order = data[0]
+            if order["state"] == "filled":
+                return order
+            if order["state"] == "canceled":
+                return {"state": "canceled", "sz": order["sz"], "fillSz": order["fillSz"]}
+            return None  # still live
+
+    # Order not found (51603) — fallback: check position
+    pos_result = okx_get(f"/api/v5/account/positions?instId={inst_id}")
+    if pos_result and pos_result.get("code") == "0":
+        has_pos = False
+        for p in pos_result.get("data", []):
+            pos_val = float(p.get("pos", 0))
+            if pos_val != 0:
+                has_pos = True
+                if side == "exit":
+                    # Exit: position should be 0. If still exists → NOT filled
+                    return None
+                else:
+                    # Entry: position exists → filled
+                    return {
+                        "state": "filled",
+                        "avgPx": p.get("avgPx", "0"),
+                        "fillSz": str(int(abs(pos_val))),
+                        "fillPx": p.get("avgPx", "0"),
+                    }
+        if side == "exit" and not has_pos:
+            # Exit: no position → filled successfully
+            return {
+                "state": "filled",
+                "avgPx": "0",
+                "fillSz": "0",
+                "fillPx": "0",
+            }
+
+    return None  # still unknown
 
 
 def cancel_order(inst_id: str, ord_id: str) -> bool:
@@ -642,7 +678,7 @@ class OKXTickerFeed:
         # ── Pending order check ──────────────────────────────────────────
         if agg.pending_order_id:
             elapsed = time.time() - agg.pending_order_time
-            order = check_order_filled(inst_id, agg.pending_order_id)
+            order = check_order_filled(inst_id, agg.pending_order_id, agg.pending_order_side)
 
             if order and order.get("state") == "filled":
                 # Order confirmed filled — use actual fill size, not requested
@@ -696,9 +732,26 @@ class OKXTickerFeed:
                         reset_position(agg)
                         print(f"[{name}] EXIT FILLED | px={fill_px} pnl=${pnl_usd:+.2f}", flush=True)
                     else:
-                        # Partial fill — update position, keep tracking
+                        # Partial fill — update position
                         agg.pos = remaining if agg.pos > 0 else -remaining
                         print(f"[{name}] EXIT PARTIAL | filled={fill_sz} remaining={agg.pos} px={fill_px}", flush=True)
+                        # Immediately place another market order for the residual
+                        resid_sz = int(math.ceil(abs(agg.pos)))
+                        resid_side = "sell" if agg.pos > 0 else "buy"
+                        resid_result = place_order(inst_id, resid_side, 0, resid_sz, ord_type="market")
+                        if resid_result and resid_result.get("code") == "0":
+                            resid_ord_id = resid_result["data"][0].get("ordId", "")
+                            print(f"[{name}] EXIT resid order: {resid_ord_id[:8]} sz={resid_sz}", flush=True)
+                            # Set pending to the residual order (will be checked next bar)
+                            agg.pending_order_id = resid_ord_id
+                            agg.pending_order_side = "exit"
+                            agg.pending_order_time = time.time()
+                            agg.pending_order_sz = resid_sz
+                            # Return early — skip clearing + strategy logic this bar
+                            # (agg.pending_order_id set ensures subsequent bars skip entry/exit too)
+                            return
+                        else:
+                            print(f"[{name}] EXIT resid FAILED: {resid_result}", flush=True)
                 agg.pending_order_id = ""
                 agg.pending_order_side = ""
                 agg.pending_order_time = 0.0
@@ -749,7 +802,7 @@ class OKXTickerFeed:
         if should_exit:
             exit_side = "sell" if agg.pos > 0 else "buy"
             tick_sz = CONTRACT_SPECS[inst_id]["tickSz"]
-            sz = abs(int(agg.pos))
+            sz = int(math.ceil(abs(agg.pos)))
             # Display PnL uses bar close (actual fill PnL confirmed separately)
             display_pnl = (bar["close"] - agg.entry_price) * sz if agg.pos > 0 else (agg.entry_price - bar["close"]) * sz
             multiplier = CONTRACT_SPECS[inst_id]["ctVal"]
@@ -767,7 +820,7 @@ class OKXTickerFeed:
                 flush=True,
             )
 
-            result = place_order(inst_id, exit_side, exit_price, sz)
+            result = place_order(inst_id, exit_side, 0, sz, ord_type="market")
             if result and result.get("code") == "0":
                 ord_id = result["data"][0].get("ordId", "")
                 print(f"[{name}] EXIT order placed: {ord_id[:8]} — waiting fill", flush=True)
