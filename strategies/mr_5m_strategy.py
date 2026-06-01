@@ -73,6 +73,23 @@ class Mr5mStrategy(CtaTemplate):
         "LINK": 0.0212, "DOGE": 0.0002,
     }
 
+    # FIX: problem 1 — symbol-specific ctVal fallback; keyed by vt_symbol
+    # Prevents silent 10^5x sizing error when get_size() returns None/0
+    # (e.g. DOGE ctVal=1000 vs BTC ctVal=0.01)
+    _CONTRACT_SPECS = {
+        "BTCUSDT_SWAP.OKX":  {"ctVal": 0.01},
+        "ETHUSDT_SWAP.OKX":  {"ctVal": 0.1},
+        "SOLUSDT_SWAP.OKX":  {"ctVal": 1.0},
+        "LINKUSDT_SWAP.OKX": {"ctVal": 1.0},
+        "DOGEUSDT_SWAP.OKX": {"ctVal": 1000.0},
+        # Also support short keys in case vt_symbol format varies
+        "BTC-USDT-SWAP":  {"ctVal": 0.01},
+        "ETH-USDT-SWAP":  {"ctVal": 0.1},
+        "SOL-USDT-SWAP":  {"ctVal": 1.0},
+        "LINK-USDT-SWAP": {"ctVal": 1.0},
+        "DOGE-USDT-SWAP": {"ctVal": 1000.0},
+    }
+
     def __init__(self, cta_engine: Any, strategy_name: str, vt_symbol: str, setting: dict) -> None:
         super().__init__(cta_engine, strategy_name, vt_symbol, setting)
 
@@ -99,6 +116,8 @@ class Mr5mStrategy(CtaTemplate):
 
     def on_init(self) -> None:
         self.write_log("MR-5m 策略初始化")
+        # FIX: problem 1 — validate contract multiplier before any trades
+        self._validate_multiplier()
         self.load_bar(days=self.init_days, interval=Interval.MINUTE, callback=self.on_bar, use_database=True)
         self._init_done = True
         print(f"[{self.strategy_name}] INIT DONE | 1m bars={self._bar_count} 5m bars={self._5m_count} "
@@ -153,12 +172,28 @@ class Mr5mStrategy(CtaTemplate):
 
         # --- Indicators ---
         self.atr_value = self._compute_atr()
-        if len(self.am.high) > self.lookback:
-            self.donchian_high = max(self.am.high[-self.lookback:-1])
-            self.donchian_low = min(self.am.low[-self.lookback:-1])
+
+        # FIX: problem 6 — use [-(lookback+1):-1] for exactly `lookback` bars excluding
+        # current. ArrayManager uses a fixed-size numpy ring buffer; when it has
+        # not yet wrapped around fully, negative indices can land on zero-initialized
+        # slots BEFORE the valid window. The zero filter (highs[highs > 0]) is the
+        # safety net — it makes the logic correct regardless of buffer fill state.
+        if self.am.inited:
+            highs = self.am.high[-(self.lookback + 1):-1]   # numpy slice, lookback bars
+            lows  = self.am.low[-(self.lookback + 1):-1]
+            # Filter zeros: ensures Donchian isn't pulled to 0 by init slots
+            # that haven't been overwritten yet
+            highs_nz = highs[highs > 0]
+            lows_nz  = lows[lows > 0]
+            if len(highs_nz) > 0 and len(lows_nz) > 0:
+                self.donchian_high = float(highs_nz.max())
+                self.donchian_low  = float(lows_nz.min())
+            else:
+                self.donchian_high = 0.0
+                self.donchian_low  = 0.0
         else:
-            self.donchian_high = 0
-            self.donchian_low = 0
+            self.donchian_high = 0.0
+            self.donchian_low  = 0.0
 
         close = bar.close_price
 
@@ -269,8 +304,15 @@ class Mr5mStrategy(CtaTemplate):
         if price <= 0 or self.notional_per_trade <= 0:
             return 0
         multiplier = self.get_size()
+        # FIX: problem 1 — fallback to per-symbol CONTRACT_SPECS ctVal instead of
+        # hardcoded 0.01 (BTC-only). DOGE ctVal=1000; using 0.01 gives 10^5x error.
         if multiplier is None or multiplier <= 0:
-            multiplier = 0.01
+            spec = self._CONTRACT_SPECS.get(self.vt_symbol, {})
+            multiplier = spec.get("ctVal", None)
+            if multiplier is None or multiplier <= 0:
+                print(f"[{self.strategy_name}] ERROR: no valid multiplier for {self.vt_symbol}, "
+                      f"skipping order", flush=True)
+                return 0  # safer to skip than use wrong multiplier
         contract_value = price * multiplier
         if contract_value <= 0:
             return 1
@@ -290,15 +332,33 @@ class Mr5mStrategy(CtaTemplate):
         return base - tick * self.price_offset
 
     def _compute_atr(self) -> float:
-        n = self.atr_period
-        if len(self.am.close) < n + 1:
+        # FIX: problem 4 — use vnpy built-in ATR which calls talib.ATR (Wilder smoothed,
+        # alpha=1/N). Original SMA-of-TR can differ by 10-20%, causing filter/stop mismatch
+        # vs backtest. self.am.atr() matches the talib.ATR used in backtest.
+        if not self.am.inited:
             return 0.0
-        h, l, c = self.am.high, self.am.low, self.am.close
-        tr_sum = 0.0
-        for i in range(-n, 0):
-            tr = max(h[i] - l[i], abs(h[i] - c[i - 1]), abs(l[i] - c[i - 1]))
-            tr_sum += tr
-        return tr_sum / n
+        return self.am.atr(self.atr_period)
+
+    def _validate_multiplier(self) -> None:
+        """FIX: problem 1 — validate contract multiplier at init time.
+        Logs a clear warning if get_size() is unavailable so issue is visible immediately.
+        """
+        m = self.get_size()
+        sym = self.vt_symbol
+        spec = self._CONTRACT_SPECS.get(sym, {})
+        expected = spec.get("ctVal", None)
+        if m is None or m <= 0:
+            if expected is not None:
+                print(f"[{self.strategy_name}] WARNING: get_size()={m} for {sym}, "
+                      f"will use CONTRACT_SPECS ctVal={expected} as fallback", flush=True)
+            else:
+                print(f"[{self.strategy_name}] ERROR: get_size()={m} for {sym} and "
+                      f"no CONTRACT_SPECS fallback — orders will be skipped!", flush=True)
+        elif expected is not None and abs(m - expected) / (expected + 1e-12) > 0.01:
+            print(f"[{self.strategy_name}] WARNING: get_size()={m} differs from "
+                  f"CONTRACT_SPECS ctVal={expected} for {sym}", flush=True)
+        else:
+            print(f"[{self.strategy_name}] OK: multiplier={m} for {sym}", flush=True)
 
     def _update_extremes(self, bar: BarData) -> None:
         if self.pos > 0 and bar.high_price > self.highest_since_entry:

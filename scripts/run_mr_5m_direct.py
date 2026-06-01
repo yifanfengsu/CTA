@@ -6,7 +6,7 @@ builds 1m/5m bars, runs Mr5mStrategy logic, and places orders via REST API.
 
 PushPlus notifications on every entry/exit + daily summary.
 
-Deploy: PYTHONUNBUFFERED=1 nohup .venv/bin/python -u scripts/run_mr_5m_direct.py > /tmp/mr_5m_direct.log 2>&1 &
+Deploy: PYTHONUNBUFFERED=1 setsid .venv/bin/python -u scripts/run_mr_5m_direct.py > /tmp/mr_5m_direct.log 2>&1 & disown
 """
 
 from __future__ import annotations
@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import base64
 import datetime
+import hashlib  # FIX: problem 9 — explicit import for hmac digestmod
 import hmac
 import json
 import math
@@ -118,8 +119,11 @@ class Notifier:
 def okx_sign(timestamp: str, method: str, path: str, body: str = "") -> str:
     secret = os.getenv("OKX_SECRET_KEY", "")
     sign_str = timestamp + method + path + body
+    # FIX: problem 9 — pass hashlib.sha256 module instead of string "sha256"
+    # String form works in Python 3.4+ but is less explicit; module form is
+    # forward-compatible and matches the hmac docs recommendation.
     return base64.b64encode(
-        hmac.new(secret.encode(), sign_str.encode(), "sha256").digest()
+        hmac.new(secret.encode(), sign_str.encode(), hashlib.sha256).digest()
     ).decode()
 
 
@@ -183,6 +187,10 @@ class BarAggregator:
         self.donchian_low: float = 0.0
         self.midline: float = 0.0
 
+        # FIX: problem 4 — Wilder ATR state (running EMA, alpha=1/ATR_WINDOW)
+        self._atr_wilder: float = 0.0
+        self._atr_initialized: bool = False
+
         # ATR filter
         self.atr_threshold: float = ATR_THRESHOLDS.get(inst_id, 0.0)
         self.filtered_count: int = 0
@@ -202,6 +210,10 @@ class BarAggregator:
         self.pending_order_sz: int = 0
         self.pending_entry_side: str = ""    # "long" or "short"
         self.ORDER_TIMEOUT: int = 30  # seconds
+
+        # FIX: problem 2 — deferred position verify after exit order cancel
+        # Set True when exit order times out; verified against OKX on next bar
+        self._needs_pos_verify: bool = False
 
     def load_history(self, db_path: str, days: int = 90):
         """Load historical 1m bars from vnpy database to warm up indicators."""
@@ -226,14 +238,13 @@ class BarAggregator:
         if not rows:
             print(f"  [{self.inst_id}] No history for {base}")
             return
-        bars_loaded = 0
+        # FIX: problem 7 — count all loaded 1m rows, not only non-5m ones
+        bars_loaded = len(rows)
         for row in rows:
             dt_str, o, h, l, c, v = row
             dt = datetime.datetime.fromisoformat(dt_str)
             ts_ms = str(int(dt.timestamp() * 1000))
-            result_5m = self._process_1m(float(o), float(h), float(l), float(c), ts_ms)
-            if result_5m is None:
-                bars_loaded += 1  # 1m bar processed (but not a completed 5m)
+            self._process_1m(float(o), float(h), float(l), float(c), ts_ms)
         print(
             f"  [{self.inst_id}] Loaded {bars_loaded} 1m → {self._5m_count} 5m bars",
             flush=True,
@@ -308,30 +319,62 @@ class BarAggregator:
             self.midline = (self.donchian_high + self.donchian_low) / 2
 
     def _compute_atr(self) -> float:
+        """FIX: problem 4 — Wilder's Smoothed ATR (alpha = 1/ATR_WINDOW).
+
+        Matches talib.ATR used in backtest. Original SMA-of-TR can differ by
+        10-20%, causing stop distances and filter thresholds to be inconsistent.
+
+        Algorithm:
+          - First call (len >= ATR_WINDOW+1): initialize with SMA of ATR_WINDOW TRs
+          - Subsequent calls: atr = atr * (1 - 1/N) + tr * (1/N)
+        State kept in self._atr_wilder / self._atr_initialized.
+        """
         if len(self._5m_history) < ATR_WINDOW + 1:
             return 0.0
-        tr_values = []
-        for i in range(-ATR_WINDOW, 0):
-            cur = self._5m_history[i]
-            prev = self._5m_history[i - 1]
+
+        alpha = 1.0 / ATR_WINDOW
+
+        if not self._atr_initialized:
+            # Initialize: SMA of the first ATR_WINDOW TRs available
+            tr_sum = 0.0
+            for i in range(-ATR_WINDOW, 0):
+                cur  = self._5m_history[i]
+                prev = self._5m_history[i - 1]
+                tr_sum += max(
+                    cur["high"] - cur["low"],
+                    abs(cur["high"] - prev["close"]),
+                    abs(cur["low"]  - prev["close"]),
+                )
+            self._atr_wilder = tr_sum / ATR_WINDOW
+            self._atr_initialized = True
+        else:
+            # Wilder EMA update with the most recently added bar
+            cur  = self._5m_history[-1]
+            prev = self._5m_history[-2]
             tr = max(
                 cur["high"] - cur["low"],
                 abs(cur["high"] - prev["close"]),
-                abs(cur["low"] - prev["close"]),
+                abs(cur["low"]  - prev["close"]),
             )
-            tr_values.append(tr)
-        return sum(tr_values) / len(tr_values)
+            self._atr_wilder = self._atr_wilder * (1.0 - alpha) + tr * alpha
+
+        return self._atr_wilder
 
     def _compute_donchian(self):
-        """Donchian channel — excludes current bar (matching vnpy: high[-LB:-1])."""
-        if len(self._5m_history) < LOOKBACK:
+        """Donchian channel — excludes current bar, uses exactly LOOKBACK bars.
+
+        FIX: problem 5 — original used [-LOOKBACK:-1] which gives LOOKBACK-1=23
+        bars. Correct window is [-(LOOKBACK+1):-1] = exactly LOOKBACK=24 bars.
+        Guard also updated: need len > LOOKBACK (i.e. >= LOOKBACK+1).
+        """
+        # FIX: need at least LOOKBACK+1 bars so [-(LOOKBACK+1):-1] is full
+        if len(self._5m_history) <= LOOKBACK:
             self.donchian_high = 0.0
             self.donchian_low = 0.0
             return
-        # [-LOOKBACK:-1] = last LOOKBACK bars excluding current (23 bars for LB=24)
-        window = self._5m_history[-LOOKBACK:-1]
+        window = self._5m_history[-(LOOKBACK + 1):-1]  # exactly LOOKBACK bars
         self.donchian_high = max(b["high"] for b in window)
-        self.donchian_low = min(b["low"] for b in window)
+        self.donchian_low  = min(b["low"]  for b in window)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -436,7 +479,7 @@ def cancel_order(inst_id: str, ord_id: str) -> bool:
 
 
 def sync_positions_from_okx(aggregators: dict):
-    """Sync local position state from OKX REST API (call at startup)."""
+    """Sync local position state from OKX REST API (call at startup and on reconnect)."""
     result = okx_get("/api/v5/account/positions?instType=SWAP")
     if not result or result.get("code") != "0":
         print("  WARNING: Could not fetch positions from OKX")
@@ -468,9 +511,19 @@ def sync_positions_from_okx(aggregators: dict):
 TRADE_LOG_PATH = PROJECT_ROOT / "trade_log_5m.jsonl"
 
 
+def _get_trade_log_path() -> Path:
+    """FIX: problem 8 — monthly-rotated trade log path.
+
+    Returns PROJECT_ROOT/trade_log_5m_YYYYMM.jsonl based on current month.
+    Files auto-rotate each calendar month; old months are never touched.
+    """
+    month = datetime.datetime.now().strftime("%Y%m")
+    return PROJECT_ROOT / f"trade_log_5m_{month}.jsonl"
+
+
 def log_trade(entry: dict):
-    """Append a trade record to JSONL file."""
-    with open(TRADE_LOG_PATH, "a") as f:
+    """Append a trade record to the current month's JSONL file."""
+    with open(_get_trade_log_path(), "a") as f:
         f.write(json.dumps(entry) + "\n")
 
 
@@ -493,7 +546,7 @@ def check_entry(agg: BarAggregator, bar: dict) -> tuple[str | None, float | None
         return None, None
 
     # Donchian breakout (using pre-computed values which exclude current bar)
-    long_breakout = close > agg.donchian_high > 0
+    long_breakout  = close > agg.donchian_high > 0
     short_breakout = close < agg.donchian_low > 0
 
     if long_breakout:
@@ -553,6 +606,53 @@ def reset_position(agg: BarAggregator):
     agg.pending_entry_side = ""
 
 
+def _verify_position(inst_id: str, agg: BarAggregator, name: str):
+    """FIX: problem 2 — verify actual OKX position after an exit cancel.
+
+    Called at start of next bar when agg._needs_pos_verify is True.
+    Three outcomes:
+      - OKX pos=0, local pos!=0 → exit was actually filled → reset
+      - OKX pos mismatch → sync to OKX truth
+      - Consistent → log only, continue
+
+    IMPORTANT: _needs_pos_verify is only cleared on API success. If the API
+    fails transiently, the flag stays True and the next bar will retry.
+    """
+    pos_result = okx_get(f"/api/v5/account/positions?instId={inst_id}")
+    if not pos_result or pos_result.get("code") != "0":
+        print(f"[{name}] POS VERIFY FAILED (API error) — will retry next bar, pos={agg.pos}", flush=True)
+        return  # keep _needs_pos_verify=True for retry
+    agg._needs_pos_verify = False  # only clear on successful API response
+
+    real_pos = 0.0
+    real_avg_px = agg.entry_price
+    for p in pos_result.get("data", []):
+        pv = float(p.get("pos", 0))
+        if pv != 0:
+            real_pos = pv
+            real_avg_px = float(p.get("avgPx", agg.entry_price))
+            break
+
+    if real_pos == 0 and agg.pos != 0:
+        # OKX shows flat — the canceled exit order was actually filled.
+        # Without this check we'd have kept a ghost position indefinitely.
+        print(
+            f"[{name}] POS VERIFY: OKX=0 (local was {agg.pos}) — "
+            f"exit confirmed filled, resetting", flush=True
+        )
+        reset_position(agg)
+    elif real_pos != 0 and abs(real_pos - agg.pos) > 0.001:
+        # Position mismatch — sync to OKX truth
+        print(
+            f"[{name}] POS VERIFY: OKX={real_pos} vs local={agg.pos} — syncing",
+            flush=True,
+        )
+        agg.pos = real_pos
+        agg.entry_price = real_avg_px
+    else:
+        print(f"[{name}] POS VERIFY: pos={agg.pos} confirmed (no drift)", flush=True)
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # WebSocket client
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -560,12 +660,13 @@ def reset_position(agg: BarAggregator):
 class OKXTickerFeed:
     """WebSocket feed for OKX ticker data."""
 
-    def __init__(self, notifier: Notifier):
+    def __init__(self, notifier: Notifier, no_trade: bool = False):
         self.ws = None
         self.running = False
         self.aggregators: dict[str, BarAggregator] = {}
         self._1m_counters: dict[str, int] = defaultdict(int)
         self.notifier = notifier
+        self.no_trade = no_trade  # FIX: problem 3 — needed to gate sync on reconnect
         self._last_summary_time: float = 0.0
         self._summary_interval: int = 6 * 3600  # 6 hours
 
@@ -597,6 +698,13 @@ class OKXTickerFeed:
             try:
                 self._connect_ws()
                 self._subscribe()
+                # FIX: problem 3 — sync positions on every (re)connect.
+                # Prevents ghost positions when a disconnect happens while an order
+                # is pending: if the order filled during the outage, local state
+                # would be stale without this sync.
+                if not self.no_trade:
+                    print("Syncing positions after (re)connect...", flush=True)
+                    sync_positions_from_okx(self.aggregators)
                 reconnect_delay = 1
 
                 while self.running:
@@ -646,9 +754,9 @@ class OKXTickerFeed:
                 continue
 
             last = float(d.get("last", 0))
-            bid = float(d.get("bidPx", 0))
-            ask = float(d.get("askPx", 0))
-            ts = d.get("ts", "0")
+            bid  = float(d.get("bidPx", 0))
+            ask  = float(d.get("askPx", 0))
+            ts   = d.get("ts", "0")
 
             result_1m, result_5m = agg.on_ticker(last, bid, ask, ts)
 
@@ -674,6 +782,11 @@ class OKXTickerFeed:
     def _on_5m_bar(self, inst_id: str, agg: BarAggregator, bar: dict, name: str):
         """Strategy logic on completed 5m bar."""
         close = bar["close"]
+
+        # FIX: problem 2 — verify actual OKX position on the bar after an exit
+        # order cancel. Must run before any other logic so agg.pos reflects reality.
+        if agg._needs_pos_verify:
+            _verify_position(inst_id, agg, name)
 
         # ── Pending order check ──────────────────────────────────────────
         if agg.pending_order_id:
@@ -748,7 +861,6 @@ class OKXTickerFeed:
                             agg.pending_order_time = time.time()
                             agg.pending_order_sz = resid_sz
                             # Return early — skip clearing + strategy logic this bar
-                            # (agg.pending_order_id set ensures subsequent bars skip entry/exit too)
                             return
                         else:
                             print(f"[{name}] EXIT resid FAILED: {resid_result}", flush=True)
@@ -767,19 +879,24 @@ class OKXTickerFeed:
                 agg.pending_entry_side = ""
 
             elif elapsed > agg.ORDER_TIMEOUT:
-                # Timeout — cancel order
+                # FIX: problem 2 — exit order timeout: cancel then DEFER position reset.
+                # Old code: reset_position() immediately → ghost position if order was filled.
+                # New code: set _needs_pos_verify=True → query OKX on the NEXT bar.
+                #   If OKX pos=0 → exit was actually filled → reset (was ghost before fix)
+                #   If OKX pos!=0 → cancel worked → keep pos, re-attempt exit on next bar
                 print(f"[{name}] ORDER TIMEOUT {elapsed:.0f}s — canceling {agg.pending_order_id}", flush=True)
                 cancelled = cancel_order(inst_id, agg.pending_order_id)
                 print(f"[{name}] Cancel result: {'OK' if cancelled else 'FAIL'}", flush=True)
                 if agg.pending_order_side == "exit":
-                    # Exit order timed out — reset position anyway (we tried)
-                    reset_position(agg)
-                else:
-                    agg.pending_order_id = ""
-                    agg.pending_order_side = ""
-                    agg.pending_order_time = 0.0
-                    agg.pending_order_sz = 0
-                    agg.pending_entry_side = ""
+                    agg._needs_pos_verify = True  # FIX: verify next bar, don't blindly reset
+                # Clear pending fields for both entry and exit timeouts
+                agg.pending_order_id = ""
+                agg.pending_order_side = ""
+                agg.pending_order_time = 0.0
+                agg.pending_order_sz = 0
+                agg.pending_entry_side = ""
+                # Skip strategy logic this bar — let _verify_position run first next bar
+                return
 
             # Still pending — skip strategy logic this bar
             if agg.pending_order_id:
@@ -808,14 +925,8 @@ class OKXTickerFeed:
             multiplier = CONTRACT_SPECS[inst_id]["ctVal"]
             display_pnl_usd = display_pnl * multiplier
 
-            # Order price uses offset to ensure fill
-            if agg.pos > 0:
-                exit_price = bar["close"] - PRICE_OFFSET * tick_sz  # sell below market
-            else:
-                exit_price = bar["close"] + PRICE_OFFSET * tick_sz  # buy above market
-
             print(
-                f"[{name}] EXIT {reason} | side={exit_side} px={exit_price} sz={sz} "
+                f"[{name}] EXIT {reason} | side={exit_side} sz={sz} "
                 f"entry={agg.entry_price} est_pnl={display_pnl_usd:.2f}",
                 flush=True,
             )
@@ -948,15 +1059,16 @@ def main():
     print(f"Trade mode: {'OFF (--no-trade)' if args.no_trade else 'ON'}")
     print(f"Notify: {'ON' if notifier.enabled else 'OFF'}")
     print(f"Params: LB={LOOKBACK} ATR={ATR_STOP} MH={MAX_HOLD} Notional=${NOTIONAL_PER_TRADE}")
-    print(f"Trade log: {TRADE_LOG_PATH}")
+    # FIX: problem 8 — show monthly log path instead of static path
+    print(f"Trade log: {_get_trade_log_path()} (monthly rotation)")
 
     # Set leverage
     if not args.no_trade:
         for inst_id, _, _ in SYMBOLS:
             set_leverage(inst_id)
 
-    # Start WebSocket feed
-    feed = OKXTickerFeed(notifier)
+    # Start WebSocket feed (pass no_trade so run() can gate sync calls)
+    feed = OKXTickerFeed(notifier, no_trade=args.no_trade)
     feed._summary_interval = args.summary_interval * 3600
 
     # Load historical bars for indicator warmup
@@ -966,7 +1078,7 @@ def main():
         feed.aggregators[inst_id].load_history(db_path)
     print("History loaded.\n")
 
-    # Sync existing positions from OKX
+    # Sync existing positions from OKX (initial sync; run() will also sync on connect)
     if not args.no_trade:
         print("Syncing positions from OKX...")
         sync_positions_from_okx(feed.aggregators)
