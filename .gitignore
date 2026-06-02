@@ -18,3 +18,8 @@ data/funding/okx/*.csv
 data/funding/okx_historical_raw/*
 reports/*
 !reports/.gitkeep
+
+# MR-5m runtime state and trade logs
+mr_5m_state.json
+trade_log_5m*.jsonl
+*.bak
