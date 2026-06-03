@@ -898,7 +898,7 @@ class OKXTickerFeed:
                         agg.highest_since_entry = bar["high"]
                         agg.lowest_since_entry = float("inf")
                     else:
-                        agg.highest_since_entry = float("-inf")
+                        agg.highest_since_entry = bar["high"]
                         agg.lowest_since_entry = bar["low"]
                     if fill_sz != agg.pending_order_sz:
                         print(f"[{name}] ENTRY PARTIAL FILL | req={agg.pending_order_sz} filled={fill_sz} pos={agg.pos}", flush=True)
