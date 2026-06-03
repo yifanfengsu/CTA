@@ -154,6 +154,9 @@ class Notifier:
                     self._send_one(title, content)
                 except queue.Empty:
                     break
+        # FIX: 问题7 — wait for worker thread to finish before returning
+        if hasattr(self, '_worker') and self._worker.is_alive():
+            self._worker.join(timeout=5)
         print("[NOTIFY] Worker stopped", flush=True)
 
 
@@ -218,7 +221,6 @@ class BarAggregator:
         self._1m_current: dict | None = None
         self._1m_minute: int = -1
         self._1m_count: int = 0
-        self._1m_in_5m: int = 0  # bars accumulated in current 5m window
 
         self._5m_current: dict | None = None
         self._5m_count: int = 0
@@ -257,6 +259,7 @@ class BarAggregator:
         self.pending_entry_side: str = ""    # "long" or "short"
         self.ORDER_TIMEOUT: int = 30  # seconds
         self.entry_order_id: str = ""        # stored on entry fill, used to query entry fee at exit
+        self.exit_reason: str = ""           # FIX: 问题1 — store actual exit reason (midline/stop/max_hold)
 
         # FIX: problem 2 — deferred position verify after exit order cancel
         # Set True when exit order times out; verified against OKX on next bar
@@ -301,24 +304,28 @@ class BarAggregator:
         )
 
     def _process_1m(self, o: float, h: float, l: float, c: float, ts: str) -> dict | None:
-        """Process one 1m bar. Returns completed 5m bar dict or None."""
+        """Process one 1m bar. Returns completed 5m bar dict or None.
+        FIX: 问题3 — align 5m bars to clock boundaries (xx:00, xx:05, ..., xx:55)
+        instead of count-based aggregation which drifts after disconnects.
+        """
+        minute = datetime.datetime.fromtimestamp(
+            int(ts) / 1000, tz=datetime.timezone.utc
+        ).minute
+
         # Start/update 5m bar
         if self._5m_current is None:
             self._5m_current = {"open": o, "high": h, "low": l, "close": c, "ts": ts}
-            self._1m_in_5m = 1
         else:
             bar = self._5m_current
             bar["high"] = max(bar["high"], h)
             bar["low"] = min(bar["low"], l)
             bar["close"] = c
-            self._1m_in_5m += 1
 
-        # Close 5m bar when 5 x 1m bars accumulated
-        if self._1m_in_5m >= BARS_PER_5M:
+        # Close 5m bar at boundary: minute 4,9,14,19,24,29,34,39,44,49,54,59
+        if (minute + 1) % 5 == 0:
             result = dict(self._5m_current)
             self._5m_count += 1
             self._5m_current = None
-            self._1m_in_5m = 0
             self._add_5m_bar(result)
             return result
         return None
@@ -635,7 +642,7 @@ def check_exit(agg: BarAggregator, bar: dict) -> tuple[bool, str]:
     if agg.pos == 0:
         return False, ""
 
-    agg.hold_bars += 1
+    # FIX: 问题5 — hold_bars now incremented in _on_5m_bar, removed from here
     close = bar["close"]
 
     # Update extremes
@@ -678,6 +685,7 @@ def reset_position(agg: BarAggregator):
     agg.pending_order_sz = 0
     agg.pending_entry_side = ""
     agg.entry_order_id = ""
+    agg.exit_reason = ""  # FIX: 问题1 — clear exit reason on reset
 
 
 def _verify_position(inst_id: str, agg: BarAggregator, name: str):
@@ -784,12 +792,12 @@ class OKXTickerFeed:
                 while self.running:
                     try:
                         msg = self.ws.recv()
-                        if msg == "pong":
+                        if msg == "pong" or '"op":"pong"' in msg:  # FIX: 问题6 — handle both text and JSON pong
                             continue
                         self._on_message(msg)
                     except websocket.WebSocketTimeoutException:
                         try:
-                            self.ws.send("ping")
+                            self.ws.send(json.dumps({"op": "ping"}))  # FIX: 问题6 — OKX requires JSON ping
                         except Exception:
                             break
                     except Exception as e:
@@ -857,6 +865,11 @@ class OKXTickerFeed:
         """Strategy logic on completed 5m bar."""
         close = bar["close"]
 
+        # FIX: 问题5 — increment hold_bars here for ALL bars while in position,
+        # regardless of pending orders. Prevents max_hold from being delayed.
+        if agg.pos != 0:
+            agg.hold_bars += 1
+
         # FIX: problem 2 — verify actual OKX position on the bar after an exit
         # order cancel, OR periodic check every 12 bars (1 hour) to catch drift.
         needs_check = agg._needs_pos_verify or (agg._5m_count > 0 and agg._5m_count % 12 == 0)
@@ -909,7 +922,7 @@ class OKXTickerFeed:
                         "entry_price": agg.entry_price,
                         "entry_time": agg.entry_time,
                         "exit_price": fill_px,
-                        "exit_reason": agg.pending_order_side,
+                        "exit_reason": agg.exit_reason,  # FIX: 问题1 — actual reason, not "exit"
                         "size": fill_sz,
                         "gross_pnl_usd": round(pnl_usd, 4),
                         "fee_usd": round(total_fee, 4),
@@ -981,7 +994,7 @@ class OKXTickerFeed:
                 agg.pending_order_time = 0.0
                 agg.pending_order_sz = 0
                 agg.pending_entry_side = ""
-                # Skip strategy logic this bar — let _verify_position run first next bar
+                agg.entry_order_id = ""  # FIX: 问题2 — clear stale entry_order_id to prevent fee mismatch
                 return
 
             # Still pending — skip strategy logic this bar
@@ -1003,6 +1016,7 @@ class OKXTickerFeed:
         # Check exit
         should_exit, reason = check_exit(agg, bar)
         if should_exit:
+            agg.exit_reason = reason  # FIX: 问题1 — store actual exit reason before placing order
             exit_side = "sell" if agg.pos > 0 else "buy"
             tick_sz = CONTRACT_SPECS[inst_id]["tickSz"]
             sz = int(math.ceil(abs(agg.pos)))

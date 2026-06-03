@@ -378,19 +378,27 @@ class Mr5mStrategy(CtaTemplate):
                   f"price={order.price} vol={order.volume} id={order.vt_orderid[:12]}", flush=True)
 
     def on_trade(self, trade: TradeData) -> None:
+        # FIX: 问题4 — handle partial close properly
         if trade.offset == Offset.OPEN:
             self.entry_price = trade.price
             self.highest_since_entry = trade.price
             self.lowest_since_entry = trade.price
             self.hold_bars = 0
-        elif self.pos == 0:
-            self.entry_price = 0.0
-            self.highest_since_entry = 0.0
-            self.lowest_since_entry = 0.0
-            self.hold_bars = 0
+        elif trade.offset == Offset.CLOSE:
+            if self.pos == 0:
+                # Fully closed: reset all state
+                self.entry_price = 0.0
+                self.highest_since_entry = 0.0
+                self.lowest_since_entry = 0.0
+                self.hold_bars = 0
+            # Partial close (pos != 0): keep entry_price and hold_bars as-is
+            # (vnpy framework already updated self.pos)
         if self._init_done:
-            print(f"[{self.strategy_name}] TRADE | {trade.direction} {trade.offset} "
-                  f"price={trade.price} vol={trade.volume} pos={self.pos}", flush=True)
+            print(
+                f"[{self.strategy_name}] TRADE | {trade.direction} {trade.offset} "
+                f"price={trade.price} vol={trade.volume} pos={self.pos}",
+                flush=True,
+            )
         self.put_event()
 
     def on_stop_order(self, stop_order: StopOrder) -> None:
