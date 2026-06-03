@@ -23,6 +23,7 @@ import signal
 import sys
 import time
 import threading
+import queue
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -82,35 +83,79 @@ CONTRACT_SPECS = {
 # PushPlus Notifier
 # ═══════════════════════════════════════════════════════════════════════════════
 
-PUSHPLUS_URL = "http://www.pushplus.plus/send"
+PUSHPLUS_URL = "https://www.pushplus.plus/send"
 
 
 class Notifier:
-    """PushPlus notification sender. Set PUSHPLUS_TOKEN in .env."""
+    """PushPlus notification sender with async queue + retry. Non-blocking."""
 
     def __init__(self):
         self.token = os.getenv("PUSHPLUS_TOKEN", "")
         self.enabled = bool(self.token)
+        self._queue = queue.Queue()
+        self._running = True
+        if self.enabled:
+            self._worker = threading.Thread(target=self._run, daemon=True)
+            self._worker.start()
+            print("[NOTIFY] Async worker started", flush=True)
 
-    def send(self, title: str, content: str) -> bool:
+    def send(self, title: str, content: str) -> None:
+        """Enqueue notification. Non-blocking, never blocks main loop."""
         if not self.enabled:
-            return False
-        try:
-            resp = requests.post(
-                PUSHPLUS_URL,
-                json={"token": self.token, "title": title, "content": content},
-                timeout=10,
-            )
-            data = resp.json()
-            if data.get("code") == 200:
-                print(f"[NOTIFY] {title}", flush=True)
-                return True
-            else:
-                print(f"[NOTIFY] FAIL: {data.get('msg', 'unknown')}", flush=True)
-                return False
-        except Exception as e:
-            print(f"[NOTIFY] ERROR: {e}", flush=True)
-            return False
+            return
+        self._queue.put((title, content))
+
+    def _send_one(self, title: str, content: str) -> bool:
+        """Send one notification with 3-retry exponential backoff."""
+        for attempt in range(3):
+            try:
+                resp = requests.post(
+                    PUSHPLUS_URL,
+                    json={"token": self.token, "title": title, "content": content},
+                    timeout=10,
+                )
+                data = resp.json()
+                if data.get("code") == 200:
+                    print(f"[NOTIFY] {title}", flush=True)
+                    return True
+                else:
+                    print(f"[NOTIFY] FAIL: {data.get('msg', 'unknown')} (attempt {attempt+1}/3)", flush=True)
+            except Exception as e:
+                print(f"[NOTIFY] ERROR: {e} (attempt {attempt+1}/3)", flush=True)
+
+            if attempt < 2:
+                time.sleep(2 ** attempt)  # 1s, 2s backoff
+
+        print(f"[NOTIFY] DROPPED after 3 failures: {title}", flush=True)
+        return False
+
+    def _run(self):
+        """Worker thread: drain queue and send with retry."""
+        while self._running:
+            try:
+                title, content = self._queue.get(timeout=1)
+            except queue.Empty:
+                continue
+            except Exception:
+                break
+            self._send_one(title, content)
+
+    def shutdown(self):
+        """Flush remaining queue and stop worker."""
+        if not self.enabled:
+            return
+        self._running = False
+        remaining = self._queue.qsize()
+        if remaining > 0:
+            print(f"[NOTIFY] Flushing {remaining} pending notifications...", flush=True)
+            while not self._queue.empty():
+                try:
+                    title, content = self._queue.get_nowait()
+                    self._send_one(title, content)
+                except queue.Empty:
+                    break
+        print("[NOTIFY] Worker stopped", flush=True)
+
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -217,6 +262,9 @@ class BarAggregator:
         # Set True when exit order times out; verified against OKX on next bar
         self._needs_pos_verify: bool = False
 
+        # Last ticker price for real-time PnL display
+        self.last_price: float = 0.0
+
     def load_history(self, db_path: str, days: int = 90):
         """Load historical 1m bars from vnpy database to warm up indicators."""
         import sqlite3
@@ -277,6 +325,7 @@ class BarAggregator:
 
     def on_ticker(self, last: float, bid: float, ask: float, ts: str):
         """Process a ticker update. Returns (1m_bar, 5m_bar) if completed, else None."""
+        self.last_price = last
         now = datetime.datetime.fromtimestamp(int(ts) / 1000, tz=datetime.timezone.utc)
         minute = now.minute
 
@@ -809,8 +858,9 @@ class OKXTickerFeed:
         close = bar["close"]
 
         # FIX: problem 2 — verify actual OKX position on the bar after an exit
-        # order cancel. Must run before any other logic so agg.pos reflects reality.
-        if agg._needs_pos_verify:
+        # order cancel, OR periodic check every 12 bars (1 hour) to catch drift.
+        needs_check = agg._needs_pos_verify or (agg._5m_count > 0 and agg._5m_count % 12 == 0)
+        if needs_check:
             _verify_position(inst_id, agg, name)
 
         # ── Pending order check ──────────────────────────────────────────
@@ -877,6 +927,9 @@ class OKXTickerFeed:
                     if remaining <= 0.001:  # fully closed
                         reset_position(agg)
                         print(f"[{name}] EXIT FILLED | px={fill_px} pnl=${pnl_usd:+.2f}", flush=True)
+                        # FIX: verify against OKX after exit to catch position drift
+                        # from partial fills / resid orders that didn't net to zero.
+                        _verify_position(inst_id, agg, name)
                     else:
                         # Partial fill — update position
                         agg.pos = remaining if agg.pos > 0 else -remaining
@@ -1020,13 +1073,17 @@ class OKXTickerFeed:
         lines = []
         total_pnl = 0.0
         has_position = False
+        prices_missing = False
         now_str = datetime.datetime.now().strftime("%m-%d %H:%M")
 
         for inst_id, _, name in SYMBOLS:
             agg = self.aggregators[inst_id]
             if agg.pos != 0:
                 has_position = True
-                close = agg._5m_history[-1]["close"] if agg._5m_history else 0
+                if agg.last_price <= 0:
+                    prices_missing = True
+                    continue
+                close = agg.last_price
                 multiplier = CONTRACT_SPECS[inst_id]["ctVal"]
                 if agg.pos > 0:
                     unrealized = (close - agg.entry_price) * abs(agg.pos) * multiplier
@@ -1041,15 +1098,17 @@ class OKXTickerFeed:
             else:
                 lines.append(f"空仓 {name}: DH={agg.donchian_high:.4f} DL={agg.donchian_low:.4f} ATR={agg.atr:.4f}")
 
-        if has_position:
-            title = f"MR-5m 持仓摘要 {now_str} | 浮盈${total_pnl:+.2f}"
-        else:
-            title = f"MR-5m 状态 {now_str} | 无持仓"
+        if lines and not prices_missing:
+            if has_position:
+                title = f"MR-5m 持仓摘要 {now_str} | 浮盈${total_pnl:+.2f}"
+            else:
+                title = f"MR-5m 状态 {now_str} | 无持仓"
 
-        content = "\n".join(lines)
-        self.notifier.send(title, content)
+            content = "\n".join(lines)
+            self.notifier.send(title, content)
 
     def stop(self):
+        self.notifier.shutdown()
         self.running = False
         try:
             self.ws.close()
