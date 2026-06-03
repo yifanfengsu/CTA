@@ -976,6 +976,7 @@ class OKXTickerFeed:
                 agg.pending_order_time = 0.0
                 agg.pending_order_sz = 0
                 agg.pending_entry_side = ""
+                agg.entry_order_id = ""  # FIX: ORDER CANCELED也需清空，防止手续费串号
 
             elif elapsed > agg.ORDER_TIMEOUT:
                 # FIX: problem 2 — exit order timeout: cancel then DEFER position reset.
