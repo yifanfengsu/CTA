@@ -265,6 +265,9 @@ class BarAggregator:
         # Set True when exit order times out; verified against OKX on next bar
         self._needs_pos_verify: bool = False
 
+        # FIX: entry fee tracking — prevent double-counting across partial exits
+        self._entry_fee_accounted: bool = False
+
         # Last ticker price for real-time PnL display
         self.last_price: float = 0.0
 
@@ -686,6 +689,7 @@ def reset_position(agg: BarAggregator):
     agg.pending_entry_side = ""
     agg.entry_order_id = ""
     agg.exit_reason = ""  # FIX: 问题1 — clear exit reason on reset
+    agg._entry_fee_accounted = False  # FIX: reset entry fee tracking
 
 
 def _verify_position(inst_id: str, agg: BarAggregator, name: str):
@@ -724,13 +728,40 @@ def _verify_position(inst_id: str, agg: BarAggregator, name: str):
         )
         reset_position(agg)
     elif real_pos != 0 and abs(real_pos - agg.pos) > 0.001:
-        # Position mismatch — sync to OKX truth
+        # Position mismatch — sync to OKX truth, then auto-close if untracked.
         print(
             f"[{name}] POS VERIFY: OKX={real_pos} vs local={agg.pos} — syncing",
             flush=True,
         )
         agg.pos = real_pos
         agg.entry_price = real_avg_px
+
+        # If no pending exit order is inflight, immediately close the residual.
+        # This is the safety net for zombie positions (e.g. resid order failed,
+        # exit condition no longer holds). Without this, residual positions sit
+        # on the exchange indefinitely.
+        if abs(agg.pos) > 0.001 and not agg.pending_order_id:
+            exit_side = "sell" if agg.pos > 0 else "buy"
+            auto_sz = int(math.ceil(abs(agg.pos)))
+            result = place_order(inst_id, exit_side, 0, auto_sz, ord_type="market")
+            if result and result.get("code") == "0":
+                auto_ord_id = result["data"][0].get("ordId", "")
+                print(
+                    f"[{name}] POS VERIFY: auto-closing {auto_sz} contracts "
+                    f"(ord={auto_ord_id[:8]})",
+                    flush=True,
+                )
+                agg.pending_order_id = auto_ord_id
+                agg.pending_order_side = "exit"
+                agg.pending_order_time = time.time()
+                agg.pending_order_sz = auto_sz
+                # Re-arm verify so next bar confirms the close actually filled.
+                agg._needs_pos_verify = True
+            else:
+                print(
+                    f"[{name}] POS VERIFY: auto-close FAILED: {result}",
+                    flush=True,
+                )
     else:
         print(f"[{name}] POS VERIFY: pos={agg.pos} confirmed (no drift)", flush=True)
 
@@ -912,7 +943,9 @@ class OKXTickerFeed:
                     pnl_usd = pnl * multiplier
                     # Query actual fees from OKX fills API
                     exit_fee = get_fills_fee(inst_id, agg.pending_order_id)
-                    entry_fee = get_fills_fee(inst_id, agg.entry_order_id)
+                    # FIX: entry_fee only accounted once across partial exits
+                    entry_fee = get_fills_fee(inst_id, agg.entry_order_id) if not agg._entry_fee_accounted else 0.0
+                    agg._entry_fee_accounted = True
                     total_fee = exit_fee + entry_fee  # both negative
                     net_pnl_usd = pnl_usd + total_fee
                     log_trade({
@@ -931,7 +964,7 @@ class OKXTickerFeed:
                     self.notifier.send(
                         f"MR-5m {name} EXIT filled",
                         f"{'多' if agg.pos > 0 else '空'}平仓成交 | 入场{agg.entry_price} → 出场{fill_px}\n"
-                        f"盈亏: ${pnl_usd:+.2f} | 数量: {fill_sz}\n"
+                        f"盈亏: ${pnl_usd + exit_fee:+.2f} | 数量: {fill_sz}\n"
                         f"时间: {datetime.datetime.now().strftime('%m-%d %H:%M')}",
                     )
 
@@ -947,22 +980,28 @@ class OKXTickerFeed:
                         # Partial fill — update position
                         agg.pos = remaining if agg.pos > 0 else -remaining
                         print(f"[{name}] EXIT PARTIAL | filled={fill_sz} remaining={agg.pos} px={fill_px}", flush=True)
-                        # Immediately place another market order for the residual
+                        # Immediately place another market order for the residual.
+                        # Retry up to 3 times (2s apart) — OKX demo API can be flaky.
                         resid_sz = int(math.ceil(abs(agg.pos)))
                         resid_side = "sell" if agg.pos > 0 else "buy"
-                        resid_result = place_order(inst_id, resid_side, 0, resid_sz, ord_type="market")
-                        if resid_result and resid_result.get("code") == "0":
-                            resid_ord_id = resid_result["data"][0].get("ordId", "")
-                            print(f"[{name}] EXIT resid order: {resid_ord_id[:8]} sz={resid_sz}", flush=True)
-                            # Set pending to the residual order (will be checked next bar)
-                            agg.pending_order_id = resid_ord_id
-                            agg.pending_order_side = "exit"
-                            agg.pending_order_time = time.time()
-                            agg.pending_order_sz = resid_sz
-                            # Return early — skip clearing + strategy logic this bar
-                            return
-                        else:
-                            print(f"[{name}] EXIT resid FAILED: {resid_result}", flush=True)
+                        resid_result = None
+                        for resid_attempt in range(3):
+                            resid_result = place_order(inst_id, resid_side, 0, resid_sz, ord_type="market")
+                            if resid_result and resid_result.get("code") == "0":
+                                resid_ord_id = resid_result["data"][0].get("ordId", "")
+                                print(f"[{name}] EXIT resid order: {resid_ord_id[:8]} sz={resid_sz}"
+                                      f"{' (retry)' if resid_attempt > 0 else ''}", flush=True)
+                                agg.pending_order_id = resid_ord_id
+                                agg.pending_order_side = "exit"
+                                agg.pending_order_time = time.time()
+                                agg.pending_order_sz = resid_sz
+                                return
+                            print(f"[{name}] EXIT resid FAILED (attempt {resid_attempt+1}/3): {resid_result}", flush=True)
+                            if resid_attempt < 2:
+                                time.sleep(2)
+                        # All retries exhausted — fall through, _verify_position
+                        # will catch the drift within 1 hour (Fix 2 safety net).
+                        print(f"[{name}] EXIT resid ALL RETRIES FAILED — relying on verify safety net", flush=True)
                 agg.pending_order_id = ""
                 agg.pending_order_side = ""
                 agg.pending_order_time = 0.0
