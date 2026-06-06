@@ -268,6 +268,11 @@ class BarAggregator:
         # FIX: entry fee tracking — prevent double-counting across partial exits
         self._entry_fee_accounted: bool = False
 
+        # Exit latch: set True when an exit condition fires; cleared only when
+        # position is confirmed flat. Ensures the exit is retried every bar
+        # even if the triggering condition is no longer met (price recovered).
+        self._exit_needed: bool = False
+
         # Last ticker price for real-time PnL display
         self.last_price: float = 0.0
 
@@ -690,6 +695,7 @@ def reset_position(agg: BarAggregator):
     agg.entry_order_id = ""
     agg.exit_reason = ""  # FIX: 问题1 — clear exit reason on reset
     agg._entry_fee_accounted = False  # FIX: reset entry fee tracking
+    agg._exit_needed = False  # clear exit latch on full position close
 
 
 def _verify_position(inst_id: str, agg: BarAggregator, name: str):
@@ -728,40 +734,20 @@ def _verify_position(inst_id: str, agg: BarAggregator, name: str):
         )
         reset_position(agg)
     elif real_pos != 0 and abs(real_pos - agg.pos) > 0.001:
-        # Position mismatch — sync to OKX truth, then auto-close if untracked.
+        # Position mismatch — sync to OKX truth, then arm exit latch.
+        # Exit latch drives the actual close order from the main bar loop,
+        # which has all the context (bar price, size, logging) and avoids
+        # duplicating order logic here.
         print(
-            f"[{name}] POS VERIFY: OKX={real_pos} vs local={agg.pos} — syncing",
+            f"[{name}] POS VERIFY: OKX={real_pos} vs local={agg.pos} — syncing, arming exit latch",
             flush=True,
         )
         agg.pos = real_pos
         agg.entry_price = real_avg_px
-
-        # If no pending exit order is inflight, immediately close the residual.
-        # This is the safety net for zombie positions (e.g. resid order failed,
-        # exit condition no longer holds). Without this, residual positions sit
-        # on the exchange indefinitely.
         if abs(agg.pos) > 0.001 and not agg.pending_order_id:
-            exit_side = "sell" if agg.pos > 0 else "buy"
-            auto_sz = int(math.ceil(abs(agg.pos)))
-            result = place_order(inst_id, exit_side, 0, auto_sz, ord_type="market")
-            if result and result.get("code") == "0":
-                auto_ord_id = result["data"][0].get("ordId", "")
-                print(
-                    f"[{name}] POS VERIFY: auto-closing {auto_sz} contracts "
-                    f"(ord={auto_ord_id[:8]})",
-                    flush=True,
-                )
-                agg.pending_order_id = auto_ord_id
-                agg.pending_order_side = "exit"
-                agg.pending_order_time = time.time()
-                agg.pending_order_sz = auto_sz
-                # Re-arm verify so next bar confirms the close actually filled.
-                agg._needs_pos_verify = True
-            else:
-                print(
-                    f"[{name}] POS VERIFY: auto-close FAILED: {result}",
-                    flush=True,
-                )
+            agg._exit_needed = True
+            if not agg.exit_reason:
+                agg.exit_reason = "pos_verify"
     else:
         print(f"[{name}] POS VERIFY: pos={agg.pos} confirmed (no drift)", flush=True)
 
@@ -902,8 +888,8 @@ class OKXTickerFeed:
             agg.hold_bars += 1
 
         # FIX: problem 2 — verify actual OKX position on the bar after an exit
-        # order cancel, OR periodic check every 12 bars (1 hour) to catch drift.
-        needs_check = agg._needs_pos_verify or (agg._5m_count > 0 and agg._5m_count % 12 == 0)
+        # order cancel, OR periodic check every 6 bars (30 min) to catch drift.
+        needs_check = agg._needs_pos_verify or (agg._5m_count > 0 and agg._5m_count % 6 == 0)
         if needs_check:
             _verify_position(inst_id, agg, name)
 
@@ -980,28 +966,24 @@ class OKXTickerFeed:
                         # Partial fill — update position
                         agg.pos = remaining if agg.pos > 0 else -remaining
                         print(f"[{name}] EXIT PARTIAL | filled={fill_sz} remaining={agg.pos} px={fill_px}", flush=True)
-                        # Immediately place another market order for the residual.
-                        # Retry up to 3 times (2s apart) — OKX demo API can be flaky.
+                        # Place one market order for the residual immediately.
+                        # If it fails, _exit_needed latch ensures retry on the next bar.
                         resid_sz = int(math.ceil(abs(agg.pos)))
                         resid_side = "sell" if agg.pos > 0 else "buy"
-                        resid_result = None
-                        for resid_attempt in range(3):
-                            resid_result = place_order(inst_id, resid_side, 0, resid_sz, ord_type="market")
-                            if resid_result and resid_result.get("code") == "0":
-                                resid_ord_id = resid_result["data"][0].get("ordId", "")
-                                print(f"[{name}] EXIT resid order: {resid_ord_id[:8]} sz={resid_sz}"
-                                      f"{' (retry)' if resid_attempt > 0 else ''}", flush=True)
-                                agg.pending_order_id = resid_ord_id
-                                agg.pending_order_side = "exit"
-                                agg.pending_order_time = time.time()
-                                agg.pending_order_sz = resid_sz
-                                return
-                            print(f"[{name}] EXIT resid FAILED (attempt {resid_attempt+1}/3): {resid_result}", flush=True)
-                            if resid_attempt < 2:
-                                time.sleep(2)
-                        # All retries exhausted — fall through, _verify_position
-                        # will catch the drift within 1 hour (Fix 2 safety net).
-                        print(f"[{name}] EXIT resid ALL RETRIES FAILED — relying on verify safety net", flush=True)
+                        resid_result = place_order(inst_id, resid_side, 0, resid_sz, ord_type="market")
+                        if resid_result and resid_result.get("code") == "0":
+                            resid_ord_id = resid_result["data"][0].get("ordId", "")
+                            print(f"[{name}] EXIT resid order: {resid_ord_id[:8]} sz={resid_sz}", flush=True)
+                            agg.pending_order_id = resid_ord_id
+                            agg.pending_order_side = "exit"
+                            agg.pending_order_time = time.time()
+                            agg.pending_order_sz = resid_sz
+                            agg._exit_needed = True  # keep latch until fully flat
+                            return
+                        # Resid order failed — latch ensures retry next bar without sleep
+                        print(f"[{name}] EXIT resid FAILED — retrying next bar: {resid_result}", flush=True)
+                        agg._exit_needed = True
+                        return  # don't fall through to pending field clear
                 agg.pending_order_id = ""
                 agg.pending_order_side = ""
                 agg.pending_order_time = 0.0
@@ -1027,7 +1009,8 @@ class OKXTickerFeed:
                 cancelled = cancel_order(inst_id, agg.pending_order_id)
                 print(f"[{name}] Cancel result: {'OK' if cancelled else 'FAIL'}", flush=True)
                 if agg.pending_order_side == "exit":
-                    agg._needs_pos_verify = True  # FIX: verify next bar, don't blindly reset
+                    agg._needs_pos_verify = True  # verify next bar — order may have filled
+                    agg._exit_needed = True        # re-arm latch in case verify finds pos still open
                 # Clear pending fields for both entry and exit timeouts
                 agg.pending_order_id = ""
                 agg.pending_order_side = ""
@@ -1053,20 +1036,24 @@ class OKXTickerFeed:
                 flush=True,
             )
 
-        # Check exit
-        should_exit, reason = check_exit(agg, bar)
-        if should_exit:
-            agg.exit_reason = reason  # FIX: 问题1 — store actual exit reason before placing order
+        # Check exit — latch: once triggered, keep retrying until position is flat.
+        # Prevents stuck residuals when an order is canceled/fails and the price
+        # condition is no longer met on the next bar.
+        if not agg._exit_needed and agg.pos != 0:
+            should_exit, reason = check_exit(agg, bar)
+            if should_exit:
+                agg._exit_needed = True
+                agg.exit_reason = reason
+
+        if agg._exit_needed and agg.pos != 0:
             exit_side = "sell" if agg.pos > 0 else "buy"
-            tick_sz = CONTRACT_SPECS[inst_id]["tickSz"]
             sz = int(math.ceil(abs(agg.pos)))
-            # Display PnL uses bar close (actual fill PnL confirmed separately)
             display_pnl = (bar["close"] - agg.entry_price) * sz if agg.pos > 0 else (agg.entry_price - bar["close"]) * sz
             multiplier = CONTRACT_SPECS[inst_id]["ctVal"]
             display_pnl_usd = display_pnl * multiplier
 
             print(
-                f"[{name}] EXIT {reason} | side={exit_side} sz={sz} "
+                f"[{name}] EXIT {agg.exit_reason} | side={exit_side} sz={sz} "
                 f"entry={agg.entry_price} est_pnl={display_pnl_usd:.2f}",
                 flush=True,
             )
@@ -1075,13 +1062,13 @@ class OKXTickerFeed:
             if result and result.get("code") == "0":
                 ord_id = result["data"][0].get("ordId", "")
                 print(f"[{name}] EXIT order placed: {ord_id[:8]} — waiting fill", flush=True)
-                # Store pending order — DON'T reset position until fill confirmed
                 agg.pending_order_id = ord_id
                 agg.pending_order_side = "exit"
                 agg.pending_order_time = time.time()
                 agg.pending_order_sz = sz
             else:
-                print(f"[{name}] EXIT FAILED: {result}", flush=True)
+                # Order failed — _exit_needed stays True, will retry next bar
+                print(f"[{name}] EXIT FAILED (will retry next bar): {result}", flush=True)
             return
 
         # Check entry
