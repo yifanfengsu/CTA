@@ -59,6 +59,12 @@ if TYPE_CHECKING:
     from vnpy.trader.database import BaseDatabase
     from vnpy.trader.object import BarData, ContractData, LogData
 
+raise SystemExit(
+    "DISABLED: this script's default gateway path implicitly inherited "
+    "OKX_SERVER=DEMO and wrote simulated-feed klines for 13 months "
+    "(contamination channel, see reports/MR5M_postmortem.md). "
+    "Use download_mainnet_history.py instead."
+)
 
 ENV_FILE: Path = PROJECT_ROOT / ".env"
 DEFAULT_GATEWAY_NAME: str = "OKX"
