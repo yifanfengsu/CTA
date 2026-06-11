@@ -16,6 +16,10 @@ test PF 0.826 / 毛利≈0，详见 `reports/MR5M_postmortem.md`）。
 - 旧污染库已改名为 `.vntrader/database_DEMO_CONTAMINATED.db`（原 `database.db`，
   2026-06-11 修补改名以防呆；取证：`reports/regime/data_contamination_forensics_20260610/`），
   为**已确认污染的 OKX DEMO 行情**，仅作取证/对比基准，**严禁用于任何回测或研究**。
+- mainnet 库已于 2026-06-11 通过 **Binance 全量交叉验证**（205 个月度文件、5 币
+  1,790,880 根/币 1:1 对齐，PASS：合成形态 11 起全部为 Binance 同向证实的真实事件、
+  无月度脱锚、median 偏差 0.03%，详见 `reports/regime/data_trust_closure_20260611/`）；
+  funding 数据同日通过正式核查并补齐至 2026-06-11。
 - mainnet 库备份：`~/backups/database_mainnet_20260611.db.gz`（gzip ~273MB），
   原库 SHA256 `a6d6928dbdec108f54ebc413ec84344d3e9cde5f4f54dd07b5adec36f573495d`；
   还原校验：`gunzip -c <备份> | sha256sum` 须等于该值。

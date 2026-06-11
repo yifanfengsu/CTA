@@ -1,0 +1,223 @@
+{
+  "run_utc": "2026-06-11T13:29:18.558591+00:00",
+  "seed": 20260611,
+  "h1_code_audit": {
+    "download_okx_funding_history.py": {
+      "simulated_header_hits": 0,
+      "okx_server_env_hits": 0,
+      "dotenv_hits": 0,
+      "hardcoded_public_urls": [
+        "https://app.okx.com/docs-v5/zh/#public-data-rest-api-get-funding-rate-history",
+        "https://www.okx.com/api/v5/public/funding-rate-history",
+        "https://www.okx.com/en-ar/historical-data"
+      ]
+    },
+    "download_okx_historical_funding_files.py": {
+      "simulated_header_hits": 0,
+      "okx_server_env_hits": 0,
+      "dotenv_hits": 0,
+      "hardcoded_public_urls": []
+    }
+  },
+  "h1_clean": true,
+  "h2_samples": [
+    {
+      "inst_id": "DOGE-USDT-SWAP",
+      "funding_time_ms": 1745568000000,
+      "funding_time_utc": "2025-04-25T08:00:00+00:00",
+      "local_rate": "0.0001",
+      "external_rate": "0.0001",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "SOL-USDT-SWAP",
+      "funding_time_ms": 1719100800000,
+      "funding_time_utc": "2024-06-23T00:00:00+00:00",
+      "local_rate": "0.0000357765020829",
+      "external_rate": "3.57765020829e-05",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "LINK-USDT-SWAP",
+      "funding_time_ms": 1761177600000,
+      "funding_time_utc": "2025-10-23T00:00:00+00:00",
+      "local_rate": "0.0000516842391661",
+      "external_rate": "5.16842391661e-05",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "DOGE-USDT-SWAP",
+      "funding_time_ms": 1716249600000,
+      "funding_time_utc": "2024-05-21T00:00:00+00:00",
+      "local_rate": "0.0001606875106301",
+      "external_rate": "0.0001606875106301",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "DOGE-USDT-SWAP",
+      "funding_time_ms": 1743580800000,
+      "funding_time_utc": "2025-04-02T08:00:00+00:00",
+      "local_rate": "0.0000344858279038",
+      "external_rate": "3.44858279038e-05",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "DOGE-USDT-SWAP",
+      "funding_time_ms": 1778342400000,
+      "funding_time_utc": "2026-05-09T16:00:00+00:00",
+      "local_rate": "0.0001",
+      "external_rate": "0.0001",
+      "external_source": "api",
+      "match": true
+    },
+    {
+      "inst_id": "ETH-USDT-SWAP",
+      "funding_time_ms": 1777593600000,
+      "funding_time_utc": "2026-05-01T00:00:00+00:00",
+      "local_rate": "-0.0000315515617476",
+      "external_rate": "-0.0000315515617476",
+      "external_source": "api",
+      "match": true
+    },
+    {
+      "inst_id": "ETH-USDT-SWAP",
+      "funding_time_ms": 1682150400000,
+      "funding_time_utc": "2023-04-22T08:00:00+00:00",
+      "local_rate": "0.0000938102463709",
+      "external_rate": "9.38102463709e-05",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "ETH-USDT-SWAP",
+      "funding_time_ms": 1706918400000,
+      "funding_time_utc": "2024-02-03T00:00:00+00:00",
+      "local_rate": "-0.0000512652319038",
+      "external_rate": "-5.12652319038e-05",
+      "external_source": "cdn_refetch",
+      "match": true
+    },
+    {
+      "inst_id": "BTC-USDT-SWAP",
+      "funding_time_ms": 1681344000000,
+      "funding_time_utc": "2023-04-13T00:00:00+00:00",
+      "local_rate": "-0.0000775689928627",
+      "external_rate": "-7.75689928627e-05",
+      "external_source": "cdn_refetch",
+      "match": true
+    }
+  ],
+  "h2_all_match": true,
+  "magnitude_sanity": {
+    "per_symbol": {
+      "BTC-USDT-SWAP": {
+        "n": 3774,
+        "max_abs_rate": 0.0011940225228617,
+        "share_gt_0_3pct": 0.0
+      },
+      "DOGE-USDT-SWAP": {
+        "n": 3774,
+        "max_abs_rate": 0.005112667155457,
+        "share_gt_0_3pct": 0.026497085320614733
+      },
+      "ETH-USDT-SWAP": {
+        "n": 3774,
+        "max_abs_rate": 0.0014610615530124,
+        "share_gt_0_3pct": 0.0
+      },
+      "LINK-USDT-SWAP": {
+        "n": 3774,
+        "max_abs_rate": 0.0019598517337616,
+        "share_gt_0_3pct": 0.0
+      },
+      "SOL-USDT-SWAP": {
+        "n": 3774,
+        "max_abs_rate": 0.0107893111042314,
+        "share_gt_0_3pct": 0.10598834128245893
+      }
+    },
+    "overall_max_abs_rate": 0.0107893111042314,
+    "overall_share_gt_0_3pct_pct": 0.026497085320614733
+  },
+  "grid_continuity": {
+    "BTC-USDT-SWAP": {
+      "n": 3774,
+      "expected_n_from_span": 3774,
+      "count_complete": true,
+      "first_utc": "2022-12-31T16:00:00+00:00",
+      "last_utc": "2026-06-11T08:00:00+00:00",
+      "gaps_gt_60s_off_8h": [],
+      "timestamp_jitter_max_seconds": 0.0,
+      "n_jittered_intervals": 0,
+      "duplicates": 0
+    },
+    "DOGE-USDT-SWAP": {
+      "n": 3774,
+      "expected_n_from_span": 3774,
+      "count_complete": true,
+      "first_utc": "2022-12-31T16:00:11+00:00",
+      "last_utc": "2026-06-11T08:00:00+00:00",
+      "gaps_gt_60s_off_8h": [],
+      "timestamp_jitter_max_seconds": 20.0,
+      "n_jittered_intervals": 655,
+      "duplicates": 0
+    },
+    "ETH-USDT-SWAP": {
+      "n": 3774,
+      "expected_n_from_span": 3774,
+      "count_complete": true,
+      "first_utc": "2022-12-31T16:00:01+00:00",
+      "last_utc": "2026-06-11T08:00:00+00:00",
+      "gaps_gt_60s_off_8h": [],
+      "timestamp_jitter_max_seconds": 3.0,
+      "n_jittered_intervals": 388,
+      "duplicates": 0
+    },
+    "LINK-USDT-SWAP": {
+      "n": 3774,
+      "expected_n_from_span": 3774,
+      "count_complete": true,
+      "first_utc": "2022-12-31T16:00:05+00:00",
+      "last_utc": "2026-06-11T08:00:00+00:00",
+      "gaps_gt_60s_off_8h": [],
+      "timestamp_jitter_max_seconds": 15.0,
+      "n_jittered_intervals": 490,
+      "duplicates": 0
+    },
+    "SOL-USDT-SWAP": {
+      "n": 3774,
+      "expected_n_from_span": 3774,
+      "count_complete": true,
+      "first_utc": "2022-12-31T16:00:12+00:00",
+      "last_utc": "2026-06-11T08:00:00+00:00",
+      "gaps_gt_60s_off_8h": [],
+      "timestamp_jitter_max_seconds": 20.0,
+      "n_jittered_intervals": 692,
+      "duplicates": 0
+    }
+  },
+  "grid_ok": true,
+  "backfill_manifest": {
+    "source": "okx-public-rest",
+    "server": "MAINNET",
+    "endpoint": "https://www.okx.com/api/v5/public/funding-rate-history",
+    "script": "scripts/download_okx_funding_history.py (existing, audited above)",
+    "range": [
+      "2026-04-01",
+      "2026-06-11"
+    ],
+    "files": [
+      "data/funding/okx/BTC-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+      "data/funding/okx/ETH-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+      "data/funding/okx/SOL-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+      "data/funding/okx/LINK-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+      "data/funding/okx/DOGE-USDT-SWAP_funding_2026-04-01_2026-06-11.csv"
+    ]
+  },
+  "verdict": "通过"
+}

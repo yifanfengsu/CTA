@@ -1,0 +1,419 @@
+{
+  "okx_bars": 1791360,
+  "binance_bars": 1795680,
+  "aligned_bars": 1790880,
+  "okx_only": 480,
+  "binance_only": 4800,
+  "abs_close_dev": {
+    "n": 1790880,
+    "median": 0.00032263268269072106,
+    "p90": 0.0007549448890230852,
+    "p99": 0.0010745907641658157,
+    "p99_9": 0.0026420079260237803,
+    "max": 0.04765005969825248
+  },
+  "exceedance_pct_of_bars": {
+    "gt_0.1pct": 1.714520235861699,
+    "gt_0.5pct": 0.006477262574823551,
+    "gt_1.0pct": 0.003294469757884392,
+    "gt_5.0pct": 0.0
+  },
+  "signed_basis": {
+    "n": 1790880,
+    "median": 0.00032263268269072106,
+    "p90": 0.0007549448890230852,
+    "p99": 0.0010745907641658157,
+    "p99_9": 0.0026420079260237803,
+    "max": 0.04765005969825248,
+    "mean_signed": 0.00012286420898133962,
+    "median_signed": 0.0001250104175347993
+  },
+  "lag_check": {
+    "corr_by_lag": {
+      "-5": -0.002187113005138282,
+      "-4": -0.005961111600211244,
+      "-3": -0.007421476980971361,
+      "-2": 0.006017563428366458,
+      "-1": 0.03187926890374391,
+      "0": 0.98621105568503,
+      "1": 0.04726782294458372,
+      "2": 0.007979376965645357,
+      "3": -0.007991114220652334,
+      "4": -0.009233392116804868,
+      "5": -0.0006929079189694556
+    },
+    "peak_lag": 0,
+    "peak_corr": 0.98621105568503
+  },
+  "monthly": [
+    {
+      "month": "2023-01",
+      "n": 44640,
+      "median_abs_dev_pct": 0.034958923265159585,
+      "p99_abs_dev_pct": 0.10853344186677528,
+      "frac_gt_0_1pct": 2.309587813620072,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": -0.0029869570685756566
+    },
+    {
+      "month": "2023-02",
+      "n": 40320,
+      "median_abs_dev_pct": 0.04083021454769953,
+      "p99_abs_dev_pct": 0.11552747547440166,
+      "frac_gt_0_1pct": 3.1324404761904763,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": 2.9701408065344887e-05
+    },
+    {
+      "month": "2023-03",
+      "n": 44640,
+      "median_abs_dev_pct": 0.05582693649685359,
+      "p99_abs_dev_pct": 0.34185251505778785,
+      "frac_gt_0_1pct": 12.370071684587813,
+      "median_signed_basis_pct": 0.05564443234822141,
+      "mean_signed_basis_pct": 0.0638574312648443
+    },
+    {
+      "month": "2023-04",
+      "n": 43200,
+      "median_abs_dev_pct": 0.05092622084421992,
+      "p99_abs_dev_pct": 0.11816280634756769,
+      "frac_gt_0_1pct": 3.3680555555555554,
+      "median_signed_basis_pct": 0.0418877408545115,
+      "mean_signed_basis_pct": 0.035470012720545244
+    },
+    {
+      "month": "2023-05",
+      "n": 44640,
+      "median_abs_dev_pct": 0.046082949308757504,
+      "p99_abs_dev_pct": 0.10765272521927012,
+      "frac_gt_0_1pct": 2.181899641577061,
+      "median_signed_basis_pct": 0.046082949308757504,
+      "mean_signed_basis_pct": 0.04709501894741483
+    },
+    {
+      "month": "2023-06",
+      "n": 43200,
+      "median_abs_dev_pct": 0.04847309743092767,
+      "p99_abs_dev_pct": 0.115131957794283,
+      "frac_gt_0_1pct": 2.4166666666666665,
+      "median_signed_basis_pct": 0.04844178911674655,
+      "mean_signed_basis_pct": 0.04683504041352793
+    },
+    {
+      "month": "2023-07",
+      "n": 44640,
+      "median_abs_dev_pct": 0.04628915290850353,
+      "p99_abs_dev_pct": 0.104926427330429,
+      "frac_gt_0_1pct": 1.4628136200716846,
+      "median_signed_basis_pct": 0.046086489249548716,
+      "mean_signed_basis_pct": 0.04374573856357886
+    },
+    {
+      "month": "2023-08",
+      "n": 44640,
+      "median_abs_dev_pct": 0.048653908530639396,
+      "p99_abs_dev_pct": 0.10094212651413571,
+      "frac_gt_0_1pct": 1.5479390681003584,
+      "median_signed_basis_pct": 0.04863813229572169,
+      "mean_signed_basis_pct": 0.0474164781584392
+    },
+    {
+      "month": "2023-09",
+      "n": 43200,
+      "median_abs_dev_pct": 0.050488051161227086,
+      "p99_abs_dev_pct": 0.10313850472012417,
+      "frac_gt_0_1pct": 2.2060185185185186,
+      "median_signed_basis_pct": 0.050488051161227086,
+      "mean_signed_basis_pct": 0.05330152420112983
+    },
+    {
+      "month": "2023-10",
+      "n": 44640,
+      "median_abs_dev_pct": 0.04095563139931896,
+      "p99_abs_dev_pct": 0.09985508338783719,
+      "frac_gt_0_1pct": 0.9968637992831542,
+      "median_signed_basis_pct": 0.04006410256409222,
+      "mean_signed_basis_pct": 0.03374815311453536
+    },
+    {
+      "month": "2023-11",
+      "n": 43200,
+      "median_abs_dev_pct": 0.040950040950044925,
+      "p99_abs_dev_pct": 0.12156417260889377,
+      "frac_gt_0_1pct": 5.298611111111111,
+      "median_signed_basis_pct": -0.03996270147862147,
+      "mean_signed_basis_pct": -0.039552292857739986
+    },
+    {
+      "month": "2023-12",
+      "n": 44640,
+      "median_abs_dev_pct": 0.053556485415654796,
+      "p99_abs_dev_pct": 0.11840243552841592,
+      "frac_gt_0_1pct": 4.504928315412187,
+      "median_signed_basis_pct": -0.05351568311553856,
+      "mean_signed_basis_pct": -0.05216546186641318
+    },
+    {
+      "month": "2024-01",
+      "n": 44640,
+      "median_abs_dev_pct": 0.020268900749950094,
+      "p99_abs_dev_pct": 0.09230937628848968,
+      "frac_gt_0_1pct": 0.5981182795698925,
+      "median_signed_basis_pct": 0.007289958092422329,
+      "mean_signed_basis_pct": 0.005520104086890654
+    },
+    {
+      "month": "2024-02",
+      "n": 41760,
+      "median_abs_dev_pct": 0.054171180931737034,
+      "p99_abs_dev_pct": 0.11859308177024197,
+      "frac_gt_0_1pct": 6.204501915708812,
+      "median_signed_basis_pct": -0.04297033728823451,
+      "mean_signed_basis_pct": -0.0292770345346928
+    },
+    {
+      "month": "2024-03",
+      "n": 44640,
+      "median_abs_dev_pct": 0.07161618449315743,
+      "p99_abs_dev_pct": 0.11981154808882552,
+      "frac_gt_0_1pct": 7.289426523297491,
+      "median_signed_basis_pct": -0.07160943114594322,
+      "mean_signed_basis_pct": -0.071937211436191
+    },
+    {
+      "month": "2024-04",
+      "n": 43200,
+      "median_abs_dev_pct": 0.0634517766497486,
+      "p99_abs_dev_pct": 0.11189437171310046,
+      "frac_gt_0_1pct": 3.847222222222222,
+      "median_signed_basis_pct": 0.043063231399609506,
+      "mean_signed_basis_pct": 0.012197833972208128
+    },
+    {
+      "month": "2024-05",
+      "n": 44640,
+      "median_abs_dev_pct": 0.04947314542894266,
+      "p99_abs_dev_pct": 0.10267399772146991,
+      "frac_gt_0_1pct": 1.196236559139785,
+      "median_signed_basis_pct": 0.044116025205754236,
+      "mean_signed_basis_pct": 0.028482072971957935
+    },
+    {
+      "month": "2024-06",
+      "n": 43200,
+      "median_abs_dev_pct": 0.04915385155536601,
+      "p99_abs_dev_pct": 0.09929782723588887,
+      "frac_gt_0_1pct": 0.9259259259259258,
+      "median_signed_basis_pct": 0.03514444366344981,
+      "mean_signed_basis_pct": 0.02042907421181919
+    },
+    {
+      "month": "2024-07",
+      "n": 44640,
+      "median_abs_dev_pct": 0.053516819571862946,
+      "p99_abs_dev_pct": 0.10722612177466381,
+      "frac_gt_0_1pct": 1.984767025089606,
+      "median_signed_basis_pct": 0.053514006844024166,
+      "mean_signed_basis_pct": 0.05370361993031403
+    },
+    {
+      "month": "2024-08",
+      "n": 44640,
+      "median_abs_dev_pct": 0.04725451280598036,
+      "p99_abs_dev_pct": 0.097693865790217,
+      "frac_gt_0_1pct": 0.625,
+      "median_signed_basis_pct": 0.04725004725003784,
+      "mean_signed_basis_pct": 0.046349578644923076
+    },
+    {
+      "month": "2024-09",
+      "n": 43200,
+      "median_abs_dev_pct": 0.047245582538023294,
+      "p99_abs_dev_pct": 0.09128301962140456,
+      "frac_gt_0_1pct": 0.25462962962962965,
+      "median_signed_basis_pct": 0.047245582538023294,
+      "mean_signed_basis_pct": 0.046318643258084734
+    },
+    {
+      "month": "2024-10",
+      "n": 44640,
+      "median_abs_dev_pct": 0.034888791975574006,
+      "p99_abs_dev_pct": 0.08359650752368884,
+      "frac_gt_0_1pct": 0.31810035842293904,
+      "median_signed_basis_pct": 0.028216704288940124,
+      "mean_signed_basis_pct": 0.027487571600674682
+    },
+    {
+      "month": "2024-11",
+      "n": 43200,
+      "median_abs_dev_pct": 0.049677098857424405,
+      "p99_abs_dev_pct": 0.10227886682754471,
+      "frac_gt_0_1pct": 1.3449074074074074,
+      "median_signed_basis_pct": -0.043702314416225935,
+      "mean_signed_basis_pct": -0.032542537449198834
+    },
+    {
+      "month": "2024-12",
+      "n": 44640,
+      "median_abs_dev_pct": 0.04119417331843197,
+      "p99_abs_dev_pct": 0.0967414653239402,
+      "frac_gt_0_1pct": 0.7459677419354839,
+      "median_signed_basis_pct": 0.020062528263401488,
+      "mean_signed_basis_pct": 0.0033108218208832575
+    },
+    {
+      "month": "2025-01",
+      "n": 44640,
+      "median_abs_dev_pct": 0.042940570250764386,
+      "p99_abs_dev_pct": 0.08619519578187218,
+      "frac_gt_0_1pct": 0.1724910394265233,
+      "median_signed_basis_pct": 0.04290372404325366,
+      "mean_signed_basis_pct": 0.04197587104087101
+    },
+    {
+      "month": "2025-02",
+      "n": 40320,
+      "median_abs_dev_pct": 0.04854751893445269,
+      "p99_abs_dev_pct": 0.09035070458404479,
+      "frac_gt_0_1pct": 0.31994047619047616,
+      "median_signed_basis_pct": 0.04853452695846887,
+      "mean_signed_basis_pct": 0.047935044380029934
+    },
+    {
+      "month": "2025-03",
+      "n": 44640,
+      "median_abs_dev_pct": 0.058655326636856776,
+      "p99_abs_dev_pct": 0.10264133437478098,
+      "frac_gt_0_1pct": 1.3284050179211468,
+      "median_signed_basis_pct": 0.058655326636856776,
+      "mean_signed_basis_pct": 0.058515109370597236
+    },
+    {
+      "month": "2025-04",
+      "n": 43200,
+      "median_abs_dev_pct": 0.023753909534829518,
+      "p99_abs_dev_pct": 0.09544364980248786,
+      "frac_gt_0_1pct": 0.7106481481481481,
+      "median_signed_basis_pct": 0.022605681561286544,
+      "mean_signed_basis_pct": 0.026374494279184778
+    },
+    {
+      "month": "2025-05",
+      "n": 44640,
+      "median_abs_dev_pct": 0.012035142616454714,
+      "p99_abs_dev_pct": 0.03958681982859114,
+      "frac_gt_0_1pct": 0.006720430107526882,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": -0.0004108676937767547
+    },
+    {
+      "month": "2025-06",
+      "n": 43200,
+      "median_abs_dev_pct": 0.008415029257126706,
+      "p99_abs_dev_pct": 0.03852094967506551,
+      "frac_gt_0_1pct": 0.006944444444444444,
+      "median_signed_basis_pct": -0.007267441860461088,
+      "mean_signed_basis_pct": -0.005790763971032231
+    },
+    {
+      "month": "2025-07",
+      "n": 44640,
+      "median_abs_dev_pct": 0.015229972586040905,
+      "p99_abs_dev_pct": 0.051426137164665084,
+      "frac_gt_0_1pct": 0.004480286738351254,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": -0.0003101526618841642
+    },
+    {
+      "month": "2025-08",
+      "n": 44640,
+      "median_abs_dev_pct": 0.009237661952682717,
+      "p99_abs_dev_pct": 0.037885151198717645,
+      "frac_gt_0_1pct": 0.04256272401433692,
+      "median_signed_basis_pct": -0.004074066571760326,
+      "mean_signed_basis_pct": -0.003080196045674008
+    },
+    {
+      "month": "2025-09",
+      "n": 43200,
+      "median_abs_dev_pct": 0.009474631673705262,
+      "p99_abs_dev_pct": 0.05681359338360109,
+      "frac_gt_0_1pct": 0.009259259259259259,
+      "median_signed_basis_pct": 0.003999520057597977,
+      "mean_signed_basis_pct": 0.003818151694506176
+    },
+    {
+      "month": "2025-10",
+      "n": 44640,
+      "median_abs_dev_pct": 0.011183493172825638,
+      "p99_abs_dev_pct": 0.04306541801456389,
+      "frac_gt_0_1pct": 0.4077060931899641,
+      "median_signed_basis_pct": -0.01020642500432086,
+      "mean_signed_basis_pct": -0.013277431305344317
+    },
+    {
+      "month": "2025-11",
+      "n": 43200,
+      "median_abs_dev_pct": 0.013095861707704739,
+      "p99_abs_dev_pct": 0.04259621186739505,
+      "frac_gt_0_1pct": 0.006944444444444444,
+      "median_signed_basis_pct": -0.0083246618250392,
+      "mean_signed_basis_pct": -0.010263162058455186
+    },
+    {
+      "month": "2025-12",
+      "n": 44640,
+      "median_abs_dev_pct": 0.008303578842491258,
+      "p99_abs_dev_pct": 0.040565384351470626,
+      "frac_gt_0_1pct": 0.0,
+      "median_signed_basis_pct": -0.0073346046648175315,
+      "mean_signed_basis_pct": -0.005646835828390513
+    },
+    {
+      "month": "2026-01",
+      "n": 44640,
+      "median_abs_dev_pct": 0.009504348260786484,
+      "p99_abs_dev_pct": 0.041530343382889905,
+      "frac_gt_0_1pct": 0.01568100358422939,
+      "median_signed_basis_pct": -0.0075941676792181485,
+      "mean_signed_basis_pct": -0.006911082834741366
+    },
+    {
+      "month": "2026-02",
+      "n": 40320,
+      "median_abs_dev_pct": 0.011536686663583824,
+      "p99_abs_dev_pct": 0.0460501095204921,
+      "frac_gt_0_1pct": 0.00248015873015873,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": -0.004650636744826892
+    },
+    {
+      "month": "2026-03",
+      "n": 44640,
+      "median_abs_dev_pct": 0.011319900384870341,
+      "p99_abs_dev_pct": 0.04448893337781737,
+      "frac_gt_0_1pct": 0.006720430107526882,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": -0.0049794657510584565
+    },
+    {
+      "month": "2026-04",
+      "n": 43200,
+      "median_abs_dev_pct": 0.011065619121403364,
+      "p99_abs_dev_pct": 0.04432629026058214,
+      "frac_gt_0_1pct": 0.0,
+      "median_signed_basis_pct": -0.010679196924404336,
+      "mean_signed_basis_pct": -0.007513804711132085
+    },
+    {
+      "month": "2026-05",
+      "n": 39840,
+      "median_abs_dev_pct": 0.010486577181202243,
+      "p99_abs_dev_pct": 0.0413215893046313,
+      "frac_gt_0_1pct": 0.0050200803212851405,
+      "median_signed_basis_pct": 0.0,
+      "mean_signed_basis_pct": -0.002912329767579897
+    }
+  ]
+}

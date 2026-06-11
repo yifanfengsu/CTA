@@ -1,0 +1,31 @@
+run start (UTC): 2026-06-11T13:24:25.270192+00:00
+DATA: OKX .vntrader/database_mainnet.db (mode=ro) vs data/binance_vision/ (sha256-verified)
+GATES (pre-registered): G1 synthetic=0/corroborated; G2 no month |median signed basis|>0.5%; G3 median |dev|<0.1% per symbol
+
+=== BTC ===
+okx bars 1,791,360 | binance bars 1,795,680 | aligned 1,790,880 | okx_only 480 | binance_only 4,800
+median |dev| 0.0343% | p99 0.076% | >0.1%: 0.06% of bars | lag peak k=0 (corr 0.994) | G2 bad months: none
+synthetic scan: 0 event(s)
+
+=== ETH ===
+okx bars 1,791,360 | binance bars 1,795,680 | aligned 1,790,880 | okx_only 480 | binance_only 4,800
+median |dev| 0.0343% | p99 0.081% | >0.1%: 0.27% of bars | lag peak k=0 (corr 0.995) | G2 bad months: none
+synthetic scan: 1 event(s), corroborated: 1
+
+=== SOL ===
+okx bars 1,791,360 | binance bars 1,795,680 | aligned 1,790,880 | okx_only 480 | binance_only 4,800
+median |dev| 0.0324% | p99 0.109% | >0.1%: 1.46% of bars | lag peak k=0 (corr 0.990) | G2 bad months: none
+synthetic scan: 3 event(s), corroborated: 3
+
+=== LINK ===
+okx bars 1,791,360 | binance bars 1,795,680 | aligned 1,790,880 | okx_only 480 | binance_only 4,800
+median |dev| 0.0323% | p99 0.107% | >0.1%: 1.71% of bars | lag peak k=0 (corr 0.986) | G2 bad months: none
+synthetic scan: 3 event(s), corroborated: 3
+
+=== DOGE ===
+okx bars 1,791,360 | binance bars 1,795,680 | aligned 1,790,880 | okx_only 480 | binance_only 4,800
+median |dev| 0.0342% | p99 0.103% | >0.1%: 1.22% of bars | lag peak k=0 (corr 0.986) | G2 bad months: none
+synthetic scan: 4 event(s), corroborated: 4
+
+VERDICT: PASS
+run end (UTC): 2026-06-11T13:25:35.652022+00:00

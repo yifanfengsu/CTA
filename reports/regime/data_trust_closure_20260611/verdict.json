@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "gate_failures": {
+    "G1": [],
+    "G2": [],
+    "G3": []
+  },
+  "gates": {
+    "G1": "synthetic events 0 or all Binance-corroborated",
+    "G2": "no month |median signed basis| > 0.5%",
+    "G3": "per-symbol full-period median |close dev| < 0.1%"
+  }
+}

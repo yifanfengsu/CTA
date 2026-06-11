@@ -1,0 +1,188 @@
+{
+  "detector": "verbatim port of research_v2b_dd_diagnosis.py step-4 (RAMP_STEP 0.015 / MIN_LEN 4 / MIN_MOVE 0.10 / JUMP_1BAR 0.15 / STAIR_CV 0.30)",
+  "demo_library_reference_counts": {
+    "SOL": 344,
+    "DOGE": 216,
+    "ETH": 23,
+    "LINK": 15,
+    "BTC": 0,
+    "total": 598
+  },
+  "mainnet_counts": {
+    "BTC": 0,
+    "ETH": 1,
+    "SOL": 3,
+    "LINK": 3,
+    "DOGE": 4
+  },
+  "corroboration_rule": "same net-move sign AND Binance excursion >= 0.5x OKX excursion",
+  "per_symbol": {
+    "BTC": {
+      "n_events": 0,
+      "events": []
+    },
+    "ETH": {
+      "n_events": 1,
+      "events": [
+        {
+          "window_utc": [
+            "2023-08-17T21:40:00+00:00",
+            "2023-08-17T21:44:00+00:00"
+          ],
+          "okx_max_excursion_pct": 13.73,
+          "binance_max_excursion_pct": 12.08,
+          "okx_net_move_pct": -13.73,
+          "binance_net_move_pct": -12.08,
+          "reverted_4h": true,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        }
+      ]
+    },
+    "SOL": {
+      "n_events": 3,
+      "events": [
+        {
+          "window_utc": [
+            "2023-01-02T07:13:00+00:00",
+            "2023-01-02T07:14:00+00:00"
+          ],
+          "okx_max_excursion_pct": 19.7,
+          "binance_max_excursion_pct": 20.48,
+          "okx_net_move_pct": 19.7,
+          "binance_net_move_pct": 20.48,
+          "reverted_4h": false,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2023-06-10T04:20:00+00:00",
+            "2023-06-10T04:25:00+00:00"
+          ],
+          "okx_max_excursion_pct": 19.28,
+          "binance_max_excursion_pct": 18.27,
+          "okx_net_move_pct": -19.28,
+          "binance_net_move_pct": -18.27,
+          "reverted_4h": false,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2025-10-10T21:20:00+00:00",
+            "2025-10-10T21:24:00+00:00"
+          ],
+          "okx_max_excursion_pct": 17.25,
+          "binance_max_excursion_pct": 18.21,
+          "okx_net_move_pct": 17.25,
+          "binance_net_move_pct": 18.21,
+          "reverted_4h": false,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        }
+      ]
+    },
+    "LINK": {
+      "n_events": 3,
+      "events": [
+        {
+          "window_utc": [
+            "2023-06-10T04:20:00+00:00",
+            "2023-06-10T04:26:00+00:00"
+          ],
+          "okx_max_excursion_pct": 18.32,
+          "binance_max_excursion_pct": 17.88,
+          "okx_net_move_pct": -18.32,
+          "binance_net_move_pct": -17.88,
+          "reverted_4h": false,
+          "staircase_flag": true,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2023-08-17T21:40:00+00:00",
+            "2023-08-17T21:44:00+00:00"
+          ],
+          "okx_max_excursion_pct": 12.76,
+          "binance_max_excursion_pct": 12.4,
+          "okx_net_move_pct": -12.76,
+          "binance_net_move_pct": -12.4,
+          "reverted_4h": true,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2025-10-10T21:11:00+00:00",
+            "2025-10-10T21:30:00+00:00"
+          ],
+          "okx_max_excursion_pct": 55.46,
+          "binance_max_excursion_pct": 55.39,
+          "okx_net_move_pct": -33.92,
+          "binance_net_move_pct": -32.33,
+          "reverted_4h": false,
+          "staircase_flag": true,
+          "binance_corroborated": true
+        }
+      ]
+    },
+    "DOGE": {
+      "n_events": 4,
+      "events": [
+        {
+          "window_utc": [
+            "2023-08-17T21:40:00+00:00",
+            "2023-08-17T21:44:00+00:00"
+          ],
+          "okx_max_excursion_pct": 13.82,
+          "binance_max_excursion_pct": 13.14,
+          "okx_net_move_pct": -13.82,
+          "binance_net_move_pct": -13.14,
+          "reverted_4h": false,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2024-03-05T19:51:00+00:00",
+            "2024-03-05T20:00:00+00:00"
+          ],
+          "okx_max_excursion_pct": 19.28,
+          "binance_max_excursion_pct": 15.29,
+          "okx_net_move_pct": -7.47,
+          "binance_net_move_pct": -7.05,
+          "reverted_4h": true,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2025-02-03T02:03:00+00:00",
+            "2025-02-03T02:07:00+00:00"
+          ],
+          "okx_max_excursion_pct": 9.93,
+          "binance_max_excursion_pct": 9.27,
+          "okx_net_move_pct": -9.93,
+          "binance_net_move_pct": -9.27,
+          "reverted_4h": true,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        },
+        {
+          "window_utc": [
+            "2025-10-10T21:11:00+00:00",
+            "2025-10-10T21:30:00+00:00"
+          ],
+          "okx_max_excursion_pct": 59.89,
+          "binance_max_excursion_pct": 59.32,
+          "okx_net_move_pct": -27.47,
+          "binance_net_move_pct": -21.82,
+          "reverted_4h": false,
+          "staircase_flag": false,
+          "binance_corroborated": true
+        }
+      ]
+    }
+  }
+}
