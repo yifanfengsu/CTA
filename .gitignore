@@ -16,6 +16,8 @@ data/raw/*
 !data/raw/.gitkeep
 data/funding/okx/*.csv
 data/funding/okx_historical_raw/*
+# Binance vision cross-validation zips (344MB; README + manifest stay tracked)
+data/binance_vision/**/*.zip
 # reports/ is version-controlled since 2026-06-11 (vulnerability patch):
 # postmortems, READMEs, json/jsonl/csv results are knowledge assets.
 # Only single files >50MB are excluded (listed individually below).
