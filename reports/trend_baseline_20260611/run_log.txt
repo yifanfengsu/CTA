@@ -1,0 +1,30 @@
+run start (UTC): 2026-06-11T13:49:06.137316+00:00
+DATA ENVIRONMENT: .vntrader/database_mainnet.db (mode=ro, Binance cross-validated PASS)
+contaminated legacy DB: not touched
+
+loading 1m + funding, aggregating 4h/1d ...
+  BTC: 1m 1,791,360 | 4h 7,464 | 1d 1,245 | funding 3,773
+  ETH: 1m 1,791,360 | 4h 7,464 | 1d 1,245 | funding 3,773
+  SOL: 1m 1,791,360 | 4h 7,464 | 1d 1,245 | funding 3,773
+  LINK: 1m 1,791,360 | 4h 7,464 | 1d 1,245 | funding 3,773
+  DOGE: 1m 1,791,360 | 4h 7,464 | 1d 1,245 | funding 3,773
+funding module self-check: PASS (see funding_module_selfcheck.md)
+[A1_4h] PASS | n=927 | gross $24,501 | funding $-6,499 | fees $-9,287 | net $8,714 | rt_gross 0.264% | PFnet 1.03
+[A1_1d] PASS | n=164 | gross $20,787 | funding $-11,870 | fees $-1,673 | net $7,244 | rt_gross 1.268% | PFnet 1.06
+[A2_4h] PASS | n=451 | gross $28,072 | funding $-7,571 | fees $-4,546 | net $15,955 | rt_gross 0.622% | PFnet 1.10
+[A2_1d] PASS | n=76 | gross $46,905 | funding $-15,867 | fees $-806 | net $30,232 | rt_gross 6.172% | PFnet 1.45
+[A3_1d] PASS | n=33 | gross $21,974 | funding $-18,696 | fees $-369 | net $2,909 | rt_gross 6.659% | PFnet 1.06
+[B1_4h] PASS | n=216 | gross $65,500 | funding $-13,307 | fees $-2,203 | net $49,991 | rt_gross 3.032% | PFnet 1.41
+[B1_1d] PASS | n=30 | gross $59,728 | funding $-21,661 | fees $-339 | net $37,728 | rt_gross 19.909% | PFnet 1.89
+[B2_4h] PASS | n=470 | gross $84,301 | funding $-11,357 | fees $-4,749 | net $68,195 | rt_gross 1.794% | PFnet 1.39
+[B2_1d] PASS | n=77 | gross $71,222 | funding $-19,157 | fees $-812 | net $51,252 | rt_gross 9.250% | PFnet 1.76
+[C1_4h] PASS | n=1222 | gross $89,856 | funding $-13,240 | fees $-12,265 | net $64,352 | rt_gross 0.735% | PFnet 1.30
+[C1_1d] PASS | n=526 | gross $89,689 | funding $-12,988 | fees $-5,309 | net $71,392 | rt_gross 1.705% | PFnet 1.43
+[C2_4h] PASS | n=542 | gross $75,517 | funding $-17,906 | fees $-5,461 | net $52,149 | rt_gross 1.393% | PFnet 1.46
+[C2_1d] PASS | n=248 | gross $64,887 | funding $-17,531 | fees $-2,523 | net $44,833 | rt_gross 2.616% | PFnet 1.45
+[C3_4h] PASS | n=305 | gross $32,387 | funding $-18,117 | fees $-3,096 | net $11,174 | rt_gross 1.062% | PFnet 1.11
+[C3_1d] PASS | n=147 | gross $21,959 | funding $-17,898 | fees $-1,512 | net $2,549 | rt_gross 1.494% | PFnet 1.03
+
+verdict counts: {'PASS': 15, 'MARGINAL': 0, 'FAIL': 0}
+family verdicts: {'A': 'has PASS -> next-stage ticket', 'B': 'has PASS -> next-stage ticket', 'C': 'has PASS -> next-stage ticket'}
+run end (UTC): 2026-06-11T13:49:27.466839+00:00
