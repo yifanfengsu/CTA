@@ -4,6 +4,14 @@
 
 OKX 永续合约 CTA 策略研发项目，基于 vnpy 框架。经过 13 个月趋势跟踪探索 → MR-v1 (4h) → **MR-5m 均值回归策略**的演进后，2026-06 确认全部历史研究建立在 OKX DEMO 污染行情上，mainnet 重验显示 MR-5m 无 edge，**项目已关闭**（完整复盘：`reports/MR5M_postmortem.md`）。当前阶段：基于 `.vntrader/database_mainnet.db` 干净数据的新策略研究。70+ 个历史报告目录保留为档案；其中全部绩效数字与"死胡同"结论的证据基础已失效（见复盘第 7 节）。<!-- 2026-06-11 更新：原"当前主力，正在 VPS 模拟盘运行/重心收敛到动态仓位对照实验"被 mainnet 基线重验推翻，详见 reports/regime/mr5m_mainnet_baseline_20260611/ -->
 
+## 新策略研究篇章（2026-06 起，报告在 reports/ 根目录新开）
+
+- **第一研究：经典趋势形态裸基线筛查**（2026-06-11，`reports/trend_baseline_20260611/`）：
+  15 个预注册经典配置（Donchian / EMA 交叉 / TSMOM × 4h/1d）在 mainnet 全样本上
+  **15/15 通过毛利 gate**（taker 双边 + 真实 funding 的保守口径下净利亦全正）。
+  性质为**筛查级**证据（零调参全样本），三族均获下一阶段（OOS/邻域/集中度）资格；
+  下一阶段必测清单见报告 Q6。
+
 ---
 
 ## 目录结构
@@ -158,6 +166,13 @@ cta_strategy/
 - **DYN 的 atr_ratio 是绝对水平的代理变量**：C2-1 三档单调在 test 成立但有隐患——"低绝对水平 + 高 atr_ratio"格子 PF 仅 0.24（负期望），而 DYN 恰在该区触发 large 档 $750。[同上]
 - **v2B 的 max DD 元凶已识别：2025-05-29 SOL/DOGE 合成数据 ramp（数据异常，非市场模式）**。窗口 16 笔中前 12 笔仅 −$10，99.7% 的 DD 来自 15:54–16:14 双向 fade 合成直线 ramp 的 4 笔（每分钟等步长 ±10.3 阶梯、单根 K 线 ±91% 瞬间复原、同时刻 BTC/ETH/LINK 无波动、真实市场无对应记录）。此前排除的两个假设仍成立：(1) **非协同行情**（5/5 同向并发 1,005 笔净正 +$3,009 [`reports/regime/portfolio_risk_phase_2a_20260609/`]）；(2) **非极端 ATR 单笔**（size cap V1 切中率仅 12.5–18.8% [`reports/regime/dyn_v2b_size_cap_v1_20260609/`]）。详见 [`reports/regime/v2b_dd_diagnosis_20260610/`]。<!-- 2026-06-10 更新：原"元凶未识别、16 笔中等 ATR 集群亏损"叙述被诊断推翻——是数据异常，详见 reports/regime/v2b_dd_diagnosis_20260610/ -->
 - **回测数据库含高频合成 ramp 异常，净利与 max DD 数字双向污染**：全期（2023-01→2026-05）检出 598 个 ≥10% 直线 ramp/单根跳变事件——SOL 344 / DOGE 216 / ETH 23 / LINK 15 / **BTC 0**，70% 在 4h 内完全复原。与异常窗口重叠的交易贡献 v2B test 净利的 **11.5%（仅等差阶梯签名）～31.6%（全部检出）**，FLAT 同量级（32.4%）；异常通常**送钱**（V 形瞬间复原 → midline 止盈），2025-05-29 是唯一一次双向打穿止损的最不利实现。**v2B 1.523× DD 的分子分母均不可信；以 SOL/DOGE 为主要利润源的历史结论效应量需在数据修复后重审。** [`reports/regime/v2b_dd_diagnosis_20260610/`]
+
+- **经典趋势原型在 mainnet 真实数据上普遍有毛利（筛查级，2026-06-11）**：15 个预注册
+  零调参配置（Donchian 20/10、55/20、100/50 / EMA 50/200、20/100 / TSMOM 30/90/180d
+  × 4h/1d）全样本 2023-01→2026-05 毛利全正、保守成本口径（taker 双边 + 真实 funding）
+  下净利亦全正（PF净 1.03–1.89）；demo 时代"趋势跟踪全败"被方向性证伪。**注意证据
+  等级为筛查（无 OOS/邻域/集中度检验），已知脆弱点：2023 贡献最大、LINK 多配置为负、
+  A 族 2025 全负、funding 吃掉毛利中位 ~27%。** [`reports/trend_baseline_20260611/`]
 
 ### 已知未验证的假设（明确标注：未验证）
 
@@ -353,12 +368,17 @@ build_research_decision_dossier.py — 研究决策汇总
 
 ## 数据库和配置
 
-### 数据库（1.4 GB）
-`.vntrader/database.db` — vnpy sqlite 格式：
-- 5 个币种（BTC/ETH/SOL/LINK/DOGE）× 1m K线
-- 时间范围：2023-01 → 2026-05
-- 每个币种约 179 万根 bar
-- 被 cta_strategy_dynamic 通过软链共享（只读）
+### 数据库与数据资产
+<!-- 2026-06-11 更新：原"database.db 为主数据库"叙述随污染确认与修补改名而重写 -->
+- **`.vntrader/database_mainnet.db`（唯一可信回测源，1.41 GB）**：5 币 × 1m，
+  2023-01 → 2026-05，每币 1,791,360 根零缺口，带 `download_meta` 来源元数据；
+  已通过 Binance 全量交叉验证（`reports/regime/data_trust_closure_20260611/` PASS）；
+  备份与 SHA256 见 CLAUDE.md 数据铁律节。
+- `.vntrader/database_DEMO_CONTAMINATED.db`（原 database.db）：已确认 OKX DEMO 污染，
+  仅作取证基准，严禁研究使用。
+- `data/funding/okx/`：5 币 8h 资金费率 2023-01 → 2026-06-11，已正式核查（同上报告）。
+- `data/binance_vision/`：Binance UM 永续 1m 月度镜像（205 文件，sha256 全验），
+  仅作交叉验证源，不可作 OKX 回测价格源。
 
 ### 合约规格
 `config/instruments/` — 7 个币种的 OKX 合约参数（JSON），每个包含：
@@ -400,7 +420,7 @@ build_research_decision_dossier.py — 研究决策汇总
 - **不再碰 exit 优化**（Chandelier/追踪止损全部失败）
 - **不再碰反应式熔断器**（74 个配置全部负收益；组合层 R1 日亏损熔断同机制再证，误伤 +$33k–$45k）[`reports/regime/portfolio_risk_phase_2a_20260609/`]
 - **组合层 R2 同向仓位上限 / R3 横截面降档对 v2B max DD 无效**：非反应式陷阱（误伤≈0），但安全阈值下 DD 不动——因 v2B 的 DD 非协同造成，与 R2/R3 适用场景不匹配 [同上]
-- **不再研究趋势跟踪**（V2/V3 全部未通过 gate）
+- **不再研究趋势跟踪**（V2/V3 全部未通过 gate）<!-- 2026-06-11：该 demo 时代结论已被干净数据方向性证伪——经典趋势原型 15/15 过毛利 gate（筛查级），见 reports/trend_baseline_20260611/ -->
 - **不再研究跨币种信号**（CSRB/VSVCB/ETC 全部未通过 gate）
 - **不再碰"极端 ATR 单笔 size cap"降 v2B 回撤**（V1 硬截断 15/15 配置 PnL 全部不达标；高 ATR 笔是利润引擎非 DD 元凶，DD 切中率仅 12.5–18.8%；详见 `reports/regime/dyn_v2b_size_cap_v1_20260609/`）
 - 当前研究状态：**MR-5m 项目已关闭**；新阶段为基于 `database_mainnet.db` 的新策略研究（启动门槛：复盘第 8 节检查清单）。<!-- 2026-06-11 更新：原"唯一在跑方向：动态仓位（双账号对照实验）"随项目关闭而终止 -->
