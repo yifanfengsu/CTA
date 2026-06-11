@@ -1,0 +1,259 @@
+{
+  "symbol": "LINK",
+  "n_demo": 24234,
+  "n_main": 27984,
+  "n_matched": 18589,
+  "recall_of_mainnet": 0.6642724413950829,
+  "precision_of_demo": 0.7670628043245028,
+  "jaccard": 0.5527669570906063,
+  "ghost_signals_demo_only": 5645,
+  "missed_signals_main_only": 9395,
+  "monthly": [
+    {
+      "month": "2023-01",
+      "matched": 157,
+      "demo_only": 15,
+      "main_only": 130
+    },
+    {
+      "month": "2023-02",
+      "matched": 301,
+      "demo_only": 61,
+      "main_only": 78
+    },
+    {
+      "month": "2023-03",
+      "matched": 272,
+      "demo_only": 70,
+      "main_only": 123
+    },
+    {
+      "month": "2023-04",
+      "matched": 152,
+      "demo_only": 40,
+      "main_only": 58
+    },
+    {
+      "month": "2023-05",
+      "matched": 27,
+      "demo_only": 8,
+      "main_only": 14
+    },
+    {
+      "month": "2023-06",
+      "matched": 64,
+      "demo_only": 27,
+      "main_only": 49
+    },
+    {
+      "month": "2023-07",
+      "matched": 139,
+      "demo_only": 42,
+      "main_only": 92
+    },
+    {
+      "month": "2023-08",
+      "matched": 38,
+      "demo_only": 9,
+      "main_only": 40
+    },
+    {
+      "month": "2023-09",
+      "matched": 109,
+      "demo_only": 20,
+      "main_only": 36
+    },
+    {
+      "month": "2023-10",
+      "matched": 365,
+      "demo_only": 64,
+      "main_only": 48
+    },
+    {
+      "month": "2023-11",
+      "matched": 705,
+      "demo_only": 139,
+      "main_only": 84
+    },
+    {
+      "month": "2023-12",
+      "matched": 892,
+      "demo_only": 97,
+      "main_only": 45
+    },
+    {
+      "month": "2024-01",
+      "matched": 854,
+      "demo_only": 131,
+      "main_only": 63
+    },
+    {
+      "month": "2024-02",
+      "matched": 790,
+      "demo_only": 129,
+      "main_only": 35
+    },
+    {
+      "month": "2024-03",
+      "matched": 700,
+      "demo_only": 163,
+      "main_only": 340
+    },
+    {
+      "month": "2024-04",
+      "matched": 574,
+      "demo_only": 263,
+      "main_only": 383
+    },
+    {
+      "month": "2024-05",
+      "matched": 728,
+      "demo_only": 176,
+      "main_only": 157
+    },
+    {
+      "month": "2024-06",
+      "matched": 646,
+      "demo_only": 264,
+      "main_only": 287
+    },
+    {
+      "month": "2024-07",
+      "matched": 745,
+      "demo_only": 225,
+      "main_only": 238
+    },
+    {
+      "month": "2024-08",
+      "matched": 571,
+      "demo_only": 197,
+      "main_only": 276
+    },
+    {
+      "month": "2024-09",
+      "matched": 396,
+      "demo_only": 126,
+      "main_only": 300
+    },
+    {
+      "month": "2024-10",
+      "matched": 504,
+      "demo_only": 149,
+      "main_only": 276
+    },
+    {
+      "month": "2024-11",
+      "matched": 865,
+      "demo_only": 262,
+      "main_only": 145
+    },
+    {
+      "month": "2024-12",
+      "matched": 962,
+      "demo_only": 185,
+      "main_only": 101
+    },
+    {
+      "month": "2025-01",
+      "matched": 909,
+      "demo_only": 280,
+      "main_only": 126
+    },
+    {
+      "month": "2025-02",
+      "matched": 790,
+      "demo_only": 175,
+      "main_only": 46
+    },
+    {
+      "month": "2025-03",
+      "matched": 946,
+      "demo_only": 239,
+      "main_only": 73
+    },
+    {
+      "month": "2025-04",
+      "matched": 856,
+      "demo_only": 196,
+      "main_only": 91
+    },
+    {
+      "month": "2025-05",
+      "matched": 832,
+      "demo_only": 232,
+      "main_only": 103
+    },
+    {
+      "month": "2025-06",
+      "matched": 391,
+      "demo_only": 131,
+      "main_only": 521
+    },
+    {
+      "month": "2025-07",
+      "matched": 379,
+      "demo_only": 61,
+      "main_only": 627
+    },
+    {
+      "month": "2025-08",
+      "matched": 381,
+      "demo_only": 69,
+      "main_only": 600
+    },
+    {
+      "month": "2025-09",
+      "matched": 214,
+      "demo_only": 28,
+      "main_only": 722
+    },
+    {
+      "month": "2025-10",
+      "matched": 312,
+      "demo_only": 56,
+      "main_only": 585
+    },
+    {
+      "month": "2025-11",
+      "matched": 197,
+      "demo_only": 364,
+      "main_only": 624
+    },
+    {
+      "month": "2025-12",
+      "matched": 264,
+      "demo_only": 236,
+      "main_only": 399
+    },
+    {
+      "month": "2026-01",
+      "matched": 170,
+      "demo_only": 208,
+      "main_only": 382
+    },
+    {
+      "month": "2026-02",
+      "matched": 50,
+      "demo_only": 109,
+      "main_only": 486
+    },
+    {
+      "month": "2026-03",
+      "matched": 126,
+      "demo_only": 140,
+      "main_only": 270
+    },
+    {
+      "month": "2026-04",
+      "matched": 91,
+      "demo_only": 95,
+      "main_only": 142
+    },
+    {
+      "month": "2026-05",
+      "matched": 125,
+      "demo_only": 164,
+      "main_only": 200
+    }
+  ]
+}

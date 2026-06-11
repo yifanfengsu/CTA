@@ -1,0 +1,6 @@
+forensics run (read-only)
+started: 2026-06-10 (UTC)
+finished: 2026-06-10T12:59:20Z
+script: scripts/forensics_data_contamination.py (sqlite mode=ro)
+files written: README.md code_review.md hypothesis_evaluation.md manifest_audit.json sample_traceback/*.json run_log.txt
+no existing file modified; no OKX call; no VPS access

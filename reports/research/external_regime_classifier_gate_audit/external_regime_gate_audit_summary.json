@@ -1,0 +1,23 @@
+{
+  "original_all_strict_stable_candidate_like_count": 0,
+  "strict_stable_candidate_like_count": 0,
+  "can_enter_research_only_v3_1_classifier_experiment": false,
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false,
+  "original_all_does_not_bypass_strict_gate": true,
+  "top_concentration_gate_enforced": true,
+  "symbol_concentration_gate_enforced": true,
+  "filter_did_not_affect_oos_count": 27,
+  "filter_did_affect_oos_count": 33,
+  "v3_1d_ema_exclude_filters_did_not_affect_oos": true,
+  "reason": "No non-original classifier filter passed strict gates after Dossier-consistent concentration checks.",
+  "classifier_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/external_regime_classifier",
+  "gate_audit_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/external_regime_classifier_gate_audit",
+  "required_output_files": [
+    "external_regime_gate_audit_report.md",
+    "external_regime_gate_audit_summary.json",
+    "gate_comparison.csv",
+    "filter_trade_set_diff.csv",
+    "classifier_gate_rejected_reasons.csv"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "optimal": {
+    "R1": null,
+    "R2": "K4",
+    "R3": "M4_D1"
+  },
+  "reference": {
+    "FLAT": {
+      "n": 21298,
+      "net": 189227.0,
+      "dpnl_abs": 0.0,
+      "dpnl_pct": 0.0,
+      "pf": 2.061,
+      "win": 0.4828,
+      "max_dd": 2250.0,
+      "dd_over_flatref": 1.0,
+      "dd_over_net": 0.01189,
+      "cohort_pnl": 1064.0,
+      "virtual_blocked_pnl": 0.0
+    },
+    "v2B": {
+      "n": 21298,
+      "net": 290270.0,
+      "dpnl_abs": -0.0,
+      "dpnl_pct": -0.0,
+      "pf": 2.412,
+      "win": 0.4828,
+      "max_dd": 3426.0,
+      "dd_over_flatref": 1.522,
+      "dd_over_net": 0.0118,
+      "cohort_pnl": 3009.0,
+      "virtual_blocked_pnl": 0.0
+    }
+  }
+}

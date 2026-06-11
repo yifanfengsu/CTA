@@ -1,0 +1,449 @@
+{
+  "mode": "trend_entry_timing_postmortem_and_candidate_audit",
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_entry_timing_postmortem",
+  "output_files": [
+    "trend_entry_timing_postmortem_report.md",
+    "trend_entry_timing_postmortem_summary.json",
+    "candidate_gate_postmortem.csv",
+    "breadth_candidate_deep_dive.csv",
+    "cost_sensitivity.csv",
+    "funding_dependency.csv",
+    "entry_timing_concentration_postmortem.csv",
+    "entry_timing_control_audit.csv",
+    "entry_timing_capture_quality.csv",
+    "rejected_candidate_entry_postmortem.csv"
+  ],
+  "timezone": "Asia/Shanghai",
+  "warnings": [],
+  "trend_entry_timing_research_failed": true,
+  "source_can_enter_entry_timing_phase2": false,
+  "source_stable_like_candidate_exists": false,
+  "trend_map_enough_opportunities": true,
+  "trend_map_legacy_main_failure_mode": "entered_middle_or_late",
+  "trend_map_data_quality": {
+    "mode": "research_only_ex_post_trend_opportunity_map",
+    "symbols": [
+      "BTCUSDT_SWAP_OKX.GLOBAL",
+      "ETHUSDT_SWAP_OKX.GLOBAL",
+      "SOLUSDT_SWAP_OKX.GLOBAL",
+      "LINKUSDT_SWAP_OKX.GLOBAL",
+      "DOGEUSDT_SWAP_OKX.GLOBAL"
+    ],
+    "timeframes": [
+      "4h",
+      "1d"
+    ],
+    "start": "2023-01-01T00:00:00+08:00",
+    "end_display": "2026-03-31T23:59:00+08:00",
+    "end_exclusive": "2026-04-01T00:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+    "symbol_coverage": {
+      "BTCUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "ETHUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "SOLUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "LINKUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "DOGEUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      }
+    },
+    "timeframe_coverage": {
+      "BTCUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "ETHUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "SOLUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "LINKUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "DOGEUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      }
+    },
+    "all_symbols_complete": true,
+    "strategy_development_allowed": false,
+    "demo_live_allowed": false,
+    "labels_are_ex_post_only": true,
+    "silent_skip_symbol": false,
+    "funding": {
+      "funding_data_complete": true,
+      "records": {
+        "BTC-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:00+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "ETH-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:01+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "SOL-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:12+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "LINK-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/LINK-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:05+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "DOGE-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/DOGE-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:11+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        }
+      },
+      "missing_inst_ids": []
+    }
+  },
+  "funding_dir": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx",
+  "funding_file_count": 5,
+  "focus_family": "cross_symbol_breadth_acceleration",
+  "primary_failure_reasons": {
+    "no_cost_split_failure": 4,
+    "cost_or_execution_failure": 1
+  },
+  "families_with_no_cost_positive_all_splits": [
+    "cross_symbol_breadth_acceleration"
+  ],
+  "families_with_oos_cost_failure": [
+    "pre_breakout_momentum_acceleration",
+    "cross_symbol_breadth_acceleration",
+    "funding_neutral_momentum",
+    "relative_strength_leader"
+  ],
+  "families_with_control_failure": [
+    "funding_neutral_momentum",
+    "relative_strength_leader"
+  ],
+  "lower_cost_oos_can_pass": true,
+  "focus_family_research_asset": false,
+  "research_asset_conditions": [
+    {
+      "condition": "train_validation_oos_no_cost_positive",
+      "passed": true,
+      "observed": {
+        "train_ext": 235.19297738630905,
+        "validation_ext": 3247.320237959892,
+        "oos_ext": 1350.1427635275954
+      },
+      "threshold": "> 0 each split"
+    },
+    {
+      "condition": "oos_funding_adjusted_positive",
+      "passed": true,
+      "observed": 11.947084526750729,
+      "threshold": "> 0"
+    },
+    {
+      "condition": "oos_cost_aware_failure_small",
+      "passed": true,
+      "observed": -13.857236472404622,
+      "threshold": ">= 0 or small negative"
+    },
+    {
+      "condition": "direction_match_minimum",
+      "passed": true,
+      "observed": 0.8895518246149576,
+      "threshold": ">= 0.60"
+    },
+    {
+      "condition": "trend_recall_minimum",
+      "passed": true,
+      "observed": 0.3845667299177736,
+      "threshold": ">= 0.20"
+    },
+    {
+      "condition": "trade_count_each_split_minimum",
+      "passed": true,
+      "observed": {
+        "train_ext": 2610,
+        "validation_ext": 1804,
+        "oos_ext": 1364
+      },
+      "threshold": ">= 10 each split"
+    },
+    {
+      "condition": "largest_symbol_pnl_share_limit",
+      "passed": false,
+      "observed": 1.0,
+      "threshold": "<= 0.70"
+    },
+    {
+      "condition": "top_5pct_trade_pnl_contribution_limit",
+      "passed": true,
+      "observed": -18.744469887945378,
+      "threshold": "<= 0.80"
+    },
+    {
+      "condition": "reverse_and_random_control_weaker",
+      "passed": true,
+      "observed": {
+        "family": "cross_symbol_breadth_acceleration",
+        "scope": "all_splits",
+        "forward_trade_count": 5778,
+        "reverse_trade_count": 5778,
+        "random_trade_count": 5778,
+        "forward_no_cost_pnl": 4832.655978873796,
+        "forward_cost_aware_pnl": -945.3440211262035,
+        "forward_funding_adjusted_pnl": -787.9121428581724,
+        "reverse_no_cost_pnl": 364.3234020359357,
+        "reverse_cost_aware_pnl": -5413.676597964064,
+        "reverse_funding_adjusted_pnl": -5401.828930659255,
+        "random_no_cost_pnl": 3020.0728161011602,
+        "random_cost_aware_pnl": -2757.92718389884,
+        "random_funding_adjusted_pnl": -2569.571284656984,
+        "forward_gt_reverse": true,
+        "forward_gt_random": true,
+        "reverse_clearly_weaker": true,
+        "random_clearly_weaker": true,
+        "control_pass": true,
+        "reverse_or_random_stronger": false
+      },
+      "threshold": "both clearly weaker"
+    },
+    {
+      "condition": "remove_top_1_not_disastrous",
+      "passed": false,
+      "observed": -1680.4461450878266,
+      "threshold": ">= 0"
+    },
+    {
+      "condition": "stable_like_not_required_for_asset",
+      "passed": true,
+      "observed": "oos_ext:cost_aware_pnl_negative;early_entry_rate_lt_0.40;largest_symbol_pnl_share_gt_0.7",
+      "threshold": "may fail stable-like, but must remain non-tradable"
+    }
+  ],
+  "execution_fragile": true,
+  "funding_dependent": true,
+  "concentration_pass": false,
+  "control_pass": true,
+  "early_entry_quality": "directionally_correct_but_still_late",
+  "focus_family_deep_dive": {
+    "family": "cross_symbol_breadth_acceleration",
+    "focus_family_found": true,
+    "selected_hold_label": "fixed_hold_4h",
+    "train_no_cost_positive": true,
+    "validation_no_cost_positive": true,
+    "oos_no_cost_positive": true,
+    "no_cost_all_splits_positive": true,
+    "oos_trade_count": 1364,
+    "oos_no_cost_pnl": 1350.142763527595,
+    "oos_cost_aware_pnl": -13.857236472404708,
+    "fee_cost": 682.0,
+    "slippage_cost": 682.0,
+    "total_current_cost": 1364.0,
+    "cost_breakdown_source": "inferred_equal_split_from_no_cost_minus_cost_aware",
+    "round_trip_turnover": 2728000.0,
+    "avg_trade_gross": 0.9898407357240432,
+    "avg_trade_cost": 1.0,
+    "cost_failure_is_marginal": true,
+    "structural_cost_drag": true,
+    "funding_pnl": 25.804320999155117,
+    "funding_events_count": 671,
+    "oos_funding_adjusted_pnl": 11.947084526750615,
+    "funding_adjusted_positive_due_to_funding": true,
+    "funding_dependent": true,
+    "largest_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+    "largest_symbol_pnl_share": 1.0,
+    "symbol_dependency": true,
+    "largest_timeframe": "4h",
+    "largest_timeframe_pnl_share": 1.0,
+    "timeframe_dependency": true,
+    "largest_direction": "short",
+    "largest_direction_pnl_share": 1.0,
+    "direction_dependency": true,
+    "top_5pct_trade_pnl_contribution": -18.744469887945378,
+    "remove_top_1_pnl": -1680.4461450878266,
+    "top_trade_dependency": true,
+    "trend_recall": 0.3845667299177736,
+    "early_entry_rate": 0.2245039544886915,
+    "direction_match": 0.8895518246149576,
+    "median_entry_lag_pct": 0.5,
+    "missed_mfe_before_entry": 0.164467272896635,
+    "remaining_mfe_after_entry": 0.4787796462896373,
+    "captured_fraction_proxy": 0.7443170453040159,
+    "early_entry_quality": "insufficient_early_entry",
+    "control_pass": true
+  },
+  "can_enter_phase1_5_diagnostic": false,
+  "can_enter_entry_timing_phase2": false,
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false,
+  "no_policy_can_be_traded": true,
+  "recommended_next_step": "pause_or_new_hypothesis"
+}

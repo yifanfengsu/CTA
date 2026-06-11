@@ -1,0 +1,7 @@
+hypothesis,status,reason,not_allowed_as
+broader universe trend following,optional_research_only,"Five-symbol universe may be too narrow for sparse crypto trend regimes, but this is not the recommended main path while the current user scope avoids universe expansion.",Strategy V3 or demo/live without new evidence.
+true funding-aware trend following,completed_no_gate_opened,Actual OKX funding is now complete for the current universe; funding-aware analysis did not create a stable candidate.,Further funding-only work on the current V3 family.
+stronger macro/trend regime classifier,closed_for_current_v3_family,External classifier gate audit found no strict stable candidate; OOS trend_friendly was too sparse and exclude filters did not rescue V3.,V3.1 rescue or direct trade filter on current V3 family.
+longer history beyond 2021 if listing metadata supports it,conditional_research_only,"More cycles may be needed, but only if listing metadata and sqlite coverage can be verified.",Backfill assumption without metadata verification.
+1d EMA only as weak research lead,weak_lead_research_only,"It is still the only all no-cost positive policy, but actual funding completion did not fix concentration and regime failures.",Tradable policy or Strategy V3 prototype.
+derivatives-confirmed trend following,data_blocked_research_hypothesis,Historical OI/taker/long-short coverage not proven for 2023-2026; funding plus mark/index alone is not enough derivatives confirmation.,"Strategy V3, V3.1, demo/live, or a tradable policy from readiness audit output."

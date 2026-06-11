@@ -1,0 +1,12 @@
+{
+  "max_concurrent_same_dir_long": 5,
+  "max_concurrent_same_dir_short": 5,
+  "n_cohort_bars(>=4 same dir)": 1643,
+  "n_cohort_trades": 4259,
+  "cohort_pnl": {
+    "FLAT": 5482.61,
+    "v2A": 13756.76,
+    "v2B": 15100.92,
+    "v2C": 15709.97
+  }
+}

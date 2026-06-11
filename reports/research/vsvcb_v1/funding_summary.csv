@@ -1,0 +1,4 @@
+inst_id,funding_data_complete,csv_path,row_count,first_funding_time,last_funding_time,trade_count,funding_pnl,warnings
+BTC-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:00+00:00,2026-03-31T08:00:00+00:00,15244,-3.4899791786697003,
+ETH-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:01+00:00,2026-03-31T08:00:00+00:00,15605,5.741470186435297,
+SOL-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:12+00:00,2026-03-31T08:00:00+00:00,13112,11.777154144033627,

@@ -1,0 +1,187 @@
+{
+  "data_start_report": "2023-01-01T00:00:00+08:00",
+  "data_end_exclusive_report": "2026-04-01T00:00:00+08:00",
+  "data_start_session": "2022-12-31T16:00:00+00:00",
+  "data_end_exclusive_session": "2026-03-31T16:00:00+00:00",
+  "session_timezone": "UTC",
+  "report_timezone": "Asia/Shanghai",
+  "data_check_strict": true,
+  "expected_1m_count": 1707840,
+  "symbols": [
+    {
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "one_minute": {
+        "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "duplicate_count": 0,
+        "missing_count": 0,
+        "unexpected_count": 0,
+        "first_datetime": "2022-12-31T16:00:00+00:00",
+        "last_datetime": "2026-03-31T15:59:00+00:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "timeframes": {
+        "15m": {
+          "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "15m",
+          "expected_closed_bar_count": 113856,
+          "row_count": 113856,
+          "first_datetime": "2022-12-31T16:14:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        },
+        "30m": {
+          "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "30m",
+          "expected_closed_bar_count": 56928,
+          "row_count": 56928,
+          "first_datetime": "2022-12-31T16:29:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        },
+        "1h": {
+          "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "1h",
+          "expected_closed_bar_count": 28464,
+          "row_count": 28464,
+          "first_datetime": "2022-12-31T16:59:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        }
+      }
+    },
+    {
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "one_minute": {
+        "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "duplicate_count": 0,
+        "missing_count": 0,
+        "unexpected_count": 0,
+        "first_datetime": "2022-12-31T16:00:00+00:00",
+        "last_datetime": "2026-03-31T15:59:00+00:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "timeframes": {
+        "15m": {
+          "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "15m",
+          "expected_closed_bar_count": 113856,
+          "row_count": 113856,
+          "first_datetime": "2022-12-31T16:14:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        },
+        "30m": {
+          "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "30m",
+          "expected_closed_bar_count": 56928,
+          "row_count": 56928,
+          "first_datetime": "2022-12-31T16:29:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        },
+        "1h": {
+          "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "1h",
+          "expected_closed_bar_count": 28464,
+          "row_count": 28464,
+          "first_datetime": "2022-12-31T16:59:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        }
+      }
+    },
+    {
+      "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "one_minute": {
+        "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "duplicate_count": 0,
+        "missing_count": 0,
+        "unexpected_count": 0,
+        "first_datetime": "2022-12-31T16:00:00+00:00",
+        "last_datetime": "2026-03-31T15:59:00+00:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "timeframes": {
+        "15m": {
+          "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "15m",
+          "expected_closed_bar_count": 113856,
+          "row_count": 113856,
+          "first_datetime": "2022-12-31T16:14:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        },
+        "30m": {
+          "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "30m",
+          "expected_closed_bar_count": 56928,
+          "row_count": 56928,
+          "first_datetime": "2022-12-31T16:29:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        },
+        "1h": {
+          "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "1h",
+          "expected_closed_bar_count": 28464,
+          "row_count": 28464,
+          "first_datetime": "2022-12-31T16:59:00+00:00",
+          "last_datetime": "2026-03-31T15:59:00+00:00",
+          "complete": true
+        }
+      }
+    }
+  ],
+  "funding": {
+    "funding_data_complete": true,
+    "records": {
+      "BTC-USDT-SWAP": {
+        "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "exists": true,
+        "row_count": 3558,
+        "first_funding_time": "2022-12-31T16:00:00+00:00",
+        "last_funding_time": "2026-03-31T08:00:00+00:00",
+        "large_gap_count": 0,
+        "coverage_complete": true,
+        "warnings": []
+      },
+      "ETH-USDT-SWAP": {
+        "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "exists": true,
+        "row_count": 3558,
+        "first_funding_time": "2022-12-31T16:00:01+00:00",
+        "last_funding_time": "2026-03-31T08:00:00+00:00",
+        "large_gap_count": 0,
+        "coverage_complete": true,
+        "warnings": []
+      },
+      "SOL-USDT-SWAP": {
+        "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "exists": true,
+        "row_count": 3558,
+        "first_funding_time": "2022-12-31T16:00:12+00:00",
+        "last_funding_time": "2026-03-31T08:00:00+00:00",
+        "large_gap_count": 0,
+        "coverage_complete": true,
+        "warnings": []
+      }
+    },
+    "missing_inst_ids": []
+  },
+  "all_market_data_complete": true
+}

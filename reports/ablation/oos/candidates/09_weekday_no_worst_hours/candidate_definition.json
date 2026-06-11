@@ -1,0 +1,12 @@
+{
+  "name": "weekday_no_worst_hours",
+  "description": "只允许工作日新开仓，并屏蔽当前归因报告里的最差小时",
+  "notes": "in-sample diagnostic from current full-sample attribution; not a production conclusion",
+  "setting_overrides": {
+    "entry_weekday_allowlist": "0,1,2,3,4",
+    "entry_hour_blocklist": "0,4,8,11,12,13,16,18,19,21",
+    "entry_filter_tag": "weekday_no_worst_hours"
+  },
+  "no_cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/oos/candidates/09_weekday_no_worst_hours/no_cost",
+  "cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/oos/candidates/09_weekday_no_worst_hours/cost"
+}

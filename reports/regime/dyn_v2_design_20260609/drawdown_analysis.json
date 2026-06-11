@@ -1,0 +1,36 @@
+{
+  "per_candidate": {
+    "FLAT": {
+      "max_dd": 2249.87,
+      "dd_over_net": 0.0119,
+      "net": 189227.3846634347,
+      "avg_notional": 2488.6,
+      "worst_day": -1128.77,
+      "dd_gate_vs_flat_1.5x": true
+    },
+    "v2A": {
+      "max_dd": 3415.23,
+      "dd_over_net": 0.0118,
+      "net": 288313.59535076434,
+      "avg_notional": 2769.4,
+      "worst_day": -1751.54,
+      "dd_gate_vs_flat_1.5x": false
+    },
+    "v2B": {
+      "max_dd": 3425.57,
+      "dd_over_net": 0.0118,
+      "net": 290269.5270206045,
+      "avg_notional": 2462.2,
+      "worst_day": -1737.41,
+      "dd_gate_vs_flat_1.5x": false
+    },
+    "v2C": {
+      "max_dd": 3422.14,
+      "dd_over_net": 0.012,
+      "net": 285624.9703388965,
+      "avg_notional": 2619.5,
+      "worst_day": -1729.69,
+      "dd_gate_vs_flat_1.5x": false
+    }
+  }
+}

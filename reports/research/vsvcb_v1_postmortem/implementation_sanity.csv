@@ -1,0 +1,11 @@
+check_name,status,value,details,possible_implementation_issue
+market_data_complete,pass,True,all_market_data_complete from data_quality.json,False
+funding_data_complete,pass,True,actual OKX funding coverage available,False
+D_event_count_nonzero,pass,4928,focus-group events in events.csv,False
+D_trade_count_enough,pass,"{""oos"": 508, ""train"": 1651, ""validation"": 387}",primary 15m trade count gate train>=30 validation>=10 oos>=10,False
+entry_uses_next_open,pass,0,checked=4220; entry_price must equal event.entry_next_open,False
+funding_adjusted_available,pass,True,trades.csv funding_adjusted_pnl populated,False
+reverse_E_strictly_from_D,pass,True,"{""d_event_count"": 4928, ""e_event_count"": 4928, ""opposite_direction_count"": 4928, ""paired_count"": 4928, ""status"": ""pass"", ""strict_reverse"": true}",False
+same_bar_long_short_base_anomaly,pass,0,non-reverse events with both long and short on the same symbol/timeframe/bar,False
+skipped_events_due_to_single_position_filter,warning,24650,rate=0.359214; skipped_future=11,False
+possible_implementation_issue,pass,False,true only when data completeness or mechanical implementation checks fail,False

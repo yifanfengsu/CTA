@@ -1,0 +1,42 @@
+{
+  "requested_start": "2025-01-01T00:00:00+08:00",
+  "requested_end_exclusive": "2025-10-01T00:00:00+08:00",
+  "timeframes": {
+    "1m": {
+      "timeframe": "1m",
+      "bar_count": 393120,
+      "first_dt": "2025-01-01T00:00:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "5m": {
+      "timeframe": "5m",
+      "bar_count": 78624,
+      "first_dt": "2025-01-01T00:04:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "15m": {
+      "timeframe": "15m",
+      "bar_count": 26208,
+      "first_dt": "2025-01-01T00:14:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "1h": {
+      "timeframe": "1h",
+      "bar_count": 6552,
+      "first_dt": "2025-01-01T00:59:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    }
+  }
+}

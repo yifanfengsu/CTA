@@ -1,0 +1,37 @@
+{
+  "BTC": {
+    "A_legacy_demo_derived": 81.5,
+    "B_mainnet_p40_train": 60.65457000885175,
+    "B_over_A": 0.7442278528693466,
+    "pass_rate_A_on_mainnet": 0.591146603844157,
+    "pass_rate_B_on_mainnet": 0.7055892680693802
+  },
+  "ETH": {
+    "A_legacy_demo_derived": 4.64,
+    "B_mainnet_p40_train": 3.864448585394444,
+    "B_over_A": 0.8328552985763888,
+    "pass_rate_A_on_mainnet": 0.5765370208062346,
+    "pass_rate_B_on_mainnet": 0.6719766202010842
+  },
+  "SOL": {
+    "A_legacy_demo_derived": 0.245,
+    "B_mainnet_p40_train": 0.23748061281433674,
+    "B_over_A": 0.9693086237319868,
+    "pass_rate_A_on_mainnet": 0.6477315230922966,
+    "pass_rate_B_on_mainnet": 0.6559909339079658
+  },
+  "LINK": {
+    "A_legacy_demo_derived": 0.0212,
+    "B_mainnet_p40_train": 0.028552764626708558,
+    "B_over_A": 1.346828520127762,
+    "pass_rate_A_on_mainnet": 0.7470035560964444,
+    "pass_rate_B_on_mainnet": 0.6234501392850962
+  },
+  "DOGE": {
+    "A_legacy_demo_derived": 0.0002,
+    "B_mainnet_p40_train": 0.00023579108477711646,
+    "B_over_A": 1.1789554238855822,
+    "pass_rate_A_on_mainnet": 0.7420769389657733,
+    "pass_rate_B_on_mainnet": 0.6728726225234328
+  }
+}

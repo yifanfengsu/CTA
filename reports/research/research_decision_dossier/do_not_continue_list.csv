@@ -1,0 +1,19 @@
+item,reason
+do not expand current Donchian grid,Current Donchian families failed stability and regime attribution.
+do not trade v3_1d_ema_50_200_atr5,"Rejected by top trade concentration, funding fragility, and regime diagnostics."
+do not develop v3_1d_ema_50_200_atr5,"Actual funding analysis completed, but it is still not a stable strategy candidate."
+do not continue current V3 family after actual funding completion,Funding-aware final gate did not open V3.1 or Strategy V3.
+do not enter funding-aware V3.1 without a new hypothesis,Current V3 family failed after actual funding and regime diagnostics remain blocking.
+do not enter demo/live,No stable candidate and demo_live_allowed=false.
+do not build Strategy V3 from current results,strategy_development_allowed=false.
+do not continue V3.0 ensemble_core,No stable candidate and component families failed.
+do not optimize 1m breakout,"Short-term breakout is aligned with overheat/exhaustion risk, not durable trend following."
+do not continue external regime classifier as V3.1 rescue,Gate consistency audit found no strict stable classifier-filtered candidate.
+do not treat original_all v3_1d_ema_50_200_atr5 as stable,"OOS top 5% trade contribution is 1.9818, above the 0.8 gate."
+do not ignore top trade concentration,Top-trade concentration is the decisive Extended V3 and classifier gate blocker.
+do not treat no-cost positive as tradable,No-cost positives still fail concentration/funding/regime gates and are not strategy candidates.
+do not use classifier filters that do not change OOS trade set,exclude_hostile_chop_overheated and exclude_funding_overheated did not affect v3_1d_ema_50_200_atr5 OOS trades.
+do not start derivatives-confirmed trend research without historical OI/taker/long-short coverage,Derivatives readiness audit did not prove the required 2023-2026 historical derivatives feature coverage.
+do not use current open interest snapshot as historical feature,The public open-interest endpoint probe is current snapshot only and cannot stand in for 2023-2026 history.
+do not treat funding alone as derivatives confirmation,"Funding data is complete, but funding alone does not satisfy the required OI/taker/long-short confirmation mix."
+do not develop Strategy V3 from derivatives readiness audit,Endpoint availability audit is not a strategy result and can_enter_derivatives_confirmed_trend_research=false.

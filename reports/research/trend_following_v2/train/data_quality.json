@@ -1,0 +1,43 @@
+{
+  "requested_start": "2025-01-01T00:00:00+08:00",
+  "requested_end_exclusive": "2025-10-01T00:00:00+08:00",
+  "closed_bar_policy": "Resampled bars are left-closed and timestamped at the final included 1m close. A 15m/1h/4h bar is kept only when every constituent 1m timestamp exists.",
+  "timeframes": {
+    "1m": {
+      "timeframe": "1m",
+      "bar_count": 393120,
+      "first_dt": "2025-01-01T00:00:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "15m": {
+      "timeframe": "15m",
+      "bar_count": 26208,
+      "first_dt": "2025-01-01T00:14:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "1h": {
+      "timeframe": "1h",
+      "bar_count": 6552,
+      "first_dt": "2025-01-01T00:59:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "4h": {
+      "timeframe": "4h",
+      "bar_count": 1638,
+      "first_dt": "2025-01-01T03:59:00+08:00",
+      "last_dt": "2025-09-30T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "dry_run": true,
+  "inst_ids": [
+    "BTC-USDT-SWAP",
+    "ETH-USDT-SWAP",
+    "SOL-USDT-SWAP",
+    "LINK-USDT-SWAP",
+    "DOGE-USDT-SWAP"
+  ],
+  "start": "2023-01-01",
+  "end": "2026-03-31",
+  "data_type": "funding",
+  "aggregation": "monthly",
+  "changelog_facts": {
+    "historical_market_data_query_endpoint": {
+      "date": "2025-09-02",
+      "description": "OKX changelog says a new public endpoint was added for batch retrieving historical market data; it supports trade history, candlestick, funding rate, and 50/400/5000-level orderbook modules with daily/monthly aggregation.",
+      "source": "https://www.okx.com/docs-v5/log_en/"
+    },
+    "borrowing_rate_module": {
+      "date": "2026-04-10",
+      "description": "OKX changelog says module 11 (Borrowing rate) was added for request parameter module.",
+      "source": "https://www.okx.com/docs-v5/log_en/"
+    }
+  },
+  "endpoint_facts": {
+    "path": "/api/v5/public/market-data-history",
+    "funding_module": "3",
+    "date_aggregation_param": "dateAggrType",
+    "instrument_params": "instType plus instFamilyList for non-SPOT instruments",
+    "range_params": "begin/end Unix milliseconds, inclusive",
+    "timestamp_timezone": "UTC+8 for modules 1, 2, 3, and 11",
+    "max_query_range": "20 days for daily, 20 months for monthly",
+    "response_kind": "JSON response with groupDetails[].url download links",
+    "rate_limit": "5 requests per 2 seconds by IP",
+    "auth_required": false,
+    "source": "https://www.okx.com/docs-v5/en/#public-data-rest-api-get-historical-market-data"
+  },
+  "historical_data_page_url": "https://www.okx.com/en-ar/historical-data",
+  "endpoint_path": "/api/v5/public/market-data-history",
+  "endpoint_url": "https://www.okx.com/api/v5/public/market-data-history",
+  "endpoint_discovery_failed": false,
+  "endpoint_available": true,
+  "funding_module_available": true,
+  "aggregation_supported": true,
+  "auth_required": false,
+  "can_auto_download": true,
+  "can_cover_2023_2026": true,
+  "probe_start": "2026-03-01",
+  "probe_end": "2026-03-31",
+  "request_params": {
+    "module": "3",
+    "instType": "SWAP",
+    "dateAggrType": "monthly",
+    "begin": "1772294400000",
+    "end": "1774886400000",
+    "instFamilyList": "BTC-USDT"
+  },
+  "request_url": "https://www.okx.com/api/v5/public/market-data-history?module=3&instType=SWAP&dateAggrType=monthly&begin=1772294400000&end=1774886400000&instFamilyList=BTC-USDT",
+  "response_kind": "download_link",
+  "download_urls": [
+    "https://static.okx.com/cdn/okex/traderecords/swaprates/monthly/202603/BTC-USDT-SWAP-fundingrates-2026-03.zip"
+  ],
+  "probe_error": null,
+  "discovery_attempts": [
+    {
+      "url": "https://www.okx.com/docs-v5/log_en/",
+      "fetched": true,
+      "endpoint_path": null,
+      "error": null
+    },
+    {
+      "url": "https://app.okx.com/docs-v5/en/#public-data-rest-api-get-historical-market-data",
+      "fetched": true,
+      "endpoint_path": null,
+      "error": null
+    },
+    {
+      "url": "https://www.okx.com/docs-v5/en/#public-data-rest-api-get-historical-market-data",
+      "fetched": true,
+      "endpoint_path": "/api/v5/public/market-data-history",
+      "error": null
+    }
+  ],
+  "recommended_next_step": "run make download-funding-historical"
+}

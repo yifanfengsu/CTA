@@ -1,0 +1,221 @@
+{
+  "candidate": "v2A",
+  "step2": {
+    "n": 21298,
+    "net": 288313.59535076434,
+    "pf": 2.3021,
+    "win": 0.4828,
+    "max_dd": 3415.23,
+    "dd_over_net": 0.0118,
+    "sharpe_per_trade": 16.8674,
+    "total_notional": 58981749.0,
+    "avg_notional": 2769.4,
+    "max_notional": 4285.6,
+    "mean_pnl": 13.5371
+  },
+  "thresholds_train": {
+    "BTC": {
+      "p30": 65.43745293589465,
+      "p40": 82.15971131541787,
+      "p60": 126.58388442237494,
+      "p80": 217.80191406264808,
+      "p85": 260.64265082724944
+    },
+    "ETH": {
+      "p30": 4.079709544249483,
+      "p40": 4.937742303385083,
+      "p60": 7.27926523128301,
+      "p80": 11.677766268004458,
+      "p85": 13.557481813838923
+    },
+    "SOL": {
+      "p30": 0.12191777625575888,
+      "p40": 0.26041793958260284,
+      "p60": 0.5054863438545762,
+      "p80": 0.9722460141006958,
+      "p85": 1.22418895812285
+    },
+    "LINK": {
+      "p30": 0.018545691784519498,
+      "p40": 0.024458562914626863,
+      "p60": 0.04141794338537713,
+      "p80": 0.06909706872439043,
+      "p85": 0.08089342558528502
+    },
+    "DOGE": {
+      "p30": 0.00019395510238121597,
+      "p40": 0.0002455590232049086,
+      "p60": 0.0004203755530498885,
+      "p80": 0.001070155992560052,
+      "p85": 0.0014436653890777039
+    }
+  },
+  "walk_forward": {
+    "IS": {
+      "n": 44881,
+      "net": 131553.57061205903,
+      "pf": 1.3438,
+      "win": 0.385,
+      "max_dd": 9362.93,
+      "dd_over_net": 0.0712,
+      "sharpe_per_trade": 7.2456,
+      "total_notional": 101211737.0,
+      "avg_notional": 2255.1,
+      "max_notional": 4258.0,
+      "mean_pnl": 2.9312
+    },
+    "OOS": {
+      "n": 26581,
+      "net": 368432.5772406837,
+      "pf": 2.069,
+      "win": 0.4678,
+      "max_dd": 6896.78,
+      "dd_over_net": 0.0187,
+      "sharpe_per_trade": 16.3694,
+      "total_notional": 81668750.0,
+      "avg_notional": 3072.4,
+      "max_notional": 4285.6,
+      "mean_pnl": 13.8607
+    },
+    "IS_flat": {
+      "n": 44881,
+      "net": 68143.77970257893,
+      "pf": 1.1915,
+      "win": 0.385,
+      "max_dd": 14781.11,
+      "dd_over_net": 0.2169,
+      "sharpe_per_trade": 5.2763,
+      "total_notional": 112473129.0,
+      "avg_notional": 2506.0,
+      "max_notional": 2995.8,
+      "mean_pnl": 1.5183
+    },
+    "OOS_flat": {
+      "n": 26581,
+      "net": 241618.0169002143,
+      "pf": 1.9495,
+      "win": 0.4678,
+      "max_dd": 4605.95,
+      "dd_over_net": 0.0191,
+      "sharpe_per_trade": 15.9697,
+      "total_notional": 66285516.0,
+      "avg_notional": 2493.7,
+      "max_notional": 2999.3,
+      "mean_pnl": 9.0899
+    },
+    "IS_adv_%": 93.1,
+    "OOS_adv_%": 52.5,
+    "pf_ratio_oos_is": 1.54,
+    "neighbours": {
+      "shift-5": {
+        "oos_net": 368359.0,
+        "beats_flat": true
+      },
+      "shift+5": {
+        "oos_net": 369427.0,
+        "beats_flat": true
+      }
+    },
+    "persymbol_oos": {
+      "BTC": {
+        "cand": 27289.0,
+        "flat": 17658.0,
+        "win": true
+      },
+      "ETH": {
+        "cand": 48086.0,
+        "flat": 30971.0,
+        "win": true
+      },
+      "SOL": {
+        "cand": 154404.0,
+        "flat": 102392.0,
+        "win": true
+      },
+      "LINK": {
+        "cand": 50161.0,
+        "flat": 31891.0,
+        "win": true
+      },
+      "DOGE": {
+        "cand": 88492.0,
+        "flat": 58706.0,
+        "win": true
+      }
+    },
+    "n_sym_win": 5,
+    "n_sym": 5,
+    "gate_oos_adv_positive": true,
+    "gate_persym_4of5": true
+  },
+  "sanity_checks": {
+    "check1_param_robust": {
+      "base_net": 288314.0,
+      "plus1pct_net": 287912.0,
+      "minus1pct_net": 288947.0,
+      "delta_up_%": -0.14,
+      "delta_dn_%": 0.22,
+      "pass": "True"
+    },
+    "check2_subperiod": {
+      "first": {
+        "cand_net": 174037.0,
+        "flat_net": 114511.0,
+        "cand_beats_flat": "True"
+      },
+      "second": {
+        "cand_net": 114276.0,
+        "flat_net": 74716.0,
+        "cand_beats_flat": "True"
+      },
+      "pass": "True"
+    },
+    "check3_persymbol": {
+      "detail": {
+        "BTC": {
+          "cand": 23378.0,
+          "flat": 15238.0,
+          "win": "True"
+        },
+        "ETH": {
+          "cand": 43425.0,
+          "flat": 28045.0,
+          "win": "True"
+        },
+        "SOL": {
+          "cand": 96479.0,
+          "flat": 64400.0,
+          "win": "True"
+        },
+        "LINK": {
+          "cand": 53533.0,
+          "flat": 34240.0,
+          "win": "True"
+        },
+        "DOGE": {
+          "cand": 71500.0,
+          "flat": 47304.0,
+          "win": "True"
+        }
+      },
+      "n_win": 5,
+      "n": 5,
+      "pass": true
+    },
+    "check4_notional_align": {
+      "cand_avg_notional": 2769.4,
+      "flat_avg_notional": 2488.6,
+      "ratio": 1.113,
+      "pass": "False"
+    },
+    "check5_pain_cell": {
+      "n_pain_trades": 527,
+      "v1_would_size": 750.0,
+      "cand_sizes": [
+        250.0
+      ],
+      "cand_max_size_here": 250.0,
+      "pass": true
+    }
+  }
+}

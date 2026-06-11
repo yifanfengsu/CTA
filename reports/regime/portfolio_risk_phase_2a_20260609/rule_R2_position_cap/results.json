@@ -1,0 +1,122 @@
+[
+  {
+    "tag": "K2",
+    "K": 2,
+    "FLAT": {
+      "n": 17900,
+      "net": 172344.0,
+      "dpnl_abs": -16883.0,
+      "dpnl_pct": -8.92,
+      "pf": 2.138,
+      "win": 0.4905,
+      "max_dd": 2270.0,
+      "dd_over_flatref": 1.009,
+      "dd_over_net": 0.01317,
+      "cohort_pnl": -595.0,
+      "virtual_blocked_pnl": 16883.0
+    },
+    "FLAT_trig": {
+      "triggers": 3398,
+      "blocked": 3398,
+      "applicable": 21298
+    },
+    "v2B": {
+      "n": 17900,
+      "net": 262915.0,
+      "dpnl_abs": -27354.0,
+      "dpnl_pct": -9.42,
+      "pf": 2.489,
+      "win": 0.4905,
+      "max_dd": 3433.0,
+      "dd_over_flatref": 1.526,
+      "dd_over_net": 0.01306,
+      "cohort_pnl": 65.0,
+      "virtual_blocked_pnl": 27354.0
+    },
+    "v2B_trig": {
+      "triggers": 3398,
+      "blocked": 3398,
+      "applicable": 21298
+    }
+  },
+  {
+    "tag": "K3",
+    "K": 3,
+    "FLAT": {
+      "n": 20421,
+      "net": 185573.0,
+      "dpnl_abs": -3654.0,
+      "dpnl_pct": -1.93,
+      "pf": 2.081,
+      "win": 0.4858,
+      "max_dd": 2250.0,
+      "dd_over_flatref": 1.0,
+      "dd_over_net": 0.01212,
+      "cohort_pnl": 146.0,
+      "virtual_blocked_pnl": 3654.0
+    },
+    "FLAT_trig": {
+      "triggers": 877,
+      "blocked": 877,
+      "applicable": 21298
+    },
+    "v2B": {
+      "n": 20421,
+      "net": 284493.0,
+      "dpnl_abs": -5776.0,
+      "dpnl_pct": -1.99,
+      "pf": 2.434,
+      "win": 0.4858,
+      "max_dd": 3426.0,
+      "dd_over_flatref": 1.522,
+      "dd_over_net": 0.01204,
+      "cohort_pnl": 1588.0,
+      "virtual_blocked_pnl": 5776.0
+    },
+    "v2B_trig": {
+      "triggers": 877,
+      "blocked": 877,
+      "applicable": 21298
+    }
+  },
+  {
+    "tag": "K4",
+    "K": 4,
+    "FLAT": {
+      "n": 21170,
+      "net": 189110.0,
+      "dpnl_abs": -118.0,
+      "dpnl_pct": -0.06,
+      "pf": 2.067,
+      "win": 0.4831,
+      "max_dd": 2250.0,
+      "dd_over_flatref": 1.0,
+      "dd_over_net": 0.0119,
+      "cohort_pnl": 946.0,
+      "virtual_blocked_pnl": 118.0
+    },
+    "FLAT_trig": {
+      "triggers": 128,
+      "blocked": 128,
+      "applicable": 21298
+    },
+    "v2B": {
+      "n": 21170,
+      "net": 290124.0,
+      "dpnl_abs": -146.0,
+      "dpnl_pct": -0.05,
+      "pf": 2.42,
+      "win": 0.4831,
+      "max_dd": 3426.0,
+      "dd_over_flatref": 1.522,
+      "dd_over_net": 0.01181,
+      "cohort_pnl": 2864.0,
+      "virtual_blocked_pnl": 146.0
+    },
+    "v2B_trig": {
+      "triggers": 128,
+      "blocked": 128,
+      "applicable": 21298
+    }
+  }
+]

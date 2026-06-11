@@ -1,0 +1,42 @@
+{
+  "requested_start": "2026-01-01T00:00:00+08:00",
+  "requested_end_exclusive": "2026-04-01T00:00:00+08:00",
+  "timeframes": {
+    "1m": {
+      "timeframe": "1m",
+      "bar_count": 129600,
+      "first_dt": "2026-01-01T00:00:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "5m": {
+      "timeframe": "5m",
+      "bar_count": 25920,
+      "first_dt": "2026-01-01T00:04:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "15m": {
+      "timeframe": "15m",
+      "bar_count": 8640,
+      "first_dt": "2026-01-01T00:14:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    },
+    "1h": {
+      "timeframe": "1h",
+      "bar_count": 2160,
+      "first_dt": "2026-01-01T00:59:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_count": 0,
+      "gap_count": 0,
+      "largest_gap_minutes": null
+    }
+  }
+}

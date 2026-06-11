@@ -1,0 +1,101 @@
+{
+  "source_split": "train_ext",
+  "thresholds_use_validation_ext": false,
+  "thresholds_use_oos_ext": false,
+  "train_row_count": 547,
+  "quantiles": {
+    "trend_efficiency_mean": {
+      "q20": 0.12912188285424392,
+      "q40": 0.17948483469296586,
+      "q50": 0.20504287502895294,
+      "q70": 0.30017969184534565,
+      "q80": 0.3554851645341964
+    },
+    "average_pairwise_correlation_20d": {
+      "q20": 0.44200015493705563,
+      "q40": 0.5188541130798373,
+      "q50": 0.5823432310087027,
+      "q70": 0.682165997093488,
+      "q80": 0.7435228414463637
+    },
+    "average_atr_pct": {
+      "q20": 0.05641261194190486,
+      "q40": 0.06534339077887256,
+      "q50": 0.07066976294101526,
+      "q70": 0.08638670346807165,
+      "q80": 0.09511693965415463
+    },
+    "return_dispersion_20d": {
+      "q20": 0.042350493958832475,
+      "q40": 0.07039270704647303,
+      "q50": 0.08170749031176927,
+      "q70": 0.11040932147353187,
+      "q80": 0.13646248190492052
+    },
+    "average_funding_rate": {
+      "q20": 4.508170296263999e-06,
+      "q40": 3.6276397494509336e-05,
+      "q50": 5.588943233708666e-05,
+      "q70": 0.00010242626381510398,
+      "q80": 0.00014146283320708535
+    },
+    "funding_dispersion": {
+      "q20": 2.8128527681437997e-05,
+      "q40": 3.92216199192413e-05,
+      "q50": 4.5563153627542685e-05,
+      "q70": 6.176362238610824e-05,
+      "q80": 7.564878829341326e-05
+    }
+  },
+  "fixed_thresholds": {
+    "ema50_ema200_breadth_min": 3,
+    "high_vol_symbol_count_min": 3,
+    "extreme_positive_funding_count_min": 2,
+    "strong_trend_symbol_count_narrow_max": 1
+  },
+  "forbidden_feature_patterns": [
+    "pnl",
+    "profit",
+    "loss",
+    "trade",
+    "policy",
+    "future"
+  ],
+  "feature_columns": [
+    "number_of_symbols_above_ema50_1d",
+    "number_of_symbols_above_ema200_1d",
+    "ema50_ema200_breadth",
+    "average_ema_spread_pct",
+    "median_ema_spread_pct",
+    "strong_trend_symbol_count",
+    "trend_efficiency_mean",
+    "trend_efficiency_median",
+    "trend_efficiency_dispersion",
+    "average_pairwise_correlation_20d",
+    "average_pairwise_correlation_60d",
+    "return_dispersion_20d",
+    "return_dispersion_60d",
+    "market_breadth_return_20d",
+    "market_breadth_return_60d",
+    "average_atr_pct",
+    "median_atr_pct",
+    "atr_pct_dispersion",
+    "realized_volatility_mean",
+    "realized_volatility_dispersion",
+    "high_vol_symbol_count",
+    "low_vol_symbol_count",
+    "average_drawdown_from_60d_high",
+    "max_symbol_drawdown_from_60d_high",
+    "rebound_breadth",
+    "symbols_near_60d_high_count",
+    "average_funding_rate",
+    "median_funding_rate",
+    "funding_dispersion",
+    "positive_funding_symbol_count",
+    "negative_funding_symbol_count",
+    "extreme_positive_funding_count",
+    "extreme_negative_funding_count",
+    "funding_trend_7d",
+    "funding_trend_30d"
+  ]
+}

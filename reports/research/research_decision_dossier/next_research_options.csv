@@ -1,0 +1,7 @@
+option,name,prerequisites,acceptance_criteria,allowed_now
+Option A,"Broader universe trend following readiness (optional, not main path)","Verified metadata, listing dates, contract specs, liquidity, and 1m sqlite coverage for a materially broader symbol set.",Multi-symbol universe passes coverage checks; research design pre-registers stable-candidate criteria before any policy comparison.,optional_not_recommended
+Option B,Funding-aware research complete for current universe,A new non-V3 policy family or new hypothesis before any further funding-only work.,No additional funding-only research unless a new candidate policy family emerges.,no
+Option C,classifier-filtered V3.1 continuation,Closed for current V3 family.,Not applicable; strict gate audit found no stable classifier-filtered candidate.,no
+Option D,Pause strategy development and maintain tooling,None beyond maintaining data integrity and reproducible reports.,No new strategy work starts until a new research premise is documented and approved.,yes
+Option E,Derivatives-confirmed trend research,historical derivatives metrics coverage proven,Historical OI or contracts OI/volume plus taker volume or long/short ratio must cover 2023-2026 without private API keys; funding alone is insufficient.,no
+Option F,Third-party/external derivatives data audit,user explicitly agrees to external data source or paid/free vendor evaluation,"External source must provide reproducible 2023-2026 coverage, licensing clarity, and no strategy conclusion before data audit passes.",optional

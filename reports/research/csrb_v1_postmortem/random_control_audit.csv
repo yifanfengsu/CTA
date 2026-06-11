@@ -1,0 +1,9 @@
+check_name,scope,status,core_value,random_value,difference,details,random_control_requires_review
+event_count_match,primary_timeframe,pass,3292.0,3292.0,0.0,D should preserve B+C primary event count,True
+long_ratio_match,primary_timeframe,pass,0.505771567436209,0.505771567436209,0.0,D should preserve aggregate direction ratio,True
+symbol_distribution,symbol,pass,0.0,0.0,0.0,max absolute bucket event-count difference,True
+timeframe_distribution,timeframe,pass,0.0,0.0,0.0,max absolute bucket event-count difference,True
+split_distribution,split,warning,0.0,3.0,3.0,max absolute bucket event-count difference,True
+symbol_timeframe_direction_distribution,"symbol,timeframe,direction",pass,0.0,0.0,0.0,max absolute bucket event-count difference,True
+random_avoids_breakout_window,primary_timeframe,pass,0.0,0.0,0.0,D timestamps must be outside source breakout windows,True
+random_control_no_cost_positive,primary_timeframe,warning,-21439.698826685864,11823.413516245615,33263.112342931476,positive random control requires robustness review,True

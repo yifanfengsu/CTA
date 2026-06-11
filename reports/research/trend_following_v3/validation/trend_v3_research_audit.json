@@ -1,0 +1,1267 @@
+{
+  "data_policy": {
+    "symbols": [
+      "BTCUSDT_SWAP_OKX.GLOBAL",
+      "ETHUSDT_SWAP_OKX.GLOBAL",
+      "SOLUSDT_SWAP_OKX.GLOBAL",
+      "LINKUSDT_SWAP_OKX.GLOBAL",
+      "DOGEUSDT_SWAP_OKX.GLOBAL"
+    ],
+    "strict_mode": true,
+    "coverage_summary": {
+      "requested_symbols": [
+        "BTCUSDT_SWAP_OKX.GLOBAL",
+        "ETHUSDT_SWAP_OKX.GLOBAL",
+        "SOLUSDT_SWAP_OKX.GLOBAL",
+        "LINKUSDT_SWAP_OKX.GLOBAL",
+        "DOGEUSDT_SWAP_OKX.GLOBAL"
+      ],
+      "ready_symbols": [
+        "BTCUSDT_SWAP_OKX.GLOBAL",
+        "ETHUSDT_SWAP_OKX.GLOBAL",
+        "SOLUSDT_SWAP_OKX.GLOBAL",
+        "LINKUSDT_SWAP_OKX.GLOBAL",
+        "DOGEUSDT_SWAP_OKX.GLOBAL"
+      ],
+      "skipped_symbols": [],
+      "symbol_coverage": {
+        "BTCUSDT_SWAP_OKX.GLOBAL": {
+          "expected_count": 132480,
+          "total_count": 132480,
+          "missing_count": 0,
+          "gap_count": 0,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "missing_ranges": [],
+          "required_coverage_ready": true,
+          "metadata_complete": true,
+          "timeframes": {
+            "1m": {
+              "timeframe": "1m",
+              "bar_count": 132480,
+              "first_dt": "2025-10-01T00:00:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1
+            },
+            "1h": {
+              "timeframe": "1h",
+              "bar_count": 2208,
+              "first_dt": "2025-10-01T00:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 60
+            },
+            "4h": {
+              "timeframe": "4h",
+              "bar_count": 552,
+              "first_dt": "2025-10-01T03:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 240
+            },
+            "1d": {
+              "timeframe": "1d",
+              "bar_count": 92,
+              "first_dt": "2025-10-01T23:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1440
+            }
+          }
+        },
+        "ETHUSDT_SWAP_OKX.GLOBAL": {
+          "expected_count": 132480,
+          "total_count": 132480,
+          "missing_count": 0,
+          "gap_count": 0,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "missing_ranges": [],
+          "required_coverage_ready": true,
+          "metadata_complete": true,
+          "timeframes": {
+            "1m": {
+              "timeframe": "1m",
+              "bar_count": 132480,
+              "first_dt": "2025-10-01T00:00:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1
+            },
+            "1h": {
+              "timeframe": "1h",
+              "bar_count": 2208,
+              "first_dt": "2025-10-01T00:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 60
+            },
+            "4h": {
+              "timeframe": "4h",
+              "bar_count": 552,
+              "first_dt": "2025-10-01T03:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 240
+            },
+            "1d": {
+              "timeframe": "1d",
+              "bar_count": 92,
+              "first_dt": "2025-10-01T23:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1440
+            }
+          }
+        },
+        "SOLUSDT_SWAP_OKX.GLOBAL": {
+          "expected_count": 132480,
+          "total_count": 132480,
+          "missing_count": 0,
+          "gap_count": 0,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "missing_ranges": [],
+          "required_coverage_ready": true,
+          "metadata_complete": true,
+          "timeframes": {
+            "1m": {
+              "timeframe": "1m",
+              "bar_count": 132480,
+              "first_dt": "2025-10-01T00:00:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1
+            },
+            "1h": {
+              "timeframe": "1h",
+              "bar_count": 2208,
+              "first_dt": "2025-10-01T00:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 60
+            },
+            "4h": {
+              "timeframe": "4h",
+              "bar_count": 552,
+              "first_dt": "2025-10-01T03:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 240
+            },
+            "1d": {
+              "timeframe": "1d",
+              "bar_count": 92,
+              "first_dt": "2025-10-01T23:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1440
+            }
+          }
+        },
+        "LINKUSDT_SWAP_OKX.GLOBAL": {
+          "expected_count": 132480,
+          "total_count": 132480,
+          "missing_count": 0,
+          "gap_count": 0,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "missing_ranges": [],
+          "required_coverage_ready": true,
+          "metadata_complete": true,
+          "timeframes": {
+            "1m": {
+              "timeframe": "1m",
+              "bar_count": 132480,
+              "first_dt": "2025-10-01T00:00:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1
+            },
+            "1h": {
+              "timeframe": "1h",
+              "bar_count": 2208,
+              "first_dt": "2025-10-01T00:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 60
+            },
+            "4h": {
+              "timeframe": "4h",
+              "bar_count": 552,
+              "first_dt": "2025-10-01T03:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 240
+            },
+            "1d": {
+              "timeframe": "1d",
+              "bar_count": 92,
+              "first_dt": "2025-10-01T23:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1440
+            }
+          }
+        },
+        "DOGEUSDT_SWAP_OKX.GLOBAL": {
+          "expected_count": 132480,
+          "total_count": 132480,
+          "missing_count": 0,
+          "gap_count": 0,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "missing_ranges": [],
+          "required_coverage_ready": true,
+          "metadata_complete": true,
+          "timeframes": {
+            "1m": {
+              "timeframe": "1m",
+              "bar_count": 132480,
+              "first_dt": "2025-10-01T00:00:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1
+            },
+            "1h": {
+              "timeframe": "1h",
+              "bar_count": 2208,
+              "first_dt": "2025-10-01T00:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 60
+            },
+            "4h": {
+              "timeframe": "4h",
+              "bar_count": 552,
+              "first_dt": "2025-10-01T03:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 240
+            },
+            "1d": {
+              "timeframe": "1d",
+              "bar_count": 92,
+              "first_dt": "2025-10-01T23:59:00+08:00",
+              "last_dt": "2025-12-31T23:59:00+08:00",
+              "minutes": 1440
+            }
+          }
+        }
+      },
+      "funding_fee_warning": "OKX perpetual funding fee is not included in Trend Following V3 research outputs.",
+      "closed_bar_policy": "1h/4h/1d bars are left-closed and timestamped at the final included 1m close.",
+      "ready_symbol_count": 5,
+      "all_required_symbols_ready": true
+    },
+    "vt_symbol_filtering": "Each symbol context filters provided bars by vt_symbol before normalization; sqlite loads use split_vt_symbol(symbol, exchange)."
+  },
+  "resample_policy": {
+    "timeframes": [
+      "1h",
+      "4h",
+      "1d"
+    ],
+    "closed_bar_only": true,
+    "timestamp_meaning": "Resampled timestamps are the final included 1m close time; incomplete HTF bars are dropped.",
+    "execution_policy": "Signals execute on the first 1m bar strictly after the completed HTF signal timestamp."
+  },
+  "signal_policy": {
+    "donchian_previous_channel": "Entry and exit use donchian_high/low_<window>_prev = rolling(...).shift(1); strict >/< comparisons are required.",
+    "ema_policy": "EMA50/EMA200 are computed on closed HTF bars; long requires EMA50 > EMA200 and close > EMA50; short is symmetric.",
+    "vol_compression_policy": "ATR percentile and Donchian width percentile must be <= 0.4 before breakout.",
+    "risk_filter_policy": "Risk-filter policy requires ATR, 1h volatility, directional return, volume z-score, and body-ratio percentiles <= 0.8."
+  },
+  "position_policy": {
+    "one_position_per_symbol": true,
+    "max_portfolio_positions": 3,
+    "signal_strength_ranking": "Simultaneous candidates are sorted by breakout distance / ATR or EMA spread / ATR, with overheated risk scores halved.",
+    "duplicate_signal_handling": "Same-symbol same-direction simultaneous signals are merged into one candidate; lower-strength duplicates are audited as duplicate_signal_merged.",
+    "max_symbol_weight": 0.35,
+    "max_symbol_weight_policy": "Fixed-contract and volatility-target entries are rejected when entry notional would exceed capital * max_symbol_weight.",
+    "position_sizing": "fixed_contract",
+    "fixed_size": 0.01,
+    "capital_mode": "portfolio_fixed",
+    "portfolio_capital": 5000.0
+  },
+  "cost_policy": {
+    "fee_formula": "fee = turnover * rate, where turnover is entry notional + exit notional.",
+    "rate": 0.0005,
+    "slippage_mode": "ticks",
+    "slippage_input": 2.0,
+    "slippage_formula": "round-trip slippage cost = absolute_slippage * volume * contract_size * 2; ticks use instrument pricetick.",
+    "contract_size_source": "config/instruments/<symbol>.json size/contract_size.",
+    "funding_fee_warning": "OKX perpetual funding fee is not included in Trend Following V3 research outputs."
+  },
+  "equity_policy": {
+    "equity_curve_type": "closed_trade_equity",
+    "mark_to_market": false,
+    "daily_pnl_aggregation": "Daily PnL is grouped by exit_time date and policy.",
+    "drawdown_formula": "max drawdown is computed from closed-trade cumulative cost-aware net_pnl versus initial capital peak."
+  },
+  "contribution_policy": {
+    "largest_symbol_pnl_share_formula": "If positive symbol PnL exists, largest positive symbol PnL / sum positive symbol PnL; otherwise largest absolute symbol PnL / sum absolute symbol PnL.",
+    "top_5pct_trade_pnl_contribution_formula": "sum of top ceil(5% * trade_count) net_pnl divided by total net_pnl.",
+    "negative_total_pnl_handling": "For non-positive total net_pnl, concentration metrics are retained for diagnostics and warnings mark them as hard to interpret.",
+    "warnings": [
+      "v3_1d_donchian_55_20_atr5: top_5pct_trade_pnl_contribution is based on a small trade sample.",
+      "v3_4h_donchian_55_with_risk_filters: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_4h_donchian_55_with_risk_filters: top_5pct_trade_pnl_contribution is based on a small trade sample.",
+      "v3_4h_donchian_55_with_risk_filters: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_1d_donchian_20_10_atr4: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_1d_donchian_20_10_atr4: top_5pct_trade_pnl_contribution is based on a small trade sample.",
+      "v3_1d_donchian_20_10_atr4: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_1d_ema_50_200_atr5: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_1d_ema_50_200_atr5: top_5pct_trade_pnl_contribution is based on a small trade sample.",
+      "v3_1d_ema_50_200_atr5: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_4h_vol_compression_donchian_breakout: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_4h_vol_compression_donchian_breakout: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_4h_donchian_55_20_atr4: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_4h_donchian_55_20_atr4: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_4h_ema_50_200_atr4: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_4h_ema_50_200_atr4: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_4h_donchian_20_10_atr4: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_4h_donchian_20_10_atr4: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_4h_donchian_100_30_atr5: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_4h_donchian_100_30_atr5: top_5pct_trade_pnl_contribution is based on a small trade sample.",
+      "v3_4h_donchian_100_30_atr5: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative.",
+      "v3_ensemble_core: largest_symbol_pnl_share uses absolute contribution because total net_pnl is non-positive.",
+      "v3_ensemble_core: top_5pct_trade_pnl_contribution is hard to interpret because total net_pnl is small or negative."
+    ]
+  },
+  "no_lookahead_checks": {
+    "incomplete_htf_bar_used_count": 0,
+    "incomplete_resampled_bar_counts": {
+      "BTCUSDT_SWAP_OKX.GLOBAL:1h": 0,
+      "BTCUSDT_SWAP_OKX.GLOBAL:4h": 0,
+      "BTCUSDT_SWAP_OKX.GLOBAL:1d": 0,
+      "BTCUSDT_SWAP_OKX.GLOBAL:total": 0,
+      "ETHUSDT_SWAP_OKX.GLOBAL:1h": 0,
+      "ETHUSDT_SWAP_OKX.GLOBAL:4h": 0,
+      "ETHUSDT_SWAP_OKX.GLOBAL:1d": 0,
+      "ETHUSDT_SWAP_OKX.GLOBAL:total": 0,
+      "SOLUSDT_SWAP_OKX.GLOBAL:1h": 0,
+      "SOLUSDT_SWAP_OKX.GLOBAL:4h": 0,
+      "SOLUSDT_SWAP_OKX.GLOBAL:1d": 0,
+      "SOLUSDT_SWAP_OKX.GLOBAL:total": 0,
+      "LINKUSDT_SWAP_OKX.GLOBAL:1h": 0,
+      "LINKUSDT_SWAP_OKX.GLOBAL:4h": 0,
+      "LINKUSDT_SWAP_OKX.GLOBAL:1d": 0,
+      "LINKUSDT_SWAP_OKX.GLOBAL:total": 0,
+      "DOGEUSDT_SWAP_OKX.GLOBAL:1h": 0,
+      "DOGEUSDT_SWAP_OKX.GLOBAL:4h": 0,
+      "DOGEUSDT_SWAP_OKX.GLOBAL:1d": 0,
+      "DOGEUSDT_SWAP_OKX.GLOBAL:total": 0
+    },
+    "current_bar_channel_used_count": 0,
+    "signal_before_bar_close_count": 0,
+    "duplicate_symbol_position_count": 0,
+    "max_position_violation_count": 0,
+    "max_symbol_weight_violation_count": 0,
+    "exit_before_entry_count": 0,
+    "rejected_signal_counts": {
+      "max_portfolio_positions": 1453,
+      "duplicate_symbol_position": 330,
+      "duplicate_signal_merged": 51,
+      "no_execution_row": 4
+    }
+  },
+  "rejected_signal_sample": [
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-11T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0307319658,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.1066143263,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.3349896281,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-14T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0769821587,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-18T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0489438129,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-21T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.3445093124,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-21T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_20_10_atr4",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.1659223191,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_55_20_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_55_20_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0974995306,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_55_20_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-14T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_55_20_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0769821587,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_55_20_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-18T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_55_20_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0489438129,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_donchian_55_20_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-21T23:59:00+08:00",
+      "source_policy_name": "v3_1d_donchian_55_20_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.3445093124,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-01T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.7524491916,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-01T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.1969005523,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-02T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 1.6201741295,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-02T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.2082681373,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-03T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.8152415698,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-03T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.2752854005,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.6379688902,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 3.5493886647,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.8231168968,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-05T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.6207766476,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-05T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.9929715248,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-06T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.3432323007,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-06T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 1.0773202445,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-07T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.3445214315,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-08T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.7154615646,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-09T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.3592685146,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "signal_time": "2025-10-10T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.7994118447,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-24T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.0137319101,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-25T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.032643992,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-26T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.0903063739,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-27T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "max_portfolio_positions",
+      "signal_strength": 0.0548281346,
+      "open_position_count": 3,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-28T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.1749062046,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-29T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.1216601688,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-30T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.1573102534,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-10-31T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.1935079307,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-01T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.4497738062,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-02T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.2794922642,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-03T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.303580012,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-04T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.3441995226,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-05T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.2872195468,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-06T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.3051211288,
+      "open_position_count": 1,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-07T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.3339049989,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-07T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.0381753462,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-08T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.2914284784,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-08T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.0690655323,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-09T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.6257447147,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-09T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.0924978757,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-10T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.3218759143,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "signal_time": "2025-11-10T23:59:00+08:00",
+      "source_policy_name": "v3_1d_ema_50_200_atr5",
+      "reason": "duplicate_symbol_position",
+      "signal_strength": 0.1117449366,
+      "open_position_count": 2,
+      "max_portfolio_positions": 3
+    }
+  ],
+  "sample_trades": [
+    {
+      "policy_name": "v3_4h_ema_50_200_atr4",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "entry_time": "2025-10-01T04:00:00+08:00",
+      "exit_time": "2025-10-01T20:00:00+08:00",
+      "entry_price": 0.23475,
+      "exit_price": 0.24285,
+      "exit_reason": "v3_4h_ema_50_200_atr4:ema_exit",
+      "net_pnl": -0.085388,
+      "no_cost_pnl": -0.081
+    },
+    {
+      "policy_name": "v3_4h_ema_50_200_atr4",
+      "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "entry_time": "2025-10-01T04:00:00+08:00",
+      "exit_time": "2025-10-01T20:00:00+08:00",
+      "entry_price": 211.0,
+      "exit_price": 215.11,
+      "exit_reason": "v3_4h_ema_50_200_atr4:ema_exit",
+      "net_pnl": -0.04363055,
+      "no_cost_pnl": -0.0411
+    },
+    {
+      "policy_name": "v3_ensemble_core",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "entry_time": "2025-10-01T04:00:00+08:00",
+      "exit_time": "2025-10-01T20:00:00+08:00",
+      "entry_price": 0.23475,
+      "exit_price": 0.24285,
+      "exit_reason": "ensemble_4h_ema_50_200:ema_exit",
+      "net_pnl": -0.085388,
+      "no_cost_pnl": -0.081
+    },
+    {
+      "policy_name": "v3_ensemble_core",
+      "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "entry_time": "2025-10-01T04:00:00+08:00",
+      "exit_time": "2025-10-01T20:00:00+08:00",
+      "entry_price": 211.0,
+      "exit_price": 215.11,
+      "exit_reason": "ensemble_4h_ema_50_200:ema_exit",
+      "net_pnl": -0.04363055,
+      "no_cost_pnl": -0.0411
+    },
+    {
+      "policy_name": "v3_4h_ema_50_200_atr4",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "entry_time": "2025-10-01T08:00:00+08:00",
+      "exit_time": "2025-10-01T20:00:00+08:00",
+      "entry_price": 21.313,
+      "exit_price": 22.255,
+      "exit_reason": "v3_4h_ema_50_200_atr4:ema_exit",
+      "net_pnl": -0.00967784,
+      "no_cost_pnl": -0.00942
+    },
+    {
+      "policy_name": "v3_ensemble_core",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "short",
+      "entry_time": "2025-10-01T08:00:00+08:00",
+      "exit_time": "2025-10-01T20:00:00+08:00",
+      "entry_price": 21.313,
+      "exit_price": 22.255,
+      "exit_reason": "ensemble_4h_donchian_55_20:donchian_exit",
+      "net_pnl": -0.00967784,
+      "no_cost_pnl": -0.00942
+    },
+    {
+      "policy_name": "v3_4h_donchian_20_10_atr4",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-08T00:00:00+08:00",
+      "entry_price": 116484.4,
+      "exit_price": 121460.0,
+      "exit_reason": "v3_4h_donchian_20_10_atr4:donchian_exit",
+      "net_pnl": 0.48562278,
+      "no_cost_pnl": 0.49756
+    },
+    {
+      "policy_name": "v3_4h_donchian_20_10_atr4",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-09T16:00:00+08:00",
+      "entry_price": 4303.2,
+      "exit_price": 4424.5,
+      "exit_reason": "v3_4h_donchian_20_10_atr4:atr_trailing_stop",
+      "net_pnl": 0.11689615,
+      "no_cost_pnl": 0.1213
+    },
+    {
+      "policy_name": "v3_4h_donchian_20_10_atr4",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-04T20:00:00+08:00",
+      "entry_price": 22.255,
+      "exit_price": 21.848,
+      "exit_reason": "v3_4h_donchian_20_10_atr4:donchian_exit",
+      "net_pnl": -0.004330515,
+      "no_cost_pnl": -0.00407
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_20_atr4",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-11T00:00:00+08:00",
+      "entry_price": 116484.4,
+      "exit_price": 117122.5,
+      "exit_reason": "v3_4h_donchian_55_20_atr4:atr_trailing_stop",
+      "net_pnl": 0.052089655,
+      "no_cost_pnl": 0.06381
+    },
+    {
+      "policy_name": "v3_4h_vol_compression_donchian_breakout",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-09T16:00:00+08:00",
+      "entry_price": 4303.2,
+      "exit_price": 4424.5,
+      "exit_reason": "v3_4h_vol_compression_donchian_breakout:atr_trailing_stop",
+      "net_pnl": 0.11689615,
+      "no_cost_pnl": 0.1213
+    },
+    {
+      "policy_name": "v3_4h_vol_compression_donchian_breakout",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-04T20:00:00+08:00",
+      "entry_price": 22.255,
+      "exit_price": 21.848,
+      "exit_reason": "v3_4h_vol_compression_donchian_breakout:donchian_exit",
+      "net_pnl": -0.004330515,
+      "no_cost_pnl": -0.00407
+    },
+    {
+      "policy_name": "v3_ensemble_core",
+      "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-01T20:00:00+08:00",
+      "exit_time": "2025-10-10T04:00:00+08:00",
+      "entry_price": 116484.4,
+      "exit_price": 120884.4,
+      "exit_reason": "ensemble_4h_ema_50_200:ema_exit",
+      "net_pnl": 0.42809156,
+      "no_cost_pnl": 0.44
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T00:00:00+08:00",
+      "exit_time": "2025-10-11T00:00:00+08:00",
+      "entry_price": 4328.61,
+      "exit_price": 4144.95,
+      "exit_reason": "v3_1d_ema_50_200_atr5:ema_exit",
+      "net_pnl": -0.18793678,
+      "no_cost_pnl": -0.18366
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T00:00:00+08:00",
+      "exit_time": "2025-10-05T00:00:00+08:00",
+      "entry_price": 22.417,
+      "exit_price": 21.853,
+      "exit_reason": "v3_1d_ema_50_200_atr5:ema_exit",
+      "net_pnl": -0.00590135,
+      "no_cost_pnl": -0.00564
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T00:00:00+08:00",
+      "exit_time": "2025-10-11T00:00:00+08:00",
+      "entry_price": 220.41,
+      "exit_price": 210.0,
+      "exit_reason": "v3_1d_ema_50_200_atr5:ema_exit",
+      "net_pnl": -0.10665205,
+      "no_cost_pnl": -0.1041
+    },
+    {
+      "policy_name": "v3_4h_vol_compression_donchian_breakout",
+      "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T00:00:00+08:00",
+      "exit_time": "2025-10-08T00:00:00+08:00",
+      "entry_price": 220.41,
+      "exit_price": 223.5,
+      "exit_reason": "v3_4h_vol_compression_donchian_breakout:donchian_exit",
+      "net_pnl": 0.02828045,
+      "no_cost_pnl": 0.0309
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_20_atr4",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T12:00:00+08:00",
+      "exit_time": "2025-10-11T00:00:00+08:00",
+      "entry_price": 0.25345,
+      "exit_price": 0.2377,
+      "exit_reason": "v3_4h_donchian_55_20_atr4:atr_trailing_stop",
+      "net_pnl": -0.16195575,
+      "no_cost_pnl": -0.1575
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_20_atr4",
+      "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T12:00:00+08:00",
+      "exit_time": "2025-10-09T16:00:00+08:00",
+      "entry_price": 4395.5,
+      "exit_price": 4424.5,
+      "exit_reason": "v3_4h_donchian_55_20_atr4:atr_trailing_stop",
+      "net_pnl": 0.02455,
+      "no_cost_pnl": 0.029
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_with_risk_filters",
+      "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "direction": "long",
+      "entry_time": "2025-10-02T12:00:00+08:00",
+      "exit_time": "2025-10-11T00:00:00+08:00",
+      "entry_price": 0.25345,
+      "exit_price": 0.2377,
+      "exit_reason": "v3_4h_donchian_55_with_risk_filters:atr_trailing_stop",
+      "net_pnl": -0.16195575,
+      "no_cost_pnl": -0.1575
+    }
+  ],
+  "policy_definitions": [
+    {
+      "policy_name": "v3_4h_donchian_20_10_atr4",
+      "timeframe": "4h",
+      "entry_type": "donchian",
+      "entry_window": 20,
+      "exit_window": 10,
+      "atr_mult": 4.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "4h Donchian 20/10 with ATR4 trailing stop."
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_20_atr4",
+      "timeframe": "4h",
+      "entry_type": "donchian",
+      "entry_window": 55,
+      "exit_window": 20,
+      "atr_mult": 4.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "4h Donchian 55/20 with ATR4 trailing stop."
+    },
+    {
+      "policy_name": "v3_4h_donchian_100_30_atr5",
+      "timeframe": "4h",
+      "entry_type": "donchian",
+      "entry_window": 100,
+      "exit_window": 30,
+      "atr_mult": 5.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "4h Donchian 100/30 with ATR5 trailing stop."
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "timeframe": "1d",
+      "entry_type": "donchian",
+      "entry_window": 20,
+      "exit_window": 10,
+      "atr_mult": 4.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "1d Donchian 20/10 with ATR4 trailing stop."
+    },
+    {
+      "policy_name": "v3_1d_donchian_55_20_atr5",
+      "timeframe": "1d",
+      "entry_type": "donchian",
+      "entry_window": 55,
+      "exit_window": 20,
+      "atr_mult": 5.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "1d Donchian 55/20 with ATR5 trailing stop."
+    },
+    {
+      "policy_name": "v3_4h_ema_50_200_atr4",
+      "timeframe": "4h",
+      "entry_type": "ema",
+      "entry_window": null,
+      "exit_window": null,
+      "atr_mult": 4.0,
+      "use_donchian_exit": false,
+      "use_ema_exit": true,
+      "use_risk_filters": false,
+      "description": "4h EMA50/EMA200 trend with ATR4 trailing stop."
+    },
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "timeframe": "1d",
+      "entry_type": "ema",
+      "entry_window": null,
+      "exit_window": null,
+      "atr_mult": 5.0,
+      "use_donchian_exit": false,
+      "use_ema_exit": true,
+      "use_risk_filters": false,
+      "description": "1d EMA50/EMA200 trend with ATR5 trailing stop."
+    },
+    {
+      "policy_name": "v3_4h_vol_compression_donchian_breakout",
+      "timeframe": "4h",
+      "entry_type": "vol_compression",
+      "entry_window": 20,
+      "exit_window": 10,
+      "atr_mult": 4.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "4h low ATR/width percentile compression followed by Donchian breakout."
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_with_risk_filters",
+      "timeframe": "4h",
+      "entry_type": "donchian",
+      "entry_window": 55,
+      "exit_window": 20,
+      "atr_mult": 4.0,
+      "use_donchian_exit": true,
+      "use_ema_exit": false,
+      "use_risk_filters": true,
+      "description": "4h Donchian 55/20 with Signal Lab risk filters."
+    },
+    {
+      "policy_name": "v3_ensemble_core",
+      "timeframe": "mixed",
+      "entry_type": "ensemble",
+      "entry_window": null,
+      "exit_window": null,
+      "atr_mult": 4.0,
+      "use_donchian_exit": false,
+      "use_ema_exit": false,
+      "use_risk_filters": false,
+      "description": "Portfolio ensemble of 4h Donchian 55/20, 1d Donchian 20/10, and 4h EMA50/200."
+    }
+  ]
+}

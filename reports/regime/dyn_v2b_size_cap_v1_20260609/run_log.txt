@@ -1,0 +1,48 @@
+# DYN-v2B size cap V1 — start 2026-06-10T00:01:33.621559+00:00
+Range 2023-01-01->2026-05-29 UTC; baseline=v2B; refs=FLAT $500, v2B-no-cap
+Reused research_dyn_v2 / backtest_mr_5m_compare (UNMODIFIED). V1 hard-truncation only.
+
+[BTC] 358,272 bars split@238,848 | 13,146 trades | train ATR p90/p95/p98 = 327.5/449.9/609.9
+[ETH] 358,272 bars split@238,848 | 13,307 trades | train ATR p90/p95/p98 = 16.53/21.67/29.61
+[SOL] 358,272 bars split@238,848 | 13,725 trades | train ATR p90/p95/p98 = 1.681/2.743/5.575
+[LINK] 358,272 bars split@238,848 | 17,952 trades | train ATR p90/p95/p98 = 0.09834/0.133/0.1834
+[DOGE] 358,272 bars split@238,848 | 13,332 trades | train ATR p90/p95/p98 = 0.002121/0.00382/0.006925
+
+TEST trades (latest 1/3): 21,298
+
+FLAT       : net $189,227  maxDD $2,250
+v2B-no-cap : net $290,270  maxDD $3,426 (1.523x)  avgNotion $2,462  maxSingleLoss $-1,343
+GATE1 maxDD <= 1.5xFLAT = $3,375   GATE2 net >= 1.5xFLAT = $283,841
+
+v2B-no-cap maxDD window: 2025-05-29 09:49:00+00:00 -> 2025-05-29 16:14:00+00:00 (16 trades, dd $3,426)
+
+## STEP 2/3 — 15-config scan (v2B + size cap)
+cfg               n      net$ dPnL%v2B dPnL%FLT    PF  maxDD$ xFLAT maxLoss$  avgNot  capN  G1  G2
+T90_C1        21298   211,088   -27.28   +11.55  2.23   2,540 1.129     -917   2,202  4451   Y   .
+T90_C2        21298   130,156   -55.16   -31.22  1.94   1,755 0.780     -917   1,941  4451   Y   .
+T90_C3        21298   171,765   -40.83    -9.23  2.11   2,114 0.939     -917   2,086  4451   Y   .
+T93_C1        21298   220,333   -24.09   +16.44  2.23   2,540 1.129     -917   2,279  3117   Y   .
+T93_C2        21298   148,815   -48.73   -21.36  1.97   1,866 0.830     -917   2,096  3117   Y   .
+T93_C3        21298   185,388   -36.13    -2.03  2.11   2,114 0.939     -917   2,195  3117   Y   .
+T95_C1        21298   227,848   -21.50   +20.41  2.24   2,540 1.129   -1,336   2,323  2368   Y   .
+T95_C2        21298   164,032   -43.49   -13.31  2.01   1,866 0.830   -1,336   2,184  2368   Y   .
+T95_C3        21298   196,523   -32.30    +3.86  2.14   2,114 0.939   -1,336   2,258  2368   Y   .
+T97_C1        21298   239,292   -17.56   +26.46  2.25   2,827 1.257   -1,336   2,376  1468   Y   .
+T97_C2        21298   187,725   -35.33    -0.79  2.06   2,328 1.035   -1,336   2,290  1468   Y   .
+T97_C3        21298   213,813   -26.34   +12.99  2.16   2,528 1.124   -1,336   2,335  1468   Y   .
+T98_C1        21298   251,089   -13.50   +32.69  2.30   2,827 1.257   -1,336   2,399  1063   Y   .
+T98_C2        21298   211,256   -27.22   +11.64  2.16   2,328 1.035   -1,336   2,337  1063   Y   .
+T98_C3        21298   231,365   -20.29   +22.27  2.23   2,528 1.124   -1,336   2,370  1063   Y   .
+
+Gate1 ($maxDD<=3,375) AND Gate2 (net>=$283,841) passers: NONE
+
+## DD culprit hit-rate (v2B-no-cap maxDD window, per T)
+  p90: 3/16 = 18.8% of DD-makers cap-eligible
+  p93: 3/16 = 18.8% of DD-makers cap-eligible
+  p95: 3/16 = 18.8% of DD-makers cap-eligible
+  p97: 2/16 = 12.5% of DD-makers cap-eligible
+  p98: 2/16 = 12.5% of DD-makers cap-eligible
+
+## STEP 4 — SKIPPED: no config passed both gates (per task spec).
+
+# end 2026-06-10T00:02:05.941687+00:00 (32.3s)

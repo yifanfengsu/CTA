@@ -1,0 +1,11 @@
+{
+  "name": "long_only",
+  "description": "只允许新开多，禁止新开空",
+  "notes": "",
+  "setting_overrides": {
+    "enable_short": false,
+    "entry_filter_tag": "long_only"
+  },
+  "no_cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/train/candidates/02_long_only/no_cost",
+  "cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/train/candidates/02_long_only/cost"
+}

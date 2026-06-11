@@ -1,0 +1,1694 @@
+{
+  "generated_at": "2026-05-11T14:33:42.971843+00:00",
+  "include_existing_reports": true,
+  "data_ready": true,
+  "data_status": {
+    "data_ready": true,
+    "market_data_complete": true,
+    "symbols": [
+      "BTC",
+      "ETH",
+      "SOL",
+      "LINK",
+      "DOGE"
+    ],
+    "coverage_window": "2023-01-01 to 2026-03-31",
+    "interval": "1m",
+    "missing_count": 0,
+    "gap_count": 0,
+    "coverage": [
+      {
+        "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "total_count": 1707840,
+        "expected_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "required_coverage_ready": true
+      },
+      {
+        "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "total_count": 1707840,
+        "expected_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "required_coverage_ready": true
+      },
+      {
+        "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "total_count": 1707840,
+        "expected_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "required_coverage_ready": true
+      },
+      {
+        "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "total_count": 1707840,
+        "expected_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "required_coverage_ready": true
+      },
+      {
+        "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "total_count": 1707840,
+        "expected_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "required_coverage_ready": true
+      }
+    ],
+    "data_failure_reason": null,
+    "funding_data_complete": true,
+    "funding_source": "OKX Historical Market Data",
+    "rest_funding_endpoint_partial_only": true,
+    "historical_funding_auto_download_succeeded": true
+  },
+  "actual_funding": {
+    "actual_funding_data_complete": true,
+    "actual_funding_source": "OKX Historical Market Data",
+    "rest_funding_endpoint_partial_only": true,
+    "historical_funding_auto_download_succeeded": true,
+    "current_universe_funding_complete": true,
+    "funding_data_complete": true,
+    "inst_results": [
+      {
+        "inst_id": "BTC-USDT-SWAP",
+        "row_count": 3558,
+        "first_time": "2022-12-31T16:00:00+00:00",
+        "last_time": "2026-03-31T08:00:00+00:00",
+        "complete": true,
+        "completion_status": "complete"
+      },
+      {
+        "inst_id": "ETH-USDT-SWAP",
+        "row_count": 3558,
+        "first_time": "2022-12-31T16:00:01+00:00",
+        "last_time": "2026-03-31T08:00:00+00:00",
+        "complete": true,
+        "completion_status": "complete"
+      },
+      {
+        "inst_id": "SOL-USDT-SWAP",
+        "row_count": 3558,
+        "first_time": "2022-12-31T16:00:12+00:00",
+        "last_time": "2026-03-31T08:00:00+00:00",
+        "complete": true,
+        "completion_status": "complete"
+      },
+      {
+        "inst_id": "LINK-USDT-SWAP",
+        "row_count": 3558,
+        "first_time": "2022-12-31T16:00:05+00:00",
+        "last_time": "2026-03-31T08:00:00+00:00",
+        "complete": true,
+        "completion_status": "complete"
+      },
+      {
+        "inst_id": "DOGE-USDT-SWAP",
+        "row_count": 3558,
+        "first_time": "2022-12-31T16:00:11+00:00",
+        "last_time": "2026-03-31T08:00:00+00:00",
+        "complete": true,
+        "completion_status": "complete"
+      }
+    ],
+    "funding_adjusted_stable_candidate_exists": false,
+    "funding_adjusted_stable_candidates": [],
+    "can_enter_funding_aware_v3_1_research": false,
+    "strategy_development_allowed": false,
+    "demo_live_allowed": false,
+    "target_policy": "v3_1d_ema_50_200_atr5",
+    "target_policy_conservative_all_splits_positive": true,
+    "target_policy_signed_all_splits_positive": true,
+    "oos_best_policy_after_funding": {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "split": "oos_ext",
+      "trade_count": 36,
+      "original_net_pnl": 1.55236905,
+      "no_cost_pnl": 1.70218,
+      "funding_events_count": 2103,
+      "conservative_funding_cost": 0.3746403263,
+      "signed_funding_pnl": -0.1510000193,
+      "funding_adjusted_net_pnl_conservative": 1.1777287237,
+      "funding_adjusted_net_pnl_signed": 1.4013690307,
+      "notional": 133.205
+    },
+    "verify_incomplete_reason": [],
+    "symbols_with_warnings": [],
+    "downloaded_file_count": 195,
+    "extracted_csv_count": 195
+  },
+  "external_regime_classifier_gate_audit": {
+    "external_regime_classifier_gate_audit_complete": true,
+    "classifier_old_gate_inconsistent": true,
+    "classifier_strict_stable_candidate_exists": false,
+    "can_enter_research_only_v3_1_classifier_experiment": false,
+    "external_classifier_rescued_v3_family": false,
+    "original_all_strict_stable_candidate_like_count": 0,
+    "strict_stable_candidate_like_count": 0,
+    "v3_1d_ema_oos_top_5pct_trade_pnl_contribution": 1.9818,
+    "v3_1d_ema_oos_largest_symbol_pnl_share": 0.3462,
+    "v3_1d_ema_exclude_filters_did_not_affect_oos": true,
+    "trend_friendly_only_removed_all_oos_trades": true,
+    "filter_did_not_affect_oos_count": 27,
+    "filter_did_affect_oos_count": 33,
+    "reason": "No non-original classifier filter passed strict gates after Dossier-consistent concentration checks."
+  },
+  "derivatives_data_readiness": {
+    "derivatives_data_readiness_audit_complete": true,
+    "can_enter_derivatives_confirmed_trend_research": false,
+    "derivatives_data_blocker": true,
+    "derivatives_missing_historical_features": [
+      "open_interest_history",
+      "taker_buy_sell_volume",
+      "long_short_account_ratio",
+      "contracts_open_interest_volume",
+      "premium_history"
+    ],
+    "derivatives_available_features": [
+      "actual_funding_rate",
+      "funding_dispersion",
+      "funding_sign_breadth",
+      "funding_trend",
+      "mark_index_price_candles"
+    ],
+    "derivatives_research_recommended_next_step": "pause_research",
+    "funding_complete_but_not_sufficient": true,
+    "mark_index_available_but_not_sufficient": true,
+    "current_open_interest_snapshot_only": true,
+    "key_historical_features_coverage_not_proven": true,
+    "non_price_derivatives_feature_category_count": 2,
+    "non_price_derivatives_feature_categories_available": [
+      "funding",
+      "basis_premium"
+    ],
+    "blocking_reasons": [
+      "non_price_derivatives_feature_categories_below_3:2",
+      "open_interest_feature_missing_or_not_2023_2026",
+      "taker_flow_or_long_short_ratio_missing_or_not_2023_2026",
+      "derivatives_data_download_plan_not_executable"
+    ],
+    "endpoint_probe_results": [
+      {
+        "endpoint_name": "Open Interest",
+        "endpoint_path": "/api/v5/public/open-interest",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instType": "SWAP",
+          "instId": "BTC-USDT-SWAP"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 1,
+        "sample_fields": "instId,instType,oi,oiCcy,oiUsd,ts",
+        "first_timestamp": "2026-05-11T14:21:54.668000+00:00",
+        "last_timestamp": "2026-05-11T14:21:54.668000+00:00",
+        "period": "current",
+        "max_window_limit": "current snapshot only",
+        "can_segment_download": false,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "current_snapshot_only",
+        "next_step": "use contract open interest history or historical files if available",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Public Data current open interest endpoint.",
+        "docs_added_date": "",
+        "coverage_probe": null
+      },
+      {
+        "endpoint_name": "Funding Rate History",
+        "endpoint_path": "/api/v5/public/funding-rate-history",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instId": "BTC-USDT-SWAP",
+          "after": "1772467200000",
+          "limit": "5"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 5,
+        "sample_fields": "formulaType,fundingRate,fundingTime,instId,instType,method,realizedRate",
+        "first_timestamp": "2026-03-01T00:00:00+00:00",
+        "last_timestamp": "2026-03-02T08:00:00+00:00",
+        "period": "8h",
+        "max_window_limit": "limit <= 400 rows per request",
+        "can_segment_download": true,
+        "can_cover_2023_2026": true,
+        "usable_for_research": true,
+        "warning": "local_actual_funding_complete_from_okx_historical_market_data",
+        "next_step": "use existing local actual funding CSV; no new funding download needed",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Existing local actual OKX funding is treated as the source of truth for 2023-2026.",
+        "docs_added_date": "",
+        "coverage_probe": {
+          "request_params": {
+            "instId": "BTC-USDT-SWAP",
+            "after": "1672761600000",
+            "limit": "5"
+          },
+          "response_code": 200,
+          "response_ok": true,
+          "row_count": 0,
+          "sample_fields": "",
+          "first_timestamp": null,
+          "last_timestamp": null,
+          "okx_code": "0",
+          "okx_msg": "",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Mark Price",
+        "endpoint_path": "/api/v5/public/mark-price",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instType": "SWAP",
+          "instId": "BTC-USDT-SWAP"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 1,
+        "sample_fields": "instId,instType,markPx,ts",
+        "first_timestamp": "2026-05-11T14:21:55.985000+00:00",
+        "last_timestamp": "2026-05-11T14:21:55.985000+00:00",
+        "period": "current",
+        "max_window_limit": "current snapshot only",
+        "can_segment_download": false,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "current_snapshot_only",
+        "next_step": "use mark price candlestick history for 2023-2026 research",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Current mark price endpoint does not provide historical bars.",
+        "docs_added_date": "",
+        "coverage_probe": null
+      },
+      {
+        "endpoint_name": "Mark Price Candles History",
+        "endpoint_path": "/api/v5/market/history-mark-price-candles",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instId": "BTC-USDT-SWAP",
+          "bar": "1D",
+          "after": "1772467200000",
+          "limit": "5"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 5,
+        "sample_fields": "array_row_length=6",
+        "first_timestamp": "2026-02-25T16:00:00+00:00",
+        "last_timestamp": "2026-03-01T16:00:00+00:00",
+        "period": "1D",
+        "max_window_limit": "paginated candles; probe uses limit=5",
+        "can_segment_download": true,
+        "can_cover_2023_2026": true,
+        "usable_for_research": true,
+        "warning": "",
+        "next_step": "segment download mark price candles",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Public Data includes mark price candlesticks history.",
+        "docs_added_date": "",
+        "coverage_probe": {
+          "request_params": {
+            "instId": "BTC-USDT-SWAP",
+            "bar": "1D",
+            "after": "1672934400000",
+            "limit": "5"
+          },
+          "response_code": 200,
+          "response_ok": true,
+          "row_count": 5,
+          "sample_fields": "array_row_length=6",
+          "first_timestamp": "2022-12-31T16:00:00+00:00",
+          "last_timestamp": "2023-01-04T16:00:00+00:00",
+          "okx_code": "0",
+          "okx_msg": "",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Index Ticker",
+        "endpoint_path": "/api/v5/market/index-tickers",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instId": "BTC-USDT"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 1,
+        "sample_fields": "high24h,idxPx,instId,low24h,open24h,sodUtc0,sodUtc8,ts",
+        "first_timestamp": "2026-05-11T14:21:57.054000+00:00",
+        "last_timestamp": "2026-05-11T14:21:57.054000+00:00",
+        "period": "current",
+        "max_window_limit": "current snapshot only",
+        "can_segment_download": false,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "current_snapshot_only",
+        "next_step": "use index candlestick history for 2023-2026 research",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Current index ticker endpoint does not provide historical bars.",
+        "docs_added_date": "",
+        "coverage_probe": null
+      },
+      {
+        "endpoint_name": "Index Candles History",
+        "endpoint_path": "/api/v5/market/history-index-candles",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instId": "BTC-USDT",
+          "bar": "1D",
+          "after": "1772467200000",
+          "limit": "5"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 5,
+        "sample_fields": "array_row_length=6",
+        "first_timestamp": "2026-02-25T16:00:00+00:00",
+        "last_timestamp": "2026-03-01T16:00:00+00:00",
+        "period": "1D",
+        "max_window_limit": "paginated candles; probe uses limit=5",
+        "can_segment_download": true,
+        "can_cover_2023_2026": true,
+        "usable_for_research": true,
+        "warning": "",
+        "next_step": "segment download index price candles",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Public Data includes index candlesticks history.",
+        "docs_added_date": "",
+        "coverage_probe": {
+          "request_params": {
+            "instId": "BTC-USDT",
+            "bar": "1D",
+            "after": "1672934400000",
+            "limit": "5"
+          },
+          "response_code": 200,
+          "response_ok": true,
+          "row_count": 5,
+          "sample_fields": "array_row_length=6",
+          "first_timestamp": "2022-12-31T16:00:00+00:00",
+          "last_timestamp": "2023-01-04T16:00:00+00:00",
+          "okx_code": "0",
+          "okx_msg": "",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Taker Buy/Sell Volume",
+        "endpoint_path": "/api/v5/rubik/stat/taker-volume",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "ccy": "BTC",
+          "instType": "CONTRACTS",
+          "begin": "1772294400000",
+          "end": "1772380800000",
+          "period": "1D"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 2,
+        "sample_fields": "array_row_length=3",
+        "first_timestamp": "2026-02-28T16:00:00+00:00",
+        "last_timestamp": "2026-03-01T16:00:00+00:00",
+        "period": "1D",
+        "max_window_limit": "begin/end + period; probe uses one day",
+        "can_segment_download": true,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "start_boundary_probe_failed_or_empty",
+        "next_step": "find historical taker volume files or pause this feature",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Trading Statistics taker volume endpoint.",
+        "docs_added_date": "",
+        "coverage_probe": {
+          "request_params": {
+            "ccy": "BTC",
+            "instType": "CONTRACTS",
+            "begin": "1672502400000",
+            "end": "1672588800000",
+            "period": "1D"
+          },
+          "response_code": 200,
+          "response_ok": false,
+          "row_count": 0,
+          "sample_fields": "",
+          "first_timestamp": null,
+          "last_timestamp": null,
+          "okx_code": "50030",
+          "okx_msg": "Illegal time range",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Contract Long/Short Account Ratio",
+        "endpoint_path": "/api/v5/rubik/stat/contracts/long-short-account-ratio",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "ccy": "BTC",
+          "begin": "1772294400000",
+          "end": "1772380800000",
+          "period": "1D"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 2,
+        "sample_fields": "array_row_length=2",
+        "first_timestamp": "2026-02-28T16:00:00+00:00",
+        "last_timestamp": "2026-03-01T16:00:00+00:00",
+        "period": "1D",
+        "max_window_limit": "begin/end + period; probe uses one day",
+        "can_segment_download": true,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "start_boundary_probe_failed_or_empty; docs_added_after_requested_start:2024-06-13",
+        "next_step": "find historical long/short ratio files or pause this feature",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "OKX changelog lists contract open interest history, contract taker volume, and contract long/short ratio as new endpoints on 2024-06-13.",
+        "docs_added_date": "2024-06-13",
+        "coverage_probe": {
+          "request_params": {
+            "ccy": "BTC",
+            "begin": "1672502400000",
+            "end": "1672588800000",
+            "period": "1D"
+          },
+          "response_code": 200,
+          "response_ok": false,
+          "row_count": 0,
+          "sample_fields": "",
+          "first_timestamp": null,
+          "last_timestamp": null,
+          "okx_code": "50030",
+          "okx_msg": "Illegal time range",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Contracts Open Interest and Volume",
+        "endpoint_path": "/api/v5/rubik/stat/contracts/open-interest-volume",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "ccy": "BTC",
+          "begin": "1772294400000",
+          "end": "1772380800000",
+          "period": "1D"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 2,
+        "sample_fields": "array_row_length=3",
+        "first_timestamp": "2026-02-28T16:00:00+00:00",
+        "last_timestamp": "2026-03-01T16:00:00+00:00",
+        "period": "1D",
+        "max_window_limit": "begin/end + period; probe uses one day",
+        "can_segment_download": true,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "start_boundary_probe_failed_or_empty",
+        "next_step": "find historical OI/volume files or pause this feature",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Trading Statistics contracts open interest and volume endpoint.",
+        "docs_added_date": "",
+        "coverage_probe": {
+          "request_params": {
+            "ccy": "BTC",
+            "begin": "1672502400000",
+            "end": "1672588800000",
+            "period": "1D"
+          },
+          "response_code": 200,
+          "response_ok": false,
+          "row_count": 0,
+          "sample_fields": "",
+          "first_timestamp": null,
+          "last_timestamp": null,
+          "okx_code": "50030",
+          "okx_msg": "Illegal time range",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Contract Open Interest History",
+        "endpoint_path": "/api/v5/rubik/stat/contracts/open-interest-history",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instId": "BTC-USDT-SWAP",
+          "begin": "1772294400000",
+          "end": "1772380800000",
+          "period": "1D"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 2,
+        "sample_fields": "array_row_length=4",
+        "first_timestamp": "2026-02-28T16:00:00+00:00",
+        "last_timestamp": "2026-03-01T16:00:00+00:00",
+        "period": "1D",
+        "max_window_limit": "begin/end + period; probe uses one day",
+        "can_segment_download": true,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "start_boundary_probe_failed_or_empty; docs_added_after_requested_start:2024-06-13",
+        "next_step": "find historical open interest files or pause this feature",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "OKX changelog lists contract open interest history, contract taker volume, and contract long/short ratio as new endpoints on 2024-06-13.",
+        "docs_added_date": "2024-06-13",
+        "coverage_probe": {
+          "request_params": {
+            "instId": "BTC-USDT-SWAP",
+            "begin": "1672502400000",
+            "end": "1672588800000",
+            "period": "1D"
+          },
+          "response_code": 200,
+          "response_ok": true,
+          "row_count": 0,
+          "sample_fields": "",
+          "first_timestamp": null,
+          "last_timestamp": null,
+          "okx_code": "0",
+          "okx_msg": "",
+          "error": null
+        }
+      },
+      {
+        "endpoint_name": "Premium History",
+        "endpoint_path": "/api/v5/public/premium-history",
+        "endpoint_available": true,
+        "auth_required": false,
+        "request_params": {
+          "instId": "BTC-USDT-SWAP",
+          "after": "1772467200000",
+          "limit": "5"
+        },
+        "response_code": 200,
+        "response_ok": true,
+        "row_count": 5,
+        "sample_fields": "instId,premium,ts",
+        "first_timestamp": "2026-03-02T15:55:08+00:00",
+        "last_timestamp": "2026-03-02T15:59:01+00:00",
+        "period": "historical probe",
+        "max_window_limit": "paginated history; probe uses limit=5",
+        "can_segment_download": true,
+        "can_cover_2023_2026": false,
+        "usable_for_research": false,
+        "warning": "start_boundary_probe_failed_or_empty",
+        "next_step": "derive basis from mark/index history or import historical files",
+        "failure_reason": "",
+        "okx_code": "0",
+        "okx_msg": "",
+        "docs_note": "Public Data lists premium history; swap coverage must be proven by probe.",
+        "docs_added_date": "",
+        "coverage_probe": {
+          "request_params": {
+            "instId": "BTC-USDT-SWAP",
+            "after": "1672934400000",
+            "limit": "5"
+          },
+          "response_code": 200,
+          "response_ok": true,
+          "row_count": 0,
+          "sample_fields": "",
+          "first_timestamp": null,
+          "last_timestamp": null,
+          "okx_code": "0",
+          "okx_msg": "",
+          "error": null
+        }
+      }
+    ],
+    "reason": "Historical OI/taker/long-short coverage not proven; funding plus mark/index alone is not enough."
+  },
+  "external_regime_classifier_gate_audit_complete": true,
+  "classifier_old_gate_inconsistent": true,
+  "classifier_strict_stable_candidate_exists": false,
+  "can_enter_research_only_v3_1_classifier_experiment": false,
+  "external_classifier_rescued_v3_family": false,
+  "derivatives_data_readiness_audit_complete": true,
+  "can_enter_derivatives_confirmed_trend_research": false,
+  "derivatives_data_blocker": true,
+  "derivatives_missing_historical_features": [
+    "open_interest_history",
+    "taker_buy_sell_volume",
+    "long_short_account_ratio",
+    "contracts_open_interest_volume",
+    "premium_history"
+  ],
+  "derivatives_available_features": [
+    "actual_funding_rate",
+    "funding_dispersion",
+    "funding_sign_breadth",
+    "funding_trend",
+    "mark_index_price_candles"
+  ],
+  "derivatives_research_recommended_next_step": "pause_research",
+  "actual_funding_data_complete": true,
+  "actual_funding_source": "OKX Historical Market Data",
+  "rest_funding_endpoint_partial_only": true,
+  "funding_adjusted_stable_candidate_exists": false,
+  "can_enter_funding_aware_v3_1_research": false,
+  "current_universe_funding_complete": true,
+  "current_v3_family_failed_after_actual_funding": true,
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false,
+  "proceed_to_v3_1_research": false,
+  "current_v3_family_failed": true,
+  "no_policy_can_be_traded": true,
+  "final_strategy_development_allowed": false,
+  "final_demo_live_allowed": false,
+  "final_current_trend_family_archived": true,
+  "final_current_research_archived": true,
+  "proceed_to_broader_universe_research": "optional",
+  "proceed_to_funding_research": "complete_for_current_universe_no_gate_opened",
+  "failed_policy_families": [
+    {
+      "policy_family": "1m Donchian breakout",
+      "status": "failed",
+      "primary_failure": "No stable positive edge; Signal Lab shows short-term breakout behaves like overheat/exhaustion risk.",
+      "evidence": "Original 1m Donchian breakout and alpha diagnostics failed.",
+      "tradable": false
+    },
+    {
+      "policy_family": "1h/15m/5m HTF pullback",
+      "status": "failed",
+      "primary_failure": "No stable HTF policy; pullback/reclaim variants were negative across train/validation/oos.",
+      "evidence": "HTF Signal Research compare rejected Strategy V2 entry.",
+      "tradable": false
+    },
+    {
+      "policy_family": "4h Donchian",
+      "status": "failed",
+      "primary_failure": "No stable candidate; weak validation/OOS behavior and choppy/high_vol_choppy loss exposure.",
+      "evidence": "Trend V3 and regime attribution.",
+      "tradable": false
+    },
+    {
+      "policy_family": "1d Donchian",
+      "status": "failed",
+      "primary_failure": "No stable candidate; OOS fragility and Donchian losses concentrated in choppy/high_vol_choppy.",
+      "evidence": "Extended Trend V3 and Trend Regime Diagnostics.",
+      "tradable": false
+    },
+    {
+      "policy_family": "4h EMA",
+      "status": "failed",
+      "primary_failure": "No stable candidate; OOS no-cost/cost-aware failure.",
+      "evidence": "Trend V3 compare and Extended Trend V3 compare.",
+      "tradable": false
+    },
+    {
+      "policy_family": "1d EMA as currently defined",
+      "status": "failed",
+      "primary_failure": "Best weak lead, but rejected by top trade concentration, funding stress, and regime diagnostics.",
+      "evidence": "v3_1d_ema_50_200_atr5 was not stable and strong-trend no-cost PnL was negative.",
+      "tradable": false
+    },
+    {
+      "policy_family": "vol compression Donchian breakout",
+      "status": "failed",
+      "primary_failure": "No stable candidate; negative across validation/OOS after costs.",
+      "evidence": "Trend V3 compare and Extended Trend V3 compare.",
+      "tradable": false
+    },
+    {
+      "policy_family": "V3 ensemble_core",
+      "status": "failed",
+      "primary_failure": "No stable ensemble edge; inherits failed 4h/1d Donchian and 4h EMA components.",
+      "evidence": "Trend V3 compare and Extended Trend V3 compare.",
+      "tradable": false
+    },
+    {
+      "policy_family": "funding-adjusted V3 family",
+      "status": "failed",
+      "primary_failure": "Actual OKX funding data is complete, but funding-adjusted stable_candidate_exists remains false.",
+      "evidence": "Funding-aware Trend Research actual funding report and Research Decision Dossier final gate.",
+      "tradable": false
+    },
+    {
+      "policy_family": "VSVCB-v1 positive breakout hypothesis",
+      "status": "failed",
+      "primary_failure": "Breakout + squeeze + volume confirmation failed train/validation/OOS and reverse test was stronger than the positive breakout hypothesis.",
+      "evidence": "VSVCB-v1 Phase 1 and postmortem.",
+      "tradable": false
+    }
+  ],
+  "retained_research_hypotheses": [
+    {
+      "hypothesis": "broader universe trend following",
+      "status": "optional_research_only",
+      "reason": "Five-symbol universe may be too narrow for sparse crypto trend regimes, but this is not the recommended main path while the current user scope avoids universe expansion.",
+      "not_allowed_as": "Strategy V3 or demo/live without new evidence."
+    },
+    {
+      "hypothesis": "true funding-aware trend following",
+      "status": "completed_no_gate_opened",
+      "reason": "Actual OKX funding is now complete for the current universe; funding-aware analysis did not create a stable candidate.",
+      "not_allowed_as": "Further funding-only work on the current V3 family."
+    },
+    {
+      "hypothesis": "stronger macro/trend regime classifier",
+      "status": "closed_for_current_v3_family",
+      "reason": "External classifier gate audit found no strict stable candidate; OOS trend_friendly was too sparse and exclude filters did not rescue V3.",
+      "not_allowed_as": "V3.1 rescue or direct trade filter on current V3 family."
+    },
+    {
+      "hypothesis": "longer history beyond 2021 if listing metadata supports it",
+      "status": "conditional_research_only",
+      "reason": "More cycles may be needed, but only if listing metadata and sqlite coverage can be verified.",
+      "not_allowed_as": "Backfill assumption without metadata verification."
+    },
+    {
+      "hypothesis": "1d EMA only as weak research lead",
+      "status": "weak_lead_research_only",
+      "reason": "It is still the only all no-cost positive policy, but actual funding completion did not fix concentration and regime failures.",
+      "not_allowed_as": "Tradable policy or Strategy V3 prototype."
+    },
+    {
+      "hypothesis": "derivatives-confirmed trend following",
+      "status": "data_blocked_research_hypothesis",
+      "reason": "Historical OI/taker/long-short coverage not proven for 2023-2026; funding plus mark/index alone is not enough derivatives confirmation.",
+      "not_allowed_as": "Strategy V3, V3.1, demo/live, or a tradable policy from readiness audit output."
+    }
+  ],
+  "do_not_continue": [
+    {
+      "item": "do not expand current Donchian grid",
+      "reason": "Current Donchian families failed stability and regime attribution."
+    },
+    {
+      "item": "do not trade v3_1d_ema_50_200_atr5",
+      "reason": "Rejected by top trade concentration, funding fragility, and regime diagnostics."
+    },
+    {
+      "item": "do not develop v3_1d_ema_50_200_atr5",
+      "reason": "Actual funding analysis completed, but it is still not a stable strategy candidate."
+    },
+    {
+      "item": "do not continue current V3 family after actual funding completion",
+      "reason": "Funding-aware final gate did not open V3.1 or Strategy V3."
+    },
+    {
+      "item": "do not enter funding-aware V3.1 without a new hypothesis",
+      "reason": "Current V3 family failed after actual funding and regime diagnostics remain blocking."
+    },
+    {
+      "item": "do not enter demo/live",
+      "reason": "No stable candidate and demo_live_allowed=false."
+    },
+    {
+      "item": "do not build Strategy V3 from current results",
+      "reason": "strategy_development_allowed=false."
+    },
+    {
+      "item": "do not continue V3.0 ensemble_core",
+      "reason": "No stable candidate and component families failed."
+    },
+    {
+      "item": "do not optimize 1m breakout",
+      "reason": "Short-term breakout is aligned with overheat/exhaustion risk, not durable trend following."
+    },
+    {
+      "item": "do not continue external regime classifier as V3.1 rescue",
+      "reason": "Gate consistency audit found no strict stable classifier-filtered candidate."
+    },
+    {
+      "item": "do not treat original_all v3_1d_ema_50_200_atr5 as stable",
+      "reason": "OOS top 5% trade contribution is 1.9818, above the 0.8 gate."
+    },
+    {
+      "item": "do not ignore top trade concentration",
+      "reason": "Top-trade concentration is the decisive Extended V3 and classifier gate blocker."
+    },
+    {
+      "item": "do not treat no-cost positive as tradable",
+      "reason": "No-cost positives still fail concentration/funding/regime gates and are not strategy candidates."
+    },
+    {
+      "item": "do not use classifier filters that do not change OOS trade set",
+      "reason": "exclude_hostile_chop_overheated and exclude_funding_overheated did not affect v3_1d_ema_50_200_atr5 OOS trades."
+    },
+    {
+      "item": "do not start derivatives-confirmed trend research without historical OI/taker/long-short coverage",
+      "reason": "Derivatives readiness audit did not prove the required 2023-2026 historical derivatives feature coverage."
+    },
+    {
+      "item": "do not use current open interest snapshot as historical feature",
+      "reason": "The public open-interest endpoint probe is current snapshot only and cannot stand in for 2023-2026 history."
+    },
+    {
+      "item": "do not treat funding alone as derivatives confirmation",
+      "reason": "Funding data is complete, but funding alone does not satisfy the required OI/taker/long-short confirmation mix."
+    },
+    {
+      "item": "do not develop Strategy V3 from derivatives readiness audit",
+      "reason": "Endpoint availability audit is not a strategy result and can_enter_derivatives_confirmed_trend_research=false."
+    }
+  ],
+  "next_research_options": [
+    {
+      "option": "Option A",
+      "name": "Broader universe trend following readiness (optional, not main path)",
+      "prerequisites": "Verified metadata, listing dates, contract specs, liquidity, and 1m sqlite coverage for a materially broader symbol set.",
+      "acceptance_criteria": "Multi-symbol universe passes coverage checks; research design pre-registers stable-candidate criteria before any policy comparison.",
+      "allowed_now": "optional_not_recommended"
+    },
+    {
+      "option": "Option B",
+      "name": "Funding-aware research complete for current universe",
+      "prerequisites": "A new non-V3 policy family or new hypothesis before any further funding-only work.",
+      "acceptance_criteria": "No additional funding-only research unless a new candidate policy family emerges.",
+      "allowed_now": "no"
+    },
+    {
+      "option": "Option C",
+      "name": "classifier-filtered V3.1 continuation",
+      "prerequisites": "Closed for current V3 family.",
+      "acceptance_criteria": "Not applicable; strict gate audit found no stable classifier-filtered candidate.",
+      "allowed_now": "no"
+    },
+    {
+      "option": "Option D",
+      "name": "Pause strategy development and maintain tooling",
+      "prerequisites": "None beyond maintaining data integrity and reproducible reports.",
+      "acceptance_criteria": "No new strategy work starts until a new research premise is documented and approved.",
+      "allowed_now": "yes"
+    },
+    {
+      "option": "Option E",
+      "name": "Derivatives-confirmed trend research",
+      "prerequisites": "historical derivatives metrics coverage proven",
+      "acceptance_criteria": "Historical OI or contracts OI/volume plus taker volume or long/short ratio must cover 2023-2026 without private API keys; funding alone is insufficient.",
+      "allowed_now": "no"
+    },
+    {
+      "option": "Option F",
+      "name": "Third-party/external derivatives data audit",
+      "prerequisites": "user explicitly agrees to external data source or paid/free vendor evaluation",
+      "acceptance_criteria": "External source must provide reproducible 2023-2026 coverage, licensing clarity, and no strategy conclusion before data audit passes.",
+      "allowed_now": "optional"
+    }
+  ],
+  "blocking_reasons": [
+    "no stable candidate",
+    "regime diagnostics rejects V3.1",
+    "demo/live disallowed",
+    "top trade concentration unresolved",
+    "symbol concentration unresolved",
+    "actual OKX funding complete, but funding-adjusted stable_candidate_exists=false",
+    "Extended Trend V3 stable_candidate_exists=false",
+    "Trend Regime Diagnostics proceed_to_v3_1_research=false",
+    "Trend V3 Postmortem proceed_to_v3_1=false",
+    "v3_1d_ema_50_200_atr5 remains a weak lead only, rejected by concentration and regime gates",
+    "External classifier gate audit complete; no strict stable candidate",
+    "Derivatives data readiness blocks derivatives-confirmed trend research",
+    "current five-symbol trend-following family is fully archived"
+  ],
+  "required_next_acceptance_criteria": [
+    "Pre-register train/validation/OOS split, cost model, funding model, concentration gates, and stability gates before running comparisons.",
+    "Every candidate must be positive in train, validation, and OOS on no-cost and remain nonnegative after realistic costs.",
+    "Funding stress must not turn the best OOS candidate negative at realistic bps / 8h assumptions.",
+    "OOS performance must not depend on one symbol, one trade, or top 5% trade contribution above the configured gate.",
+    "Data coverage must remain complete for every included symbol and timeframe.",
+    "Regime attribution must show profits are structurally aligned with trend regimes and losses are controlled outside them.",
+    "Strategy development, demo, and live remain blocked until these gates are met and documented in a new dossier."
+  ],
+  "research_timeline": [
+    {
+      "stage": "1m breakout",
+      "goal": "Test raw short-horizon Donchian breakout as trend-following entry.",
+      "result": "Failed.",
+      "pass_fail": "fail",
+      "key_finding": "Short-term breakout did not produce stable cost-aware edge.",
+      "decision": "Stop optimizing 1m breakout."
+    },
+    {
+      "stage": "Signal Lab",
+      "goal": "Identify features explaining signal outcomes.",
+      "result": "Stable negative risk features found.",
+      "pass_fail": "diagnostic_pass_strategy_fail",
+      "key_finding": "High volatility, ATR, breakout distance, recent return, volume spike, and large body ratio are negative.",
+      "decision": "Treat short-term breakout as overheat/exhaustion risk, not a strategy candidate."
+    },
+    {
+      "stage": "HTF Signal Research",
+      "goal": "Use 1h regime plus 15m structure and 5m pullback/reclaim.",
+      "result": "Failed.",
+      "pass_fail": "fail",
+      "key_finding": "No stable HTF policy across train/validation/oos.",
+      "decision": "Do not enter Strategy V2 from HTF policies."
+    },
+    {
+      "stage": "Trend V2",
+      "goal": "Test single-symbol 1h/4h trend-following families.",
+      "result": "Failed.",
+      "pass_fail": "fail",
+      "key_finding": "No stable candidate.",
+      "decision": "Stop single-symbol V2 direction."
+    },
+    {
+      "stage": "Trend V3",
+      "goal": "Test multi-symbol portfolio-level 4h/1d Donchian/EMA/ensemble policies.",
+      "result": "Failed.",
+      "pass_fail": "fail",
+      "key_finding": "No stable candidate; concentration and OOS fragility remain.",
+      "decision": "Do not build Strategy V3."
+    },
+    {
+      "stage": "Extended V3",
+      "goal": "Retest the same V3.0 policy set on 2023-2026 data.",
+      "result": "Failed.",
+      "pass_fail": "fail",
+      "key_finding": "stable_candidate_exists=false; only 1d EMA had all no-cost splits positive but failed concentration/funding gates.",
+      "decision": "Do not enter V3.1 from extended V3 alone."
+    },
+    {
+      "stage": "Regime Diagnostics",
+      "goal": "Check whether trend regimes exist and whether V3.0 aligned with them.",
+      "result": "Rejected V3.1.",
+      "pass_fail": "fail",
+      "key_finding": "Strong trend share is 4.79%; V3 profits were not mainly from strong trend; 1d EMA strong-regime PnL was negative.",
+      "decision": "proceed_to_v3_1_research=false."
+    },
+    {
+      "stage": "Funding-aware Final Gate",
+      "goal": "Apply complete actual OKX funding to Trend V3 extended trades.",
+      "result": "Completed; gates still closed.",
+      "pass_fail": "data_pass_strategy_fail",
+      "key_finding": "funding_data_complete=true, but funding_adjusted_stable_candidate_exists=false.",
+      "decision": "current_v3_family_failed_after_actual_funding=true."
+    },
+    {
+      "stage": "External Regime Classifier Gate Audit",
+      "goal": "Check whether classifier-filtered V3.1 rescue is consistent with Dossier and Extended V3 strict gates.",
+      "result": "Completed; no strict stable candidate.",
+      "pass_fail": "fail",
+      "key_finding": "Old classifier gate underestimated top-trade concentration; v3_1d_ema_50_200_atr5 OOS top 5% contribution=1.9818.",
+      "decision": "can_enter_research_only_v3_1_classifier_experiment=false."
+    },
+    {
+      "stage": "Derivatives Data Readiness Audit",
+      "goal": "Check whether public/no-key OKX derivatives data can support a new derivatives-confirmed trend hypothesis.",
+      "result": "Completed; data readiness gate blocked.",
+      "pass_fail": "data_fail_research_blocked",
+      "key_finding": "Funding and mark/index candles are available, but historical OI/taker/long-short coverage for 2023-2026 was not proven.",
+      "decision": "can_enter_derivatives_confirmed_trend_research=false."
+    }
+  ],
+  "signal_lab_findings": {
+    "summary": "Short-term breakout features are stable negative risk features, consistent with overheat/exhaustion.",
+    "negative_features": [
+      "recent_volatility_30m",
+      "atr_pct",
+      "breakout_distance_atr",
+      "recent_return_30m",
+      "recent_return_15m",
+      "recent_return_5m",
+      "volume_zscore_30m",
+      "body_ratio"
+    ]
+  },
+  "trend_regime_findings": {
+    "strong_trend_pct": 0.047892074198988194,
+    "choppy_high_vol_pct": 0.3869669959046013,
+    "strongest_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+    "weakest_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+    "one_day_ema_only_strong_effective": false,
+    "one_day_ema_strong_no_cost_pnl": -0.43818000000000007,
+    "one_day_ema_nonstrong_no_cost_pnl": 7.185180000000004,
+    "donchian_losses_mainly_choppy_high_vol": true
+  },
+  "source_reports": [
+    {
+      "key": "main_no_cost_stats",
+      "stage": "1m breakout / original backtest",
+      "path": "reports/backtest/main_no_cost_20250101_20260331/stats.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "start_date",
+        "end_date",
+        "total_days",
+        "profit_days",
+        "loss_days",
+        "capital",
+        "end_balance",
+        "max_drawdown",
+        "max_ddpercent",
+        "max_drawdown_duration",
+        "total_net_pnl",
+        "daily_net_pnl",
+        "total_commission",
+        "daily_commission",
+        "total_slippage",
+        "daily_slippage",
+        "total_turnover",
+        "daily_turnover",
+        "total_trade_count",
+        "daily_trade_count",
+        "total_return",
+        "annual_return",
+        "daily_return",
+        "return_std",
+        "sharpe_ratio",
+        "ewm_sharpe",
+        "return_drawdown_ratio",
+        "rgr_ratio",
+        "warning",
+        "bankrupt"
+      ]
+    },
+    {
+      "key": "main_no_cost_diagnostics",
+      "stage": "1m breakout / original backtest",
+      "path": "reports/backtest/main_no_cost_20250101_20260331/diagnostics.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "bankrupt",
+        "first_bankrupt_date",
+        "final_balance",
+        "min_balance",
+        "max_balance",
+        "total_net_pnl_sum",
+        "total_commission",
+        "total_slippage",
+        "total_turnover",
+        "daily_trade_count_sum",
+        "worst_day",
+        "best_day",
+        "max_daily_loss",
+        "max_daily_profit",
+        "max_drawdown_abs_manual",
+        "max_drawdown_pct_manual",
+        "first_balance_below_50pct_date",
+        "first_balance_below_20pct_date",
+        "missing_columns",
+        "daily_row_count",
+        "initial_capital",
+        "statistics_error",
+        "statistics_total_trade_count",
+        "engine_trade_count",
+        "order_count",
+        "closed_round_trip_count"
+      ]
+    },
+    {
+      "key": "main_cost_stats",
+      "stage": "1m breakout / original backtest",
+      "path": "reports/backtest/main_cost_20250101_20260331/stats.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "start_date",
+        "end_date",
+        "total_days",
+        "profit_days",
+        "loss_days",
+        "capital",
+        "end_balance",
+        "max_drawdown",
+        "max_ddpercent",
+        "max_drawdown_duration",
+        "total_net_pnl",
+        "daily_net_pnl",
+        "total_commission",
+        "daily_commission",
+        "total_slippage",
+        "daily_slippage",
+        "total_turnover",
+        "daily_turnover",
+        "total_trade_count",
+        "daily_trade_count",
+        "total_return",
+        "annual_return",
+        "daily_return",
+        "return_std",
+        "sharpe_ratio",
+        "ewm_sharpe",
+        "return_drawdown_ratio",
+        "rgr_ratio",
+        "warning",
+        "bankrupt"
+      ]
+    },
+    {
+      "key": "alpha_sweep_summary",
+      "stage": "alpha sweep",
+      "path": "reports/alpha_sweep/main_20250101_20260331/sweep_summary.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 322
+    },
+    {
+      "key": "trade_attribution",
+      "stage": "trade attribution",
+      "path": "reports/backtest/main_no_cost_20250101_20260331/trade_attribution/attribution_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 2047
+    },
+    {
+      "key": "signal_outcomes_train",
+      "stage": "signal outcome",
+      "path": "reports/research/trace_train/signal_outcomes/outcome_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 1353
+    },
+    {
+      "key": "signal_outcomes_validation",
+      "stage": "signal outcome",
+      "path": "reports/research/trace_validation/signal_outcomes/outcome_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 1348
+    },
+    {
+      "key": "signal_outcomes_oos",
+      "stage": "signal outcome",
+      "path": "reports/research/trace_oos/signal_outcomes/outcome_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 1353
+    },
+    {
+      "key": "entry_policy_train",
+      "stage": "entry policy",
+      "path": "reports/research/trace_train/entry_policy_research/policy_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 3331
+    },
+    {
+      "key": "entry_policy_validation",
+      "stage": "entry policy",
+      "path": "reports/research/trace_validation/entry_policy_research/policy_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 3321
+    },
+    {
+      "key": "entry_policy_oos",
+      "stage": "entry policy",
+      "path": "reports/research/trace_oos/entry_policy_research/policy_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 3354
+    },
+    {
+      "key": "signal_lab_feature_compare",
+      "stage": "Signal Lab",
+      "path": "reports/research/feature_compare/feature_compare_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 2058
+    },
+    {
+      "key": "htf_compare",
+      "stage": "HTF Signal Research",
+      "path": "reports/research/htf_compare/htf_compare_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 1802
+    },
+    {
+      "key": "trend_v2_compare",
+      "stage": "Trend V2",
+      "path": "reports/research/trend_following_v2_compare/trend_compare_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 441
+    },
+    {
+      "key": "trend_v3_compare",
+      "stage": "Trend V3",
+      "path": "reports/research/trend_following_v3_compare/trend_v3_compare_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 2452
+    },
+    {
+      "key": "trend_v3_postmortem_report",
+      "stage": "Trend V3 Postmortem",
+      "path": "reports/research/trend_following_v3_postmortem/trend_v3_postmortem_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "trend_v3_postmortem_recommendations",
+      "stage": "Trend V3 Postmortem",
+      "path": "reports/research/trend_following_v3_postmortem/v3_1_recommendations.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "proceed_to_v3_1",
+        "decision_rule",
+        "red_flags",
+        "recommended_research_direction",
+        "not_recommended_direction",
+        "strategy_development_allowed",
+        "demo_live_allowed"
+      ]
+    },
+    {
+      "key": "trend_v3_extended_compare_report",
+      "stage": "Extended Trend V3",
+      "path": "reports/research/trend_following_v3_extended_compare/trend_v3_extended_compare_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 3448
+    },
+    {
+      "key": "trend_v3_extended_compare_summary",
+      "stage": "Extended Trend V3",
+      "path": "reports/research/trend_following_v3_extended_compare/trend_v3_extended_compare_summary.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "split_scheme",
+        "split_labels",
+        "split_dirs",
+        "output_dir",
+        "output_files",
+        "stable_candidate_rule",
+        "policy_count",
+        "stable_candidate_exists",
+        "stable_candidates",
+        "all_no_cost_positive_policies",
+        "oos_cost_aware_positive_policies",
+        "oos_cost_aware_nonnegative_policies",
+        "rejected_candidates_with_reasons",
+        "high_largest_symbol_pnl_share_policies",
+        "high_top_5pct_trade_pnl_contribution_policies",
+        "oos_single_symbol_or_tail_trade_dependency_risk",
+        "funding_sensitivity_required",
+        "funding_stress_notice",
+        "funding_bps_per_8h",
+        "funding_stress_policy_names",
+        "funding_stress",
+        "funding_risk_controllable",
+        "funding_robust_stable_candidates",
+        "overfit_risk",
+        "trend_following_v3_failed",
+        "trend_following_v3_extended_failed",
+        "can_enter_v3_1_research",
+        "can_enter_strategy_v3_prototype",
+        "demo_live_allowed"
+      ]
+    },
+    {
+      "key": "trend_regime_report",
+      "stage": "Trend Regime Diagnostics",
+      "path": "reports/research/trend_regime_diagnostics/trend_regime_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 3739
+    },
+    {
+      "key": "trend_regime_recommendations",
+      "stage": "Trend Regime Diagnostics",
+      "path": "reports/research/trend_regime_diagnostics/v3_1_regime_recommendations.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "proceed_to_v3_1_research",
+        "allowed_research_only",
+        "strategy_development_allowed",
+        "demo_live_allowed",
+        "recommended_filters",
+        "recommended_policy_families",
+        "rejected_policy_families",
+        "rationale"
+      ]
+    },
+    {
+      "key": "multisymbol_readiness",
+      "stage": "Data readiness",
+      "path": "reports/research/multisymbol_readiness/multisymbol_readiness_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "extended_history_availability",
+      "stage": "Data readiness",
+      "path": "reports/research/extended_history_availability/extended_history_availability_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "trend_regime_summary",
+      "stage": "Trend Regime Diagnostics",
+      "path": "reports/research/trend_regime_diagnostics/trend_regime_summary.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "generated_at",
+        "inputs",
+        "data_quality_passed",
+        "regime_distribution",
+        "strong_trend_pct",
+        "choppy_high_vol_pct",
+        "strongest_symbol",
+        "weakest_symbol",
+        "strongest_month",
+        "weakest_month",
+        "strongest_quarter",
+        "weakest_quarter",
+        "timeframe_comparison",
+        "trade_warnings",
+        "trade_diagnostics",
+        "answers",
+        "external_v3_constraints",
+        "recommendations",
+        "output_files",
+        "policy_regime_performance_rows"
+      ]
+    },
+    {
+      "key": "trend_regime_data_quality",
+      "stage": "Data readiness",
+      "path": "reports/research/trend_regime_diagnostics/data_quality.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "symbols",
+        "start",
+        "end_display",
+        "end_exclusive",
+        "interval",
+        "timezone",
+        "symbol_coverage",
+        "timeframes",
+        "all_symbols_complete",
+        "silent_skip_symbol"
+      ]
+    },
+    {
+      "key": "actual_funding_report",
+      "stage": "Funding-aware Trend Research",
+      "path": "reports/research/trend_following_v3_actual_funding/actual_funding_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 2915
+    },
+    {
+      "key": "actual_funding_summary",
+      "stage": "Funding-aware Trend Research",
+      "path": "reports/research/trend_following_v3_actual_funding/actual_funding_summary.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "mode",
+        "funding_dir",
+        "trend_v3_extended_dir",
+        "output_dir",
+        "output_files",
+        "alignment_rule",
+        "notional_rule",
+        "signed_mode_assumption",
+        "funding_data_complete",
+        "available_data_only",
+        "funding_missing_inst_ids",
+        "funding_warnings",
+        "symbols_with_funding_gaps",
+        "verify_summary_missing",
+        "verify_incomplete_reason",
+        "missing_before_first_available",
+        "funding_event_coverage_warning",
+        "zero_funding_event_splits_when_incomplete",
+        "verify_summary_path",
+        "trade_count",
+        "policy_count",
+        "oos_best_policy",
+        "oos_best_policy_after_funding",
+        "target_policy",
+        "target_policy_rows",
+        "target_policy_conservative_all_splits_positive",
+        "target_policy_signed_all_splits_positive",
+        "target_policy_conservative_all_splits_positive_available_data_only",
+        "target_policy_signed_all_splits_positive_available_data_only",
+        "funding_adjusted_all_split_positive_policies_conservative"
+      ]
+    },
+    {
+      "key": "funding_verify_report",
+      "stage": "Funding data verification",
+      "path": "reports/research/funding/okx_funding_verify_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 1445
+    },
+    {
+      "key": "funding_verify_summary",
+      "stage": "Funding data verification",
+      "path": "reports/research/funding/okx_funding_verify_summary.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "inst_ids",
+        "funding_dir",
+        "timezone",
+        "start",
+        "end",
+        "start_utc",
+        "end_exclusive_utc",
+        "requested_start",
+        "requested_end",
+        "allow_partial",
+        "funding_data_complete",
+        "incomplete_reason",
+        "first_available_time",
+        "last_available_time",
+        "missing_before_first_available",
+        "endpoint_lower_bound_insufficient",
+        "symbols_with_warnings",
+        "symbols_with_large_gaps",
+        "results"
+      ]
+    },
+    {
+      "key": "historical_funding_download_report",
+      "stage": "Funding data source",
+      "path": "reports/research/funding_historical_download/okx_historical_funding_download_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 1883
+    },
+    {
+      "key": "historical_funding_download_summary",
+      "stage": "Funding data source",
+      "path": "reports/research/funding_historical_download/okx_historical_funding_download_summary.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "status",
+        "dry_run",
+        "inst_ids",
+        "start",
+        "end",
+        "aggregation",
+        "raw_output_dir",
+        "standard_output_dir",
+        "reports_dir",
+        "endpoint_url",
+        "endpoint_available",
+        "funding_module_available",
+        "aggregation_supported",
+        "auth_required",
+        "can_auto_download",
+        "can_cover_2023_2026",
+        "failure_reason",
+        "fallback",
+        "recommended_next_step",
+        "plan_request_count",
+        "downloaded_file_count",
+        "extracted_csv_count",
+        "inst_results",
+        "imports"
+      ]
+    },
+    {
+      "key": "external_regime_gate_audit_report",
+      "stage": "External Regime Classifier Gate Audit",
+      "path": "reports/research/external_regime_classifier_gate_audit/external_regime_gate_audit_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "external_regime_gate_audit_summary",
+      "stage": "External Regime Classifier Gate Audit",
+      "path": "reports/research/external_regime_classifier_gate_audit/external_regime_gate_audit_summary.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "original_all_strict_stable_candidate_like_count",
+        "strict_stable_candidate_like_count",
+        "can_enter_research_only_v3_1_classifier_experiment",
+        "strategy_development_allowed",
+        "demo_live_allowed",
+        "original_all_does_not_bypass_strict_gate",
+        "top_concentration_gate_enforced",
+        "symbol_concentration_gate_enforced",
+        "filter_did_not_affect_oos_count",
+        "filter_did_affect_oos_count",
+        "v3_1d_ema_exclude_filters_did_not_affect_oos",
+        "reason",
+        "classifier_dir",
+        "gate_audit_dir",
+        "required_output_files"
+      ]
+    },
+    {
+      "key": "external_regime_gate_comparison",
+      "stage": "External Regime Classifier Gate Audit",
+      "path": "reports/research/external_regime_classifier_gate_audit/gate_comparison.csv",
+      "exists": true,
+      "included": true,
+      "type": "csv",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "external_regime_filter_trade_set_diff",
+      "stage": "External Regime Classifier Gate Audit",
+      "path": "reports/research/external_regime_classifier_gate_audit/filter_trade_set_diff.csv",
+      "exists": true,
+      "included": true,
+      "type": "csv",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "derivatives_data_readiness_report",
+      "stage": "Derivatives Data Readiness Audit",
+      "path": "reports/research/derivatives_data_readiness/derivatives_data_readiness_report.md",
+      "exists": true,
+      "included": true,
+      "type": "md",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "derivatives_data_readiness_summary",
+      "stage": "Derivatives Data Readiness Audit",
+      "path": "reports/research/derivatives_data_readiness/derivatives_data_readiness.json",
+      "exists": true,
+      "included": true,
+      "type": "json",
+      "json_keys": [
+        "scope",
+        "source_notes",
+        "local_funding",
+        "endpoint_probe_results",
+        "proposed_derivatives_features",
+        "derivatives_data_download_plan",
+        "unavailable_derivatives_features",
+        "decision"
+      ]
+    },
+    {
+      "key": "derivatives_endpoint_probe_results",
+      "stage": "Derivatives Data Readiness Audit",
+      "path": "reports/research/derivatives_data_readiness/endpoint_probe_results.csv",
+      "exists": true,
+      "included": true,
+      "type": "csv",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "derivatives_proposed_features",
+      "stage": "Derivatives Data Readiness Audit",
+      "path": "reports/research/derivatives_data_readiness/proposed_derivatives_features.csv",
+      "exists": true,
+      "included": true,
+      "type": "csv",
+      "excerpt_chars": 4000
+    },
+    {
+      "key": "derivatives_unavailable_features",
+      "stage": "Derivatives Data Readiness Audit",
+      "path": "reports/research/derivatives_data_readiness/unavailable_derivatives_features.csv",
+      "exists": true,
+      "included": true,
+      "type": "csv",
+      "excerpt_chars": 1086
+    }
+  ],
+  "warnings": [],
+  "output_files": [
+    "research_decision_dossier.md",
+    "research_decision_dossier.json",
+    "failed_policy_families.csv",
+    "retained_research_hypotheses.csv",
+    "do_not_continue_list.csv",
+    "next_research_options.csv"
+  ]
+}

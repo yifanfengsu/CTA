@@ -1,0 +1,83 @@
+{"ts": "2026-05-04T09:08:41.703182+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "Applied temporary strategy setting overrides", "event": "backtest.strategy_setting_override", "fields": {"setting_overrides": {"entry_filter_tag": "thursday_only", "entry_weekday_allowlist": "3"}}}
+{"ts": "2026-05-04T09:08:41.703430+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "Filled strategy placeholders from instrument metadata / CLI capital", "event": "backtest.strategy_setting_filled", "fields": {"replacements": {"contract_size": 0.01, "min_volume": 0.01, "pricetick": 0.1}}}
+{"ts": "2026-05-04T09:08:41.704762+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "Configured vn.py database settings for sqlite", "event": "backtest.db_settings", "fields": {"database_name": "sqlite", "database_database": "database.db"}}
+Backtest data check:
+{
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "interval": "1m",
+  "timezone": "Asia/Shanghai",
+  "start": "2025-10-01T00:00:00+08:00",
+  "end_exclusive": "2026-01-01T00:00:00+08:00",
+  "end_display": "2025-12-31T23:59:00+08:00",
+  "start_utc": "2025-09-30T16:00:00+00:00",
+  "end_exclusive_utc": "2025-12-31T16:00:00+00:00",
+  "total_count": 132480,
+  "first_dt": "2025-10-01T00:00:00+08:00",
+  "last_dt": "2025-12-31T23:59:00+08:00",
+  "first_dt_utc": "2025-09-30T16:00:00+00:00",
+  "last_dt_utc": "2025-12-31T15:59:00+00:00",
+  "expected_count": 132480,
+  "missing_count": 0,
+  "gap_count": 0,
+  "largest_gap": null,
+  "missing_ranges": [],
+  "repair_command": "python scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2025-10-01 --end 2025-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto",
+  "skipped": false,
+  "strict": true
+}
+{"ts": "2026-05-04T09:08:46.545059+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "Backtest data check passed", "event": "backtest.data_check_complete", "fields": {"total_count": 132480}}
+{"ts": "2026-05-04T09:08:46.546165+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "Starting backtest", "event": "backtest.start", "fields": {"vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL", "timezone": "Asia/Shanghai", "start": "2025-10-01T00:00:00+08:00", "end_exclusive": "2026-01-01T00:00:00+08:00", "end_display": "2025-12-31T23:59:00+08:00", "engine_start": "2025-10-01T00:00:00", "engine_end": "2025-12-31T23:59:00", "capital": 5000.0, "rate": 0.0005, "absolute_slippage": 0.2, "size": 0.01, "pricetick": 0.1, "min_volume": 0.01}}
+{"ts": "2026-05-04T09:08:46.546465+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "开始加载历史数据", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:46.546629+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：# [0%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:46.937697+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：# [10%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:47.351389+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：## [20%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:47.715339+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：### [30%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:48.146057+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：#### [40%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:48.602965+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：##### [49%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:49.003404+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：###### [59%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:49.440202+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：####### [69%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:49.892135+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：######## [79%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:50.262198+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：######### [89%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:50.733518+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "加载进度：########## [99%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:50.828836+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "历史数据加载完成，数据量：132480", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:51.727154+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "策略初始化完成", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:51.727390+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "开始回放历史数据", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:52.182673+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：= [0%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:52.612327+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：== [10%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:53.109187+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：=== [20%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:53.553027+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：==== [30%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:54.015727+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：===== [40%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:54.458267+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：====== [50%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:54.929038+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：======= [60%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:55.405045+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：======== [70%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:55.876988+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：========= [80%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:56.323391+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "回放进度：========== [90%]", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:56.323659+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "历史数据回放结束", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:56.323967+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "开始计算逐日盯市盈亏", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:56.326542+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "逐日盯市盈亏计算完成", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:56.335979+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "开始计算策略统计指标", "event": "backtest.engine"}
+{"ts": "2026-05-04T09:08:56.340677+00:00", "level": "INFO", "logger": "backtest_okx_mhf", "message": "策略统计指标计算完成", "event": "backtest.engine"}
+Backtest summary:
+{
+  "warning": "标准 vn.py CTA BacktestingEngine 未自动计入 OKX perpetual funding fee，本结果仅包含价格盈亏、手续费、滑点等常规项。",
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/validation/candidates/08_thursday_only/cost",
+  "bankrupt": false,
+  "statistics_valid": true,
+  "invalid_reason": null,
+  "first_bankrupt_date": null,
+  "min_balance": 4998.749772255,
+  "final_balance": 4998.75464603,
+  "engine_trade_count": 246,
+  "closed_round_trip_count": 123,
+  "order_count": 251,
+  "total_net_pnl": -1.2453539700000067,
+  "annual_return": -0.06497498973914355,
+  "max_drawdown": -1.250227745000302,
+  "max_ddpercent": -0.025004554900006044,
+  "sharpe_ratio": -3.2638314978970215,
+  "return_drawdown_ratio": -0.9961016902564024,
+  "win_rate": 39.02439024390244,
+  "profit_loss_ratio": 1.5514047501957942,
+  "statistics_total_trade_count": 246,
+  "export_errors": {}
+}

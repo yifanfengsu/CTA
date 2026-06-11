@@ -1,0 +1,8 @@
+exit_variant,oracle,trade_count,funding_pnl,funding_events_count,funding_adjusted_pnl,funding_data_complete
+health_drawdown_only,False,3951,-10.058304586603871,99413,-42.19073941160384,True
+health_ema20_core,False,3951,-4.896023769787909,40014,-27.410398594787843,True
+health_ema50_core,False,3951,-7.427192239400258,63929,-9.302897064400211,True
+health_energy_confirmed,False,3951,-4.886101296063239,41173,-27.38437612106318,True
+health_no_energy,False,3951,-3.7151227438308005,24419,-37.02598756883075,True
+original_exit,False,3951,-9.678795509501299,71435,-60.48851033450125,True
+oracle_hold_to_trend_end,True,3951,-9.146697721342573,112716,-192.7504725463425,True

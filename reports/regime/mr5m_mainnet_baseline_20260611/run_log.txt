@@ -1,0 +1,55 @@
+baseline run started: 2026-06-10T23:55:52Z
+loaded BTC: 1m=1791360 5m=358272
+loaded ETH: 1m=1791360 5m=358272
+loaded SOL: 1m=1791360 5m=358272
+loaded LINK: 1m=1791360 5m=358272
+loaded DOGE: 1m=1791360 5m=358272
+{
+  "BTC": {
+    "A_legacy_demo_derived": 81.5,
+    "B_mainnet_p40_train": 60.65457000885175,
+    "B_over_A": 0.7442278528693466,
+    "pass_rate_A_on_mainnet": 0.591146603844157,
+    "pass_rate_B_on_mainnet": 0.7055892680693802
+  },
+  "ETH": {
+    "A_legacy_demo_derived": 4.64,
+    "B_mainnet_p40_train": 3.864448585394444,
+    "B_over_A": 0.8328552985763888,
+    "pass_rate_A_on_mainnet": 0.5765370208062346,
+    "pass_rate_B_on_mainnet": 0.6719766202010842
+  },
+  "SOL": {
+    "A_legacy_demo_derived": 0.245,
+    "B_mainnet_p40_train": 0.23748061281433674,
+    "B_over_A": 0.9693086237319868,
+    "pass_rate_A_on_mainnet": 0.6477315230922966,
+    "pass_rate_B_on_mainnet": 0.6559909339079658
+  },
+  "LINK": {
+    "A_legacy_demo_derived": 0.0212,
+    "B_mainnet_p40_train": 0.028552764626708558,
+    "B_over_A": 1.346828520127762,
+    "pass_rate_A_on_mainnet": 0.7470035560964444,
+    "pass_rate_B_on_mainnet": 0.6234501392850962
+  },
+  "DOGE": {
+    "A_legacy_demo_derived": 0.0002,
+    "B_mainnet_p40_train": 0.00023579108477711646,
+    "B_over_A": 1.1789554238855822,
+    "pass_rate_A_on_mainnet": 0.7420769389657733,
+    "pass_rate_B_on_mainnet": 0.6728726225234328
+  }
+}
+C1_no_filter: full n=91276 net=$-103,822 pf=0.814 dd=$103,926 | test n=30586 net=$-34,114 pf=0.807 dd=$34,256
+C2_legacy_thresholds: full n=63404 net=$-66,894 pf=0.850 dd=$67,234 | test n=25435 net=$-27,737 pf=0.826 dd=$27,865
+C3_mainnet_p40: full n=63518 net=$-65,937 pf=0.850 dd=$66,629 | test n=25337 net=$-27,823 pf=0.823 dd=$27,938
+attribution: {
+  "net_change": -216964.0062,
+  "net_ratio": -0.14657829221120114,
+  "pf_change": -1.235290244354507,
+  "n_change": 4137,
+  "mean_pnl_change": -9.975190513072539
+}
+done
+baseline run finished: 2026-06-11T00:02:39Z

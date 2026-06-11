@@ -1,0 +1,122 @@
+{
+  "R1_X1.0_N12h": {
+    "v2B_virtual_blocked_pnl": 44091.0,
+    "FLAT_virtual_blocked_pnl": 29112.0,
+    "v2B_blocked": 786,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X1.0_N24h": {
+    "v2B_virtual_blocked_pnl": 41804.0,
+    "FLAT_virtual_blocked_pnl": 29180.0,
+    "v2B_blocked": 844,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X1.5_N12h": {
+    "v2B_virtual_blocked_pnl": 43533.0,
+    "FLAT_virtual_blocked_pnl": 28696.0,
+    "v2B_blocked": 674,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X1.5_N24h": {
+    "v2B_virtual_blocked_pnl": 45057.0,
+    "FLAT_virtual_blocked_pnl": 27867.0,
+    "v2B_blocked": 837,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X2.0_N12h": {
+    "v2B_virtual_blocked_pnl": 42039.0,
+    "FLAT_virtual_blocked_pnl": 28339.0,
+    "v2B_blocked": 517,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X2.0_N24h": {
+    "v2B_virtual_blocked_pnl": 42148.0,
+    "FLAT_virtual_blocked_pnl": 27094.0,
+    "v2B_blocked": 576,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X3.0_N12h": {
+    "v2B_virtual_blocked_pnl": 32778.0,
+    "FLAT_virtual_blocked_pnl": 20210.0,
+    "v2B_blocked": 346,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R1_X3.0_N24h": {
+    "v2B_virtual_blocked_pnl": 32561.0,
+    "FLAT_virtual_blocked_pnl": 19307.0,
+    "v2B_blocked": 381,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R2_K2": {
+    "v2B_virtual_blocked_pnl": 27354.0,
+    "FLAT_virtual_blocked_pnl": 16883.0,
+    "v2B_blocked": 3398,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R2_K3": {
+    "v2B_virtual_blocked_pnl": 5776.0,
+    "FLAT_virtual_blocked_pnl": 3654.0,
+    "v2B_blocked": 877,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R2_K4": {
+    "v2B_virtual_blocked_pnl": 146.0,
+    "FLAT_virtual_blocked_pnl": 118.0,
+    "v2B_blocked": 128,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M3_D1": {
+    "v2B_virtual_blocked_pnl": 6571.0,
+    "FLAT_virtual_blocked_pnl": 3342.0,
+    "v2B_blocked": 2355,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M3_D2": {
+    "v2B_virtual_blocked_pnl": 4919.0,
+    "FLAT_virtual_blocked_pnl": 1690.0,
+    "v2B_blocked": 1127,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M3_D3": {
+    "v2B_virtual_blocked_pnl": 2602.0,
+    "FLAT_virtual_blocked_pnl": 1746.0,
+    "v2B_blocked": 1222,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M4_D1": {
+    "v2B_virtual_blocked_pnl": -82.0,
+    "FLAT_virtual_blocked_pnl": -387.0,
+    "v2B_blocked": 759,
+    "interpretation": "\u62e6\u574f\u7684(blocked net-losing)"
+  },
+  "R3_M4_D2": {
+    "v2B_virtual_blocked_pnl": 113.0,
+    "FLAT_virtual_blocked_pnl": -191.0,
+    "v2B_blocked": 334,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M4_D3": {
+    "v2B_virtual_blocked_pnl": 169.0,
+    "FLAT_virtual_blocked_pnl": -135.0,
+    "v2B_blocked": 429,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M5_D1": {
+    "v2B_virtual_blocked_pnl": 407.0,
+    "FLAT_virtual_blocked_pnl": 137.0,
+    "v2B_blocked": 175,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M5_D2": {
+    "v2B_virtual_blocked_pnl": 351.0,
+    "FLAT_virtual_blocked_pnl": 81.0,
+    "v2B_blocked": 80,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  },
+  "R3_M5_D3": {
+    "v2B_virtual_blocked_pnl": 407.0,
+    "FLAT_virtual_blocked_pnl": 137.0,
+    "v2B_blocked": 175,
+    "interpretation": "\u8bef\u4f24(blocked profitable)"
+  }
+}

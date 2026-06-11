@@ -1,0 +1,261 @@
+{
+  "hypothesis": "MR-v1 Phase 2: parameter sweep and robustness",
+  "version": "v2.0",
+  "plateau": {
+    "plateau_found": true,
+    "best_combination": {
+      "lookback": 8,
+      "atr_mult": 1.0,
+      "max_hold": 60
+    },
+    "best_oos_pnl": 5856.372071375358,
+    "best_train_pnl": 19354.44801536877,
+    "best_validation_pnl": 7741.921206470922,
+    "plateau_count": 26,
+    "plateau_lookback_range": [
+      8,
+      15
+    ],
+    "plateau_atr_range": [
+      1.0,
+      3.0
+    ],
+    "plateau_hold_range": [
+      50,
+      80
+    ],
+    "all_results": [
+      {
+        "lookback": 8,
+        "atr_mult": 1.0,
+        "max_hold": 60,
+        "oos_pnl": 5856.372071375358,
+        "train_pnl": 19354.44801536877,
+        "validation_pnl": 7741.921206470922
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.5,
+        "max_hold": 60,
+        "oos_pnl": 5761.682481995604,
+        "train_pnl": 21382.603798149456,
+        "validation_pnl": 6888.671253727809
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.0,
+        "max_hold": 65,
+        "oos_pnl": 5734.753278185832,
+        "train_pnl": 21344.478869331444,
+        "validation_pnl": 7846.14597402666
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 2.5,
+        "max_hold": 60,
+        "oos_pnl": 5728.178138655352,
+        "train_pnl": 19517.878058953953,
+        "validation_pnl": 5338.293676348254
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.0,
+        "max_hold": 80,
+        "oos_pnl": 5631.538273049363,
+        "train_pnl": 22071.692403251953,
+        "validation_pnl": 7874.340426342768
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.0,
+        "max_hold": 55,
+        "oos_pnl": 5620.3159455210425,
+        "train_pnl": 19173.526040901066,
+        "validation_pnl": 7759.6575237521865
+      },
+      {
+        "lookback": 15,
+        "atr_mult": 3.0,
+        "max_hold": 60,
+        "oos_pnl": 5580.900570020216,
+        "train_pnl": 10325.560634725032,
+        "validation_pnl": 3241.1755536876935
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.5,
+        "max_hold": 55,
+        "oos_pnl": 5546.436034414521,
+        "train_pnl": 21462.06319268374,
+        "validation_pnl": 6887.212293634893
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.0,
+        "max_hold": 70,
+        "oos_pnl": 5532.763394729514,
+        "train_pnl": 22030.521924858713,
+        "validation_pnl": 7447.697087753494
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 2.5,
+        "max_hold": 55,
+        "oos_pnl": 5484.3803548811275,
+        "train_pnl": 20111.85075925234,
+        "validation_pnl": 5884.491477182748
+      },
+      {
+        "lookback": 10,
+        "atr_mult": 1.0,
+        "max_hold": 60,
+        "oos_pnl": 5431.6692173890715,
+        "train_pnl": 16815.246801514433,
+        "validation_pnl": 5237.328312557539
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.5,
+        "max_hold": 65,
+        "oos_pnl": 5345.394841512686,
+        "train_pnl": 23330.338570854838,
+        "validation_pnl": 6929.03659165101
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 2.5,
+        "max_hold": 65,
+        "oos_pnl": 5325.013580244602,
+        "train_pnl": 21585.58976871804,
+        "validation_pnl": 5823.618394379469
+      },
+      {
+        "lookback": 10,
+        "atr_mult": 1.0,
+        "max_hold": 65,
+        "oos_pnl": 5228.138289287631,
+        "train_pnl": 18806.531596018733,
+        "validation_pnl": 5444.148793029612
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.5,
+        "max_hold": 50,
+        "oos_pnl": 5208.081531537608,
+        "train_pnl": 21416.805142190737,
+        "validation_pnl": 7002.96983806858
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 1.5,
+        "max_hold": 80,
+        "oos_pnl": 5206.618103602446,
+        "train_pnl": 24305.812787933635,
+        "validation_pnl": 6989.8801277139855
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 3.0,
+        "max_hold": 60,
+        "oos_pnl": 5194.687303421957,
+        "train_pnl": 19195.587724404537,
+        "validation_pnl": 5272.874701151044
+      },
+      {
+        "lookback": 10,
+        "atr_mult": 1.0,
+        "max_hold": 55,
+        "oos_pnl": 5157.353085196324,
+        "train_pnl": 16600.90475099467,
+        "validation_pnl": 5277.512111587952
+      },
+      {
+        "lookback": 12,
+        "atr_mult": 1.0,
+        "max_hold": 60,
+        "oos_pnl": 5101.823124769742,
+        "train_pnl": 14211.13781700263,
+        "validation_pnl": 4556.719623834873
+      },
+      {
+        "lookback": 8,
+        "atr_mult": 2.5,
+        "max_hold": 80,
+        "oos_pnl": 5092.209323030311,
+        "train_pnl": 21973.935329103835,
+        "validation_pnl": 5502.442537352173
+      }
+    ]
+  },
+  "random_control": {
+    "seeds": [
+      {
+        "seed": 42,
+        "oos_pnl": 2033.8935079373634,
+        "pass": true
+      },
+      {
+        "seed": 99,
+        "oos_pnl": 2566.5709230140124,
+        "pass": true
+      },
+      {
+        "seed": 137,
+        "oos_pnl": 3173.062579494222,
+        "pass": true
+      },
+      {
+        "seed": 256,
+        "oos_pnl": 3493.893017589505,
+        "pass": true
+      },
+      {
+        "seed": 512,
+        "oos_pnl": 3182.604360362235,
+        "pass": true
+      }
+    ],
+    "all_pass": true,
+    "worst_oos": 2033.8935079373634
+  },
+  "symbol_pnl": {
+    "BTCUSDT_SWAP_OKX.GLOBAL": {
+      "train": 1174.548261917099,
+      "validation": 888.8480480178857,
+      "oos": 906.42792243936,
+      "trade_count": 58
+    },
+    "ETHUSDT_SWAP_OKX.GLOBAL": {
+      "train": 946.2406722042363,
+      "validation": 1728.619139850641,
+      "oos": 2457.5204746997247,
+      "trade_count": 45
+    },
+    "SOLUSDT_SWAP_OKX.GLOBAL": {
+      "train": 11406.343610757236,
+      "validation": 1346.023840866584,
+      "oos": 738.3040690637084,
+      "trade_count": 47
+    },
+    "LINKUSDT_SWAP_OKX.GLOBAL": {
+      "train": 2692.109209964808,
+      "validation": 2375.447117117829,
+      "oos": 1174.1401767548762,
+      "trade_count": 46
+    },
+    "DOGEUSDT_SWAP_OKX.GLOBAL": {
+      "train": 3135.2062605253864,
+      "validation": 1402.983060617983,
+      "oos": 579.979428417689,
+      "trade_count": 52
+    }
+  },
+  "gates": {
+    "plateau_found": true,
+    "random_control_all_pass": true,
+    "symbol_diversification": true,
+    "can_enter_phase3": true,
+    "strategy_development_allowed": false,
+    "demo_live_allowed": false
+  }
+}

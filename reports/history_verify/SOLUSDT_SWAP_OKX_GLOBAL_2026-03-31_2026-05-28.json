@@ -1,0 +1,21 @@
+{
+  "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+  "interval": "1m",
+  "timezone": "Asia/Shanghai",
+  "start": "2026-03-31T00:00:00+08:00",
+  "end_exclusive": "2026-05-29T00:00:00+08:00",
+  "end_display": "2026-05-28T23:59:00+08:00",
+  "start_utc": "2026-03-30T16:00:00+00:00",
+  "end_exclusive_utc": "2026-05-28T16:00:00+00:00",
+  "total_count": 84960,
+  "first_dt": "2026-03-31T00:00:00+08:00",
+  "last_dt": "2026-05-28T23:59:00+08:00",
+  "first_dt_utc": "2026-03-30T16:00:00+00:00",
+  "last_dt_utc": "2026-05-28T15:59:00+00:00",
+  "expected_count": 84960,
+  "missing_count": 0,
+  "gap_count": 0,
+  "largest_gap": null,
+  "missing_ranges": [],
+  "repair_command": "python scripts/download_okx_history.py --vt-symbol SOLUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2026-03-31 --end 2026-05-28 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+}

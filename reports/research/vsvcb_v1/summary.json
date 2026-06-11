@@ -1,0 +1,299 @@
+{
+  "hypothesis_name": "Volatility Squeeze with Volume Confirmation Breakout",
+  "version": "v1.0",
+  "status": "research_only",
+  "phase": "phase1_event_and_fixed_hold",
+  "start": "2023-01-01T00:00:00+08:00",
+  "end_exclusive": "2026-04-01T00:00:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "timeframes": [
+    "15m",
+    "30m",
+    "1h"
+  ],
+  "parameters": "VsvcbConfig(bb_length=20, bb_std=2.0, bb_width_lookback=200, squeeze_quantile=0.2, breakout_window=20, volume_ma_window=20, volume_ratio=1.5, hold_bars=10, event_horizons=(3, 5, 10, 20), fixed_notional=1000.0, fee_bps_per_side=5.0, slippage_bps_per_side=5.0)",
+  "split_dates": {
+    "train_start": "2023-01-01T00:00:00+08:00",
+    "train_end": "2024-12-12T14:24:00+08:00",
+    "validation_start": "2024-12-12T14:24:00+08:00",
+    "validation_end": "2025-08-06T19:12:00+08:00",
+    "oos_start": "2025-08-06T19:12:00+08:00",
+    "oos_end": "2026-04-01T00:00:00+08:00"
+  },
+  "event_counts": {
+    "A": 31649,
+    "B": 7904,
+    "C": 19213,
+    "D": 4928,
+    "E": 4928
+  },
+  "trade_counts": {
+    "A": 17155,
+    "B": 5963,
+    "C": 12403,
+    "D": 4220,
+    "E": 4220
+  },
+  "funding_data_complete": true,
+  "funding_missing_inst_ids": [],
+  "final_decision": "postmortem",
+  "train_pass": false,
+  "validation_pass": false,
+  "oos_pass": false,
+  "cost_aware_pass": false,
+  "funding_adjusted_pass": false,
+  "trade_count_pass": true,
+  "concentration_pass": false,
+  "reverse_test_pass": false,
+  "ablation_pass": true,
+  "continue_to_phase2": false,
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false,
+  "official_strategy_modified": false,
+  "no_policy_can_be_traded": true,
+  "gates": {
+    "train_pass": false,
+    "validation_pass": false,
+    "oos_pass": false,
+    "cost_aware_pass": false,
+    "funding_adjusted_pass": false,
+    "trade_count_pass": true,
+    "concentration_pass": false,
+    "reverse_test_pass": false,
+    "ablation_pass": true,
+    "train_no_cost_pnl": -4030.658001120818,
+    "validation_no_cost_pnl": -6083.4356056708075,
+    "oos_no_cost_pnl": -2496.626039435011,
+    "oos_cost_aware_pnl": -3512.626039435011,
+    "oos_funding_adjusted_pnl": -3511.6987233856235,
+    "trade_counts": {
+      "train": 1651,
+      "validation": 387,
+      "oos": 508
+    },
+    "largest_symbol_pnl_share": 0.43509105871613385,
+    "largest_symbol_pnl_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+    "largest_symbol_trade_count_share": 0.41338582677165353,
+    "largest_symbol_trade_count_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+    "top_5pct_trade_pnl_contribution": -0.2605158554178678,
+    "top_5pct_trade_pnl": 914.8531968926397,
+    "top_5pct_trade_count": 26,
+    "max_drawdown": 3537.5417752112107,
+    "max_drawdown_pct": 3.475524194236596,
+    "baseline_comparison": [
+      {
+        "baseline_group": "A",
+        "d_oos_no_cost_pnl": -2496.626039435011,
+        "baseline_oos_no_cost_pnl": -13396.712292843004,
+        "d_better": true
+      },
+      {
+        "baseline_group": "B",
+        "d_oos_no_cost_pnl": -2496.626039435011,
+        "baseline_oos_no_cost_pnl": -2844.4549911167765,
+        "d_better": true
+      },
+      {
+        "baseline_group": "C",
+        "d_oos_no_cost_pnl": -2496.626039435011,
+        "baseline_oos_no_cost_pnl": -9754.58008415792,
+        "d_better": true
+      }
+    ],
+    "continue_to_phase2": false,
+    "final_decision": "postmortem"
+  },
+  "data_quality": {
+    "start": "2023-01-01T00:00:00+08:00",
+    "end_exclusive": "2026-04-01T00:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "data_check_strict": true,
+    "expected_1m_count": 1707840,
+    "symbols": [
+      {
+        "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "one_minute": {
+          "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "1m",
+          "expected_count": 1707840,
+          "row_count": 1707840,
+          "unique_count": 1707840,
+          "duplicate_count": 0,
+          "missing_count": 0,
+          "unexpected_count": 0,
+          "first_datetime": "2023-01-01T00:00:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true,
+          "missing_ranges_sample": []
+        },
+        "timeframes": {
+          "15m": {
+            "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "15m",
+            "expected_closed_bar_count": 113856,
+            "row_count": 113856,
+            "first_datetime": "2023-01-01T00:14:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          },
+          "30m": {
+            "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "30m",
+            "expected_closed_bar_count": 56928,
+            "row_count": 56928,
+            "first_datetime": "2023-01-01T00:29:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          },
+          "1h": {
+            "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "1h",
+            "expected_closed_bar_count": 28464,
+            "row_count": 28464,
+            "first_datetime": "2023-01-01T00:59:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          }
+        }
+      },
+      {
+        "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "one_minute": {
+          "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "1m",
+          "expected_count": 1707840,
+          "row_count": 1707840,
+          "unique_count": 1707840,
+          "duplicate_count": 0,
+          "missing_count": 0,
+          "unexpected_count": 0,
+          "first_datetime": "2023-01-01T00:00:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true,
+          "missing_ranges_sample": []
+        },
+        "timeframes": {
+          "15m": {
+            "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "15m",
+            "expected_closed_bar_count": 113856,
+            "row_count": 113856,
+            "first_datetime": "2023-01-01T00:14:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          },
+          "30m": {
+            "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "30m",
+            "expected_closed_bar_count": 56928,
+            "row_count": 56928,
+            "first_datetime": "2023-01-01T00:29:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          },
+          "1h": {
+            "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "1h",
+            "expected_closed_bar_count": 28464,
+            "row_count": 28464,
+            "first_datetime": "2023-01-01T00:59:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          }
+        }
+      },
+      {
+        "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "one_minute": {
+          "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+          "timeframe": "1m",
+          "expected_count": 1707840,
+          "row_count": 1707840,
+          "unique_count": 1707840,
+          "duplicate_count": 0,
+          "missing_count": 0,
+          "unexpected_count": 0,
+          "first_datetime": "2023-01-01T00:00:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true,
+          "missing_ranges_sample": []
+        },
+        "timeframes": {
+          "15m": {
+            "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "15m",
+            "expected_closed_bar_count": 113856,
+            "row_count": 113856,
+            "first_datetime": "2023-01-01T00:14:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          },
+          "30m": {
+            "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "30m",
+            "expected_closed_bar_count": 56928,
+            "row_count": 56928,
+            "first_datetime": "2023-01-01T00:29:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          },
+          "1h": {
+            "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+            "timeframe": "1h",
+            "expected_closed_bar_count": 28464,
+            "row_count": 28464,
+            "first_datetime": "2023-01-01T00:59:00+08:00",
+            "last_datetime": "2026-03-31T23:59:00+08:00",
+            "complete": true
+          }
+        }
+      }
+    ],
+    "funding": {
+      "funding_data_complete": true,
+      "records": {
+        "BTC-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:00+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "ETH-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:01+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "SOL-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:12+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        }
+      },
+      "missing_inst_ids": []
+    },
+    "all_market_data_complete": true
+  },
+  "warnings": [
+    "skipped_events_with_insufficient_future_bars=11",
+    "skipped_events_due_to_single_position_filter=24650"
+  ]
+}

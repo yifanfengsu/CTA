@@ -1,0 +1,28 @@
+{
+  "proceed_to_v3_1": false,
+  "decision_rule": "Research-only V3.1 requires stable candidate or 1d EMA potential without hard concentration/tail/funding failures.",
+  "red_flags": [
+    "no_stable_candidate",
+    "validation_no_cost_negative",
+    "symbol_concentration_high",
+    "top_trade_concentration_high",
+    "remove_top_1_turns_nonpositive",
+    "remove_top_5pct_turns_nonpositive",
+    "funding_5bps_turns_nonpositive",
+    "funding_10bps_turns_nonpositive"
+  ],
+  "recommended_research_direction": [
+    "stop_current_v3_family",
+    "extend_history_before_v3_1",
+    "add_stronger_trend_regime_filter",
+    "keep_1d_ema_but_fix_concentration"
+  ],
+  "not_recommended_direction": [
+    "reduce_4h_donchian_family",
+    "do_not_expand_parameter_search",
+    "do_not_enter_demo_live",
+    "do_not_develop_strategy_v3_from_current_results"
+  ],
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false
+}

@@ -1,0 +1,228 @@
+{
+  "requested_symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL",
+    "LINKUSDT_SWAP_OKX.GLOBAL",
+    "DOGEUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "ready_symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL",
+    "LINKUSDT_SWAP_OKX.GLOBAL",
+    "DOGEUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "skipped_symbols": [],
+  "symbol_coverage": {
+    "BTCUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 132480,
+      "total_count": 132480,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-10-01T00:00:00+08:00",
+      "last_dt": "2025-12-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true,
+      "metadata_complete": true,
+      "timeframes": {
+        "1m": {
+          "timeframe": "1m",
+          "bar_count": 132480,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1
+        },
+        "1h": {
+          "timeframe": "1h",
+          "bar_count": 2208,
+          "first_dt": "2025-10-01T00:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 60
+        },
+        "4h": {
+          "timeframe": "4h",
+          "bar_count": 552,
+          "first_dt": "2025-10-01T03:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 240
+        },
+        "1d": {
+          "timeframe": "1d",
+          "bar_count": 92,
+          "first_dt": "2025-10-01T23:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1440
+        }
+      }
+    },
+    "ETHUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 132480,
+      "total_count": 132480,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-10-01T00:00:00+08:00",
+      "last_dt": "2025-12-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true,
+      "metadata_complete": true,
+      "timeframes": {
+        "1m": {
+          "timeframe": "1m",
+          "bar_count": 132480,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1
+        },
+        "1h": {
+          "timeframe": "1h",
+          "bar_count": 2208,
+          "first_dt": "2025-10-01T00:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 60
+        },
+        "4h": {
+          "timeframe": "4h",
+          "bar_count": 552,
+          "first_dt": "2025-10-01T03:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 240
+        },
+        "1d": {
+          "timeframe": "1d",
+          "bar_count": 92,
+          "first_dt": "2025-10-01T23:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1440
+        }
+      }
+    },
+    "SOLUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 132480,
+      "total_count": 132480,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-10-01T00:00:00+08:00",
+      "last_dt": "2025-12-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true,
+      "metadata_complete": true,
+      "timeframes": {
+        "1m": {
+          "timeframe": "1m",
+          "bar_count": 132480,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1
+        },
+        "1h": {
+          "timeframe": "1h",
+          "bar_count": 2208,
+          "first_dt": "2025-10-01T00:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 60
+        },
+        "4h": {
+          "timeframe": "4h",
+          "bar_count": 552,
+          "first_dt": "2025-10-01T03:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 240
+        },
+        "1d": {
+          "timeframe": "1d",
+          "bar_count": 92,
+          "first_dt": "2025-10-01T23:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1440
+        }
+      }
+    },
+    "LINKUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 132480,
+      "total_count": 132480,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-10-01T00:00:00+08:00",
+      "last_dt": "2025-12-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true,
+      "metadata_complete": true,
+      "timeframes": {
+        "1m": {
+          "timeframe": "1m",
+          "bar_count": 132480,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1
+        },
+        "1h": {
+          "timeframe": "1h",
+          "bar_count": 2208,
+          "first_dt": "2025-10-01T00:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 60
+        },
+        "4h": {
+          "timeframe": "4h",
+          "bar_count": 552,
+          "first_dt": "2025-10-01T03:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 240
+        },
+        "1d": {
+          "timeframe": "1d",
+          "bar_count": 92,
+          "first_dt": "2025-10-01T23:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1440
+        }
+      }
+    },
+    "DOGEUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 132480,
+      "total_count": 132480,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-10-01T00:00:00+08:00",
+      "last_dt": "2025-12-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true,
+      "metadata_complete": true,
+      "timeframes": {
+        "1m": {
+          "timeframe": "1m",
+          "bar_count": 132480,
+          "first_dt": "2025-10-01T00:00:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1
+        },
+        "1h": {
+          "timeframe": "1h",
+          "bar_count": 2208,
+          "first_dt": "2025-10-01T00:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 60
+        },
+        "4h": {
+          "timeframe": "4h",
+          "bar_count": 552,
+          "first_dt": "2025-10-01T03:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 240
+        },
+        "1d": {
+          "timeframe": "1d",
+          "bar_count": 92,
+          "first_dt": "2025-10-01T23:59:00+08:00",
+          "last_dt": "2025-12-31T23:59:00+08:00",
+          "minutes": 1440
+        }
+      }
+    }
+  },
+  "funding_fee_warning": "OKX perpetual funding fee is not included in Trend Following V3 research outputs.",
+  "closed_bar_policy": "1h/4h/1d bars are left-closed and timestamped at the final included 1m close.",
+  "ready_symbol_count": 5,
+  "all_required_symbols_ready": true
+}

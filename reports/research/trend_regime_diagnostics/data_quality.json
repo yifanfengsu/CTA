@@ -1,0 +1,150 @@
+{
+  "symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL",
+    "LINKUSDT_SWAP_OKX.GLOBAL",
+    "DOGEUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "start": "2023-01-01T00:00:00+08:00",
+  "end_display": "2026-03-31T23:59:00+08:00",
+  "end_exclusive": "2026-04-01T00:00:00+08:00",
+  "interval": "1m",
+  "timezone": "Asia/Shanghai",
+  "symbol_coverage": {
+    "BTCUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01T00:00:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true
+    },
+    "ETHUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01T00:00:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true
+    },
+    "SOLUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01T00:00:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true
+    },
+    "LINKUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01T00:00:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true
+    },
+    "DOGEUSDT_SWAP_OKX.GLOBAL": {
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01T00:00:00+08:00",
+      "last_dt": "2026-03-31T23:59:00+08:00",
+      "missing_ranges": [],
+      "required_coverage_ready": true
+    }
+  },
+  "timeframes": {
+    "BTCUSDT_SWAP_OKX.GLOBAL": {
+      "4h": {
+        "timeframe": "4h",
+        "minutes": 240,
+        "bar_count": 7116,
+        "first_dt": "2023-01-01T03:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      },
+      "1d": {
+        "timeframe": "1d",
+        "minutes": 1440,
+        "bar_count": 1186,
+        "first_dt": "2023-01-01T23:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      }
+    },
+    "ETHUSDT_SWAP_OKX.GLOBAL": {
+      "4h": {
+        "timeframe": "4h",
+        "minutes": 240,
+        "bar_count": 7116,
+        "first_dt": "2023-01-01T03:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      },
+      "1d": {
+        "timeframe": "1d",
+        "minutes": 1440,
+        "bar_count": 1186,
+        "first_dt": "2023-01-01T23:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      }
+    },
+    "SOLUSDT_SWAP_OKX.GLOBAL": {
+      "4h": {
+        "timeframe": "4h",
+        "minutes": 240,
+        "bar_count": 7116,
+        "first_dt": "2023-01-01T03:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      },
+      "1d": {
+        "timeframe": "1d",
+        "minutes": 1440,
+        "bar_count": 1186,
+        "first_dt": "2023-01-01T23:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      }
+    },
+    "LINKUSDT_SWAP_OKX.GLOBAL": {
+      "4h": {
+        "timeframe": "4h",
+        "minutes": 240,
+        "bar_count": 7116,
+        "first_dt": "2023-01-01T03:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      },
+      "1d": {
+        "timeframe": "1d",
+        "minutes": 1440,
+        "bar_count": 1186,
+        "first_dt": "2023-01-01T23:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      }
+    },
+    "DOGEUSDT_SWAP_OKX.GLOBAL": {
+      "4h": {
+        "timeframe": "4h",
+        "minutes": 240,
+        "bar_count": 7116,
+        "first_dt": "2023-01-01T03:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      },
+      "1d": {
+        "timeframe": "1d",
+        "minutes": 1440,
+        "bar_count": 1186,
+        "first_dt": "2023-01-01T23:59:00+08:00",
+        "last_dt": "2026-03-31T23:59:00+08:00"
+      }
+    }
+  },
+  "all_symbols_complete": true,
+  "silent_skip_symbol": false
+}

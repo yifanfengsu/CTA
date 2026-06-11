@@ -1,0 +1,25 @@
+{
+  "base_config_path": "/home/yiast/vnpy_projects/cta_strategy/config/strategy_sanity_min_size.json",
+  "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+  "start": "2025-01-01",
+  "end": "2026-03-31",
+  "timezone": "Asia/Shanghai",
+  "capital": 5000.0,
+  "rate": 0.0005,
+  "slippage_mode": "ticks",
+  "slippage": 2.0,
+  "max_runs": 100,
+  "no_cost_also": true,
+  "candidate_names": [
+    "baseline",
+    "higher_breakout",
+    "longer_cooldown",
+    "strict_rsi",
+    "higher_vol_floor",
+    "lower_vol_ceiling",
+    "shorter_max_hold",
+    "higher_take_profit",
+    "wider_stop_trail",
+    "conservative_combo"
+  ]
+}

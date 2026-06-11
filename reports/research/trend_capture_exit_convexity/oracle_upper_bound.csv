@@ -1,0 +1,2 @@
+exit_variant,oracle,trade_count,no_cost_pnl,cost_aware_pnl,funding_adjusted_pnl,funding_events_count,funding_data_complete,win_rate,profit_factor,max_drawdown,largest_symbol_pnl_share,top_5pct_trade_pnl_contribution,avg_captured_fraction,early_exit_share,late_entry_share
+oracle_hold_to_trend_end,True,78672,1718325.4094206318,1568872.4217958066,1535040.9878735838,1811238,True,0.5423784828147244,1.337926806897614,72522.69676778959,0.41672564133477585,1.8946025148283014,0.5148503929274417,0.49392414073622126,0.6343298759406142

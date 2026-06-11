@@ -1,0 +1,54 @@
+{
+  "FLAT": {
+    "n": 21298,
+    "net": 189227.3846634347,
+    "pf": 2.0615,
+    "win": 0.4828,
+    "max_dd": 2249.87,
+    "dd_over_net": 0.0119,
+    "sharpe_per_trade": 16.3515,
+    "total_notional": 53002758.0,
+    "avg_notional": 2488.6,
+    "max_notional": 2995.3,
+    "mean_pnl": 8.8847
+  },
+  "v2A": {
+    "n": 21298,
+    "net": 288313.59535076434,
+    "pf": 2.3021,
+    "win": 0.4828,
+    "max_dd": 3415.23,
+    "dd_over_net": 0.0118,
+    "sharpe_per_trade": 16.8674,
+    "total_notional": 58981749.0,
+    "avg_notional": 2769.4,
+    "max_notional": 4285.6,
+    "mean_pnl": 13.5371
+  },
+  "v2B": {
+    "n": 21298,
+    "net": 290269.5270206045,
+    "pf": 2.4123,
+    "win": 0.4828,
+    "max_dd": 3425.57,
+    "dd_over_net": 0.0118,
+    "sharpe_per_trade": 17.0203,
+    "total_notional": 52439377.0,
+    "avg_notional": 2462.2,
+    "max_notional": 4285.6,
+    "mean_pnl": 13.629
+  },
+  "v2C": {
+    "n": 19030,
+    "net": 285624.9703388965,
+    "pf": 2.4271,
+    "win": 0.4977,
+    "max_dd": 3422.14,
+    "dd_over_net": 0.012,
+    "sharpe_per_trade": 16.8446,
+    "total_notional": 49849539.0,
+    "avg_notional": 2619.5,
+    "max_notional": 4285.6,
+    "mean_pnl": 15.0092
+  }
+}

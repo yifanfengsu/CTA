@@ -1,0 +1,381 @@
+{
+  "generated_at": "2026-05-10T11:45:39.651788+00:00",
+  "inputs": {
+    "symbols": [
+      "BTCUSDT_SWAP_OKX.GLOBAL",
+      "ETHUSDT_SWAP_OKX.GLOBAL",
+      "SOLUSDT_SWAP_OKX.GLOBAL",
+      "LINKUSDT_SWAP_OKX.GLOBAL",
+      "DOGEUSDT_SWAP_OKX.GLOBAL"
+    ],
+    "start": "2023-01-01T00:00:00+08:00",
+    "end_display": "2026-03-31T23:59:00+08:00",
+    "end_exclusive": "2026-04-01T00:00:00+08:00",
+    "timeframes": [
+      "4h",
+      "1d"
+    ],
+    "trend_score_window_bars": [
+      20,
+      55,
+      100
+    ],
+    "interval": "1m"
+  },
+  "data_quality_passed": true,
+  "regime_distribution": {
+    "total": 41510,
+    "counts": {
+      "strong_uptrend": 1523,
+      "weak_uptrend": 11222,
+      "strong_downtrend": 465,
+      "weak_downtrend": 11543,
+      "choppy": 11763,
+      "high_vol_choppy": 4300,
+      "compression": 694
+    },
+    "pct": {
+      "strong_uptrend": 0.03668995422789689,
+      "weak_uptrend": 0.2703444953023368,
+      "strong_downtrend": 0.011202119971091303,
+      "weak_downtrend": 0.2780775716694772,
+      "choppy": 0.2833774993977355,
+      "high_vol_choppy": 0.10358949650686582,
+      "compression": 0.016718862924596484
+    }
+  },
+  "strong_trend_pct": 0.047892074198988194,
+  "choppy_high_vol_pct": 0.3869669959046013,
+  "strongest_symbol": {
+    "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+    "bar_count": 8302,
+    "avg_trend_score": 0.4412521513,
+    "median_trend_score": 0.4427438527,
+    "strong_trend_pct": 0.0355336064,
+    "trend_regime_pct": 0.5887737894,
+    "choppy_high_vol_pct": 0.3930378222,
+    "avg_trend_efficiency": 0.1375796454,
+    "avg_abs_ema_spread_pct": 0.0827863774,
+    "avg_adx_or_proxy": 29.540780989
+  },
+  "weakest_symbol": {
+    "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+    "bar_count": 8302,
+    "avg_trend_score": 0.4132540853,
+    "median_trend_score": 0.4071525419,
+    "strong_trend_pct": 0.0787761985,
+    "trend_regime_pct": 0.5761262346,
+    "choppy_high_vol_pct": 0.3962900506,
+    "avg_trend_efficiency": 0.148701235,
+    "avg_abs_ema_spread_pct": 0.047284565,
+    "avg_adx_or_proxy": 28.1404194404
+  },
+  "strongest_month": {
+    "month": "2026-02",
+    "bar_count": 980,
+    "avg_trend_score": 0.5100360433,
+    "median_trend_score": 0.5094174849,
+    "strong_trend_pct": 0.0744897959,
+    "trend_regime_pct": 0.8285714286,
+    "choppy_high_vol_pct": 0.1714285714,
+    "avg_trend_efficiency": 0.1764747143,
+    "avg_abs_ema_spread_pct": 0.168676449,
+    "avg_adx_or_proxy": 35.7800581132
+  },
+  "weakest_month": {
+    "month": "2023-07",
+    "bar_count": 1085,
+    "avg_trend_score": 0.3766989853,
+    "median_trend_score": 0.3843677561,
+    "strong_trend_pct": 0.0119815668,
+    "trend_regime_pct": 0.5087557604,
+    "choppy_high_vol_pct": 0.4479262673,
+    "avg_trend_efficiency": 0.1020084659,
+    "avg_abs_ema_spread_pct": 0.0434640986,
+    "avg_adx_or_proxy": 26.5993757038
+  },
+  "strongest_quarter": {
+    "quarter": "2023Q4",
+    "bar_count": 3220,
+    "avg_trend_score": 0.4712560006,
+    "median_trend_score": 0.4550832116,
+    "strong_trend_pct": 0.1307453416,
+    "trend_regime_pct": 0.7170807453,
+    "choppy_high_vol_pct": 0.2767080745,
+    "avg_trend_efficiency": 0.1818417026,
+    "avg_abs_ema_spread_pct": 0.0777240196,
+    "avg_adx_or_proxy": 31.7846190179
+  },
+  "weakest_quarter": {
+    "quarter": "2023Q2",
+    "bar_count": 3185,
+    "avg_trend_score": 0.3982769922,
+    "median_trend_score": 0.4037288179,
+    "strong_trend_pct": 0.0342229199,
+    "trend_regime_pct": 0.5485086342,
+    "choppy_high_vol_pct": 0.4266875981,
+    "avg_trend_efficiency": 0.136917439,
+    "avg_abs_ema_spread_pct": 0.0450803859,
+    "avg_adx_or_proxy": 25.6929061747
+  },
+  "timeframe_comparison": {
+    "1d_better_than_4h_by_avg_trend_score": true,
+    "4h": {
+      "timeframe": "4h",
+      "bar_count": 35580,
+      "strong_uptrend_count": 1160,
+      "strong_uptrend_pct": 0.0326025857,
+      "weak_uptrend_count": 9385,
+      "weak_uptrend_pct": 0.2637717819,
+      "strong_downtrend_count": 429,
+      "strong_downtrend_pct": 0.0120573356,
+      "weak_downtrend_count": 10265,
+      "weak_downtrend_pct": 0.288504778,
+      "choppy_count": 10109,
+      "choppy_pct": 0.2841202923,
+      "high_vol_choppy_count": 3642,
+      "high_vol_choppy_pct": 0.1023608769,
+      "compression_count": 590,
+      "compression_pct": 0.0165823496,
+      "strong_trend_count": 1589,
+      "trend_regime_count": 21239,
+      "choppy_high_vol_count": 13751,
+      "strong_trend_pct": 0.0446599213,
+      "trend_regime_pct": 0.5969364812,
+      "choppy_high_vol_pct": 0.3864811692,
+      "avg_trend_score": 0.4265745173,
+      "avg_trend_efficiency": 0.1399410524,
+      "avg_abs_ema_spread_pct": 0.0582049521,
+      "avg_atr_pct": 0.0395204747,
+      "avg_adx_or_proxy": 28.3959850556
+    },
+    "1d": {
+      "timeframe": "1d",
+      "bar_count": 5930,
+      "strong_uptrend_count": 363,
+      "strong_uptrend_pct": 0.0612141653,
+      "weak_uptrend_count": 1837,
+      "weak_uptrend_pct": 0.3097807757,
+      "strong_downtrend_count": 36,
+      "strong_downtrend_pct": 0.0060708263,
+      "weak_downtrend_count": 1278,
+      "weak_downtrend_pct": 0.2155143339,
+      "choppy_count": 1654,
+      "choppy_pct": 0.278920742,
+      "high_vol_choppy_count": 658,
+      "high_vol_choppy_pct": 0.1109612142,
+      "compression_count": 104,
+      "compression_pct": 0.0175379427,
+      "strong_trend_count": 399,
+      "trend_regime_count": 3514,
+      "choppy_high_vol_count": 2312,
+      "strong_trend_pct": 0.0672849916,
+      "trend_regime_pct": 0.5925801012,
+      "choppy_high_vol_pct": 0.3898819562,
+      "avg_trend_score": 0.4288792183,
+      "avg_trend_efficiency": 0.1544005918,
+      "avg_abs_ema_spread_pct": 0.1247640851,
+      "avg_atr_pct": 0.0999032334,
+      "avg_adx_or_proxy": 26.8184219313
+    }
+  },
+  "trade_warnings": [],
+  "trade_diagnostics": {
+    "trade_count": 3951,
+    "profitable_trade_main_regime": {
+      "regime": "weak_uptrend",
+      "positive_pnl_sum": 66.08820147499999,
+      "share": 0.33453700393303853
+    },
+    "losing_trade_main_regime": {
+      "regime": "weak_uptrend",
+      "loss_abs_sum": 75.62110947999996,
+      "share": 0.3044806626222592
+    },
+    "strong_positive_pnl_share": 0.027776969451646004,
+    "choppy_high_vol_loss_share": 0.4124376554502509,
+    "choppy_high_vol_trade_share": 0.3252341179448241,
+    "regime_choppy_high_vol_pct": 0.3869669959046013,
+    "v3_trades_too_much_in_choppy": false,
+    "family_diagnostics": {
+      "1d_donchian": {
+        "trade_count": 132,
+        "net_pnl": -1.185070169999995,
+        "no_cost_pnl": -0.839799999999993,
+        "strong_trade_count": 3,
+        "strong_trade_share": 0.022727272727272728,
+        "strong_net_pnl": -0.13018299999999997,
+        "strong_no_cost_pnl": -0.12657999999999991,
+        "nonstrong_net_pnl": -1.0548871699999949,
+        "nonstrong_no_cost_pnl": -0.7132199999999933,
+        "strong_avg_no_cost_pnl": -0.042193333333333305,
+        "overall_avg_no_cost_pnl": -0.006362121212121159,
+        "choppy_high_vol_trade_share": 0.6212121212121212,
+        "choppy_high_vol_loss_share": 0.5730866107799528,
+        "strong_positive_pnl_share": 0.000780048923744039
+      },
+      "1d_ema": {
+        "trade_count": 162,
+        "net_pnl": 6.243929090000004,
+        "no_cost_pnl": 6.747000000000005,
+        "strong_trade_count": 2,
+        "strong_trade_share": 0.012345679012345678,
+        "strong_net_pnl": -0.44222676000000005,
+        "strong_no_cost_pnl": -0.43818000000000007,
+        "nonstrong_net_pnl": 6.686155850000006,
+        "nonstrong_no_cost_pnl": 7.185180000000004,
+        "strong_avg_no_cost_pnl": -0.21909000000000003,
+        "overall_avg_no_cost_pnl": 0.04164814814814818,
+        "choppy_high_vol_trade_share": 0.20987654320987653,
+        "choppy_high_vol_loss_share": 0.14960102423630106,
+        "strong_positive_pnl_share": 0.00044806815140227394
+      },
+      "4h_donchian": {
+        "trade_count": 1387,
+        "net_pnl": -44.24430065999998,
+        "no_cost_pnl": -40.67095999999998,
+        "strong_trade_count": 39,
+        "strong_trade_share": 0.028118240807498196,
+        "strong_net_pnl": -4.743123610000002,
+        "strong_no_cost_pnl": -4.648060000000003,
+        "nonstrong_net_pnl": -39.50117704999998,
+        "nonstrong_no_cost_pnl": -36.02289999999997,
+        "strong_avg_no_cost_pnl": -0.11918102564102571,
+        "overall_avg_no_cost_pnl": -0.02932297043979811,
+        "choppy_high_vol_trade_share": 0.5234318673395818,
+        "choppy_high_vol_loss_share": 0.50874486191457,
+        "strong_positive_pnl_share": 0.026852928779932853
+      },
+      "4h_ema": {
+        "trade_count": 1116,
+        "net_pnl": -3.7916294349999653,
+        "no_cost_pnl": -0.5327299999999626,
+        "strong_trade_count": 8,
+        "strong_trade_share": 0.007168458781362007,
+        "strong_net_pnl": -0.03382643500000049,
+        "strong_no_cost_pnl": -0.012990000000000057,
+        "nonstrong_net_pnl": -3.7578029999999645,
+        "nonstrong_no_cost_pnl": -0.5197399999999615,
+        "strong_avg_no_cost_pnl": -0.0016237500000000071,
+        "overall_avg_no_cost_pnl": -0.0004773566308243393,
+        "choppy_high_vol_trade_share": 0.16756272401433692,
+        "choppy_high_vol_loss_share": 0.19280848369979459,
+        "strong_positive_pnl_share": 0.044954218716577427
+      },
+      "ensemble": {
+        "trade_count": 1154,
+        "net_pnl": -7.832643649999965,
+        "no_cost_pnl": -4.525599999999964,
+        "strong_trade_count": 8,
+        "strong_trade_share": 0.006932409012131715,
+        "strong_net_pnl": -0.12542265000000008,
+        "strong_no_cost_pnl": -0.10767999999999966,
+        "nonstrong_net_pnl": -7.707220999999963,
+        "nonstrong_no_cost_pnl": -4.417919999999966,
+        "strong_avg_no_cost_pnl": -0.013459999999999958,
+        "overall_avg_no_cost_pnl": -0.003921663778162881,
+        "choppy_high_vol_trade_share": 0.2218370883882149,
+        "choppy_high_vol_loss_share": 0.3353116599588627,
+        "strong_positive_pnl_share": 0.04179915509292346
+      }
+    },
+    "one_day_ema_only_strong_effective": false,
+    "one_day_ema_strong_outperforms_full": false,
+    "donchian_losses_mainly_choppy_high_vol": true
+  },
+  "answers": {
+    "sufficient_trend_regime_exists": false,
+    "best_trending_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+    "most_choppy_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+    "strongest_month": "2026-02",
+    "weakest_month": "2023-07",
+    "strongest_quarter": "2023Q4",
+    "weakest_quarter": "2023Q2",
+    "one_day_timeframe_better_than_4h": true,
+    "ema_regime_better_matches_structure_than_donchian": false,
+    "v3_losses_mainly_choppy_high_vol": false,
+    "oos_best_policy_only_effective_in_strong_trend": false,
+    "recommend_v3_1_research": false
+  },
+  "external_v3_constraints": {
+    "compare_summary_found": true,
+    "funding_stress_found": true,
+    "stable_candidate_exists": false,
+    "stable_candidates": [],
+    "trend_following_v3_extended_failed": true,
+    "can_enter_v3_1_research_prior": false,
+    "high_top_5pct_trade_pnl_contribution_policies": [
+      "v3_1d_ema_50_200_atr5",
+      "v3_4h_donchian_55_with_risk_filters"
+    ],
+    "high_largest_symbol_pnl_share_policies": [
+      "v3_4h_donchian_55_with_risk_filters",
+      "v3_1d_donchian_20_10_atr4",
+      "v3_1d_donchian_55_20_atr5",
+      "v3_4h_vol_compression_donchian_breakout",
+      "v3_4h_donchian_100_30_atr5",
+      "v3_4h_donchian_20_10_atr4",
+      "v3_4h_donchian_55_20_atr4"
+    ],
+    "funding_stress_negative_at_3bps_or_more": true,
+    "funding_stress_notice": "Synthetic funding stress only; not actual OKX funding fee."
+  },
+  "recommendations": {
+    "proceed_to_v3_1_research": false,
+    "allowed_research_only": false,
+    "strategy_development_allowed": false,
+    "demo_live_allowed": false,
+    "recommended_filters": {
+      "min_trend_efficiency": 0.35,
+      "min_adx_or_proxy": 20.0,
+      "allowed_regimes": [
+        "strong_uptrend",
+        "strong_downtrend"
+      ],
+      "blocked_regimes": [
+        "choppy",
+        "high_vol_choppy",
+        "compression"
+      ],
+      "max_atr_percentile": 0.8,
+      "min_ema_spread_pct": {
+        "4h": 0.004,
+        "1d": 0.01
+      }
+    },
+    "recommended_policy_families": [],
+    "rejected_policy_families": [
+      "1d_ema",
+      "1d_donchian",
+      "4h_ema",
+      "4h_donchian",
+      "ensemble"
+    ],
+    "rationale": [
+      "strong_trend_exists=false",
+      "profits_mainly_strong=false",
+      "losses_mainly_choppy_high_vol=false",
+      "one_day_ema_strong_outperforms_full=false",
+      "strategy_development_allowed=false and demo_live_allowed=false by design.",
+      "Existing V3 best-policy synthetic funding stress turns negative at or above 3 bps / 8h.",
+      "Existing V3 extended comparison flags top-trade contribution concentration.",
+      "Existing V3 extended comparison has stable_candidate_exists=false."
+    ]
+  },
+  "output_files": [
+    "trend_regime_summary.json",
+    "trend_regime_report.md",
+    "data_quality.json",
+    "regime_dataset.csv",
+    "regime_by_symbol.csv",
+    "regime_by_month.csv",
+    "regime_by_quarter.csv",
+    "regime_by_timeframe.csv",
+    "trend_score_by_symbol.csv",
+    "trend_score_by_month.csv",
+    "trade_regime_attribution.csv",
+    "policy_regime_performance.csv",
+    "v3_1_regime_recommendations.json"
+  ],
+  "policy_regime_performance_rows": 166
+}

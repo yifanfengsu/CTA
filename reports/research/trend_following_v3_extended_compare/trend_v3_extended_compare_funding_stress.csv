@@ -1,0 +1,5 @@
+split,policy_name,synthetic_funding_stress,funding_bps_per_8h,original_net_pnl,funding_cost,funding_adjusted_net_pnl,funding_break_even_bps,remains_positive_after_funding,funding_exposure_notional_periods,notice
+oos_ext,v3_1d_ema_50_200_atr5,True,1.0,1.5523690499999967,0.5797911196458333,0.9725779303541634,2.6774626195521325,True,5797.9111964583335,Synthetic funding stress only; not actual OKX funding fee.
+oos_ext,v3_1d_ema_50_200_atr5,True,3.0,1.5523690499999967,1.7393733589374998,-0.18700430893750308,2.6774626195521325,False,5797.9111964583335,Synthetic funding stress only; not actual OKX funding fee.
+oos_ext,v3_1d_ema_50_200_atr5,True,5.0,1.5523690499999967,2.898955598229167,-1.3465865482291703,2.6774626195521325,False,5797.9111964583335,Synthetic funding stress only; not actual OKX funding fee.
+oos_ext,v3_1d_ema_50_200_atr5,True,10.0,1.5523690499999967,5.797911196458334,-4.245542146458337,2.6774626195521325,False,5797.9111964583335,Synthetic funding stress only; not actual OKX funding fee.

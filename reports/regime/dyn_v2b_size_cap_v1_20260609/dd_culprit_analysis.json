@@ -1,0 +1,38 @@
+{
+  "v2b_no_cap_maxdd_window": {
+    "max_dd": 3425.57,
+    "peak_idx": 2592,
+    "trough_idx": 2608,
+    "n_window_trades": 16,
+    "window_peak_dt": "2025-05-29 09:49:00+00:00",
+    "window_trough_dt": "2025-05-29 16:14:00+00:00"
+  },
+  "per_T_hit_rate": {
+    "p90": {
+      "total": 16,
+      "hit": 3,
+      "hit_rate": 0.1875
+    },
+    "p93": {
+      "total": 16,
+      "hit": 3,
+      "hit_rate": 0.1875
+    },
+    "p95": {
+      "total": 16,
+      "hit": 3,
+      "hit_rate": 0.1875
+    },
+    "p97": {
+      "total": 16,
+      "hit": 2,
+      "hit_rate": 0.125
+    },
+    "p98": {
+      "total": 16,
+      "hit": 2,
+      "hit_rate": 0.125
+    }
+  },
+  "note": "culprit hit-rate = fraction of v2B-no-cap maxDD-window trades whose entry ATR >= train pT (i.e. cap-eligible). Rule-independent (depends only on T)."
+}

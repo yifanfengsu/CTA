@@ -1,0 +1,14 @@
+feature_group,feature_name,input_data,classifier_role,status,guardrail
+internal_market_features,trend breadth,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,cross-symbol correlation,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,cross-symbol dispersion,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,realized volatility regime,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,market-wide ATR percentile,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,number of symbols above EMA50/EMA200,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,number of symbols in strong trend,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+internal_market_features,market-wide drawdown / rebound state,local 1m OHLCV sqlite,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+funding_features,average funding rate across symbols,local OKX funding CSV,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+funding_features,funding dispersion,local OKX funding CSV,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+funding_features,extreme funding count,local OKX funding CSV,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+funding_features,funding trend,local OKX funding CSV,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.
+funding_features,funding sign breadth,local OKX funding CSV,candidate_regime_feature,research_only_candidate,Do not convert directly into entry/exit logic; no demo/live.

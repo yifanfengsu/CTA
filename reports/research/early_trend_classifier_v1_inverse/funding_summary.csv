@@ -1,0 +1,6 @@
+inst_id,funding_data_complete,csv_path,row_count,first_funding_time,last_funding_time,large_gap_count,trade_count,funding_count,funding_pnl,warnings
+BTC-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:00+00:00,2026-03-31T08:00:00+00:00,0,19576,79191,13.8909198267404,
+ETH-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:01+00:00,2026-03-31T08:00:00+00:00,0,19628,79689,-450.94559203751953,
+SOL-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:12+00:00,2026-03-31T08:00:00+00:00,0,23332,91558,-977.8093008808819,
+LINK-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/LINK-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:05+00:00,2026-03-31T08:00:00+00:00,0,19672,77624,-478.8858669405465,
+DOGE-USDT-SWAP,True,/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/DOGE-USDT-SWAP_funding_2023-01-01_2026-03-31.csv,3558,2022-12-31T16:00:11+00:00,2026-03-31T08:00:00+00:00,0,22212,88352,-582.5936510078383,

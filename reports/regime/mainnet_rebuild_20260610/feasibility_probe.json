@@ -1,0 +1,62 @@
+{
+  "probed_at_utc": "2026-06-10T13:09:18.593915+00:00",
+  "0a_okx_mainnet_rest": {
+    "endpoint": "https://www.okx.com/api/v5/market/history-candles (no demo header)",
+    "btc_1m_depth_checkpoints": {
+      "2023-01-01": "data present (bars ending 2022-12-31T23:59Z)",
+      "2022-01-01": "data present",
+      "2021-01-01": "data present",
+      "2020-01-01": "data present (bars ending 2019-12-31T23:59Z)"
+    },
+    "all_5_symbols_at_required_start_2022-12-31T16:00Z": {
+      "BTC-USDT-SWAP": {
+        "close": 16593.8,
+        "sanity": "matches real end-2022 market"
+      },
+      "ETH-USDT-SWAP": {
+        "close": 1203.15,
+        "sanity": "matches"
+      },
+      "SOL-USDT-SWAP": {
+        "close": 10.162,
+        "sanity": "matches (demo DB had ramp to 13.7 on 2023-01-02)"
+      },
+      "LINK-USDT-SWAP": {
+        "close": 5.592,
+        "sanity": "matches"
+      },
+      "DOGE-USDT-SWAP": {
+        "close": 0.07071,
+        "sanity": "matches"
+      }
+    },
+    "verdict": "FEASIBLE — depth >= 2020, fully covers 2023-01-01..2026-05-28"
+  },
+  "0b_alternatives": {
+    "binance_vision": {
+      "url_pattern": "https://data.binance.vision/data/futures/um/monthly/klines/<SYM>/1m/<SYM>-1m-YYYY-MM.zip",
+      "probed": [
+        "BTCUSDT-1m-2023-01 HTTP200",
+        "SOLUSDT-1m-2023-01 HTTP200",
+        "DOGEUSDT-1m-2026-04 HTTP200"
+      ],
+      "role": "CROSS-VALIDATION ONLY — Binance prices, not OKX prices; not a replacement source"
+    },
+    "okx_static_archive": {
+      "probed": "https://static.okx.com/cdn/okex/traderecords/trades/daily/... HTTP200",
+      "note": "raw trade records, not 1m candles; would need local aggregation; data-download page is 302/browser-gated. Not needed since REST depth suffices."
+    }
+  },
+  "0c_volume_and_rate": {
+    "bars_needed_total": 8956800,
+    "bars_per_symbol": 1791360,
+    "range": "2023-01-01 00:00 +08:00 .. 2026-05-28 23:59 +08:00 (matches old DB range exactly)",
+    "requests_at_100_bars": 89568,
+    "okx_public_rate_limit": "20 req / 2 s per IP (OKX docs, history-candles)",
+    "planned_rate_with_20pct_margin": "8 req/s",
+    "estimated_duration_hours": 3.1,
+    "fallback_rate_5rps_hours": 5.0,
+    "verdict": "single run < 6 h; batching optional, not required"
+  },
+  "0d_recommendation": "Option A: pure OKX mainnet REST, one pass, BTC->ETH->SOL->LINK->DOGE"
+}

@@ -1,0 +1,12 @@
+{
+  "vt_symbol": "BTCUSDT_SWAP_OKX",
+  "bar_count": 1791360,
+  "expected_minute_grid": 1791360,
+  "missing_minutes_total": 0,
+  "legacy_bar_count": 1791360,
+  "diff_vs_legacy": 0,
+  "first_dt": "2023-01-01 00:00:00",
+  "last_dt": "2026-05-28 23:59:00",
+  "gap_count": 0,
+  "gaps": []
+}

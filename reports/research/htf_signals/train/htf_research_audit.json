@@ -1,0 +1,212 @@
+{
+  "direction_return_formula": {
+    "long": "future_return = future_close / entry_price - 1",
+    "short": "future_return = entry_price / future_close - 1",
+    "long_mfe": "max(high / entry_price - 1, 0)",
+    "long_mae": "max(1 - low / entry_price, 0)",
+    "short_mfe": "max(entry_price / low - 1, 0)",
+    "short_mae": "max(1 - entry_price / high, 0)"
+  },
+  "resample_closed_bar_policy": "1m bars are resampled into left-closed intervals and timestamped at the last included 1m close; a resampled bar is kept only when the actual last 1m timestamp equals that bar close; 15m/1h context is joined to 5m signal bars with merge_asof(direction='backward'), so a signal can only use HTF bars whose close timestamp is <= the 5m signal close.",
+  "rolling_percentile_policy": "atr_pct, recent_volatility_30m, directional_recent_return_30m, volume_zscore_30m, and body_ratio percentiles compare the current completed 15m value against a rolling window of prior values only; the current value and all future values are excluded from the percentile distribution.",
+  "no_lookahead_checks": {
+    "used_15m_after_signal_count": 0,
+    "used_1h_after_signal_count": 0,
+    "used_5m_after_signal_count": 0,
+    "entry_before_signal_count": 0,
+    "pullback_reclaim_entry_delay_bars_5m_values": [
+      1
+    ],
+    "pullback_reclaim_uses_next_5m_close_entry": true,
+    "outcome_and_bracket_windows_start_after_entry_time": true
+  },
+  "bracket_policy": {
+    "long": "stop = entry - stop_atr * atr; tp = entry + tp_atr * atr",
+    "short": "stop = entry + stop_atr * atr; tp = entry - tp_atr * atr",
+    "same_bar_stop_tp": "stop first",
+    "horizon_exit": "exit at horizon close when neither stop nor tp is hit",
+    "r_multiple": "tp uses tp_atr / stop_atr; stop is -1R; horizon R is direction-adjusted close move / stop distance"
+  },
+  "signal_time_alignment_sample": [
+    {
+      "signal_time": "2025-01-01T01:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T01:59:00+08:00",
+      "entry_time": "2025-01-01T01:59:00+08:00",
+      "entry_price": 94131.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T01:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T01:59:00+08:00",
+      "entry_time": "2025-01-01T01:59:00+08:00",
+      "entry_price": 94131.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T01:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T01:59:00+08:00",
+      "entry_time": "2025-01-01T01:59:00+08:00",
+      "entry_price": 94131.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T01:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T01:59:00+08:00",
+      "entry_time": "2025-01-01T01:59:00+08:00",
+      "entry_price": 94131.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:29:00+08:00",
+      "entry_time": "2025-01-01T02:29:00+08:00",
+      "entry_price": 93984.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:29:00+08:00",
+      "entry_time": "2025-01-01T02:29:00+08:00",
+      "entry_price": 93984.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:29:00+08:00",
+      "entry_time": "2025-01-01T02:29:00+08:00",
+      "entry_price": 93984.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T01:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:29:00+08:00",
+      "entry_time": "2025-01-01T02:29:00+08:00",
+      "entry_price": 93984.9,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:59:00+08:00",
+      "entry_time": "2025-01-01T02:59:00+08:00",
+      "entry_price": 93887.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:59:00+08:00",
+      "entry_time": "2025-01-01T02:59:00+08:00",
+      "entry_price": 93887.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:59:00+08:00",
+      "entry_time": "2025-01-01T02:59:00+08:00",
+      "entry_price": 93887.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T02:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T02:59:00+08:00",
+      "entry_time": "2025-01-01T02:59:00+08:00",
+      "entry_price": 93887.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:19:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:14:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:19:00+08:00",
+      "entry_time": "2025-01-01T03:24:00+08:00",
+      "entry_price": 93968.3,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:29:00+08:00",
+      "entry_time": "2025-01-01T03:29:00+08:00",
+      "entry_price": 93934.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:29:00+08:00",
+      "entry_time": "2025-01-01T03:29:00+08:00",
+      "entry_price": 93934.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:29:00+08:00",
+      "entry_time": "2025-01-01T03:29:00+08:00",
+      "entry_price": 93934.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:29:00+08:00",
+      "used_1h_bar_time": "2025-01-01T02:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:29:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:29:00+08:00",
+      "entry_time": "2025-01-01T03:29:00+08:00",
+      "entry_price": 93934.1,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T03:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:59:00+08:00",
+      "entry_time": "2025-01-01T03:59:00+08:00",
+      "entry_price": 94181.0,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T03:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:59:00+08:00",
+      "entry_time": "2025-01-01T03:59:00+08:00",
+      "entry_price": 94181.0,
+      "direction": "short"
+    },
+    {
+      "signal_time": "2025-01-01T03:59:00+08:00",
+      "used_1h_bar_time": "2025-01-01T03:59:00+08:00",
+      "used_15m_bar_time": "2025-01-01T03:59:00+08:00",
+      "used_5m_bar_time": "2025-01-01T03:59:00+08:00",
+      "entry_time": "2025-01-01T03:59:00+08:00",
+      "entry_price": 94181.0,
+      "direction": "short"
+    }
+  ]
+}

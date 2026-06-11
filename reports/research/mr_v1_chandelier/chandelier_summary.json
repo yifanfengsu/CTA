@@ -1,0 +1,734 @@
+{
+  "variants": [
+    {
+      "name": "baseline (fixed 1.0 ATR, max_hold=60)",
+      "total_trades": 1148,
+      "overall_pnl": -2564.001785648076,
+      "overall_sharpe": -0.25,
+      "overall_win_rate": 16.5,
+      "overall_pf": 0.92,
+      "overall_max_dd": -728.18,
+      "overall_avg_trade": -2.23,
+      "oos_pnl": 669.5440672560998,
+      "oos_sharpe": 0.39,
+      "oos_win_rate": 22.1,
+      "by_exit_detail": {
+        "baseline_max_hold": {
+          "count": 186,
+          "total_pnl": 28345.467454136597
+        },
+        "baseline_stop": {
+          "count": 958,
+          "total_pnl": -31169.93038119492
+        },
+        "end_of_data": {
+          "count": 4,
+          "total_pnl": 260.461141410248
+        }
+      },
+      "cost_aware_pnl": -2543.0875201145645,
+      "no_cost_pnl": -247.08752011456454
+    },
+    {
+      "name": "chandelier (1.0 ATR, max_hold=60)",
+      "total_trades": 2260,
+      "overall_pnl": -3884.01995935041,
+      "overall_sharpe": -0.5,
+      "overall_win_rate": 30.9,
+      "overall_pf": 0.87,
+      "overall_max_dd": -714.6,
+      "overall_avg_trade": -1.72,
+      "oos_pnl": -2668.93185034662,
+      "oos_sharpe": -2.69,
+      "oos_win_rate": 31.4,
+      "by_exit_detail": {
+        "chandelier_1.0": {
+          "count": 2258,
+          "total_pnl": -3881.747034314811
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        }
+      },
+      "cost_aware_pnl": -3968.4121823302867,
+      "no_cost_pnl": 551.5878176697129
+    },
+    {
+      "name": "chandelier (1.5 ATR, max_hold=60)",
+      "total_trades": 1933,
+      "overall_pnl": -5179.696864026967,
+      "overall_sharpe": -0.66,
+      "overall_win_rate": 32.4,
+      "overall_pf": 0.85,
+      "overall_max_dd": -830.63,
+      "overall_avg_trade": -2.68,
+      "oos_pnl": -3336.6949301916916,
+      "oos_sharpe": -3.15,
+      "oos_win_rate": 28.9,
+      "by_exit_detail": {
+        "chandelier_1.5": {
+          "count": 1931,
+          "total_pnl": -5177.423938991375
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        }
+      },
+      "cost_aware_pnl": -5266.7038056487145,
+      "no_cost_pnl": -1400.703805648715
+    },
+    {
+      "name": "chandelier (2.0 ATR, max_hold=60)",
+      "total_trades": 1614,
+      "overall_pnl": -3554.6189033942314,
+      "overall_sharpe": -0.44,
+      "overall_win_rate": 32.7,
+      "overall_pf": 0.9,
+      "overall_max_dd": -839.08,
+      "overall_avg_trade": -2.2,
+      "oos_pnl": -2865.8064930024543,
+      "oos_sharpe": -2.54,
+      "oos_win_rate": 32.3,
+      "by_exit_detail": {
+        "chandelier_2.0": {
+          "count": 1611,
+          "total_pnl": -3631.5723499721007
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        }
+      },
+      "cost_aware_pnl": -3708.262562933478,
+      "no_cost_pnl": -480.2625629334782
+    },
+    {
+      "name": "chandelier (2.5 ATR, max_hold=60)",
+      "total_trades": 1353,
+      "overall_pnl": -4934.536338647086,
+      "overall_sharpe": -0.62,
+      "overall_win_rate": 34.7,
+      "overall_pf": 0.87,
+      "overall_max_dd": -901.67,
+      "overall_avg_trade": -3.65,
+      "oos_pnl": -3390.745138470664,
+      "oos_sharpe": -2.71,
+      "oos_win_rate": 33.1,
+      "by_exit_detail": {
+        "chandelier_2.5": {
+          "count": 1348,
+          "total_pnl": -5657.364537983471
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_60": {
+          "count": 2,
+          "total_pnl": 645.8747527585141
+        }
+      },
+      "cost_aware_pnl": -5071.216933481785,
+      "no_cost_pnl": -2365.2169334817854
+    },
+    {
+      "name": "chandelier (3.0 ATR, max_hold=60)",
+      "total_trades": 1142,
+      "overall_pnl": -6169.290196236424,
+      "overall_sharpe": -0.82,
+      "overall_win_rate": 34.6,
+      "overall_pf": 0.83,
+      "overall_max_dd": -909.4,
+      "overall_avg_trade": -5.4,
+      "oos_pnl": -1404.6212955117603,
+      "oos_sharpe": -1.1,
+      "oos_win_rate": 34.8,
+      "by_exit_detail": {
+        "chandelier_3.0": {
+          "count": 1121,
+          "total_pnl": -9644.038916251608
+        },
+        "end_of_data": {
+          "count": 4,
+          "total_pnl": 87.0798884625619
+        },
+        "max_hold_60": {
+          "count": 17,
+          "total_pnl": 3387.6688315526226
+        }
+      },
+      "cost_aware_pnl": -6256.482956430636,
+      "no_cost_pnl": -3972.4829564306356
+    },
+    {
+      "name": "chandelier (1.0 ATR, max_hold=40)",
+      "total_trades": 2260,
+      "overall_pnl": -3884.01995935041,
+      "overall_sharpe": -0.5,
+      "overall_win_rate": 30.9,
+      "overall_pf": 0.87,
+      "overall_max_dd": -714.6,
+      "overall_avg_trade": -1.72,
+      "oos_pnl": -2668.93185034662,
+      "oos_sharpe": -2.69,
+      "oos_win_rate": 31.4,
+      "by_exit_detail": {
+        "chandelier_1.0": {
+          "count": 2258,
+          "total_pnl": -3881.747034314811
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        }
+      },
+      "cost_aware_pnl": -3968.4121823302867,
+      "no_cost_pnl": 551.5878176697129
+    },
+    {
+      "name": "chandelier (1.0 ATR, max_hold=30)",
+      "total_trades": 2260,
+      "overall_pnl": -3884.01995935041,
+      "overall_sharpe": -0.5,
+      "overall_win_rate": 30.9,
+      "overall_pf": 0.87,
+      "overall_max_dd": -714.6,
+      "overall_avg_trade": -1.72,
+      "oos_pnl": -2668.93185034662,
+      "oos_sharpe": -2.69,
+      "oos_win_rate": 31.4,
+      "by_exit_detail": {
+        "chandelier_1.0": {
+          "count": 2258,
+          "total_pnl": -3881.747034314811
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        }
+      },
+      "cost_aware_pnl": -3968.4121823302867,
+      "no_cost_pnl": 551.5878176697129
+    },
+    {
+      "name": "chandelier (1.0 ATR, max_hold=20)",
+      "total_trades": 2260,
+      "overall_pnl": -3884.01995935041,
+      "overall_sharpe": -0.5,
+      "overall_win_rate": 30.9,
+      "overall_pf": 0.87,
+      "overall_max_dd": -714.6,
+      "overall_avg_trade": -1.72,
+      "oos_pnl": -2668.93185034662,
+      "oos_sharpe": -2.69,
+      "oos_win_rate": 31.4,
+      "by_exit_detail": {
+        "chandelier_1.0": {
+          "count": 2258,
+          "total_pnl": -3881.747034314811
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        }
+      },
+      "cost_aware_pnl": -3968.4121823302867,
+      "no_cost_pnl": 551.5878176697129
+    },
+    {
+      "name": "chandelier (1.0 ATR, max_hold=12)",
+      "total_trades": 2264,
+      "overall_pnl": -3784.0257402393513,
+      "overall_sharpe": -0.48,
+      "overall_win_rate": 31.0,
+      "overall_pf": 0.88,
+      "overall_max_dd": -706.77,
+      "overall_avg_trade": -1.67,
+      "oos_pnl": -2672.8860090579337,
+      "oos_sharpe": -2.68,
+      "oos_win_rate": 31.5,
+      "by_exit_detail": {
+        "chandelier_1.0": {
+          "count": 2245,
+          "total_pnl": -5852.044194796703
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        },
+        "max_hold_12": {
+          "count": 17,
+          "total_pnl": 2070.291379592947
+        }
+      },
+      "cost_aware_pnl": -3869.7180389989717,
+      "no_cost_pnl": 658.2819610010283
+    },
+    {
+      "name": "chandelier (1.5 ATR, max_hold=40)",
+      "total_trades": 1933,
+      "overall_pnl": -5144.064509224796,
+      "overall_sharpe": -0.66,
+      "overall_win_rate": 32.4,
+      "overall_pf": 0.85,
+      "overall_max_dd": -827.07,
+      "overall_avg_trade": -2.66,
+      "oos_pnl": -3301.0625753895206,
+      "oos_sharpe": -3.1,
+      "oos_win_rate": 28.9,
+      "by_exit_detail": {
+        "chandelier_1.5": {
+          "count": 1930,
+          "total_pnl": -5294.200848649201
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        },
+        "max_hold_40": {
+          "count": 1,
+          "total_pnl": 152.40926445999773
+        }
+      },
+      "cost_aware_pnl": -5231.1065150083205,
+      "no_cost_pnl": -1365.106515008321
+    },
+    {
+      "name": "chandelier (1.5 ATR, max_hold=30)",
+      "total_trades": 1933,
+      "overall_pnl": -5140.482425245673,
+      "overall_sharpe": -0.66,
+      "overall_win_rate": 32.4,
+      "overall_pf": 0.85,
+      "overall_max_dd": -829.84,
+      "overall_avg_trade": -2.66,
+      "oos_pnl": -3328.776147612513,
+      "oos_sharpe": -3.14,
+      "oos_win_rate": 28.9,
+      "by_exit_detail": {
+        "chandelier_1.5": {
+          "count": 1929,
+          "total_pnl": -5488.026207494004
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        },
+        "max_hold_30": {
+          "count": 2,
+          "total_pnl": 349.816707283923
+        }
+      },
+      "cost_aware_pnl": -5227.828100185514,
+      "no_cost_pnl": -1361.8281001855134
+    },
+    {
+      "name": "chandelier (1.5 ATR, max_hold=20)",
+      "total_trades": 1938,
+      "overall_pnl": -5226.761567782684,
+      "overall_sharpe": -0.67,
+      "overall_win_rate": 32.4,
+      "overall_pf": 0.85,
+      "overall_max_dd": -827.1,
+      "overall_avg_trade": -2.7,
+      "oos_pnl": -3343.639033036397,
+      "oos_sharpe": -3.16,
+      "oos_win_rate": 28.9,
+      "by_exit_detail": {
+        "chandelier_1.5": {
+          "count": 1921,
+          "total_pnl": -6845.014982841685
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        },
+        "max_hold_20": {
+          "count": 15,
+          "total_pnl": 1620.5263400945905
+        }
+      },
+      "cost_aware_pnl": -5315.612472468829,
+      "no_cost_pnl": -1439.6124724688277
+    },
+    {
+      "name": "chandelier (1.5 ATR, max_hold=12)",
+      "total_trades": 1997,
+      "overall_pnl": -5327.09284675546,
+      "overall_sharpe": -0.68,
+      "overall_win_rate": 32.9,
+      "overall_pf": 0.85,
+      "overall_max_dd": -851.71,
+      "overall_avg_trade": -2.67,
+      "oos_pnl": -3229.9285974945224,
+      "oos_sharpe": -3.03,
+      "oos_win_rate": 31.2,
+      "by_exit_detail": {
+        "chandelier_1.5": {
+          "count": 1828,
+          "total_pnl": -15329.598837033525
+        },
+        "end_of_data": {
+          "count": 2,
+          "total_pnl": -2.2729250355906156
+        },
+        "max_hold_12": {
+          "count": 167,
+          "total_pnl": 10004.778915313655
+        }
+      },
+      "cost_aware_pnl": -5422.198888949608,
+      "no_cost_pnl": -1428.1988889496079
+    },
+    {
+      "name": "chandelier (2.0 ATR, max_hold=40)",
+      "total_trades": 1615,
+      "overall_pnl": -3190.719559139158,
+      "overall_sharpe": -0.37,
+      "overall_win_rate": 32.6,
+      "overall_pf": 0.91,
+      "overall_max_dd": -840.83,
+      "overall_avg_trade": -1.98,
+      "oos_pnl": -3101.2517594070646,
+      "oos_sharpe": -2.74,
+      "oos_win_rate": 31.9,
+      "by_exit_detail": {
+        "chandelier_2.0": {
+          "count": 1609,
+          "total_pnl": -5422.445883100527
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_40": {
+          "count": 3,
+          "total_pnl": 2154.772877383505
+        }
+      },
+      "cost_aware_pnl": -3343.9441348460296,
+      "no_cost_pnl": -113.94413484603001
+    },
+    {
+      "name": "chandelier (2.0 ATR, max_hold=30)",
+      "total_trades": 1619,
+      "overall_pnl": -3984.6527782855433,
+      "overall_sharpe": -0.52,
+      "overall_win_rate": 32.7,
+      "overall_pf": 0.89,
+      "overall_max_dd": -826.89,
+      "overall_avg_trade": -2.46,
+      "oos_pnl": -2892.692315227408,
+      "oos_sharpe": -2.52,
+      "oos_win_rate": 32.2,
+      "by_exit_detail": {
+        "chandelier_2.0": {
+          "count": 1596,
+          "total_pnl": -7151.238561861134
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_30": {
+          "count": 20,
+          "total_pnl": 3089.6323369977226
+        }
+      },
+      "cost_aware_pnl": -4137.0144290747485,
+      "no_cost_pnl": -899.0144290747483
+    },
+    {
+      "name": "chandelier (2.0 ATR, max_hold=20)",
+      "total_trades": 1654,
+      "overall_pnl": -4398.060040048931,
+      "overall_sharpe": -0.55,
+      "overall_win_rate": 33.3,
+      "overall_pf": 0.88,
+      "overall_max_dd": -873.57,
+      "overall_avg_trade": -2.66,
+      "oos_pnl": -2945.231465609243,
+      "oos_sharpe": -2.46,
+      "oos_win_rate": 32.2,
+      "by_exit_detail": {
+        "chandelier_2.0": {
+          "count": 1545,
+          "total_pnl": -13433.923215198874
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_20": {
+          "count": 106,
+          "total_pnl": 8958.909728572076
+        }
+      },
+      "cost_aware_pnl": -4558.08398496386,
+      "no_cost_pnl": -1250.08398496386
+    },
+    {
+      "name": "chandelier (2.0 ATR, max_hold=12)",
+      "total_trades": 1790,
+      "overall_pnl": -4194.910090518109,
+      "overall_sharpe": -0.52,
+      "overall_win_rate": 35.6,
+      "overall_pf": 0.89,
+      "overall_max_dd": -927.09,
+      "overall_avg_trade": -2.34,
+      "oos_pnl": -3086.14686963023,
+      "oos_sharpe": -2.46,
+      "oos_win_rate": 35.6,
+      "by_exit_detail": {
+        "chandelier_2.0": {
+          "count": 1366,
+          "total_pnl": -23847.299176005225
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_12": {
+          "count": 421,
+          "total_pnl": 19575.43563890925
+        }
+      },
+      "cost_aware_pnl": -4354.7331636424115,
+      "no_cost_pnl": -774.7331636424096
+    },
+    {
+      "name": "chandelier (2.5 ATR, max_hold=40)",
+      "total_trades": 1366,
+      "overall_pnl": -3993.0801770433013,
+      "overall_sharpe": -0.46,
+      "overall_win_rate": 34.6,
+      "overall_pf": 0.89,
+      "overall_max_dd": -859.91,
+      "overall_avg_trade": -2.92,
+      "oos_pnl": -3348.984361369721,
+      "oos_sharpe": -2.64,
+      "oos_win_rate": 32.2,
+      "by_exit_detail": {
+        "chandelier_2.5": {
+          "count": 1333,
+          "total_pnl": -10453.766588502422
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_40": {
+          "count": 30,
+          "total_pnl": 6383.732964881251
+        }
+      },
+      "cost_aware_pnl": -4143.481686400281,
+      "no_cost_pnl": -1411.4816864002814
+    },
+    {
+      "name": "chandelier (2.5 ATR, max_hold=30)",
+      "total_trades": 1393,
+      "overall_pnl": -5475.823924359753,
+      "overall_sharpe": -0.7,
+      "overall_win_rate": 35.0,
+      "overall_pf": 0.86,
+      "overall_max_dd": -839.1,
+      "overall_avg_trade": -3.93,
+      "oos_pnl": -3714.2883391110763,
+      "oos_sharpe": -3.14,
+      "oos_win_rate": 32.6,
+      "by_exit_detail": {
+        "chandelier_2.5": {
+          "count": 1300,
+          "total_pnl": -14511.972055274375
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_30": {
+          "count": 90,
+          "total_pnl": 8959.194684336755
+        }
+      },
+      "cost_aware_pnl": -5626.125252024813,
+      "no_cost_pnl": -2840.125252024812
+    },
+    {
+      "name": "chandelier (2.5 ATR, max_hold=20)",
+      "total_trades": 1479,
+      "overall_pnl": -6781.6654859763985,
+      "overall_sharpe": -0.81,
+      "overall_win_rate": 35.2,
+      "overall_pf": 0.83,
+      "overall_max_dd": -903.24,
+      "overall_avg_trade": -4.59,
+      "oos_pnl": -3682.0104821620603,
+      "oos_sharpe": -2.81,
+      "oos_win_rate": 32.7,
+      "by_exit_detail": {
+        "chandelier_2.5": {
+          "count": 1225,
+          "total_pnl": -24705.032212999657
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_20": {
+          "count": 251,
+          "total_pnl": 17846.413280445387
+        }
+      },
+      "cost_aware_pnl": -6952.146226279598,
+      "no_cost_pnl": -3994.146226279598
+    },
+    {
+      "name": "chandelier (2.5 ATR, max_hold=12)",
+      "total_trades": 1664,
+      "overall_pnl": -5592.822174234996,
+      "overall_sharpe": -0.66,
+      "overall_win_rate": 39.9,
+      "overall_pf": 0.86,
+      "overall_max_dd": -964.01,
+      "overall_avg_trade": -3.36,
+      "oos_pnl": -3535.497601265517,
+      "oos_sharpe": -2.6,
+      "oos_win_rate": 38.4,
+      "by_exit_detail": {
+        "chandelier_2.5": {
+          "count": 1000,
+          "total_pnl": -31062.630916888782
+        },
+        "end_of_data": {
+          "count": 3,
+          "total_pnl": 76.95344657786788
+        },
+        "max_hold_12": {
+          "count": 661,
+          "total_pnl": 25392.85529607591
+        }
+      },
+      "cost_aware_pnl": -5770.6618483480925,
+      "no_cost_pnl": -2442.6618483480934
+    },
+    {
+      "name": "chandelier (3.0 ATR, max_hold=40)",
+      "total_trades": 1169,
+      "overall_pnl": -4057.8741235101747,
+      "overall_sharpe": -0.48,
+      "overall_win_rate": 35.4,
+      "overall_pf": 0.89,
+      "overall_max_dd": -823.06,
+      "overall_avg_trade": -3.47,
+      "oos_pnl": -1361.526601553812,
+      "oos_sharpe": -1.04,
+      "oos_win_rate": 36.6,
+      "by_exit_detail": {
+        "chandelier_3.0": {
+          "count": 1082,
+          "total_pnl": -15598.51199262277
+        },
+        "end_of_data": {
+          "count": 4,
+          "total_pnl": 81.69088508886463
+        },
+        "max_hold_40": {
+          "count": 83,
+          "total_pnl": 11458.94698402373
+        }
+      },
+      "cost_aware_pnl": -4176.141276685066,
+      "no_cost_pnl": -1838.1412766850672
+    },
+    {
+      "name": "chandelier (3.0 ATR, max_hold=30)",
+      "total_trades": 1225,
+      "overall_pnl": -7749.082667771869,
+      "overall_sharpe": -1.02,
+      "overall_win_rate": 35.4,
+      "overall_pf": 0.8,
+      "overall_max_dd": -1020.61,
+      "overall_avg_trade": -6.33,
+      "oos_pnl": -2727.061071261651,
+      "oos_sharpe": -2.23,
+      "oos_win_rate": 35.7,
+      "by_exit_detail": {
+        "chandelier_3.0": {
+          "count": 1045,
+          "total_pnl": -22520.43156879185
+        },
+        "end_of_data": {
+          "count": 4,
+          "total_pnl": 81.69088508886463
+        },
+        "max_hold_30": {
+          "count": 176,
+          "total_pnl": 14689.658015931118
+        }
+      },
+      "cost_aware_pnl": -7931.136896281276,
+      "no_cost_pnl": -5481.136896281276
+    },
+    {
+      "name": "chandelier (3.0 ATR, max_hold=20)",
+      "total_trades": 1340,
+      "overall_pnl": -7908.510160038045,
+      "overall_sharpe": -0.98,
+      "overall_win_rate": 38.8,
+      "overall_pf": 0.81,
+      "overall_max_dd": -1044.82,
+      "overall_avg_trade": -5.9,
+      "oos_pnl": -2751.099239829846,
+      "oos_sharpe": -1.92,
+      "oos_win_rate": 40.1,
+      "by_exit_detail": {
+        "chandelier_3.0": {
+          "count": 909,
+          "total_pnl": -31718.747151816253
+        },
+        "end_of_data": {
+          "count": 4,
+          "total_pnl": 81.69088508886463
+        },
+        "max_hold_20": {
+          "count": 427,
+          "total_pnl": 23728.546106689337
+        }
+      },
+      "cost_aware_pnl": -8122.540173846662,
+      "no_cost_pnl": -5442.540173846663
+    },
+    {
+      "name": "chandelier (3.0 ATR, max_hold=12)",
+      "total_trades": 1575,
+      "overall_pnl": -4556.002054447563,
+      "overall_sharpe": -0.52,
+      "overall_win_rate": 43.6,
+      "overall_pf": 0.89,
+      "overall_max_dd": -939.76,
+      "overall_avg_trade": -2.89,
+      "oos_pnl": -2064.5920845334617,
+      "oos_sharpe": -1.48,
+      "oos_win_rate": 44.9,
+      "by_exit_detail": {
+        "chandelier_3.0": {
+          "count": 734,
+          "total_pnl": -31778.592067588725
+        },
+        "end_of_data": {
+          "count": 4,
+          "total_pnl": 85.84828197546899
+        },
+        "max_hold_12": {
+          "count": 837,
+          "total_pnl": 27136.741731165694
+        }
+      },
+      "cost_aware_pnl": -4771.256892358343,
+      "no_cost_pnl": -1621.256892358344
+    }
+  ]
+}

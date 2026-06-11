@@ -1,0 +1,196 @@
+{
+  "hypothesis": "Exit-Only Research: trend drawdown tolerance (B) + 1d trend health lock (C)",
+  "version": "v1.0",
+  "status": "research_only",
+  "symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL",
+    "LINKUSDT_SWAP_OKX.GLOBAL",
+    "DOGEUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "data_range": "2023-01-01 to 2026-03-31",
+  "entry_rule": "20-bar breakout on 4h closed bars",
+  "exit_variants": {
+    "A": "Baseline: 2x ATR stop, 60-bar max hold",
+    "B": "Trend drawdown tolerance: exit when drawdown from peak > 2x entry_ATR, 60-bar max hold",
+    "C": "1d trend health lock: suppress A exit when 1d close > 1d 20-EMA, 120-bar max hold",
+    "BC": "Combined B + C: drawdown exit suppressed by 1d health, 120-bar max hold",
+    "D": "Random entry time control",
+    "E": "Reverse direction test"
+  },
+  "by_variant": [
+    {
+      "variant": "A",
+      "split": "oos_ext",
+      "trade_count": 118,
+      "no_cost_pnl": 178.1134909663,
+      "cost_aware_pnl": -57.8865090337,
+      "funding_adjusted_pnl": -91.6747726681,
+      "winning_rate": 0.3220338983
+    },
+    {
+      "variant": "A",
+      "split": "train_ext",
+      "trade_count": 231,
+      "no_cost_pnl": 2234.8399185661,
+      "cost_aware_pnl": 1772.8399185661,
+      "funding_adjusted_pnl": 1652.4610283304,
+      "winning_rate": 0.329004329
+    },
+    {
+      "variant": "A",
+      "split": "validation_ext",
+      "trade_count": 159,
+      "no_cost_pnl": 4406.075049894,
+      "cost_aware_pnl": 4088.075049894,
+      "funding_adjusted_pnl": 4049.3170130161,
+      "winning_rate": 0.3836477987
+    },
+    {
+      "variant": "B",
+      "split": "oos_ext",
+      "trade_count": 118,
+      "no_cost_pnl": -819.28227766,
+      "cost_aware_pnl": -1055.28227766,
+      "funding_adjusted_pnl": -1060.3100235591,
+      "winning_rate": 0.3559322034
+    },
+    {
+      "variant": "B",
+      "split": "train_ext",
+      "trade_count": 231,
+      "no_cost_pnl": -926.4909881619,
+      "cost_aware_pnl": -1388.4909881619,
+      "funding_adjusted_pnl": -1394.3516451612,
+      "winning_rate": 0.4199134199
+    },
+    {
+      "variant": "B",
+      "split": "validation_ext",
+      "trade_count": 159,
+      "no_cost_pnl": 758.9753231232,
+      "cost_aware_pnl": 440.9753231232,
+      "funding_adjusted_pnl": 434.4555558596,
+      "winning_rate": 0.4968553459
+    },
+    {
+      "variant": "BC",
+      "split": "oos_ext",
+      "trade_count": 118,
+      "no_cost_pnl": 981.6693586267,
+      "cost_aware_pnl": 745.6693586267,
+      "funding_adjusted_pnl": 715.5210154965,
+      "winning_rate": 0.3559322034
+    },
+    {
+      "variant": "BC",
+      "split": "train_ext",
+      "trade_count": 231,
+      "no_cost_pnl": 3138.6255431154,
+      "cost_aware_pnl": 2676.6255431154,
+      "funding_adjusted_pnl": 2425.3726254842,
+      "winning_rate": 0.4545454545
+    },
+    {
+      "variant": "BC",
+      "split": "validation_ext",
+      "trade_count": 159,
+      "no_cost_pnl": 6966.7890449258,
+      "cost_aware_pnl": 6648.7890449258,
+      "funding_adjusted_pnl": 6549.9116182368,
+      "winning_rate": 0.465408805
+    },
+    {
+      "variant": "C",
+      "split": "oos_ext",
+      "trade_count": 118,
+      "no_cost_pnl": 77.0378350095,
+      "cost_aware_pnl": -158.9621649905,
+      "funding_adjusted_pnl": -185.5644849607,
+      "winning_rate": 0.2542372881
+    },
+    {
+      "variant": "C",
+      "split": "train_ext",
+      "trade_count": 231,
+      "no_cost_pnl": 2940.4265300656,
+      "cost_aware_pnl": 2478.4265300656,
+      "funding_adjusted_pnl": 2218.5098088881,
+      "winning_rate": 0.316017316
+    },
+    {
+      "variant": "C",
+      "split": "validation_ext",
+      "trade_count": 159,
+      "no_cost_pnl": 5606.2693504926,
+      "cost_aware_pnl": 5288.2693504926,
+      "funding_adjusted_pnl": 5204.532751185,
+      "winning_rate": 0.2767295597
+    },
+    {
+      "variant": "D",
+      "split": "oos_ext",
+      "trade_count": 150,
+      "no_cost_pnl": 2521.4795248496,
+      "cost_aware_pnl": 2221.4795248496,
+      "funding_adjusted_pnl": 2196.048311522,
+      "winning_rate": 0.48
+    },
+    {
+      "variant": "D",
+      "split": "train_ext",
+      "trade_count": 233,
+      "no_cost_pnl": 8103.9752593299,
+      "cost_aware_pnl": 7637.9752593299,
+      "funding_adjusted_pnl": 7405.2738480064,
+      "winning_rate": 0.4291845494
+    },
+    {
+      "variant": "D",
+      "split": "validation_ext",
+      "trade_count": 125,
+      "no_cost_pnl": 2540.3177099362,
+      "cost_aware_pnl": 2290.3177099362,
+      "funding_adjusted_pnl": 2258.7966450718,
+      "winning_rate": 0.376
+    },
+    {
+      "variant": "E",
+      "split": "oos_ext",
+      "trade_count": 118,
+      "no_cost_pnl": 3518.4948255075,
+      "cost_aware_pnl": 3282.4948255075,
+      "funding_adjusted_pnl": 3268.8036928445,
+      "winning_rate": 0.5084745763
+    },
+    {
+      "variant": "E",
+      "split": "train_ext",
+      "trade_count": 231,
+      "no_cost_pnl": 9991.8235766563,
+      "cost_aware_pnl": 9529.8235766563,
+      "funding_adjusted_pnl": 9466.1948273506,
+      "winning_rate": 0.4329004329
+    },
+    {
+      "variant": "E",
+      "split": "validation_ext",
+      "trade_count": 159,
+      "no_cost_pnl": 4044.7911932392,
+      "cost_aware_pnl": 3726.7911932392,
+      "funding_adjusted_pnl": 3714.9390434582,
+      "winning_rate": 0.3459119497
+    }
+  ],
+  "gates": {
+    "cost_aware_pass": true,
+    "funding_adjusted_pass": true,
+    "reverse_test_pass": false,
+    "random_control_pass": false,
+    "concentration_pass": false,
+    "can_enter_phase2": false,
+    "final_decision": "postmortem_or_pause"
+  },
+  "warnings": []
+}

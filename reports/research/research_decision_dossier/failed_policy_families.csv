@@ -1,0 +1,11 @@
+policy_family,status,primary_failure,evidence,tradable
+1m Donchian breakout,failed,No stable positive edge; Signal Lab shows short-term breakout behaves like overheat/exhaustion risk.,Original 1m Donchian breakout and alpha diagnostics failed.,False
+1h/15m/5m HTF pullback,failed,No stable HTF policy; pullback/reclaim variants were negative across train/validation/oos.,HTF Signal Research compare rejected Strategy V2 entry.,False
+4h Donchian,failed,No stable candidate; weak validation/OOS behavior and choppy/high_vol_choppy loss exposure.,Trend V3 and regime attribution.,False
+1d Donchian,failed,No stable candidate; OOS fragility and Donchian losses concentrated in choppy/high_vol_choppy.,Extended Trend V3 and Trend Regime Diagnostics.,False
+4h EMA,failed,No stable candidate; OOS no-cost/cost-aware failure.,Trend V3 compare and Extended Trend V3 compare.,False
+1d EMA as currently defined,failed,"Best weak lead, but rejected by top trade concentration, funding stress, and regime diagnostics.",v3_1d_ema_50_200_atr5 was not stable and strong-trend no-cost PnL was negative.,False
+vol compression Donchian breakout,failed,No stable candidate; negative across validation/OOS after costs.,Trend V3 compare and Extended Trend V3 compare.,False
+V3 ensemble_core,failed,No stable ensemble edge; inherits failed 4h/1d Donchian and 4h EMA components.,Trend V3 compare and Extended Trend V3 compare.,False
+funding-adjusted V3 family,failed,"Actual OKX funding data is complete, but funding-adjusted stable_candidate_exists remains false.",Funding-aware Trend Research actual funding report and Research Decision Dossier final gate.,False
+VSVCB-v1 positive breakout hypothesis,failed,Breakout + squeeze + volume confirmation failed train/validation/OOS and reverse test was stronger than the positive breakout hypothesis.,VSVCB-v1 Phase 1 and postmortem.,False

@@ -1,0 +1,17 @@
+analysis started: 2026-06-10T23:43:44Z
+Traceback (most recent call last):
+  File "/home/yiast/vnpy_projects/cta_strategy/scripts/research_demo_vs_mainnet.py", line 22, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+=== BTC ===
+BTC: matched_1m=1791360 close_p99=2.00e-02 signals d/m/match=16224/19742/9250 jaccard=0.346
+=== ETH ===
+ETH: matched_1m=1791360 close_p99=1.77e-01 signals d/m/match=15710/16943/8306 jaccard=0.341
+=== SOL ===
+SOL: matched_1m=1791360 close_p99=3.16e-01 signals d/m/match=15226/22485/9710 jaccard=0.347
+=== LINK ===
+LINK: matched_1m=1791360 close_p99=7.72e-02 signals d/m/match=24234/27984/18589 jaccard=0.553
+=== DOGE ===
+DOGE: matched_1m=1791360 close_p99=6.08e-02 signals d/m/match=17188/23730/12385 jaccard=0.434
+done
+analysis finished: 2026-06-10T23:50:08Z

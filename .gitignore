@@ -16,8 +16,10 @@ data/raw/*
 !data/raw/.gitkeep
 data/funding/okx/*.csv
 data/funding/okx_historical_raw/*
-reports/*
-!reports/.gitkeep
+# reports/ is version-controlled since 2026-06-11 (vulnerability patch):
+# postmortems, READMEs, json/jsonl/csv results are knowledge assets.
+# Only single files >50MB are excluded (listed individually below).
+reports/research/trend_capture_exit_convexity/exit_variant_trades.csv
 
 # MR-5m runtime state and trade logs
 mr_5m_state.json

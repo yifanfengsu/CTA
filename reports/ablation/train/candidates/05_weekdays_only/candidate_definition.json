@@ -1,0 +1,11 @@
+{
+  "name": "weekdays_only",
+  "description": "只允许周一到周五新开仓",
+  "notes": "",
+  "setting_overrides": {
+    "entry_weekday_allowlist": "0,1,2,3,4",
+    "entry_filter_tag": "weekdays_only"
+  },
+  "no_cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/train/candidates/05_weekdays_only/no_cost",
+  "cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/train/candidates/05_weekdays_only/cost"
+}

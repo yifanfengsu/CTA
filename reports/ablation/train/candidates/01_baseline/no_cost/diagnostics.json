@@ -1,0 +1,38 @@
+{
+  "bankrupt": false,
+  "first_bankrupt_date": null,
+  "final_balance": 4985.77766,
+  "min_balance": 4985.46561,
+  "max_balance": 4999.96984,
+  "total_net_pnl_sum": -14.222340000000214,
+  "total_commission": 0.0,
+  "total_slippage": 0.0,
+  "total_turnover": 48041.496040000005,
+  "daily_trade_count_sum": 4674.0,
+  "worst_day": {
+    "date": "2025-06-14",
+    "net_pnl": -0.6012200000000012,
+    "trade_count": 18.0,
+    "balance": 4989.82353
+  },
+  "best_day": {
+    "date": "2025-07-11",
+    "net_pnl": 0.4999700000000013,
+    "trade_count": 20.0,
+    "balance": 4989.15471
+  },
+  "max_daily_loss": -0.6012200000000012,
+  "max_daily_profit": 0.4999700000000013,
+  "max_drawdown_abs_manual": -14.504229999999552,
+  "max_drawdown_pct_manual": -0.29008634980085307,
+  "first_balance_below_50pct_date": null,
+  "first_balance_below_20pct_date": null,
+  "missing_columns": [],
+  "daily_row_count": 273,
+  "initial_capital": 5000.0,
+  "statistics_error": null,
+  "statistics_total_trade_count": 4674,
+  "engine_trade_count": 4674,
+  "order_count": 4725,
+  "closed_round_trip_count": 2337
+}

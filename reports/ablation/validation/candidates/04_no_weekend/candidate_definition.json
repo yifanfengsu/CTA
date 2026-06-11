@@ -1,0 +1,11 @@
+{
+  "name": "no_weekend",
+  "description": "禁止周六/周日新开仓",
+  "notes": "",
+  "setting_overrides": {
+    "block_weekend_entries": true,
+    "entry_filter_tag": "no_weekend"
+  },
+  "no_cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/validation/candidates/04_no_weekend/no_cost",
+  "cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/validation/candidates/04_no_weekend/cost"
+}

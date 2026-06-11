@@ -1,0 +1,14 @@
+check_name,status,value,details,possible_implementation_issue
+market_data_complete,pass,True,all_market_data_complete from data_quality.json,False
+funding_data_complete,pass,True,actual OKX funding coverage available,False
+core_event_count_nonzero,pass,3292,B/C events in primary timeframe,False
+core_trade_count_enough,pass,"{""oos"": 697, ""train"": 2059, ""validation"": 534}",train>=30 validation>=10 oos>=10,False
+entry_uses_next_open,pass,0,checked=3290; trade.entry_price must equal event.entry_price,False
+exit_uses_open_t_plus_hold_plus_one,pass,0,checked=3290; exit-entry must equal hold_bars*timeframe,False
+funding_adjusted_available,pass,True,trades.csv funding_adjusted_pnl populated,False
+reverse_E_strictly_from_BC,pass,True,"{""core_event_count"": 6907, ""opposite_direction_count"": 6907, ""paired_count"": 6907, ""reverse_event_count"": 6907, ""status"": ""pass"", ""strict_reverse"": true}",False
+random_D_avoids_breakout_window,pass,0,D timestamps must be outside source breakout windows,False
+random_D_control_key_available,pass,True,control_key supports deterministic random-control audit,False
+same_bar_long_short_base_anomaly,pass,0,non-reverse same symbol/timeframe/bar long-short conflicts,False
+skipped_events_due_to_single_position_filter,warning,9695,rate=0.239495; skipped_future=26,False
+possible_implementation_issue,pass,False,true only when data completeness or mechanical checks fail,False

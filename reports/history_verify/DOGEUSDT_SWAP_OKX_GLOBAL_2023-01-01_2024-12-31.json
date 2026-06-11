@@ -1,0 +1,21 @@
+{
+  "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+  "interval": "1m",
+  "timezone": "Asia/Shanghai",
+  "start": "2023-01-01T00:00:00+08:00",
+  "end_exclusive": "2025-01-01T00:00:00+08:00",
+  "end_display": "2024-12-31T23:59:00+08:00",
+  "start_utc": "2022-12-31T16:00:00+00:00",
+  "end_exclusive_utc": "2024-12-31T16:00:00+00:00",
+  "total_count": 1052640,
+  "first_dt": "2023-01-01T00:00:00+08:00",
+  "last_dt": "2024-12-31T23:59:00+08:00",
+  "first_dt_utc": "2022-12-31T16:00:00+00:00",
+  "last_dt_utc": "2024-12-31T15:59:00+00:00",
+  "expected_count": 1052640,
+  "missing_count": 0,
+  "gap_count": 0,
+  "largest_gap": null,
+  "missing_ranges": [],
+  "repair_command": "python scripts/download_okx_history.py --vt-symbol DOGEUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2023-01-01 --end 2024-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+}

@@ -1,0 +1,3 @@
+family,scope,trade_count,no_cost_pnl,cost_aware_pnl_without_funding,signed_funding_pnl,positive_funding_pnl,negative_funding_pnl,funding_adjusted_pnl_signed,funding_adjusted_pnl_conservative,funding_events_count,funding_adjusted_positive,positive_due_to_funding,funding_dependency_ratio,funding_dependent
+cross_symbol_breadth_acceleration,all_splits,5778,4832.655978873796,-945.3440211262035,157.4318782680309,201.6494210615029,-44.21754279347194,-787.9121428581724,-989.5615639196755,2831,False,False,0.16653395457082362,False
+cross_symbol_breadth_acceleration,oos_ext,1364,1350.142763527595,-13.857236472404708,25.804320999155117,33.927636194391425,-8.123315195236312,11.947084526750615,-21.98055166764102,671,True,True,1.862154914548931,True

@@ -1,0 +1,1516 @@
+{
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/extended_history_availability",
+  "symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL",
+    "LINKUSDT_SWAP_OKX.GLOBAL",
+    "DOGEUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "windows": [
+    {
+      "window": "2025-01-01:2026-03-31",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "expected_count": 655200,
+      "start_datetime": "2025-01-01 00:00:00",
+      "end_exclusive": "2026-04-01 00:00:00",
+      "end_display": "2026-03-31 23:59:00"
+    },
+    {
+      "window": "2023-01-01:2026-03-31",
+      "start": "2023-01-01",
+      "end": "2026-03-31",
+      "expected_count": 1707840,
+      "start_datetime": "2023-01-01 00:00:00",
+      "end_exclusive": "2026-04-01 00:00:00",
+      "end_display": "2026-03-31 23:59:00"
+    },
+    {
+      "window": "2021-01-01:2026-03-31",
+      "start": "2021-01-01",
+      "end": "2026-03-31",
+      "expected_count": 2759040,
+      "start_datetime": "2021-01-01 00:00:00",
+      "end_exclusive": "2026-04-01 00:00:00",
+      "end_display": "2026-03-31 23:59:00"
+    }
+  ],
+  "interval": "1m",
+  "timezone": "Asia/Shanghai",
+  "config_dir": "/home/yiast/vnpy_projects/cta_strategy/config/instruments",
+  "database": {
+    "path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+    "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+    "exists": true,
+    "database_exists": true,
+    "table": "dbbardata",
+    "dbbardata_table_exists": true,
+    "symbol_totals": {
+      "BTCUSDT_SWAP_OKX.GLOBAL": {
+        "db_symbol_used": "BTCUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00"
+      },
+      "ETHUSDT_SWAP_OKX.GLOBAL": {
+        "db_symbol_used": "ETHUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00"
+      },
+      "SOLUSDT_SWAP_OKX.GLOBAL": {
+        "db_symbol_used": "SOLUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00"
+      },
+      "LINKUSDT_SWAP_OKX.GLOBAL": {
+        "db_symbol_used": "LINKUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00"
+      },
+      "DOGEUSDT_SWAP_OKX.GLOBAL": {
+        "db_symbol_used": "DOGEUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00"
+      }
+    },
+    "verify_default_database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+    "matches_verify_default_database_path": true
+  },
+  "check_okx_listing_metadata": false,
+  "instruments": {
+    "BTCUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "symbol": "BTCUSDT_SWAP_OKX",
+      "exchange": "GLOBAL",
+      "config_path": "/home/yiast/vnpy_projects/cta_strategy/config/instruments/btcusdt_swap_okx.json",
+      "config_exists": true,
+      "okx_inst_id": "BTC-USDT-SWAP",
+      "product": null,
+      "size": 0.01,
+      "pricetick": 0.1,
+      "min_volume": 0.01,
+      "metadata_complete": false,
+      "missing_fields": [
+        "okx_inst_id",
+        "product"
+      ],
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product"
+      ]
+    },
+    "ETHUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "symbol": "ETHUSDT_SWAP_OKX",
+      "exchange": "GLOBAL",
+      "config_path": "/home/yiast/vnpy_projects/cta_strategy/config/instruments/ethusdt_swap_okx.json",
+      "config_exists": true,
+      "okx_inst_id": "ETH-USDT-SWAP",
+      "product": null,
+      "size": 0.1,
+      "pricetick": 0.01,
+      "min_volume": 0.01,
+      "metadata_complete": false,
+      "missing_fields": [
+        "okx_inst_id",
+        "product"
+      ],
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product"
+      ]
+    },
+    "SOLUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "symbol": "SOLUSDT_SWAP_OKX",
+      "exchange": "GLOBAL",
+      "config_path": "/home/yiast/vnpy_projects/cta_strategy/config/instruments/solusdt_swap_okx.json",
+      "config_exists": true,
+      "okx_inst_id": "SOL-USDT-SWAP",
+      "product": null,
+      "size": 1.0,
+      "pricetick": 0.01,
+      "min_volume": 0.01,
+      "metadata_complete": false,
+      "missing_fields": [
+        "okx_inst_id",
+        "product"
+      ],
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product"
+      ]
+    },
+    "LINKUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "symbol": "LINKUSDT_SWAP_OKX",
+      "exchange": "GLOBAL",
+      "config_path": "/home/yiast/vnpy_projects/cta_strategy/config/instruments/linkusdt_swap_okx.json",
+      "config_exists": true,
+      "okx_inst_id": "LINK-USDT-SWAP",
+      "product": null,
+      "size": 1.0,
+      "pricetick": 0.001,
+      "min_volume": 0.01,
+      "metadata_complete": false,
+      "missing_fields": [
+        "okx_inst_id",
+        "product"
+      ],
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product"
+      ]
+    },
+    "DOGEUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "symbol": "DOGEUSDT_SWAP_OKX",
+      "exchange": "GLOBAL",
+      "config_path": "/home/yiast/vnpy_projects/cta_strategy/config/instruments/dogeusdt_swap_okx.json",
+      "config_exists": true,
+      "okx_inst_id": "DOGE-USDT-SWAP",
+      "product": null,
+      "size": 1000.0,
+      "pricetick": 5e-05,
+      "min_volume": 0.01,
+      "metadata_complete": false,
+      "missing_fields": [
+        "okx_inst_id",
+        "product"
+      ],
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product"
+      ]
+    }
+  },
+  "listing_metadata": {
+    "BTCUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "okx_inst_id": "BTC-USDT-SWAP",
+      "okx_list_time": null,
+      "okx_exp_time": null,
+      "okx_state": null,
+      "listing_metadata_available": false,
+      "warning": "okx_listing_metadata_not_checked",
+      "warnings": [
+        "okx_listing_metadata_not_checked"
+      ]
+    },
+    "ETHUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "okx_inst_id": "ETH-USDT-SWAP",
+      "okx_list_time": null,
+      "okx_exp_time": null,
+      "okx_state": null,
+      "listing_metadata_available": false,
+      "warning": "okx_listing_metadata_not_checked",
+      "warnings": [
+        "okx_listing_metadata_not_checked"
+      ]
+    },
+    "SOLUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "okx_inst_id": "SOL-USDT-SWAP",
+      "okx_list_time": null,
+      "okx_exp_time": null,
+      "okx_state": null,
+      "listing_metadata_available": false,
+      "warning": "okx_listing_metadata_not_checked",
+      "warnings": [
+        "okx_listing_metadata_not_checked"
+      ]
+    },
+    "LINKUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "okx_inst_id": "LINK-USDT-SWAP",
+      "okx_list_time": null,
+      "okx_exp_time": null,
+      "okx_state": null,
+      "listing_metadata_available": false,
+      "warning": "okx_listing_metadata_not_checked",
+      "warnings": [
+        "okx_listing_metadata_not_checked"
+      ]
+    },
+    "DOGEUSDT_SWAP_OKX.GLOBAL": {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "okx_inst_id": "DOGE-USDT-SWAP",
+      "okx_list_time": null,
+      "okx_exp_time": null,
+      "okx_state": null,
+      "listing_metadata_available": false,
+      "warning": "okx_listing_metadata_not_checked",
+      "warnings": [
+        "okx_listing_metadata_not_checked"
+      ]
+    }
+  },
+  "symbol_windows": [
+    {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2025-01-01:2026-03-31",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "expected_count": 655200,
+      "total_count": 655200,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "BTCUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2025-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2025-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2024-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 655200,
+        "normalized_rows_found_in_window": 655200,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "BTC-USDT-SWAP",
+        "product": null,
+        "size": 0.01,
+        "pricetick": 0.1,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "BTC-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2023-01-01:2026-03-31",
+      "start": "2023-01-01",
+      "end": "2026-03-31",
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "BTCUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2023-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2023-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2022-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "BTC-USDT-SWAP",
+        "product": null,
+        "size": 0.01,
+        "pricetick": 0.1,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "BTC-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2021-01-01:2026-03-31",
+      "start": "2021-01-01",
+      "end": "2026-03-31",
+      "expected_count": 2759040,
+      "total_count": 1707840,
+      "missing_count": 1051200,
+      "gap_count": 1,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 0.6189979123173278,
+      "history_ready": false,
+      "missing_ranges": [
+        {
+          "start": "2021-01-01 00:00:00",
+          "end": "2022-12-31 23:59:00",
+          "missing_count": 1051200,
+          "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+        }
+      ],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "BTCUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2021-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2021-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2020-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "BTC-USDT-SWAP",
+        "product": null,
+        "size": 0.01,
+        "pricetick": 0.1,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "BTC-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": false,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2025-01-01:2026-03-31",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "expected_count": 655200,
+      "total_count": 655200,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "ETHUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2025-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2025-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2024-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 655200,
+        "normalized_rows_found_in_window": 655200,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "ETH-USDT-SWAP",
+        "product": null,
+        "size": 0.1,
+        "pricetick": 0.01,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "ETH-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2023-01-01:2026-03-31",
+      "start": "2023-01-01",
+      "end": "2026-03-31",
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "ETHUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2023-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2023-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2022-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "ETH-USDT-SWAP",
+        "product": null,
+        "size": 0.1,
+        "pricetick": 0.01,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "ETH-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2021-01-01:2026-03-31",
+      "start": "2021-01-01",
+      "end": "2026-03-31",
+      "expected_count": 2759040,
+      "total_count": 1707840,
+      "missing_count": 1051200,
+      "gap_count": 1,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 0.6189979123173278,
+      "history_ready": false,
+      "missing_ranges": [
+        {
+          "start": "2021-01-01 00:00:00",
+          "end": "2022-12-31 23:59:00",
+          "missing_count": 1051200,
+          "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol ETHUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+        }
+      ],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "ETHUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2021-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2021-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2020-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "ETH-USDT-SWAP",
+        "product": null,
+        "size": 0.1,
+        "pricetick": 0.01,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "ETH-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": false,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2025-01-01:2026-03-31",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "expected_count": 655200,
+      "total_count": 655200,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "SOLUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2025-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2025-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2024-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 655200,
+        "normalized_rows_found_in_window": 655200,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "SOL-USDT-SWAP",
+        "product": null,
+        "size": 1.0,
+        "pricetick": 0.01,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "SOL-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2023-01-01:2026-03-31",
+      "start": "2023-01-01",
+      "end": "2026-03-31",
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "SOLUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2023-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2023-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2022-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "SOL-USDT-SWAP",
+        "product": null,
+        "size": 1.0,
+        "pricetick": 0.01,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "SOL-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2021-01-01:2026-03-31",
+      "start": "2021-01-01",
+      "end": "2026-03-31",
+      "expected_count": 2759040,
+      "total_count": 1707840,
+      "missing_count": 1051200,
+      "gap_count": 1,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 0.6189979123173278,
+      "history_ready": false,
+      "missing_ranges": [
+        {
+          "start": "2021-01-01 00:00:00",
+          "end": "2022-12-31 23:59:00",
+          "missing_count": 1051200,
+          "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol SOLUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+        }
+      ],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "SOLUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2021-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2021-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2020-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "SOL-USDT-SWAP",
+        "product": null,
+        "size": 1.0,
+        "pricetick": 0.01,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "SOL-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": false,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2025-01-01:2026-03-31",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "expected_count": 655200,
+      "total_count": 655200,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "LINKUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2025-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2025-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2024-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 655200,
+        "normalized_rows_found_in_window": 655200,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "LINK-USDT-SWAP",
+        "product": null,
+        "size": 1.0,
+        "pricetick": 0.001,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "LINK-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2023-01-01:2026-03-31",
+      "start": "2023-01-01",
+      "end": "2026-03-31",
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "LINKUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2023-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2023-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2022-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "LINK-USDT-SWAP",
+        "product": null,
+        "size": 1.0,
+        "pricetick": 0.001,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "LINK-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2021-01-01:2026-03-31",
+      "start": "2021-01-01",
+      "end": "2026-03-31",
+      "expected_count": 2759040,
+      "total_count": 1707840,
+      "missing_count": 1051200,
+      "gap_count": 1,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 0.6189979123173278,
+      "history_ready": false,
+      "missing_ranges": [
+        {
+          "start": "2021-01-01 00:00:00",
+          "end": "2022-12-31 23:59:00",
+          "missing_count": 1051200,
+          "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol LINKUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+        }
+      ],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "LINKUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2021-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2021-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2020-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "LINK-USDT-SWAP",
+        "product": null,
+        "size": 1.0,
+        "pricetick": 0.001,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "LINK-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": false,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2025-01-01:2026-03-31",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "expected_count": 655200,
+      "total_count": 655200,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2025-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "DOGEUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2025-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2025-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2024-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 655200,
+        "normalized_rows_found_in_window": 655200,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "DOGE-USDT-SWAP",
+        "product": null,
+        "size": 1000.0,
+        "pricetick": 5e-05,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "DOGE-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2023-01-01:2026-03-31",
+      "start": "2023-01-01",
+      "end": "2026-03-31",
+      "expected_count": 1707840,
+      "total_count": 1707840,
+      "missing_count": 0,
+      "gap_count": 0,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 1.0,
+      "history_ready": true,
+      "missing_ranges": [],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "DOGEUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2023-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2023-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2022-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "DOGE-USDT-SWAP",
+        "product": null,
+        "size": 1000.0,
+        "pricetick": 5e-05,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "DOGE-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": true,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    },
+    {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "interval": "1m",
+      "window": "2021-01-01:2026-03-31",
+      "start": "2021-01-01",
+      "end": "2026-03-31",
+      "expected_count": 2759040,
+      "total_count": 1707840,
+      "missing_count": 1051200,
+      "gap_count": 1,
+      "first_dt": "2023-01-01 00:00:00",
+      "last_dt": "2026-03-31 23:59:00",
+      "coverage_ratio": 0.6189979123173278,
+      "history_ready": false,
+      "missing_ranges": [
+        {
+          "start": "2021-01-01 00:00:00",
+          "end": "2022-12-31 23:59:00",
+          "missing_count": 1051200,
+          "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol DOGEUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+        }
+      ],
+      "query_debug": {
+        "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+        "database_exists": true,
+        "dbbardata_table_exists": true,
+        "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "db_symbol_used": "DOGEUSDT_SWAP_OKX",
+        "db_exchange_used": "GLOBAL",
+        "interval_used": "1m",
+        "datetime_storage_assumption": "dbbardata.datetime is stored as naive Asia/Shanghai",
+        "query_start": "2021-01-01 00:00:00",
+        "query_end_exclusive": "2026-04-01 00:00:00",
+        "history_start": "2021-01-01 00:00:00",
+        "history_end_exclusive": "2026-04-01 00:00:00",
+        "history_start_utc": "2020-12-31T16:00:00+00:00",
+        "history_end_exclusive_utc": "2026-03-31T16:00:00+00:00",
+        "rows_found_total": 1707840,
+        "first_dt_all": "2023-01-01 00:00:00",
+        "last_dt_all": "2026-03-31 23:59:00",
+        "rows_found_in_window": 1707840,
+        "normalized_rows_found_in_window": 1707840,
+        "warning": null
+      },
+      "instrument_metadata": {
+        "okx_inst_id": "DOGE-USDT-SWAP",
+        "product": null,
+        "size": 1000.0,
+        "pricetick": 5e-05,
+        "min_volume": 0.01,
+        "metadata_complete": false
+      },
+      "listing_metadata": {
+        "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "okx_inst_id": "DOGE-USDT-SWAP",
+        "okx_list_time": null,
+        "okx_exp_time": null,
+        "okx_state": null,
+        "listing_metadata_available": false,
+        "warning": "okx_listing_metadata_not_checked",
+        "warnings": [
+          "okx_listing_metadata_not_checked"
+        ],
+        "listing_before_window_start": "unknown"
+      },
+      "metadata_complete": false,
+      "listing_before_window_start": "unknown",
+      "ready": false,
+      "warnings": [
+        "metadata_incomplete: okx_inst_id, product",
+        "okx_listing_metadata_not_checked",
+        "listing_before_window_start_unknown"
+      ]
+    }
+  ],
+  "missing_ranges": [
+    {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol ETHUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol SOLUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol LINKUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "suggested_download_command": "python scripts/download_okx_history.py --vt-symbol DOGEUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    }
+  ],
+  "download_plan": [
+    {
+      "priority": 1,
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "command": "python scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "priority": 2,
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "command": "python scripts/download_okx_history.py --vt-symbol DOGEUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "priority": 3,
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "command": "python scripts/download_okx_history.py --vt-symbol ETHUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "priority": 4,
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "command": "python scripts/download_okx_history.py --vt-symbol LINKUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    },
+    {
+      "priority": 5,
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "window": "2021-01-01:2026-03-31",
+      "interval": "1m",
+      "start": "2021-01-01 00:00:00",
+      "end": "2022-12-31 23:59:00",
+      "missing_count": 1051200,
+      "command": "python scripts/download_okx_history.py --vt-symbol SOLUSDT_SWAP_OKX.GLOBAL --interval 1m --start 2021-01-01 --end 2022-12-31 --chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
+    }
+  ],
+  "readiness": {
+    "ready_for_2025_window": true,
+    "ready_for_2023_window": true,
+    "ready_for_2021_window": false,
+    "windows": [
+      {
+        "window": "2025-01-01:2026-03-31",
+        "start": "2025-01-01",
+        "end": "2026-03-31",
+        "ready": true,
+        "ready_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "missing_symbols": [],
+        "metadata_incomplete_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "listing_after_window_start_symbols": [],
+        "listing_unknown_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "total_expected_count": 3276000,
+        "total_count": 3276000,
+        "total_missing_count": 0
+      },
+      {
+        "window": "2023-01-01:2026-03-31",
+        "start": "2023-01-01",
+        "end": "2026-03-31",
+        "ready": true,
+        "ready_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "missing_symbols": [],
+        "metadata_incomplete_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "listing_after_window_start_symbols": [],
+        "listing_unknown_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "total_expected_count": 8539200,
+        "total_count": 8539200,
+        "total_missing_count": 0
+      },
+      {
+        "window": "2021-01-01:2026-03-31",
+        "start": "2021-01-01",
+        "end": "2026-03-31",
+        "ready": false,
+        "ready_symbols": [],
+        "missing_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "metadata_incomplete_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "listing_after_window_start_symbols": [],
+        "listing_unknown_symbols": [
+          "BTCUSDT_SWAP_OKX.GLOBAL",
+          "ETHUSDT_SWAP_OKX.GLOBAL",
+          "SOLUSDT_SWAP_OKX.GLOBAL",
+          "LINKUSDT_SWAP_OKX.GLOBAL",
+          "DOGEUSDT_SWAP_OKX.GLOBAL"
+        ],
+        "total_expected_count": 13795200,
+        "total_count": 8539200,
+        "total_missing_count": 5256000
+      }
+    ],
+    "recommended_next_download_window": "2021-01-01:2026-03-31",
+    "recommendation_reason": "2021_window_is_next_missing_window_after_2023_ready",
+    "can_enter_extended_trend_research": true,
+    "blocking_reasons": [],
+    "optional_warnings": [
+      "listing_time_unknown: BTCUSDT_SWAP_OKX.GLOBAL,DOGEUSDT_SWAP_OKX.GLOBAL,ETHUSDT_SWAP_OKX.GLOBAL,LINKUSDT_SWAP_OKX.GLOBAL,SOLUSDT_SWAP_OKX.GLOBAL"
+    ]
+  },
+  "outputs": {
+    "json": "/home/yiast/vnpy_projects/cta_strategy/reports/research/extended_history_availability/extended_history_availability.json",
+    "report": "/home/yiast/vnpy_projects/cta_strategy/reports/research/extended_history_availability/extended_history_availability_report.md",
+    "missing_ranges_csv": "/home/yiast/vnpy_projects/cta_strategy/reports/research/extended_history_availability/extended_history_missing_ranges.csv",
+    "download_plan_csv": "/home/yiast/vnpy_projects/cta_strategy/reports/research/extended_history_availability/extended_history_download_plan.csv"
+  }
+}

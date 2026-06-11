@@ -1,0 +1,11 @@
+{
+  "name": "thursday_only",
+  "description": "只允许周四新开仓",
+  "notes": "sample-mined / high overfit risk",
+  "setting_overrides": {
+    "entry_weekday_allowlist": "3",
+    "entry_filter_tag": "thursday_only"
+  },
+  "no_cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/validation/candidates/08_thursday_only/no_cost",
+  "cost_report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/ablation/validation/candidates/08_thursday_only/cost"
+}

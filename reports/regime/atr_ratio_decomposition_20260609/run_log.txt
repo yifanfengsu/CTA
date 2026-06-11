@@ -1,0 +1,19 @@
+# atr_ratio decomposition — run start 2026-06-09T06:59:59.591910+00:00
+Range: 2023-01-01 -> 2026-05-29 (UTC); train_frac=0.6667
+Reused engine: scripts/backtest_mr_5m_compare.py (UNMODIFIED)
+Params: LB=24 ATR_W=14 stop=1.0 max_hold=48 notional=$500.0 (baseline, NO filter)
+DYN cutpoints checked: atr_ratio 1.05 / 1.302
+
+[BTC] loading 1m bars ...
+[BTC] 358,272 5m bars | split@idx 238,848 (2025-04-09T08:04:00+00:00) | test trades 4,530 (dropped 0 nan-feature)
+[ETH] loading 1m bars ...
+[ETH] 358,272 5m bars | split@idx 238,848 (2025-04-09T08:04:00+00:00) | test trades 4,731 (dropped 0 nan-feature)
+[SOL] loading 1m bars ...
+[SOL] 358,272 5m bars | split@idx 238,848 (2025-04-09T08:04:00+00:00) | test trades 4,153 (dropped 0 nan-feature)
+[LINK] loading 1m bars ...
+[LINK] 358,272 5m bars | split@idx 238,848 (2025-04-09T08:04:00+00:00) | test trades 4,184 (dropped 0 nan-feature)
+[DOGE] loading 1m bars ...
+[DOGE] 358,272 5m bars | split@idx 238,848 (2025-04-09T08:04:00+00:00) | test trades 3,700 (dropped 0 nan-feature)
+
+
+# run end 2026-06-09T07:00:47.843753+00:00 (elapsed 48.3s)

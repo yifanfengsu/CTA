@@ -1,0 +1,256 @@
+{
+  "trend_map_data_quality": {
+    "mode": "research_only_ex_post_trend_opportunity_map",
+    "symbols": [
+      "BTCUSDT_SWAP_OKX.GLOBAL",
+      "ETHUSDT_SWAP_OKX.GLOBAL",
+      "SOLUSDT_SWAP_OKX.GLOBAL",
+      "LINKUSDT_SWAP_OKX.GLOBAL",
+      "DOGEUSDT_SWAP_OKX.GLOBAL"
+    ],
+    "timeframes": [
+      "4h",
+      "1d"
+    ],
+    "start": "2023-01-01T00:00:00+08:00",
+    "end_display": "2026-03-31T23:59:00+08:00",
+    "end_exclusive": "2026-04-01T00:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "database_path": "/home/yiast/vnpy_projects/cta_strategy/.vntrader/database.db",
+    "symbol_coverage": {
+      "BTCUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "ETHUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "SOLUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "LINKUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      },
+      "DOGEUSDT_SWAP_OKX.GLOBAL": {
+        "symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+        "timeframe": "1m",
+        "expected_count": 1707840,
+        "row_count": 1707840,
+        "unique_count": 1707840,
+        "missing_count": 0,
+        "gap_count": 0,
+        "first_datetime": "2023-01-01T00:00:00+08:00",
+        "last_datetime": "2026-03-31T23:59:00+08:00",
+        "complete": true,
+        "missing_ranges_sample": []
+      }
+    },
+    "timeframe_coverage": {
+      "BTCUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "ETHUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "SOLUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "LINKUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      },
+      "DOGEUSDT_SWAP_OKX.GLOBAL": {
+        "4h": {
+          "timeframe": "4h",
+          "minutes": 240,
+          "expected_closed_bar_count": 7116,
+          "row_count": 7116,
+          "first_datetime": "2023-01-01T03:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        },
+        "1d": {
+          "timeframe": "1d",
+          "minutes": 1440,
+          "expected_closed_bar_count": 1186,
+          "row_count": 1186,
+          "first_datetime": "2023-01-01T23:59:00+08:00",
+          "last_datetime": "2026-03-31T23:59:00+08:00",
+          "complete": true
+        }
+      }
+    },
+    "all_symbols_complete": true,
+    "strategy_development_allowed": false,
+    "demo_live_allowed": false,
+    "labels_are_ex_post_only": true,
+    "silent_skip_symbol": false,
+    "funding": {
+      "funding_data_complete": true,
+      "records": {
+        "BTC-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:00+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "ETH-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:01+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "SOL-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:12+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "LINK-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/LINK-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:05+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        },
+        "DOGE-USDT-SWAP": {
+          "csv_path": "/home/yiast/vnpy_projects/cta_strategy/data/funding/okx/DOGE-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+          "exists": true,
+          "row_count": 3558,
+          "first_funding_time": "2022-12-31T16:00:11+00:00",
+          "last_funding_time": "2026-03-31T08:00:00+00:00",
+          "large_gap_count": 0,
+          "coverage_complete": true,
+          "warnings": []
+        }
+      },
+      "missing_inst_ids": []
+    }
+  },
+  "market_data_complete": true,
+  "funding_data_complete": true,
+  "funding_missing_inst_ids": [],
+  "warnings": [],
+  "data_check_strict": true
+}

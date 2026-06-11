@@ -1,0 +1,7 @@
+variant,split,no_cost_pnl
+A,oos_ext,178.1134909663236
+A,train_ext,2234.839918566135
+A,validation_ext,4406.075049894029
+E,oos_ext,3518.4948255075087
+E,train_ext,9991.823576656348
+E,validation_ext,4044.791193239203

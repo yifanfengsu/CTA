@@ -1,0 +1,42 @@
+{
+  "proceed_to_v3_1_research": false,
+  "allowed_research_only": false,
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false,
+  "recommended_filters": {
+    "min_trend_efficiency": 0.35,
+    "min_adx_or_proxy": 20.0,
+    "allowed_regimes": [
+      "strong_uptrend",
+      "strong_downtrend"
+    ],
+    "blocked_regimes": [
+      "choppy",
+      "high_vol_choppy",
+      "compression"
+    ],
+    "max_atr_percentile": 0.8,
+    "min_ema_spread_pct": {
+      "4h": 0.004,
+      "1d": 0.01
+    }
+  },
+  "recommended_policy_families": [],
+  "rejected_policy_families": [
+    "1d_ema",
+    "1d_donchian",
+    "4h_ema",
+    "4h_donchian",
+    "ensemble"
+  ],
+  "rationale": [
+    "strong_trend_exists=false",
+    "profits_mainly_strong=false",
+    "losses_mainly_choppy_high_vol=false",
+    "one_day_ema_strong_outperforms_full=false",
+    "strategy_development_allowed=false and demo_live_allowed=false by design.",
+    "Existing V3 best-policy synthetic funding stress turns negative at or above 3 bps / 8h.",
+    "Existing V3 extended comparison flags top-trade contribution concentration.",
+    "Existing V3 extended comparison has stable_candidate_exists=false."
+  ]
+}

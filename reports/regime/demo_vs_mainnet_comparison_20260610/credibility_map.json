@@ -1,0 +1,1847 @@
+{
+  "BTC|2023-01": {
+    "symbol": "BTC",
+    "month": "2023-01",
+    "close_dev_p99": 0.0031770073248963953,
+    "signal_overlap": 0.2077922077922078,
+    "n_signals_union": 77,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-02": {
+    "symbol": "BTC",
+    "month": "2023-02",
+    "close_dev_p99": 0.025756041109561985,
+    "signal_overlap": 0.152,
+    "n_signals_union": 125,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-03": {
+    "symbol": "BTC",
+    "month": "2023-03",
+    "close_dev_p99": 0.04791942594657886,
+    "signal_overlap": 0.21981424148606812,
+    "n_signals_union": 323,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-04": {
+    "symbol": "BTC",
+    "month": "2023-04",
+    "close_dev_p99": 0.03292145623281894,
+    "signal_overlap": 0.16216216216216217,
+    "n_signals_union": 185,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-05": {
+    "symbol": "BTC",
+    "month": "2023-05",
+    "close_dev_p99": 0.021541683094917354,
+    "signal_overlap": 0.16666666666666666,
+    "n_signals_union": 120,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-06": {
+    "symbol": "BTC",
+    "month": "2023-06",
+    "close_dev_p99": 0.006916878578651335,
+    "signal_overlap": 0.18181818181818182,
+    "n_signals_union": 154,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-07": {
+    "symbol": "BTC",
+    "month": "2023-07",
+    "close_dev_p99": 0.023152846233814795,
+    "signal_overlap": 0.08387096774193549,
+    "n_signals_union": 155,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-08": {
+    "symbol": "BTC",
+    "month": "2023-08",
+    "close_dev_p99": 0.0004955870238091358,
+    "signal_overlap": 0.45,
+    "n_signals_union": 20,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-09": {
+    "symbol": "BTC",
+    "month": "2023-09",
+    "close_dev_p99": 0.00036252358435064693,
+    "signal_overlap": 0.21428571428571427,
+    "n_signals_union": 14,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-10": {
+    "symbol": "BTC",
+    "month": "2023-10",
+    "close_dev_p99": 0.002843496978616655,
+    "signal_overlap": 0.5632183908045977,
+    "n_signals_union": 87,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-11": {
+    "symbol": "BTC",
+    "month": "2023-11",
+    "close_dev_p99": 0.005545003015491665,
+    "signal_overlap": 0.48633879781420764,
+    "n_signals_union": 183,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2023-12": {
+    "symbol": "BTC",
+    "month": "2023-12",
+    "close_dev_p99": 0.001816776160839228,
+    "signal_overlap": 0.6573426573426573,
+    "n_signals_union": 286,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-01": {
+    "symbol": "BTC",
+    "month": "2024-01",
+    "close_dev_p99": 0.000642801693302602,
+    "signal_overlap": 0.6170731707317073,
+    "n_signals_union": 410,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-02": {
+    "symbol": "BTC",
+    "month": "2024-02",
+    "close_dev_p99": 0.0010513261523574756,
+    "signal_overlap": 0.5086848635235732,
+    "n_signals_union": 403,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-03": {
+    "symbol": "BTC",
+    "month": "2024-03",
+    "close_dev_p99": 0.014391071474405059,
+    "signal_overlap": 0.45146198830409356,
+    "n_signals_union": 855,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-04": {
+    "symbol": "BTC",
+    "month": "2024-04",
+    "close_dev_p99": 0.030776042319753262,
+    "signal_overlap": 0.5155844155844156,
+    "n_signals_union": 770,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-05": {
+    "symbol": "BTC",
+    "month": "2024-05",
+    "close_dev_p99": 0.00913771557436939,
+    "signal_overlap": 0.6380090497737556,
+    "n_signals_union": 663,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-06": {
+    "symbol": "BTC",
+    "month": "2024-06",
+    "close_dev_p99": 0.000873320851825399,
+    "signal_overlap": 0.586,
+    "n_signals_union": 500,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-07": {
+    "symbol": "BTC",
+    "month": "2024-07",
+    "close_dev_p99": 0.03545069682733439,
+    "signal_overlap": 0.6243589743589744,
+    "n_signals_union": 780,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-08": {
+    "symbol": "BTC",
+    "month": "2024-08",
+    "close_dev_p99": 0.0038439089959468866,
+    "signal_overlap": 0.6680384087791496,
+    "n_signals_union": 729,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-09": {
+    "symbol": "BTC",
+    "month": "2024-09",
+    "close_dev_p99": 0.011250117966013894,
+    "signal_overlap": 0.6138613861386139,
+    "n_signals_union": 606,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-10": {
+    "symbol": "BTC",
+    "month": "2024-10",
+    "close_dev_p99": 0.006441839431047986,
+    "signal_overlap": 0.6574923547400612,
+    "n_signals_union": 654,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-11": {
+    "symbol": "BTC",
+    "month": "2024-11",
+    "close_dev_p99": 0.01350759159286947,
+    "signal_overlap": 0.3428258488499452,
+    "n_signals_union": 913,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2024-12": {
+    "symbol": "BTC",
+    "month": "2024-12",
+    "close_dev_p99": 0.0011754142529044993,
+    "signal_overlap": 0.425,
+    "n_signals_union": 960,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-01": {
+    "symbol": "BTC",
+    "month": "2025-01",
+    "close_dev_p99": 0.01974674699545024,
+    "signal_overlap": 0.39659367396593675,
+    "n_signals_union": 822,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-02": {
+    "symbol": "BTC",
+    "month": "2025-02",
+    "close_dev_p99": 0.02007435543846423,
+    "signal_overlap": 0.4324009324009324,
+    "n_signals_union": 858,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-03": {
+    "symbol": "BTC",
+    "month": "2025-03",
+    "close_dev_p99": 0.019757426996561217,
+    "signal_overlap": 0.4406779661016949,
+    "n_signals_union": 885,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-04": {
+    "symbol": "BTC",
+    "month": "2025-04",
+    "close_dev_p99": 0.0023005856766618307,
+    "signal_overlap": 0.4976635514018692,
+    "n_signals_union": 856,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-05": {
+    "symbol": "BTC",
+    "month": "2025-05",
+    "close_dev_p99": 0.019092503786011024,
+    "signal_overlap": 0.41755888650963596,
+    "n_signals_union": 934,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-06": {
+    "symbol": "BTC",
+    "month": "2025-06",
+    "close_dev_p99": 0.012148755989112893,
+    "signal_overlap": 0.39885714285714285,
+    "n_signals_union": 875,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-07": {
+    "symbol": "BTC",
+    "month": "2025-07",
+    "close_dev_p99": 0.018544533585217578,
+    "signal_overlap": 0.24951456310679612,
+    "n_signals_union": 1030,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-08": {
+    "symbol": "BTC",
+    "month": "2025-08",
+    "close_dev_p99": 0.01950477109082629,
+    "signal_overlap": 0.13838550247116968,
+    "n_signals_union": 1214,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-09": {
+    "symbol": "BTC",
+    "month": "2025-09",
+    "close_dev_p99": 0.013751579974910947,
+    "signal_overlap": 0.1694915254237288,
+    "n_signals_union": 1062,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-10": {
+    "symbol": "BTC",
+    "month": "2025-10",
+    "close_dev_p99": 0.02019349636305558,
+    "signal_overlap": 0.15544041450777202,
+    "n_signals_union": 1351,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-11": {
+    "symbol": "BTC",
+    "month": "2025-11",
+    "close_dev_p99": 0.019715346920089225,
+    "signal_overlap": 0.07424593967517401,
+    "n_signals_union": 1293,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2025-12": {
+    "symbol": "BTC",
+    "month": "2025-12",
+    "close_dev_p99": 0.02053191298402831,
+    "signal_overlap": 0.06134453781512605,
+    "n_signals_union": 1190,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2026-01": {
+    "symbol": "BTC",
+    "month": "2026-01",
+    "close_dev_p99": 0.020703210894143845,
+    "signal_overlap": 0.06244087038789026,
+    "n_signals_union": 1057,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2026-02": {
+    "symbol": "BTC",
+    "month": "2026-02",
+    "close_dev_p99": 0.022205179282565515,
+    "signal_overlap": 0.11634349030470914,
+    "n_signals_union": 1083,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2026-03": {
+    "symbol": "BTC",
+    "month": "2026-03",
+    "close_dev_p99": 0.020491718524189146,
+    "signal_overlap": 0.2324431256181998,
+    "n_signals_union": 1011,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2026-04": {
+    "symbol": "BTC",
+    "month": "2026-04",
+    "close_dev_p99": 0.0025612439102932214,
+    "signal_overlap": 0.5688622754491018,
+    "n_signals_union": 668,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "BTC|2026-05": {
+    "symbol": "BTC",
+    "month": "2026-05",
+    "close_dev_p99": 0.007143083272691161,
+    "signal_overlap": 0.3927927927927928,
+    "n_signals_union": 555,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-01": {
+    "symbol": "ETH",
+    "month": "2023-01",
+    "close_dev_p99": 0.04269903540951923,
+    "signal_overlap": 0.2222222222222222,
+    "n_signals_union": 171,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "ETH|2023-02": {
+    "symbol": "ETH",
+    "month": "2023-02",
+    "close_dev_p99": 0.02598841357433304,
+    "signal_overlap": 0.13454545454545455,
+    "n_signals_union": 275,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-03": {
+    "symbol": "ETH",
+    "month": "2023-03",
+    "close_dev_p99": 0.02660642036237525,
+    "signal_overlap": 0.19887955182072828,
+    "n_signals_union": 357,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-04": {
+    "symbol": "ETH",
+    "month": "2023-04",
+    "close_dev_p99": 0.013065143786443571,
+    "signal_overlap": 0.23076923076923078,
+    "n_signals_union": 221,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-05": {
+    "symbol": "ETH",
+    "month": "2023-05",
+    "close_dev_p99": 0.016399779703310823,
+    "signal_overlap": 0.23780487804878048,
+    "n_signals_union": 164,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-06": {
+    "symbol": "ETH",
+    "month": "2023-06",
+    "close_dev_p99": 0.0029184876911206204,
+    "signal_overlap": 0.2727272727272727,
+    "n_signals_union": 176,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-07": {
+    "symbol": "ETH",
+    "month": "2023-07",
+    "close_dev_p99": 0.050006210155207266,
+    "signal_overlap": 0.08717948717948718,
+    "n_signals_union": 195,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-08": {
+    "symbol": "ETH",
+    "month": "2023-08",
+    "close_dev_p99": 0.0005451041177363667,
+    "signal_overlap": 0.3888888888888889,
+    "n_signals_union": 36,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-09": {
+    "symbol": "ETH",
+    "month": "2023-09",
+    "close_dev_p99": 0.00033448096911395213,
+    "signal_overlap": 0.5625,
+    "n_signals_union": 16,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-10": {
+    "symbol": "ETH",
+    "month": "2023-10",
+    "close_dev_p99": 0.002265324170068116,
+    "signal_overlap": 0.7553191489361702,
+    "n_signals_union": 94,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-11": {
+    "symbol": "ETH",
+    "month": "2023-11",
+    "close_dev_p99": 0.0056753022343231044,
+    "signal_overlap": 0.5800865800865801,
+    "n_signals_union": 231,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2023-12": {
+    "symbol": "ETH",
+    "month": "2023-12",
+    "close_dev_p99": 0.0022256109963130384,
+    "signal_overlap": 0.6948228882833788,
+    "n_signals_union": 367,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-01": {
+    "symbol": "ETH",
+    "month": "2024-01",
+    "close_dev_p99": 0.0005921838893774069,
+    "signal_overlap": 0.7406593406593407,
+    "n_signals_union": 455,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-02": {
+    "symbol": "ETH",
+    "month": "2024-02",
+    "close_dev_p99": 0.00108567466578271,
+    "signal_overlap": 0.6839729119638827,
+    "n_signals_union": 443,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-03": {
+    "symbol": "ETH",
+    "month": "2024-03",
+    "close_dev_p99": 0.022141257313301257,
+    "signal_overlap": 0.4894859813084112,
+    "n_signals_union": 856,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-04": {
+    "symbol": "ETH",
+    "month": "2024-04",
+    "close_dev_p99": 0.04941833535683426,
+    "signal_overlap": 0.48249027237354086,
+    "n_signals_union": 771,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-05": {
+    "symbol": "ETH",
+    "month": "2024-05",
+    "close_dev_p99": 0.015133835619997187,
+    "signal_overlap": 0.6451612903225806,
+    "n_signals_union": 651,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-06": {
+    "symbol": "ETH",
+    "month": "2024-06",
+    "close_dev_p99": 0.0009071149499109381,
+    "signal_overlap": 0.6213592233009708,
+    "n_signals_union": 618,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-07": {
+    "symbol": "ETH",
+    "month": "2024-07",
+    "close_dev_p99": 0.03289051324683428,
+    "signal_overlap": 0.6427622841965471,
+    "n_signals_union": 753,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-08": {
+    "symbol": "ETH",
+    "month": "2024-08",
+    "close_dev_p99": 0.004426636206790874,
+    "signal_overlap": 0.6641104294478528,
+    "n_signals_union": 652,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-09": {
+    "symbol": "ETH",
+    "month": "2024-09",
+    "close_dev_p99": 0.004498518332387497,
+    "signal_overlap": 0.6592292089249493,
+    "n_signals_union": 493,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-10": {
+    "symbol": "ETH",
+    "month": "2024-10",
+    "close_dev_p99": 0.005661832329409181,
+    "signal_overlap": 0.6536885245901639,
+    "n_signals_union": 488,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-11": {
+    "symbol": "ETH",
+    "month": "2024-11",
+    "close_dev_p99": 0.01204389417713456,
+    "signal_overlap": 0.47696139476961397,
+    "n_signals_union": 803,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2024-12": {
+    "symbol": "ETH",
+    "month": "2024-12",
+    "close_dev_p99": 0.001377328115206762,
+    "signal_overlap": 0.3665158371040724,
+    "n_signals_union": 884,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-01": {
+    "symbol": "ETH",
+    "month": "2025-01",
+    "close_dev_p99": 0.0336958630809665,
+    "signal_overlap": 0.35460122699386504,
+    "n_signals_union": 815,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-02": {
+    "symbol": "ETH",
+    "month": "2025-02",
+    "close_dev_p99": 0.009416758284846201,
+    "signal_overlap": 0.4908814589665654,
+    "n_signals_union": 658,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-03": {
+    "symbol": "ETH",
+    "month": "2025-03",
+    "close_dev_p99": 0.004237701808810117,
+    "signal_overlap": 0.3426443202979516,
+    "n_signals_union": 537,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-04": {
+    "symbol": "ETH",
+    "month": "2025-04",
+    "close_dev_p99": 0.004973813470237275,
+    "signal_overlap": 0.31777777777777777,
+    "n_signals_union": 450,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-05": {
+    "symbol": "ETH",
+    "month": "2025-05",
+    "close_dev_p99": 0.013505537001503351,
+    "signal_overlap": 0.3993231810490694,
+    "n_signals_union": 591,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-06": {
+    "symbol": "ETH",
+    "month": "2025-06",
+    "close_dev_p99": 0.020468219752099916,
+    "signal_overlap": 0.37668161434977576,
+    "n_signals_union": 669,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-07": {
+    "symbol": "ETH",
+    "month": "2025-07",
+    "close_dev_p99": 0.05091535487560837,
+    "signal_overlap": 0.09291628334866606,
+    "n_signals_union": 1087,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-08": {
+    "symbol": "ETH",
+    "month": "2025-08",
+    "close_dev_p99": 0.05072252435714566,
+    "signal_overlap": 0.1575091575091575,
+    "n_signals_union": 1092,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-09": {
+    "symbol": "ETH",
+    "month": "2025-09",
+    "close_dev_p99": 0.01488019643953769,
+    "signal_overlap": 0.13084922010398614,
+    "n_signals_union": 1154,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-10": {
+    "symbol": "ETH",
+    "month": "2025-10",
+    "close_dev_p99": 0.03741142858593257,
+    "signal_overlap": 0.26435877261998425,
+    "n_signals_union": 1271,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-11": {
+    "symbol": "ETH",
+    "month": "2025-11",
+    "close_dev_p99": 0.044593394787129294,
+    "signal_overlap": 0.10452418096723869,
+    "n_signals_union": 1282,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "ETH|2025-12": {
+    "symbol": "ETH",
+    "month": "2025-12",
+    "close_dev_p99": 0.30320405441161813,
+    "signal_overlap": 0.08761329305135952,
+    "n_signals_union": 993,
+    "ramp_events": 5,
+    "rating": "red"
+  },
+  "ETH|2026-01": {
+    "symbol": "ETH",
+    "month": "2026-01",
+    "close_dev_p99": 0.30242748281209697,
+    "signal_overlap": 0.10021097046413502,
+    "n_signals_union": 948,
+    "ramp_events": 10,
+    "rating": "red"
+  },
+  "ETH|2026-02": {
+    "symbol": "ETH",
+    "month": "2026-02",
+    "close_dev_p99": 0.2609602178572593,
+    "signal_overlap": 0.1073170731707317,
+    "n_signals_union": 1025,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "ETH|2026-03": {
+    "symbol": "ETH",
+    "month": "2026-03",
+    "close_dev_p99": 0.30269465167624304,
+    "signal_overlap": 0.10703666997026759,
+    "n_signals_union": 1009,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "ETH|2026-04": {
+    "symbol": "ETH",
+    "month": "2026-04",
+    "close_dev_p99": 0.007125558795567341,
+    "signal_overlap": 0.5153061224489796,
+    "n_signals_union": 392,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "ETH|2026-05": {
+    "symbol": "ETH",
+    "month": "2026-05",
+    "close_dev_p99": 0.007895415086901452,
+    "signal_overlap": 0.47058823529411764,
+    "n_signals_union": 204,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2023-01": {
+    "symbol": "SOL",
+    "month": "2023-01",
+    "close_dev_p99": 0.5302269495365621,
+    "signal_overlap": 0.05384615384615385,
+    "n_signals_union": 260,
+    "ramp_events": 67,
+    "rating": "red"
+  },
+  "SOL|2023-02": {
+    "symbol": "SOL",
+    "month": "2023-02",
+    "close_dev_p99": 0.0245412788977642,
+    "signal_overlap": 0.0,
+    "n_signals_union": 15,
+    "ramp_events": 3,
+    "rating": "red"
+  },
+  "SOL|2023-03": {
+    "symbol": "SOL",
+    "month": "2023-03",
+    "close_dev_p99": 0.017846191835412566,
+    "signal_overlap": 0.13333333333333333,
+    "n_signals_union": 15,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "SOL|2023-04": {
+    "symbol": "SOL",
+    "month": "2023-04",
+    "close_dev_p99": 0.374349037339144,
+    "signal_overlap": 0.029411764705882353,
+    "n_signals_union": 34,
+    "ramp_events": 7,
+    "rating": "red"
+  },
+  "SOL|2023-05": {
+    "symbol": "SOL",
+    "month": "2023-05",
+    "close_dev_p99": 0.0008619873439137434,
+    "signal_overlap": null,
+    "n_signals_union": 0,
+    "ramp_events": 0,
+    "rating": "green"
+  },
+  "SOL|2023-06": {
+    "symbol": "SOL",
+    "month": "2023-06",
+    "close_dev_p99": 0.0016546758535003596,
+    "signal_overlap": 0.2222222222222222,
+    "n_signals_union": 9,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2023-07": {
+    "symbol": "SOL",
+    "month": "2023-07",
+    "close_dev_p99": 0.49975268795058725,
+    "signal_overlap": 0.04597701149425287,
+    "n_signals_union": 87,
+    "ramp_events": 11,
+    "rating": "red"
+  },
+  "SOL|2023-08": {
+    "symbol": "SOL",
+    "month": "2023-08",
+    "close_dev_p99": 0.0015625434559589887,
+    "signal_overlap": 1.0,
+    "n_signals_union": 1,
+    "ramp_events": 0,
+    "rating": "yellow"
+  },
+  "SOL|2023-09": {
+    "symbol": "SOL",
+    "month": "2023-09",
+    "close_dev_p99": 0.0007685316160511101,
+    "signal_overlap": null,
+    "n_signals_union": 0,
+    "ramp_events": 0,
+    "rating": "green"
+  },
+  "SOL|2023-10": {
+    "symbol": "SOL",
+    "month": "2023-10",
+    "close_dev_p99": 0.0022483227371241964,
+    "signal_overlap": 0.5,
+    "n_signals_union": 18,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2023-11": {
+    "symbol": "SOL",
+    "month": "2023-11",
+    "close_dev_p99": 0.04800080574672378,
+    "signal_overlap": 0.6044176706827309,
+    "n_signals_union": 498,
+    "ramp_events": 6,
+    "rating": "red"
+  },
+  "SOL|2023-12": {
+    "symbol": "SOL",
+    "month": "2023-12",
+    "close_dev_p99": 0.0021341158395594335,
+    "signal_overlap": 0.6614950634696756,
+    "n_signals_union": 709,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2024-01": {
+    "symbol": "SOL",
+    "month": "2024-01",
+    "close_dev_p99": 0.0011607262611652348,
+    "signal_overlap": 0.7410714285714286,
+    "n_signals_union": 784,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2024-02": {
+    "symbol": "SOL",
+    "month": "2024-02",
+    "close_dev_p99": 0.0016461449421053447,
+    "signal_overlap": 0.7652777777777777,
+    "n_signals_union": 720,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2024-03": {
+    "symbol": "SOL",
+    "month": "2024-03",
+    "close_dev_p99": 0.11174977907853473,
+    "signal_overlap": 0.3667649950835792,
+    "n_signals_union": 1017,
+    "ramp_events": 13,
+    "rating": "red"
+  },
+  "SOL|2024-04": {
+    "symbol": "SOL",
+    "month": "2024-04",
+    "close_dev_p99": 0.19745428418894054,
+    "signal_overlap": 0.3271794871794872,
+    "n_signals_union": 975,
+    "ramp_events": 14,
+    "rating": "red"
+  },
+  "SOL|2024-05": {
+    "symbol": "SOL",
+    "month": "2024-05",
+    "close_dev_p99": 0.012464386224812487,
+    "signal_overlap": 0.5084566596194503,
+    "n_signals_union": 946,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "SOL|2024-06": {
+    "symbol": "SOL",
+    "month": "2024-06",
+    "close_dev_p99": 0.0016934658693856552,
+    "signal_overlap": 0.5128779395296752,
+    "n_signals_union": 893,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2024-07": {
+    "symbol": "SOL",
+    "month": "2024-07",
+    "close_dev_p99": 0.5062239578410057,
+    "signal_overlap": 0.45376549094375596,
+    "n_signals_union": 1049,
+    "ramp_events": 7,
+    "rating": "red"
+  },
+  "SOL|2024-08": {
+    "symbol": "SOL",
+    "month": "2024-08",
+    "close_dev_p99": 0.014096491534451723,
+    "signal_overlap": 0.42455775234131116,
+    "n_signals_union": 961,
+    "ramp_events": 9,
+    "rating": "red"
+  },
+  "SOL|2024-09": {
+    "symbol": "SOL",
+    "month": "2024-09",
+    "close_dev_p99": 0.005611216247459421,
+    "signal_overlap": 0.5157657657657657,
+    "n_signals_union": 888,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "SOL|2024-10": {
+    "symbol": "SOL",
+    "month": "2024-10",
+    "close_dev_p99": 0.03039518347063392,
+    "signal_overlap": 0.48606811145510836,
+    "n_signals_union": 969,
+    "ramp_events": 5,
+    "rating": "red"
+  },
+  "SOL|2024-11": {
+    "symbol": "SOL",
+    "month": "2024-11",
+    "close_dev_p99": 0.016334234359680143,
+    "signal_overlap": 0.333976833976834,
+    "n_signals_union": 1036,
+    "ramp_events": 12,
+    "rating": "red"
+  },
+  "SOL|2024-12": {
+    "symbol": "SOL",
+    "month": "2024-12",
+    "close_dev_p99": 0.0024972025025576947,
+    "signal_overlap": 0.33212996389891697,
+    "n_signals_union": 1108,
+    "ramp_events": 11,
+    "rating": "red"
+  },
+  "SOL|2025-01": {
+    "symbol": "SOL",
+    "month": "2025-01",
+    "close_dev_p99": 0.27600847415072144,
+    "signal_overlap": 0.31374321880650996,
+    "n_signals_union": 1106,
+    "ramp_events": 31,
+    "rating": "red"
+  },
+  "SOL|2025-02": {
+    "symbol": "SOL",
+    "month": "2025-02",
+    "close_dev_p99": 0.26110849735111213,
+    "signal_overlap": 0.24495677233429394,
+    "n_signals_union": 1041,
+    "ramp_events": 50,
+    "rating": "red"
+  },
+  "SOL|2025-03": {
+    "symbol": "SOL",
+    "month": "2025-03",
+    "close_dev_p99": 0.013503162833223531,
+    "signal_overlap": 0.26373626373626374,
+    "n_signals_union": 910,
+    "ramp_events": 14,
+    "rating": "red"
+  },
+  "SOL|2025-04": {
+    "symbol": "SOL",
+    "month": "2025-04",
+    "close_dev_p99": 0.02775284264090112,
+    "signal_overlap": 0.18891402714932126,
+    "n_signals_union": 884,
+    "ramp_events": 12,
+    "rating": "red"
+  },
+  "SOL|2025-05": {
+    "symbol": "SOL",
+    "month": "2025-05",
+    "close_dev_p99": 0.0660326375407087,
+    "signal_overlap": 0.19858156028368795,
+    "n_signals_union": 987,
+    "ramp_events": 25,
+    "rating": "red"
+  },
+  "SOL|2025-06": {
+    "symbol": "SOL",
+    "month": "2025-06",
+    "close_dev_p99": 0.11794968033748844,
+    "signal_overlap": 0.3388998035363458,
+    "n_signals_union": 1018,
+    "ramp_events": 7,
+    "rating": "red"
+  },
+  "SOL|2025-07": {
+    "symbol": "SOL",
+    "month": "2025-07",
+    "close_dev_p99": 0.047099087587000696,
+    "signal_overlap": 0.4009259259259259,
+    "n_signals_union": 1080,
+    "ramp_events": 6,
+    "rating": "red"
+  },
+  "SOL|2025-08": {
+    "symbol": "SOL",
+    "month": "2025-08",
+    "close_dev_p99": 0.018534064768841237,
+    "signal_overlap": 0.33080568720379144,
+    "n_signals_union": 1055,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "SOL|2025-09": {
+    "symbol": "SOL",
+    "month": "2025-09",
+    "close_dev_p99": 0.015209704843049466,
+    "signal_overlap": 0.29124236252545826,
+    "n_signals_union": 982,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "SOL|2025-10": {
+    "symbol": "SOL",
+    "month": "2025-10",
+    "close_dev_p99": 0.04015390163373383,
+    "signal_overlap": 0.2886100386100386,
+    "n_signals_union": 1036,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "SOL|2025-11": {
+    "symbol": "SOL",
+    "month": "2025-11",
+    "close_dev_p99": 0.08530408734368666,
+    "signal_overlap": 0.13079222720478326,
+    "n_signals_union": 1338,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "SOL|2025-12": {
+    "symbol": "SOL",
+    "month": "2025-12",
+    "close_dev_p99": 0.09702013471885948,
+    "signal_overlap": 0.06839378238341969,
+    "n_signals_union": 965,
+    "ramp_events": 9,
+    "rating": "red"
+  },
+  "SOL|2026-01": {
+    "symbol": "SOL",
+    "month": "2026-01",
+    "close_dev_p99": 0.024187565408116195,
+    "signal_overlap": 0.11923076923076924,
+    "n_signals_union": 780,
+    "ramp_events": 3,
+    "rating": "red"
+  },
+  "SOL|2026-02": {
+    "symbol": "SOL",
+    "month": "2026-02",
+    "close_dev_p99": 0.1258239052704943,
+    "signal_overlap": 0.09139213602550478,
+    "n_signals_union": 941,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "SOL|2026-03": {
+    "symbol": "SOL",
+    "month": "2026-03",
+    "close_dev_p99": 0.04021283398932633,
+    "signal_overlap": 0.1996527777777778,
+    "n_signals_union": 576,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "SOL|2026-04": {
+    "symbol": "SOL",
+    "month": "2026-04",
+    "close_dev_p99": 0.001399357708225338,
+    "signal_overlap": 0.5894039735099338,
+    "n_signals_union": 151,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "SOL|2026-05": {
+    "symbol": "SOL",
+    "month": "2026-05",
+    "close_dev_p99": 0.06148948626846329,
+    "signal_overlap": 0.4779874213836478,
+    "n_signals_union": 159,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "LINK|2023-01": {
+    "symbol": "LINK",
+    "month": "2023-01",
+    "close_dev_p99": 0.06438601732895131,
+    "signal_overlap": 0.5198675496688742,
+    "n_signals_union": 302,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-02": {
+    "symbol": "LINK",
+    "month": "2023-02",
+    "close_dev_p99": 0.02215001462015036,
+    "signal_overlap": 0.6840909090909091,
+    "n_signals_union": 440,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-03": {
+    "symbol": "LINK",
+    "month": "2023-03",
+    "close_dev_p99": 0.024992734670154112,
+    "signal_overlap": 0.5849462365591398,
+    "n_signals_union": 465,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-04": {
+    "symbol": "LINK",
+    "month": "2023-04",
+    "close_dev_p99": 0.019024945683036712,
+    "signal_overlap": 0.608,
+    "n_signals_union": 250,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-05": {
+    "symbol": "LINK",
+    "month": "2023-05",
+    "close_dev_p99": 0.0009223674096848928,
+    "signal_overlap": 0.5510204081632653,
+    "n_signals_union": 49,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-06": {
+    "symbol": "LINK",
+    "month": "2023-06",
+    "close_dev_p99": 0.0025690595420300184,
+    "signal_overlap": 0.45714285714285713,
+    "n_signals_union": 140,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "LINK|2023-07": {
+    "symbol": "LINK",
+    "month": "2023-07",
+    "close_dev_p99": 0.053178294573643405,
+    "signal_overlap": 0.5091575091575091,
+    "n_signals_union": 273,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-08": {
+    "symbol": "LINK",
+    "month": "2023-08",
+    "close_dev_p99": 0.0021292746202925756,
+    "signal_overlap": 0.4367816091954023,
+    "n_signals_union": 87,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-09": {
+    "symbol": "LINK",
+    "month": "2023-09",
+    "close_dev_p99": 0.0008024641010418165,
+    "signal_overlap": 0.6606060606060606,
+    "n_signals_union": 165,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-10": {
+    "symbol": "LINK",
+    "month": "2023-10",
+    "close_dev_p99": 0.0013872030518467151,
+    "signal_overlap": 0.7651991614255765,
+    "n_signals_union": 477,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-11": {
+    "symbol": "LINK",
+    "month": "2023-11",
+    "close_dev_p99": 0.014583181013879334,
+    "signal_overlap": 0.759698275862069,
+    "n_signals_union": 928,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2023-12": {
+    "symbol": "LINK",
+    "month": "2023-12",
+    "close_dev_p99": 0.001578891166955113,
+    "signal_overlap": 0.8626692456479691,
+    "n_signals_union": 1034,
+    "ramp_events": 0,
+    "rating": "yellow"
+  },
+  "LINK|2024-01": {
+    "symbol": "LINK",
+    "month": "2024-01",
+    "close_dev_p99": 0.0009392181719495641,
+    "signal_overlap": 0.8148854961832062,
+    "n_signals_union": 1048,
+    "ramp_events": 0,
+    "rating": "yellow"
+  },
+  "LINK|2024-02": {
+    "symbol": "LINK",
+    "month": "2024-02",
+    "close_dev_p99": 0.0010217969028987208,
+    "signal_overlap": 0.8280922431865828,
+    "n_signals_union": 954,
+    "ramp_events": 0,
+    "rating": "yellow"
+  },
+  "LINK|2024-03": {
+    "symbol": "LINK",
+    "month": "2024-03",
+    "close_dev_p99": 0.05121667827629588,
+    "signal_overlap": 0.5818786367414797,
+    "n_signals_union": 1203,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-04": {
+    "symbol": "LINK",
+    "month": "2024-04",
+    "close_dev_p99": 0.10052452080729707,
+    "signal_overlap": 0.4704918032786885,
+    "n_signals_union": 1220,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-05": {
+    "symbol": "LINK",
+    "month": "2024-05",
+    "close_dev_p99": 0.022900894432924417,
+    "signal_overlap": 0.6861451460885957,
+    "n_signals_union": 1061,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-06": {
+    "symbol": "LINK",
+    "month": "2024-06",
+    "close_dev_p99": 0.0018846458704786153,
+    "signal_overlap": 0.5396825396825397,
+    "n_signals_union": 1197,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-07": {
+    "symbol": "LINK",
+    "month": "2024-07",
+    "close_dev_p99": 0.06529959278650375,
+    "signal_overlap": 0.6167218543046358,
+    "n_signals_union": 1208,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-08": {
+    "symbol": "LINK",
+    "month": "2024-08",
+    "close_dev_p99": 0.01233888618717379,
+    "signal_overlap": 0.5469348659003831,
+    "n_signals_union": 1044,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-09": {
+    "symbol": "LINK",
+    "month": "2024-09",
+    "close_dev_p99": 0.003650492250528223,
+    "signal_overlap": 0.48175182481751827,
+    "n_signals_union": 822,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-10": {
+    "symbol": "LINK",
+    "month": "2024-10",
+    "close_dev_p99": 0.04653960029607699,
+    "signal_overlap": 0.542518837459634,
+    "n_signals_union": 929,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-11": {
+    "symbol": "LINK",
+    "month": "2024-11",
+    "close_dev_p99": 0.014721842164279028,
+    "signal_overlap": 0.6800314465408805,
+    "n_signals_union": 1272,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2024-12": {
+    "symbol": "LINK",
+    "month": "2024-12",
+    "close_dev_p99": 0.0032263940359466485,
+    "signal_overlap": 0.7708333333333334,
+    "n_signals_union": 1248,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "LINK|2025-01": {
+    "symbol": "LINK",
+    "month": "2025-01",
+    "close_dev_p99": 0.08863988406875191,
+    "signal_overlap": 0.691254752851711,
+    "n_signals_union": 1315,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-02": {
+    "symbol": "LINK",
+    "month": "2025-02",
+    "close_dev_p99": 0.003543590066092,
+    "signal_overlap": 0.781404549950544,
+    "n_signals_union": 1011,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-03": {
+    "symbol": "LINK",
+    "month": "2025-03",
+    "close_dev_p99": 0.003212468519777467,
+    "signal_overlap": 0.7519872813990461,
+    "n_signals_union": 1258,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-04": {
+    "symbol": "LINK",
+    "month": "2025-04",
+    "close_dev_p99": 0.0020372751248194103,
+    "signal_overlap": 0.7489063867016623,
+    "n_signals_union": 1143,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-05": {
+    "symbol": "LINK",
+    "month": "2025-05",
+    "close_dev_p99": 0.002317566650576172,
+    "signal_overlap": 0.7129391602399314,
+    "n_signals_union": 1167,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-06": {
+    "symbol": "LINK",
+    "month": "2025-06",
+    "close_dev_p99": 0.04302226027397259,
+    "signal_overlap": 0.37488015340364333,
+    "n_signals_union": 1043,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-07": {
+    "symbol": "LINK",
+    "month": "2025-07",
+    "close_dev_p99": 0.01677262937093097,
+    "signal_overlap": 0.35520149953139646,
+    "n_signals_union": 1067,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-08": {
+    "symbol": "LINK",
+    "month": "2025-08",
+    "close_dev_p99": 0.04918206642355879,
+    "signal_overlap": 0.3628571428571429,
+    "n_signals_union": 1050,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-09": {
+    "symbol": "LINK",
+    "month": "2025-09",
+    "close_dev_p99": 0.014332501132516788,
+    "signal_overlap": 0.22199170124481327,
+    "n_signals_union": 964,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-10": {
+    "symbol": "LINK",
+    "month": "2025-10",
+    "close_dev_p99": 0.0818224636795194,
+    "signal_overlap": 0.3273871983210913,
+    "n_signals_union": 953,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "LINK|2025-11": {
+    "symbol": "LINK",
+    "month": "2025-11",
+    "close_dev_p99": 0.05587025713307119,
+    "signal_overlap": 0.16624472573839663,
+    "n_signals_union": 1185,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2025-12": {
+    "symbol": "LINK",
+    "month": "2025-12",
+    "close_dev_p99": 0.05353556340466789,
+    "signal_overlap": 0.2936596218020022,
+    "n_signals_union": 899,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2026-01": {
+    "symbol": "LINK",
+    "month": "2026-01",
+    "close_dev_p99": 0.06596907149457062,
+    "signal_overlap": 0.2236842105263158,
+    "n_signals_union": 760,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2026-02": {
+    "symbol": "LINK",
+    "month": "2026-02",
+    "close_dev_p99": 0.13374560446222866,
+    "signal_overlap": 0.07751937984496124,
+    "n_signals_union": 645,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "LINK|2026-03": {
+    "symbol": "LINK",
+    "month": "2026-03",
+    "close_dev_p99": 0.10995652348127806,
+    "signal_overlap": 0.23507462686567165,
+    "n_signals_union": 536,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "LINK|2026-04": {
+    "symbol": "LINK",
+    "month": "2026-04",
+    "close_dev_p99": 0.24136437908496752,
+    "signal_overlap": 0.2774390243902439,
+    "n_signals_union": 328,
+    "ramp_events": 3,
+    "rating": "red"
+  },
+  "LINK|2026-05": {
+    "symbol": "LINK",
+    "month": "2026-05",
+    "close_dev_p99": 0.25420336383955866,
+    "signal_overlap": 0.2556237218813906,
+    "n_signals_union": 489,
+    "ramp_events": 8,
+    "rating": "red"
+  },
+  "DOGE|2023-01": {
+    "symbol": "DOGE",
+    "month": "2023-01",
+    "close_dev_p99": 0.001919692249823391,
+    "signal_overlap": 0.6365422396856582,
+    "n_signals_union": 509,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2023-02": {
+    "symbol": "DOGE",
+    "month": "2023-02",
+    "close_dev_p99": 0.041282984051767155,
+    "signal_overlap": 0.3765182186234818,
+    "n_signals_union": 494,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2023-03": {
+    "symbol": "DOGE",
+    "month": "2023-03",
+    "close_dev_p99": 0.08404535864978908,
+    "signal_overlap": 0.4788732394366197,
+    "n_signals_union": 497,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "DOGE|2023-04": {
+    "symbol": "DOGE",
+    "month": "2023-04",
+    "close_dev_p99": 0.10632106802093297,
+    "signal_overlap": 0.43254817987152033,
+    "n_signals_union": 467,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2023-05": {
+    "symbol": "DOGE",
+    "month": "2023-05",
+    "close_dev_p99": 0.002041663772384344,
+    "signal_overlap": 0.4264705882352941,
+    "n_signals_union": 136,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2023-06": {
+    "symbol": "DOGE",
+    "month": "2023-06",
+    "close_dev_p99": 0.0014148830056980792,
+    "signal_overlap": 0.44871794871794873,
+    "n_signals_union": 156,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2023-07": {
+    "symbol": "DOGE",
+    "month": "2023-07",
+    "close_dev_p99": 0.07792742101511232,
+    "signal_overlap": 0.3793103448275862,
+    "n_signals_union": 261,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2023-08": {
+    "symbol": "DOGE",
+    "month": "2023-08",
+    "close_dev_p99": 0.0017430946634485283,
+    "signal_overlap": 0.38144329896907214,
+    "n_signals_union": 97,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2023-09": {
+    "symbol": "DOGE",
+    "month": "2023-09",
+    "close_dev_p99": 0.0011259449895448064,
+    "signal_overlap": 0.4166666666666667,
+    "n_signals_union": 12,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2023-10": {
+    "symbol": "DOGE",
+    "month": "2023-10",
+    "close_dev_p99": 0.00133675829150659,
+    "signal_overlap": 0.62,
+    "n_signals_union": 150,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2023-11": {
+    "symbol": "DOGE",
+    "month": "2023-11",
+    "close_dev_p99": 0.009016230921169302,
+    "signal_overlap": 0.6886120996441281,
+    "n_signals_union": 562,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "DOGE|2023-12": {
+    "symbol": "DOGE",
+    "month": "2023-12",
+    "close_dev_p99": 0.0016159443014289012,
+    "signal_overlap": 0.666214382632293,
+    "n_signals_union": 737,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2024-01": {
+    "symbol": "DOGE",
+    "month": "2024-01",
+    "close_dev_p99": 0.0014411618589896468,
+    "signal_overlap": 0.6157024793388429,
+    "n_signals_union": 484,
+    "ramp_events": 3,
+    "rating": "red"
+  },
+  "DOGE|2024-02": {
+    "symbol": "DOGE",
+    "month": "2024-02",
+    "close_dev_p99": 0.0014499743723619032,
+    "signal_overlap": 0.6868327402135231,
+    "n_signals_union": 281,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2024-03": {
+    "symbol": "DOGE",
+    "month": "2024-03",
+    "close_dev_p99": 0.2977119176032948,
+    "signal_overlap": 0.5573440643863179,
+    "n_signals_union": 994,
+    "ramp_events": 27,
+    "rating": "red"
+  },
+  "DOGE|2024-04": {
+    "symbol": "DOGE",
+    "month": "2024-04",
+    "close_dev_p99": 0.307475775992677,
+    "signal_overlap": 0.46424870466321244,
+    "n_signals_union": 965,
+    "ramp_events": 20,
+    "rating": "red"
+  },
+  "DOGE|2024-05": {
+    "symbol": "DOGE",
+    "month": "2024-05",
+    "close_dev_p99": 0.008087028730967104,
+    "signal_overlap": 0.7199570815450643,
+    "n_signals_union": 932,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "DOGE|2024-06": {
+    "symbol": "DOGE",
+    "month": "2024-06",
+    "close_dev_p99": 0.0015413632960475311,
+    "signal_overlap": 0.6194895591647331,
+    "n_signals_union": 862,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2024-07": {
+    "symbol": "DOGE",
+    "month": "2024-07",
+    "close_dev_p99": 0.3114475517728937,
+    "signal_overlap": 0.6377502383222117,
+    "n_signals_union": 1049,
+    "ramp_events": 5,
+    "rating": "red"
+  },
+  "DOGE|2024-08": {
+    "symbol": "DOGE",
+    "month": "2024-08",
+    "close_dev_p99": 0.010001200335007758,
+    "signal_overlap": 0.5898617511520737,
+    "n_signals_union": 868,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "DOGE|2024-09": {
+    "symbol": "DOGE",
+    "month": "2024-09",
+    "close_dev_p99": 0.0033817478836782374,
+    "signal_overlap": 0.5577427821522309,
+    "n_signals_union": 762,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2024-10": {
+    "symbol": "DOGE",
+    "month": "2024-10",
+    "close_dev_p99": 0.011442017651171813,
+    "signal_overlap": 0.6568527918781726,
+    "n_signals_union": 985,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2024-11": {
+    "symbol": "DOGE",
+    "month": "2024-11",
+    "close_dev_p99": 0.05017680670665526,
+    "signal_overlap": 0.31813246471226925,
+    "n_signals_union": 921,
+    "ramp_events": 24,
+    "rating": "red"
+  },
+  "DOGE|2024-12": {
+    "symbol": "DOGE",
+    "month": "2024-12",
+    "close_dev_p99": 0.009190664825943497,
+    "signal_overlap": 0.32872340425531915,
+    "n_signals_union": 940,
+    "ramp_events": 23,
+    "rating": "red"
+  },
+  "DOGE|2025-01": {
+    "symbol": "DOGE",
+    "month": "2025-01",
+    "close_dev_p99": 0.09602597847761633,
+    "signal_overlap": 0.30372807017543857,
+    "n_signals_union": 912,
+    "ramp_events": 14,
+    "rating": "red"
+  },
+  "DOGE|2025-02": {
+    "symbol": "DOGE",
+    "month": "2025-02",
+    "close_dev_p99": 0.014262626933532991,
+    "signal_overlap": 0.37089201877934275,
+    "n_signals_union": 852,
+    "ramp_events": 19,
+    "rating": "red"
+  },
+  "DOGE|2025-03": {
+    "symbol": "DOGE",
+    "month": "2025-03",
+    "close_dev_p99": 0.0023673189744872715,
+    "signal_overlap": 0.5120967741935484,
+    "n_signals_union": 992,
+    "ramp_events": 7,
+    "rating": "red"
+  },
+  "DOGE|2025-04": {
+    "symbol": "DOGE",
+    "month": "2025-04",
+    "close_dev_p99": 0.002739356439333815,
+    "signal_overlap": 0.434549356223176,
+    "n_signals_union": 932,
+    "ramp_events": 6,
+    "rating": "red"
+  },
+  "DOGE|2025-05": {
+    "symbol": "DOGE",
+    "month": "2025-05",
+    "close_dev_p99": 0.015805136655491873,
+    "signal_overlap": 0.4371807967313585,
+    "n_signals_union": 979,
+    "ramp_events": 16,
+    "rating": "red"
+  },
+  "DOGE|2025-06": {
+    "symbol": "DOGE",
+    "month": "2025-06",
+    "close_dev_p99": 0.04352076856464315,
+    "signal_overlap": 0.38922764227642276,
+    "n_signals_union": 984,
+    "ramp_events": 5,
+    "rating": "red"
+  },
+  "DOGE|2025-07": {
+    "symbol": "DOGE",
+    "month": "2025-07",
+    "close_dev_p99": 0.05632788241356118,
+    "signal_overlap": 0.2909441233140655,
+    "n_signals_union": 1038,
+    "ramp_events": 11,
+    "rating": "red"
+  },
+  "DOGE|2025-08": {
+    "symbol": "DOGE",
+    "month": "2025-08",
+    "close_dev_p99": 0.11418538971019235,
+    "signal_overlap": 0.27210216110019647,
+    "n_signals_union": 1018,
+    "ramp_events": 7,
+    "rating": "red"
+  },
+  "DOGE|2025-09": {
+    "symbol": "DOGE",
+    "month": "2025-09",
+    "close_dev_p99": 0.03416633771383389,
+    "signal_overlap": 0.28139013452914796,
+    "n_signals_union": 892,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "DOGE|2025-10": {
+    "symbol": "DOGE",
+    "month": "2025-10",
+    "close_dev_p99": 0.05727603212045649,
+    "signal_overlap": 0.2745726495726496,
+    "n_signals_union": 936,
+    "ramp_events": 4,
+    "rating": "red"
+  },
+  "DOGE|2025-11": {
+    "symbol": "DOGE",
+    "month": "2025-11",
+    "close_dev_p99": 0.09660460187050471,
+    "signal_overlap": 0.16490299823633156,
+    "n_signals_union": 1134,
+    "ramp_events": 2,
+    "rating": "red"
+  },
+  "DOGE|2025-12": {
+    "symbol": "DOGE",
+    "month": "2025-12",
+    "close_dev_p99": 0.058411910405810924,
+    "signal_overlap": 0.18482252141982863,
+    "n_signals_union": 817,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2026-01": {
+    "symbol": "DOGE",
+    "month": "2026-01",
+    "close_dev_p99": 0.04775076927843157,
+    "signal_overlap": 0.1392757660167131,
+    "n_signals_union": 718,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2026-02": {
+    "symbol": "DOGE",
+    "month": "2026-02",
+    "close_dev_p99": 0.02349866312059708,
+    "signal_overlap": 0.18840579710144928,
+    "n_signals_union": 621,
+    "ramp_events": 1,
+    "rating": "red"
+  },
+  "DOGE|2026-03": {
+    "symbol": "DOGE",
+    "month": "2026-03",
+    "close_dev_p99": 0.018794342993425098,
+    "signal_overlap": 0.2840909090909091,
+    "n_signals_union": 616,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2026-04": {
+    "symbol": "DOGE",
+    "month": "2026-04",
+    "close_dev_p99": 0.016278568348426017,
+    "signal_overlap": 0.5437665782493368,
+    "n_signals_union": 377,
+    "ramp_events": 0,
+    "rating": "red"
+  },
+  "DOGE|2026-05": {
+    "symbol": "DOGE",
+    "month": "2026-05",
+    "close_dev_p99": 0.018232729924503116,
+    "signal_overlap": 0.51010101010101,
+    "n_signals_union": 594,
+    "ramp_events": 0,
+    "rating": "red"
+  }
+}

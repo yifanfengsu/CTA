@@ -1,0 +1,4 @@
+scope,trade_count,no_cost_pnl,cost_aware_without_funding,funding_pnl,positive_funding_pnl,negative_funding_pnl,funding_adjusted_minus_cost,funding_adjusted_pnl,conservative_funding_adjusted_pnl,funding_positive_contribution_share,positive_due_to_funding,funding_carry_contaminated
+all_splits,5778.0,4832.655978873796,-945.3440211262035,157.4318782680309,201.6494210615029,-44.21754279347194,157.4318782680309,-787.9121428581724,-989.5615639196755,0.25592881501992626,False,False
+oos_ext,1364.0,1350.142763527595,-13.857236472404708,25.804320999155117,33.927636194391425,-8.123315195236312,25.804320999155117,11.947084526750615,-21.98055166764102,2.8398255757230433,True,True
+postmortem_reference,,,,,,,,,,,,True

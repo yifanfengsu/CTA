@@ -1,0 +1,20 @@
+{
+  "split_dirs": {
+    "train": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v2/train",
+    "validation": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v2/validation",
+    "oos": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v2/oos"
+  },
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v2_compare",
+  "min_trade_count": 10,
+  "max_ddpercent_threshold": 30.0,
+  "low_frequency_trade_count": 20,
+  "max_explainable_oos_cost_loss_to_no_cost": 0.5,
+  "stable_candidate_rule": "train/validation/oos no-cost > 0; every split trade_count >= min_trade_count; OOS cost-aware net_pnl >= 0 or explicitly marked low-frequency small cost-drag exception; every split max_ddpercent <= max_ddpercent_threshold.",
+  "oos_cost_exception_rule": "trade_count <= low_frequency_trade_count, no_cost > 0, net_pnl < 0, cost_drag > 0, and abs(oos_net_pnl) <= max_explainable_oos_cost_loss_to_no_cost * oos_no_cost_net_pnl.",
+  "policy_count": 24,
+  "stable_candidates": [],
+  "stable_candidate_exists": false,
+  "trend_following_v2_failed": false,
+  "oos_all_policies_no_cost_and_cost_negative": false,
+  "overfit_risk": false
+}

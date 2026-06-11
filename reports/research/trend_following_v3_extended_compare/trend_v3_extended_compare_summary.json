@@ -1,0 +1,244 @@
+{
+  "split_scheme": "extended",
+  "split_labels": {
+    "train": "train_ext",
+    "validation": "validation_ext",
+    "oos": "oos_ext"
+  },
+  "split_dirs": {
+    "train": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v3_extended/train_ext",
+    "validation": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v3_extended/validation_ext",
+    "oos": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v3_extended/oos_ext"
+  },
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trend_following_v3_extended_compare",
+  "output_files": [
+    "trend_v3_extended_compare_summary.json",
+    "trend_v3_extended_compare_leaderboard.csv",
+    "trend_v3_extended_compare_report.md",
+    "trend_v3_extended_compare_funding_stress.csv"
+  ],
+  "stable_candidate_rule": {
+    "train_ext_no_cost_net_pnl": "> 0",
+    "validation_ext_no_cost_net_pnl": "> 0",
+    "oos_ext_no_cost_net_pnl": "> 0",
+    "oos_ext_cost_aware_net_pnl": ">= 0",
+    "oos_ext_max_ddpercent": "<= 30.0",
+    "each_split_trade_count": ">= 10",
+    "largest_symbol_pnl_share": "<= 0.7",
+    "top_5pct_trade_pnl_contribution": "<= 0.8",
+    "oos_not_one_symbol_or_one_trade": true
+  },
+  "policy_count": 10,
+  "stable_candidate_exists": false,
+  "stable_candidates": [],
+  "all_no_cost_positive_policies": [
+    "v3_1d_ema_50_200_atr5"
+  ],
+  "oos_cost_aware_positive_policies": [
+    "v3_1d_ema_50_200_atr5",
+    "v3_4h_donchian_55_with_risk_filters"
+  ],
+  "oos_cost_aware_nonnegative_policies": [
+    "v3_1d_ema_50_200_atr5",
+    "v3_4h_donchian_55_with_risk_filters"
+  ],
+  "rejected_candidates_with_reasons": [
+    {
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "train_no_cost_net_pnl": 3.02004,
+      "validation_no_cost_net_pnl": 2.02478,
+      "oos_no_cost_net_pnl": 1.70218,
+      "oos_net_pnl": 1.55236905,
+      "oos_max_ddpercent": 0.0456417069,
+      "oos_largest_symbol_pnl_share": 0.3461772573,
+      "oos_top_5pct_trade_pnl_contribution": 1.9817725334,
+      "rejection_reasons": "oos_top_5pct_trade_pnl_contribution_over_0p8"
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_with_risk_filters",
+      "train_no_cost_net_pnl": 3.22372,
+      "validation_no_cost_net_pnl": -0.31978,
+      "oos_no_cost_net_pnl": 1.23997,
+      "oos_net_pnl": 1.167908345,
+      "oos_max_ddpercent": 0.0236847593,
+      "oos_largest_symbol_pnl_share": 1.0,
+      "oos_top_5pct_trade_pnl_contribution": 1.0003141728,
+      "rejection_reasons": "validation_no_cost_net_pnl_not_positive;oos_largest_symbol_pnl_share_over_0p7;oos_top_5pct_trade_pnl_contribution_over_0p8"
+    },
+    {
+      "policy_name": "v3_1d_donchian_20_10_atr4",
+      "train_no_cost_net_pnl": 0.08735,
+      "validation_no_cost_net_pnl": 2.60866,
+      "oos_no_cost_net_pnl": -0.05578,
+      "oos_net_pnl": -0.11911939,
+      "oos_max_ddpercent": 0.0670901766,
+      "oos_largest_symbol_pnl_share": 0.9366526695,
+      "oos_top_5pct_trade_pnl_contribution": -10.1015139097,
+      "rejection_reasons": "oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative;oos_largest_symbol_pnl_share_over_0p7"
+    },
+    {
+      "policy_name": "v3_1d_donchian_55_20_atr5",
+      "train_no_cost_net_pnl": -1.09263,
+      "validation_no_cost_net_pnl": -1.22184,
+      "oos_no_cost_net_pnl": -1.16556,
+      "oos_net_pnl": -1.19753311,
+      "oos_max_ddpercent": 0.0674772954,
+      "oos_largest_symbol_pnl_share": 0.9104844135,
+      "oos_top_5pct_trade_pnl_contribution": -0.8869760019,
+      "rejection_reasons": "train_no_cost_net_pnl_not_positive;validation_no_cost_net_pnl_not_positive;oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative;oos_trade_count_under_10;oos_largest_symbol_pnl_share_over_0p7"
+    },
+    {
+      "policy_name": "v3_4h_vol_compression_donchian_breakout",
+      "train_no_cost_net_pnl": -1.11839,
+      "validation_no_cost_net_pnl": -5.46264,
+      "oos_no_cost_net_pnl": -3.29971,
+      "oos_net_pnl": -3.589806745,
+      "oos_max_ddpercent": 0.0867590765,
+      "oos_largest_symbol_pnl_share": 0.9072843857,
+      "oos_top_5pct_trade_pnl_contribution": -0.5469331943,
+      "rejection_reasons": "train_no_cost_net_pnl_not_positive;validation_no_cost_net_pnl_not_positive;oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative;oos_largest_symbol_pnl_share_over_0p7"
+    },
+    {
+      "policy_name": "v3_4h_donchian_100_30_atr5",
+      "train_no_cost_net_pnl": 0.91099,
+      "validation_no_cost_net_pnl": -4.49879,
+      "oos_no_cost_net_pnl": -5.79914,
+      "oos_net_pnl": -5.96457672,
+      "oos_max_ddpercent": 0.1314949782,
+      "oos_largest_symbol_pnl_share": 1.0,
+      "oos_top_5pct_trade_pnl_contribution": -0.5841487994,
+      "rejection_reasons": "validation_no_cost_net_pnl_not_positive;oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative;oos_largest_symbol_pnl_share_over_0p7"
+    },
+    {
+      "policy_name": "v3_4h_ema_50_200_atr4",
+      "train_no_cost_net_pnl": 1.59506,
+      "validation_no_cost_net_pnl": 2.94264,
+      "oos_no_cost_net_pnl": -5.07043,
+      "oos_net_pnl": -6.268437135,
+      "oos_max_ddpercent": 0.151576338,
+      "oos_largest_symbol_pnl_share": 0.4342990488,
+      "oos_top_5pct_trade_pnl_contribution": -1.3284213578,
+      "rejection_reasons": "oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative"
+    },
+    {
+      "policy_name": "v3_ensemble_core",
+      "train_no_cost_net_pnl": 1.22766,
+      "validation_no_cost_net_pnl": -0.56889,
+      "oos_no_cost_net_pnl": -5.18437,
+      "oos_net_pnl": -6.395987135,
+      "oos_max_ddpercent": 0.1470369958,
+      "oos_largest_symbol_pnl_share": 0.5283533908,
+      "oos_top_5pct_trade_pnl_contribution": -1.3317262918,
+      "rejection_reasons": "validation_no_cost_net_pnl_not_positive;oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative"
+    },
+    {
+      "policy_name": "v3_4h_donchian_20_10_atr4",
+      "train_no_cost_net_pnl": -1.68383,
+      "validation_no_cost_net_pnl": -5.16802,
+      "oos_no_cost_net_pnl": -6.61283,
+      "oos_net_pnl": -7.051841785,
+      "oos_max_ddpercent": 0.1661383539,
+      "oos_largest_symbol_pnl_share": 1.0,
+      "oos_top_5pct_trade_pnl_contribution": -0.5664417073,
+      "rejection_reasons": "train_no_cost_net_pnl_not_positive;validation_no_cost_net_pnl_not_positive;oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative;oos_largest_symbol_pnl_share_over_0p7"
+    },
+    {
+      "policy_name": "v3_4h_donchian_55_20_atr4",
+      "train_no_cost_net_pnl": 1.80319,
+      "validation_no_cost_net_pnl": -6.00159,
+      "oos_no_cost_net_pnl": -7.88411,
+      "oos_net_pnl": -8.172770215,
+      "oos_max_ddpercent": 0.181139306,
+      "oos_largest_symbol_pnl_share": 1.0,
+      "oos_top_5pct_trade_pnl_contribution": -0.3994249947,
+      "rejection_reasons": "validation_no_cost_net_pnl_not_positive;oos_no_cost_net_pnl_not_positive;oos_cost_aware_net_pnl_negative;oos_largest_symbol_pnl_share_over_0p7"
+    }
+  ],
+  "high_largest_symbol_pnl_share_policies": [
+    "v3_4h_donchian_55_with_risk_filters",
+    "v3_1d_donchian_20_10_atr4",
+    "v3_1d_donchian_55_20_atr5",
+    "v3_4h_vol_compression_donchian_breakout",
+    "v3_4h_donchian_100_30_atr5",
+    "v3_4h_donchian_20_10_atr4",
+    "v3_4h_donchian_55_20_atr4"
+  ],
+  "high_top_5pct_trade_pnl_contribution_policies": [
+    "v3_1d_ema_50_200_atr5",
+    "v3_4h_donchian_55_with_risk_filters"
+  ],
+  "oos_single_symbol_or_tail_trade_dependency_risk": true,
+  "funding_sensitivity_required": true,
+  "funding_stress_notice": "Synthetic funding stress only; not actual OKX funding fee.",
+  "funding_bps_per_8h": [
+    1.0,
+    3.0,
+    5.0,
+    10.0
+  ],
+  "funding_stress_policy_names": [
+    "v3_1d_ema_50_200_atr5"
+  ],
+  "funding_stress": [
+    {
+      "split": "oos_ext",
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "synthetic_funding_stress": true,
+      "funding_bps_per_8h": 1.0,
+      "original_net_pnl": 1.55236905,
+      "funding_cost": 0.5797911196,
+      "funding_adjusted_net_pnl": 0.9725779304,
+      "funding_break_even_bps": 2.6774626196,
+      "remains_positive_after_funding": true,
+      "funding_exposure_notional_periods": 5797.9111964583,
+      "notice": "Synthetic funding stress only; not actual OKX funding fee."
+    },
+    {
+      "split": "oos_ext",
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "synthetic_funding_stress": true,
+      "funding_bps_per_8h": 3.0,
+      "original_net_pnl": 1.55236905,
+      "funding_cost": 1.7393733589,
+      "funding_adjusted_net_pnl": -0.1870043089,
+      "funding_break_even_bps": 2.6774626196,
+      "remains_positive_after_funding": false,
+      "funding_exposure_notional_periods": 5797.9111964583,
+      "notice": "Synthetic funding stress only; not actual OKX funding fee."
+    },
+    {
+      "split": "oos_ext",
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "synthetic_funding_stress": true,
+      "funding_bps_per_8h": 5.0,
+      "original_net_pnl": 1.55236905,
+      "funding_cost": 2.8989555982,
+      "funding_adjusted_net_pnl": -1.3465865482,
+      "funding_break_even_bps": 2.6774626196,
+      "remains_positive_after_funding": false,
+      "funding_exposure_notional_periods": 5797.9111964583,
+      "notice": "Synthetic funding stress only; not actual OKX funding fee."
+    },
+    {
+      "split": "oos_ext",
+      "policy_name": "v3_1d_ema_50_200_atr5",
+      "synthetic_funding_stress": true,
+      "funding_bps_per_8h": 10.0,
+      "original_net_pnl": 1.55236905,
+      "funding_cost": 5.7979111965,
+      "funding_adjusted_net_pnl": -4.2455421465,
+      "funding_break_even_bps": 2.6774626196,
+      "remains_positive_after_funding": false,
+      "funding_exposure_notional_periods": 5797.9111964583,
+      "notice": "Synthetic funding stress only; not actual OKX funding fee."
+    }
+  ],
+  "funding_risk_controllable": false,
+  "funding_robust_stable_candidates": [],
+  "overfit_risk": true,
+  "trend_following_v3_failed": true,
+  "trend_following_v3_extended_failed": true,
+  "can_enter_v3_1_research": false,
+  "can_enter_strategy_v3_prototype": false,
+  "demo_live_allowed": false
+}

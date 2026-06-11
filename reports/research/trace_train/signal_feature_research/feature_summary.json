@@ -1,0 +1,244 @@
+{
+  "report_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trace_train",
+  "signal_trace_path": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trace_train/signal_trace.csv",
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/trace_train/signal_feature_research",
+  "timezone": "Asia/Shanghai",
+  "horizons": [
+    15,
+    30,
+    60,
+    120
+  ],
+  "bins": 5,
+  "min_count": 50,
+  "selected_features": [
+    "breakout_distance_atr",
+    "atr_pct",
+    "ema_spread_pct",
+    "rsi",
+    "donchian_width_atr",
+    "close_location_in_donchian",
+    "recent_return_5m",
+    "recent_return_15m",
+    "recent_return_30m",
+    "recent_volatility_30m",
+    "volume_zscore_30m",
+    "upper_wick_ratio",
+    "lower_wick_ratio",
+    "body_ratio",
+    "range_atr",
+    "hour",
+    "weekday",
+    "is_weekend",
+    "direction",
+    "regime"
+  ],
+  "outcome_source": "existing_signal_outcomes",
+  "entry_count": 5295,
+  "field_missing_rate": {
+    "breakout_distance_atr": 0.0,
+    "atr_pct": 0.0,
+    "ema_spread_pct": 0.0,
+    "rsi": 0.0,
+    "donchian_width_atr": 0.0,
+    "close_location_in_donchian": 0.0011331444759206798,
+    "recent_return_5m": 0.0,
+    "recent_return_15m": 0.0,
+    "recent_return_30m": 0.0,
+    "recent_volatility_30m": 0.0,
+    "volume_zscore_30m": 0.0,
+    "upper_wick_ratio": 0.0016997167138810198,
+    "lower_wick_ratio": 0.0016997167138810198,
+    "body_ratio": 0.0016997167138810198,
+    "range_atr": 0.0,
+    "hour": 0.0,
+    "weekday": 0.0,
+    "is_weekend": 0.0,
+    "direction": 0.0,
+    "regime": 0.0,
+    "future_return_15m": 0.0,
+    "future_return_30m": 0.0,
+    "future_return_60m": 0.0,
+    "future_return_120m": 0.0,
+    "mfe_60m": 0.0,
+    "mae_60m": 0.0,
+    "mfe_atr": 0.0,
+    "mae_atr": 0.0,
+    "stop_first": 0.0,
+    "tp_first": 0.0,
+    "good_signal_60m": 0.0,
+    "bad_signal_60m": 0.0
+  },
+  "label_distribution": {
+    "future_return_60m_non_null_count": 5295,
+    "future_return_60m_positive_rate": 0.4275731822474032,
+    "future_return_60m_median": -0.0006120641393082,
+    "good_signal_60m_rate": 0.33729933899905573,
+    "bad_signal_60m_rate": 0.46874409820585455,
+    "stop_first_rate": 0.6762983947119925,
+    "tp_first_rate": 0.3148253068932956
+  },
+  "warnings": [
+    "feature close_location_in_donchian 缺失值数量: 6/5295",
+    "feature upper_wick_ratio 缺失值数量: 9/5295",
+    "feature lower_wick_ratio 缺失值数量: 9/5295",
+    "feature body_ratio 缺失值数量: 9/5295",
+    "已优先使用已有 outcome 文件: /home/yiast/vnpy_projects/cta_strategy/reports/research/trace_train/signal_outcomes/signal_outcomes.csv"
+  ],
+  "diagnostic_answers": {
+    "strongest_future_return_60m_features": [
+      {
+        "feature": "recent_volatility_30m",
+        "target": "future_return_60m",
+        "count": 5295,
+        "spearman": -0.2180636471,
+        "abs_spearman": 0.2180636471
+      },
+      {
+        "feature": "atr_pct",
+        "target": "future_return_60m",
+        "count": 5295,
+        "spearman": -0.1863411003,
+        "abs_spearman": 0.1863411003
+      },
+      {
+        "feature": "breakout_distance_atr",
+        "target": "future_return_60m",
+        "count": 5295,
+        "spearman": -0.1464083663,
+        "abs_spearman": 0.1464083663
+      },
+      {
+        "feature": "recent_return_30m",
+        "target": "future_return_60m",
+        "count": 5295,
+        "spearman": -0.115823431,
+        "abs_spearman": 0.115823431
+      },
+      {
+        "feature": "range_atr",
+        "target": "future_return_60m",
+        "count": 5295,
+        "spearman": -0.1060162397,
+        "abs_spearman": 0.1060162397
+      }
+    ],
+    "strongest_stop_first_features": [
+      {
+        "feature": "atr_pct",
+        "target": "stop_first",
+        "count": 5295,
+        "spearman": 0.2302941391,
+        "abs_spearman": 0.2302941391
+      },
+      {
+        "feature": "recent_volatility_30m",
+        "target": "stop_first",
+        "count": 5295,
+        "spearman": 0.1776393479,
+        "abs_spearman": 0.1776393479
+      },
+      {
+        "feature": "donchian_width_atr",
+        "target": "stop_first",
+        "count": 5295,
+        "spearman": -0.0845532464,
+        "abs_spearman": 0.0845532464
+      },
+      {
+        "feature": "recent_return_5m",
+        "target": "stop_first",
+        "count": 5295,
+        "spearman": -0.0776508844,
+        "abs_spearman": 0.0776508844
+      },
+      {
+        "feature": "lower_wick_ratio",
+        "target": "stop_first",
+        "count": 5286,
+        "spearman": 0.0595326751,
+        "abs_spearman": 0.0595326751
+      }
+    ],
+    "breakout_distance_atr_larger_is_worse": {
+      "spearman_future_return_60m": -0.1464083662559469,
+      "low_bin_median_future_return_60m": -0.0002766641565158,
+      "high_bin_median_future_return_60m": -0.0023887318286446,
+      "larger_is_worse": true,
+      "answer": "breakout_distance_atr 越大，future_return_60m 越差的证据成立"
+    },
+    "rsi_screening_value": {
+      "feature": "rsi",
+      "basis_target": "future_return_60m",
+      "spearman": 0.01901148518230884,
+      "first_bin_median_future_return_60m": -0.0014574234263128,
+      "last_bin_median_future_return_60m": -0.0009526453041098,
+      "min_count": 50,
+      "has_screening_value": false,
+      "answer": "rsi 没有达到稳定筛选阈值"
+    },
+    "ema_spread_pct_screening_value": {
+      "feature": "ema_spread_pct",
+      "basis_target": "future_return_60m",
+      "spearman": 0.02265725577177456,
+      "first_bin_median_future_return_60m": -0.0012149088722759,
+      "last_bin_median_future_return_60m": -0.0006749282664736,
+      "min_count": 50,
+      "has_screening_value": false,
+      "answer": "ema_spread_pct 没有达到稳定筛选阈值"
+    },
+    "atr_pct_risk_zones": {
+      "spearman": -0.18634110031930398,
+      "low_bin_median_future_return_60m": -0.0002275493282121,
+      "middle_bin_median_future_return_60m": -0.0002182679915186,
+      "high_bin_median_future_return_60m": -0.0029545454545454,
+      "low_volatility_risk": true,
+      "high_volatility_risk": true,
+      "answer": "atr_pct 低分位和高分位都弱于中间区间，存在两端风险"
+    },
+    "volume_zscore_screening_value": {
+      "feature": "volume_zscore_30m",
+      "basis_target": "future_return_60m",
+      "spearman": -0.08920938313803194,
+      "first_bin_median_future_return_60m": -0.0002803218868562,
+      "last_bin_median_future_return_60m": -0.0011970160321654,
+      "min_count": 50,
+      "has_screening_value": false,
+      "answer": "volume_zscore_30m 没有达到稳定筛选阈值"
+    },
+    "wick_body_fake_breakout": {
+      "features": [
+        {
+          "feature": "upper_wick_ratio",
+          "future_return_60m_ic": 0.04962524542034511,
+          "stop_first_ic": -0.03673240662444596
+        },
+        {
+          "feature": "lower_wick_ratio",
+          "future_return_60m_ic": 0.059758648773252175,
+          "stop_first_ic": 0.059532675079884335
+        },
+        {
+          "feature": "body_ratio",
+          "future_return_60m_ic": -0.07825554674108721,
+          "stop_first_ic": -0.0392703762491474
+        },
+        {
+          "feature": "range_atr",
+          "future_return_60m_ic": -0.10601623973618225,
+          "stop_first_ic": -0.00016953217201249124
+        }
+      ],
+      "has_fake_breakout_signal": false,
+      "answer": "wick/body 结构未达到假突破识别阈值"
+    },
+    "signal_feature_hypothesis_failed": false
+  },
+  "categorical_features_analyzed": [
+    "direction",
+    "hour",
+    "is_weekend",
+    "regime",
+    "weekday"
+  ]
+}

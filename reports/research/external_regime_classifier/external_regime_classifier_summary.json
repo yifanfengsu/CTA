@@ -1,0 +1,213 @@
+{
+  "can_enter_research_only_v3_1_classifier_experiment": false,
+  "strategy_development_allowed": false,
+  "demo_live_allowed": false,
+  "research_only": true,
+  "not_tradable": true,
+  "requires_pretrade_implementation_audit": true,
+  "reason": "No filtered policy passed all research-only gates across train_ext, validation_ext, and oos_ext.",
+  "best_candidate": null,
+  "threshold_source_split": "train_ext",
+  "thresholds_use_validation_ext": false,
+  "thresholds_use_oos_ext": false,
+  "feature_columns": [
+    "number_of_symbols_above_ema50_1d",
+    "number_of_symbols_above_ema200_1d",
+    "ema50_ema200_breadth",
+    "average_ema_spread_pct",
+    "median_ema_spread_pct",
+    "strong_trend_symbol_count",
+    "trend_efficiency_mean",
+    "trend_efficiency_median",
+    "trend_efficiency_dispersion",
+    "average_pairwise_correlation_20d",
+    "average_pairwise_correlation_60d",
+    "return_dispersion_20d",
+    "return_dispersion_60d",
+    "market_breadth_return_20d",
+    "market_breadth_return_60d",
+    "average_atr_pct",
+    "median_atr_pct",
+    "atr_pct_dispersion",
+    "realized_volatility_mean",
+    "realized_volatility_dispersion",
+    "high_vol_symbol_count",
+    "low_vol_symbol_count",
+    "average_drawdown_from_60d_high",
+    "max_symbol_drawdown_from_60d_high",
+    "rebound_breadth",
+    "symbols_near_60d_high_count",
+    "average_funding_rate",
+    "median_funding_rate",
+    "funding_dispersion",
+    "positive_funding_symbol_count",
+    "negative_funding_symbol_count",
+    "extreme_positive_funding_count",
+    "extreme_negative_funding_count",
+    "funding_trend_7d",
+    "funding_trend_30d"
+  ],
+  "forbidden_feature_patterns": [
+    "pnl",
+    "profit",
+    "loss",
+    "trade",
+    "policy",
+    "future"
+  ],
+  "distribution_stability": {
+    "trend_friendly": {
+      "label": "trend_friendly",
+      "pct_by_split": {
+        "oos_ext": 0.0036496350364963502,
+        "train_ext": 0.10420475319926874,
+        "validation_ext": 0.019178082191780823
+      },
+      "max_pct_range": 0.10055511816277239,
+      "stable_distribution": true
+    },
+    "trend_hostile": {
+      "label": "trend_hostile",
+      "pct_by_split": {
+        "oos_ext": 0.0,
+        "train_ext": 0.005484460694698354,
+        "validation_ext": 0.0027397260273972603
+      },
+      "max_pct_range": 0.005484460694698354,
+      "stable_distribution": true
+    },
+    "funding_overheated": {
+      "label": "funding_overheated",
+      "pct_by_split": {
+        "oos_ext": 0.0,
+        "train_ext": 0.031078610603290677,
+        "validation_ext": 0.010958904109589041
+      },
+      "max_pct_range": 0.031078610603290677,
+      "stable_distribution": true
+    }
+  },
+  "hostile_or_high_vol_chop_loss_share": 0.09279658277612499,
+  "losses_mainly_in_hostile_or_high_vol_chop": false,
+  "v3_1d_ema_50_200_atr5_original": {
+    "filter_name": "original_all",
+    "policy_name": "v3_1d_ema_50_200_atr5",
+    "research_only": true,
+    "requires_pretrade_implementation_audit": true,
+    "not_tradable": true,
+    "filter_description": "All V3 extended trades.",
+    "train_ext_trade_count": 69,
+    "train_ext_no_cost_net_pnl": 3.0200400000000025,
+    "train_ext_net_pnl": 2.867048760000003,
+    "train_ext_funding_adjusted_net_pnl": 2.068762134791575,
+    "validation_ext_trade_count": 57,
+    "validation_ext_no_cost_net_pnl": 2.0247800000000047,
+    "validation_ext_net_pnl": 1.8245112800000043,
+    "validation_ext_funding_adjusted_net_pnl": 1.146581452320496,
+    "oos_ext_trade_count": 36,
+    "oos_ext_no_cost_net_pnl": 1.7021799999999978,
+    "oos_ext_net_pnl": 1.5523690499999976,
+    "oos_ext_funding_adjusted_net_pnl": 1.1777287236630674,
+    "largest_symbol_pnl_share": 0.34617725727010673,
+    "top_5pct_trade_pnl_contribution": 1.9817725334062826,
+    "active_symbol_count": 5,
+    "stable_candidate_like": false,
+    "funding_adjusted_gate_passed": true,
+    "min_split_trade_count_passed": true,
+    "strict_rejected_reasons": "oos_top_5pct_trade_pnl_contribution_over_0p8"
+  },
+  "v3_1d_ema_50_200_atr5_trend_friendly": {
+    "filter_name": "keep_trend_friendly",
+    "policy_name": "v3_1d_ema_50_200_atr5",
+    "research_only": true,
+    "requires_pretrade_implementation_audit": true,
+    "not_tradable": true,
+    "filter_description": "Keep trades whose completed daily regime is trend_friendly.",
+    "train_ext_trade_count": 5,
+    "train_ext_no_cost_net_pnl": 0.9229800000000005,
+    "train_ext_net_pnl": 0.9120547500000004,
+    "train_ext_funding_adjusted_net_pnl": 0.7836098581539634,
+    "validation_ext_trade_count": 1,
+    "validation_ext_no_cost_net_pnl": 1.3124999999999998,
+    "validation_ext_net_pnl": 1.3081157499999998,
+    "validation_ext_funding_adjusted_net_pnl": 1.2418217015974389,
+    "oos_ext_trade_count": 0,
+    "oos_ext_no_cost_net_pnl": 0.0,
+    "oos_ext_net_pnl": 0.0,
+    "oos_ext_funding_adjusted_net_pnl": NaN,
+    "largest_symbol_pnl_share": NaN,
+    "top_5pct_trade_pnl_contribution": NaN,
+    "active_symbol_count": 0,
+    "stable_candidate_like": false,
+    "funding_adjusted_gate_passed": true,
+    "min_split_trade_count_passed": false,
+    "strict_rejected_reasons": "oos_no_cost_net_pnl_not_positive;train_ext_trade_count_under_10;validation_ext_trade_count_under_10;oos_ext_trade_count_under_10;oos_largest_symbol_pnl_share_over_0p7;oos_top_5pct_trade_pnl_contribution_over_0p8;oos_not_enough_active_symbols"
+  },
+  "funding_overheated_filter_improved_policy_count": 0,
+  "stable_candidate_like_count": 0,
+  "symbols": [
+    "BTCUSDT_SWAP_OKX.GLOBAL",
+    "ETHUSDT_SWAP_OKX.GLOBAL",
+    "SOLUSDT_SWAP_OKX.GLOBAL",
+    "LINKUSDT_SWAP_OKX.GLOBAL",
+    "DOGEUSDT_SWAP_OKX.GLOBAL"
+  ],
+  "start": "2023-01-01",
+  "end": "2026-03-31",
+  "timezone": "Asia/Shanghai",
+  "market_data_coverage": [
+    {
+      "vt_symbol": "BTCUSDT_SWAP_OKX.GLOBAL",
+      "expected_count": 1707840,
+      "actual_count": 1707840,
+      "coverage_complete": true,
+      "first_datetime": "2023-01-01T00:00:00+08:00",
+      "last_datetime": "2026-03-31T23:59:00+08:00"
+    },
+    {
+      "vt_symbol": "ETHUSDT_SWAP_OKX.GLOBAL",
+      "expected_count": 1707840,
+      "actual_count": 1707840,
+      "coverage_complete": true,
+      "first_datetime": "2023-01-01T00:00:00+08:00",
+      "last_datetime": "2026-03-31T23:59:00+08:00"
+    },
+    {
+      "vt_symbol": "SOLUSDT_SWAP_OKX.GLOBAL",
+      "expected_count": 1707840,
+      "actual_count": 1707840,
+      "coverage_complete": true,
+      "first_datetime": "2023-01-01T00:00:00+08:00",
+      "last_datetime": "2026-03-31T23:59:00+08:00"
+    },
+    {
+      "vt_symbol": "LINKUSDT_SWAP_OKX.GLOBAL",
+      "expected_count": 1707840,
+      "actual_count": 1707840,
+      "coverage_complete": true,
+      "first_datetime": "2023-01-01T00:00:00+08:00",
+      "last_datetime": "2026-03-31T23:59:00+08:00"
+    },
+    {
+      "vt_symbol": "DOGEUSDT_SWAP_OKX.GLOBAL",
+      "expected_count": 1707840,
+      "actual_count": 1707840,
+      "coverage_complete": true,
+      "first_datetime": "2023-01-01T00:00:00+08:00",
+      "last_datetime": "2026-03-31T23:59:00+08:00"
+    }
+  ],
+  "output_dir": "/home/yiast/vnpy_projects/cta_strategy/reports/research/external_regime_classifier",
+  "required_output_files": [
+    "external_regime_feature_dataset.csv",
+    "external_regime_thresholds.json",
+    "external_regime_labels.csv",
+    "regime_label_distribution.csv",
+    "trade_regime_classifier_attribution.csv",
+    "policy_performance_by_regime.csv",
+    "split_performance_by_regime.csv",
+    "classifier_filter_experiment.csv",
+    "external_regime_classifier_report.md",
+    "external_regime_classifier_summary.json"
+  ]
+}

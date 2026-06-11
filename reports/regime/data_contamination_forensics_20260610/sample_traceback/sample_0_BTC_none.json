@@ -1,0 +1,5 @@
+{
+  "symbol": "BTC",
+  "events_in_diagnosis": 0,
+  "note": "BTC has zero ramp events; cannot sample. Reverse evidence recorded in README."
+}

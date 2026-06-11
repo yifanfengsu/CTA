@@ -1,0 +1,7 @@
+feature_name,tier,reason,endpoint_name,endpoint_path,requires_private_api_key,next_step
+taker buy/sell volume,Tier 2,recent_available_full_window_unconfirmed,Taker Buy/Sell Volume,/api/v5/rubik/stat/taker-volume,false,resolve coverage or keep unavailable
+contract long/short account ratio,Tier 2,recent_available_full_window_unconfirmed,Contract Long/Short Account Ratio,/api/v5/rubik/stat/contracts/long-short-account-ratio,false,resolve coverage or keep unavailable
+contracts open interest and volume,Tier 2,recent_available_full_window_unconfirmed,Contracts Open Interest and Volume,/api/v5/rubik/stat/contracts/open-interest-volume,false,resolve coverage or keep unavailable
+open interest history,Tier 2,recent_available_full_window_unconfirmed,Contract Open Interest History,/api/v5/rubik/stat/contracts/open-interest-history,false,resolve coverage or keep unavailable
+detailed liquidation data,Tier 3,unavailable_or_out_of_scope,,,false,resolve coverage or keep unavailable
+private account level features,Tier 3,forbidden_private_key_required,,,true,exclude from current research

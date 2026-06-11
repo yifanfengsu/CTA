@@ -1,0 +1,3332 @@
+{
+  "total_trades": 1144,
+  "trades_crossed": 540,
+  "trades_never_crossed": 604,
+  "profitable_at_cross": 522,
+  "ghost_crossings": 18,
+  "ghost_cross_pct": 3.3,
+  "actual_total_pnl": -516.48606691951,
+  "midline_ev_total_pnl": 5817.916291651316,
+  "pnl_delta": 6334.4023585708255,
+  "first_cross_stats": {
+    "mean": 4.3351851851851855,
+    "median": 4.0,
+    "std": 2.9104955291093826,
+    "min": 1,
+    "max": 16,
+    "p25": 2.0,
+    "p75": 6.0
+  },
+  "first_cross_distribution": {
+    "0-3": 249,
+    "4-6": 175,
+    "7-12": 110,
+    "13-24": 6,
+    "25-40": 0,
+    "41-60": 0
+  },
+  "by_exit_reason": {
+    "stop": {
+      "total": 958,
+      "crossed": 354,
+      "never_crossed": 604,
+      "profitable_at_cross": 337,
+      "ghost_cross": 17,
+      "actual_total_pnl": -29295.183625361176,
+      "midline_ev_total_pnl": -6936.370306260345,
+      "pnl_delta": 22358.81331910083,
+      "first_cross_stats": {
+        "mean": 4.364406779661017,
+        "median": 4.0,
+        "std": 2.8828302974326885,
+        "min": 1,
+        "max": 16,
+        "p25": 2.0,
+        "p75": 6.0
+      },
+      "first_cross_distribution": {
+        "0-3": 162,
+        "4-6": 116,
+        "7-12": 73,
+        "13-24": 3,
+        "25-40": 0,
+        "41-60": 0
+      },
+      "avg_actual_pnl": -30.57952361728724,
+      "avg_midline_pnl": -7.2404700482884605,
+      "cross_details": [
+        {
+          "bar": 1,
+          "pnl_at_cross": 5.978082355400193,
+          "final_pnl": -5.668812360561958,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 11,
+          "pnl_at_cross": 5.678191362670517,
+          "final_pnl": -27.888058513135963,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 34.3993909835449,
+          "final_pnl": -16.101410322446522,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 27.472183183693897,
+          "final_pnl": -20.87428116180373,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 34.135288048880554,
+          "final_pnl": -28.56126645539334,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 45.621536514209,
+          "final_pnl": -51.66561553846794,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -1.4574045107186164,
+          "final_pnl": -17.05276483564949,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 47.26705373813842,
+          "final_pnl": -26.14637690767021,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 65.72529313232836,
+          "final_pnl": -27.27757836803064,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 9.422174310224635,
+          "final_pnl": -21.94790603626163,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 10.575371930453567,
+          "final_pnl": -27.786414798936192,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 14.94923343263103,
+          "final_pnl": -12.016815241779012,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 12.728863050455049,
+          "final_pnl": -17.47476493622654,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 35.61301369863019,
+          "final_pnl": -18.97211350293543,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 10.592579376468981,
+          "final_pnl": -7.715178910810053,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 23.350234741784067,
+          "final_pnl": -10.569550637156318,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 9.803444129359038,
+          "final_pnl": -13.654128240544274,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 16.686592781123245,
+          "final_pnl": -6.6720175531430375,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 17.215806561284584,
+          "final_pnl": -7.607170477368302,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 6.874234351246412,
+          "final_pnl": -10.837685626993869,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 2.9523241011774126,
+          "final_pnl": -8.063538412063696,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 22.121332757359895,
+          "final_pnl": -15.713829936985737,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -2.8894358602863894,
+          "final_pnl": -21.74877705636621,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 5.994658008325568,
+          "final_pnl": -10.792695778353647,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 29.734534976396294,
+          "final_pnl": -21.636124842016766,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 4.627775449871201,
+          "final_pnl": -20.278142764871795,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 11,
+          "pnl_at_cross": 19.649960222752654,
+          "final_pnl": -21.038486993842834,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 10.356802396840596,
+          "final_pnl": -17.979222194120695,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 19.255573981942142,
+          "final_pnl": -16.001836057806212,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 37.37658984875792,
+          "final_pnl": -20.945661457012285,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 19.94734055424183,
+          "final_pnl": -21.506143659047744,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 14.287803589288849,
+          "final_pnl": -11.840454039365104,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 13.596891351255808,
+          "final_pnl": -15.611196991935275,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 9.921518396393944,
+          "final_pnl": -17.362797304382312,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -3.276798019857677,
+          "final_pnl": -15.577146393111367,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 15.136646760316921,
+          "final_pnl": -15.605222410372201,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 10.16595204438331,
+          "final_pnl": -20.526353807244988,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 34.048781106597325,
+          "final_pnl": -15.475318365651267,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 4.701032768832319,
+          "final_pnl": -19.704242898385566,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 59.91550959223537,
+          "final_pnl": -14.734231593701974,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 7.779166013642554,
+          "final_pnl": -8.75624366113159,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 20.206903515401535,
+          "final_pnl": -9.023452474567605,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 35.29290561423546,
+          "final_pnl": -15.764055131427611,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 14.556853315012024,
+          "final_pnl": -29.016292879226622,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 23.068816818929797,
+          "final_pnl": -23.855243080517443,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 6.019389130752123,
+          "final_pnl": -16.364225176919966,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 12,
+          "pnl_at_cross": 22.487159522782285,
+          "final_pnl": -16.195213511235504,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 10.459686965671398,
+          "final_pnl": -16.73704928505665,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": -0.33782691623834504,
+          "final_pnl": -16.286928892398812,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 1.56263577118022,
+          "final_pnl": -9.298127650770603,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 54.804464109384185,
+          "final_pnl": -44.95391104796246,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 19.3238739966047,
+          "final_pnl": -20.07052585249303,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 13.262006257743494,
+          "final_pnl": -17.256717474583496,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 28.640591461960444,
+          "final_pnl": -43.39519948213002,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 20.33690283982959,
+          "final_pnl": -17.207694425313623,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 5.198090669720593,
+          "final_pnl": -10.262750827570963,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 16.301648483429183,
+          "final_pnl": -14.701470531500584,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 22.158894645941277,
+          "final_pnl": -12.363496175672347,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 16.766512777005627,
+          "final_pnl": -16.282648884962985,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 16.632627827226855,
+          "final_pnl": -21.04425411461504,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 12.451849540821925,
+          "final_pnl": -15.815150254718612,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 22.119440014176806,
+          "final_pnl": -17.50841750841751,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 7.407899489726062,
+          "final_pnl": -16.828839644190168,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 10.625228495110568,
+          "final_pnl": -21.10300853660084,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 15.973772134234405,
+          "final_pnl": -19.080440087332537,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 9.762910651562237,
+          "final_pnl": -32.585209094563815,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 22.21426643680573,
+          "final_pnl": -15.03250025768874,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 6.66515543971879,
+          "final_pnl": -16.639560248305767,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 20.903142746287706,
+          "final_pnl": -18.068539406521396,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 21.78182275503935,
+          "final_pnl": -13.757138695734803,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 21.797609925493543,
+          "final_pnl": -21.650985433041928,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 16.82072823079124,
+          "final_pnl": -23.685743630774166,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": -1.0637859233908906,
+          "final_pnl": -10.000000000000064,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 7.368982782163845,
+          "final_pnl": -10.632501552721932,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 44.337861755271966,
+          "final_pnl": -24.704248858114525,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 38.3613799025008,
+          "final_pnl": -53.77186208076406,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 16.840334310213937,
+          "final_pnl": -39.201206369881085,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 7.718749999999967,
+          "final_pnl": -14.838913690476238,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 19.539358245553927,
+          "final_pnl": -12.460591146638453,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -3.9913999194396914,
+          "final_pnl": -21.002864451580464,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 13.568778268288034,
+          "final_pnl": -22.9674883251245,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 3.195814630668924,
+          "final_pnl": -5.952344992634008,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 17.142787022038867,
+          "final_pnl": -8.867653967786584,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 10.384238837493323,
+          "final_pnl": -10.060909972357923,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 17.30436917271169,
+          "final_pnl": -23.043726108933896,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": -1.4331294997119393,
+          "final_pnl": -15.226655102030918,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 13.85557961375275,
+          "final_pnl": -17.561173861238885,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 15.714215780081263,
+          "final_pnl": -14.836541511990175,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": -1.0303738213989826,
+          "final_pnl": -22.463925813084824,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 19.862283793753598,
+          "final_pnl": -17.791856475355182,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 24.8872379941629,
+          "final_pnl": -21.970350225523976,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 95.63398582339454,
+          "final_pnl": -27.515841911381873,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 0.7396870554765034,
+          "final_pnl": -53.17740296687663,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 3.971986462146167,
+          "final_pnl": -22.204901699245802,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 31.99714741118429,
+          "final_pnl": -16.00728124165979,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 22.228373702422072,
+          "final_pnl": -16.57834898665349,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 11,
+          "pnl_at_cross": 2.7638247478009625,
+          "final_pnl": -17.35769171968201,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 32.83352811787103,
+          "final_pnl": -28.67725380777643,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 10.669232299017951,
+          "final_pnl": -25.112623940083374,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 7.511914647548505,
+          "final_pnl": -11.597915440748999,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 24.722269771868092,
+          "final_pnl": -19.606388406599642,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 11.426600441501064,
+          "final_pnl": -17.209870703248235,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 11.221244474826129,
+          "final_pnl": -18.121867068101228,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 17.624227918215766,
+          "final_pnl": -30.350760906071184,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 35.429784342267006,
+          "final_pnl": -19.55823334086407,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 23.806542910582245,
+          "final_pnl": -14.737293376279883,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 8.257983785556199,
+          "final_pnl": -14.757168325137464,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 12.851229801798919,
+          "final_pnl": -17.42389784059772,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 29.544287441814298,
+          "final_pnl": -22.16738568139163,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 36.29406924686905,
+          "final_pnl": -37.46525656398981,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 37.33098102818442,
+          "final_pnl": -31.20266442863573,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 9.676767948735101,
+          "final_pnl": -33.72848661549673,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 13.828760162601585,
+          "final_pnl": -39.55883420441341,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 18.798051639077464,
+          "final_pnl": -44.39354314764396,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 51.838970721949416,
+          "final_pnl": -28.919219078793468,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 53.055144095441776,
+          "final_pnl": -45.08125809732395,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 42.08682853669563,
+          "final_pnl": -52.05260787028753,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 35.64861581145053,
+          "final_pnl": -45.97624711301805,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 26.74988734630806,
+          "final_pnl": -26.65409339067693,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 17.788858338664788,
+          "final_pnl": -32.308257420948685,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 24.337244676227726,
+          "final_pnl": -28.862761532253053,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 50.25536915360093,
+          "final_pnl": -39.13052992283735,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 14.951233635733821,
+          "final_pnl": -16.42630869522191,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 0.3215111021801578,
+          "final_pnl": -18.842209176781775,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 15.53470169593851,
+          "final_pnl": -14.968799359388552,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 12.137423349451964,
+          "final_pnl": -17.080702919630575,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 15.166215336445868,
+          "final_pnl": -22.300586288994445,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 16.753870525937003,
+          "final_pnl": -46.795246901280045,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 44.270311712172195,
+          "final_pnl": -56.35999988159455,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 7.1353191489361825,
+          "final_pnl": -31.209240121580535,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 18.101092896174862,
+          "final_pnl": -20.266393442623002,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 152.9490746689814,
+          "final_pnl": -36.737883631462076,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 27.04175981893962,
+          "final_pnl": -37.757474853815,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 47.28658905790117,
+          "final_pnl": -31.725347107046332,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 408.542356838618,
+          "final_pnl": -9.99999999999994,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 287.37717309145876,
+          "final_pnl": -305.7823129251701,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 17.888126910683294,
+          "final_pnl": -53.384048819065,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 17.60035288928087,
+          "final_pnl": -31.391392022181545,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 31.469038526610905,
+          "final_pnl": -36.831274299249436,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 39.54209614156697,
+          "final_pnl": -50.76491054325598,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 16.119491274770688,
+          "final_pnl": -16.235686821312466,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 34.04816380346687,
+          "final_pnl": -21.93519436703992,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 274.4159986208084,
+          "final_pnl": -39.873409927715514,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 25.71603831453773,
+          "final_pnl": -29.841389677184583,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 27.702670651297357,
+          "final_pnl": -19.787621893783804,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 25.80236074529314,
+          "final_pnl": -16.458324623381678,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 26.690475071660064,
+          "final_pnl": -37.55529748199263,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 26.54812998160637,
+          "final_pnl": -36.36244197249719,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 11.307362165731302,
+          "final_pnl": -26.84761590340989,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 11.700427812999346,
+          "final_pnl": -23.56285022126981,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 12.314756835733515,
+          "final_pnl": -18.036049736112293,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 21.368462792439505,
+          "final_pnl": -36.28862215900153,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 88.6737657308809,
+          "final_pnl": -81.57931129857556,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 17.318159327065878,
+          "final_pnl": -29.075657972243828,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 37.773188779900195,
+          "final_pnl": -55.25235391007208,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 57.94655414908572,
+          "final_pnl": -67.20916214587102,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 57.18018289619146,
+          "final_pnl": -40.97219231376605,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 8.831287991742126,
+          "final_pnl": -42.87025052021032,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 39.62206644315763,
+          "final_pnl": -24.716622400255456,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 16.803685969825636,
+          "final_pnl": -27.205967760670045,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 7.396023436749554,
+          "final_pnl": -23.038818831730183,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 130.0007131141695,
+          "final_pnl": -44.25892156762871,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 184.2421330771079,
+          "final_pnl": -115.85051988607111,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 12.13692946058093,
+          "final_pnl": -48.54401304090095,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 43.335290663534906,
+          "final_pnl": -49.94966865195864,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 31.180933038647623,
+          "final_pnl": -79.45420567127755,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 20.296296296296365,
+          "final_pnl": -36.39153439153444,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 4.965644667705902,
+          "final_pnl": -45.55277853389748,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 8.905154010369063,
+          "final_pnl": -27.068357077506285,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 20.666666666666647,
+          "final_pnl": -64.2121212121212,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 17.08542713567831,
+          "final_pnl": -23.947468434610062,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 46.09761050565222,
+          "final_pnl": -36.4613048901955,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 34.319943622269236,
+          "final_pnl": -59.579180509412986,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 18.75046876171904,
+          "final_pnl": -73.78041593896997,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 18.968583283935995,
+          "final_pnl": -22.959183673469415,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 4.20259401492634,
+          "final_pnl": -20.717960396244507,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 29.931883678281327,
+          "final_pnl": -31.162281522512103,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 15.858150714865408,
+          "final_pnl": -22.98450753217562,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 12,
+          "pnl_at_cross": -5.950733462496437,
+          "final_pnl": -37.61219406112844,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 7.1442240224533045,
+          "final_pnl": -22.48061309106158,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 3.501585623678466,
+          "final_pnl": -24.190199335548083,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 15.99571861806521,
+          "final_pnl": -61.29426855477869,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 19.44792973651188,
+          "final_pnl": -51.50116508334817,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 10.74136478517275,
+          "final_pnl": -74.49452401010953,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 31.4240585252307,
+          "final_pnl": -56.41722978991248,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -1.2663755458514938,
+          "final_pnl": -91.38490330630067,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 10.248477230977356,
+          "final_pnl": -97.44340547782495,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 78.18976775878701,
+          "final_pnl": -121.53929767921026,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 28.539279869067165,
+          "final_pnl": -51.017798690671,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 4.208157993416903,
+          "final_pnl": -74.02370139339423,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 25.617773747449668,
+          "final_pnl": -90.7957379279074,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 107.68060836501898,
+          "final_pnl": -36.4638783269961,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 202.6537997587454,
+          "final_pnl": -58.431315367382936,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 23.386887794765567,
+          "final_pnl": -73.08518120904743,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 16,
+          "pnl_at_cross": -27.11791642816271,
+          "final_pnl": -70.09976285877833,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 17.48890629078574,
+          "final_pnl": -35.47656337397914,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 34.848582267086655,
+          "final_pnl": -25.612881299886986,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 72.0594420300014,
+          "final_pnl": -56.00228315074813,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 10.45408245322462,
+          "final_pnl": -46.07454947882763,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 21.72817100221806,
+          "final_pnl": -23.15054878575744,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -2.786208269068124,
+          "final_pnl": -27.552898864904467,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": -8.028685010522933,
+          "final_pnl": -67.27503535516635,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 10.204081632652999,
+          "final_pnl": -53.523402716568285,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 51.45705521472399,
+          "final_pnl": -48.647020157756415,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 14.617863720073784,
+          "final_pnl": -20.25782688766104,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 32.08319504369959,
+          "final_pnl": -27.815972057591605,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 11.917098445595846,
+          "final_pnl": -14.816185541574193,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 4.94420115835572,
+          "final_pnl": -8.526224446552165,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 24.078909196402595,
+          "final_pnl": -24.835260474947198,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 14.865240344540178,
+          "final_pnl": -19.181915611479447,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 21.456157917322322,
+          "final_pnl": -23.346343257657846,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 30.086761824797073,
+          "final_pnl": -14.883451281436194,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 39.747301921558254,
+          "final_pnl": -21.302598428157737,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 27.68477980942568,
+          "final_pnl": -19.112615429895843,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 29.55844787738722,
+          "final_pnl": -21.921212226527846,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 25.960692285127674,
+          "final_pnl": -16.835687046892712,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 11,
+          "pnl_at_cross": 11.780905752754109,
+          "final_pnl": -21.46354257737371,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 14.796919824852765,
+          "final_pnl": -22.766980867539495,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 0.6161429451633469,
+          "final_pnl": -16.87791567643698,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 37.90238836967799,
+          "final_pnl": -19.878356326954442,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 27.66735570042924,
+          "final_pnl": -33.164482202485004,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 62.37006237006239,
+          "final_pnl": -24.096624096624108,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 21.388926492486853,
+          "final_pnl": -18.033611170202484,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 10.829817158931077,
+          "final_pnl": -14.777978702029353,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 18.596377749029788,
+          "final_pnl": -20.594622066161538,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 17.250126839167947,
+          "final_pnl": -24.235341016162874,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 52.58488587789332,
+          "final_pnl": -30.71676287258196,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 21.47310090048487,
+          "final_pnl": -34.23821618233987,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 15.516385302879732,
+          "final_pnl": -20.80525606469008,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 35.38704581358602,
+          "final_pnl": -28.941548183254245,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 22.78518962674264,
+          "final_pnl": -32.86078334796672,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 57.01571408705328,
+          "final_pnl": -31.77583089973571,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 16.225229269544034,
+          "final_pnl": -30.30663942611605,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 83.15877670716385,
+          "final_pnl": -34.612085303329536,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 45.55854985508724,
+          "final_pnl": -26.425702227807314,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 107.11732870417659,
+          "final_pnl": -24.948578430657445,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 57.53564154786169,
+          "final_pnl": -64.49018847185864,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 1.3574414942717126,
+          "final_pnl": -48.829109751084,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 16,
+          "pnl_at_cross": -4.3864229765012865,
+          "final_pnl": -36.50503543453937,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 37.741403674046055,
+          "final_pnl": -31.205840791333085,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 9.918721586995463,
+          "final_pnl": -15.788282526125148,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 23.22976239608504,
+          "final_pnl": -28.489728536895605,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 29.776674937965286,
+          "final_pnl": -25.624778447359144,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 23.398169336384377,
+          "final_pnl": -28.41614906832304,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 45.302884258916045,
+          "final_pnl": -32.263873147687185,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 24.455116364979645,
+          "final_pnl": -24.9036888490158,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 39.15451212853917,
+          "final_pnl": -29.566447903551104,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 31.543801071962037,
+          "final_pnl": -37.12327563482993,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 37.21328638050824,
+          "final_pnl": -17.070252484738035,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 30.552817847863192,
+          "final_pnl": -25.983334826628365,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 42.0892975637502,
+          "final_pnl": -29.24447814958768,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 20.92358742741269,
+          "final_pnl": -17.83574522997513,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 36.47390450158037,
+          "final_pnl": -21.312035534295667,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 5.9297912713471925,
+          "final_pnl": -21.782099936748832,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 25.13495276653172,
+          "final_pnl": -20.833333333333325,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 9.286282833642913,
+          "final_pnl": -19.981301090348605,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 18.346989668685385,
+          "final_pnl": -23.02280014250087,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 35.495215506665666,
+          "final_pnl": -23.011134608419308,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 53.662574148158285,
+          "final_pnl": -26.240072522318407,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 67.36242884250478,
+          "final_pnl": -36.41589463109722,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 33.20035460992902,
+          "final_pnl": -27.45694022289766,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 18.457010721042675,
+          "final_pnl": -30.77870206312509,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 51.2881679389314,
+          "final_pnl": -32.37459105779712,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 48.685886303114366,
+          "final_pnl": -29.991399129988885,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 58.313849539265625,
+          "final_pnl": -40.414955694834696,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 48.52919217560104,
+          "final_pnl": -27.368331235734484,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 14.122654285161616,
+          "final_pnl": -30.654358860975282,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 35.54281141637766,
+          "final_pnl": -30.46526692832371,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 42.15888954518604,
+          "final_pnl": -33.34106826428149,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 9.548675867213735,
+          "final_pnl": -26.839665370064434,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 26.93018955154884,
+          "final_pnl": -46.43435043920479,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 19.95251385012716,
+          "final_pnl": -46.254366286023696,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 69.45606694560672,
+          "final_pnl": -39.113188067163,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 29.311001141986964,
+          "final_pnl": -47.52841372559683,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 27.07296849087903,
+          "final_pnl": -37.03210139777307,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 38.06228373702418,
+          "final_pnl": -34.00889767671775,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 28.775625352642386,
+          "final_pnl": -34.40111233509774,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 15.287969757616306,
+          "final_pnl": -34.54684075097677,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 51.494813910921366,
+          "final_pnl": -47.25006537087079,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 85.97594313832701,
+          "final_pnl": -60.98180114035773,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 53.15717652896659,
+          "final_pnl": -66.13855069381687,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 4.071725001957529,
+          "final_pnl": -27.623969484434582,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 20.67079546368533,
+          "final_pnl": -35.71141317461587,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 12,
+          "pnl_at_cross": 25.872644139622984,
+          "final_pnl": -6.038012394653376,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 14.053487152595736,
+          "final_pnl": -18.705521012809974,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 16.733067729083594,
+          "final_pnl": -11.674729652817392,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": -46.472681599330215,
+          "final_pnl": -104.1299081910344,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 11.629516821265504,
+          "final_pnl": -9.999999999999932,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 25.11638599919543,
+          "final_pnl": -26.208402781769113,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 13.089444537674154,
+          "final_pnl": -29.583902700197378,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 68.2560037304733,
+          "final_pnl": -30.018652366518932,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 4.324190758586645,
+          "final_pnl": -42.1176179886335,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 109.22226944326373,
+          "final_pnl": -52.78661136919844,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 30.988111479243965,
+          "final_pnl": -50.454288127256305,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 90.31750196798743,
+          "final_pnl": -20.08096862465787,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 13,
+          "pnl_at_cross": 49.83078162771961,
+          "final_pnl": -31.16380798894905,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 33.333333333333364,
+          "final_pnl": -38.238095238095255,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 0.7501875468866391,
+          "final_pnl": -23.09505947915552,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 11.320754716981142,
+          "final_pnl": -14.070080862533638,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 5.294506949040522,
+          "final_pnl": -19.145315306797755,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": -6.436041834271884,
+          "final_pnl": -12.98701298701304,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 8.835341365461877,
+          "final_pnl": -12.162937464142313,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 11.952191235059772,
+          "final_pnl": -8.30961866818447,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 1.7226528854436325,
+          "final_pnl": -20.54878799064843,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 53.66492146596849,
+          "final_pnl": -23.606955871353826,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 5.728835136855405,
+          "final_pnl": -59.01609529871783,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 34.806629834254146,
+          "final_pnl": -18.034727703236022,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": -3.638568829593629,
+          "final_pnl": -38.508186779866556,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 36.900369003690074,
+          "final_pnl": -27.67527675276755,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 14.551804423748557,
+          "final_pnl": -36.87843006818555,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 26.734563971992422,
+          "final_pnl": -11.594071110302897,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 13.422818791946185,
+          "final_pnl": -10.415758737906355,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 14.294592914854098,
+          "final_pnl": -12.740832815413278,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 84.63338533541351,
+          "final_pnl": -57.248718520169376,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 68.19894498869611,
+          "final_pnl": -70.62116481860255,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 162.98701298701306,
+          "final_pnl": -210.34322820037104,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 40.73264078731554,
+          "final_pnl": -43.81785519018985,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 29.796511627906924,
+          "final_pnl": -64.43798449612406,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 79.51522317469711,
+          "final_pnl": -67.71251214053459,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 10.231923601637115,
+          "final_pnl": -24.459169752484822,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 21.041369472182655,
+          "final_pnl": -20.328102710413635,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 30.714516650501157,
+          "final_pnl": -34.917555771096126,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 4.907975460122669,
+          "final_pnl": -16.170026292725577,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 23.76599634369289,
+          "final_pnl": -22.930268999738715,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 32.85420944558525,
+          "final_pnl": -34.11557641537115,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 52.795031055900594,
+          "final_pnl": -45.15781467866649,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 24.573919936583472,
+          "final_pnl": -21.62957929902054,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 51.877470355731276,
+          "final_pnl": -43.584133258046265,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 45.47726136931533,
+          "final_pnl": -15.278075248090301,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 27.777777777777803,
+          "final_pnl": -18.584656084656114,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 22.644927536231904,
+          "final_pnl": -43.219461697722515,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 39.86135181975721,
+          "final_pnl": -31.047288932904284,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 18.21608040200996,
+          "final_pnl": -40.896446518305815,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 47.3066298342541,
+          "final_pnl": -38.15607734806631,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 28.12400127836361,
+          "final_pnl": -128.09889056293653,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 97.02570025989033,
+          "final_pnl": -126.39742584876862,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 60.94986807387865,
+          "final_pnl": -84.67772333207691,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 131.24054462934927,
+          "final_pnl": -64.37756645774802,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 13.046314416177442,
+          "final_pnl": -26.30230174261478,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 27.606539801661686,
+          "final_pnl": -41.56296665007459,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 57.7655522640712,
+          "final_pnl": -72.53189045402345,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 50.36426987646509,
+          "final_pnl": -43.28250147065469,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 28.821597956950082,
+          "final_pnl": -91.68968572470952,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 36.2076182503139,
+          "final_pnl": -51.127190097470624,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 13.979496738117309,
+          "final_pnl": -25.362801224870168,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 43.17577245754043,
+          "final_pnl": -49.13911543745808,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 31.020083515609358,
+          "final_pnl": -32.78129704854697,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 128.42361533779675,
+          "final_pnl": -49.300060864272645,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 42.7913100724161,
+          "final_pnl": -60.91883758111531,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 11.969111969111935,
+          "final_pnl": -15.747380033094327,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 21.322732200939708,
+          "final_pnl": -33.842738396406624,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 15.384615384615342,
+          "final_pnl": -51.61290322580641,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 41.55567394778903,
+          "final_pnl": -28.084329096582664,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 12,
+          "pnl_at_cross": 19.39655172413804,
+          "final_pnl": -40.64039408866988,
+          "profitable_at_cross": true
+        }
+      ]
+    },
+    "max_hold": {
+      "total": 186,
+      "crossed": 186,
+      "never_crossed": 0,
+      "profitable_at_cross": 185,
+      "ghost_cross": 1,
+      "actual_total_pnl": 28778.69755844169,
+      "midline_ev_total_pnl": 12754.286597911661,
+      "pnl_delta": -16024.41096053003,
+      "first_cross_stats": {
+        "mean": 4.279569892473118,
+        "median": 4.0,
+        "std": 2.9616385736301396,
+        "min": 1,
+        "max": 14,
+        "p25": 2.0,
+        "p75": 6.0
+      },
+      "first_cross_distribution": {
+        "0-3": 87,
+        "4-6": 59,
+        "7-12": 37,
+        "13-24": 3,
+        "25-40": 0,
+        "41-60": 0
+      },
+      "avg_actual_pnl": 154.72418042172953,
+      "avg_midline_pnl": 68.5714333221057,
+      "cross_details": [
+        {
+          "bar": 1,
+          "pnl_at_cross": 27.597666551659923,
+          "final_pnl": 59.323680693530726,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 19.31905623975395,
+          "final_pnl": 44.492935180607255,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 23.604389985573647,
+          "final_pnl": 23.76874052701738,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 9.979076130693707,
+          "final_pnl": 57.83214407067623,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 48.47104036854012,
+          "final_pnl": 27.88774798063407,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 15.146595614349264,
+          "final_pnl": 127.57952381111781,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 21.85138471157689,
+          "final_pnl": 69.26971601464666,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 43.303364123106874,
+          "final_pnl": 82.0246280890012,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 34.14625555488154,
+          "final_pnl": 310.0088643288061,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 79.73193658886316,
+          "final_pnl": 105.71676093364138,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 34.33712176669003,
+          "final_pnl": 82.0989900764519,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 17.14115053187279,
+          "final_pnl": 192.60736277153623,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 18.434813691632698,
+          "final_pnl": 177.65740938258512,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 74.84695062975828,
+          "final_pnl": 154.80905526347541,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 24.878208492582253,
+          "final_pnl": 116.76190068788955,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 15.677051073873814,
+          "final_pnl": 146.99097711636009,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 51.21078167115906,
+          "final_pnl": 12.720215633423212,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 40.47765793528509,
+          "final_pnl": 121.98437156064274,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 50.812297111796916,
+          "final_pnl": 36.79500170657355,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 37.22408337886734,
+          "final_pnl": 113.30291562990207,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 21.067224868750653,
+          "final_pnl": 59.96391966577707,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 22.509900031085483,
+          "final_pnl": 102.92202965278948,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 96.10216664669151,
+          "final_pnl": 130.3916476901975,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 18.28183189553576,
+          "final_pnl": 69.76362764971165,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 12.044798404236,
+          "final_pnl": 33.08147564977614,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 5.054651795303394,
+          "final_pnl": 112.09778277829177,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 23.192179656927298,
+          "final_pnl": 12.293022131850165,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 24.642318708217278,
+          "final_pnl": 80.11859472636243,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 49.933810352826995,
+          "final_pnl": 63.244952773367544,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 10.916423306911417,
+          "final_pnl": 102.52659574468088,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 14.624817189785126,
+          "final_pnl": 133.90801364982934,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 33.0188679245283,
+          "final_pnl": 64.53066037735846,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 41.51684284886932,
+          "final_pnl": 56.67954355975018,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 26.29080499975007,
+          "final_pnl": 85.73549702276839,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 21.19564376824217,
+          "final_pnl": 209.97894355414246,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 11,
+          "pnl_at_cross": 16.944975483562164,
+          "final_pnl": 82.199157238546,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 31.788935809549024,
+          "final_pnl": 38.171443473583736,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 1.2088503443273368,
+          "final_pnl": 218.90329977148835,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 31.144335825186936,
+          "final_pnl": 47.72857964347326,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 49.8030082061776,
+          "final_pnl": 21.271848675475145,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 12.102373475186319,
+          "final_pnl": 29.7592343352773,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 9.11443807313858,
+          "final_pnl": 61.65353979339118,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 8.371242178461276,
+          "final_pnl": 136.168975522294,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 62.85634898582934,
+          "final_pnl": 43.7399277577105,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 9.323470073974407,
+          "final_pnl": 92.29320780094147,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 29.372791519434646,
+          "final_pnl": 32.44517771773023,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 24.13494809688576,
+          "final_pnl": 96.43598615916957,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 5.400428377390169,
+          "final_pnl": 67.83512694598274,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 16.55593598729186,
+          "final_pnl": 30.38564329337005,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 35.83130303284885,
+          "final_pnl": 121.09458866578912,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 15.286374176114997,
+          "final_pnl": 154.95426411787258,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 13.92335074323379,
+          "final_pnl": 51.809304472196764,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 4.584218006983924,
+          "final_pnl": 211.68997525838319,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 85.70183302564381,
+          "final_pnl": 147.46767489573406,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 28.276229559247994,
+          "final_pnl": 10.982470952160243,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 3.77412031782071,
+          "final_pnl": 60.30363223609541,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 41.35251969978028,
+          "final_pnl": 112.66742685977827,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 22.926395633659,
+          "final_pnl": 128.4281871222444,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 22.694389863937246,
+          "final_pnl": 95.425228405546,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 70.07616767077229,
+          "final_pnl": 217.1670211817452,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 47.403736439653194,
+          "final_pnl": 47.86071515750152,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 67.34733948556843,
+          "final_pnl": 85.26605144315731,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 68.48490981873788,
+          "final_pnl": 129.0592812485944,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 21.99125353793872,
+          "final_pnl": 183.9363249222045,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 16.2884178180437,
+          "final_pnl": 379.27124496124924,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 67.60643991199376,
+          "final_pnl": 48.49259677707083,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 39.4245033606552,
+          "final_pnl": 55.10479773912036,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 32.195456102294756,
+          "final_pnl": 52.909388438558345,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 11.51363731001461,
+          "final_pnl": 289.1942535915053,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 26.457489878542535,
+          "final_pnl": 307.18286099865037,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 14.814411714227058,
+          "final_pnl": 189.1631678310847,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 20.0542044110683,
+          "final_pnl": 179.28144652965656,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 12,
+          "pnl_at_cross": 31.338018900208034,
+          "final_pnl": -20.811945563189344,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 14,
+          "pnl_at_cross": 56.47356119139042,
+          "final_pnl": 219.9954188658984,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 16.75754958527746,
+          "final_pnl": 17.7592207407256,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 173.65915820246605,
+          "final_pnl": 249.6383194033207,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 267.5163547519554,
+          "final_pnl": 561.9449692598358,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 11,
+          "pnl_at_cross": 1771.280991735537,
+          "final_pnl": 3363.01652892562,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 276.7334443310597,
+          "final_pnl": 347.7630377571298,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 53.68468740561766,
+          "final_pnl": 170.15252189670787,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 50.645396457823985,
+          "final_pnl": 112.99798447617815,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 12,
+          "pnl_at_cross": 4.892703862660977,
+          "final_pnl": 124.93562231759662,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 97.32814526588834,
+          "final_pnl": 192.52918287937737,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 342.9058165003651,
+          "final_pnl": 250.0434586100198,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 32.614026483570335,
+          "final_pnl": 73.95782246199113,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 17.116039385294926,
+          "final_pnl": 536.5786325572834,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 23.663743173920235,
+          "final_pnl": 18.53384080754588,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 74.04580152671747,
+          "final_pnl": 431.45038167938935,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 41.07314515424279,
+          "final_pnl": 136.06571703224685,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 46.393210749646414,
+          "final_pnl": 1.414427157001334,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 14.085724161769749,
+          "final_pnl": 116.92015209125476,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 53.6949257906597,
+          "final_pnl": 108.94397389074528,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 36.71053460109572,
+          "final_pnl": 154.52427429003208,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 13,
+          "pnl_at_cross": 675.3909525024606,
+          "final_pnl": 407.9028906791091,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 968.624740843124,
+          "final_pnl": 1187.975120939876,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 628.5822021116138,
+          "final_pnl": 406.76847662141773,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 15.298142717497534,
+          "final_pnl": 178.64125122189645,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 18.309859154929665,
+          "final_pnl": 116.94408877507472,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 206.98422193972937,
+          "final_pnl": 71.33777013385195,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 52.506265664160374,
+          "final_pnl": 164.03508771929828,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 13.301182327318045,
+          "final_pnl": 315.4169259489732,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 59.09589374923856,
+          "final_pnl": 12.793956378701248,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 32.20055710306408,
+          "final_pnl": 31.309192200557128,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 22.35469448584214,
+          "final_pnl": 144.06358668653755,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 29.277218664226925,
+          "final_pnl": 198.23116803903625,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 19.513499064421264,
+          "final_pnl": 116.14541566426085,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 50.74445457307817,
+          "final_pnl": 83.56122759039802,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 35.81678337733913,
+          "final_pnl": 191.48203420962002,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 17.204950196196915,
+          "final_pnl": 26.863869604587975,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 19.275250578257516,
+          "final_pnl": 171.93523515805708,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 19.230769230769216,
+          "final_pnl": 73.81656804733723,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 23.775216138328368,
+          "final_pnl": 69.40441882804988,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 21.488261042578582,
+          "final_pnl": 150.68311447141534,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 9.736180904522655,
+          "final_pnl": 20.57160804020104,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 80.07175472928907,
+          "final_pnl": 249.02152641878672,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 16.467431080751375,
+          "final_pnl": 112.58843620395218,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 42.05607476635517,
+          "final_pnl": -1.0580144595308305,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 48.72660325253159,
+          "final_pnl": 125.43725069039596,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 57.177069301002795,
+          "final_pnl": 121.6883700044903,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 34.80113636363638,
+          "final_pnl": 64.41761363636364,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 21.795183653612277,
+          "final_pnl": 110.3381172464121,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 14.122243929667883,
+          "final_pnl": 130.72843985487035,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 117.88428726539472,
+          "final_pnl": 185.43508608655188,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 55.395268320830866,
+          "final_pnl": 90.14554080912988,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 24.5427336215497,
+          "final_pnl": 76.82075157964745,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 20.169401799894136,
+          "final_pnl": 156.96135521439913,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 34.5754428833232,
+          "final_pnl": 123.39645693341487,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 25.40760869565221,
+          "final_pnl": 71.26358695652182,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 53.493975903614434,
+          "final_pnl": 33.73493975903611,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 47.29800905930684,
+          "final_pnl": 108.3956599599705,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 29.813084112149614,
+          "final_pnl": 57.94392523364496,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 14,
+          "pnl_at_cross": 7.606263982102932,
+          "final_pnl": 251.2304250559284,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 96.6338309059044,
+          "final_pnl": 408.89587236357033,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 91.04611373635325,
+          "final_pnl": 172.35620009776758,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 72.29393524194138,
+          "final_pnl": 152.01557654864067,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 38.053336420825154,
+          "final_pnl": 282.96862336459424,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 45.32050287133329,
+          "final_pnl": 64.15231000051746,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 79.1572170605018,
+          "final_pnl": 31.019094300972966,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 20.55908889217575,
+          "final_pnl": 173.1992308830055,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 105.64944471269912,
+          "final_pnl": 216.6103331723805,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 45.975479744136436,
+          "final_pnl": 47.574626865671554,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 39.44595001505564,
+          "final_pnl": 230.35230352303526,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 41.90964932742397,
+          "final_pnl": 33.04564186299657,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 35.920051212746216,
+          "final_pnl": 67.85688882566319,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 27.37619194094124,
+          "final_pnl": 190.40295293755773,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 35.475821137114714,
+          "final_pnl": 305.5911512780738,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": -7.131782945736337,
+          "final_pnl": 306.4806201550388,
+          "profitable_at_cross": false
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 28.008044341982536,
+          "final_pnl": 76.51935056653744,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 59.31010958086378,
+          "final_pnl": 258.7302264102673,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 40.98765432098775,
+          "final_pnl": 162.03703703703704,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 71.17314569154468,
+          "final_pnl": 206.25216287922484,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 49.13793103448279,
+          "final_pnl": 49.39655172413797,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 108.46185910796167,
+          "final_pnl": 127.13630679449776,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 59.21275873769938,
+          "final_pnl": 56.32846963013231,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 6.359895248784069,
+          "final_pnl": 41.152263374485514,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 74.11521980638001,
+          "final_pnl": 254.8801777495635,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 3.1097750596039555,
+          "final_pnl": 145.95210946408204,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 56.862745098039255,
+          "final_pnl": 94.57900807381779,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 18.770193343248355,
+          "final_pnl": 144.05866967536798,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 92.53219108997787,
+          "final_pnl": 40.98714976225085,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 13.095535046146113,
+          "final_pnl": 103.26764779246689,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 33.144704931285304,
+          "final_pnl": 54.163298302344245,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 20.581973030518196,
+          "final_pnl": 109.29737402413058,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 18.684603886397625,
+          "final_pnl": 59.04334828101637,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 10,
+          "pnl_at_cross": 10.256410256410142,
+          "final_pnl": 114.28571428571429,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 45.31902206320809,
+          "final_pnl": 55.45617173524136,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 44.349070100143074,
+          "final_pnl": 111.58798283261805,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 12.111637704054893,
+          "final_pnl": 57.3986308583466,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 5,
+          "pnl_at_cross": 12.040939193257085,
+          "final_pnl": 155.3281155930162,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 3,
+          "pnl_at_cross": 221.67729279058358,
+          "final_pnl": 209.17116233447766,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 42.85142170604732,
+          "final_pnl": 156.58790548658388,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 38.21839080459765,
+          "final_pnl": 72.41379310344828,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 6,
+          "pnl_at_cross": 25.196850393700853,
+          "final_pnl": 186.22047244094492,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 9,
+          "pnl_at_cross": 57.60177236222649,
+          "final_pnl": 333.1487122680698,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 28.921568627450927,
+          "final_pnl": 75.49019607843137,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 4,
+          "pnl_at_cross": 36.683225066870456,
+          "final_pnl": 186.47306075659145,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 137.7965912888493,
+          "final_pnl": 259.77498050573695,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 432.16560509554137,
+          "final_pnl": 164.9681528662421,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 268.15796741231713,
+          "final_pnl": 190.00276166804758,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 161.93981381251348,
+          "final_pnl": 22.2991989608141,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 2,
+          "pnl_at_cross": 48.83945841392649,
+          "final_pnl": 92.84332688588017,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 1,
+          "pnl_at_cross": 142.04410718520276,
+          "final_pnl": 266.77732985534755,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 8,
+          "pnl_at_cross": 24.01746724890828,
+          "final_pnl": 8.005822416302895,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 41.99475065616809,
+          "final_pnl": 128.28083989501317,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 19.96370235934671,
+          "final_pnl": 144.28312159709628,
+          "profitable_at_cross": true
+        },
+        {
+          "bar": 7,
+          "pnl_at_cross": 33.46456692913386,
+          "final_pnl": 106.2992125984251,
+          "profitable_at_cross": true
+        }
+      ]
+    }
+  }
+}

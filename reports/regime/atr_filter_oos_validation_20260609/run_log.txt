@@ -1,0 +1,91 @@
+# ATR p30 OOS validation run — started 2026-06-09T02:05:41Z (UTC)
+Engine: backtest_mr_5m_compare.py (reused unmodified)
+Full range: 2023-01-01 -> 2026-05-29 | train fraction = 0.6667
+
+[BTC] loading 1m -> 5m ...
+[BTC] 358,272 5m bars  2023-01-01 00:04:00+00:00 -> 2026-05-28 23:59:00+00:00
+[ETH] loading 1m -> 5m ...
+[ETH] 358,272 5m bars  2023-01-01 00:04:00+00:00 -> 2026-05-28 23:59:00+00:00
+[SOL] loading 1m -> 5m ...
+[SOL] 358,272 5m bars  2023-01-01 00:04:00+00:00 -> 2026-05-28 23:59:00+00:00
+[LINK] loading 1m -> 5m ...
+[LINK] 358,272 5m bars  2023-01-01 00:04:00+00:00 -> 2026-05-28 23:59:00+00:00
+[DOGE] loading 1m -> 5m ...
+[DOGE] 358,272 5m bars  2023-01-01 00:04:00+00:00 -> 2026-05-28 23:59:00+00:00
+
+Global 5m span: 2023-01-01 00:04:00+00:00 -> 2026-05-28 23:59:00+00:00
+SPLIT DATE (train|test boundary): 2025-04-09 08:00:40+00:00
+  train = [2023-01-01 00:04:00+00:00, split)   test = [split, 2026-05-28 23:59:00+00:00]
+
+  sym  train_bars  test_bars            train_end           test_start
+  BTC     238,848    119,424 2025-04-09 07:59:00+00:00 2025-04-09 08:04:00+00:00
+  ETH     238,848    119,424 2025-04-09 07:59:00+00:00 2025-04-09 08:04:00+00:00
+  SOL     238,848    119,424 2025-04-09 07:59:00+00:00 2025-04-09 08:04:00+00:00
+ LINK     238,848    119,424 2025-04-09 07:59:00+00:00 2025-04-09 08:04:00+00:00
+ DOGE     238,848    119,424 2025-04-09 07:59:00+00:00 2025-04-09 08:04:00+00:00
+
+=== BTC ===
+  train Wilder-ATR percentiles: p20=50.2137, p25=57.8751, p30=65.4375, p35=73.4461, p40=82.1597
+  live threshold = 81.5  |  train_p30 = 65.4375  |  diff = -19.7%
+  [Q1 test set]  filter OFF: n=4,530 net=$15,238 pf=1.76 win%=50.6 dd=$470 sharpe/t=12.765
+  [Q1 test set]  filter ON : n=4,447 net=$15,415 pf=1.77 win%=50.9 dd=$435 sharpe/t=12.930
+  [Q2 p20=50.2137]  n=4,508 net=$15,272 pf=1.76 win%=50.7 dd=$473
+  [Q2 p25=57.8751]  n=4,484 net=$15,279 pf=1.76 win%=50.9 dd=$448
+  [Q2 p30=65.4375]  n=4,447 net=$15,415 pf=1.77 win%=50.9 dd=$435
+  [Q2 p35=73.4461]  n=4,397 net=$15,479 pf=1.78 win%=51.1 dd=$430
+  [Q2 p40=82.1597]  n=4,344 net=$15,451 pf=1.79 win%=51.3 dd=$404
+
+=== ETH ===
+  train Wilder-ATR percentiles: p20=3.2484, p25=3.6715, p30=4.0797, p35=4.4964, p40=4.9377
+  live threshold = 4.64  |  train_p30 = 4.0797  |  diff = -12.1%
+  [Q1 test set]  filter OFF: n=4,731 net=$28,045 pf=1.65 win%=47.3 dd=$1,102 sharpe/t=8.556
+  [Q1 test set]  filter ON : n=4,293 net=$29,812 pf=1.72 win%=48.7 dd=$1,102 sharpe/t=8.921
+  [Q2 p20=3.2484]  n=4,491 net=$28,423 pf=1.67 win%=48.2 dd=$1,102
+  [Q2 p25=3.6715]  n=4,395 net=$29,498 pf=1.70 win%=48.4 dd=$1,102
+  [Q2 p30=4.0797]  n=4,293 net=$29,812 pf=1.72 win%=48.7 dd=$1,102
+  [Q2 p35=4.4964]  n=4,179 net=$29,794 pf=1.72 win%=48.9 dd=$1,102
+  [Q2 p40=4.9377]  n=4,052 net=$30,191 pf=1.74 win%=49.3 dd=$1,102
+
+=== SOL ===
+  train Wilder-ATR percentiles: p20=0.0690, p25=0.0883, p30=0.1219, p35=0.1893, p40=0.2604
+  live threshold = 0.245  |  train_p30 = 0.1219  |  diff = -50.2%
+  [Q1 test set]  filter OFF: n=4,153 net=$64,400 pf=2.29 win%=49.1 dd=$1,898 sharpe/t=7.036
+  [Q1 test set]  filter ON : n=3,969 net=$63,247 pf=2.27 win%=49.8 dd=$1,765 sharpe/t=6.931
+  [Q2 p20=0.0690]  n=4,136 net=$64,431 pf=2.29 win%=49.2 dd=$1,869
+  [Q2 p25=0.0883]  n=4,098 net=$64,479 pf=2.29 win%=49.4 dd=$1,821
+  [Q2 p30=0.1219]  n=3,969 net=$63,247 pf=2.27 win%=49.8 dd=$1,765
+  [Q2 p35=0.1893]  n=3,520 net=$63,923 pf=2.33 win%=51.6 dd=$1,765
+  [Q2 p40=0.2604]  n=3,211 net=$65,720 pf=2.43 win%=53.0 dd=$1,765
+
+=== LINK ===
+  train Wilder-ATR percentiles: p20=0.0141, p25=0.0163, p30=0.0185, p35=0.0213, p40=0.0245
+  live threshold = 0.0212  |  train_p30 = 0.0185  |  diff = -12.5%
+  [Q1 test set]  filter OFF: n=4,184 net=$34,240 pf=2.03 win%=45.7 dd=$1,283 sharpe/t=9.723
+  [Q1 test set]  filter ON : n=3,233 net=$36,943 pf=2.31 win%=49.2 dd=$1,295 sharpe/t=10.614
+  [Q2 p20=0.0141]  n=3,515 net=$37,011 pf=2.26 win%=48.5 dd=$1,283
+  [Q2 p25=0.0163]  n=3,370 net=$36,795 pf=2.28 win%=48.7 dd=$1,283
+  [Q2 p30=0.0185]  n=3,233 net=$36,943 pf=2.31 win%=49.2 dd=$1,295
+  [Q2 p35=0.0213]  n=3,084 net=$37,757 pf=2.40 win%=50.5 dd=$1,192
+  [Q2 p40=0.0245]  n=2,927 net=$38,485 pf=2.49 win%=51.4 dd=$621
+
+=== DOGE ===
+  train Wilder-ATR percentiles: p20=0.0001, p25=0.0002, p30=0.0002, p35=0.0002, p40=0.0002
+  live threshold = 0.0002  |  train_p30 = 0.0002  |  diff = -3.0%
+  [Q1 test set]  filter OFF: n=3,700 net=$47,304 pf=2.50 win%=48.6 dd=$2,005 sharpe/t=9.426
+  [Q1 test set]  filter ON : n=3,250 net=$47,487 pf=2.59 win%=49.6 dd=$2,005 sharpe/t=9.485
+  [Q2 p20=0.0001]  n=3,531 net=$47,372 pf=2.53 win%=48.8 dd=$2,005
+  [Q2 p25=0.0002]  n=3,405 net=$47,368 pf=2.55 win%=49.0 dd=$2,005
+  [Q2 p30=0.0002]  n=3,250 net=$47,487 pf=2.59 win%=49.6 dd=$2,005
+  [Q2 p35=0.0002]  n=3,099 net=$47,948 pf=2.65 win%=50.6 dd=$2,005
+  [Q2 p40=0.0002]  n=2,965 net=$48,088 pf=2.69 win%=51.4 dd=$2,005
+
+=== PORTFOLIO (BTC+ETH+SOL+LINK+DOGE, test set) ===
+  filter OFF: n=21,298 net=$189,227 pf=2.06 dd=$2,250
+  filter ON : n=19,192 net=$192,905 pf=2.14 dd=$2,250
+  p20: n=20,181 net=$192,508 pf=2.11 dd=$2,250
+  p25: n=19,752 net=$193,419 pf=2.13 dd=$2,250
+  p30: n=19,192 net=$192,905 pf=2.14 dd=$2,250
+  p35: n=18,279 net=$194,902 pf=2.18 dd=$2,250
+  p40: n=17,499 net=$197,936 pf=2.23 dd=$2,250
+
+-> wrote report to /home/yiast/vnpy_projects/cta_strategy/reports/regime/atr_filter_oos_validation_20260609

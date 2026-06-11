@@ -1,0 +1,259 @@
+{
+  "symbol": "SOL",
+  "n_demo": 15226,
+  "n_main": 22485,
+  "n_matched": 9710,
+  "recall_of_mainnet": 0.43184345118968204,
+  "precision_of_demo": 0.6377249441744385,
+  "jaccard": 0.3467733295239456,
+  "ghost_signals_demo_only": 5516,
+  "missed_signals_main_only": 12775,
+  "monthly": [
+    {
+      "month": "2023-01",
+      "matched": 14,
+      "demo_only": 241,
+      "main_only": 5
+    },
+    {
+      "month": "2023-02",
+      "matched": 0,
+      "demo_only": 11,
+      "main_only": 4
+    },
+    {
+      "month": "2023-03",
+      "matched": 2,
+      "demo_only": 6,
+      "main_only": 7
+    },
+    {
+      "month": "2023-04",
+      "matched": 1,
+      "demo_only": 32,
+      "main_only": 1
+    },
+    {
+      "month": "2023-05",
+      "matched": 0,
+      "demo_only": 0,
+      "main_only": 0
+    },
+    {
+      "month": "2023-06",
+      "matched": 2,
+      "demo_only": 6,
+      "main_only": 1
+    },
+    {
+      "month": "2023-07",
+      "matched": 4,
+      "demo_only": 76,
+      "main_only": 7
+    },
+    {
+      "month": "2023-08",
+      "matched": 1,
+      "demo_only": 0,
+      "main_only": 0
+    },
+    {
+      "month": "2023-09",
+      "matched": 0,
+      "demo_only": 0,
+      "main_only": 0
+    },
+    {
+      "month": "2023-10",
+      "matched": 9,
+      "demo_only": 4,
+      "main_only": 5
+    },
+    {
+      "month": "2023-11",
+      "matched": 301,
+      "demo_only": 95,
+      "main_only": 102
+    },
+    {
+      "month": "2023-12",
+      "matched": 469,
+      "demo_only": 62,
+      "main_only": 178
+    },
+    {
+      "month": "2024-01",
+      "matched": 581,
+      "demo_only": 77,
+      "main_only": 126
+    },
+    {
+      "month": "2024-02",
+      "matched": 551,
+      "demo_only": 87,
+      "main_only": 82
+    },
+    {
+      "month": "2024-03",
+      "matched": 373,
+      "demo_only": 104,
+      "main_only": 540
+    },
+    {
+      "month": "2024-04",
+      "matched": 319,
+      "demo_only": 169,
+      "main_only": 487
+    },
+    {
+      "month": "2024-05",
+      "matched": 481,
+      "demo_only": 139,
+      "main_only": 326
+    },
+    {
+      "month": "2024-06",
+      "matched": 458,
+      "demo_only": 136,
+      "main_only": 299
+    },
+    {
+      "month": "2024-07",
+      "matched": 476,
+      "demo_only": 218,
+      "main_only": 355
+    },
+    {
+      "month": "2024-08",
+      "matched": 408,
+      "demo_only": 124,
+      "main_only": 429
+    },
+    {
+      "month": "2024-09",
+      "matched": 458,
+      "demo_only": 116,
+      "main_only": 314
+    },
+    {
+      "month": "2024-10",
+      "matched": 471,
+      "demo_only": 153,
+      "main_only": 345
+    },
+    {
+      "month": "2024-11",
+      "matched": 346,
+      "demo_only": 111,
+      "main_only": 579
+    },
+    {
+      "month": "2024-12",
+      "matched": 368,
+      "demo_only": 100,
+      "main_only": 640
+    },
+    {
+      "month": "2025-01",
+      "matched": 347,
+      "demo_only": 159,
+      "main_only": 600
+    },
+    {
+      "month": "2025-02",
+      "matched": 255,
+      "demo_only": 181,
+      "main_only": 605
+    },
+    {
+      "month": "2025-03",
+      "matched": 240,
+      "demo_only": 104,
+      "main_only": 566
+    },
+    {
+      "month": "2025-04",
+      "matched": 167,
+      "demo_only": 88,
+      "main_only": 629
+    },
+    {
+      "month": "2025-05",
+      "matched": 196,
+      "demo_only": 128,
+      "main_only": 663
+    },
+    {
+      "month": "2025-06",
+      "matched": 345,
+      "demo_only": 173,
+      "main_only": 500
+    },
+    {
+      "month": "2025-07",
+      "matched": 433,
+      "demo_only": 157,
+      "main_only": 490
+    },
+    {
+      "month": "2025-08",
+      "matched": 349,
+      "demo_only": 135,
+      "main_only": 571
+    },
+    {
+      "month": "2025-09",
+      "matched": 286,
+      "demo_only": 133,
+      "main_only": 563
+    },
+    {
+      "month": "2025-10",
+      "matched": 299,
+      "demo_only": 203,
+      "main_only": 534
+    },
+    {
+      "month": "2025-11",
+      "matched": 175,
+      "demo_only": 500,
+      "main_only": 663
+    },
+    {
+      "month": "2025-12",
+      "matched": 66,
+      "demo_only": 432,
+      "main_only": 467
+    },
+    {
+      "month": "2026-01",
+      "matched": 93,
+      "demo_only": 315,
+      "main_only": 372
+    },
+    {
+      "month": "2026-02",
+      "matched": 86,
+      "demo_only": 456,
+      "main_only": 399
+    },
+    {
+      "month": "2026-03",
+      "matched": 115,
+      "demo_only": 217,
+      "main_only": 244
+    },
+    {
+      "month": "2026-04",
+      "matched": 89,
+      "demo_only": 12,
+      "main_only": 50
+    },
+    {
+      "month": "2026-05",
+      "matched": 76,
+      "demo_only": 56,
+      "main_only": 27
+    }
+  ]
+}
