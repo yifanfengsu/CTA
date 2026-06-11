@@ -464,10 +464,14 @@ def round_price(inst_id: str, price: float) -> float:
 
 def place_order(inst_id: str, side: str, price: float, sz: int, ord_type: str = "limit") -> dict | None:
     """Place an order via OKX REST API.
-    
+
     ord_type: "limit" (default) or "market".
     Market orders omit px — OKX fills at best available price.
     """
+    # FIX (DEMO partial-fill mitigation): use IOC for limit orders so any
+    # unfilled remainder is immediately canceled instead of resting in the
+    # book and silently filling later, which decoupled local state from
+    # OKX truth. market branch unchanged.
     body = {
         "instId": inst_id,
         "tdMode": "cross",
@@ -478,6 +482,7 @@ def place_order(inst_id: str, side: str, price: float, sz: int, ord_type: str = 
     if ord_type == "limit":
         px = round_price(inst_id, price)
         body["px"] = str(px)
+        body["ordType"] = "ioc"   # ← 关键一行
     result = okx_post("/api/v5/trade/order", body)
     return result
 
