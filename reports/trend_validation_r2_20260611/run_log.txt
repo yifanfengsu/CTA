@@ -1,0 +1,18 @@
+run start (UTC): 2026-06-11T14:22:15.855347+00:00
+DATA: database_mainnet.db (mode=ro) | engines tb/tv imported verbatim, unmodified
+B&H: path-net $64,346 | maxDD $313,143 | deep-DD bars 1946/7464 (26.1%)
+
+== mothers V1' ==
+[B1_4h] V1' a=True b=100%->True c=ratio 0.63->True => VALIDATED* | top5%: syms {'BTC': 2, 'DOGE': 3, 'ETH': 1, 'LINK': 3, 'SOL': 2} years {'2023': 3, '2024': 5, '2025': 3}
+[B2_4h] V1' a=True b=100%->True c=ratio 0.55->True => VALIDATED* | top5%: syms {'BTC': 3, 'DOGE': 6, 'ETH': 4, 'LINK': 5, 'SOL': 6} years {'2023': 6, '2024': 7, '2025': 8, '2026': 3}
+[C2_4h] V1' a=True b=100%->True c=ratio 0.49->True => VALIDATED* | top5%: syms {'BTC': 4, 'DOGE': 9, 'ETH': 4, 'LINK': 6, 'SOL': 5} years {'2023': 9, '2024': 8, '2025': 11}
+[C2_1d] V1' a=True b=100%->True c=ratio 0.54->True => VALIDATED* | top5%: syms {'BTC': 2, 'DOGE': 4, 'ETH': 3, 'LINK': 2, 'SOL': 2} years {'2023': 3, '2024': 4, '2025': 6}
+
+== family D (long/flat) ==
+[D1<-B1_4h] FAIL died:V5 | n=108 net $57,882 | net/DD 3.25 (mother 2.05) | corrBH 0.731 | flat 51% cov 72% | CI [-73.9,1295.1] excl0=False | m2m check diff $-0
+[D2<-B2_4h] VALIDATED* | n=235 net $73,979 | net/DD 4.30 (mother 3.54) | corrBH 0.697 | flat 52% cov 65% | CI [-3.4,719.5] excl0=False | m2m check diff $-0
+[D3<-C2_4h] FAIL died:V5 | n=273 net $59,268 | net/DD 3.00 (mother 1.33) | corrBH 0.842 | flat 51% cov 82% | CI [-38.6,585.9] excl0=False | m2m check diff $0
+[D4<-C2_1d] FAIL died:V5 | n=126 net $55,082 | net/DD 3.09 (mother 1.20) | corrBH 0.861 | flat 51% cov 82% | CI [-115.8,1227.6] excl0=False | m2m check diff $0
+
+VALIDATED*: 5 / FAIL: 3 (8 candidates)
+run end (UTC): 2026-06-11T14:22:36.520562+00:00

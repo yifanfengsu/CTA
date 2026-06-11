@@ -1,0 +1,58 @@
+{
+  "a_dispersion": {
+    "n_symbols": 5,
+    "n_years": 3,
+    "pass": true
+  },
+  "b_repeatability": {
+    "frac_windows_with_top10_entry": 1.0,
+    "pass": true
+  },
+  "c_tail_efficiency": {
+    "total_gross": 64887.311,
+    "tail_gross": 121136.506,
+    "ratio": 0.5356544706679918,
+    "pass": true
+  },
+  "profile": {
+    "top5pct_n": 13,
+    "symbols": [
+      "BTC",
+      "DOGE",
+      "ETH",
+      "LINK",
+      "SOL"
+    ],
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "symbol_counts": {
+      "BTC": 2,
+      "DOGE": 4,
+      "ETH": 3,
+      "LINK": 2,
+      "SOL": 2
+    },
+    "year_counts": {
+      "2023": 3,
+      "2024": 4,
+      "2025": 6
+    },
+    "entry_months": [
+      "2023-10",
+      "2023-11",
+      "2024-02",
+      "2024-10",
+      "2024-11",
+      "2025-05",
+      "2025-07",
+      "2025-10",
+      "2025-11"
+    ],
+    "T_gross": 121136.506,
+    "T_net": 107208.7955
+  },
+  "pass": true
+}
