@@ -1,0 +1,54 @@
+run start (UTC): 2026-06-11T23:36:46.113896+00:00
+DATA: database_mainnet.db (mode=ro) | engines tb/tv/r2 imported verbatim, unmodified
+cost convention identical to prior stages: taker both sides ±1 tick + real OKX 8h funding
+B&H maxDD $313,143.19 -> P3 limit $156,571.60 (pre-registered $156,572)
+
+loading data via baseline engine ...
+
+== sleeves (frozen pool, zero config changes) ==
+[B1_4h] m2m net $49,991 | trade-account net $49,991 | diff $-0.00 | first live 2023-02-03 | daily std $1,786
+[B2_4h] m2m net $68,195 | trade-account net $68,195 | diff $0.00 | first live 2023-01-17 | daily std $1,609
+[C2_4h] m2m net $52,149 | trade-account net $52,149 | diff $0.00 | first live 2023-04-01 | daily std $2,256
+[C2_1d] m2m net $44,833 | trade-account net $44,833 | diff $0.00 | first live 2023-04-01 | daily std $2,246
+[D2] m2m net $73,979 | trade-account net $73,979 | diff $-0.00 | first live 2023-01-17 | daily std $1,417
+
+common-live date (corr window start): 2023-04-01 (latest sleeve: C2_1d)
+
+== R1 daily Pearson corr (window from common-live) ==
+       B1_4h  B2_4h  C2_4h  C2_1d     D2
+B1_4h  1.000  0.823  0.638  0.635  0.768
+B2_4h  0.823  1.000  0.441  0.434  0.786
+C2_4h  0.638  0.441  1.000  0.993  0.593
+C2_1d  0.635  0.434  0.993  1.000  0.588
+D2     0.768  0.786  0.593  0.588  1.000
+
+monthly cross-check:
+       B1_4h  B2_4h  C2_4h  C2_1d     D2
+B1_4h  1.000  0.918  0.643  0.626  0.857
+B2_4h  0.918  1.000  0.552  0.537  0.860
+C2_4h  0.643  0.552  1.000  0.994  0.700
+C2_1d  0.626  0.537  0.994  1.000  0.684
+D2     0.857  0.860  0.700  0.684  1.000
+
+== R2 same-symbol same-direction holding overlap (share of 4h bar-symbol slots) ==
+  B1_4h  vs B2_4h : same-dir  80.3% | opp  17.1% | both-in  97.3% | same|both 82.5%
+  B1_4h  vs C2_4h : same-dir  67.0% | opp  25.8% | both-in  92.8% | same|both 72.2%
+  B1_4h  vs C2_1d : same-dir  66.8% | opp  26.0% | both-in  92.7% | same|both 72.0%
+  B1_4h  vs D2    : same-dir  39.2% | opp   7.7% | both-in  46.9% | same|both 83.6%
+  B2_4h  vs C2_4h : same-dir  59.9% | opp  32.9% | both-in  92.8% | same|both 64.5%
+  B2_4h  vs C2_1d : same-dir  59.6% | opp  33.1% | both-in  92.7% | same|both 64.3%
+  B2_4h  vs D2    : same-dir  48.2% | opp   0.0% | both-in  48.2% | same|both 100.0%
+  C2_4h  vs C2_1d : same-dir  90.7% | opp   2.0% | both-in  92.7% | same|both 97.8%
+  C2_4h  vs D2    : same-dir  30.5% | opp  14.0% | both-in  44.5% | same|both 68.5%
+  C2_1d  vs D2    : same-dir  30.4% | opp  14.1% | both-in  44.5% | same|both 68.4%
+
+== R3 == eigenvalues [3.684, 0.936, 0.239, 0.134, 0.007] | cum var [0.737, 0.924, 0.972, 0.999, 1.0] | PCs for 80%: 2 | ENB 1.72
+
+== portfolios (pre-registered, weights fixed before gates) ==
+[P-A] FAIL died:P1 | net $53,792 | maxDD $36,123 (limit $156,572) | net/DD 1.49 | P1 CI [-51.12,138.89] excl0=False | yrs {2023: 0.41, 2024: 0.59, 2025: -0.01, 2026: 0.01} | roll12 90% | corrBH 0.562 | gross-exp mean $47,681
+[P-B] FAIL died:P1 | net $57,829 | maxDD $32,514 (limit $156,572) | net/DD 1.78 | P1 CI [-40.77,135.11] excl0=False | yrs {2023: 0.47, 2024: 0.57, 2025: -0.01, 2026: -0.02} | roll12 90% | corrBH 0.592 | gross-exp mean $42,965
+[P-C] FAIL died:P1,P2 | net $55,238 | maxDD $35,877 (limit $156,572) | net/DD 1.54 | P1 CI [-49.88,139.44] excl0=False | yrs {2023: 0.45, 2024: 0.62, 2025: -0.04, 2026: -0.02} | roll12 87% | corrBH 0.644 | gross-exp mean $41,375
+[P-D] FAIL died:P1 | net $54,809 | maxDD $34,714 (limit $156,572) | net/DD 1.58 | P1 CI [-46.64,136.74] excl0=False | yrs {2023: 0.44, 2024: 0.54, 2025: 0.01, 2026: 0.0} | roll12 93% | corrBH 0.536 | gross-exp mean $47,876
+
+PORTFOLIO-CANDIDATE*: 0 / 4 | effective independent signals (PCs for 80%): 2
+run end (UTC): 2026-06-11T23:37:06.206269+00:00
