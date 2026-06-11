@@ -1,0 +1,24 @@
+run start (UTC): 2026-06-11T14:07:02.567207+00:00
+DATA: database_mainnet.db (mode=ro) | engine: research_trend_baseline imported verbatim
+cost convention identical to screen: taker both sides ±1 tick + real OKX 8h funding
+
+loading data via baseline engine ...
+B&H benchmark: net $64,247 | funding $-55,746 | maxDD $313,143 | net/DD 0.21
+[A1_4h] FAIL died:V1,V5 | net $8,714 | L $20,567 / S $-11,853 | V3 100% | V4(3t) $6,056 | V5 roll 70% yrOK False | CI [-45.1,66.0]
+[A1_1d] FAIL died:V1,V2,V5 | net $7,244 | L $29,891 / S $-22,647 | V3 100% | V4(3t) $6,731 | V5 roll 67% yrOK False | CI [-325.1,497.8]
+[A2_4h] FAIL died:V1,V2,V5 | net $15,955 | L $41,759 / S $-25,804 | V3 100% | V4(3t) $14,682 | V5 roll 53% yrOK False | CI [-71.7,152.2]
+[A2_1d] FAIL died:V1,V5 | net $30,232 | L $52,638 / S $-22,406 | V3 100% | V4(3t) $29,989 | V5 roll 63% yrOK False | CI [-538.5,1827.0]
+[A3_1d] FAIL died:V1,V2,V5 | net $2,909 | L $30,556 / S $-27,648 | V3 78% | V4(3t) $2,806 | V5 roll 37% yrOK False | CI [-1428.0,2128.6]!
+[B1_4h] FAIL died:V1 | net $49,991 | L $57,882 / S $-7,892 | V3 100% | V4(3t) $49,357 | V5 roll 93% yrOK True | CI [-95.4,625.4]
+[B1_1d] FAIL died:V1,V5 | net $37,728 | L $45,050 / S $-7,323 | V3 100% | V4(3t) $37,644 | V5 roll 40% yrOK False | CI [-954.4,4256.9]!
+[B2_4h] FAIL died:V1 | net $68,195 | L $73,979 / S $-5,784 | V3 100% | V4(3t) $66,807 | V5 roll 97% yrOK True | CI [-26.3,353.6]
+[B2_1d] FAIL died:V1,V5 | net $51,252 | L $56,223 / S $-4,971 | V3 100% | V4(3t) $50,967 | V5 roll 80% yrOK False | CI [-269.6,2063.8]
+[C1_4h] FAIL died:V1,V5 | net $64,352 | L $75,143 / S $-10,791 | V3 100% | V4(3t) $61,003 | V5 roll 93% yrOK False | CI [-18.2,140.1]
+[C1_1d] FAIL died:V1,V5 | net $71,392 | L $77,588 / S $-6,196 | V3 100% | V4(3t) $70,013 | V5 roll 97% yrOK False | CI [-27.7,331.7]
+[C2_4h] FAIL died:V1 | net $52,149 | L $59,268 / S $-7,119 | V3 100% | V4(3t) $50,344 | V5 roll 100% yrOK True | CI [-43.1,287.4]
+[C2_1d] FAIL died:V1 | net $44,833 | L $55,082 / S $-10,249 | V3 100% | V4(3t) $43,906 | V5 roll 100% yrOK True | CI [-123.9,597.7]
+[C3_4h] FAIL died:V1,V2,V3,V5 | net $11,174 | L $37,264 / S $-26,091 | V3 67% | V4(3t) $10,029 | V5 roll 40% yrOK False | CI [-192.9,356.8]
+[C3_1d] FAIL died:V1,V2,V3,V5 | net $2,549 | L $30,814 / S $-28,265 | V3 67% | V4(3t) $2,001 | V5 roll 43% yrOK False | CI [-427.3,643.6]
+
+VALIDATED: 0 | FAIL: 15
+run end (UTC): 2026-06-11T14:07:37.582972+00:00
