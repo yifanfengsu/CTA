@@ -1,0 +1,37 @@
+run start (UTC): 2026-06-12T12:21:53.801935+00:00
+DATA ENVIRONMENT: .vntrader/database_mainnet.db (mode=ro, cross-validated PASS); contaminated legacy DB not touched; 5m NOT re-tested (closed verdict)
+PRE-REGISTERED: E1 N=20 / E2 ±2σ(90d) frozen; thickness = median ≥ 2×cost; support ≥3/5 symbols; isolated spikes excluded; verdict lines 12/24 months
+
+== loading OKX mainnet 1m + funding ==
+  BTC: 1m 1,791,360 | median |funding| 0.000054
+  ETH: 1m 1,791,360 | median |funding| 0.000058
+  SOL: 1m 1,791,360 | median |funding| 0.000077
+  LINK: 1m 1,791,360 | median |funding| 0.000079
+  DOGE: 1m 1,791,360 | median |funding| 0.000080
+  pooled median |funding| = 0.000067 per 8h settlement
+
+== OKX descriptive grid ==
+  [OKX 15m E1] events 52,995 (clusters 18,157) | k=1: rate 0.562 (base 0.496) med +0.049% thr 0.200% | k=2: rate 0.563 (base 0.497) med +0.065% thr 0.201% | k=4: rate 0.558 (base 0.498) med +0.074% thr 0.202% | k=8: rate 0.549 (base 0.498) med +0.087% thr 0.203% | k=16: rate 0.539 (base 0.499) med +0.094% thr 0.207%
+  [OKX 15m E2] events 24,354 (clusters 9,566) | k=1: rate 0.552 (base 0.496) med +0.073% thr 0.200% | k=2: rate 0.543 (base 0.497) med +0.078% thr 0.201% | k=4: rate 0.539 (base 0.498) med +0.089% thr 0.202% | k=8: rate 0.531 (base 0.498) med +0.097% thr 0.203% | k=16: rate 0.527 (base 0.499) med +0.112% thr 0.207%
+  [OKX 30m E1] events 25,242 (clusters 8,893) | k=1: rate 0.559 (base 0.497) med +0.067% thr 0.201% | k=2: rate 0.561 (base 0.498) med +0.091% thr 0.202% | k=4: rate 0.551 (base 0.498) med +0.096% thr 0.203% | k=8: rate 0.540 (base 0.499) med +0.102% thr 0.207% | k=16: rate 0.520 (base 0.499) med +0.079% thr 0.213%
+  [OKX 30m E2] events 12,944 (clusters 5,460) | k=1: rate 0.534 (base 0.497) med +0.065% thr 0.201% | k=2: rate 0.540 (base 0.498) med +0.094% thr 0.202% | k=4: rate 0.538 (base 0.498) med +0.105% thr 0.203% | k=8: rate 0.534 (base 0.499) med +0.131% thr 0.207% | k=16: rate 0.517 (base 0.499) med +0.091% thr 0.213%
+  [OKX 1h E1] events 12,440 (clusters 4,482) | k=1: rate 0.562 (base 0.498) med +0.096% thr 0.202% | k=2: rate 0.555 (base 0.498) med +0.109% thr 0.203% | k=4: rate 0.547 (base 0.498) med +0.125% thr 0.207% | k=8: rate 0.532 (base 0.499) med +0.126% thr 0.213% | k=16: rate 0.524 (base 0.499) med +0.131% thr 0.227%
+  [OKX 1h E2] events 6,949 (clusters 3,081) | k=1: rate 0.556 (base 0.498) med +0.119% thr 0.202% | k=2: rate 0.527 (base 0.499) med +0.079% thr 0.203% | k=4: rate 0.527 (base 0.499) med +0.096% thr 0.207% | k=8: rate 0.513 (base 0.500) med +0.069% thr 0.213% | k=16: rate 0.514 (base 0.500) med +0.114% thr 0.227%
+  [OKX 2h E1] events 6,238 (clusters 2,180) | k=1: rate 0.547 (base 0.498) med +0.096% thr 0.203% | k=2: rate 0.538 (base 0.498) med +0.100% thr 0.207% | k=4: rate 0.532 (base 0.499) med +0.129% thr 0.213% | k=8: rate 0.513 (base 0.499) med +0.076% thr 0.227% | k=16: rate 0.522 (base 0.499) med +0.190% thr 0.254%
+  [OKX 2h E2] events 3,630 (clusters 1,688) | k=1: rate 0.538 (base 0.499) med +0.100% thr 0.203% | k=2: rate 0.531 (base 0.499) med +0.100% thr 0.207% | k=4: rate 0.516 (base 0.499) med +0.089% thr 0.213% | k=8: rate 0.512 (base 0.499) med +0.086% thr 0.227% | k=16: rate 0.524 (base 0.500) med +0.245% thr 0.254%
+  [OKX 4h E1] events 3,241 (clusters 1,117) | k=1: rate 0.537 (base 0.498) med +0.101% thr 0.207% | k=2: rate 0.540 (base 0.498) med +0.165% thr 0.213% | k=4: rate 0.524 (base 0.499) med +0.130% thr 0.227% | k=8: rate 0.537 (base 0.499) med +0.280% thr 0.254% FEAS+SUP | k=16: rate 0.526 (base 0.498) med +0.371% thr 0.308% FEAS+SUP
+  [OKX 4h E2] events 1,877 (clusters 868) | k=1: rate 0.533 (base 0.499) med +0.111% thr 0.207% | k=2: rate 0.525 (base 0.499) med +0.112% thr 0.213% | k=4: rate 0.504 (base 0.499) med +0.043% thr 0.227% | k=8: rate 0.538 (base 0.500) med +0.339% thr 0.254% FEAS | k=16: rate 0.509 (base 0.500) med +0.111% thr 0.308%
+
+== Binance cross-confirmation for scales ['4h'] ==
+  BTC: 1m 3,373,920 | median |funding| 0.000100
+  ETH: 1m 3,373,920 | median |funding| 0.000100
+  SOL: 1m 2,996,220 | median |funding| 0.000100
+  LINK: 1m 3,350,400 | median |funding| 0.000100
+  DOGE: 1m 3,098,340 | median |funding| 0.000100
+  [BNC 4h E1] events 5,946 (clusters 1,971) | k=1: rate 0.544 (base 0.498) med +0.131% thr 0.210% | k=2: rate 0.534 (base 0.498) med +0.156% thr 0.220% | k=4: rate 0.521 (base 0.498) med +0.147% thr 0.240% | k=8: rate 0.537 (base 0.498) med +0.303% thr 0.280% FEAS+SUP | k=16: rate 0.511 (base 0.497) med +0.154% thr 0.360%
+  [BNC 4h E2] events 3,510 (clusters 1,544) | k=1: rate 0.536 (base 0.499) med +0.136% thr 0.210% | k=2: rate 0.517 (base 0.499) med +0.091% thr 0.220% | k=4: rate 0.501 (base 0.499) med +0.019% thr 0.240% | k=8: rate 0.536 (base 0.500) med +0.391% thr 0.280% FEAS+SUP | k=16: rate 0.508 (base 0.500) med +0.133% thr 0.360%
+
+== verdict cells ==
+  {'type': 'E1', 'scale': '4h', 'k': 8, 'isolated': False, 'mean_minus_cost_pct': -0.19827391841246672, 'std_pct': 5.155847073740334, 'clusters_per_year': 327.9617988354093, 'sharpe_coarse_optimistic': np.float64(-0.6964295527919017), 'verification_years': inf, 'verdict': 'NOT STARTED (>24mo)'}
+  {'type': 'E1', 'scale': '4h', 'k': 16, 'isolated': False, 'mean_minus_cost_pct': -0.24921310257934487, 'std_pct': 7.4686508934889915, 'clusters_per_year': 327.9617988354093, 'sharpe_coarse_optimistic': np.float64(-0.6042829520296434), 'verification_years': inf, 'verdict': 'NOT STARTED (>24mo)'}
+run end (UTC): 2026-06-12T12:23:12.355955+00:00
