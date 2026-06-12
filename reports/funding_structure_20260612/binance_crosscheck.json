@@ -1,0 +1,424 @@
+{
+  "tag": "BNC",
+  "span_years": 5.66570841889117,
+  "structure": {
+    "F1_pos": {
+      "n_events": 460,
+      "n_clusters": 96,
+      "events_per_year_5sym": 81.19020005798782,
+      "clusters_per_year_5sym": 16.94404175123224,
+      "per_symbol_events": {
+        "BTC": 99,
+        "ETH": 96,
+        "SOL": 66,
+        "LINK": 101,
+        "DOGE": 98
+      },
+      "revert_to_p50_median": 37.0,
+      "revert_to_p50_p75": 62.0,
+      "revert_censored_n": 232
+    },
+    "F1_neg": {
+      "n_events": 1196,
+      "n_clusters": 210,
+      "events_per_year_5sym": 211.09452015076835,
+      "clusters_per_year_5sym": 37.06509133082053,
+      "per_symbol_events": {
+        "BTC": 260,
+        "ETH": 271,
+        "SOL": 209,
+        "LINK": 225,
+        "DOGE": 231
+      },
+      "revert_to_p50_median": 9.0,
+      "revert_to_p50_p75": 31.0,
+      "revert_censored_n": 467
+    },
+    "F2_pos": {
+      "n_events": 199,
+      "n_clusters": 79,
+      "events_per_year_5sym": 35.123586546825166,
+      "clusters_per_year_5sym": 13.943534357784866,
+      "per_symbol_events": {
+        "BTC": 46,
+        "ETH": 33,
+        "SOL": 25,
+        "LINK": 47,
+        "DOGE": 48
+      },
+      "revert_to_p50_median": 44.0,
+      "revert_to_p50_p75": 65.5,
+      "revert_censored_n": 101,
+      "seg_len_median": 5.0,
+      "seg_len_p75": 8.0
+    },
+    "F2_neg": {
+      "n_events": 373,
+      "n_clusters": 161,
+      "events_per_year_5sym": 65.83466222093361,
+      "clusters_per_year_5sym": 28.41657002029574,
+      "per_symbol_events": {
+        "BTC": 92,
+        "ETH": 83,
+        "SOL": 69,
+        "LINK": 65,
+        "DOGE": 64
+      },
+      "revert_to_p50_median": 15.0,
+      "revert_to_p50_p75": 36.0,
+      "revert_censored_n": 166,
+      "seg_len_median": 4.0,
+      "seg_len_p75": 6.0
+    }
+  },
+  "grid": {
+    "F1_pos": {
+      "1": {
+        "pooled": {
+          "n": 460,
+          "fund_med": 0.034687,
+          "fund_mean": 0.055112419565217396,
+          "price_med": 0.19445554342586757,
+          "price_mean": -0.1833543790990606,
+          "total_med": 0.2509587056753793,
+          "total_mean": -0.12824195953384307,
+          "total_std": 4.406363428970468,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 2,
+          "consistency_pass": false
+        }
+      },
+      "3": {
+        "pooled": {
+          "n": 459,
+          "fund_med": 0.09495300000000001,
+          "fund_mean": 0.1528168562091503,
+          "price_med": -0.129958537038188,
+          "price_mean": -1.7842117755359317,
+          "total_med": -0.05154686722629678,
+          "total_mean": -1.6313949193267814,
+          "total_std": 18.78712687957552,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 0,
+          "consistency_pass": false
+        }
+      },
+      "6": {
+        "pooled": {
+          "n": 459,
+          "fund_med": 0.18615099999999998,
+          "fund_mean": 0.2928843202614379,
+          "price_med": -0.7255274026118962,
+          "price_mean": -2.4428861641956177,
+          "total_med": -0.4688111983553096,
+          "total_mean": -2.1500018439341795,
+          "total_std": 14.163579176023376,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 0,
+          "consistency_pass": false
+        }
+      },
+      "12": {
+        "pooled": {
+          "n": 458,
+          "fund_med": 0.34981249999999997,
+          "fund_mean": 0.540639884279476,
+          "price_med": -1.4587850315192301,
+          "price_mean": -4.960406009188839,
+          "total_med": -1.141391142494888,
+          "total_mean": -4.419766124909363,
+          "total_std": 24.221104427940713,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 0,
+          "consistency_pass": false
+        }
+      },
+      "24": {
+        "pooled": {
+          "n": 456,
+          "fund_med": 0.6170565,
+          "fund_mean": 0.9896932894736843,
+          "price_med": -1.9862551769139505,
+          "price_mean": -8.850287284467289,
+          "total_med": -1.1688174699386866,
+          "total_mean": -7.8605939949936054,
+          "total_std": 42.6617963906376,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 0,
+          "consistency_pass": false
+        }
+      }
+    },
+    "F1_neg": {
+      "1": {
+        "pooled": {
+          "n": 1196,
+          "fund_med": 0.000298,
+          "fund_mean": 0.00535495652173913,
+          "price_med": 0.15491706183434464,
+          "price_mean": 0.1173650042209256,
+          "total_med": 0.14832259197411446,
+          "total_mean": 0.12271996074266475,
+          "total_std": 3.134725206752777,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": true,
+          "n_symbols_supporting": 4,
+          "consistency_pass": true
+        }
+      },
+      "3": {
+        "pooled": {
+          "n": 1196,
+          "fund_med": -0.002763,
+          "fund_mean": 0.01153328177257525,
+          "price_med": 0.1701751872669403,
+          "price_mean": 0.21431388547656557,
+          "total_med": 0.18395486385735094,
+          "total_mean": 0.22584716724914083,
+          "total_std": 5.306862558243971,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 4,
+          "consistency_pass": true
+        }
+      },
+      "6": {
+        "pooled": {
+          "n": 1196,
+          "fund_med": -0.0088135,
+          "fund_mean": 0.01499874665551839,
+          "price_med": 0.4444199982147783,
+          "price_mean": 0.3806699087186903,
+          "total_med": 0.4565921575558529,
+          "total_mean": 0.39566865537420864,
+          "total_std": 6.716171959187974,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 4,
+          "consistency_pass": true
+        }
+      },
+      "12": {
+        "pooled": {
+          "n": 1196,
+          "fund_med": -0.024147500000000002,
+          "fund_mean": 0.02094492391304348,
+          "price_med": 0.4942942314619996,
+          "price_mean": 0.6774536314425313,
+          "total_med": 0.48173610182265864,
+          "total_mean": 0.6983985553555748,
+          "total_std": 9.509629131755224,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 4,
+          "consistency_pass": true
+        }
+      },
+      "24": {
+        "pooled": {
+          "n": 1196,
+          "fund_med": -0.057106500000000004,
+          "fund_mean": 0.011363543478260857,
+          "price_med": 0.5535445313628976,
+          "price_mean": 1.2596447167565679,
+          "total_med": 0.5165759030451592,
+          "total_mean": 1.2710082602348287,
+          "total_std": 13.22470179766024,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 5,
+          "consistency_pass": true
+        }
+      }
+    },
+    "F2_pos": {
+      "1": {
+        "pooled": {
+          "n": 199,
+          "fund_med": 0.037687,
+          "fund_mean": 0.06697017587939699,
+          "price_med": -0.18974224246140886,
+          "price_mean": -0.6039156108056665,
+          "total_med": -0.17974224246140885,
+          "total_mean": -0.5369454349262697,
+          "total_std": 3.962836859901157,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 2,
+          "consistency_pass": false
+        }
+      },
+      "3": {
+        "pooled": {
+          "n": 199,
+          "fund_med": 0.111293,
+          "fund_mean": 0.18017663316582916,
+          "price_med": -0.3458711629917915,
+          "price_mean": -1.5489380966497486,
+          "total_med": -0.2889661629917915,
+          "total_mean": -1.3687614634839194,
+          "total_std": 8.120053892374703,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 0,
+          "consistency_pass": false
+        }
+      },
+      "6": {
+        "pooled": {
+          "n": 199,
+          "fund_med": 0.20337099999999997,
+          "fund_mean": 0.32911117085427133,
+          "price_med": -0.6740858951323289,
+          "price_mean": -1.9793319234678104,
+          "total_med": -0.4957352112567516,
+          "total_mean": -1.6502207526135397,
+          "total_std": 10.018619883972216,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 2,
+          "consistency_pass": false
+        }
+      },
+      "12": {
+        "pooled": {
+          "n": 199,
+          "fund_med": 0.411183,
+          "fund_mean": 0.6191716331658292,
+          "price_med": -0.028224043564640856,
+          "price_mean": -4.003253153869053,
+          "total_med": 0.43339370829361296,
+          "total_mean": -3.3840815207032247,
+          "total_std": 21.676677878106187,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 1,
+          "consistency_pass": false
+        }
+      },
+      "24": {
+        "pooled": {
+          "n": 198,
+          "fund_med": 0.734256,
+          "fund_mean": 1.1156817828282828,
+          "price_med": -1.6556539573266211,
+          "price_mean": -6.992377968842605,
+          "total_med": -0.6241275039128003,
+          "total_mean": -5.876696186014321,
+          "total_std": 38.439131827454496,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 1,
+          "consistency_pass": false
+        }
+      }
+    },
+    "F2_neg": {
+      "1": {
+        "pooled": {
+          "n": 373,
+          "fund_med": 0.0015290000000000002,
+          "fund_mean": 0.012204348525469168,
+          "price_med": 0.05642961114331694,
+          "price_mean": -0.024767569111183756,
+          "total_med": 0.05728761114331694,
+          "total_mean": -0.012563220585714605,
+          "total_std": 3.0835030441002877,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 2,
+          "consistency_pass": false
+        }
+      },
+      "3": {
+        "pooled": {
+          "n": 373,
+          "fund_med": 0.0006129999999999997,
+          "fund_mean": 0.028533884718498655,
+          "price_med": 0.11414987334799767,
+          "price_mean": -0.04024573550900002,
+          "total_med": 0.11385565195399147,
+          "total_mean": -0.01171185079050154,
+          "total_std": 6.061247719931807,
+          "cost_pct": 0.1,
+          "thickness_pass": false,
+          "net_positive": false,
+          "n_symbols_supporting": 3,
+          "consistency_pass": true
+        }
+      },
+      "6": {
+        "pooled": {
+          "n": 373,
+          "fund_med": -0.002013999999999998,
+          "fund_mean": 0.05074832439678285,
+          "price_med": 0.3209465653653656,
+          "price_mean": 0.24291722236466726,
+          "total_med": 0.43732862853942134,
+          "total_mean": 0.29366554676145007,
+          "total_std": 7.051041258412051,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 2,
+          "consistency_pass": false
+        }
+      },
+      "12": {
+        "pooled": {
+          "n": 373,
+          "fund_med": -0.008608000000000001,
+          "fund_mean": 0.08438638337801606,
+          "price_med": 1.2711864406779543,
+          "price_mean": 1.0456435397394233,
+          "total_med": 1.2601104305095374,
+          "total_mean": 1.130029923117439,
+          "total_std": 8.764759307460912,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 3,
+          "consistency_pass": true
+        }
+      },
+      "24": {
+        "pooled": {
+          "n": 373,
+          "fund_med": -0.037528,
+          "fund_mean": 0.09158644504021446,
+          "price_med": 1.238528676437569,
+          "price_mean": 2.0013444747793505,
+          "total_med": 1.2350121240049847,
+          "total_mean": 2.092930919819565,
+          "total_std": 12.871492754934218,
+          "cost_pct": 0.1,
+          "thickness_pass": true,
+          "net_positive": true,
+          "n_symbols_supporting": 5,
+          "consistency_pass": true
+        }
+      }
+    }
+  }
+}

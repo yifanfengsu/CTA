@@ -1,0 +1,35 @@
+run start (UTC): 2026-06-12T12:44:01.535364+00:00
+DATA ENVIRONMENT: database_mainnet.db (mode=ro) for settle prices + data/funding/okx (verified) + data/binance_vision (verified); contaminated DB not touched; closed verdicts (5m MR, timescale MR, trend line) not re-tested
+PRE-REGISTERED: F1 p95/p5 first-cross, F2 >=3 settlements in p90/p10; MAIN METRIC = two-leg combined MEAN; thickness total_mean >= 0.15%; >=3/5 symbols; non-isolated; Binance dual-sample; 12/24mo lines
+
+== loading OKX mainnet 1m + funding ==
+  BTC: settlements 3,732 (truncated 41 past db end) | rate med 0.000045 | [2023-01-01 .. 2026-05-28]
+  ETH: settlements 3,732 (truncated 41 past db end) | rate med 0.000045 | [2023-01-01 .. 2026-05-28]
+  SOL: settlements 3,732 (truncated 41 past db end) | rate med 0.000034 | [2023-01-01 .. 2026-05-28]
+  LINK: settlements 3,732 (truncated 41 past db end) | rate med 0.000053 | [2023-01-01 .. 2026-05-28]
+  DOGE: settlements 3,732 (truncated 41 past db end) | rate med 0.000066 | [2023-01-01 .. 2026-05-28]
+
+== OKX grid ==
+  [OKX F1_pos] ev 421 (cl 56, 19/y) | k=1: fund +0.024 px(med -0.165/mean -0.251) tot -0.227(0/5) | k=3: fund +0.072 px(med -0.176/mean -0.758) tot -0.685(0/5) | k=6: fund +0.141 px(med -0.569/mean -1.310) tot -1.170(0/5) | k=12: fund +0.266 px(med -0.702/mean -2.385) tot -2.119(0/5) | k=24: fund +0.498 px(med -1.808/mean -4.890) tot -4.392(0/5)
+  [OKX F1_neg] ev 683 (cl 161, 55/y) | k=1: fund +0.000 px(med +0.096/mean -0.010) tot -0.009(4/5) | k=3: fund +0.000 px(med +0.113/mean +0.001) tot +0.001(2/5) | k=6: fund -0.002 px(med +0.242/mean +0.179) tot +0.176 THICK(2/5) | k=12: fund -0.012 px(med +0.436/mean +0.187) tot +0.176 THICK(2/5) | k=24: fund -0.041 px(med -0.099/mean +0.243) tot +0.202 THICK(3/5)
+  [OKX F2_pos] ev 140 (cl 50, 17/y) | k=1: fund +0.033 px(med -0.345/mean -0.358) tot -0.325(0/5) | k=3: fund +0.093 px(med -0.258/mean -0.967) tot -0.874(0/5) | k=6: fund +0.180 px(med -0.688/mean -1.560) tot -1.380(1/5) | k=12: fund +0.336 px(med -0.675/mean -2.379) tot -2.043(0/5) | k=24: fund +0.628 px(med -1.669/mean -3.758) tot -3.130(0/5)
+  [OKX F2_neg] ev 115 (cl 70, 24/y) | k=1: fund +0.006 px(med +0.101/mean -0.067) tot -0.061(2/5) | k=3: fund +0.012 px(med +0.075/mean +0.052) tot +0.063(2/5) | k=6: fund +0.016 px(med +1.043/mean +0.816) tot +0.831 THICK(4/5) | k=12: fund +0.016 px(med +0.169/mean +0.337) tot +0.353 THICK(4/5) | k=24: fund +0.016 px(med -0.450/mean -0.867) tot -0.851(2/5)
+
+== loading Binance 1m + funding (full grid = descriptive context, pre-declared) ==
+  BTC: settlements 7,028 | intervals [8]
+  ETH: settlements 7,028 | intervals [8]
+  SOL: settlements 6,332 | intervals [2, 4, 8]
+  LINK: settlements 6,979 | intervals [8]
+  DOGE: settlements 6,454 | intervals [8]
+
+== Binance grid ==
+  [BNC F1_pos] ev 460 (cl 96, 17/y) | k=1: fund +0.055 px(med +0.194/mean -0.183) tot -0.128(2/5) | k=3: fund +0.153 px(med -0.130/mean -1.784) tot -1.631(0/5) | k=6: fund +0.293 px(med -0.726/mean -2.443) tot -2.150(0/5) | k=12: fund +0.541 px(med -1.459/mean -4.960) tot -4.420(0/5) | k=24: fund +0.990 px(med -1.986/mean -8.850) tot -7.861(0/5)
+  [BNC F1_neg] ev 1196 (cl 210, 37/y) | k=1: fund +0.005 px(med +0.155/mean +0.117) tot +0.123(4/5) | k=3: fund +0.012 px(med +0.170/mean +0.214) tot +0.226 THICK(4/5) | k=6: fund +0.015 px(med +0.444/mean +0.381) tot +0.396 THICK(4/5) | k=12: fund +0.021 px(med +0.494/mean +0.677) tot +0.698 THICK(4/5) | k=24: fund +0.011 px(med +0.554/mean +1.260) tot +1.271 THICK(5/5)
+  [BNC F2_pos] ev 199 (cl 79, 14/y) | k=1: fund +0.067 px(med -0.190/mean -0.604) tot -0.537(2/5) | k=3: fund +0.180 px(med -0.346/mean -1.549) tot -1.369(0/5) | k=6: fund +0.329 px(med -0.674/mean -1.979) tot -1.650(2/5) | k=12: fund +0.619 px(med -0.028/mean -4.003) tot -3.384(1/5) | k=24: fund +1.116 px(med -1.656/mean -6.992) tot -5.877(1/5)
+  [BNC F2_neg] ev 373 (cl 161, 28/y) | k=1: fund +0.012 px(med +0.056/mean -0.025) tot -0.013(2/5) | k=3: fund +0.029 px(med +0.114/mean -0.040) tot -0.012(3/5) | k=6: fund +0.051 px(med +0.321/mean +0.243) tot +0.294 THICK(2/5) | k=12: fund +0.084 px(med +1.271/mean +1.046) tot +1.130 THICK(3/5) | k=24: fund +0.092 px(med +1.239/mean +2.001) tot +2.093 THICK(5/5)
+
+== OKX feasible cells (thickness + consistency): [('F1_neg', 24, 'ok'), ('F2_neg', 6, 'ok'), ('F2_neg', 12, 'ok')] ==
+  {'cell': 'F1_neg', 'k': 24, 'isolated': False, 'total_mean': 0.20222428154027097, 'total_std': 11.601913406767967, 'n_symbols_supporting': 3, 'binance_pass': True, 'mu_pct': 0.10222428154027097, 'sigma_pct': 11.601913406767967, 'clusters_per_year': 55.28541209652146, 'sharpe_coarse_optimistic': 0.06551333722311804, 'verification_years': 895.061129597695, 'verdict': 'NOT STARTED (>24mo)'}
+  {'cell': 'F2_neg', 'k': 6, 'isolated': False, 'total_mean': 0.8313634913697566, 'total_std': 6.278147341958015, 'n_symbols_supporting': 4, 'binance_pass': False, 'verdict': 'EXCLUDED (fails Binance dual-sample)'}
+  {'cell': 'F2_neg', 'k': 12, 'isolated': False, 'total_mean': 0.3525520728286215, 'total_std': 7.581889073643963, 'n_symbols_supporting': 4, 'binance_pass': True, 'mu_pct': 0.25255207282862147, 'sigma_pct': 7.581889073643963, 'clusters_per_year': 24.037135694139767, 'sharpe_coarse_optimistic': 0.16331078587579165, 'verification_years': 144.0397653835929, 'verdict': 'NOT STARTED (>24mo)'}
+run end (UTC): 2026-06-12T12:46:09.722956+00:00

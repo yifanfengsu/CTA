@@ -1,0 +1,513 @@
+{
+  "positioning": "descriptive pre-study; go/no-go only; no strategy; main metric = two-leg combined MEAN",
+  "pre_registered": {
+    "F1": "first cross p95/p5 (180d rolling, no lookahead)",
+    "F2": ">=3 settlements beyond p90/p10",
+    "ks": [
+      1,
+      3,
+      6,
+      12,
+      24
+    ],
+    "cost_pct": 0.1,
+    "thickness_min_total_mean_pct": 0.15000000000000002,
+    "min_symbols": 3,
+    "verdict_months": [
+      12,
+      24
+    ]
+  },
+  "okx": {
+    "tag": "OKX",
+    "span_years": 2.912160620579512,
+    "structure": {
+      "F1_pos": {
+        "n_events": 421,
+        "n_clusters": 56,
+        "events_per_year_5sym": 144.56620181761204,
+        "clusters_per_year_5sym": 19.229708555311813,
+        "per_symbol_events": {
+          "BTC": 88,
+          "ETH": 86,
+          "SOL": 77,
+          "LINK": 72,
+          "DOGE": 98
+        },
+        "revert_to_p50_median": 8.0,
+        "revert_to_p50_p75": 23.0,
+        "revert_censored_n": 5
+      },
+      "F1_neg": {
+        "n_events": 683,
+        "n_clusters": 161,
+        "events_per_year_5sym": 234.53376684424944,
+        "clusters_per_year_5sym": 55.28541209652146,
+        "per_symbol_events": {
+          "BTC": 155,
+          "ETH": 120,
+          "SOL": 137,
+          "LINK": 132,
+          "DOGE": 139
+        },
+        "revert_to_p50_median": 5.0,
+        "revert_to_p50_p75": 12.0,
+        "revert_censored_n": 4
+      },
+      "F2_pos": {
+        "n_events": 140,
+        "n_clusters": 50,
+        "events_per_year_5sym": 48.074271388279534,
+        "clusters_per_year_5sym": 17.169382638671262,
+        "per_symbol_events": {
+          "BTC": 30,
+          "ETH": 28,
+          "SOL": 31,
+          "LINK": 25,
+          "DOGE": 26
+        },
+        "revert_to_p50_median": 15.0,
+        "revert_to_p50_p75": 30.0,
+        "revert_censored_n": 3,
+        "seg_len_median": 4.0,
+        "seg_len_p75": 7.0
+      },
+      "F2_neg": {
+        "n_events": 115,
+        "n_clusters": 70,
+        "events_per_year_5sym": 39.4895800689439,
+        "clusters_per_year_5sym": 24.037135694139767,
+        "per_symbol_events": {
+          "BTC": 19,
+          "ETH": 28,
+          "SOL": 34,
+          "LINK": 16,
+          "DOGE": 18
+        },
+        "revert_to_p50_median": 8.0,
+        "revert_to_p50_p75": 13.75,
+        "revert_censored_n": 1,
+        "seg_len_median": 3.0,
+        "seg_len_p75": 4.5
+      }
+    },
+    "grid": {
+      "F1_pos": {
+        "1": {
+          "pooled": {
+            "n": 420,
+            "fund_med": 0.019308602171149998,
+            "fund_mean": 0.023925368902062163,
+            "price_med": -0.16450587212294937,
+            "price_mean": -0.2512087243305664,
+            "total_med": -0.13720264541201443,
+            "total_mean": -0.22728335542850417,
+            "total_std": 2.694350152411424,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "3": {
+          "pooled": {
+            "n": 419,
+            "fund_med": 0.06250085629204999,
+            "fund_mean": 0.07225124872470626,
+            "price_med": -0.17633223644959684,
+            "price_mean": -0.7576745093022759,
+            "total_med": -0.1484083960312608,
+            "total_mean": -0.6854232605775695,
+            "total_std": 5.1087447867793285,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "6": {
+          "pooled": {
+            "n": 418,
+            "fund_med": 0.11610147518658001,
+            "fund_mean": 0.14060796459878883,
+            "price_med": -0.5685948196418784,
+            "price_mean": -1.3103091804567735,
+            "total_med": -0.42914009067315967,
+            "total_mean": -1.1697012158579845,
+            "total_std": 7.716915373625197,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "12": {
+          "pooled": {
+            "n": 418,
+            "fund_med": 0.22698776625711498,
+            "fund_mean": 0.2657030249360724,
+            "price_med": -0.7022012879271329,
+            "price_mean": -2.385028389893407,
+            "total_med": -0.5543552506020867,
+            "total_mean": -2.119325364957335,
+            "total_std": 11.146938840547707,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "24": {
+          "pooled": {
+            "n": 416,
+            "fund_med": 0.44052999813467,
+            "fund_mean": 0.4981892190264253,
+            "price_med": -1.8079007037066548,
+            "price_mean": -4.889972575156229,
+            "total_med": -1.4912670835477408,
+            "total_mean": -4.391783356129803,
+            "total_std": 15.866176921708268,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        }
+      },
+      "F1_neg": {
+        "1": {
+          "pooled": {
+            "n": 683,
+            "fund_med": 3.342516003e-05,
+            "fund_mean": 0.0002989259677978768,
+            "price_med": 0.09567265234029693,
+            "price_mean": -0.009546621424361797,
+            "total_med": 0.1085519283999939,
+            "total_mean": -0.00924769545656388,
+            "total_std": 2.406682857295265,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 4,
+            "consistency_pass": true
+          }
+        },
+        "3": {
+          "pooled": {
+            "n": 682,
+            "fund_med": -0.0008763846659150002,
+            "fund_mean": 0.00045504614713633455,
+            "price_med": 0.11342432057392729,
+            "price_mean": 0.000582414075832576,
+            "total_med": 0.10896358503072229,
+            "total_mean": 0.0010374602229689055,
+            "total_std": 4.273154674807129,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 2,
+            "consistency_pass": false
+          }
+        },
+        "6": {
+          "pooled": {
+            "n": 682,
+            "fund_med": -0.004447461782854998,
+            "fund_mean": -0.002339507917964326,
+            "price_med": 0.24194489802584412,
+            "price_mean": 0.17868027019192687,
+            "total_med": 0.24498891611284412,
+            "total_mean": 0.17634076227396253,
+            "total_std": 5.450219094652614,
+            "cost_pct": 0.1,
+            "thickness_pass": true,
+            "net_positive": true,
+            "n_symbols_supporting": 2,
+            "consistency_pass": false
+          }
+        },
+        "12": {
+          "pooled": {
+            "n": 682,
+            "fund_med": -0.013569530778525001,
+            "fund_mean": -0.011835390314618551,
+            "price_med": 0.43628037430898253,
+            "price_mean": 0.18749451398751113,
+            "total_med": 0.44478130366046775,
+            "total_mean": 0.1756591236728926,
+            "total_std": 7.764828082410163,
+            "cost_pct": 0.1,
+            "thickness_pass": true,
+            "net_positive": true,
+            "n_symbols_supporting": 2,
+            "consistency_pass": false
+          }
+        },
+        "24": {
+          "pooled": {
+            "n": 680,
+            "fund_med": -0.039058395767550005,
+            "fund_mean": -0.04111637686197331,
+            "price_med": -0.09885427080094288,
+            "price_mean": 0.24334065840224414,
+            "total_med": -0.14620476480165492,
+            "total_mean": 0.20222428154027097,
+            "total_std": 11.601913406767967,
+            "cost_pct": 0.1,
+            "thickness_pass": true,
+            "net_positive": true,
+            "n_symbols_supporting": 3,
+            "consistency_pass": true
+          }
+        }
+      },
+      "F2_pos": {
+        "1": {
+          "pooled": {
+            "n": 140,
+            "fund_med": 0.031329563195470006,
+            "fund_mean": 0.03271523341292186,
+            "price_med": -0.345481168765819,
+            "price_mean": -0.35809021260752044,
+            "total_med": -0.3091983564356068,
+            "total_mean": -0.3253749791945987,
+            "total_std": 2.9193897058005187,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "3": {
+          "pooled": {
+            "n": 138,
+            "fund_med": 0.090529952671865,
+            "fund_mean": 0.09277874626758986,
+            "price_med": -0.25836268270139373,
+            "price_mean": -0.96717490600845,
+            "total_med": -0.18281207454843754,
+            "total_mean": -0.8743961597408603,
+            "total_std": 4.983640499053006,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "6": {
+          "pooled": {
+            "n": 138,
+            "fund_med": 0.171021778883685,
+            "fund_mean": 0.1802607032582645,
+            "price_med": -0.6882487353633068,
+            "price_mean": -1.5601680405174285,
+            "total_med": -0.5339030922197624,
+            "total_mean": -1.379907337259164,
+            "total_std": 7.455434328085958,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 1,
+            "consistency_pass": false
+          }
+        },
+        "12": {
+          "pooled": {
+            "n": 138,
+            "fund_med": 0.307567510260325,
+            "fund_mean": 0.33646739373734963,
+            "price_med": -0.6745051739125246,
+            "price_mean": -2.37949306401579,
+            "total_med": -0.5670395107695348,
+            "total_mean": -2.04302567027844,
+            "total_std": 10.676708812200745,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        },
+        "24": {
+          "pooled": {
+            "n": 137,
+            "fund_med": 0.6052054962526701,
+            "fund_mean": 0.6279077252150149,
+            "price_med": -1.6686355581807464,
+            "price_mean": -3.7582828408637123,
+            "total_med": -1.050920738964372,
+            "total_mean": -3.130375115648698,
+            "total_std": 13.238650151407924,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 0,
+            "consistency_pass": false
+          }
+        }
+      },
+      "F2_neg": {
+        "1": {
+          "pooled": {
+            "n": 115,
+            "fund_med": 0.0036391658453299998,
+            "fund_mean": 0.005947136147776087,
+            "price_med": 0.10124863973434509,
+            "price_mean": -0.06663461781460683,
+            "total_med": 0.09359586667220508,
+            "total_mean": -0.060687481666830766,
+            "total_std": 2.9305711106734846,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 2,
+            "consistency_pass": false
+          }
+        },
+        "3": {
+          "pooled": {
+            "n": 115,
+            "fund_med": 0.004752506736349999,
+            "fund_mean": 0.011544772566273214,
+            "price_med": 0.07525712852245456,
+            "price_mean": 0.0519148603337335,
+            "total_med": 0.08533468111485361,
+            "total_mean": 0.06345963290000675,
+            "total_std": 4.629962818182395,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 2,
+            "consistency_pass": false
+          }
+        },
+        "6": {
+          "pooled": {
+            "n": 115,
+            "fund_med": 0.009138933820140001,
+            "fund_mean": 0.01562156860506626,
+            "price_med": 1.043081411566723,
+            "price_mean": 0.81574192276469,
+            "total_med": 1.058653688221053,
+            "total_mean": 0.8313634913697566,
+            "total_std": 6.278147341958015,
+            "cost_pct": 0.1,
+            "thickness_pass": true,
+            "net_positive": true,
+            "n_symbols_supporting": 4,
+            "consistency_pass": true
+          }
+        },
+        "12": {
+          "pooled": {
+            "n": 115,
+            "fund_med": 0.0047594927411999995,
+            "fund_mean": 0.015518949165423302,
+            "price_med": 0.169404366213404,
+            "price_mean": 0.33703312366319815,
+            "total_med": 0.18873163560478398,
+            "total_mean": 0.3525520728286215,
+            "total_std": 7.581889073643963,
+            "cost_pct": 0.1,
+            "thickness_pass": true,
+            "net_positive": true,
+            "n_symbols_supporting": 4,
+            "consistency_pass": true
+          }
+        },
+        "24": {
+          "pooled": {
+            "n": 115,
+            "fund_med": 0.0028354280506999972,
+            "fund_mean": 0.016350179887965475,
+            "price_med": -0.4500570967958633,
+            "price_mean": -0.8671685673196544,
+            "total_med": -0.46325918380128905,
+            "total_mean": -0.8508183874316889,
+            "total_std": 9.373261158290228,
+            "cost_pct": 0.1,
+            "thickness_pass": false,
+            "net_positive": false,
+            "n_symbols_supporting": 2,
+            "consistency_pass": false
+          }
+        }
+      }
+    }
+  },
+  "feasible_cells": [
+    {
+      "cell": "F1_neg",
+      "k": 24,
+      "isolated": false,
+      "total_mean": 0.20222428154027097,
+      "total_std": 11.601913406767967,
+      "n_symbols_supporting": 3
+    },
+    {
+      "cell": "F2_neg",
+      "k": 6,
+      "isolated": false,
+      "total_mean": 0.8313634913697566,
+      "total_std": 6.278147341958015,
+      "n_symbols_supporting": 4
+    },
+    {
+      "cell": "F2_neg",
+      "k": 12,
+      "isolated": false,
+      "total_mean": 0.3525520728286215,
+      "total_std": 7.581889073643963,
+      "n_symbols_supporting": 4
+    }
+  ],
+  "arithmetic": [
+    {
+      "cell": "F1_neg",
+      "k": 24,
+      "isolated": false,
+      "total_mean": 0.20222428154027097,
+      "total_std": 11.601913406767967,
+      "n_symbols_supporting": 3,
+      "binance_pass": true,
+      "mu_pct": 0.10222428154027097,
+      "sigma_pct": 11.601913406767967,
+      "clusters_per_year": 55.28541209652146,
+      "sharpe_coarse_optimistic": 0.06551333722311804,
+      "verification_years": 895.061129597695,
+      "verdict": "NOT STARTED (>24mo)"
+    },
+    {
+      "cell": "F2_neg",
+      "k": 6,
+      "isolated": false,
+      "total_mean": 0.8313634913697566,
+      "total_std": 6.278147341958015,
+      "n_symbols_supporting": 4,
+      "binance_pass": false,
+      "verdict": "EXCLUDED (fails Binance dual-sample)"
+    },
+    {
+      "cell": "F2_neg",
+      "k": 12,
+      "isolated": false,
+      "total_mean": 0.3525520728286215,
+      "total_std": 7.581889073643963,
+      "n_symbols_supporting": 4,
+      "binance_pass": true,
+      "mu_pct": 0.25255207282862147,
+      "sigma_pct": 7.581889073643963,
+      "clusters_per_year": 24.037135694139767,
+      "sharpe_coarse_optimistic": 0.16331078587579165,
+      "verification_years": 144.0397653835929,
+      "verdict": "NOT STARTED (>24mo)"
+    }
+  ]
+}
