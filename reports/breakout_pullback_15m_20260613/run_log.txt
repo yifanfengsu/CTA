@@ -1,0 +1,32 @@
+run start (UTC): 2026-06-12T23:19:53.220843+00:00
+DATA ENVIRONMENT: database_mainnet.db (mode=ro) + data/binance_vision; contaminated DB not touched; closed verdicts not re-tested
+PRE-REGISTERED: N=20 / band [0.4,0.6] / timeout 60 / k={4,8,16} frozen; denominator = ALL breakout cluster heads; gross column mandatory; thickness 1.5x cost, superiority vs B1, >=3/5 symbols, dual-sample, >=2 adjacent k, 12/24mo lines
+
+== loading OKX mainnet 1m + funding ==
+  BTC: 15m bars 119,424
+  ETH: 15m bars 119,424
+  SOL: 15m bars 119,424
+  LINK: 15m bars 119,424
+  DOGE: 15m bars 119,424
+  pooled median |funding| 0.000067/settlement -> cost(k=16) = 0.1034%
+
+== OKX 15m grid ==
+  [OKX k=4] G50 mean +0.0224% med +0.0093% (n=15821) | B1 mean -0.0080% | B0 mean +0.0067% | cost 0.1008% | thick False sup 4/5 superior True
+  [OKX k=8] G50 mean +0.0169% med +0.0006% (n=15821) | B1 mean -0.0064% | B0 mean +0.0132% | cost 0.1017% | thick False sup 5/5 superior True
+  [OKX k=16] G50 mean +0.0073% med -0.0146% (n=15819) | B1 mean -0.0064% | B0 mean +0.0262% | cost 0.1034% | thick False sup 4/5 superior True
+
+== loading Binance 1m + funding (full grid descriptive, pre-declared) ==
+  BTC: 15m bars 224,928
+  ETH: 15m bars 224,928
+  SOL: 15m bars 199,748
+  LINK: 15m bars 223,360
+  DOGE: 15m bars 206,556
+
+== Binance 15m grid ==
+  [BNC k=4] G50 mean +0.0278% med +0.0000% (n=28851) | B1 mean -0.0239% | B0 mean +0.0108% | cost 0.1013% | thick False sup 5/5 superior True
+  [BNC k=8] G50 mean +0.0208% med -0.0077% (n=28851) | B1 mean -0.0283% | B0 mean +0.0213% | cost 0.1025% | thick False sup 5/5 superior True
+  [BNC k=16] G50 mean +0.0041% med -0.0346% (n=28851) | B1 mean -0.0369% | B0 mean +0.0418% | cost 0.1050% | thick False sup 3/5 superior True
+
+== OKX passing k: NONE | arithmetic: ==
+  NONE — no k passes thickness+superiority+consistency on OKX
+run end (UTC): 2026-06-12T23:20:51.575519+00:00
