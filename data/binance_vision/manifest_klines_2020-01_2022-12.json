@@ -1,0 +1,1645 @@
+{
+  "source": "binance-vision-public-static",
+  "server": "BINANCE-PRODUCTION",
+  "dataset": "futures/um monthly klines 1m (last-price klines)",
+  "base_url": "https://data.binance.vision/data/futures/um/monthly/klines",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "months": [
+    "2020-01",
+    "2022-12"
+  ],
+  "checksum": "sha256 via vision .CHECKSUM files, all verified",
+  "downloaded_at": "2026-06-11T23:52:21.713113+00:00",
+  "script": "scripts/download_binance_vision.py 1.1.0 (2026-06-11 range extension)",
+  "n_files": 180,
+  "n_failed": 0,
+  "n_not_available_404": 14,
+  "files": [
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-01",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "b4e13ea185ba96c413ac9167cfbb6e238eb5eae119a7a77f41f4c61c5e099d03",
+      "bytes": 1829116
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-02",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "f32b20168ea590cd7d04a2995bc5ec500ea06331c8174f7fd14f29c1078e5ed2",
+      "bytes": 1726957
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-03",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "15790b4b031cbc5f59cae30e523fb8341588d279fe3839ba1224c7fe8a6bc929",
+      "bytes": 1908886
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-04",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "f45228183c21030fc3a787109eada99187d9ba8c4d5d7ea5c178967150fa7467",
+      "bytes": 1833303
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-05",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "bc5bdae217f9ef6a32ffcc7653e3d45e007a2d9b2e93b752bdc7805254446821",
+      "bytes": 1917755
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-06",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "91f18492445c0a9609d70bd4603c73c8588a88c06105ade34082417f8b2e7e6d",
+      "bytes": 1790292
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-07",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "4cb7dcf6e1adb17e8ab8787c459f3f645b7070633f530485f0f93dd45a9de693",
+      "bytes": 1808294
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-08",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "7596de0f26df44d782713475f97af34f27a287faf084c73bdcc61819215b060a",
+      "bytes": 1883510
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-09",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "9f2d575ffc17a14320bc08a99d51a5580fd7f058f1495cfec598fbbd959792c2",
+      "bytes": 1816087
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-10",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "f35bc01dc1bba142c87033b33055c34a0ba37c2a2abd6c115af6a9c4f238dd03",
+      "bytes": 1865118
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-11",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "8eb55b2a547c35d792f88186168774804346426b82289bc9b1633406c0ff9e40",
+      "bytes": 1905251
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2020-12",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2020-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "72cfa1e9aeb851871af0168eb7ee22d334b5efb3aa4a76d7382754dac5e885d8",
+      "bytes": 1974734
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-01",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "ba7aeda6a99e0828b39da1b0605aaefcb40882fe9d44034598c4404f8a07783f",
+      "bytes": 2057786
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-02",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "0a270f354b15b053824a7bb87c652aa95acb4a255fc968fe0a24bdc9e785223e",
+      "bytes": 1851915
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-03",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "15a2676410d5104fac1ea15f7302addbf4d0de14f6db8ce10a4930c3f5d5e7fa",
+      "bytes": 2053085
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-04",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "d957fcde82f9b5a9a05264a9602e5deae03472aa0d424ddb0f27a04e58723217",
+      "bytes": 1971044
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-05",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "dcf7c567cbde49a5e564b29f01be95e28d32f12cb68c40b2a14da75930187dc8",
+      "bytes": 2087690
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-06",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "a640c7f935a1136d2f65f28f9606f0e063185c500f982aec273bb2ed3f61bfc5",
+      "bytes": 2015140
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-07",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "1367b5cd230474b0ecc6031b9e18cffe66e011c8fdd01c3325985a39c5d5ed48",
+      "bytes": 2037166
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-08",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "a864bdf38c9d06b7a6a1dc07c5593bbe7387cec3b869e9ebee020da053d94f37",
+      "bytes": 2049960
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-09",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "6e7bbfe650e6c56e189e78d521b3714feffd38468d1268b706a6626737326676",
+      "bytes": 1970475
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-10",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "4b78dd0174890c975effca2ed078163d6e9b4f7437f692e2c430c724b7eafc24",
+      "bytes": 2040146
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-11",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "67da3342f014166d2af97321599e0011453c4bd5a9282ef12c1a6131efd12993",
+      "bytes": 1963552
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2021-12",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2021-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "c905c5c8ff36d0dfac3a0581225ab305f72d1e11e634953d8d3a136161d10956",
+      "bytes": 2033812
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-01",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "9cdbcf68903434c850f9bec60d8174c2cfd105dd24a7566965b442ec15124e04",
+      "bytes": 2029103
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-02",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "63672d552f98ec125ac4d90d82154313fb9832b7e1aaed196101816bd61bfb89",
+      "bytes": 1795701
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-03",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "4532faf2f92d205fac79b7d25327d2045843b60a4494e00b0962e6b7f028bc06",
+      "bytes": 1922190
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-04",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "0f509e296da62eed5f4e903507ced0de9738ea96a7a885e76dd2394b8049e689",
+      "bytes": 1833665
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-05",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "768bdbbd11b08d935b3753ecfee7f1e351a346c71b11cf68a4a51296d694f368",
+      "bytes": 1926294
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-06",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "8587319eaf1b1f6d73fd34446acdecdc72c47b23ecfd2d88e2a6dd2a35470565",
+      "bytes": 1875823
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-07",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "6fc45fa135a6be85679a6ab0b1268fbd1f8258079295cd134b9a4c535c6b6b65",
+      "bytes": 1925230
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-08",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "806ee1d6efa856984fe79453d17f04c0fb5e447413fe828cbd3ec2df9a1f5fc4",
+      "bytes": 1897142
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-09",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "fa1adecbe41b530c12f481882115511297ac7b78a9a7ae9d9d21b11c745649a4",
+      "bytes": 1842043
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-10",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "0f2d2cd67b30ab186bf3db5a07acfe835f1d74335c6493c80e9e4f0598e29b2c",
+      "bytes": 1847485
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-11",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "96916aba47f230a9bc68cd3fd98d0d352e1fd8f23c16c515107c4d965a2067a3",
+      "bytes": 1801135
+    },
+    {
+      "symbol": "BTCUSDT",
+      "month": "2022-12",
+      "file": "data/binance_vision/BTCUSDT/BTCUSDT-1m-2022-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "0f4788019cdb29f4db7b03d9efefce099d7adf49c0daf70a144b814b292bf577",
+      "bytes": 1765742
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-01",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-01.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-02",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-02.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-03",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-03.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-04",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-04.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-05",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-05.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-06",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-06.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-07",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "c8966f63548ee4217fd53cb6e2e1508b89023a1795f61ff7a9efdef01ea8d85b",
+      "bytes": 995547
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-08",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "efd93c4ca0e8e6ecb11ac9213c61aa7a31b0d3e273a3de5f2bb10b768ae3a51d",
+      "bytes": 1370418
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-09",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "95862d03d7b419407d7d637e07db0415c657de6ddc0856cbdd98583c54cbcd1d",
+      "bytes": 1235786
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-10",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "04a4ba47ae1e1e7097652911bbd3a90646b47d409e9201e1780cc0dcaf24599d",
+      "bytes": 1118641
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-11",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "a100a9aadf34c34137897cbf841e223aa2414ccef73a7c5d2f857169b7118568",
+      "bytes": 1352881
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2020-12",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2020-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2020-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "6d285bbaed11a2e5a5a1305fa5c9fb8e44ee172c066838bd57f360157ff88e7f",
+      "bytes": 1450581
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-01",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "6755486e1e8761bbae55d5e8849d8c656c373e3c8bd08df3b2a463c11f18e268",
+      "bytes": 1782098
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-02",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "f7c492ac883b22118a16cf9c16756116cd7aa593ff64145289fa91b77433c84b",
+      "bytes": 1745497
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-03",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "08bd0b1f8127418971c7344fb460b53371cb5d051a26a7d2e917061f77fcb61b",
+      "bytes": 1794197
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-04",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "dc8a3868b61a65b3d8bcb70d8a7d0ce107e088379c45a6ba36383f19d9f2ceb6",
+      "bytes": 1924251
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-05",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "22437137a15e1cdc48c2c48f9a25b994b478fe230759ef456de6e3d2b1c7fd6d",
+      "bytes": 1997385
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-06",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "323f596fb6d248311030e54ba8df49344daada72f3f846494701dfbd93011a3f",
+      "bytes": 1828248
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-07",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "6ba4393bffd84e7ff92e95ea5146b275ec47640e35772ce252fae241bcedd13d",
+      "bytes": 1825161
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-08",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "61c226ad49074431cfa8b918de0e638579800c80250f7a953e553b7237052e49",
+      "bytes": 1871533
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-09",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "c8dea19890d02bc640522bcda825f647074d5361cc48765aa24ba13b7e630001",
+      "bytes": 1752061
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-10",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "d309dc984618753429ae3cbe2e8516f87d3d5d1534512b07675e2f0588c384f5",
+      "bytes": 1841594
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-11",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "ee88a681f49c1d6f94234e3da7ed29d6c438a396a5a851daf28ca453cb0d02a9",
+      "bytes": 1749379
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2021-12",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2021-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2021-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "e499cf05a4f0d627bb87f966a4d8274f3d438e4b1757822bcbbbcef48836b54d",
+      "bytes": 1783632
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-01",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "b18f525daddf5e6325a670fd301c0e46e8f3f96748f8aa60b656bbee20b5c530",
+      "bytes": 1780736
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-02",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "4fa8a23eea10e0e458db08648ff3ec31b0f5ccea18faeb333a034a47151a2f9a",
+      "bytes": 1582478
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-03",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "34a4b065852e4cacf08a42cd8448de0c701d2d5dee86c48c915c52f8917aaf86",
+      "bytes": 1721299
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-04",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "3749c81b17bca7692583e47ea370584e7d500bb5e38d39109e4207c1550678f5",
+      "bytes": 1735640
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-05",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "4bb443b49c5a44104d7e0dd9917def552afa583722cf762559b14d77c76f77b8",
+      "bytes": 1743627
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-06",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "a8be3a2796b85e6f5399e85c632f5f48d7c136050f729fd011b6d6af97418737",
+      "bytes": 1670991
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-07",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "75e112a021069dcd454168ab6672933e8b2ff506f33910b3da716d48e58f2a05",
+      "bytes": 1692042
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-08",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "a93ddfa11c7ee75a9342192c28e88ab311ab067bfb5496c74615723e8dde106f",
+      "bytes": 1715307
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-09",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "faa3fde473cc6f9db421b1669b73a922d85c2ac9acb3ae2395e6559e57feef03",
+      "bytes": 1614541
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-10",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "32b415072a7e24d50ee142f26be33727217568c72e07093bb7f8ab5a24f2ff2e",
+      "bytes": 1688537
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-11",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "2d47118032c8eb822e23ba0e6eb756a491060379403d9f772645511a18d91ecb",
+      "bytes": 1787888
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "month": "2022-12",
+      "file": "data/binance_vision/DOGEUSDT/DOGEUSDT-1m-2022-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/DOGEUSDT/1m/DOGEUSDT-1m-2022-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "8522853b4787a28a5a32763324118321d1f059d73ca987c8c65633ac0f2615bf",
+      "bytes": 1743998
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-01",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "a3e4f209b53ba03eb5adbb9560faf88431cd268b1cc7890fce488fb7674f385e",
+      "bytes": 1606210
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-02",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "b5267b5dc4f45cb23aedede25b0586948d41fcbb8f79e3460351ebb182633ee4",
+      "bytes": 1612775
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-03",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "f4a6a230bf25a1d4f6a7f612d3a365e9bc8ea19a62e43b4eda6804cf923eca3f",
+      "bytes": 1735147
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-04",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "01023b5182512955021849e207592b10e28a750da7f705cbba34a44fa15936dd",
+      "bytes": 1664484
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-05",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "64708f859d8bfb51360835ed6cd97a23801b0a254c087639d5a2f6c7a5d51906",
+      "bytes": 1715403
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-06",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "6a61c20545009bb270c237d2d083f71274486069eb0f9f9e5fad377a40e20d4f",
+      "bytes": 1623214
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-07",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "dd83a3a8fa0f79ff086c7cb6d67af4c7e44f4e118f04f7a9af864200a63ee1f9",
+      "bytes": 1679725
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-08",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "3ecade833e5be335b5eb0a2c3bee4b1f09fe742c0b2c88a2185922c2fb28ad10",
+      "bytes": 1780244
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-09",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "20e851e03a8bf4414931db2974b21d1fe9c4f6f567172ea61296738e4a829a2a",
+      "bytes": 1738905
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-10",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "6d85dac37a0092cf8b9f687701afdd1d7b325e4471767eca5908cb3579842669",
+      "bytes": 1741633
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-11",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "0042b802f1dd09ef5b4cf1c53c54b11c76190ac147cff096da1df7a38c4c8444",
+      "bytes": 1775136
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2020-12",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2020-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2020-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "6a331abd5e2cbc53c3730ceb15545294a450209e0da4d4baa2cc241c872b59b1",
+      "bytes": 1844936
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-01",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "eec71d7526f3736012c0961fe9893d7f00947fe722709e45bbcd14d8b47b216f",
+      "bytes": 1971157
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-02",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "f0ad622d0add8de4d62974a79cbc4010216011bc7c2ae2c0ea5ce1a190564a38",
+      "bytes": 1768339
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-03",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "5f452486b3ba9fbc7ee98ede470501b7202d12744048f75088943590a0edc6ff",
+      "bytes": 1926594
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-04",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "b6ff07c1674a645b75578d7bf06c2fc616e0443b1c2fc5efb50f7fead2bee0f6",
+      "bytes": 1897960
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-05",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "3b8c11f3f8a87320b4a948b60257157b2920ef5363929a26f184bfe205f40446",
+      "bytes": 2036282
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-06",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "b06233d329610c0f38b65a8b10255393367172119fbbec9a135923329f396166",
+      "bytes": 1931418
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-07",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "13057ee33037fd9fb0cc063c6f28247e09fcf903023f7eac6ef59a6d6ada55d7",
+      "bytes": 1966947
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-08",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "c13383864ddebabe6f5e19e399a858fbc868b567e67e298b64703697a5419629",
+      "bytes": 1981272
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-09",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "33ea7e86283b55400613a6af94f0dcdf4c309bc7a8550011e931236f5bf1adc2",
+      "bytes": 1911350
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-10",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "244d0e66583023a557b8b5486a476a770d03dad315e2363ea426db62e404cf53",
+      "bytes": 1960163
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-11",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "b083257f558380a01d3eadd84c8d821ea4930c3eaa0a53d3317139e8d89b4b41",
+      "bytes": 1892524
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2021-12",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2021-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2021-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "c00acbd9a587da4ef3f8e1aea30b4e0746cbc33539280247fbcec301a030885a",
+      "bytes": 1956211
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-01",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "6b1f5eef19ba80942734c04dd77cf177c7d82bfcc165424a6b9ad005e30df787",
+      "bytes": 1943635
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-02",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "0a282034071d71093e41440a77eb6e5eecb9cb293191a05432df5de411a49782",
+      "bytes": 1770290
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-03",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "8dd4fbcefdc6ed44f580daadf7ee180a2206d2c56062efa4e9c29170509b7528",
+      "bytes": 1922609
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-04",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "f3d073fdcd87efc51b5eca9eda12bc1d6969832fedcc7279fac9189403c2ff3d",
+      "bytes": 1848537
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-05",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "ace5b3685a0e64d51b44e8c8028c04f74f4158728e1091c0ee6485e0af8c4a28",
+      "bytes": 1938461
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-06",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "fe28507344a66f351fff61708981dff001cccf5d07f6d1036431c9222a03df7b",
+      "bytes": 1901973
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-07",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "f74f6765b85cf5ecd3e566ad7c2bcd403a0cf13197a988a832b44f20d7208ca1",
+      "bytes": 1969156
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-08",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "04e0f53dc0acd9caf96e6cbd09ad4d65a1842e34f21ef878aeb9994d04853f95",
+      "bytes": 1980362
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-09",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "a063208820fa69a391071daf2ba30a2eebafc41f1de2b4dac34752980004d83c",
+      "bytes": 1905953
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-10",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "dfbf63b2f5e6131156cf6934cc414af4b08d4bd83bce6bb0c3ad8e843e084281",
+      "bytes": 1906554
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-11",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "28c780ededdc1f725869a5bc91edbaf570941b8d3e9fdd8ad815d32d74e07c16",
+      "bytes": 1878009
+    },
+    {
+      "symbol": "ETHUSDT",
+      "month": "2022-12",
+      "file": "data/binance_vision/ETHUSDT/ETHUSDT-1m-2022-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1m/ETHUSDT-1m-2022-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "1e426fd43bd84ab244e8a47630d7b09084455dc68eee32eb5ccecd9950c68af6",
+      "bytes": 1862705
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-01",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "aebfceb67ae34604ab4de82f56018bf2ead1d067f7658c3e22ff3adccc46bc70",
+      "bytes": 633572
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-02",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "d86f7e6dda8ae9551e197ecdcf76c1769cd2b60bf291391742100f21dbf9755d",
+      "bytes": 1423740
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-03",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "f1b9e9911a1ac5b0a68d4c5e20e21800c087f91754677bda4e78db796ac339cf",
+      "bytes": 1588110
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-04",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "55c2e7ae2b5b08180cc79100668c39cb024817959a986d9d8b5f0e82bccebd12",
+      "bytes": 1524667
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-05",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "3488d9ae71969473d9dc223ffb6e6f00b46aed02cd3cae8962d1d77936a2a340",
+      "bytes": 1506936
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-06",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "54d476867dffe0f67b368df0755a7657922516836fcb6ee21d1bbdb67b836637",
+      "bytes": 1445359
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-07",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "3be935e78ca994e2d89a6978587cf7469fc4a4968185951b6102c735207c07ac",
+      "bytes": 1650317
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-08",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "f8ca92471c9453377ce1f4c15a924eacac29ece0d4a2dff4543eacfbc7371af2",
+      "bytes": 1770409
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-09",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "1fbd47be8ec8c0b200eac680c96f901857ad04f97d2efc6d7bb2557c39d71247",
+      "bytes": 1690171
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-10",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "a9c55e0f61a9667d7b21f11742ff32ba558f57f8006a3317a569e323eb5bdaa5",
+      "bytes": 1707910
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-11",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "05e45c928019b4c76a52ffcfb46e31195c094388966e363bdccd520761363da7",
+      "bytes": 1698381
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2020-12",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2020-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2020-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "97f40903ed7033f4e3747dc24b5416936ccce44bed84d4e62bb4569f0c6f0877",
+      "bytes": 1719260
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-01",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "763f46029936321be755619411eddd64e0c1eaadac7c4e6088fe0bf891027488",
+      "bytes": 1813931
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-02",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "d0cc73984d73f9428416aff521e32c2a10d51598c3ec9abcb9a029db6c95dfb6",
+      "bytes": 1631705
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-03",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "b9537c8d1731125238315498562c2bc8a44698b0b8faf2726bc076d238a468f8",
+      "bytes": 1750139
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-04",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "419f813e2a11bb872290761cb88fa0d8717bdc022a88fbec477f15a877c9d323",
+      "bytes": 1754254
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-05",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "f480f2c6169c55a888d3bda6ab122341a0e06ba3e05c49e125d5aa9428dd4cde",
+      "bytes": 1850939
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-06",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "1363afa0dac79e70fd44b36d28e478cdcba273f7e58712b3752f7bbef320cb9f",
+      "bytes": 1734204
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-07",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "409c6ac13dbfcec92e727cfd17768a23c15abfc1fcdfe15408383c0f4cf5850c",
+      "bytes": 1748487
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-08",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "a59d38d00eda84ed6115de2b0e4cd044b14cb6d20e750c2d6a8ee4db635d1377",
+      "bytes": 1788142
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-09",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "2a6e2b8cc9d4a37c52fbcaf0fff8e6abbdbd111036f04653fe6565f2465d4536",
+      "bytes": 1741492
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-10",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "5ced6e0ebc20859e5c41cbfdafb2b56a437a12adf1f236a0428bf9751f9598e3",
+      "bytes": 1774434
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-11",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "0d946a60422def0dd3c7a8b101df769443420552ade5e1ded13feedf72e955a5",
+      "bytes": 1712571
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2021-12",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2021-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2021-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "9f45acf761370eeafd7053cbc9aadf70a82d960ed198f81f1b9bde3ad06b14bc",
+      "bytes": 1767123
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-01",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "8cb1cf3881064fbaf15a0918697db5d1db319c83ce8fdc46d47598900e9523a4",
+      "bytes": 1811929
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-02",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "9e7929c76c02e1f62570844afeca38196f1ac46b95120a86318412c4cced1cc3",
+      "bytes": 1577571
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-03",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "9aeccd00bd00c762529b224621a38160891dca78bbcc5948516709c79e93ac6c",
+      "bytes": 1715621
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-04",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "e549a558003160560779eaa24aeb349c21f4c14b2bfe5edea5571c01a8de26d3",
+      "bytes": 1634860
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-05",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "14bf4f3ed32309e8be6db9cf554aa6d93a20b2523d15dbfaffb0f81a8d41506b",
+      "bytes": 1695848
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-06",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "970f199e883a40844b604088a8a521dd967f211f539632ac1de0054ea3527df0",
+      "bytes": 1680200
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-07",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "fd5a3cd392770d5d6e759018c23e8b11836402324554b70b416c1e35fca22853",
+      "bytes": 1672836
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-08",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "fb38b0a5c72540977c6116fb524a1afc6e390e2fdb85bd25669c48126e0920cb",
+      "bytes": 1671489
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-09",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "652bdf37b50332d88ee2afc22cef5acb660a3a260a83e81a497d9bf9da81c512",
+      "bytes": 1633702
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-10",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "f02013ffa4b53aa6b15680e0d1a8aa2e3b71ee6c48abcc0b28543a15163d8e98",
+      "bytes": 1652755
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-11",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "a242a1bb783a491fadf471f695bcdb7ccce6008b773c3fcc978554c1f43d1813",
+      "bytes": 1662077
+    },
+    {
+      "symbol": "LINKUSDT",
+      "month": "2022-12",
+      "file": "data/binance_vision/LINKUSDT/LINKUSDT-1m-2022-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/LINKUSDT/1m/LINKUSDT-1m-2022-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "1cfd18d0670577a1c411541f9fece9e35c2732ff485d93f0060f52ef73618e99",
+      "bytes": 1624933
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-01",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-01.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-02",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-02.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-03",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-03.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-04",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-04.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-05",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-05.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-06",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-06.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-07",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-07.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-08",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-08.zip",
+      "status": "not_available_404",
+      "sha256": "",
+      "bytes": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-09",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "da6cdfcb3b9a852bb9c4256f87a4d0bfbc2b6de5b1a8d378dc3b4787146a6529",
+      "bytes": 776713
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-10",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "97b28adf8898e0827e98c45283e2d26bfd88141d6dc7ccdde2d3d92b0578f753",
+      "bytes": 1388297
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-11",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "de79b32957053968141b8f2d7c7a896a8e2c7281645ddb0687a5dbc29333e5ce",
+      "bytes": 1417925
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2020-12",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2020-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2020-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "024c0b39c167f9b1c10e38a41395c71d6edbae96b4f8ed5c74f912121beed113",
+      "bytes": 1433149
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-01",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "3f06611074bc73008ed8fa56bdc91b5ff0f244fd5ea487ce4aa303141489dfa2",
+      "bytes": 1572904
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-02",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "755adbb22734146943c211eb2d736ad9c8c540dd3b2f0ce51f07bc08682f5dd6",
+      "bytes": 1456494
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-03",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "375ffd1047cd11dce5a7e169736e814df665c8e48cab08941a29198510a0df34",
+      "bytes": 1623439
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-04",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "04a738ea82a2ce60811f9c33e7637cc3b2a90628ba0c46da8c5c1e16e0b7524d",
+      "bytes": 1646689
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-05",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "cd19f804b2119de233b015dd7dee05b7ad760f128c53f00a03da207f86a16616",
+      "bytes": 1659677
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-06",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "6e9609a396cbd2e2bf362bba200a72e94ed1e88bf7f6e8006e662861e3b3e459",
+      "bytes": 1558975
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-07",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "99bac7a66405d24585342ab3a4cf86d204c342623adb7000310b515d76fc3a49",
+      "bytes": 1543930
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-08",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "4092a2b77a87bfce70481f0a2a2f02e72fdb8902cc09bda88fbcf248a46e6628",
+      "bytes": 1629267
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-09",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "838934dbed0b9d0597701da68386dc33acb131b021f8ae7a610affaa1d1409bb",
+      "bytes": 1689612
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-10",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "83ec4d96b23e25cef8247a8bdcf86b0efd80e499ba88c2928fd35fd73babd6f0",
+      "bytes": 1686040
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-11",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "eef0dc2836e5d2a730053017a0db1cceaa117c0e921333c9abc81a4946e9a176",
+      "bytes": 1618302
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2021-12",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2021-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2021-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "aa723abad54af05110cb84156b77bdcdf3101d28d81bca73ab5f6b6c669849a3",
+      "bytes": 1579903
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-01",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-01.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-01.zip",
+      "status": "downloaded_verified",
+      "sha256": "7b130e49b01048ee884d32c900c805a124999b516a58397afdda8bec77ee05fb",
+      "bytes": 1486921
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-02",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-02.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-02.zip",
+      "status": "downloaded_verified",
+      "sha256": "cc76e9bf78f5b9d6f23d5f4b9d95f37544e47ee0511717c16d8a4cc39e68ff8c",
+      "bytes": 1204629
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-03",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-03.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-03.zip",
+      "status": "downloaded_verified",
+      "sha256": "b2a7afc3c7b92c47e6f6657ed247a9adec781a57a90b43dae2afd5e95ff3e340",
+      "bytes": 1463709
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-04",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-04.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-04.zip",
+      "status": "downloaded_verified",
+      "sha256": "d7dd9e46951e917a5cb805a0d90d6bc45e597235da03f5984d9267af09858819",
+      "bytes": 1334627
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-05",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-05.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-05.zip",
+      "status": "downloaded_verified",
+      "sha256": "6601212a59665d723637084cc07ba078b6bf43ff59ad6245cb5d24d7ef74d0e9",
+      "bytes": 1482408
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-06",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-06.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-06.zip",
+      "status": "downloaded_verified",
+      "sha256": "6518187f076bd25fe15ba0d9ceba8a5cb7fa0ba8d709a72cd74752a53b82fe7a",
+      "bytes": 1447293
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-07",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-07.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-07.zip",
+      "status": "downloaded_verified",
+      "sha256": "669155423a1fe4f4eee86e5369df6aecbd9f73c44ba925c260cf685ee503c8fb",
+      "bytes": 1450054
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-08",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-08.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-08.zip",
+      "status": "downloaded_verified",
+      "sha256": "ec60778f79237e943d72cb9f77d1d3a33f9df9c46baff1e8cffbf6ec6d639e40",
+      "bytes": 1427092
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-09",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-09.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-09.zip",
+      "status": "downloaded_verified",
+      "sha256": "61dcf1b611d5d31f50799358b3382c7d1cfa06579a0378582151fc9aab009649",
+      "bytes": 1353336
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-10",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-10.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-10.zip",
+      "status": "downloaded_verified",
+      "sha256": "5facfe29d08b2b00c7183c6442a84f287d54cda51c1134fea1f6b5670ba3b53e",
+      "bytes": 1351431
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-11",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-11.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-11.zip",
+      "status": "downloaded_verified",
+      "sha256": "f3e4ca35b3fa741dd59b047fedab3a1691d1d435e9dbcac0cc92c43ce2e7f4a8",
+      "bytes": 1506429
+    },
+    {
+      "symbol": "SOLUSDT",
+      "month": "2022-12",
+      "file": "data/binance_vision/SOLUSDT/SOLUSDT-1m-2022-12.zip",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1m/SOLUSDT-1m-2022-12.zip",
+      "status": "downloaded_verified",
+      "sha256": "d9319b4016f7cef11f0ec0bfc9bc424d64806405691c01bc6636488171702c44",
+      "bytes": 1468615
+    }
+  ]
+}

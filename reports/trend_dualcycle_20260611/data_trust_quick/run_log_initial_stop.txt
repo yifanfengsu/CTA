@@ -1,0 +1,36 @@
+run start (UTC): 2026-06-12T00:00:21.934043+00:00
+DATA: data/binance_vision/ ONLY (sha256-verified official static files); OKX databases NOT opened by this script
+engines tb/tv/r2 + ramp detector imported verbatim, unmodified
+
+== loading Binance 1m + funding (2020-01 .. 2026-05) ==
+  BTC: 1m 3,373,920 [2020-01-01 .. 2026-05-31] | 4h 14,058 | funding 7,028 (intervals [8])
+  ETH: 1m 3,373,920 [2020-01-01 .. 2026-05-31] | 4h 14,058 | funding 7,028 (intervals [8])
+  SOL: 1m 2,996,220 [2020-09-14 .. 2026-05-31] | 4h 12,485 | funding 6,332 (intervals [2, 4, 8])
+  LINK: 1m 3,350,400 [2020-01-17 .. 2026-05-31] | 4h 13,960 | funding 6,979 (intervals [8])
+  DOGE: 1m 3,098,340 [2020-07-10 .. 2026-05-31] | 4h 12,910 | funding 6,454 (intervals [8])
+
+== T1 1m grid completeness (gaps recorded, never filled) ==
+  BTC: missing 0/3,373,920 (0.0000%) | gaps 0 | largest None | PASS
+  ETH: missing 0/3,373,920 (0.0000%) | gaps 0 | largest None | PASS
+  SOL: missing 7,200/3,003,420 (0.2397%) | gaps 2 | largest (4320, '2022-02-26 00:00:00+00:00') | PASS
+  LINK: missing 0/3,350,400 (0.0000%) | gaps 0 | largest None | PASS
+  DOGE: missing 0/3,098,340 (0.0000%) | gaps 0 | largest None | PASS
+
+== T2 synthetic-ramp scan (verbatim demo-forensics params) ==
+  BTC: 2 events | 2020-03-12(12.0%,KNOWN,x2); 2020-03-12(13.65%,KNOWN,x2)
+  ETH: 5 events | 2020-03-12(15.3%,KNOWN,x2); 2020-05-10(12.76%,stair,x2); 2020-08-02(19.7%,x2); 2021-05-19(40.54%,KNOWN,x4); 2023-08-17(12.08%,x4)
+  SOL: 6 events | 2021-01-07(13.34%,x1); 2021-01-08(15.77%,stair); 2021-05-19(9.87%,KNOWN); 2021-05-19(28.71%,KNOWN,x4); 2022-11-08(19.97%,KNOWN); 2023-01-02(20.48%)
+  LINK: 12 events | 2020-03-12(28.21%,KNOWN,x2); 2020-03-13(39.05%,KNOWN,x2); 2020-05-10(10.1%,stair,x2); 2020-08-02(17.45%,x2); 2020-12-23(15.65%,x3); 2021-04-18(14.41%,KNOWN,x1); 2021-05-19(34.16%,stair,KNOWN,x4); 2021-09-07(17.32%,KNOWN,x3); 2021-12-04(13.03%,x3); 2023-06-10(17.88%,stair,x2); 2023-08-17(12.4%,x4); 2025-10-10(55.39%,KNOWN,x4)
+  DOGE: 22 events | 2021-01-28(17.72%,stair,KNOWN,x3); 2021-01-28(62.35%,KNOWN,x3); 2021-01-29(45.78%,KNOWN); 2021-01-29(16.37%,KNOWN); 2021-01-29(26.14%,KNOWN); 2021-01-31(13.51%); 2021-02-15(13.14%); 2021-04-16(14.19%,KNOWN,x1); 2021-04-23(15.87%,stair); 2021-05-09(12.06%); 2021-05-11(12.02%,x2); 2021-05-13(8.8%,x1); 2021-05-19(35.87%,stair,KNOWN,x4); 2021-09-07(16.17%,stair,KNOWN,x3); 2021-12-04(13.84%); 2022-05-11(23.45%,KNOWN,x4); 2022-10-29(10.31%); 2023-06-10(15.63%,x2); 2023-08-17(13.14%,x4); 2024-03-05(15.29%,x3); 2025-02-03(9.27%); 2025-10-10(59.32%,KNOWN,x4)
+  staircase events: 9 | unexplained: 16 | FAIL
+
+== T3 funding sanity ==
+  BTC: |rate| med 0.00010 p99 0.00108 max 0.00300 | 2021H1 positive 94% | PASS
+  ETH: |rate| med 0.00010 p99 0.00144 max 0.00375 | 2021H1 positive 97% | PASS
+  SOL: |rate| med 0.00010 p99 0.00229 max 0.02000 | 2021H1 positive 91% | PASS
+  LINK: |rate| med 0.00010 p99 0.00190 max 0.00487 | 2021H1 positive 100% | PASS
+  DOGE: |rate| med 0.00010 p99 0.00165 max 0.00750 | 2021H1 positive 87% | PASS
+  funding hand self-check: PASS (manual 2.141917 vs module 2.141917, n=3)
+
+== TRUST QUICK CHECK: FAIL ==
+trust check FAILED -> stopping before part 2 per pre-registration

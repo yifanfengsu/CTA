@@ -1,0 +1,181 @@
+{
+  "config": {
+    "id": "D1",
+    "mother": "B1_4h",
+    "tf": "4h",
+    "kind": "emax",
+    "fast": 50,
+    "slow": 200
+  },
+  "verdict": "FAIL",
+  "died_at": [
+    "V5"
+  ],
+  "screen": {
+    "verdict": "PASS",
+    "metrics": {
+      "n": 175,
+      "gross_pnl": 1424459.7229,
+      "funding_total": -166070.705,
+      "fees_total": -2462.4949,
+      "net_pnl": 1255926.5227,
+      "avg_hold_hours": 760.9371428571428,
+      "win_rate_pct": 32.0,
+      "payoff_ratio": 26.085012867499607,
+      "pf_gross": 14.605287321931183,
+      "pf_net": 12.275300172940991,
+      "avg_roundtrip_gross_pct_of_notional": 81.39769845142857,
+      "max_dd_usd": 32744.194699999876,
+      "by_year": {
+        "2023": {
+          "n": 28,
+          "gross": 53353.992,
+          "funding": -5843.109700000001,
+          "fees": -307.22569999999996,
+          "net": 47203.6573,
+          "pf_net": 6.187162703268964
+        },
+        "2024": {
+          "n": 34,
+          "gross": 41273.611999999994,
+          "funding": -7557.2009,
+          "fees": -360.12680000000006,
+          "net": 33356.284,
+          "pf_net": 2.81172134624632
+        },
+        "2025": {
+          "n": 27,
+          "gross": 1554.42,
+          "funding": -1334.2731999999999,
+          "fees": -270.1771,
+          "net": -50.03040000000044,
+          "pf_net": 0.9974276039947556
+        },
+        "2026": {
+          "n": 16,
+          "gross": -9282.719000000001,
+          "funding": -157.5736,
+          "fees": -156.079,
+          "net": -9596.3718,
+          "pf_net": 0.09388635497653063
+        }
+      }
+    }
+  },
+  "gates": {
+    "V1p": {
+      "a_dispersion": {
+        "n_symbols": 5,
+        "n_years": 4,
+        "pass": true
+      },
+      "b_repeatability": {
+        "frac_windows_with_top10_entry": 0.803030303030303,
+        "n_windows": 66,
+        "pass": true
+      },
+      "c_tail_efficiency": {
+        "total_gross": 1424459.7229,
+        "tail_gross": 1408378.2486,
+        "ratio": 1.011418434157149,
+        "pass": true
+      },
+      "profile": {
+        "top5pct_n": 9,
+        "symbols": [
+          "BTC",
+          "DOGE",
+          "ETH",
+          "LINK",
+          "SOL"
+        ],
+        "years": [
+          2020,
+          2021,
+          2023,
+          2024
+        ],
+        "symbol_counts": {
+          "BTC": 1,
+          "DOGE": 2,
+          "ETH": 1,
+          "LINK": 2,
+          "SOL": 3
+        },
+        "year_counts": {
+          "2020": 4,
+          "2021": 2,
+          "2023": 2,
+          "2024": 1
+        }
+      },
+      "pass": true
+    },
+    "V2": {
+      "nets": {
+        "ex_BTC": 1215822.0826,
+        "ex_ETH": 1229246.8375000001,
+        "ex_SOL": 1110877.8396,
+        "ex_LINK": 1234098.5656,
+        "ex_DOGE": 233660.7655
+      },
+      "pass": true
+    },
+    "V3": {
+      "points": [
+        {
+          "scale": [
+            0.75
+          ],
+          "net": 467168.777
+        },
+        {
+          "scale": [
+            1.0
+          ],
+          "net": 1255926.5227
+        },
+        {
+          "scale": [
+            1.25
+          ],
+          "net": 1289671.445
+        }
+      ],
+      "frac_positive": 1.0,
+      "pass": true
+    },
+    "V4": {
+      "net_1tick": 1255926.5227,
+      "net_3tick": 1254781.7947000002,
+      "net_5tick_diag": 1253637.0667,
+      "pass": true
+    },
+    "V5": {
+      "year_shares": {
+        "2020": 0.862213519841928,
+        "2021": 0.10422484176748885,
+        "2022": -0.022901488885007364,
+        "2023": 0.03758472844296753,
+        "2024": 0.026559104690527927,
+        "2025": -3.983545143424786e-05,
+        "2026": -0.007640870406470633
+      },
+      "year_share_ok": false,
+      "rolling12_n": 66,
+      "rolling12_frac_positive": 0.7424242424242424,
+      "rolling12_ok": true,
+      "pass": false
+    }
+  },
+  "bootstrap": {
+    "n": 175,
+    "mean": 7176.722986857143,
+    "ci95": [
+      517.6462764000001,
+      19619.22122385714
+    ],
+    "excludes_zero": true,
+    "ci_unreliable_n_lt_50": false
+  }
+}

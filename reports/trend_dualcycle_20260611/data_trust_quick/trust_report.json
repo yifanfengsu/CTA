@@ -1,0 +1,910 @@
+{
+  "pass": true,
+  "T1_grid": {
+    "BTC": {
+      "n_minutes": 3373920,
+      "expected": 3373920,
+      "missing": 0,
+      "missing_share": 0.0,
+      "n_gaps": 0,
+      "top10_gaps": [],
+      "pass": true
+    },
+    "ETH": {
+      "n_minutes": 3373920,
+      "expected": 3373920,
+      "missing": 0,
+      "missing_share": 0.0,
+      "n_gaps": 0,
+      "top10_gaps": [],
+      "pass": true
+    },
+    "SOL": {
+      "n_minutes": 2996220,
+      "expected": 3003420,
+      "missing": 7200,
+      "missing_share": 0.002397267115488343,
+      "n_gaps": 2,
+      "top10_gaps": [
+        [
+          4320,
+          "2022-02-26 00:00:00+00:00"
+        ],
+        [
+          2880,
+          "2022-04-01 00:00:00+00:00"
+        ]
+      ],
+      "pass": true
+    },
+    "LINK": {
+      "n_minutes": 3350400,
+      "expected": 3350400,
+      "missing": 0,
+      "missing_share": 0.0,
+      "n_gaps": 0,
+      "top10_gaps": [],
+      "pass": true
+    },
+    "DOGE": {
+      "n_minutes": 3098340,
+      "expected": 3098340,
+      "missing": 0,
+      "missing_share": 0.0,
+      "n_gaps": 0,
+      "top10_gaps": [],
+      "pass": true
+    }
+  },
+  "T2_synthetic": {
+    "BTC": [
+      {
+        "day": "2020-03-12",
+        "time": "2020-03-12 10:43:00+00:00",
+        "i0": 102883,
+        "i1": 102901,
+        "ref_px": 6385.0,
+        "max_excursion_pct": 12.0,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "ETH:-45.2%",
+          "LINK:-47.7%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2020-03-12",
+        "time": "2020-03-12 23:21:00+00:00",
+        "i0": 103641,
+        "i1": 103647,
+        "ref_px": 5522.43,
+        "max_excursion_pct": 13.65,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "ETH:-45.2%",
+          "LINK:-47.7%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      }
+    ],
+    "ETH": [
+      {
+        "day": "2020-03-12",
+        "time": "2020-03-12 10:43:00+00:00",
+        "i0": 102883,
+        "i1": 102905,
+        "ref_px": 144.03,
+        "max_excursion_pct": 15.3,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-40.0%",
+          "LINK:-47.7%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2020-05-10",
+        "time": "2020-05-10 00:16:00+00:00",
+        "i0": 187216,
+        "i1": 187221,
+        "ref_px": 205.39,
+        "max_excursion_pct": 12.76,
+        "reverted": false,
+        "staircase": true,
+        "cross_corroboration": [
+          "BTC:-8.7%",
+          "LINK:-6.5%"
+        ],
+        "known_day": false,
+        "reviewed_real": "2020-05-10 pre-halving crash, BTC -$1k in minutes (market-wide; also cross x2)",
+        "accepted_real": true
+      },
+      {
+        "day": "2020-08-02",
+        "time": "2020-08-02 04:37:00+00:00",
+        "i0": 308437,
+        "i1": 308441,
+        "ref_px": 408.48,
+        "max_excursion_pct": 19.7,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-6.2%",
+          "DOGE:-10.1%"
+        ],
+        "known_day": false,
+        "reviewed_real": "2020-08-02 Sunday flash crash ETH -$60 in minutes (cross x2)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-19",
+        "time": "2021-05-19 12:47:00+00:00",
+        "i0": 726527,
+        "i1": 726551,
+        "ref_px": 2537.95,
+        "max_excursion_pct": 40.54,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-14.4%",
+          "SOL:-37.6%",
+          "LINK:-38.4%",
+          "DOGE:-30.8%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2023-08-17",
+        "time": "2023-08-17 21:40:00+00:00",
+        "i0": 1907860,
+        "i1": 1907864,
+        "ref_px": 1704.5,
+        "max_excursion_pct": 12.08,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-7.3%",
+          "SOL:-5.0%",
+          "LINK:-8.6%",
+          "DOGE:-9.2%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      }
+    ],
+    "SOL": [
+      {
+        "day": "2021-01-07",
+        "time": "2021-01-07 10:12:00+00:00",
+        "i0": 165792,
+        "i1": 165796,
+        "ref_px": 1.9798,
+        "max_excursion_pct": 13.34,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:+7.3%"
+        ],
+        "known_day": false,
+        "reviewed_real": "early-Jan-2021 alt repricing: SOL $1.8->$3+ in 3 days, BTC ATH run to $41.9k (CoinGecko/CMC history; cross x1)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-01-08",
+        "time": "2021-01-08 12:28:00+00:00",
+        "i0": 167368,
+        "i1": 167373,
+        "ref_px": 3.1829,
+        "max_excursion_pct": 15.77,
+        "reverted": false,
+        "staircase": true,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "same early-Jan-2021 SOL repricing leg",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-19",
+        "time": "2021-05-19 11:32:00+00:00",
+        "i0": 355952,
+        "i1": 355956,
+        "ref_px": 40.956,
+        "max_excursion_pct": 9.87,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-19",
+        "time": "2021-05-19 12:46:00+00:00",
+        "i0": 356026,
+        "i1": 356037,
+        "ref_px": 37.524,
+        "max_excursion_pct": 28.71,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-14.4%",
+          "ETH:-27.7%",
+          "LINK:-38.4%",
+          "DOGE:-30.8%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2022-11-08",
+        "time": "2022-11-08 19:33:00+00:00",
+        "i0": 1123953,
+        "i1": 1123954,
+        "ref_px": 18.78,
+        "max_excursion_pct": 19.97,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2023-01-02",
+        "time": "2023-01-02 07:13:00+00:00",
+        "i0": 1202413,
+        "i1": 1202414,
+        "ref_px": 10.014,
+        "max_excursion_pct": 20.48,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "confirmed real in data_trust_closure (OKX +19.7% vs BNC +20.5% same event)",
+        "accepted_real": true
+      }
+    ],
+    "LINK": [
+      {
+        "day": "2020-03-12",
+        "time": "2020-03-12 10:43:00+00:00",
+        "i0": 79363,
+        "i1": 79381,
+        "ref_px": 2.701,
+        "max_excursion_pct": 28.21,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-40.0%",
+          "ETH:-45.2%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2020-03-13",
+        "time": "2020-03-13 02:11:00+00:00",
+        "i0": 80291,
+        "i1": 80319,
+        "ref_px": 1.621,
+        "max_excursion_pct": 39.05,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:+17.0%",
+          "ETH:+25.4%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2020-05-10",
+        "time": "2020-05-10 00:16:00+00:00",
+        "i0": 163696,
+        "i1": 163701,
+        "ref_px": 3.891,
+        "max_excursion_pct": 10.1,
+        "reverted": true,
+        "staircase": true,
+        "cross_corroboration": [
+          "BTC:-8.7%",
+          "ETH:-10.8%"
+        ],
+        "known_day": false,
+        "reviewed_real": "same 2020-05-10 crash (cross x2)",
+        "accepted_real": true
+      },
+      {
+        "day": "2020-08-02",
+        "time": "2020-08-02 04:37:00+00:00",
+        "i0": 284917,
+        "i1": 284921,
+        "ref_px": 8.182,
+        "max_excursion_pct": 17.45,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-6.2%",
+          "DOGE:-10.1%"
+        ],
+        "known_day": false,
+        "reviewed_real": "same 2020-08-02 flash crash (cross x2)",
+        "accepted_real": true
+      },
+      {
+        "day": "2020-12-23",
+        "time": "2020-12-23 22:18:00+00:00",
+        "i0": 491898,
+        "i1": 491902,
+        "ref_px": 10.116,
+        "max_excursion_pct": 15.65,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "ETH:-8.1%",
+          "SOL:-19.6%",
+          "DOGE:-17.0%"
+        ],
+        "known_day": false,
+        "reviewed_real": "2020-12-23 XRP-SEC suit alt dump (cross x3)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-04-18",
+        "time": "2021-04-18 03:31:00+00:00",
+        "i0": 657811,
+        "i1": 657816,
+        "ref_px": 34.825,
+        "max_excursion_pct": 14.41,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-6.6%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-19",
+        "time": "2021-05-19 12:40:00+00:00",
+        "i0": 703000,
+        "i1": 703059,
+        "ref_px": 30.973,
+        "max_excursion_pct": 34.16,
+        "reverted": true,
+        "staircase": true,
+        "cross_corroboration": [
+          "BTC:-14.4%",
+          "ETH:-27.7%",
+          "SOL:-37.6%",
+          "DOGE:-30.8%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-09-07",
+        "time": "2021-09-07 15:05:00+00:00",
+        "i0": 862985,
+        "i1": 862989,
+        "ref_px": 28.291,
+        "max_excursion_pct": 17.32,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-11.0%",
+          "ETH:-12.6%",
+          "DOGE:-17.4%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-12-04",
+        "time": "2021-12-04 05:23:00+00:00",
+        "i0": 989123,
+        "i1": 989127,
+        "ref_px": 17.61,
+        "max_excursion_pct": 13.03,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-8.3%",
+          "SOL:-5.2%",
+          "DOGE:-10.9%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2023-06-10",
+        "time": "2023-06-10 04:20:00+00:00",
+        "i0": 1785380,
+        "i1": 1785386,
+        "ref_px": 5.717,
+        "max_excursion_pct": 17.88,
+        "reverted": false,
+        "staircase": true,
+        "cross_corroboration": [
+          "SOL:-10.2%",
+          "DOGE:-11.2%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2023-08-17",
+        "time": "2023-08-17 21:40:00+00:00",
+        "i0": 1884340,
+        "i1": 1884344,
+        "ref_px": 6.37,
+        "max_excursion_pct": 12.4,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-7.3%",
+          "ETH:-7.0%",
+          "SOL:-5.0%",
+          "DOGE:-9.2%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2025-10-10",
+        "time": "2025-10-10 21:11:00+00:00",
+        "i0": 3014711,
+        "i1": 3014724,
+        "ref_px": 19.523,
+        "max_excursion_pct": 55.39,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-7.3%",
+          "ETH:-12.5%",
+          "SOL:-15.0%",
+          "DOGE:-22.3%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      }
+    ],
+    "DOGE": [
+      {
+        "day": "2021-01-28",
+        "time": "2021-01-28 15:21:00+00:00",
+        "i0": 291261,
+        "i1": 291266,
+        "ref_px": 0.022037,
+        "max_excursion_pct": 17.72,
+        "reverted": true,
+        "staircase": true,
+        "cross_corroboration": [
+          "BTC:+9.9%",
+          "ETH:+7.4%",
+          "LINK:+9.7%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-01-28",
+        "time": "2021-01-28 23:42:00+00:00",
+        "i0": 291762,
+        "i1": 291873,
+        "ref_px": 0.029428,
+        "max_excursion_pct": 62.35,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:+9.9%",
+          "ETH:+7.4%",
+          "LINK:+9.7%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-01-29",
+        "time": "2021-01-29 03:14:00+00:00",
+        "i0": 291974,
+        "i1": 291981,
+        "ref_px": 0.056751,
+        "max_excursion_pct": 45.78,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-01-29",
+        "time": "2021-01-29 04:29:00+00:00",
+        "i0": 292049,
+        "i1": 292082,
+        "ref_px": 0.072443,
+        "max_excursion_pct": 16.37,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-01-29",
+        "time": "2021-01-29 06:42:00+00:00",
+        "i0": 292182,
+        "i1": 292192,
+        "ref_px": 0.063424,
+        "max_excursion_pct": 26.14,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-01-31",
+        "time": "2021-01-31 18:49:00+00:00",
+        "i0": 295789,
+        "i1": 295793,
+        "ref_px": 0.038469,
+        "max_excursion_pct": 13.51,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "SatoshiStreetBets 2nd-wave pump +80% in <3h on Jan-31 weekend (CoinDesk/Decrypt)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-02-15",
+        "time": "2021-02-15 02:18:00+00:00",
+        "i0": 316398,
+        "i1": 316402,
+        "ref_px": 0.053331,
+        "max_excursion_pct": 13.14,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "mid-Feb-2021 Musk-tweet rally cluster Feb-8..15, DOGE $0.069->$0.084+ (CNBC/Decrypt)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-04-16",
+        "time": "2021-04-16 13:48:00+00:00",
+        "i0": 403488,
+        "i1": 403493,
+        "ref_px": 0.409313,
+        "max_excursion_pct": 14.19,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "SOL:-8.8%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-04-23",
+        "time": "2021-04-23 02:20:00+00:00",
+        "i0": 412880,
+        "i1": 412885,
+        "ref_px": 0.195662,
+        "max_excursion_pct": 15.87,
+        "reverted": true,
+        "staircase": true,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "2021-04-23 Biden capital-gains-tax crash, DOGE -20% (Al Jazeera/Newsweek)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-09",
+        "time": "2021-05-09 04:11:00+00:00",
+        "i0": 436031,
+        "i1": 436045,
+        "ref_px": 0.539088,
+        "max_excursion_pct": 12.06,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "post-SNL crash -30% (Fortune/NBC/CNN)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-11",
+        "time": "2021-05-11 08:12:00+00:00",
+        "i0": 439152,
+        "i1": 439156,
+        "ref_px": 0.46745,
+        "max_excursion_pct": 12.02,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "ETH:+5.7%",
+          "LINK:+5.3%"
+        ],
+        "known_day": false,
+        "reviewed_real": "post-SNL volatility week (cross x2)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-13",
+        "time": "2021-05-13 00:00:00+00:00",
+        "i0": 441540,
+        "i1": 441544,
+        "ref_px": 0.39081,
+        "max_excursion_pct": 8.8,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "SOL:-5.8%"
+        ],
+        "known_day": false,
+        "reviewed_real": "post-SNL volatility week (cross x1)",
+        "accepted_real": true
+      },
+      {
+        "day": "2021-05-19",
+        "time": "2021-05-19 12:47:00+00:00",
+        "i0": 450947,
+        "i1": 450955,
+        "ref_px": 0.33163,
+        "max_excursion_pct": 35.87,
+        "reverted": true,
+        "staircase": true,
+        "cross_corroboration": [
+          "BTC:-14.4%",
+          "ETH:-27.7%",
+          "SOL:-37.6%",
+          "LINK:-38.4%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-09-07",
+        "time": "2021-09-07 15:04:00+00:00",
+        "i0": 610924,
+        "i1": 610934,
+        "ref_px": 0.24336,
+        "max_excursion_pct": 16.17,
+        "reverted": true,
+        "staircase": true,
+        "cross_corroboration": [
+          "BTC:-11.0%",
+          "ETH:-12.6%",
+          "LINK:-18.9%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2021-12-04",
+        "time": "2021-12-04 05:23:00+00:00",
+        "i0": 737063,
+        "i1": 737071,
+        "ref_px": 0.14778,
+        "max_excursion_pct": 13.84,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "2021-12-04 deleveraging flash crash, BTC -20% market-wide (LINK same day cross x3)",
+        "accepted_real": true
+      },
+      {
+        "day": "2022-05-11",
+        "time": "2022-05-11 12:46:00+00:00",
+        "i0": 965026,
+        "i1": 965035,
+        "ref_px": 0.0923,
+        "max_excursion_pct": 23.45,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-6.2%",
+          "ETH:-11.0%",
+          "SOL:-23.9%",
+          "LINK:-19.1%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2022-10-29",
+        "time": "2022-10-29 17:52:00+00:00",
+        "i0": 1211572,
+        "i1": 1211576,
+        "ref_px": 0.14932,
+        "max_excursion_pct": 10.31,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "Musk Twitter-close DOGE rally +100%/wk Oct-27..31 (CNBC/Decrypt)",
+        "accepted_real": true
+      },
+      {
+        "day": "2023-06-10",
+        "time": "2023-06-10 04:22:00+00:00",
+        "i0": 1533322,
+        "i1": 1533326,
+        "ref_px": 0.0647,
+        "max_excursion_pct": 15.63,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "SOL:-10.2%",
+          "LINK:-12.7%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2023-08-17",
+        "time": "2023-08-17 21:40:00+00:00",
+        "i0": 1632280,
+        "i1": 1632284,
+        "ref_px": 0.06345,
+        "max_excursion_pct": 13.14,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-7.3%",
+          "ETH:-7.0%",
+          "SOL:-5.0%",
+          "LINK:-8.6%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2024-03-05",
+        "time": "2024-03-05 19:51:00+00:00",
+        "i0": 1921611,
+        "i1": 1921616,
+        "ref_px": 0.15116,
+        "max_excursion_pct": 15.29,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-6.7%",
+          "SOL:-6.1%",
+          "LINK:-7.2%"
+        ],
+        "known_day": false,
+        "reviewed_real": null,
+        "accepted_real": true
+      },
+      {
+        "day": "2025-02-03",
+        "time": "2025-02-03 02:03:00+00:00",
+        "i0": 2402943,
+        "i1": 2402947,
+        "ref_px": 0.22287,
+        "max_excursion_pct": 9.27,
+        "reverted": true,
+        "staircase": false,
+        "cross_corroboration": [],
+        "known_day": false,
+        "reviewed_real": "confirmed real in data_trust_closure (OKX -9.9% vs BNC -9.3%)",
+        "accepted_real": true
+      },
+      {
+        "day": "2025-10-10",
+        "time": "2025-10-10 21:11:00+00:00",
+        "i0": 2762651,
+        "i1": 2762669,
+        "ref_px": 0.21769,
+        "max_excursion_pct": 59.32,
+        "reverted": false,
+        "staircase": false,
+        "cross_corroboration": [
+          "BTC:-7.3%",
+          "ETH:-12.5%",
+          "SOL:-15.0%",
+          "LINK:-21.4%"
+        ],
+        "known_day": true,
+        "reviewed_real": null,
+        "accepted_real": true
+      }
+    ]
+  },
+  "T3_funding": {
+    "BTC": {
+      "n": 7028,
+      "abs_median": 0.0001,
+      "abs_p99": 0.0010815573999999994,
+      "abs_max": 0.003,
+      "share_positive_2021H1": 0.9429097605893186,
+      "intervals": {
+        "8": 7028
+      },
+      "pass": true
+    },
+    "ETH": {
+      "n": 7028,
+      "abs_median": 0.0001,
+      "abs_p99": 0.0014376981999999969,
+      "abs_max": 0.00375,
+      "share_positive_2021H1": 0.9650092081031307,
+      "intervals": {
+        "8": 7028
+      },
+      "pass": true
+    },
+    "SOL": {
+      "n": 6332,
+      "abs_median": 0.0001,
+      "abs_p99": 0.0022948019999999986,
+      "abs_max": 0.02,
+      "share_positive_2021H1": 0.9134438305709024,
+      "intervals": {
+        "8": 6231,
+        "2": 99,
+        "4": 2
+      },
+      "pass": true
+    },
+    "LINK": {
+      "n": 6979,
+      "abs_median": 0.0001,
+      "abs_p99": 0.001900685000000003,
+      "abs_max": 0.004875,
+      "share_positive_2021H1": 0.996316758747698,
+      "intervals": {
+        "8": 6979
+      },
+      "pass": true
+    },
+    "DOGE": {
+      "n": 6454,
+      "abs_median": 0.0001,
+      "abs_p99": 0.0016547905000000008,
+      "abs_max": 0.0075,
+      "share_positive_2021H1": 0.8729281767955801,
+      "intervals": {
+        "8": 6454
+      },
+      "pass": true
+    }
+  }
+}

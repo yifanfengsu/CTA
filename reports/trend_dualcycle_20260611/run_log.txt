@@ -1,0 +1,60 @@
+run start (UTC): 2026-06-12T00:09:55.405025+00:00
+DATA: data/binance_vision/ ONLY (sha256-verified official static files); OKX databases NOT opened by this script
+engines tb/tv/r2 + ramp detector imported verbatim, unmodified
+
+== loading Binance 1m + funding (2020-01 .. 2026-05) ==
+  BTC: 1m 3,373,920 [2020-01-01 .. 2026-05-31] | 4h 14,058 | funding 7,028 (intervals [8])
+  ETH: 1m 3,373,920 [2020-01-01 .. 2026-05-31] | 4h 14,058 | funding 7,028 (intervals [8])
+  SOL: 1m 2,996,220 [2020-09-14 .. 2026-05-31] | 4h 12,485 | funding 6,332 (intervals [2, 4, 8])
+  LINK: 1m 3,350,400 [2020-01-17 .. 2026-05-31] | 4h 13,960 | funding 6,979 (intervals [8])
+  DOGE: 1m 3,098,340 [2020-07-10 .. 2026-05-31] | 4h 12,910 | funding 6,454 (intervals [8])
+
+== T1 1m grid completeness (gaps recorded, never filled) ==
+  BTC: missing 0/3,373,920 (0.0000%) | gaps 0 | largest None | PASS
+  ETH: missing 0/3,373,920 (0.0000%) | gaps 0 | largest None | PASS
+  SOL: missing 7,200/3,003,420 (0.2397%) | gaps 2 | largest (4320, '2022-02-26 00:00:00+00:00') | PASS
+  LINK: missing 0/3,350,400 (0.0000%) | gaps 0 | largest None | PASS
+  DOGE: missing 0/3,098,340 (0.0000%) | gaps 0 | largest None | PASS
+
+== T2 synthetic-ramp scan (verbatim demo-forensics params) ==
+  BTC: 2 events | 2020-03-12(12.0%,KNOWN,x2); 2020-03-12(13.65%,KNOWN,x2)
+  ETH: 5 events | 2020-03-12(15.3%,KNOWN,x2); 2020-05-10(12.76%,stair,REV,x2); 2020-08-02(19.7%,REV,x2); 2021-05-19(40.54%,KNOWN,x4); 2023-08-17(12.08%,x4)
+  SOL: 6 events | 2021-01-07(13.34%,REV,x1); 2021-01-08(15.77%,stair,REV); 2021-05-19(9.87%,KNOWN); 2021-05-19(28.71%,KNOWN,x4); 2022-11-08(19.97%,KNOWN); 2023-01-02(20.48%,REV)
+  LINK: 12 events | 2020-03-12(28.21%,KNOWN,x2); 2020-03-13(39.05%,KNOWN,x2); 2020-05-10(10.1%,stair,REV,x2); 2020-08-02(17.45%,REV,x2); 2020-12-23(15.65%,REV,x3); 2021-04-18(14.41%,KNOWN,x1); 2021-05-19(34.16%,stair,KNOWN,x4); 2021-09-07(17.32%,KNOWN,x3); 2021-12-04(13.03%,x3); 2023-06-10(17.88%,stair,x2); 2023-08-17(12.4%,x4); 2025-10-10(55.39%,KNOWN,x4)
+  DOGE: 22 events | 2021-01-28(17.72%,stair,KNOWN,x3); 2021-01-28(62.35%,KNOWN,x3); 2021-01-29(45.78%,KNOWN); 2021-01-29(16.37%,KNOWN); 2021-01-29(26.14%,KNOWN); 2021-01-31(13.51%,REV); 2021-02-15(13.14%,REV); 2021-04-16(14.19%,KNOWN,x1); 2021-04-23(15.87%,stair,REV); 2021-05-09(12.06%,REV); 2021-05-11(12.02%,REV,x2); 2021-05-13(8.8%,REV,x1); 2021-05-19(35.87%,stair,KNOWN,x4); 2021-09-07(16.17%,stair,KNOWN,x3); 2021-12-04(13.84%,REV); 2022-05-11(23.45%,KNOWN,x4); 2022-10-29(10.31%,REV); 2023-06-10(15.63%,x2); 2023-08-17(13.14%,x4); 2024-03-05(15.29%,x3); 2025-02-03(9.27%,REV); 2025-10-10(59.32%,KNOWN,x4)
+  events 47 (vs demo library 598) | staircase 9 (all on documented real days) | unconfirmed: 0 | demo-fingerprint (stair+revert, unconfirmed): 0 | PASS
+
+== T3 funding sanity ==
+  BTC: |rate| med 0.00010 p99 0.00108 max 0.00300 | 2021H1 positive 94% | PASS
+  ETH: |rate| med 0.00010 p99 0.00144 max 0.00375 | 2021H1 positive 97% | PASS
+  SOL: |rate| med 0.00010 p99 0.00229 max 0.02000 | 2021H1 positive 91% | PASS
+  LINK: |rate| med 0.00010 p99 0.00190 max 0.00487 | 2021H1 positive 100% | PASS
+  DOGE: |rate| med 0.00010 p99 0.00165 max 0.00750 | 2021H1 positive 87% | PASS
+  funding hand self-check: PASS (manual 2.141917 vs module 2.141917, n=3)
+
+== TRUST QUICK CHECK: PASS ==
+
+== part 2: 8 configs, all gates frozen ==
+[B1_4h] FAIL died:V5 | n=351 | net $1,253,128 (gross $1,420,546) | PFnet 6.60 | slices {2020-2021: 1,207,439, 2022: -18,740, 2023-2024: 53,783, 2025-2026: 10,646} | V5 maxshare 0.86 roll 82% | CI [245.6,9734.9] excl0=True
+[B2_4h] DUAL-VALIDATED* | n=836 | net $300,753 (gross $362,666) | PFnet 1.83 | slices {2020-2021: 220,509, 2022: -3,445, 2023-2024: 73,206, 2025-2026: 10,482} | V5 maxshare 0.55 roll 82% | CI [138.7,623.2] excl0=True
+[C2_4h] FAIL died:V5 | n=1002 | net $646,559 (gross $815,104) | PFnet 3.48 | slices {2020-2021: 594,238, 2022: -1,582, 2023-2024: 44,772, 2025-2026: 9,131} | V5 maxshare 0.85 roll 79% | CI [24.6,1768.0] excl0=True
+[C2_1d] FAIL died:V5 | n=470 | net $590,482 (gross $754,495) | PFnet 3.40 | slices {2020-2021: 549,948, 2022: -6,147, 2023-2024: 45,721, 2025-2026: 961} | V5 maxshare 0.88 roll 71% | CI [-28.0,3497.0] excl0=False
+[D2] DUAL-VALIDATED* | n=417 | net $309,601 (gross $371,276) | PFnet 2.78 | slices {2020-2021: 242,931, 2022: -22,381, 2023-2024: 98,132, 2025-2026: -9,082} | V5 maxshare 0.58 roll 74% | CI [315.4,1258.4] excl0=True
+[D1] FAIL died:V5 | n=175 | net $1,255,927 (gross $1,424,460) | PFnet 12.28 | slices {2020-2021: 1,213,776, 2022: -28,763, 2023-2024: 80,560, 2025-2026: -9,646} | V5 maxshare 0.86 roll 74% | CI [517.6,19619.2] excl0=True
+[D3] FAIL died:V5 | n=501 | net $687,967 (gross $854,685) | PFnet 6.99 | slices {2020-2021: 646,151, 2022: -23,097, 2023-2024: 72,010, 2025-2026: -7,097} | V5 maxshare 0.83 roll 68% | CI [137.3,3558.6] excl0=True
+[D4] FAIL died:V5 | n=235 | net $646,812 (gross $811,924) | PFnet 6.96 | slices {2020-2021: 612,079, 2022: -24,488, 2023-2024: 70,650, 2025-2026: -11,428} | V5 maxshare 0.84 roll 62% | CI [215.2,7178.5] excl0=True
+
+B&H (Binance 6y, path): net $110,805 | maxDD $2,328,010 | slices {2020-2021: 953,011, 2022: -1,014,370, 2023-2024: 1,289,798, 2025-2026: -1,117,742}
+
+== overlap consistency (Binance cold-started at 2022-12-31 16:00 UTC) ==
+  B1_4h: net OKX $49,991 vs BNC $52,105 (+4%) | n 216 vs 210 | PFnet 1.41 vs 1.43
+  B2_4h: net OKX $68,195 vs BNC $69,286 (+2%) | n 470 vs 472 | PFnet 1.39 vs 1.40
+  C2_4h: net OKX $52,149 vs BNC $55,905 (+7%) | n 542 vs 551 | PFnet 1.46 vs 1.49
+  C2_1d: net OKX $44,833 vs BNC $46,236 (+3%) | n 248 vs 251 | PFnet 1.45 vs 1.46
+  D2: net OKX $73,979 vs BNC $74,648 (+1%) | n 235 vs 236 | PFnet 1.87 vs 1.88
+  D1: net OKX $57,882 vs BNC $59,202 (+2%) | n 108 vs 105 | PFnet 1.93 vs 1.96
+  D3: net OKX $59,268 vs BNC $62,625 (+6%) | n 273 vs 277 | PFnet 2.00 vs 2.06
+  D4: net OKX $55,082 vs BNC $56,178 (+2%) | n 126 vs 127 | PFnet 2.03 vs 2.05
+
+DUAL-VALIDATED*: 2 | R-VALIDATED*: 0 | FAIL: 6
+run end (UTC): 2026-06-12T00:10:52.243721+00:00

@@ -1,0 +1,182 @@
+{
+  "config": {
+    "id": "D3",
+    "mother": "C2_4h",
+    "tf": "4h",
+    "kind": "tsmom",
+    "days": 90
+  },
+  "verdict": "FAIL",
+  "died_at": [
+    "V5"
+  ],
+  "screen": {
+    "verdict": "PASS",
+    "metrics": {
+      "n": 501,
+      "gross_pnl": 854684.9444,
+      "funding_total": -161281.5397,
+      "fees_total": -5436.037700000001,
+      "net_pnl": 687967.3688999999,
+      "avg_hold_hours": 275.2654690618763,
+      "win_rate_pct": 27.14570858283433,
+      "payoff_ratio": 18.756823960741485,
+      "pf_gross": 8.879506310796891,
+      "pf_net": 6.988843996331074,
+      "avg_roundtrip_gross_pct_of_notional": 17.059579728542914,
+      "max_dd_usd": 43306.68969999952,
+      "by_year": {
+        "2023": {
+          "n": 139,
+          "gross": 70511.279,
+          "funding": -13705.4009,
+          "fees": -1425.0668,
+          "net": 55380.8116,
+          "pf_net": 3.004966415114407
+        },
+        "2024": {
+          "n": 79,
+          "gross": 21958.302,
+          "funding": -4528.4353,
+          "fees": -800.7422999999999,
+          "net": 16629.124800000005,
+          "pf_net": 2.312399354072966
+        },
+        "2025": {
+          "n": 69,
+          "gross": -908.5880000000002,
+          "funding": -1335.8326,
+          "fees": -687.3182,
+          "net": -2931.7378,
+          "pf_net": 0.840595911861186
+        },
+        "2026": {
+          "n": 24,
+          "gross": -3810.117,
+          "funding": -116.8703,
+          "fees": -238.2979,
+          "net": -4165.2854,
+          "pf_net": 0.17595329389852535
+        }
+      }
+    }
+  },
+  "gates": {
+    "V1p": {
+      "a_dispersion": {
+        "n_symbols": 5,
+        "n_years": 5,
+        "pass": true
+      },
+      "b_repeatability": {
+        "frac_windows_with_top10_entry": 1.0,
+        "n_windows": 66,
+        "pass": true
+      },
+      "c_tail_efficiency": {
+        "total_gross": 854684.9444,
+        "tail_gross": 932629.9789,
+        "ratio": 0.9164244810230816,
+        "pass": true
+      },
+      "profile": {
+        "top5pct_n": 26,
+        "symbols": [
+          "BTC",
+          "DOGE",
+          "ETH",
+          "LINK",
+          "SOL"
+        ],
+        "years": [
+          2020,
+          2021,
+          2023,
+          2024,
+          2025
+        ],
+        "symbol_counts": {
+          "BTC": 5,
+          "DOGE": 5,
+          "ETH": 6,
+          "LINK": 6,
+          "SOL": 4
+        },
+        "year_counts": {
+          "2020": 7,
+          "2021": 2,
+          "2023": 8,
+          "2024": 4,
+          "2025": 5
+        }
+      },
+      "pass": true
+    },
+    "V2": {
+      "nets": {
+        "ex_BTC": 650525.0584,
+        "ex_ETH": 648174.6356,
+        "ex_SOL": 575691.5816,
+        "ex_LINK": 674104.6117,
+        "ex_DOGE": 203373.5883
+      },
+      "pass": true
+    },
+    "V3": {
+      "points": [
+        {
+          "scale": [
+            0.75
+          ],
+          "net": 445340.724
+        },
+        {
+          "scale": [
+            1.0
+          ],
+          "net": 687967.3689
+        },
+        {
+          "scale": [
+            1.25
+          ],
+          "net": 1116340.1441
+        }
+      ],
+      "frac_positive": 1.0,
+      "pass": true
+    },
+    "V4": {
+      "net_1tick": 687967.3689,
+      "net_3tick": 685091.5409,
+      "net_5tick_diag": 682215.7129,
+      "pass": true
+    },
+    "V5": {
+      "year_shares": {
+        "2020": 0.8327798937848724,
+        "2021": 0.10643829650973438,
+        "2022": -0.03357282996856394,
+        "2023": 0.08049918368737329,
+        "2024": 0.02417138595772141,
+        "2025": -0.004261448918264241,
+        "2026": -0.006054481052873088
+      },
+      "year_share_ok": false,
+      "rolling12_n": 66,
+      "rolling12_frac_positive": 0.6818181818181818,
+      "rolling12_ok": true,
+      "pass": false
+    }
+  },
+  "bootstrap": {
+    "n": 501,
+    "mean": 1373.188361077844,
+    "ci95": [
+      137.31396231037928,
+      3558.623712435129
+    ],
+    "excludes_zero": true,
+    "ci_unreliable_n_lt_50": false
+  }
+}
