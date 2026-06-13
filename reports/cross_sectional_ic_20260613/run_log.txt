@@ -1,0 +1,61 @@
+run start (UTC): 2026-06-13T15:00:25.798842+00:00
+DATA ENVIRONMENT: data/binance_vision 22-coin pure-crypto set (read-only); contaminated DB not touched; survivorship NOT corrected (current-listed set)
+PRE-REGISTERED: MOM30/CAR7/REV3, daily rebalance, quintiles, >=10 coins, fee 0.05%(top5)/0.07%, G1-G5 frozen; zero variants
+
+== loading 22 coins: daily close + daily funding ==
+  BTCUSDT        days= 2343 (18262..20604)  funding-days=2343
+  ETHUSDT        days= 2343 (18262..20604)  funding-days=2343
+  SOLUSDT        days= 2081 (18519..20604)  funding-days=2086
+  ZECUSDT        days= 2303 (18297..20604)  funding-days=2308
+  XRPUSDT        days= 2333 (18267..20604)  funding-days=2338
+  DOGEUSDT       days= 2152 (18453..20604)  funding-days=2152
+  BNBUSDT        days= 2303 (18302..20604)  funding-days=2303
+  SUIUSDT        days= 1125 (19480..20604)  funding-days=1124
+  NEARUSDT       days= 2050 (18550..20604)  funding-days=2055
+  TONUSDT        days=  822 (19783..20604)  funding-days=822
+  1000PEPEUSDT   days= 1123 (19482..20604)  funding-days=1122
+  XLMUSDT        days= 2319 (18281..20604)  funding-days=2324
+  WLDUSDT        days= 1043 (19562..20604)  funding-days=1043
+  ONDOUSDT       days=  863 (19742..20604)  funding-days=863
+  TAOUSDT        days=  781 (19824..20604)  funding-days=781
+  ADAUSDT        days= 2313 (18292..20604)  funding-days=2313
+  FILUSDT        days= 2049 (18551..20604)  funding-days=2054
+  LINKUSDT       days= 2327 (18278..20604)  funding-days=2327
+  AVAXUSDT       days= 2077 (18528..20604)  funding-days=2077
+  BCHUSDT        days= 2343 (18262..20604)  funding-days=2343
+  ENAUSDT        days=  790 (19815..20604)  funding-days=790
+  INJUSDT        days= 1384 (19221..20604)  funding-days=1384
+
+== F-MOM ==
+  IC mean -0.0003 std 0.3249 t -0.04 IR_ann -0.01 pos 49.2% (n=2104)
+  IC decay k1/3/5 mean: -0.0003 / +0.0183 / +0.0238
+  quintile fwd1 means: [0.00013, 0.0013, 0.00153, 0.002, 0.0042] viol=0
+  gross ann +148.4% Sharpe +1.61 | net ann +132.7% Sharpe +1.44 | cost/gross 1.4%
+  beta spread=+0.01 alpha_ann=+148.1% alpha_t=+3.86 | long-leg beta +1.17 short-leg beta +1.16
+  IC by year: 2020:+0.054(n144) 2021:-0.015(n365) 2022:+0.000(n353) 2023:-0.010(n365) 2024:+0.008(n366) 2025:+0.008(n365) 2026:-0.035(n146)
+  2025+ IC mean -0.0043 t -0.31
+  GATES G10 G21 G31 G41 G50 -> FAIL [G1_IC,G5_stable]
+
+== F-CAR ==
+  IC mean +0.0188 std 0.2788 t +3.11 IR_ann +1.29 pos 51.5% (n=2133)
+  IC decay k1/3/5 mean: +0.0188 / +0.0315 / +0.0350
+  quintile fwd1 means: [0.00118, 0.00229, 0.00226, 0.00178, 0.00283] viol=2
+  gross ann +60.4% Sharpe +0.79 | net ann +46.4% Sharpe +0.61 | cost/gross 1.5%
+  beta spread=-0.10 alpha_ann=+65.6% alpha_t=+2.08 | long-leg beta +1.07 short-leg beta +1.18
+  IC by year: 2020:-0.026(n168) 2021:+0.064(n365) 2022:+0.019(n358) 2023:+0.019(n365) 2024:+0.010(n366) 2025:+0.004(n365) 2026:+0.016(n146)
+  2025+ IC mean +0.0074 t +0.70
+  GATES G11 G20 G31 G41 G50 -> FAIL [G2_mono,G5_stable]
+
+== F-REV ==
+  IC mean +0.0166 std 0.3237 t +2.37 IR_ann +0.98 pos 52.3% (n=2131)
+  IC decay k1/3/5 mean: +0.0166 / +0.0130 / -0.0006
+  quintile fwd1 means: [0.0045, 0.00251, 0.00149, 0.00158, 0.00137] viol=3
+  gross ann -114.2% Sharpe -1.15 | net ann -159.4% Sharpe -1.61 | cost/gross 3.9%
+  beta spread=+0.08 alpha_ann=-118.5% alpha_t=-2.89 | long-leg beta +1.20 short-leg beta +1.12
+  IC by year: 2020:-0.002(n171) 2021:+0.026(n365) 2022:+0.012(n353) 2023:+0.038(n365) 2024:-0.001(n366) 2025:+0.042(n365) 2026:-0.047(n146)
+  2025+ IC mean +0.0164 t +1.16
+  GATES G11 G20 G30 G40 G51 -> FAIL [G2_mono,G3_netspread,G4_alpha]
+
+== VERDICT: survivors NONE ==
+  FINAL: NOT STARTED (cross-sectional closed on survivor sample)
+run end (UTC): 2026-06-13T15:06:07.212811+00:00
