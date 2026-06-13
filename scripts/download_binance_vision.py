@@ -115,15 +115,22 @@ def main() -> int:
     ap.add_argument("--dataset", choices=["klines", "fundingRate"], default="klines")
     ap.add_argument("--start-month")
     ap.add_argument("--end-month")
+    ap.add_argument("--symbols", help="comma-separated symbol override (e.g. "
+                    "XRPUSDT,BNBUSDT). Default = the original 5 cross-validation coins. "
+                    "Download/verify/manifest logic is identical regardless of list.")
     args = ap.parse_args()
-    default_run = args.dataset == "klines" and not args.start_month and not args.end_month
-    months = MONTHS if default_run else month_range(args.start_month, args.end_month)
+    default_run = (args.dataset == "klines" and not args.start_month
+                   and not args.end_month and not args.symbols)
+    months = MONTHS if (args.dataset == "klines" and not args.start_month
+                        and not args.end_month) else month_range(args.start_month, args.end_month)
+    symbols = ([s.strip() for s in args.symbols.split(",") if s.strip()]
+               if args.symbols else SYMBOLS)
 
     print("DATA ENVIRONMENT: BINANCE-VISION-PUBLIC (production market data; "
           "no demo variant exists for this CDN)", flush=True)
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
-    jobs = [(s, m) for s in SYMBOLS for m in months]
-    print(f"{len(jobs)} files ({len(SYMBOLS)} symbols x {len(months)} months, "
+    jobs = [(s, m) for s in symbols for m in months]
+    print(f"{len(jobs)} files ({len(symbols)} symbols x {len(months)} months, "
           f"dataset={args.dataset}) -> {OUT_ROOT}")
     results, failed = [], []
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
@@ -142,18 +149,24 @@ def main() -> int:
         "dataset": ("futures/um monthly klines 1m (last-price klines)"
                     if args.dataset == "klines" else "futures/um monthly fundingRate"),
         "base_url": f"{BASE_ROOT}/{args.dataset}",
-        "symbols": SYMBOLS,
+        "symbols": symbols,
         "months": [months[0], months[-1]],
         "checksum": "sha256 via vision .CHECKSUM files, all verified",
         "downloaded_at": datetime.now(timezone.utc).isoformat(),
-        "script": "scripts/download_binance_vision.py 1.1.0 (2026-06-11 range extension)",
+        "script": "scripts/download_binance_vision.py 1.2.0 (2026-06-13 --symbols arg)",
         "n_files": len(results),
         "n_failed": len(failed),
         "n_not_available_404": sum(1 for r in results if r["status"] == "not_available_404"),
         "files": results,
     }
-    mf = ("manifest.json" if default_run
-          else f"manifest_{args.dataset}_{months[0]}_{months[-1]}.json")
+    # custom symbol lists get a distinct manifest name so the original 5-coin
+    # cross-validation manifests are never clobbered.
+    if default_run:
+        mf = "manifest.json"
+    elif args.symbols:
+        mf = f"manifest_{args.dataset}_{months[0]}_{months[-1]}_xsec.json"
+    else:
+        mf = f"manifest_{args.dataset}_{months[0]}_{months[-1]}.json"
     (OUT_ROOT / mf).write_text(json.dumps(manifest, indent=2))
     total_mb = sum(r["bytes"] for r in results) / 1048576
     print(f"\ndone: {len(results) - len(failed)}/{len(jobs)} ok, {len(failed)} failed, {total_mb:.0f} MB")

@@ -1,0 +1,531 @@
+{
+  "positioning": "mechanical download list; no universe definition, no survivorship handling, no analysis \u2014 raw-material acquisition only",
+  "rules": {
+    "universe": "vision UM-perp *USDT",
+    "rank_metric": "2026-05 1d quote volume (USDT)",
+    "rank_metric_note": "fapi ticker/24hr geo-blocked (HTTP 451); vision daily-stats path used",
+    "top_n": 40,
+    "age_rule": "earliest 1m month <= 2024-11 (>=18mo before 2026-05)"
+  },
+  "generated_at": "2026-06-13T10:59:11.513597+00:00",
+  "n_universe_usdt": 732,
+  "n_with_rank_month_file": 588,
+  "top_n_entries": [
+    {
+      "rank": 1,
+      "symbol": "BTCUSDT",
+      "quote_volume_2026_05_usdt": 300895586095.71326,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": true
+    },
+    {
+      "rank": 2,
+      "symbol": "ETHUSDT",
+      "quote_volume_2026_05_usdt": 233543520555.8025,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": true
+    },
+    {
+      "rank": 3,
+      "symbol": "SOLUSDT",
+      "quote_volume_2026_05_usdt": 51500518949.1016,
+      "earliest_1m_month": "2020-09",
+      "age_ge_18mo": true,
+      "already_have": true
+    },
+    {
+      "rank": 4,
+      "symbol": "ZECUSDT",
+      "quote_volume_2026_05_usdt": 36565567145.8718,
+      "earliest_1m_month": "2020-02",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 5,
+      "symbol": "HYPEUSDT",
+      "quote_volume_2026_05_usdt": 30289317202.309383,
+      "earliest_1m_month": "2025-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 6,
+      "symbol": "XAUUSDT",
+      "quote_volume_2026_05_usdt": 28133184147.411354,
+      "earliest_1m_month": "2025-12",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 7,
+      "symbol": "XAGUSDT",
+      "quote_volume_2026_05_usdt": 25075275580.001022,
+      "earliest_1m_month": "2026-01",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 8,
+      "symbol": "CLUSDT",
+      "quote_volume_2026_05_usdt": 24854732996.683403,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 9,
+      "symbol": "LABUSDT",
+      "quote_volume_2026_05_usdt": 20632067269.542305,
+      "earliest_1m_month": "2025-10",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 10,
+      "symbol": "XRPUSDT",
+      "quote_volume_2026_05_usdt": 19436283961.300835,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 11,
+      "symbol": "DOGEUSDT",
+      "quote_volume_2026_05_usdt": 17610907663.069557,
+      "earliest_1m_month": "2020-07",
+      "age_ge_18mo": true,
+      "already_have": true
+    },
+    {
+      "rank": 12,
+      "symbol": "BNBUSDT",
+      "quote_volume_2026_05_usdt": 12360525184.585701,
+      "earliest_1m_month": "2020-02",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 13,
+      "symbol": "SUIUSDT",
+      "quote_volume_2026_05_usdt": 9811338972.66487,
+      "earliest_1m_month": "2023-05",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 14,
+      "symbol": "NEARUSDT",
+      "quote_volume_2026_05_usdt": 9788578312.808,
+      "earliest_1m_month": "2020-10",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 15,
+      "symbol": "TONUSDT",
+      "quote_volume_2026_05_usdt": 9638943603.284248,
+      "earliest_1m_month": "2024-03",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 16,
+      "symbol": "BZUSDT",
+      "quote_volume_2026_05_usdt": 9075710223.7292,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 17,
+      "symbol": "BSBUSDT",
+      "quote_volume_2026_05_usdt": 8168828773.55829,
+      "earliest_1m_month": "2026-03",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 18,
+      "symbol": "1000PEPEUSDT",
+      "quote_volume_2026_05_usdt": 7295006065.287661,
+      "earliest_1m_month": "2023-05",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 19,
+      "symbol": "BILLUSDT",
+      "quote_volume_2026_05_usdt": 6501985015.9473,
+      "earliest_1m_month": "2026-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 20,
+      "symbol": "MUUSDT",
+      "quote_volume_2026_05_usdt": 6401244401.6373,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 21,
+      "symbol": "XLMUSDT",
+      "quote_volume_2026_05_usdt": 5693997758.66537,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 22,
+      "symbol": "SKYAIUSDT",
+      "quote_volume_2026_05_usdt": 5571143222.796721,
+      "earliest_1m_month": "2025-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 23,
+      "symbol": "WLDUSDT",
+      "quote_volume_2026_05_usdt": 5555619378.276299,
+      "earliest_1m_month": "2023-07",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 24,
+      "symbol": "SNDKUSDT",
+      "quote_volume_2026_05_usdt": 5093017777.745501,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 25,
+      "symbol": "ONDOUSDT",
+      "quote_volume_2026_05_usdt": 5072765365.08579,
+      "earliest_1m_month": "2024-01",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 26,
+      "symbol": "TAOUSDT",
+      "quote_volume_2026_05_usdt": 5051546706.21554,
+      "earliest_1m_month": "2024-04",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 27,
+      "symbol": "ADAUSDT",
+      "quote_volume_2026_05_usdt": 4966599613.9377,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 28,
+      "symbol": "FILUSDT",
+      "quote_volume_2026_05_usdt": 4402790514.312901,
+      "earliest_1m_month": "2020-10",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 29,
+      "symbol": "UBUSDT",
+      "quote_volume_2026_05_usdt": 4190197251.280361,
+      "earliest_1m_month": "2025-09",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 30,
+      "symbol": "LINKUSDT",
+      "quote_volume_2026_05_usdt": 3737196507.352061,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": true
+    },
+    {
+      "rank": 31,
+      "symbol": "BUSDT",
+      "quote_volume_2026_05_usdt": 3729524753.6849604,
+      "earliest_1m_month": "2025-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 32,
+      "symbol": "EDENUSDT",
+      "quote_volume_2026_05_usdt": 3691405369.2216797,
+      "earliest_1m_month": "2025-09",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 33,
+      "symbol": "AVAXUSDT",
+      "quote_volume_2026_05_usdt": 3519034587.6669993,
+      "earliest_1m_month": "2020-09",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 34,
+      "symbol": "CRCLUSDT",
+      "quote_volume_2026_05_usdt": 3375018370.3013005,
+      "earliest_1m_month": "2026-02",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 35,
+      "symbol": "PLAYUSDT",
+      "quote_volume_2026_05_usdt": 3246634759.9624004,
+      "earliest_1m_month": "2025-07",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 36,
+      "symbol": "BCHUSDT",
+      "quote_volume_2026_05_usdt": 2981355839.7756004,
+      "earliest_1m_month": "2020-01",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 37,
+      "symbol": "ENAUSDT",
+      "quote_volume_2026_05_usdt": 2975842842.0719404,
+      "earliest_1m_month": "2024-04",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 38,
+      "symbol": "INJUSDT",
+      "quote_volume_2026_05_usdt": 2886382072.4172997,
+      "earliest_1m_month": "2022-08",
+      "age_ge_18mo": true,
+      "already_have": false
+    },
+    {
+      "rank": 39,
+      "symbol": "ALLOUSDT",
+      "quote_volume_2026_05_usdt": 2813379361.75567,
+      "earliest_1m_month": "2025-11",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 40,
+      "symbol": "VVVUSDT",
+      "quote_volume_2026_05_usdt": 2699723380.2980695,
+      "earliest_1m_month": "2025-01",
+      "age_ge_18mo": false,
+      "already_have": false
+    }
+  ],
+  "download_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "ZECUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "BNBUSDT",
+    "SUIUSDT",
+    "NEARUSDT",
+    "TONUSDT",
+    "1000PEPEUSDT",
+    "XLMUSDT",
+    "WLDUSDT",
+    "ONDOUSDT",
+    "TAOUSDT",
+    "ADAUSDT",
+    "FILUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "BCHUSDT",
+    "ENAUSDT",
+    "INJUSDT"
+  ],
+  "watchlist_excluded_lt_18mo": [
+    {
+      "rank": 5,
+      "symbol": "HYPEUSDT",
+      "quote_volume_2026_05_usdt": 30289317202.309383,
+      "earliest_1m_month": "2025-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 6,
+      "symbol": "XAUUSDT",
+      "quote_volume_2026_05_usdt": 28133184147.411354,
+      "earliest_1m_month": "2025-12",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 7,
+      "symbol": "XAGUSDT",
+      "quote_volume_2026_05_usdt": 25075275580.001022,
+      "earliest_1m_month": "2026-01",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 8,
+      "symbol": "CLUSDT",
+      "quote_volume_2026_05_usdt": 24854732996.683403,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 9,
+      "symbol": "LABUSDT",
+      "quote_volume_2026_05_usdt": 20632067269.542305,
+      "earliest_1m_month": "2025-10",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 16,
+      "symbol": "BZUSDT",
+      "quote_volume_2026_05_usdt": 9075710223.7292,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 17,
+      "symbol": "BSBUSDT",
+      "quote_volume_2026_05_usdt": 8168828773.55829,
+      "earliest_1m_month": "2026-03",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 19,
+      "symbol": "BILLUSDT",
+      "quote_volume_2026_05_usdt": 6501985015.9473,
+      "earliest_1m_month": "2026-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 20,
+      "symbol": "MUUSDT",
+      "quote_volume_2026_05_usdt": 6401244401.6373,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 22,
+      "symbol": "SKYAIUSDT",
+      "quote_volume_2026_05_usdt": 5571143222.796721,
+      "earliest_1m_month": "2025-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 24,
+      "symbol": "SNDKUSDT",
+      "quote_volume_2026_05_usdt": 5093017777.745501,
+      "earliest_1m_month": "2026-04",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 29,
+      "symbol": "UBUSDT",
+      "quote_volume_2026_05_usdt": 4190197251.280361,
+      "earliest_1m_month": "2025-09",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 31,
+      "symbol": "BUSDT",
+      "quote_volume_2026_05_usdt": 3729524753.6849604,
+      "earliest_1m_month": "2025-05",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 32,
+      "symbol": "EDENUSDT",
+      "quote_volume_2026_05_usdt": 3691405369.2216797,
+      "earliest_1m_month": "2025-09",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 34,
+      "symbol": "CRCLUSDT",
+      "quote_volume_2026_05_usdt": 3375018370.3013005,
+      "earliest_1m_month": "2026-02",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 35,
+      "symbol": "PLAYUSDT",
+      "quote_volume_2026_05_usdt": 3246634759.9624004,
+      "earliest_1m_month": "2025-07",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 39,
+      "symbol": "ALLOUSDT",
+      "quote_volume_2026_05_usdt": 2813379361.75567,
+      "earliest_1m_month": "2025-11",
+      "age_ge_18mo": false,
+      "already_have": false
+    },
+    {
+      "rank": 40,
+      "symbol": "VVVUSDT",
+      "quote_volume_2026_05_usdt": 2699723380.2980695,
+      "earliest_1m_month": "2025-01",
+      "age_ge_18mo": false,
+      "already_have": false
+    }
+  ],
+  "existing_reused": [
+    "BTCUSDT",
+    "DOGEUSDT",
+    "ETHUSDT",
+    "LINKUSDT",
+    "SOLUSDT"
+  ],
+  "new_to_download": [
+    "1000PEPEUSDT",
+    "ADAUSDT",
+    "AVAXUSDT",
+    "BCHUSDT",
+    "BNBUSDT",
+    "ENAUSDT",
+    "FILUSDT",
+    "INJUSDT",
+    "NEARUSDT",
+    "ONDOUSDT",
+    "SUIUSDT",
+    "TAOUSDT",
+    "TONUSDT",
+    "WLDUSDT",
+    "XLMUSDT",
+    "XRPUSDT",
+    "ZECUSDT"
+  ]
+}

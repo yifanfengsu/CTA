@@ -509,6 +509,10 @@ build_research_decision_dossier.py — 研究决策汇总
 - `data/funding/okx/`：5 币 8h 资金费率 2023-01 → 2026-06-11，已正式核查（同上报告）。
 - `data/binance_vision/`：Binance UM 永续 1m 月度镜像（205 文件，sha256 全验），
   仅作交叉验证源，不可作 OKX 回测价格源。
+- **横截面研究原材料已下载，待开题**（2026-06-13）：22 个主流 USDT 永续（前 40 成交额
+  ∩ ≥18 月上线，17 新 + 5 复用）的 1m K 线 + funding，sha256 全验、0 失败，~2.03 GB；
+  编目/清单/局限见 `data/binance_vision/cross_sectional_{manifest,README}`。**是当前主流币
+  快照、含幸存者偏差、不含退市币——不可直接用于横截面收益估计，防御属开题阶段。**
 
 ### 合约规格
 `config/instruments/` — 7 个币种的 OKX 合约参数（JSON），每个包含：
