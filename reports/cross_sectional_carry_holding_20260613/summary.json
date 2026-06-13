@@ -1,0 +1,277 @@
+{
+  "positioning": "single-variable re-test (holding period) of CAR only; engine + G1-G5 reused verbatim; gates NOT relaxed; post-hoc holding period -> asterisk; survivorship NOT corrected",
+  "prior_k1_verdict": "FAIL (G2 non-monotone + G5 decay) \u2014 retained, archived",
+  "judged_holds": [
+    3,
+    5
+  ],
+  "anchor_hold": 1,
+  "results": {
+    "1": {
+      "hold_days": 1,
+      "n_rebalance_days": 2137,
+      "ic_mean": 0.01876164118063859,
+      "ic_std": 0.2787982333887091,
+      "ic_t": 3.110878642531818,
+      "ic_ir_annual": 1.2856632809675974,
+      "ic_pos_share": 0.515208235844642,
+      "quintile_mean_dailyret": [
+        0.0011502937956295446,
+        0.0022779412911410634,
+        0.0022667568648324647,
+        0.001776478793002234,
+        0.0028416787330182046
+      ],
+      "quintile_monotonic_violations": 2,
+      "gross_annual_pct": 61.73555021468607,
+      "gross_sharpe": 0.8092440873277261,
+      "net_annual_pct": 47.7410368782331,
+      "net_sharpe": 0.6258929710362443,
+      "cost_over_gross_ratio": 0.015005298183475324,
+      "beta_spread": {
+        "alpha_daily": 0.0018323991664767492,
+        "beta": -0.10303379610935914,
+        "alpha_t": 2.1251757355867515,
+        "alpha_annual_pct": 66.88256957640135
+      },
+      "beta_long_leg": {
+        "alpha_daily": 0.00137102916320727,
+        "beta": 1.0745483551844959,
+        "alpha_t": 1.7217972947740696,
+        "alpha_annual_pct": 50.04256445706535
+      },
+      "beta_short_leg": {
+        "alpha_daily": -0.0004613700032694791,
+        "beta": 1.1775821512938545,
+        "alpha_t": -0.64843258788795,
+        "alpha_annual_pct": -16.840005119335988
+      },
+      "ic_by_year": {
+        "2020": {
+          "mean": -0.02585989864339046,
+          "n": 168
+        },
+        "2021": {
+          "mean": 0.06403316577006363,
+          "n": 365
+        },
+        "2022": {
+          "mean": 0.019241343162398894,
+          "n": 358
+        },
+        "2023": {
+          "mean": 0.018732387162304066,
+          "n": 365
+        },
+        "2024": {
+          "mean": 0.00964343337137797,
+          "n": 366
+        },
+        "2025": {
+          "mean": 0.003947665564485104,
+          "n": 365
+        },
+        "2026": {
+          "mean": 0.015799119717999032,
+          "n": 150
+        }
+      },
+      "ic_2025plus_mean": 0.007399545415023143,
+      "ic_2025plus_t": 0.7038657418700406,
+      "gates": {
+        "G1_ic_sig": 1.0,
+        "G2_monotonic": false,
+        "G3_net_positive": true,
+        "G4_true_alpha": true,
+        "G5_stable_2025": false,
+        "ALL": false
+      },
+      "death_cause": "G2_mono,G5_stable",
+      "verification_years": null
+    },
+    "3": {
+      "hold_days": 3,
+      "n_rebalance_days": 2132,
+      "ic_mean": 0.03119351646867332,
+      "ic_std": 0.2754328067334885,
+      "ic_t": 5.22928447592752,
+      "ic_ir_annual": 2.163690311337208,
+      "ic_pos_share": 0.550187617260788,
+      "quintile_mean_dailyret": [
+        0.0013213187913815655,
+        0.0019583348740278626,
+        0.002492810336305805,
+        0.001849811827283449,
+        0.002798451760679302
+      ],
+      "quintile_monotonic_violations": 1,
+      "gross_annual_pct": 53.91535337936738,
+      "gross_sharpe": 0.7603300969902916,
+      "net_annual_pct": 44.33329720017601,
+      "net_sharpe": 0.6252982501453659,
+      "cost_over_gross_ratio": 0.011022562266881978,
+      "beta_spread": {
+        "alpha_daily": 0.001650740515702537,
+        "beta": -0.126219664659904,
+        "alpha_t": 2.0648059874554345,
+        "alpha_annual_pct": 60.2520288231426
+      },
+      "beta_long_leg": {
+        "alpha_daily": 0.0013531192036671119,
+        "beta": 1.0508148663235481,
+        "alpha_t": 1.8034382204682133,
+        "alpha_annual_pct": 49.38885093384958
+      },
+      "beta_short_leg": {
+        "alpha_daily": -0.0002976213120354239,
+        "beta": 1.1770345309834525,
+        "alpha_t": -0.43011280239608307,
+        "alpha_annual_pct": -10.863177889292972
+      },
+      "ic_by_year": {
+        "2020": {
+          "mean": -0.03544691686909173,
+          "n": 168
+        },
+        "2021": {
+          "mean": 0.07966166823616855,
+          "n": 365
+        },
+        "2022": {
+          "mean": 0.05098223653987727,
+          "n": 355
+        },
+        "2023": {
+          "mean": 0.0236930889200789,
+          "n": 365
+        },
+        "2024": {
+          "mean": 0.012614936090333623,
+          "n": 366
+        },
+        "2025": {
+          "mean": 0.02172615789962159,
+          "n": 365
+        },
+        "2026": {
+          "mean": 0.02763084168316344,
+          "n": 148
+        }
+      },
+      "ic_2025plus_mean": 0.02342965341612099,
+      "ic_2025plus_t": 2.269823434065514,
+      "gates": {
+        "G1_ic_sig": 1.0,
+        "G2_monotonic": true,
+        "G3_net_positive": true,
+        "G4_true_alpha": true,
+        "G5_stable_2025": true,
+        "ALL": true
+      },
+      "death_cause": null,
+      "verification_years": 9.82511666670676
+    },
+    "5": {
+      "hold_days": 5,
+      "n_rebalance_days": 2130,
+      "ic_mean": 0.03497285857823157,
+      "ic_std": 0.2721551025702373,
+      "ic_t": 5.930679462696767,
+      "ic_ir_annual": 2.455054190291203,
+      "ic_pos_share": 0.5577464788732395,
+      "quintile_mean_dailyret": [
+        0.0014145394693787132,
+        0.002008424099211052,
+        0.0025297648581781252,
+        0.0022337886539565512,
+        0.002639757881616297
+      ],
+      "quintile_monotonic_violations": 1,
+      "gross_annual_pct": 44.720472046671816,
+      "gross_sharpe": 0.6686742273269232,
+      "net_annual_pct": 36.96425047346309,
+      "net_sharpe": 0.5527539968089636,
+      "cost_over_gross_ratio": 0.009326405142282179,
+      "beta_spread": {
+        "alpha_daily": 0.0014257035214412237,
+        "beta": -0.13811237843666418,
+        "alpha_t": 1.8951503163875192,
+        "alpha_annual_pct": 52.03817853260466
+      },
+      "beta_long_leg": {
+        "alpha_daily": 0.0011340957392445266,
+        "beta": 1.0372370318724549,
+        "alpha_t": 1.578640079685802,
+        "alpha_annual_pct": 41.39449448242522
+      },
+      "beta_short_leg": {
+        "alpha_daily": -0.0002916077821966983,
+        "beta": 1.1753494103091187,
+        "alpha_t": -0.4263624677059818,
+        "alpha_annual_pct": -10.643684050179488
+      },
+      "ic_by_year": {
+        "2020": {
+          "mean": -0.05804195809986154,
+          "n": 168
+        },
+        "2021": {
+          "mean": 0.08203452335132633,
+          "n": 365
+        },
+        "2022": {
+          "mean": 0.052048178758933174,
+          "n": 355
+        },
+        "2023": {
+          "mean": 0.04385831952934946,
+          "n": 365
+        },
+        "2024": {
+          "mean": 0.0036078778582270586,
+          "n": 366
+        },
+        "2025": {
+          "mean": 0.031896267644374254,
+          "n": 365
+        },
+        "2026": {
+          "mean": 0.04693579202215295,
+          "n": 146
+        }
+      },
+      "ic_2025plus_mean": 0.03619327460945388,
+      "ic_2025plus_t": 3.5505811244505985,
+      "gates": {
+        "G1_ic_sig": 1.0,
+        "G2_monotonic": true,
+        "G3_net_positive": true,
+        "G4_true_alpha": false,
+        "G5_stable_2025": true,
+        "ALL": false
+      },
+      "death_cause": "G4_alpha",
+      "verification_years": null
+    }
+  },
+  "consistency": "CONTRADICTORY (one pass one fail) -> parameter spike SUSPECT",
+  "ic_monotone_in_horizon": true,
+  "holding_curve": {
+    "1": {
+      "ic_mean": 0.01876164118063859,
+      "quintile_violations": 2,
+      "net_sharpe": 0.6258929710362443
+    },
+    "3": {
+      "ic_mean": 0.03119351646867332,
+      "quintile_violations": 1,
+      "net_sharpe": 0.6252982501453659
+    },
+    "5": {
+      "ic_mean": 0.03497285857823157,
+      "quintile_violations": 1,
+      "net_sharpe": 0.5527539968089636
+    }
+  },
+  "final_verdict": "NOT STARTED (parameter-sensitive, suspect)"
+}

@@ -1,0 +1,43 @@
+run start (UTC): 2026-06-13T15:29:59.331167+00:00
+DATA ENVIRONMENT: data/binance_vision 22-coin pure-crypto (read-only); contaminated DB not touched; survivorship NOT corrected
+SINGLE VARIABLE: holding period N in {3,5} (N=1 anchor); engine + G1-G5 reused VERBATIM from research_cross_sectional_ic; gates NOT relaxed; CAR only; post-hoc holding period -> asterisk on any pass
+
+== loading 22 coins: daily close + daily funding (reused loaders) ==
+  22 coins, 2343 day-grid
+
+== CAR hold N=1  (anchor/reproduction, NOT judged) ==
+  IC mean +0.0188 t +3.11 IR_ann +1.29 pos 51.5% (n=2137)
+  quintile daily-ret: [0.00115, 0.00228, 0.00227, 0.00178, 0.00284] viol=2
+  gross ann +61.7% Shp +0.81 | net ann +47.7% Shp +0.63 | cost/gross 1.50%
+  beta spread -0.10 alpha_ann +66.9% alpha_t +2.13 | long beta +1.07 short beta +1.18
+  IC by year: 2020:-0.026 2021:+0.064 2022:+0.019 2023:+0.019 2024:+0.010 2025:+0.004 2026:+0.016
+  2025+ IC +0.0074 t +0.70
+
+== CAR hold N=3 ==
+  IC mean +0.0312 t +5.23 IR_ann +2.16 pos 55.0% (n=2132)
+  quintile daily-ret: [0.00132, 0.00196, 0.00249, 0.00185, 0.0028] viol=1
+  gross ann +53.9% Shp +0.76 | net ann +44.3% Shp +0.63 | cost/gross 1.10%
+  beta spread -0.13 alpha_ann +60.3% alpha_t +2.06 | long beta +1.05 short beta +1.18
+  IC by year: 2020:-0.035 2021:+0.080 2022:+0.051 2023:+0.024 2024:+0.013 2025:+0.022 2026:+0.028
+  2025+ IC +0.0234 t +2.27
+  GATES G11 G21 G31 G41 G51 -> GO-CANDIDATE*
+
+== CAR hold N=5 ==
+  IC mean +0.0350 t +5.93 IR_ann +2.46 pos 55.8% (n=2130)
+  quintile daily-ret: [0.00141, 0.00201, 0.00253, 0.00223, 0.00264] viol=1
+  gross ann +44.7% Shp +0.67 | net ann +37.0% Shp +0.55 | cost/gross 0.93%
+  beta spread -0.14 alpha_ann +52.0% alpha_t +1.90 | long beta +1.04 short beta +1.18
+  IC by year: 2020:-0.058 2021:+0.082 2022:+0.052 2023:+0.044 2024:+0.004 2025:+0.032 2026:+0.047
+  2025+ IC +0.0362 t +3.55
+  GATES G11 G21 G31 G40 G51 -> FAIL [G4_alpha]
+
+== CONSISTENCY: CONTRADICTORY (one pass one fail) -> parameter spike SUSPECT ==
+  holding curve (k=1 anchor / 3 / 5):
+    N=1: IC +0.0188  viol 2  netShp +0.63  G1-5 10110
+    N=3: IC +0.0312  viol 1  netShp +0.63  G1-5 11111
+    N=5: IC +0.0350  viol 1  netShp +0.55  G1-5 11101
+  IC monotone in horizon (1<=3<=5): True
+  N=1 reproduction check: IC +0.0188 (prior k1 +0.0188), net Sharpe +0.63 (prior k1 ~0.61)
+
+  FINAL: NOT STARTED (parameter-sensitive, suspect)
+run end (UTC): 2026-06-13T15:35:56.010231+00:00
