@@ -1,0 +1,55 @@
+{
+  "positioning": "descriptive pairs-cointegration pre-study, go/no-go only; rolling formation/trading split (no full-sample selection); survivorship NOT corrected (break tail underestimated); no PnL/optimisation/whitelist",
+  "pre_registered": {
+    "form_days": 90,
+    "trade_days": 30,
+    "roll_days": 30,
+    "coint_p": 0.05,
+    "z_entry": 2.0,
+    "z_exit": 0.5,
+    "z_blowout": 3.0,
+    "cost_pct": 0.2,
+    "C1_min_pairs": 3,
+    "C2_min_persist": 2,
+    "eg_test": "statsmodels.coint trend=c maxlag=1 autolag=None"
+  },
+  "results": {
+    "n_windows": 75,
+    "n_pairs_universe": 231,
+    "C1_mean_tradeable_pairs_per_window": 12.48,
+    "pairs_per_window_min_max": [
+      0,
+      78
+    ],
+    "C2_median_persistence_windows": 1.0,
+    "mean_persistence_windows": 1.1788413098236776,
+    "n_persistence_runs": 794,
+    "mean_churn_rate": 0.914647591941978,
+    "n_deviation_events": 715,
+    "event_class": {
+      "revert": 128,
+      "blowout": 490,
+      "unresolved": 97
+    },
+    "reversion_rate_conditional": 0.17902097902097902,
+    "baseline_reach_rate": 0.4239575268222542,
+    "twoprop_z": -13.108583098161935,
+    "reversion_gross_mean_pct": 13.84026667954119,
+    "reversion_gross_median_pct": 10.3154895421792,
+    "all_events_gross_mean_pct": -1.2956785019582167,
+    "all_events_gross_median_pct": -3.05244912817475,
+    "cost_pct": 0.2,
+    "net_thickness_mean_pct": 13.64026667954119,
+    "net_eventweighted_mean_pct": -1.4956785019582166,
+    "gates": {
+      "C1_exist": true,
+      "C2_stable": false,
+      "C3_reversion": false,
+      "C4_thick": 1.0,
+      "C5_break": false,
+      "ALL": false
+    },
+    "death_cause": "C2_stable,C3_reversion,C5_break"
+  },
+  "final_verdict": "NOT STARTED (pairs cointegration not viable on survivor sample) -> MR FAMILY FULLY CLOSED"
+}

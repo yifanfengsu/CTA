@@ -1,0 +1,23 @@
+{
+  "n_events": 715,
+  "class": {
+    "revert": 128,
+    "blowout": 490,
+    "unresolved": 97
+  },
+  "reversion_gross_pct": {
+    "mean": 13.84026667954119,
+    "median": 10.3154895421792,
+    "n": 128
+  },
+  "all_events_gross_pct": {
+    "mean": -1.2956785019582167,
+    "median": -3.05244912817475,
+    "n": 715
+  },
+  "reversion_rate": 0.17902097902097902,
+  "baseline_reach_rate": 0.4239575268222542,
+  "twoprop_z": -13.108583098161935,
+  "net_thickness_pct": 13.64026667954119,
+  "net_eventweighted_pct": -1.4956785019582166
+}

@@ -1,0 +1,27 @@
+run start (UTC): 2026-06-13T15:57:36.472860+00:00
+statsmodels 0.14.6; numpy 2.4.4
+DATA ENVIRONMENT: data/binance_vision 22-coin pure-crypto (read-only); contaminated DB not touched; survivorship NOT corrected (break-tail underestimated)
+PRE-REGISTERED: form90/trade30/roll30, EG p<0.05 (trend=c,maxlag=1), z=+-2 entry /0.5 exit/3 blowout, cost 0.20%, C1-C5 frozen; rolling formation/trading split, NO full-sample pair selection; zero variants
+
+== loading 22 coins daily close -> log price matrix ==
+  22 coins, 2343 day-grid, 231 pairs
+  75 rolling windows (form 90d / trade 30d / roll 30d)
+  window  0 (form end 2020-03-30): 0 cointegrated pairs
+  window 10 (form end 2021-01-24): 12 cointegrated pairs
+  window 20 (form end 2021-11-20): 9 cointegrated pairs
+  window 30 (form end 2022-09-16): 7 cointegrated pairs
+  window 40 (form end 2023-07-13): 6 cointegrated pairs
+  window 50 (form end 2024-05-08): 10 cointegrated pairs
+  window 60 (form end 2025-03-04): 23 cointegrated pairs
+  window 70 (form end 2025-12-29): 29 cointegrated pairs
+
+== RESULTS ==
+  C1 mean tradeable pairs/window: 12.48 (min 0 max 78) >=3? True
+  C2 median persistence: 1.0 windows (mean 1.18, 794 runs, churn 0.91) >=2? False
+  C3 reversion rate 0.179 vs baseline 0.424 (two-prop z -13.11) cond>base&sig? False
+  events: 715 (128 revert / 490 blowout / 97 unresolved)
+  C4 reversion gross mean +13.8403% med +10.3155% - cost 0.2% = net +13.6403% mean/med same sign? True
+  C5 ALL-event gross mean -1.2957% med -3.0524% - cost = net eventwt -1.4957% >0? False
+  GATES C11 C20 C30 C41 C50 -> FAIL [C2_stable,C3_reversion,C5_break]
+  FINAL: NOT STARTED (pairs cointegration not viable on survivor sample) -> MR FAMILY FULLY CLOSED
+run end (UTC): 2026-06-13T16:00:10.484719+00:00
