@@ -1,0 +1,59 @@
+run start (UTC): 2026-06-13T10:32:03.902036+00:00
+DATA ENVIRONMENT: database_mainnet.db (mode=ro) + data/binance_vision; contaminated DB not touched; closed verdicts not re-tested
+PRE-REGISTERED: 1h / RV win 24 / roll 180d (4320) / p20-p80 / k={6,12,24,48} / cost 0.20% double-sided / thick CAP_net>=0.30% / increment vs uncond / >=3/5 symbols / dual-sample / 12-24mo lines — ALL FROZEN, zero variants
+PHYSICAL CONSTRAINT: no options data; only perp-synthesised long-vol testable. Perps linear -> static straddle gross ~0; only breakout-entry captures vol (degenerates to directional, already empty band).
+
+== loading OKX mainnet 1m -> 1h ==
+  BTC: 1h bars 29,856
+  ETH: 1h bars 29,856
+  SOL: 1h bars 29,856
+  LINK: 1h bars 29,856
+  DOGE: 1h bars 29,856
+
+== OKX: per-symbol volatility-event computation ==
+  BTC: 1h bars 29,856 | low entries 292 (86/yr) | high entries 275 | uncond RV 0.00438
+  ETH: 1h bars 29,856 | low entries 308 (90/yr) | high entries 279 | uncond RV 0.00597
+  SOL: 1h bars 29,856 | low entries 385 (113/yr) | high entries 238 | uncond RV 0.00839
+  LINK: 1h bars 29,856 | low entries 342 (100/yr) | high entries 244 | uncond RV 0.00837
+  DOGE: 1h bars 29,856 | low entries 317 (93/yr) | high entries 227 | uncond RV 0.00846
+  [OKX] Part1 (clustering):
+    k= 6h | RV(t+k) low 0.00464 vs high 0.01012 vs uncond 0.00711 | P(highvol) low 0.011 uncond 0.248 dP -0.237 | sym low<unc 5/5 high>unc 5/5
+    k=12h | RV(t+k) low 0.00495 vs high 0.01033 vs uncond 0.00711 | P(highvol) low 0.025 uncond 0.285 dP -0.260 | sym low<unc 5/5 high>unc 5/5
+    k=24h | RV(t+k) low 0.00573 vs high 0.00891 vs uncond 0.00711 | P(highvol) low 0.078 uncond 0.346 dP -0.268 | sym low<unc 5/5 high>unc 5/5
+    k=48h | RV(t+k) low 0.00636 vs high 0.00822 vs uncond 0.00711 | P(highvol) low 0.201 uncond 0.445 dP -0.245 | sym low<unc 5/5 high>unc 5/5
+  [OKX] Part2 (monetisation, cost 0.2%):
+    k= 6h | CAP_net mean 1.0834% med 0.7311% | uncond 1.3073% | incr -0.2239% | CAP_exc mean 1.7887% | thick True incr False sup 5/5 | ALL False
+    k=12h | CAP_net mean 1.5157% med 1.0755% | uncond 1.9019% | incr -0.3862% | CAP_exc mean 2.5716% | thick True incr False sup 5/5 | ALL False
+    k=24h | CAP_net mean 2.3350% med 1.6479% | uncond 2.7538% | incr -0.4188% | CAP_exc mean 3.8379% | thick True incr False sup 5/5 | ALL False
+    k=48h | CAP_net mean 3.5290% med 2.5851% | uncond 3.9209% | incr -0.3919% | CAP_exc mean 5.9191% | thick True incr False sup 5/5 | ALL False
+
+== loading Binance 1m -> 1h (dual-sample, its own events) ==
+  BTC: 1h bars 56,232
+  ETH: 1h bars 56,232
+  SOL: 1h bars 49,937
+  LINK: 1h bars 55,840
+  DOGE: 1h bars 51,639
+
+== BNC: per-symbol volatility-event computation ==
+  BTC: 1h bars 56,232 | low entries 632 (99/yr) | high entries 505 | uncond RV 0.00535
+  ETH: 1h bars 56,232 | low entries 649 (101/yr) | high entries 491 | uncond RV 0.00711
+  SOL: 1h bars 49,937 | low entries 707 (124/yr) | high entries 387 | uncond RV 0.01006
+  LINK: 1h bars 55,840 | low entries 717 (113/yr) | high entries 456 | uncond RV 0.00976
+  DOGE: 1h bars 51,639 | low entries 613 (104/yr) | high entries 355 | uncond RV 0.01006
+  [BNC] Part1 (clustering):
+    k= 6h | RV(t+k) low 0.00549 vs high 0.01197 vs uncond 0.00840 | P(highvol) low 0.009 uncond 0.228 dP -0.219 | sym low<unc 5/5 high>unc 5/5
+    k=12h | RV(t+k) low 0.00585 vs high 0.01220 vs uncond 0.00840 | P(highvol) low 0.021 uncond 0.262 dP -0.241 | sym low<unc 5/5 high>unc 5/5
+    k=24h | RV(t+k) low 0.00669 vs high 0.01065 vs uncond 0.00840 | P(highvol) low 0.066 uncond 0.319 dP -0.252 | sym low<unc 5/5 high>unc 5/5
+    k=48h | RV(t+k) low 0.00727 vs high 0.00973 vs uncond 0.00840 | P(highvol) low 0.175 uncond 0.410 dP -0.235 | sym low<unc 5/5 high>unc 5/5
+  [BNC] Part2 (monetisation, cost 0.2%):
+    k= 6h | CAP_net mean 1.2265% med 0.8070% | uncond 1.5413% | incr -0.3148% | CAP_exc mean 2.1010% | thick True incr False sup 5/5 | ALL False
+    k=12h | CAP_net mean 1.7907% med 1.1894% | uncond 2.2401% | incr -0.4494% | CAP_exc mean 3.0509% | thick True incr False sup 5/5 | ALL False
+    k=24h | CAP_net mean 2.6990% med 1.9034% | uncond 3.2878% | incr -0.5889% | CAP_exc mean 4.5141% | thick True incr False sup 5/5 | ALL False
+    k=48h | CAP_net mean 4.0653% med 2.9328% | uncond 4.6819% | incr -0.6166% | CAP_exc mean 6.8544% | thick True incr False sup 5/5 | ALL False
+
+== VERDICT CHAIN ==
+  Part 1 predictability: OKX True / Binance True -> True
+  Part 2 passing k (OKX & Binance): NONE
+  DEATH CAUSE: b) predictable but perp-synthesis cost (0.20%) eats capturable magnitude
+  FINAL: NOT STARTED
+run end (UTC): 2026-06-13T10:33:09.934605+00:00

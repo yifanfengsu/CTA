@@ -1,0 +1,205 @@
+{
+  "positioning": "descriptive vol-event pre-study, go/no-go only; denominator = all low-vol entries; mean/median split; no options data -> only perp long-vol testable",
+  "pre_registered": {
+    "scale": "1h",
+    "rv_window": 24,
+    "roll_window_bars": 4320,
+    "percentiles": [
+      0.2,
+      0.5,
+      0.8
+    ],
+    "ks_hours": [
+      6,
+      12,
+      24,
+      48
+    ],
+    "cost_pct_double_sided": 0.2,
+    "thick_net_pct": 0.3,
+    "min_symbols": 3,
+    "verdict_months": [
+      12,
+      24
+    ]
+  },
+  "part1_predictability_pass": {
+    "okx": true,
+    "binance": true,
+    "overall": true
+  },
+  "okx_pooled": {
+    "span_years": 3.4057723020762034,
+    "n_low_entries_5sym": 1644,
+    "low_entries_per_year_5sym": 482.70989783955787,
+    "uncond_rv_mean": 0.0071134497060058605,
+    "part1": {
+      "6": {
+        "low_rv_kplus_mean": 0.004639845272957867,
+        "low_rv_kplus_median": 0.004548297400446849,
+        "high_rv_kplus_mean": 0.010120996441835412,
+        "high_rv_kplus_median": 0.009896977229417831,
+        "uncond_rv_mean": 0.0071134497060058605,
+        "p_highvol_given_low": 0.010948905109489052,
+        "p_highvol_uncond": 0.24810632792284168,
+        "dP_high_lift": -0.23715742281335261,
+        "n_sym_low_below_uncond": 5,
+        "n_sym_high_above_uncond": 5
+      },
+      "12": {
+        "low_rv_kplus_mean": 0.004952949748416217,
+        "low_rv_kplus_median": 0.0047527801005204555,
+        "high_rv_kplus_mean": 0.010330528911904526,
+        "high_rv_kplus_median": 0.009899498170447841,
+        "uncond_rv_mean": 0.0071134497060058605,
+        "p_highvol_given_low": 0.024939172749391728,
+        "p_highvol_uncond": 0.2846823529411765,
+        "dP_high_lift": -0.2597431801917848,
+        "n_sym_low_below_uncond": 5,
+        "n_sym_high_above_uncond": 5
+      },
+      "24": {
+        "low_rv_kplus_mean": 0.00573410983485648,
+        "low_rv_kplus_median": 0.005313124643223184,
+        "high_rv_kplus_mean": 0.008912142877493017,
+        "high_rv_kplus_median": 0.007702370650651419,
+        "uncond_rv_mean": 0.0071134497060058605,
+        "p_highvol_given_low": 0.07785888077858881,
+        "p_highvol_uncond": 0.3461942875078468,
+        "dP_high_lift": -0.268335406729258,
+        "n_sym_low_below_uncond": 5,
+        "n_sym_high_above_uncond": 5
+      },
+      "48": {
+        "low_rv_kplus_mean": 0.006356857010984458,
+        "low_rv_kplus_median": 0.005800950015022118,
+        "high_rv_kplus_mean": 0.00822329572232691,
+        "high_rv_kplus_median": 0.007065261102879687,
+        "uncond_rv_mean": 0.0071134497060058605,
+        "p_highvol_given_low": 0.20073215375228798,
+        "p_highvol_uncond": 0.4454445491674521,
+        "dP_high_lift": -0.2447123954151641,
+        "n_sym_low_below_uncond": 5,
+        "n_sym_high_above_uncond": 5
+      }
+    },
+    "part2": {
+      "6": {
+        "cap_net": {
+          "n": 1644,
+          "mean": 1.0834152719454013,
+          "median": 0.7310692016293252,
+          "std": 1.146390269159671
+        },
+        "cap_exc": {
+          "n": 1644,
+          "mean": 1.7887245670794532,
+          "median": 1.4459864627349945,
+          "std": 1.3236031097880732
+        },
+        "uncond_cap_net": {
+          "n": 127530,
+          "mean": 1.3073411559748596,
+          "median": 0.8410270190202296,
+          "std": 1.5084494431934008
+        },
+        "cost_pct": 0.2,
+        "net_after_cost_mean": 0.8834152719454014,
+        "increment_vs_uncond": -0.22392588402945823,
+        "thickness_pass": true,
+        "increment_pass": false,
+        "n_symbols_supporting": 5,
+        "consistency_pass": true,
+        "all_pass": false
+      },
+      "12": {
+        "cap_net": {
+          "n": 1644,
+          "mean": 1.5157319927159107,
+          "median": 1.0754704776578972,
+          "std": 1.5682233073051803
+        },
+        "cap_exc": {
+          "n": 1644,
+          "mean": 2.5716272598903926,
+          "median": 2.13197693391416,
+          "std": 1.8313905481305415
+        },
+        "uncond_cap_net": {
+          "n": 127500,
+          "mean": 1.901949659492449,
+          "median": 1.2690809254251423,
+          "std": 2.0788142030402574
+        },
+        "cost_pct": 0.2,
+        "net_after_cost_mean": 1.3157319927159108,
+        "increment_vs_uncond": -0.38621766677653824,
+        "thickness_pass": true,
+        "increment_pass": false,
+        "n_symbols_supporting": 5,
+        "consistency_pass": true,
+        "all_pass": false
+      },
+      "24": {
+        "cap_net": {
+          "n": 1644,
+          "mean": 2.3349796527245075,
+          "median": 1.6479174435951705,
+          "std": 2.3541197423118447
+        },
+        "cap_exc": {
+          "n": 1644,
+          "mean": 3.8379360614704106,
+          "median": 3.2342470535139736,
+          "std": 2.633157609506117
+        },
+        "uncond_cap_net": {
+          "n": 127440,
+          "mean": 2.7538159774626005,
+          "median": 1.8967397069075298,
+          "std": 2.89446774545933
+        },
+        "cost_pct": 0.2,
+        "net_after_cost_mean": 2.1349796527245073,
+        "increment_vs_uncond": -0.41883632473809307,
+        "thickness_pass": true,
+        "increment_pass": false,
+        "n_symbols_supporting": 5,
+        "consistency_pass": true,
+        "all_pass": false
+      },
+      "48": {
+        "cap_net": {
+          "n": 1639,
+          "mean": 3.5289907154664566,
+          "median": 2.5850965961361494,
+          "std": 3.483530586181299
+        },
+        "cap_exc": {
+          "n": 1639,
+          "mean": 5.919098029832747,
+          "median": 4.9164933932524,
+          "std": 4.290154385611996
+        },
+        "uncond_cap_net": {
+          "n": 127320,
+          "mean": 3.9208839885772124,
+          "median": 2.763554002930546,
+          "std": 4.0571015390841
+        },
+        "cost_pct": 0.2,
+        "net_after_cost_mean": 3.3289907154664564,
+        "increment_vs_uncond": -0.39189327311075584,
+        "thickness_pass": true,
+        "increment_pass": false,
+        "n_symbols_supporting": 5,
+        "consistency_pass": true,
+        "all_pass": false
+      }
+    }
+  },
+  "passing_k": [],
+  "arithmetic": [],
+  "death_cause": "b) predictable but perp-synthesis cost (0.20%) eats capturable magnitude",
+  "final_verdict": "NOT STARTED"
+}
