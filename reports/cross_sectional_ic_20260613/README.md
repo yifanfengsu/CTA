@@ -166,4 +166,4 @@ MOM 反号 + 塌缩 FAIL、CAR t0.70<1 FAIL、REV 勉强保号(t1.16) PASS。** 
 横截面 IC 前置研究完成于 2026-06-13T15:06 UTC，纯描述性 / 判定线零修改 / 22 币幸存者
 样本 / 存活因子:无 / beta 中性:三因子价差 beta≈0、两腿近对称；MOM/CAR 剥离后真 alpha
 (t3.86/2.08) 非伪装 beta，REV 负 / 立项判定:不立项（MOM 死 G1+G5、CAR 死 G2+G5、
-REV 死 G2+G3+G4）/ 已 push：[待确认]
+REV 死 G2+G3+G4）/ 已 push：已确认（0bbf5d3）
