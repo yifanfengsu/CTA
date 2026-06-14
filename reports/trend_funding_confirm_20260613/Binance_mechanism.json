@@ -1,0 +1,46 @@
+{
+  "trade_level_net_usd": {
+    "agree": {
+      "na": 453,
+      "nb": 383,
+      "mean_a": 439.36429359823404,
+      "mean_b": 265.5894509138381,
+      "median_a": -386.5683,
+      "median_b": -303.7798,
+      "diff_a_minus_b": 173.77484268439594,
+      "welch_t": 0.6872413837843925,
+      "welch_df": 803.463024857916,
+      "p_two_sided_normal_approx": 0.49193062977005353
+    },
+    "note": "agree-veto>0 & sig => veto signals worse (mechanism holds)"
+  },
+  "trade_level_gross_ret_pct": {
+    "agree": {
+      "na": 453,
+      "nb": 383,
+      "mean_a": 5.58206397571744,
+      "mean_b": 2.866790221932115,
+      "median_a": -3.5700000000000003,
+      "median_b": -3.0677999999999996,
+      "diff_a_minus_b": 2.715273753785325,
+      "welch_t": 0.9819200250530268,
+      "welch_df": 796.605628141427,
+      "p_two_sided_normal_approx": 0.32613924953246426
+    }
+  },
+  "bar_level_fwd_ret_pct": {
+    "agree": {
+      "na": 38780,
+      "nb": 28186,
+      "mean_a": 0.0447987281617468,
+      "mean_b": 0.015288261706989568,
+      "median_a": 0.007002051188376157,
+      "median_b": -0.007080908679890641,
+      "diff_a_minus_b": 0.02951046645475723,
+      "welch_t": 1.7820933328979969,
+      "welch_df": 65214.51205516416,
+      "p_two_sided_normal_approx": 0.07473401286320977
+    },
+    "caveat": "overlapping holds -> autocorrelated -> t optimistic; secondary only"
+  }
+}

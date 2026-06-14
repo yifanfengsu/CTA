@@ -1,0 +1,446 @@
+{
+  "samples": {
+    "OKX": {
+      "V0": {
+        "version": "V0",
+        "n": 470,
+        "gross_pnl": 84300.642,
+        "fees_total": -4748.790800000001,
+        "funding_total": -11357.0329,
+        "net_pnl": 68194.8186,
+        "pf_net": 1.3917567640828419,
+        "win_rate_pct": 28.297872340425535,
+        "avg_hold_hours": 313.3191489361702,
+        "long_short": {
+          "long": {
+            "n": 235,
+            "net": 73979.2853
+          },
+          "short": {
+            "n": 235,
+            "net": -5784.466700000001
+          }
+        },
+        "by_year": {
+          "2023": {
+            "n": 131,
+            "net": 31023.075100000016,
+            "pf_net": 1.6938439834063912
+          },
+          "2024": {
+            "n": 141,
+            "net": 26431.9536,
+            "pf_net": 1.451239634976063
+          },
+          "2025": {
+            "n": 134,
+            "net": 8828.719000000003,
+            "pf_net": 1.1708122458188535
+          },
+          "2026": {
+            "n": 64,
+            "net": 1911.0709000000006,
+            "pf_net": 1.1000586884479564
+          }
+        },
+        "bootstrap": {
+          "n": 470,
+          "mean": 145.09535872340425,
+          "ci95": [
+            -27.104608212765946,
+            357.9400766329787
+          ],
+          "excludes_zero": false,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 3.403148528405202,
+        "daily_mean": 54.77495488394884,
+        "daily_std": 1609.094322261518,
+        "sharpe_daily": 0.03404086020697955,
+        "sharpe_annual_daily": 0.6503497210927057,
+        "verif_horizon_years_PRIMARY": 9.082768101473762,
+        "trade_mean": 145.09535872340425,
+        "trade_std": 2147.696119862566,
+        "trades_per_year": 138.1074014481094,
+        "sharpe_annual_pertrade": 0.7939427092982557,
+        "verif_horizon_years_secondary": 6.094440098185416,
+        "m2m_maxdd_usd": 28267.633065402577,
+        "m2m_net_check": 68194.8188305163
+      },
+      "V+": {
+        "version": "V+",
+        "n": 254,
+        "gross_pnl": 100766.764,
+        "fees_total": -2584.7176,
+        "funding_total": -11695.1847,
+        "net_pnl": 86486.86170000001,
+        "pf_net": 1.9680245295504575,
+        "win_rate_pct": 28.346456692913385,
+        "avg_hold_hours": 320.5826771653543,
+        "long_short": {
+          "long": {
+            "n": 180,
+            "net": 80680.5218
+          },
+          "short": {
+            "n": 74,
+            "net": 5806.3399
+          }
+        },
+        "by_year": {
+          "2023": {
+            "n": 57,
+            "net": 40322.23000000001,
+            "pf_net": 3.2289392574399938
+          },
+          "2024": {
+            "n": 72,
+            "net": 42613.2908,
+            "pf_net": 2.632025816876716
+          },
+          "2025": {
+            "n": 82,
+            "net": 5221.896100000001,
+            "pf_net": 1.1673772922863608
+          },
+          "2026": {
+            "n": 43,
+            "net": -1670.5551999999998,
+            "pf_net": 0.880198146650193
+          }
+        },
+        "bootstrap": {
+          "n": 254,
+          "mean": 340.49945551181105,
+          "ci95": [
+            43.48178360236222,
+            716.2429467716531
+          ],
+          "excludes_zero": true,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 3.403148528405202,
+        "daily_mean": 69.46735883793531,
+        "daily_std": 1343.1384252555729,
+        "sharpe_daily": 0.051720178301590196,
+        "sharpe_annual_daily": 0.9881126190344512,
+        "verif_horizon_years_PRIMARY": 3.9345878945584785,
+        "trade_mean": 340.49945551181105,
+        "trade_std": 2767.235128626071,
+        "trades_per_year": 74.63676588897827,
+        "sharpe_annual_pertrade": 1.0630330470837857,
+        "verif_horizon_years_secondary": 3.399527909097609,
+        "m2m_maxdd_usd": 23083.06084691188,
+        "m2m_net_check": 86486.86175322946
+      },
+      "ledger": {
+        "v0_n": 470,
+        "vp_n": 254,
+        "n_filtered_abs": 216,
+        "n_filtered_pct": 45.95744680851064,
+        "horizon_v0_primary": 9.082768101473762,
+        "horizon_vp_primary": 3.9345878945584785,
+        "horizon_shorter_PRIMARY": true,
+        "horizon_v0_secondary": 6.094440098185416,
+        "horizon_vp_secondary": 3.399527909097609,
+        "pertrade_sharpe_v0": 0.7939427092982557,
+        "pertrade_sharpe_vp": 1.0630330470837857,
+        "subtraction_trap": false
+      },
+      "mechanism": {
+        "trade_level_net_usd": {
+          "agree": {
+            "na": 254,
+            "nb": 216,
+            "mean_a": 340.49945551181105,
+            "mean_b": -84.68538472222222,
+            "median_a": -304.23075,
+            "median_b": -321.38255000000004,
+            "diff_a_minus_b": 425.1848402340333,
+            "welch_t": 2.287171773060812,
+            "welch_df": 324.2770548263827,
+            "p_two_sided_normal_approx": 0.0221857988970249
+          },
+          "note": "agree-veto>0 & sig => veto signals worse (mechanism holds)"
+        },
+        "trade_level_gross_ret_pct": {
+          "agree": {
+            "na": 254,
+            "nb": 216,
+            "mean_a": 3.9671954330708656,
+            "mean_b": -0.7623204629629631,
+            "median_a": -2.7721550000000006,
+            "median_b": -3.2070750000000006,
+            "diff_a_minus_b": 4.729515896033829,
+            "welch_t": 2.42859004488059,
+            "welch_df": 319.3283769456827,
+            "p_two_sided_normal_approx": 0.01515766066483126
+          }
+        },
+        "bar_level_fwd_ret_pct": {
+          "agree": {
+            "na": 21000,
+            "nb": 15815,
+            "mean_a": 0.010906012637768615,
+            "mean_b": 0.016284850006761976,
+            "median_a": 0.0,
+            "median_b": -0.005764663382090696,
+            "diff_a_minus_b": -0.005378837368993361,
+            "welch_t": -0.3236143390337721,
+            "welch_df": 35829.02493778342,
+            "p_two_sided_normal_approx": 0.7462300307139846
+          },
+          "caveat": "overlapping holds -> autocorrelated -> t optimistic; secondary only"
+        }
+      }
+    },
+    "Binance": {
+      "V0": {
+        "version": "V0",
+        "n": 836,
+        "gross_pnl": 362665.5636,
+        "fees_total": -8550.616600000001,
+        "funding_total": -53362.1634,
+        "net_pnl": 300752.7847,
+        "pf_net": 1.8330486210944468,
+        "win_rate_pct": 29.066985645933013,
+        "avg_hold_hours": 320.555023923445,
+        "long_short": {
+          "long": {
+            "n": 417,
+            "net": 309600.5097
+          },
+          "short": {
+            "n": 419,
+            "net": -8847.725000000002
+          }
+        },
+        "by_year": {
+          "2020": {
+            "n": 101,
+            "net": 56549.554899999996,
+            "pf_net": 2.3710655805782777
+          },
+          "2021": {
+            "n": 127,
+            "net": 163959.78670000003,
+            "pf_net": 2.945744684245842
+          },
+          "2022": {
+            "n": 136,
+            "net": -3444.9439999999986,
+            "pf_net": 0.9453503470985959
+          },
+          "2023": {
+            "n": 131,
+            "net": 45889.565800000004,
+            "pf_net": 2.0606696409413
+          },
+          "2024": {
+            "n": 143,
+            "net": 27316.734899999996,
+            "pf_net": 1.4656390088843394
+          },
+          "2025": {
+            "n": 134,
+            "net": 9443.298600000002,
+            "pf_net": 1.1835486120270486
+          },
+          "2026": {
+            "n": 64,
+            "net": 1038.787800000001,
+            "pf_net": 1.054384636940747
+          }
+        },
+        "bootstrap": {
+          "n": 836,
+          "mean": 359.75213480861237,
+          "ci95": [
+            138.65775502990434,
+            623.1842535167465
+          ],
+          "excludes_zero": true,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 6.412046543463381,
+        "daily_mean": 128.3622636877584,
+        "daily_std": 2601.542947701659,
+        "sharpe_daily": 0.04934082053158508,
+        "sharpe_annual_daily": 0.9426550526658636,
+        "verif_horizon_years_PRIMARY": 4.323212104361643,
+        "trade_mean": 359.75213480861237,
+        "trade_std": 3633.362533694155,
+        "trades_per_year": 130.3795900939368,
+        "sharpe_annual_pertrade": 1.1305751927613892,
+        "verif_horizon_years_secondary": 3.005475824658429,
+        "m2m_maxdd_usd": 60397.430995676754,
+        "m2m_net_check": 300752.78382041794
+      },
+      "V+": {
+        "version": "V+",
+        "n": 453,
+        "gross_pnl": 252867.49809999997,
+        "fees_total": -4666.9413,
+        "funding_total": -49168.53349999999,
+        "net_pnl": 199032.02500000002,
+        "pf_net": 2.0087568652382988,
+        "win_rate_pct": 26.93156732891832,
+        "avg_hold_hours": 307.2141280353201,
+        "long_short": {
+          "long": {
+            "n": 375,
+            "net": 211530.4139
+          },
+          "short": {
+            "n": 78,
+            "net": -12498.388900000002
+          }
+        },
+        "by_year": {
+          "2020": {
+            "n": 53,
+            "net": 58964.190599999994,
+            "pf_net": 3.668856249654337
+          },
+          "2021": {
+            "n": 63,
+            "net": 117300.07440000003,
+            "pf_net": 4.180347932771359
+          },
+          "2022": {
+            "n": 80,
+            "net": -26764.530999999995,
+            "pf_net": 0.3830962658163785
+          },
+          "2023": {
+            "n": 67,
+            "net": 16082.409800000003,
+            "pf_net": 1.7281939233244823
+          },
+          "2024": {
+            "n": 68,
+            "net": 40321.579999999994,
+            "pf_net": 2.4950837107283004
+          },
+          "2025": {
+            "n": 76,
+            "net": 948.2576000000009,
+            "pf_net": 1.0317294202312621
+          },
+          "2026": {
+            "n": 46,
+            "net": -7819.956400000002,
+            "pf_net": 0.5113213110539936
+          }
+        },
+        "bootstrap": {
+          "n": 453,
+          "mean": 439.36429359823404,
+          "ci95": [
+            140.3975409933775,
+            796.5175457615892
+          ],
+          "excludes_zero": true,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 6.412046543463381,
+        "daily_mean": 84.94751368282326,
+        "daily_std": 2193.2241395009537,
+        "sharpe_daily": 0.03873179770041753,
+        "sharpe_annual_daily": 0.7399699560682953,
+        "verif_horizon_years_PRIMARY": 7.0159093429672605,
+        "trade_mean": 439.36429359823404,
+        "trade_std": 3589.4310519493615,
+        "trades_per_year": 70.6482707087959,
+        "sharpe_annual_pertrade": 1.0288449068955885,
+        "verif_horizon_years_secondary": 3.629211836693521,
+        "m2m_maxdd_usd": 70742.41132803468,
+        "m2m_net_check": 199032.02455885487
+      },
+      "ledger": {
+        "v0_n": 836,
+        "vp_n": 453,
+        "n_filtered_abs": 383,
+        "n_filtered_pct": 45.813397129186605,
+        "horizon_v0_primary": 4.323212104361643,
+        "horizon_vp_primary": 7.0159093429672605,
+        "horizon_shorter_PRIMARY": false,
+        "horizon_v0_secondary": 3.005475824658429,
+        "horizon_vp_secondary": 3.629211836693521,
+        "pertrade_sharpe_v0": 1.1305751927613892,
+        "pertrade_sharpe_vp": 1.0288449068955885,
+        "subtraction_trap": false
+      },
+      "mechanism": {
+        "trade_level_net_usd": {
+          "agree": {
+            "na": 453,
+            "nb": 383,
+            "mean_a": 439.36429359823404,
+            "mean_b": 265.5894509138381,
+            "median_a": -386.5683,
+            "median_b": -303.7798,
+            "diff_a_minus_b": 173.77484268439594,
+            "welch_t": 0.6872413837843925,
+            "welch_df": 803.463024857916,
+            "p_two_sided_normal_approx": 0.49193062977005353
+          },
+          "note": "agree-veto>0 & sig => veto signals worse (mechanism holds)"
+        },
+        "trade_level_gross_ret_pct": {
+          "agree": {
+            "na": 453,
+            "nb": 383,
+            "mean_a": 5.58206397571744,
+            "mean_b": 2.866790221932115,
+            "median_a": -3.5700000000000003,
+            "median_b": -3.0677999999999996,
+            "diff_a_minus_b": 2.715273753785325,
+            "welch_t": 0.9819200250530268,
+            "welch_df": 796.605628141427,
+            "p_two_sided_normal_approx": 0.32613924953246426
+          }
+        },
+        "bar_level_fwd_ret_pct": {
+          "agree": {
+            "na": 38780,
+            "nb": 28186,
+            "mean_a": 0.0447987281617468,
+            "mean_b": 0.015288261706989568,
+            "median_a": 0.007002051188376157,
+            "median_b": -0.007080908679890641,
+            "diff_a_minus_b": 0.02951046645475723,
+            "welch_t": 1.7820933328979969,
+            "welch_df": 65214.51205516416,
+            "p_two_sided_normal_approx": 0.07473401286320977
+          },
+          "caveat": "overlapping holds -> autocorrelated -> t optimistic; secondary only"
+        }
+      }
+    }
+  },
+  "judgment": {
+    "E1_mechanism_holds": {
+      "OKX": true,
+      "Binance": false,
+      "pass": false
+    },
+    "E2_improvement_real": {
+      "OKX": true,
+      "Binance": false,
+      "pass": false
+    },
+    "E3_horizon_shorter": {
+      "OKX": true,
+      "Binance": false,
+      "pass": false
+    },
+    "E4_no_new_harm": {
+      "OKX": true,
+      "Binance": false,
+      "pass": false
+    },
+    "ALL_PASS": false,
+    "conclusion": "funding \u786e\u8ba4\u65e0\u6548 -> B2_4h \u7ef4\u6301\u539f\u72b6\uff08\u8d44\u6e90\u5173\u95ed\u300118 \u6708\u9a8c\u8bc1\u4e0d\u53d8\uff09"
+  }
+}

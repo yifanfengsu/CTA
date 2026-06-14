@@ -1,0 +1,36 @@
+run start (UTC): 2026-06-14T11:43:51.295643+00:00
+STUDY: B2_4h funding same-direction confirmation (highest overfit-defense; known target)
+RULE: single zero-threshold sign-agreement filter, ZERO parameter search
+DATA: OKX database_mainnet.db (mode=ro) + Binance data/binance_vision/ (sha256-verified)
+engines tb/tv/r2/dc + binance_funding imported verbatim; pollution DB not touched
+
+== loading OKX (2023-2026) ==
+== loading Binance (2020-2026) ==
+  OKX: 4h bars per sym BTC=7464, ETH=7464, SOL=7464, LINK=7464, DOGE=7464
+       span BTC (datetime.date(2022, 12, 31), datetime.date(2026, 5, 28))
+  Binance: 4h bars per sym BTC=14058, ETH=14058, SOL=12485, LINK=13960, DOGE=12910
+       span BTC (datetime.date(2020, 1, 1), datetime.date(2026, 6, 1))
+
+========== SAMPLE: OKX ==========
+  V0 reproduction: net $68,194.82 vs expected $68,194.82 -> MATCH
+  [V0] n=470 | net $68,195 (gross $84,301) | PFnet 1.39 | SR_ann(daily) 0.650 | horizon 9.1y | M2M maxDD $28,268 | CI [-27.1,357.9]
+  [V+] n=254 | net $86,487 (gross $100,767) | PFnet 1.97 | SR_ann(daily) 0.988 | horizon 3.9y | M2M maxDD $23,083 | CI [43.5,716.2]
+  ledger: filtered 216/470 (46.0%) | horizon 9.1y -> 3.9y (SHORTER)
+  consistency V+==agree-group: V+ net $86,487 (n254) vs agree $86,487 (n254) -> OK
+  mechanism (trade-level net): agree mean $340 (n254) vs veto mean $-85 (n216) | diff $425 | Welch t 2.29 p 0.022
+
+========== SAMPLE: Binance ==========
+  V0 reproduction: net $300,752.78 vs expected $300,752.78 -> MATCH
+  [V0] n=836 | net $300,753 (gross $362,666) | PFnet 1.83 | SR_ann(daily) 0.943 | horizon 4.3y | M2M maxDD $60,397 | CI [138.7,623.2]
+  [V+] n=453 | net $199,032 (gross $252,867) | PFnet 2.01 | SR_ann(daily) 0.740 | horizon 7.0y | M2M maxDD $70,742 | CI [140.4,796.5]
+  ledger: filtered 383/836 (45.8%) | horizon 4.3y -> 7.0y (LONGER/SAME)
+  consistency V+==agree-group: V+ net $199,032 (n453) vs agree $199,032 (n453) -> OK
+  mechanism (trade-level net): agree mean $439 (n453) vs veto mean $266 (n383) | diff $174 | Welch t 0.69 p 0.492
+
+========== JUDGMENT (pre-registered) ==========
+  E1_mechanism_holds: OKX=True Binance=False -> FAIL
+  E2_improvement_real: OKX=True Binance=False -> FAIL
+  E3_horizon_shorter: OKX=True Binance=False -> FAIL
+  E4_no_new_harm: OKX=True Binance=False -> FAIL
+  ALL_PASS: False -> funding 确认无效 -> B2_4h 维持原状（资源关闭、18 月验证不变）
+run end (UTC): 2026-06-14T11:45:05.164038+00:00
