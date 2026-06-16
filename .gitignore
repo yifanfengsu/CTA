@@ -23,6 +23,11 @@ data/binance_vision/**/*.zip
 # Only single files >50MB are excluded (listed individually below).
 reports/research/trend_capture_exit_convexity/exit_variant_trades.csv
 
+# Basis-arb raw data layer (reproducible via scripts/research_basis_feasibility.py --download;
+# manifest.json stays tracked, analysis-ready series live in reports/basis_arbitrage_feasibility_*/)
+data/basis/futures/*.csv
+data/basis/index/*.csv
+
 # MR-5m runtime state and trade logs
 mr_5m_state.json
 trade_log_5m*.jsonl

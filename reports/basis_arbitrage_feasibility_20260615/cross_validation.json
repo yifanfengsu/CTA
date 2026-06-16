@@ -1,0 +1,150 @@
+{
+  "futures_vs_binance_cm": [
+    {
+      "inst": "BTC-USD-250328",
+      "date": "2025-02-09",
+      "okx": 97359.7,
+      "binance_cm": 97511.8,
+      "abs_pct_diff": 0.156
+    },
+    {
+      "inst": "BTC-USD-250328",
+      "date": "2025-02-10",
+      "okx": 98089.8,
+      "binance_cm": 98455.0,
+      "abs_pct_diff": 0.3709
+    },
+    {
+      "inst": "BTC-USD-250328",
+      "date": "2025-02-11",
+      "okx": 97763.3,
+      "binance_cm": 96735.6,
+      "abs_pct_diff": 1.0624
+    },
+    {
+      "inst": "BTC-USD-250328",
+      "date": "2025-02-12",
+      "okx": 96488.9,
+      "binance_cm": 98766.8,
+      "abs_pct_diff": 2.3063
+    },
+    {
+      "inst": "BTC-USD-250328",
+      "date": "2025-02-13",
+      "okx": 96625.0,
+      "binance_cm": 97493.2,
+      "abs_pct_diff": 0.8905
+    },
+    {
+      "inst": "BTC-USD-250328",
+      "date": "2025-02-14",
+      "okx": 97542.2,
+      "binance_cm": 98374.0,
+      "abs_pct_diff": 0.8455
+    },
+    {
+      "inst": "ETH-USD-250627",
+      "date": "2025-05-12",
+      "okx": 2502.94,
+      "binance_cm": 2511.01,
+      "abs_pct_diff": 0.3214
+    },
+    {
+      "inst": "ETH-USD-250627",
+      "date": "2025-05-13",
+      "okx": 2580.93,
+      "binance_cm": 2697.3,
+      "abs_pct_diff": 4.3143
+    },
+    {
+      "inst": "ETH-USD-250627",
+      "date": "2025-05-14",
+      "okx": 2613.83,
+      "binance_cm": 2626.81,
+      "abs_pct_diff": 0.4941
+    },
+    {
+      "inst": "ETH-USD-250627",
+      "date": "2025-05-15",
+      "okx": 2575.78,
+      "binance_cm": 2562.08,
+      "abs_pct_diff": 0.5347
+    },
+    {
+      "inst": "ETH-USD-250627",
+      "date": "2025-05-16",
+      "okx": 2607.37,
+      "binance_cm": 2551.6,
+      "abs_pct_diff": 2.1857
+    },
+    {
+      "inst": "ETH-USD-250627",
+      "date": "2025-05-17",
+      "okx": 2487.03,
+      "binance_cm": 2488.2,
+      "abs_pct_diff": 0.047
+    }
+  ],
+  "index_vs_binance_spot": [
+    {
+      "coin": "BTC",
+      "date": "2024-10-20",
+      "okx_index_hkt_close": 68598.7,
+      "binance_spot_1600utc": 68602.7,
+      "abs_pct_diff": 0.0058
+    },
+    {
+      "coin": "BTC",
+      "date": "2022-10-03",
+      "okx_index_hkt_close": 19336.9,
+      "binance_spot_1600utc": 19340.9,
+      "abs_pct_diff": 0.0207
+    },
+    {
+      "coin": "BTC",
+      "date": "2022-12-29",
+      "okx_index_hkt_close": 16616.5,
+      "binance_spot_1600utc": 16613.3,
+      "abs_pct_diff": 0.0193
+    },
+    {
+      "coin": "BTC",
+      "date": "2024-11-17",
+      "okx_index_hkt_close": 90262.6,
+      "binance_spot_1600utc": 90350.0,
+      "abs_pct_diff": 0.0967
+    },
+    {
+      "coin": "ETH",
+      "date": "2023-09-24",
+      "okx_index_hkt_close": 1591.34,
+      "binance_spot_1600utc": 1589.76,
+      "abs_pct_diff": 0.0994
+    },
+    {
+      "coin": "ETH",
+      "date": "2025-05-11",
+      "okx_index_hkt_close": 2463.02,
+      "binance_spot_1600utc": 2463.96,
+      "abs_pct_diff": 0.0381
+    },
+    {
+      "coin": "ETH",
+      "date": "2022-10-05",
+      "okx_index_hkt_close": 1330.77,
+      "binance_spot_1600utc": 1329.41,
+      "abs_pct_diff": 0.1023
+    },
+    {
+      "coin": "ETH",
+      "date": "2022-10-31",
+      "okx_index_hkt_close": 1569.2,
+      "binance_spot_1600utc": 1565.64,
+      "abs_pct_diff": 0.2274
+    }
+  ],
+  "futures_median_abs_pct_diff": 0.6901,
+  "index_median_abs_pct_diff": 0.0674,
+  "futures_pass": true,
+  "index_pass": true
+}

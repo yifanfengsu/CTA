@@ -1,0 +1,43 @@
+{
+  "positioning": "OKX cash-and-carry (\u671f\u73b0\u57fa\u5dee) feasibility RAW MATERIAL \u2014 stage-1 foundation; OKX-native measurement, NOT merged into mainnet db; index cross-checked vs Binance",
+  "source": "OKX data-download CDN (futures trade files) + OKX REST history-index-candles",
+  "server": "OKX-MAINNET-PUBLIC",
+  "vehicle": "INVERSE quarterly delivery futures BTC-USD / ETH-USD (USDT quarterly phased out ~late-2025)",
+  "futures_url_pattern": "https://www.okx.com/cdn/okex/traderecords/trades/daily/<YYYYMMDD>/<instId>-trades-<YYYY-MM-DD>.zip",
+  "index_endpoint": "https://www.okx.com/api/v5/market/history-index-candles (bar=1Dutc)",
+  "caliber": {
+    "futures_daily": "trades parsed -> UTC daily OHLCV; close=last trade of UTC day",
+    "index_daily": "OKX index history-candles bar=1Dutc (UTC-aligned)",
+    "basis": "(F_close - Index_close)/Index_close",
+    "window": "daily [expiry-65d, expiry] + sparse [90, 120]d points"
+  },
+  "coins": [
+    "BTC",
+    "ETH"
+  ],
+  "quarters_settled": [
+    "220325",
+    "220624",
+    "220930",
+    "221230",
+    "230331",
+    "230630",
+    "230929",
+    "231229",
+    "240329",
+    "240628",
+    "240927",
+    "241227",
+    "250328",
+    "250627"
+  ],
+  "n_contracts_with_data": 28,
+  "cross_validation": {
+    "futures_vs_binance_cm_median_pct": 0.6901,
+    "index_vs_binance_spot_median_pct": 0.0674,
+    "futures_pass": true,
+    "index_pass": true
+  },
+  "built_at": "2026-06-16T13:50:30.583871+00:00",
+  "note": "large per-contract futures CSVs gitignored; manifest + report artifacts in git"
+}

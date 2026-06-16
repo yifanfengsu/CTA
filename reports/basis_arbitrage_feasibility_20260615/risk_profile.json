@@ -1,0 +1,11 @@
+{
+  "n_rounds": 28,
+  "n_deployable_contango": 24,
+  "n_backwardation_at_entry": 0,
+  "frac_contango_at_entry": 1.0,
+  "converged_frac": 1.0,
+  "worst_short_leg_up_move_pct": 80.409,
+  "worst_short_leg_event": "ETH-USD-240329",
+  "worst_basis_widen_pct": 2.2491,
+  "worst_basis_widen_event": "ETH-USD-221230"
+}

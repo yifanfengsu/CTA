@@ -1,0 +1,37 @@
+{
+  "B1_data_available": {
+    "pass": true,
+    "n_rounds": 28,
+    "min_required": 4
+  },
+  "B2_net_positive": {
+    "pass": false,
+    "bar_net_ann_pct": 8.0,
+    "mean_deployable_net_ann_pct": 4.625,
+    "median_deployable_net_ann_pct": 4.22,
+    "frac_deployable_net_positive": 1.0,
+    "consistency_required": 0.75,
+    "n_deployable": 24,
+    "also_vs_loose_5pct_bar": false
+  },
+  "B3_risk_control": {
+    "pass": false,
+    "worst_short_leg_up_move_pct": 80.409,
+    "liq_move_at_2x_pct": 49.5,
+    "max_safe_leverage_isolated": 1.24,
+    "worst_event": "ETH-USD-240329",
+    "worst_basis_widen_pct": 2.2491,
+    "note": "isolated-margin conservative; cross-margin (spot collateral offsets) mitigates"
+  },
+  "B4_convergence": {
+    "pass": true,
+    "converged_frac": 1.0,
+    "consistency_required": 0.75,
+    "thresh_abs_basis_pct": 0.3
+  },
+  "data_cross_validation": {
+    "futures_pass": true,
+    "index_pass": true
+  },
+  "ALL_PASS": false
+}

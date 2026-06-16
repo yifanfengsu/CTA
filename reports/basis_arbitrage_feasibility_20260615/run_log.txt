@@ -1,0 +1,11 @@
+[13:50:27] DATA ENVIRONMENT: OKX-MAINNET-PUBLIC (CDN trade files + REST index). mainnet/contaminated dbs UNTOUCHED. writes -> data/basis/ only.
+[13:50:27] B1 boundary: 3 settled quarters NOT yet on CDN (~8-9mo lag), excluded: ['250926', '251226', '260327']
+[13:50:27] universe: 14 CDN-available settled quarters/coin x 2 coins [220325..250627]
+[13:50:30] cross-val: futures med diff=0.6901% (pass=True), index med diff=0.0674% (pass=True)
+[13:50:30] basis: built 28 contract curves
+[13:50:30] wrote data/basis/manifest.json
+[13:50:30] ======================================================================
+[13:50:30] ROUNDS=28  deployable(contango)=24  backwardation=0  converged=1.0
+[13:50:30] B1=True  B2=False (mean net ann 4.625% vs bar 8.0%, pos 1.0)  B3=False (worst +80.409%, safe lev 1.24x)  B4=True
+[13:50:30] ALL_PASS=False
+[13:50:30] ======================================================================
