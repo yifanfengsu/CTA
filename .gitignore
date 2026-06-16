@@ -28,6 +28,14 @@ reports/research/trend_capture_exit_convexity/exit_variant_trades.csv
 data/basis/futures/*.csv
 data/basis/index/*.csv
 
+# B2_4h forward observation: runtime data store + state + secrets are NOT tracked
+# (config_frozen.json, gates_preregistered.md, baseline_distribution.json,
+#  dry_run_validation.json, README/manual/REVIEW templates, notify.conf.template ARE tracked)
+forward/data/
+forward/state/
+forward/notify.conf
+forward/last_run_log.txt
+
 # MR-5m runtime state and trade logs
 mr_5m_state.json
 trade_log_5m*.jsonl

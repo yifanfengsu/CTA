@@ -1,0 +1,49 @@
+{
+  "system": "B2_4h forward observation — phase-1 zero-cost simulated accounting",
+  "frozen_at_utc": "2026-06-16",
+  "strategy_id": "B2_4h",
+  "signal": {
+    "kind": "ema_cross",
+    "fast": 20,
+    "slow": 100,
+    "timeframe": "4h",
+    "aggregation_boundary": "UTC (4h buckets at 00/04/08/12/16/20 UTC; fill at bucket close)",
+    "always_in_market": true,
+    "long_on": "EMA20 crosses above EMA100 (golden cross)",
+    "short_on": "EMA20 crosses below EMA100 (death cross)",
+    "exit": "signal_reversal only (no stop / no target / no filter)"
+  },
+  "universe": ["BTC", "ETH", "SOL", "LINK", "DOGE"],
+  "instruments": {
+    "BTC": "BTC-USDT-SWAP",
+    "ETH": "ETH-USDT-SWAP",
+    "SOL": "SOL-USDT-SWAP",
+    "LINK": "LINK-USDT-SWAP",
+    "DOGE": "DOGE-USDT-SWAP"
+  },
+  "sizing": {
+    "notional_usd_per_signal": 10000.0,
+    "contracts": "integer = round(notional / (price * ctVal)), min 1",
+    "model": "single-position per symbol (flat -> long/short, flip on signal change)"
+  },
+  "costs": {
+    "fee_taker_per_side": 0.0005,
+    "entry_exit_fill": "signal-bar close +/- 1 tick, taker both sides (adverse tick)",
+    "maker_assumed": false,
+    "funding": "real OKX funding, 8h settlement (00/08/16 UTC), settle px = 1m close before settlement",
+    "slippage_stress": "none (matches B2_4h backtest cost convention 1:1)"
+  },
+  "data": {
+    "source_klines": "OKX mainnet public REST /api/v5/market/candles + /api/v5/market/history-candles (bar=1m, confirm==1 only)",
+    "source_funding": "OKX mainnet public REST /api/v5/public/funding-rate-history",
+    "server": "mainnet",
+    "demo": false,
+    "auth": "none (public market data only; no API key, no signing, no account access)",
+    "store": "forward/data/ (CSV, independent of .vntrader/database_mainnet.db which stays read-only)",
+    "seed": "forward store seeded ONCE from database_mainnet.db (read-only copy) so EMA20/100 carry full history; thereafter REST-appended"
+  },
+  "forward_start_utc": "2026-06-01T00:00:00Z",
+  "forward_start_note": "trades with entry_time >= forward_start_utc count as the independent forward sample; backtest/gate sample = everything before it. DB 1m ends 2026-05-28 15:59Z; REST fills the gap to forward_start.",
+  "engine": "research_trend_baseline(tb) + research_trend_validation_r2(r2) imported VERBATIM, zero modification; forward accounting is a thin outer wrapper calling tb.signal_emax/positions_flip/build_trades + r2.m2m_pnl",
+  "freeze_note": "ALL params permanently frozen; any change = a NEW system (new SHA256). B2_4h is the optimal form: 4 enhancement attempts (funding-confirm, ADX>25 filter, faster-entry EMA10/30, V1 top5%-removal) all dual-sample killed. Forward deploys B2_4h AS-IS: zero optimization, zero filter, zero parameter variant."
+}

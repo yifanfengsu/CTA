@@ -1,0 +1,7 @@
+# PushPlus token for the B2_4h forward daily push.
+# 1) Get a token at https://www.pushplus.plus/  (微信扫码登录 → 一对一推送 → 复制 token)
+# 2) Copy this file to  notify.conf  (same directory) and replace the value below.
+# 3) notify.conf is gitignored — the token never enters git.
+# The forward system reads ONLY this file for the token; it never reads .env or any
+# trading credential (it places no orders and touches no account).
+pushplus_token=YOUR_TOKEN_HERE

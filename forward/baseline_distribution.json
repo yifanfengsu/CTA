@@ -1,0 +1,62 @@
+{
+  "strategy": "B2_4h",
+  "config_sha256": "c37ff0a47c5b2a6cb5f7aa1ad8cbb9e542da8e27aac5d7d5b3b16b3dbe5d38d5",
+  "note": "gate numbers source; OKX is gate-of-record. Frozen with gates_preregistered.md.",
+  "built_utc": "2026-06-16T15:35:54.112624+00:00",
+  "OKX": {
+    "sample": "OKX",
+    "n_trades": 470,
+    "full_net_usd": 68194.8188305163,
+    "full_maxdd_usd": 25986.031558282422,
+    "net_over_maxdd": 2.6242875399256893,
+    "monthly_net_avg_usd": 1623.6861626313407,
+    "monthly_winrate_pct": 50.0,
+    "n_months": 42,
+    "rolling_6mo_net": {
+      "p5": -12807.14246896154,
+      "p25": -1476.799913227645,
+      "p50": 8615.414684466588
+    },
+    "rolling_12mo_net": {
+      "p5": 1295.5654566802332,
+      "p25": 21436.712153718312,
+      "p50": 30510.20201390081
+    },
+    "rolling_12mo_maxdd": {
+      "p50": 23286.58849362129,
+      "p95": 25986.031558282393
+    },
+    "span": [
+      "2023-01-01",
+      "2026-05-29"
+    ]
+  },
+  "Binance": {
+    "sample": "Binance",
+    "n_trades": 836,
+    "full_net_usd": 300752.78382041794,
+    "full_maxdd_usd": 56211.935559504316,
+    "net_over_maxdd": 5.350336735906377,
+    "monthly_net_avg_usd": 3855.8049207745885,
+    "monthly_winrate_pct": 56.41025641025641,
+    "n_months": 78,
+    "rolling_6mo_net": {
+      "p5": -13831.837653517005,
+      "p25": 180.96186933037347,
+      "p50": 13452.077063426988
+    },
+    "rolling_12mo_net": {
+      "p5": -9439.735461729408,
+      "p25": 7857.49397579119,
+      "p50": 33347.22993880928
+    },
+    "rolling_12mo_maxdd": {
+      "p50": 24292.762385677728,
+      "p95": 56211.935559504316
+    },
+    "span": [
+      "2020-01-02",
+      "2026-06-01"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "dry_run_month_fed_incrementally": "2026-04",
+  "data_window": "[series start .. 2026-05-01) (forward store == DB truncated identically)",
+  "db_end_utc": "2026-05-28T15:59:00+00:00",
+  "backtest_total_trade_net": 65273.5162,
+  "forward_total_trade_net": 65273.5162,
+  "trade_net_abs_diff": 0.0,
+  "backtest_total_m2m": 65273.516136,
+  "forward_total_m2m": 65273.516136,
+  "m2m_abs_diff": 0.0,
+  "held_out_month_m2m_backtest": -2872.789187,
+  "held_out_month_m2m_forward": -2872.789187,
+  "store_bars_exactly_equal_DB": true,
+  "PASS": true,
+  "config_sha256": "c37ff0a47c5b2a6cb5f7aa1ad8cbb9e542da8e27aac5d7d5b3b16b3dbe5d38d5",
+  "validated_utc": "2026-06-16T15:54:47.001514+00:00"
+}
