@@ -1,0 +1,14 @@
+{
+  "v0_n": 836,
+  "vp_n": 368,
+  "n_filtered_abs": 468,
+  "n_filtered_pct": 55.98086124401914,
+  "horizon_v0_primary": 4.323212104361643,
+  "horizon_vp_primary": 49.88458420519986,
+  "horizon_shorter_PRIMARY": false,
+  "horizon_v0_secondary": 3.005475824658429,
+  "horizon_vp_secondary": 21.01416933316813,
+  "pertrade_sharpe_v0": 1.1305751927613892,
+  "pertrade_sharpe_vp": 0.42756284441465625,
+  "subtraction_trap": false
+}

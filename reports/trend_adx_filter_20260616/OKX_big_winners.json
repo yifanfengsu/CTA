@@ -1,0 +1,9 @@
+{
+  "n_trades": 470,
+  "top10pct_k": 47,
+  "n_big_winners_filtered": 28,
+  "pct_big_winners_filtered": 59.6,
+  "net_in_all_big_winners": 191057.7,
+  "net_in_filtered_big_winners": 133679.0,
+  "pct_bigwinner_net_filtered": 70.0
+}

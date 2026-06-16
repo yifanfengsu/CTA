@@ -1,0 +1,37 @@
+run start (UTC): 2026-06-16T14:28:58.968169+00:00
+STUDY: B2_4h ADX(14)>25 trend-strength entry filter (highest overfit-defense; known target)
+RULE: single textbook-threshold ADX filter, period=14, thresh=25, ZERO parameter search
+DATA: OKX database_mainnet.db (mode=ro) + Binance data/binance_vision/
+engines tb/tv/r2/dc + binance_funding imported verbatim; pollution DB not touched
+
+== loading OKX (2023-2026) ==
+== loading Binance (2020-2026) ==
+  OKX: 4h bars per sym BTC=7464, ETH=7464, SOL=7464, LINK=7464, DOGE=7464
+  Binance: 4h bars per sym BTC=14058, ETH=14058, SOL=12485, LINK=13960, DOGE=12910
+  ADX self-check: max|talib-ref| all=0.0367, steady=0.004587 (bars 7437)
+
+========== SAMPLE: OKX ==========
+  V0 reproduction: net $68,194.82 vs expected $68,194.82 -> MATCH
+  [V0] n=470 | net $68,195 (gross $84,301) | PFnet 1.39 | SR_ann(daily) 0.650 | horizon 9.1y | M2M maxDD $28,268 | CI [-27.1,357.9]
+  [V+] n=206 | net $-3,209 (gross $2,290) | PFnet 0.96 | SR_ann(daily) -0.055 | horizon infy | M2M maxDD $32,621 | CI [-177.9,164.7]
+  ledger: filtered 264/470 (56.2%) | horizon 9.1y -> infy (LONGER/SAME)
+  consistency V+==strong-group: V+ net $-3,209 (n206) vs strong $-3,209 (n206) -> OK
+  mechanism (trade-level net): strong mean $-16 (n206) vs weak mean $270 (n264) | diff $-286 | Welch t -1.55 p 0.121
+  (3d) big-winners filtered: 28/47 (59.6%) | net cut $133,679/$191,058 (70.0%)
+
+========== SAMPLE: Binance ==========
+  V0 reproduction: net $300,752.78 vs expected $300,752.78 -> MATCH
+  [V0] n=836 | net $300,753 (gross $362,666) | PFnet 1.83 | SR_ann(daily) 0.943 | horizon 4.3y | M2M maxDD $60,397 | CI [138.7,623.2]
+  [V+] n=368 | net $42,121 (gross $59,505) | PFnet 1.25 | SR_ann(daily) 0.278 | horizon 49.9y | M2M maxDD $44,786 | CI [-73.4,338.0]
+  ledger: filtered 468/836 (56.0%) | horizon 4.3y -> 49.9y (LONGER/SAME)
+  consistency V+==strong-group: V+ net $42,121 (n368) vs strong $42,121 (n368) -> OK
+  mechanism (trade-level net): strong mean $114 (n368) vs weak mean $553 (n468) | diff $-438 | Welch t -1.88 p 0.061
+  (3d) big-winners filtered: 49/84 (58.3%) | net cut $383,129/$541,630 (70.7%)
+
+========== JUDGMENT (pre-registered) ==========
+  E1_mechanism_holds: OKX=False Binance=False -> FAIL
+  E2_improvement_real: OKX=False Binance=False -> FAIL
+  E3_horizon_shorter: OKX=False Binance=False -> FAIL
+  E4_no_new_harm: OKX=False Binance=False -> FAIL
+  ALL_PASS: False -> ADX 过滤无效 -> B2_4h 维持原状（资源关闭、18 月验证不变）
+run end (UTC): 2026-06-16T14:30:14.523961+00:00

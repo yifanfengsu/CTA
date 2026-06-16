@@ -1,0 +1,24 @@
+{
+  "bars_compared": 7437,
+  "first_valid_idx": 27,
+  "max_abs_diff_all": 0.03666868959385283,
+  "mean_abs_diff_all": 0.00016738632958923134,
+  "max_abs_diff_steady_state": 0.004586558673345564,
+  "note": "production=talib.ADX (canonical Wilder); ref=independent reimpl; residual is seed-convergence only (decays 13/14 per bar), ~0 at all real entry bars (>=bar 100 after EMA-slow warm-up)",
+  "sample_prod_idx_200_205": [
+    20.639,
+    19.8399,
+    18.6427,
+    18.1002,
+    17.6237,
+    16.7719
+  ],
+  "sample_ref_idx_200_205": [
+    20.639,
+    19.8399,
+    18.6427,
+    18.1002,
+    17.6237,
+    16.7719
+  ]
+}
