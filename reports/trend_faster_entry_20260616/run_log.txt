@@ -1,0 +1,31 @@
+run start (UTC): 2026-06-16T14:49:44.239752+00:00
+STUDY: faster-entry single-point EMA10/30 vs B2_4h EMA20/100 (known target, ZERO search)
+DATA: OKX database_mainnet.db (mode=ro) + Binance data/binance_vision/
+engines tb/tv/r2/dc + binance_funding imported verbatim; pollution DB not touched
+
+== loading OKX (2023-2026) ==
+== loading Binance (2020-2026) ==
+  OKX: 4h bars per sym BTC=7464, ETH=7464, SOL=7464, LINK=7464, DOGE=7464
+  Binance: 4h bars per sym BTC=14058, ETH=14058, SOL=12485, LINK=13960, DOGE=12910
+
+========== SAMPLE: OKX ==========
+  V0 reproduction: net $68,194.82 vs expected $68,194.82 -> MATCH
+  [V0 EMA20/100] n=470 | net $68,195 (gross $84,301) | PFnet 1.39 | SR_ann(daily) 0.650 | horizon 9.1y | M2M maxDD $28,268 | CI [-27.1,357.9] | whip 2.8% net $-3,546
+  [V_fast EMA10/30] n=1332 | net $36,861 (gross $58,177) | PFnet 1.12 | SR_ann(daily) 0.379 | horizon 26.8y | M2M maxDD $38,015 | CI [-22.2,82.7] | whip 10.4% net $-37,252
+  ledger: n 470->1332 (+183.4%) | gross $84,301->$58,177 (DOWN) | net $68,195->$36,861 (DOWN) | cost_wall=False
+  (3b) early-capture: V_fast earlier same-dir at 44/47 (93.6%) of V0 big winners | median lead 30.0h
+
+========== SAMPLE: Binance ==========
+  V0 reproduction: net $300,752.78 vs expected $300,752.78 -> MATCH
+  [V0 EMA20/100] n=836 | net $300,753 (gross $362,666) | PFnet 1.83 | SR_ann(daily) 0.943 | horizon 4.3y | M2M maxDD $60,397 | CI [138.7,623.2] | whip 4.9% net $-10,779
+  [V_fast EMA10/30] n=2334 | net $188,734 (gross $242,711) | PFnet 1.28 | SR_ann(daily) 0.769 | horizon 6.5y | M2M maxDD $43,901 | CI [19.3,149.9] | whip 8.9% net $-64,670
+  ledger: n 836->2334 (+179.2%) | gross $362,666->$242,711 (DOWN) | net $300,753->$188,734 (DOWN) | cost_wall=False
+  (3b) early-capture: V_fast earlier same-dir at 78/84 (92.9%) of V0 big winners | median lead 32.0h
+
+========== JUDGMENT (pre-registered) ==========
+  F1_improvement_real: OKX=False Binance=False -> FAIL
+  F2_cost_survivable: OKX=False Binance=False -> FAIL
+  F3_mechanism_holds: OKX=False Binance=False -> FAIL
+  F4_horizon_not_worse: OKX=False Binance=False -> FAIL
+  ALL_PASS: False -> 更早入场(EMA10/30)无优势 -> B2_4h 维持原状(EMA20/100)
+run end (UTC): 2026-06-16T14:51:00.448147+00:00

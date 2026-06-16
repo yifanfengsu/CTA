@@ -1,0 +1,16 @@
+{
+  "v0_n": 470,
+  "vfast_n": 1332,
+  "n_added_abs": 862,
+  "n_added_pct": 183.4,
+  "gross_v0": 84300.642,
+  "gross_vfast": 58176.58099999999,
+  "gross_vfast_gt_v0": false,
+  "net_v0": 68194.8186,
+  "net_vfast": 36860.54469999999,
+  "net_vfast_gt_v0": false,
+  "cost_wall": false,
+  "horizon_v0_primary": 9.082768101473762,
+  "horizon_vfast_primary": 26.759461693516563,
+  "horizon_not_worse": false
+}

@@ -1,0 +1,422 @@
+{
+  "samples": {
+    "OKX": {
+      "V0": {
+        "version": "V0",
+        "ema": [
+          20,
+          100
+        ],
+        "n": 470,
+        "gross_pnl": 84300.642,
+        "fees_total": -4748.790800000001,
+        "funding_total": -11357.0329,
+        "net_pnl": 68194.8186,
+        "pf_net": 1.3917567640828419,
+        "win_rate_pct": 28.297872340425535,
+        "avg_hold_hours": 313.3191489361702,
+        "whipsaw": {
+          "median_hold_h": 196.0,
+          "mean_hold_h": 313.3191489361702,
+          "n_whip_le_8h": 13,
+          "pct_whip": 2.8,
+          "net_whip_usd": -3545.8,
+          "winrate_whip_pct": 0.0
+        },
+        "long_short": {
+          "long": {
+            "n": 235,
+            "net": 73979.2853
+          },
+          "short": {
+            "n": 235,
+            "net": -5784.466700000001
+          }
+        },
+        "by_year": {
+          "2023": {
+            "n": 131,
+            "net": 31023.075100000016,
+            "pf_net": 1.6938439834063912
+          },
+          "2024": {
+            "n": 141,
+            "net": 26431.9536,
+            "pf_net": 1.451239634976063
+          },
+          "2025": {
+            "n": 134,
+            "net": 8828.719000000003,
+            "pf_net": 1.1708122458188535
+          },
+          "2026": {
+            "n": 64,
+            "net": 1911.0709000000006,
+            "pf_net": 1.1000586884479564
+          }
+        },
+        "bootstrap": {
+          "n": 470,
+          "mean": 145.09535872340425,
+          "ci95": [
+            -27.104608212765946,
+            357.9400766329787
+          ],
+          "excludes_zero": false,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 3.403148528405202,
+        "daily_mean": 54.77495488394884,
+        "daily_std": 1609.094322261518,
+        "sharpe_daily": 0.03404086020697955,
+        "sharpe_annual_daily": 0.6503497210927057,
+        "verif_horizon_years_PRIMARY": 9.082768101473762,
+        "trade_mean": 145.09535872340425,
+        "trade_std": 2147.696119862566,
+        "trades_per_year": 138.1074014481094,
+        "sharpe_annual_pertrade": 0.7939427092982557,
+        "verif_horizon_years_secondary": 6.094440098185416,
+        "m2m_maxdd_usd": 28267.633065402577,
+        "m2m_net_check": 68194.8188305163
+      },
+      "V_fast": {
+        "version": "V_fast",
+        "ema": [
+          10,
+          30
+        ],
+        "n": 1332,
+        "gross_pnl": 58176.58099999999,
+        "fees_total": -13363.3602,
+        "funding_total": -7952.679,
+        "net_pnl": 36860.54469999999,
+        "pf_net": 1.1151327941342788,
+        "win_rate_pct": 28.603603603603606,
+        "avg_hold_hours": 111.6066066066066,
+        "whipsaw": {
+          "median_hold_h": 76.0,
+          "mean_hold_h": 111.6066066066066,
+          "n_whip_le_8h": 139,
+          "pct_whip": 10.4,
+          "net_whip_usd": -37251.9,
+          "winrate_whip_pct": 0.0
+        },
+        "long_short": {
+          "long": {
+            "n": 666,
+            "net": 59634.103899999995
+          },
+          "short": {
+            "n": 666,
+            "net": -22773.5592
+          }
+        },
+        "by_year": {
+          "2023": {
+            "n": 376,
+            "net": 22457.497799999997,
+            "pf_net": 1.2884566074114592
+          },
+          "2024": {
+            "n": 375,
+            "net": 33014.60029999999,
+            "pf_net": 1.3664582319358936
+          },
+          "2025": {
+            "n": 414,
+            "net": -2512.1049000000003,
+            "pf_net": 0.9767019131597405
+          },
+          "2026": {
+            "n": 167,
+            "net": -16099.4485,
+            "pf_net": 0.6372956062003057
+          }
+        },
+        "bootstrap": {
+          "n": 1332,
+          "mean": 27.673081606606594,
+          "ci95": [
+            -22.195912498123125,
+            82.72261217530028
+          ],
+          "excludes_zero": false,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 3.403148528405202,
+        "daily_mean": 29.606862338618267,
+        "daily_std": 1492.868077957827,
+        "sharpe_daily": 0.01983220270817168,
+        "sharpe_annual_daily": 0.378893700731715,
+        "verif_horizon_years_PRIMARY": 26.759461693516563,
+        "trade_mean": 27.673081606606594,
+        "trade_std": 972.001820562401,
+        "trades_per_year": 391.40225261464195,
+        "sharpe_annual_pertrade": 0.5632511743017996,
+        "verif_horizon_years_secondary": 12.108990292471617,
+        "m2m_maxdd_usd": 38015.24793123049,
+        "m2m_net_check": 36860.543611579764
+      },
+      "ledger": {
+        "v0_n": 470,
+        "vfast_n": 1332,
+        "n_added_abs": 862,
+        "n_added_pct": 183.4,
+        "gross_v0": 84300.642,
+        "gross_vfast": 58176.58099999999,
+        "gross_vfast_gt_v0": false,
+        "net_v0": 68194.8186,
+        "net_vfast": 36860.54469999999,
+        "net_vfast_gt_v0": false,
+        "cost_wall": false,
+        "horizon_v0_primary": 9.082768101473762,
+        "horizon_vfast_primary": 26.759461693516563,
+        "horizon_not_worse": false
+      },
+      "early_capture": {
+        "n_bigwinners": 47,
+        "n_vfast_earlier_samedir": 44,
+        "pct_vfast_earlier": 93.6,
+        "median_lead_hours": 30.0,
+        "mean_lead_hours": 33.2,
+        "note": "V_fast already holding same direction at V0 big-winner entry => entered earlier"
+      }
+    },
+    "Binance": {
+      "V0": {
+        "version": "V0",
+        "ema": [
+          20,
+          100
+        ],
+        "n": 836,
+        "gross_pnl": 362665.5636,
+        "fees_total": -8550.616600000001,
+        "funding_total": -53362.1634,
+        "net_pnl": 300752.7847,
+        "pf_net": 1.8330486210944468,
+        "win_rate_pct": 29.066985645933013,
+        "avg_hold_hours": 320.555023923445,
+        "whipsaw": {
+          "median_hold_h": 192.0,
+          "mean_hold_h": 320.555023923445,
+          "n_whip_le_8h": 41,
+          "pct_whip": 4.9,
+          "net_whip_usd": -10779.1,
+          "winrate_whip_pct": 0.0
+        },
+        "long_short": {
+          "long": {
+            "n": 417,
+            "net": 309600.5097
+          },
+          "short": {
+            "n": 419,
+            "net": -8847.725000000002
+          }
+        },
+        "by_year": {
+          "2020": {
+            "n": 101,
+            "net": 56549.554899999996,
+            "pf_net": 2.3710655805782777
+          },
+          "2021": {
+            "n": 127,
+            "net": 163959.78670000003,
+            "pf_net": 2.945744684245842
+          },
+          "2022": {
+            "n": 136,
+            "net": -3444.9439999999986,
+            "pf_net": 0.9453503470985959
+          },
+          "2023": {
+            "n": 131,
+            "net": 45889.565800000004,
+            "pf_net": 2.0606696409413
+          },
+          "2024": {
+            "n": 143,
+            "net": 27316.734899999996,
+            "pf_net": 1.4656390088843394
+          },
+          "2025": {
+            "n": 134,
+            "net": 9443.298600000002,
+            "pf_net": 1.1835486120270486
+          },
+          "2026": {
+            "n": 64,
+            "net": 1038.787800000001,
+            "pf_net": 1.054384636940747
+          }
+        },
+        "bootstrap": {
+          "n": 836,
+          "mean": 359.75213480861237,
+          "ci95": [
+            138.65775502990434,
+            623.1842535167465
+          ],
+          "excludes_zero": true,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 6.412046543463381,
+        "daily_mean": 128.3622636877584,
+        "daily_std": 2601.542947701659,
+        "sharpe_daily": 0.04934082053158508,
+        "sharpe_annual_daily": 0.9426550526658636,
+        "verif_horizon_years_PRIMARY": 4.323212104361643,
+        "trade_mean": 359.75213480861237,
+        "trade_std": 3633.362533694155,
+        "trades_per_year": 130.3795900939368,
+        "sharpe_annual_pertrade": 1.1305751927613892,
+        "verif_horizon_years_secondary": 3.005475824658429,
+        "m2m_maxdd_usd": 60397.430995676754,
+        "m2m_net_check": 300752.78382041794
+      },
+      "V_fast": {
+        "version": "V_fast",
+        "ema": [
+          10,
+          30
+        ],
+        "n": 2334,
+        "gross_pnl": 242710.78629999998,
+        "fees_total": -23491.1599,
+        "funding_total": -30485.9357,
+        "net_pnl": 188733.68959999998,
+        "pf_net": 1.2830339041857215,
+        "win_rate_pct": 28.877463581833762,
+        "avg_hold_hours": 115.41730934018852,
+        "whipsaw": {
+          "median_hold_h": 76.0,
+          "mean_hold_h": 115.41730934018852,
+          "n_whip_le_8h": 208,
+          "pct_whip": 8.9,
+          "net_whip_usd": -64669.9,
+          "winrate_whip_pct": 0.0
+        },
+        "long_short": {
+          "long": {
+            "n": 1166,
+            "net": 229635.8667
+          },
+          "short": {
+            "n": 1168,
+            "net": -40902.1771
+          }
+        },
+        "by_year": {
+          "2020": {
+            "n": 254,
+            "net": 51468.28930000001,
+            "pf_net": 1.6491199483556274
+          },
+          "2021": {
+            "n": 374,
+            "net": 72069.06489999998,
+            "pf_net": 1.4368987580982877
+          },
+          "2022": {
+            "n": 376,
+            "net": 23983.790799999995,
+            "pf_net": 1.234722702244644
+          },
+          "2023": {
+            "n": 382,
+            "net": 25890.8251,
+            "pf_net": 1.327410892979491
+          },
+          "2024": {
+            "n": 373,
+            "net": 32887.4369,
+            "pf_net": 1.362066296740092
+          },
+          "2025": {
+            "n": 410,
+            "net": -1045.459700000003,
+            "pf_net": 0.9901778296439261
+          },
+          "2026": {
+            "n": 165,
+            "net": -16520.257700000002,
+            "pf_net": 0.6249671309362683
+          }
+        },
+        "bootstrap": {
+          "n": 2334,
+          "mean": 80.86276332476436,
+          "ci95": [
+            19.298604718294772,
+            149.9390373061268
+          ],
+          "excludes_zero": true,
+          "ci_unreliable_n_lt_50": false
+        },
+        "years_span": 6.412046543463381,
+        "daily_mean": 80.55215071537368,
+        "daily_std": 2001.2794150842194,
+        "sharpe_daily": 0.040250326919983745,
+        "sharpe_annual_daily": 0.7689814160728673,
+        "verif_horizon_years_PRIMARY": 6.496515126413406,
+        "trade_mean": 80.86276332476436,
+        "trade_std": 1602.8697349685065,
+        "trades_per_year": 364.00234842015374,
+        "sharpe_annual_pertrade": 0.9625037771117929,
+        "verif_horizon_years_secondary": 4.146744313535132,
+        "m2m_maxdd_usd": 43900.775210602005,
+        "m2m_net_check": 188733.68912612056
+      },
+      "ledger": {
+        "v0_n": 836,
+        "vfast_n": 2334,
+        "n_added_abs": 1498,
+        "n_added_pct": 179.2,
+        "gross_v0": 362665.5636,
+        "gross_vfast": 242710.78629999998,
+        "gross_vfast_gt_v0": false,
+        "net_v0": 300752.7847,
+        "net_vfast": 188733.68959999998,
+        "net_vfast_gt_v0": false,
+        "cost_wall": false,
+        "horizon_v0_primary": 4.323212104361643,
+        "horizon_vfast_primary": 6.496515126413406,
+        "horizon_not_worse": false
+      },
+      "early_capture": {
+        "n_bigwinners": 84,
+        "n_vfast_earlier_samedir": 78,
+        "pct_vfast_earlier": 92.9,
+        "median_lead_hours": 32.0,
+        "mean_lead_hours": 39.0,
+        "note": "V_fast already holding same direction at V0 big-winner entry => entered earlier"
+      }
+    }
+  },
+  "judgment": {
+    "F1_improvement_real": {
+      "OKX": false,
+      "Binance": false,
+      "pass": false
+    },
+    "F2_cost_survivable": {
+      "OKX": false,
+      "Binance": false,
+      "pass": false
+    },
+    "F3_mechanism_holds": {
+      "OKX": false,
+      "Binance": false,
+      "pass": false
+    },
+    "F4_horizon_not_worse": {
+      "OKX": false,
+      "Binance": false,
+      "pass": false
+    },
+    "ALL_PASS": false,
+    "conclusion": "\u66f4\u65e9\u5165\u573a(EMA10/30)\u65e0\u4f18\u52bf -> B2_4h \u7ef4\u6301\u539f\u72b6(EMA20/100)"
+  }
+}
