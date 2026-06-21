@@ -42,8 +42,8 @@
     "store": "forward/data/ (CSV, independent of .vntrader/database_mainnet.db which stays read-only)",
     "seed": "forward store seeded ONCE from database_mainnet.db (read-only copy) so EMA20/100 carry full history; thereafter REST-appended"
   },
-  "forward_start_utc": "2026-06-01T00:00:00Z",
-  "forward_start_note": "trades with entry_time >= forward_start_utc count as the independent forward sample; backtest/gate sample = everything before it. DB 1m ends 2026-05-28 15:59Z; REST fills the gap to forward_start.",
+  "forward_start_utc": "2026-06-21T08:00:00Z",
+  "forward_start_note": "trades with entry_time >= forward_start_utc count as the independent forward sample. This is the first complete 4h bar close after VPS deployment (2026-06-21T05:30Z). DB 1m ends 2026-05-28 15:59Z; REST fills warmup gap but warmup bars are excluded from forward ledger by deploy.json first_live_bar_close_utc guard. <!-- 2026-06-22 修正：原 2026-06-01 锚点在部署前20天，导致 REST 回填历史冒充前向（见 forward_provenance_check_20260622/）；现改为部署后首个完整 bar -->",
   "engine": "research_trend_baseline(tb) + research_trend_validation_r2(r2) imported VERBATIM, zero modification; forward accounting is a thin outer wrapper calling tb.signal_emax/positions_flip/build_trades + r2.m2m_pnl",
   "freeze_note": "ALL params permanently frozen; any change = a NEW system (new SHA256). B2_4h is the optimal form: 4 enhancement attempts (funding-confirm, ADX>25 filter, faster-entry EMA10/30, V1 top5%-removal) all dual-sample killed. Forward deploys B2_4h AS-IS: zero optimization, zero filter, zero parameter variant."
 }

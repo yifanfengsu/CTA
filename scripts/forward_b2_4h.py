@@ -64,6 +64,7 @@ STATE = FWD / "state"
 CONFIG_PATH = FWD / "config_frozen.json"
 BASELINE_PATH = FWD / "baseline_distribution.json"
 NOTIFY_CONF = FWD / "notify.conf"
+DEPLOY_PATH = STATE / "deploy.json"             # records deployment moment, used to exclude backfill
 
 OKX_BASE = "https://www.okx.com"                 # MAINNET public, hardcoded
 FAST, SLOW, TF = 20, 100, "4h"
@@ -287,6 +288,15 @@ def write_heartbeat(extra=None):
           "config_sha256": config_sha256()}
     if extra:
         hb.update(extra)
+    # preserve last_live_bar_close_utc from previous heartbeat if not overwritten
+    prev = (STATE / "heartbeat.json")
+    if prev.exists() and "last_live_bar_close_utc" not in hb:
+        try:
+            old = json.loads(prev.read_text())
+            if old.get("last_live_bar_close_utc"):
+                hb["last_live_bar_close_utc"] = old["last_live_bar_close_utc"]
+        except Exception:
+            pass
     (STATE / "heartbeat.json").write_text(json.dumps(hb, indent=2))
 
 
@@ -308,8 +318,17 @@ def mode_seed():
         fdf.sort_values("funding_time").to_csv(FU / f"{inst}.csv", index=False)
         L(f"  {coin}: seeded {n} 1m bars, {len(fdf)} funding rows")
     write_manifest({"seeded_from": "database_mainnet.db (read-only) + data/funding/okx"})
-    write_heartbeat({"event": "seed"})
-    L("seed: done. NOTE: run --update to backfill REST data after the DB end, then --account.")
+    # Compute first_live_bar_close_utc: the first complete 4h bar close after seed.
+    # Deployment completed now; next 4h boundary = (current_hour // 4 + 1) * 4.
+    now = datetime.now(timezone.utc)
+    next_boundary = ((now.hour // 4) + 1) * 4
+    first_live = now.replace(hour=0, minute=0, second=0, microsecond=0) + pd.Timedelta(hours=next_boundary)
+    if first_live <= now:
+        first_live += pd.Timedelta(hours=4)
+    write_deploy(now.isoformat(), first_live.isoformat())
+    write_heartbeat({"event": "seed", "last_live_bar_close_utc": first_live.isoformat()})
+    L(f"seed: done. deploy.json written, first_live_bar_close={first_live.isoformat()}. "
+      f"NOTE: run --update to backfill REST data (warmup only, excluded from forward), then --account.")
 
 
 def mode_update():
@@ -339,6 +358,43 @@ def mode_update():
     L(f"update: total +{total_k} 1m, +{total_f} funding")
 
 
+GAP_LOG = STATE / "gap_log.jsonl"
+
+def _detect_and_log_gap(perbar: pd.Series):
+    """If system was down between last live bar and now, log the gap.
+    Gap bars are excluded from forward_window (they were REST-backfilled, not live)."""
+    hb = json.loads((STATE / "heartbeat.json").read_text()) if (STATE / "heartbeat.json").exists() else {}
+    last_live = hb.get("last_live_bar_close_utc")
+    if not last_live:
+        deploy = read_deploy()
+        if deploy:
+            last_live = deploy.get("first_live_bar_close_utc")
+    if not last_live:
+        return
+    last_live_dt = pd.Timestamp(last_live)
+    cur_end = perbar.index[-1]
+    if cur_end - last_live_dt > pd.Timedelta(hours=5):  # 4h bar + 1h tolerance
+        gap_start = (last_live_dt + pd.Timedelta(hours=4)).isoformat()
+        gap_end = cur_end.isoformat()
+        GAP_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(GAP_LOG, "a") as f:
+            f.write(json.dumps({"gap_start": gap_start, "gap_end": gap_end,
+                                "detected_utc": datetime.now(timezone.utc).isoformat(),
+                                "note": "System downtime gap — bars in this range are excluded from forward ledger"}) + "\n")
+        L(f"gap detected: [{gap_start} .. {gap_end}] — bars excluded from forward (downtime backfill)")
+
+
+def _get_gap_periods() -> list[tuple[pd.Timestamp, pd.Timestamp]]:
+    """Return list of (gap_start, gap_end) tuples for forward_window exclusion."""
+    gaps = []
+    if GAP_LOG.exists():
+        for line in GAP_LOG.read_text().strip().split("\n"):
+            if line:
+                g = json.loads(line)
+                gaps.append((pd.Timestamp(g["gap_start"]), pd.Timestamp(g["gap_end"])))
+    return gaps
+
+
 def mode_account():
     _store_paths()
     bars, fund = build_inputs(load_store_1m, load_store_funding)
@@ -364,16 +420,52 @@ def mode_account():
                                                               unit="s", tz="UTC").isoformat()}
     (STATE / "positions.json").write_text(json.dumps(positions, indent=2))
     write_heartbeat({"event": "account", "n_trades": len(trades),
-                     "net_total_usd": float(perbar.sum())})
+                     "net_total_usd": float(perbar.sum()),
+                     "last_live_bar_close_utc": perbar.index[-1].isoformat()})
+    # ── gap detection: if system was down, log the missed bars ──
+    _detect_and_log_gap(perbar)
     pos_summary = ", ".join(f"{k}:{v['direction']}" for k, v in positions.items())
     L(f"account: {len(trades)} trades, full-sample net ${perbar.sum():,.2f}, positions={{ {pos_summary} }}")
     return trades, perbar, positions
 
 
+# ─────────────────────────── deploy guard (anti-backfill) ────────────────────────
+def read_deploy() -> dict | None:
+    """Read deploy.json. Returns None if not yet created (pre-seed state)."""
+    if not DEPLOY_PATH.exists():
+        return None
+    return json.loads(DEPLOY_PATH.read_text())
+
+def write_deploy(deploy_completed_utc: str, first_live_bar_close_utc: str):
+    """Write deploy.json. Called once by --seed. Never modified thereafter."""
+    DEPLOY_PATH.parent.mkdir(parents=True, exist_ok=True)
+    DEPLOY_PATH.write_text(json.dumps({
+        "deploy_completed_utc": deploy_completed_utc,
+        "first_live_bar_close_utc": first_live_bar_close_utc,
+        "note": "No bar closing before first_live_bar_close_utc is EVER counted as forward sample. "
+                "backfill/warmup bars (seed + REST gap-fill) are excluded from forward ledger. "
+                "Gap-detection: if a cron-4h detects >4h since last live bar close, "
+                "the bars in the gap are logged as missed (not forward)."
+    }, indent=2))
+
+def effective_forward_start() -> pd.Timestamp:
+    """Forward sample starts at max(config.forward_start_utc, deploy.first_live_bar_close_utc).
+    This prevents the config anchor predating deployment (the root cause of the 2026-06-22
+    contamination incident)."""
+    start = pd.Timestamp(cfg()["forward_start_utc"])
+    deploy = read_deploy()
+    if deploy and deploy.get("first_live_bar_close_utc"):
+        return max(start, pd.Timestamp(deploy["first_live_bar_close_utc"]))
+    return start
+
+
 # ─────────────────────────── gate margins ───────────────────────────────────────
 def forward_window(perbar: pd.Series, trades: list):
-    start = pd.Timestamp(cfg()["forward_start_utc"])
+    start = effective_forward_start()
     f_per = perbar[perbar.index >= start]
+    # exclude gap periods (system downtime — bars were REST-backfilled, not live)
+    for gap_start, gap_end in _get_gap_periods():
+        f_per = f_per[(f_per.index < gap_start) | (f_per.index > gap_end)]
     f_tr = [t for t in trades if pd.Timestamp(t["entry_time"]) >= start]
     return f_per, f_tr
 
@@ -388,7 +480,7 @@ def gate_status(perbar: pd.Series, trades: list) -> dict:
     eq = daily.cumsum()
     maxdd = float((eq.cummax() - eq).max()) if len(eq) else 0.0
     net = float(f_per.sum())
-    span_days = (f_per.index[-1] - pd.Timestamp(cfg()["forward_start_utc"])).days
+    span_days = (f_per.index[-1] - effective_forward_start()).days
     months = span_days / 30.44
     roll12 = float(daily[daily.index > (daily.index[-1] - pd.Timedelta(days=365))].sum())
     k1_p5 = okx.get("rolling_12mo_net", {}).get("p5")

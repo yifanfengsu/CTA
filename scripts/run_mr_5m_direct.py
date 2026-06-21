@@ -1169,7 +1169,7 @@ class OKXTickerFeed:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--no-trade", action="store_true", help="Monitor only, no orders")
-    parser.add_argument("--no-notify", action="store_true", help="Disable PushPlus notifications")
+    parser.add_argument("--no-notify", action="store_true", help="Disable p notifications")
     parser.add_argument("--summary-interval", type=int, default=6, help="Summary interval in hours (default: 6)")
     args = parser.parse_args()
 
