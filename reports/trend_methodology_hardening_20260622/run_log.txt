@@ -1,0 +1,85 @@
+run start (UTC): 2026-06-28T06:26:03.320256+00:00
+DATA: database_mainnet.db (mode=ro) | engines tb/tv/r2 imported VERBATIM, zero strategy/param/gate/forward modification
+contaminated legacy DB: not touched | forward system / config_frozen.json: not touched
+
+loading 1m + funding, aggregating 4h/1d via tb engine ...
+  symbols loaded: ['BTC', 'ETH', 'SOL', 'LINK', 'DOGE']
+
+== reconstructing daily M2M PnL for 15 baseline configs (frozen engine) ==
+  [A1_4h ] m2m=$     8,714 trade=$     8,714 diff=$   0.00 | live 2023-01-05 days=1241 | SR_ann(live)=0.106
+  [A1_1d ] m2m=$     7,244 trade=$     7,244 diff=$   0.00 | live 2023-01-29 days=1217 | SR_ann(live)=0.074
+  [A2_4h ] m2m=$    15,955 trade=$    15,955 diff=$  -0.00 | live 2023-01-11 days=1235 | SR_ann(live)=0.200
+  [A2_1d ] m2m=$    30,232 trade=$    30,232 diff=$  -0.00 | live 2023-03-11 days=1176 | SR_ann(live)=0.262
+  [A3_1d ] m2m=$     2,909 trade=$     2,909 diff=$   0.00 | live 2023-04-13 days=1143 | SR_ann(live)=0.019
+  [B1_4h ] m2m=$    49,991 trade=$    49,991 diff=$  -0.00 | live 2023-02-04 days=1211 | SR_ann(live)=0.436
+  [B1_1d ] m2m=$    37,728 trade=$    37,728 diff=$   0.00 | live 2023-07-21 days=1044 | SR_ann(live)=0.213
+  [B2_4h ] m2m=$    68,195 trade=$    68,195 diff=$   0.00 | live 2023-01-18 days=1228 | SR_ann(live)=0.655
+  [B2_1d ] m2m=$    51,252 trade=$    51,252 diff=$  -0.00 | live 2023-04-12 days=1144 | SR_ann(live)=0.348
+  [C1_4h ] m2m=$    64,352 trade=$    64,352 diff=$   0.00 | live 2023-01-31 days=1215 | SR_ann(live)=0.585
+  [C1_1d ] m2m=$    71,392 trade=$    71,392 diff=$   0.00 | live 2023-02-01 days=1214 | SR_ann(live)=0.650
+  [C2_4h ] m2m=$    52,149 trade=$    52,149 diff=$   0.00 | live 2023-04-01 days=1155 | SR_ann(live)=0.368
+  [C2_1d ] m2m=$    44,833 trade=$    44,833 diff=$   0.00 | live 2023-04-02 days=1154 | SR_ann(live)=0.318
+  [C3_4h ] m2m=$    11,174 trade=$    11,174 diff=$   0.00 | live 2023-06-30 days=1065 | SR_ann(live)=0.074
+  [C3_1d ] m2m=$     2,549 trade=$     2,549 diff=$  -0.00 | live 2023-07-01 days=1064 | SR_ann(live)=0.017
+
+== fidelity check vs frozen trend_portfolio sleeve_daily_pnl.csv ==
+  B1_4h : max |mine - frozen| = $0.000000
+  B2_4h : max |mine - frozen| = $0.000000
+  C2_4h : max |mine - frozen| = $0.000000
+  C2_1d : max |mine - frozen| = $0.000000
+  P-A full-grid annualised Sharpe = 0.4821  (frozen report: 0.48)
+  FIDELITY PASS — reconstruction is byte-faithful to frozen engine.
+
+== 15 baseline configs' annualised Sharpe (own live window) ==
+  A1_4h  n_tr= 927  SR_ann= 0.106  net=$    8,714
+  A1_1d  n_tr= 164  SR_ann= 0.074  net=$    7,244
+  A2_4h  n_tr= 451  SR_ann= 0.200  net=$   15,955
+  A2_1d  n_tr=  76  SR_ann= 0.262  net=$   30,232
+  A3_1d  n_tr=  33  SR_ann= 0.019  net=$    2,909
+  B1_4h  n_tr= 216  SR_ann= 0.436  net=$   49,991
+  B1_1d  n_tr=  30  SR_ann= 0.213  net=$   37,728
+  B2_4h  n_tr= 470  SR_ann= 0.655  net=$   68,195
+  B2_1d  n_tr=  77  SR_ann= 0.348  net=$   51,252
+  C1_4h  n_tr=1222  SR_ann= 0.585  net=$   64,352
+  C1_1d  n_tr= 526  SR_ann= 0.650  net=$   71,392
+  C2_4h  n_tr= 542  SR_ann= 0.368  net=$   52,149
+  C2_1d  n_tr= 248  SR_ann= 0.318  net=$   44,833
+  C3_4h  n_tr= 305  SR_ann= 0.074  net=$   11,174
+  C3_1d  n_tr= 147  SR_ann= 0.017  net=$    2,549
+  mean SR_ann=0.288  std(ddof1)=0.219  Var(SR_daily)=1.313e-04
+
+common-live window start (latest of 15): 2023-07-21 (config: B1_1d)
+15x15 daily-corr eigenvalues (top6): [9.147, 3.205, 1.1, 0.497, 0.278, 0.254]
+effective N (ENB) = 2.354   nominal N = 15
+extended N (LOWER BOUND) >= 47  breakdown={'baseline': 15, 'family_D': 4, 'V3_neighbourhood_variants_x2_per_gated_config': 18, 'post_closure_funding_confirm': 4, 'post_closure_adx_filter': 3, 'post_closure_faster_entry': 3}
+
+== DSR target B2_4h: SR_daily=0.03428 SR_ann=0.6548 skew=0.191 kurt(non-excess)=7.50 n_days=1228 ==
+  N[effective  ]=  2.35  SR*0_ann= 0.145  deflated_ann= 0.510  DSR_prob=0.826
+  N[nominal_15 ]= 15.00  SR*0_ann= 0.388  deflated_ann= 0.267  DSR_prob=0.688
+  N[extended_LB]= 47.00  SR*0_ann= 0.493  deflated_ann= 0.162  DSR_prob=0.617
+  PSR(0) [no deflation, vs SR*=0] = 0.886
+
+== stationary bootstrap Sharpe SE (B2_4h, median hold 196h) ==
+  L= 1d (iid) : SE(SR_ann)=0.5416  CI95=[-0.396,1.693]
+  L= 4d       : SE(SR_ann)=0.5187  CI95=[-0.388,1.654]
+  L= 8d (MAIN): SE(SR_ann)=0.5300  CI95=[-0.385,1.699]
+  L=16d       : SE(SR_ann)=0.5205  CI95=[-0.364,1.639]
+  autocorrelation inflation SE_block/SE_iid = 0.979
+  daily-return ACF lag1..5: [-0.05, 0.023, -0.035, 0.015, 0.029]  (near-0 => block~=iid, autocorrelation correction immaterial)
+
+== verification horizon (T0=3.36y) ==
+  original method anchor: portfolio Sharpe 0.5 -> (1.96/0.5)^2 = 15.4y
+  T*_iid_closed  (orig method on B2_4h raw SR 0.655) = 9.0y
+  T*_iid_boot    (raw SR, iid boot SE 0.542)           = 8.8y
+  T*_block_raw   (raw SR, block boot SE 0.530)       = 8.5y
+  T*_block_defl  [N=effective   deflated SR 0.510] = 14.0y
+  T*_block_defl  [N=nominal_15  deflated SR 0.267] = 50.7y
+  T*_block_defl  [N=extended_LB deflated SR 0.162] = 138.4y
+  decomposition (effective-N): autocorrelation x0.96 ; deflation x1.65
+
+== right-skew picture (B2_4h) ==
+  Sharpe_ann=0.655  Sortino_ann=0.979  Sortino/Sharpe=1.50
+  daily skew=0.19 excess-kurt=4.5  trade skew=9.13  payoff=3.53  WR=28.3%  tail-capture=0.55
+
+wrote /home/yiast/vnpy_projects/cta_strategy/reports/trend_methodology_hardening_20260622/deflated_sharpe.json + configs_15_sharpe.jsonl + daily_m2m_15configs_fullgrid.csv
+run end (UTC): 2026-06-28T06:26:24.440301+00:00

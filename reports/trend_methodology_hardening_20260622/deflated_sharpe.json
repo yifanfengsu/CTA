@@ -1,0 +1,428 @@
+{
+  "meta": {
+    "target": "B2_4h",
+    "seed": 20260622,
+    "n_boot": 10000,
+    "ann_factor": "sqrt(365)",
+    "t0_years": 3.359342915811088,
+    "run_utc": "2026-06-28T06:26:24.409753+00:00"
+  },
+  "fidelity_max_abs_diff_usd": {
+    "B1_4h": 9.094947017729282e-13,
+    "B2_4h": 1.8189894035458565e-12,
+    "C2_4h": 1.8189894035458565e-12,
+    "C2_1d": 1.8189894035458565e-12
+  },
+  "P_A_fullgrid_sharpe_ann": 0.48214304714967293,
+  "configs_15": [
+    {
+      "id": "A1_4h",
+      "n_trades": 927,
+      "trade_net": 8714.239399999999,
+      "live_start": "2023-01-05",
+      "n_days": 1241,
+      "median_hold_h": 84.0,
+      "sharpe_daily": 0.005567947445634858,
+      "sharpe_ann": 0.10637548658611806,
+      "sortino_ann": 0.15756460058917068,
+      "daily_skew": 0.0377351550258184,
+      "daily_kurt_nonexcess": 11.895371306299209
+    },
+    {
+      "id": "A1_1d",
+      "n_trades": 164,
+      "trade_net": 7243.964700000003,
+      "live_start": "2023-01-29",
+      "n_days": 1217,
+      "median_hold_h": 432.0,
+      "sharpe_daily": 0.0038509675793494324,
+      "sharpe_ann": 0.07357263229950492,
+      "sortino_ann": 0.10397222509426643,
+      "daily_skew": -0.180230996257683,
+      "daily_kurt_nonexcess": 11.14684883777749
+    },
+    {
+      "id": "A2_4h",
+      "n_trades": 451,
+      "trade_net": 15955.1448,
+      "live_start": "2023-01-11",
+      "n_days": 1235,
+      "median_hold_h": 160.0,
+      "sharpe_daily": 0.010475947465611098,
+      "sharpe_ann": 0.20014269530841963,
+      "sortino_ann": 0.2967501160644009,
+      "daily_skew": 0.2792561903989256,
+      "daily_kurt_nonexcess": 8.223229425155195
+    },
+    {
+      "id": "A2_1d",
+      "n_trades": 76,
+      "trade_net": 30231.5484,
+      "live_start": "2023-03-11",
+      "n_days": 1176,
+      "median_hold_h": 840.0,
+      "sharpe_daily": 0.013730448184996078,
+      "sharpe_ann": 0.26231984424879995,
+      "sortino_ann": 0.36847860188899284,
+      "daily_skew": -0.4406606211405113,
+      "daily_kurt_nonexcess": 18.79337566061815
+    },
+    {
+      "id": "A3_1d",
+      "n_trades": 33,
+      "trade_net": 2908.6079999999997,
+      "live_start": "2023-04-13",
+      "n_days": 1143,
+      "median_hold_h": 1992.0,
+      "sharpe_daily": 0.0010064410594172537,
+      "sharpe_ann": 0.019228029441925067,
+      "sortino_ann": 0.026457856175789943,
+      "daily_skew": -0.41017417477248064,
+      "daily_kurt_nonexcess": 10.53180320534192
+    },
+    {
+      "id": "B1_4h",
+      "n_trades": 216,
+      "trade_net": 49990.777200000004,
+      "live_start": "2023-02-04",
+      "n_days": 1211,
+      "median_hold_h": 426.0,
+      "sharpe_daily": 0.022797715690096986,
+      "sharpe_ann": 0.4355497467001564,
+      "sortino_ann": 0.6275762216231912,
+      "daily_skew": -0.026545384750175777,
+      "daily_kurt_nonexcess": 8.239405017742053
+    },
+    {
+      "id": "B1_1d",
+      "n_trades": 30,
+      "trade_net": 37727.6653,
+      "live_start": "2023-07-21",
+      "n_days": 1044,
+      "median_hold_h": 3288.0,
+      "sharpe_daily": 0.011156156545187335,
+      "sharpe_ann": 0.2131380715268041,
+      "sortino_ann": 0.29573443500967506,
+      "daily_skew": -0.3374447308494061,
+      "daily_kurt_nonexcess": 10.530519338299383
+    },
+    {
+      "id": "B2_4h",
+      "n_trades": 470,
+      "trade_net": 68194.8186,
+      "live_start": "2023-01-18",
+      "n_days": 1228,
+      "median_hold_h": 196.0,
+      "sharpe_daily": 0.03427575960051239,
+      "sharpe_ann": 0.6548374677048671,
+      "sortino_ann": 0.9791881219210555,
+      "daily_skew": 0.1907939568583214,
+      "daily_kurt_nonexcess": 7.503036677145216
+    },
+    {
+      "id": "B2_1d",
+      "n_trades": 77,
+      "trade_net": 51252.277700000006,
+      "live_start": "2023-04-12",
+      "n_days": 1144,
+      "median_hold_h": 1224.0,
+      "sharpe_daily": 0.018231923273322,
+      "sharpe_ann": 0.34832040505713935,
+      "sortino_ann": 0.4847113587349284,
+      "daily_skew": -0.480431507329405,
+      "daily_kurt_nonexcess": 14.057645991242014
+    },
+    {
+      "id": "C1_4h",
+      "n_trades": 1222,
+      "trade_net": 64351.936499999996,
+      "live_start": "2023-01-31",
+      "n_days": 1215,
+      "median_hold_h": 12.0,
+      "sharpe_daily": 0.030625981318062292,
+      "sharpe_ann": 0.585108551525629,
+      "sortino_ann": 0.8778056213356369,
+      "daily_skew": 0.20278081701610648,
+      "daily_kurt_nonexcess": 8.43136610970356
+    },
+    {
+      "id": "C1_1d",
+      "n_trades": 526,
+      "trade_net": 71391.9471,
+      "live_start": "2023-02-01",
+      "n_days": 1214,
+      "median_hold_h": 72.0,
+      "sharpe_daily": 0.034009382670324474,
+      "sharpe_ann": 0.6497483435993098,
+      "sortino_ann": 0.9632822669171943,
+      "daily_skew": 0.12263095864655461,
+      "daily_kurt_nonexcess": 8.275324588531609
+    },
+    {
+      "id": "C2_4h",
+      "n_trades": 542,
+      "trade_net": 52149.155600000006,
+      "live_start": "2023-04-01",
+      "n_days": 1155,
+      "median_hold_h": 16.0,
+      "sharpe_daily": 0.019277118702709626,
+      "sharpe_ann": 0.3682888356977447,
+      "sortino_ann": 0.521596991841268,
+      "daily_skew": -0.2578655751978316,
+      "daily_kurt_nonexcess": 12.897315707626078
+    },
+    {
+      "id": "C2_1d",
+      "n_trades": 248,
+      "trade_net": 44832.996199999994,
+      "live_start": "2023-04-02",
+      "n_days": 1154,
+      "median_hold_h": 96.0,
+      "sharpe_daily": 0.016666705913478966,
+      "sharpe_ann": 0.3184169693850095,
+      "sortino_ann": 0.44690388345512744,
+      "daily_skew": -0.34015276874157463,
+      "daily_kurt_nonexcess": 12.737153083215825
+    },
+    {
+      "id": "C3_4h",
+      "n_trades": 305,
+      "trade_net": 11173.7302,
+      "live_start": "2023-06-30",
+      "n_days": 1065,
+      "median_hold_h": 16.0,
+      "sharpe_daily": 0.0038800005218564246,
+      "sharpe_ann": 0.07412730588727906,
+      "sortino_ann": 0.10329155584414708,
+      "daily_skew": -0.23722819790010483,
+      "daily_kurt_nonexcess": 11.727098821102622
+    },
+    {
+      "id": "C3_1d",
+      "n_trades": 147,
+      "trade_net": 2548.6358000000005,
+      "live_start": "2023-07-01",
+      "n_days": 1064,
+      "median_hold_h": 96.0,
+      "sharpe_daily": 0.0009049558169522242,
+      "sharpe_ann": 0.017289156607018706,
+      "sortino_ann": 0.023990085181208702,
+      "daily_skew": -0.270895296512822,
+      "daily_kurt_nonexcess": 11.863713194684934
+    }
+  ],
+  "N_calibres": {
+    "nominal": 15,
+    "effective_ENB": 2.3539441110717667,
+    "extended_lower_bound": 47,
+    "extended_breakdown": {
+      "baseline": 15,
+      "family_D": 4,
+      "V3_neighbourhood_variants_x2_per_gated_config": 18,
+      "post_closure_funding_confirm": 4,
+      "post_closure_adx_filter": 3,
+      "post_closure_faster_entry": 3
+    },
+    "corr_eigenvalues": [
+      9.14680831100146,
+      3.20514848966641,
+      1.1004732892966334,
+      0.4974176516354696,
+      0.2784971386161436,
+      0.2541601121688762,
+      0.1354308645969571,
+      0.10654378578926497,
+      0.08866304936498677,
+      0.06902835572732985,
+      0.05105408413586122,
+      0.02842532164650517,
+      0.027611933993751624,
+      0.006011389313874547,
+      0.004726223046475648
+    ]
+  },
+  "var_sr": {
+    "daily": 0.00013125181467931192,
+    "annual": 0.04790691235794885,
+    "mean_sharpe_ann": 0.288430902771715,
+    "std_sharpe_ann": 0.21887647739752403
+  },
+  "dsr": {
+    "target_sr_daily": 0.03427575960051239,
+    "target_sr_ann": 0.6548374677048671,
+    "target_daily_skew": 0.1907939568583214,
+    "target_daily_kurt_nonexcess": 7.503036677145216,
+    "n_obs_days": 1228,
+    "PSR_vs_zero": 0.8855929704745207,
+    "rows": {
+      "effective": {
+        "N": 2.3539441110717667,
+        "SR_star0_daily": 0.007596317525788501,
+        "SR_star0_ann": 0.14512744255549864,
+        "deflated_sharpe_daily": 0.02667944207472389,
+        "deflated_sharpe_ann": 0.5097100251493685,
+        "DSR_prob": 0.8255469633636375
+      },
+      "nominal_15": {
+        "N": 15.0,
+        "SR_star0_daily": 0.020285869120155828,
+        "SR_star0_ann": 0.3875609853628632,
+        "deflated_sharpe_daily": 0.013989890480356565,
+        "deflated_sharpe_ann": 0.26727648234200385,
+        "DSR_prob": 0.6883518541188806
+      },
+      "extended_LB": {
+        "N": 47.0,
+        "SR_star0_daily": 0.02580573070482838,
+        "SR_star0_ann": 0.4930177928652216,
+        "deflated_sharpe_daily": 0.008470028895684014,
+        "deflated_sharpe_ann": 0.16181967483964546,
+        "DSR_prob": 0.6169125941813239
+      }
+    }
+  },
+  "bootstrap": {
+    "median_hold_h": 196.0,
+    "L_main_days": 8,
+    "by_L": {
+      "1": {
+        "L_days": 1,
+        "B": 10000,
+        "mean_sharpe_ann": 0.6553272829328795,
+        "se_sharpe_ann": 0.5415619457980435,
+        "ci95_sharpe_ann": [
+          -0.3963064135711083,
+          1.692858420676627
+        ]
+      },
+      "4": {
+        "L_days": 4,
+        "B": 10000,
+        "mean_sharpe_ann": 0.6486144160242435,
+        "se_sharpe_ann": 0.5187161761390059,
+        "ci95_sharpe_ann": [
+          -0.3877235134286841,
+          1.6542480821032992
+        ]
+      },
+      "8": {
+        "L_days": 8,
+        "B": 10000,
+        "mean_sharpe_ann": 0.642798533609288,
+        "se_sharpe_ann": 0.5300000902567973,
+        "ci95_sharpe_ann": [
+          -0.38483526916531674,
+          1.698853397419079
+        ]
+      },
+      "16": {
+        "L_days": 16,
+        "B": 10000,
+        "mean_sharpe_ann": 0.6369903616564284,
+        "se_sharpe_ann": 0.5204907113528755,
+        "ci95_sharpe_ann": [
+          -0.3644587398079716,
+          1.6393111215470955
+        ]
+      }
+    },
+    "se_iid": 0.5415619457980435,
+    "se_block": 0.5300000902567973,
+    "inflation": 0.9786509084861775,
+    "daily_acf_lag1_5": [
+      -0.04986540521713831,
+      0.022992014228565217,
+      -0.035080930930127874,
+      0.014696119363578427,
+      0.029208464659403608
+    ]
+  },
+  "verification_horizon": {
+    "t0_years": 3.359342915811088,
+    "portfolio_anchor_0p5_to_15y": 15.365835282776501,
+    "T_iid_closed_raw": 8.958373000860394,
+    "T_iid_boot_raw": 8.82632183874225,
+    "T_block_raw": 8.453476827110508,
+    "T_block_deflated_effN": 13.952629312445225,
+    "T_block_deflated_byN": {
+      "effective": 13.952629312445225,
+      "nominal_15": 50.74355777208686,
+      "extended_LB": 138.4330408944302
+    },
+    "autocorrelation_factor": 0.9577576006808206,
+    "deflation_factor": 1.6505196143317975
+  },
+  "right_skew": {
+    "sharpe_ann": 0.6548374677048671,
+    "sortino_ann": 0.9791881219210555,
+    "sortino_over_sharpe": 1.4953147463491996,
+    "daily_skew": 0.1907939568583214,
+    "daily_excess_kurtosis": 4.503036677145216,
+    "trade_net_skew": 9.133572749573892,
+    "payoff_ratio": 3.526481424781336,
+    "win_rate_pct": 28.297872340425535,
+    "tail_capture_ratio_v1p_c": 0.5472467072325509
+  },
+  "sortino_vs_sharpe_15": {
+    "A1_4h": {
+      "sharpe_ann": 0.10637548658611806,
+      "sortino_ann": 0.15756460058917068
+    },
+    "A1_1d": {
+      "sharpe_ann": 0.07357263229950492,
+      "sortino_ann": 0.10397222509426643
+    },
+    "A2_4h": {
+      "sharpe_ann": 0.20014269530841963,
+      "sortino_ann": 0.2967501160644009
+    },
+    "A2_1d": {
+      "sharpe_ann": 0.26231984424879995,
+      "sortino_ann": 0.36847860188899284
+    },
+    "A3_1d": {
+      "sharpe_ann": 0.019228029441925067,
+      "sortino_ann": 0.026457856175789943
+    },
+    "B1_4h": {
+      "sharpe_ann": 0.4355497467001564,
+      "sortino_ann": 0.6275762216231912
+    },
+    "B1_1d": {
+      "sharpe_ann": 0.2131380715268041,
+      "sortino_ann": 0.29573443500967506
+    },
+    "B2_4h": {
+      "sharpe_ann": 0.6548374677048671,
+      "sortino_ann": 0.9791881219210555
+    },
+    "B2_1d": {
+      "sharpe_ann": 0.34832040505713935,
+      "sortino_ann": 0.4847113587349284
+    },
+    "C1_4h": {
+      "sharpe_ann": 0.585108551525629,
+      "sortino_ann": 0.8778056213356369
+    },
+    "C1_1d": {
+      "sharpe_ann": 0.6497483435993098,
+      "sortino_ann": 0.9632822669171943
+    },
+    "C2_4h": {
+      "sharpe_ann": 0.3682888356977447,
+      "sortino_ann": 0.521596991841268
+    },
+    "C2_1d": {
+      "sharpe_ann": 0.3184169693850095,
+      "sortino_ann": 0.44690388345512744
+    },
+    "C3_4h": {
+      "sharpe_ann": 0.07412730588727906,
+      "sortino_ann": 0.10329155584414708
+    },
+    "C3_1d": {
+      "sharpe_ann": 0.017289156607018706,
+      "sortino_ann": 0.023990085181208702
+    }
+  }
+}
