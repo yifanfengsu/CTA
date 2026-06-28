@@ -121,4 +121,4 @@ All three point the same way; the verdict is **robust to the 30 s knife-edge and
 
 ---
 
-*order flow exhaustion前置完成于 2026-06-28T08:00Z / 数据级别:逐笔(aggTrades,无订单簿深度) / 冲击样本:8,521次 / 回弹存活:无可捕获回弹(L=0理想HFT即gross≈0.09bps、median 0) / 冲击后:主要继续同向(0.1–10s续走,30s+硬币翻转随机游走) / 用户延迟后剩余回弹扣成本:负(net≈−9.8bps全延迟) / 判定:不过-成本/速度墙(+机制非回弹主导+与bounce安慰剂不可区分,三重) / 微观结构MR方向:按承诺不再考虑 / 已push:[待确认]*
+*order flow exhaustion前置完成于 2026-06-28T08:00Z / 数据级别:逐笔(aggTrades,无订单簿深度) / 冲击样本:8,521次 / 回弹存活:无可捕获回弹(L=0理想HFT即gross≈0.09bps、median 0) / 冲击后:主要继续同向(0.1–10s续走,30s+硬币翻转随机游走) / 用户延迟后剩余回弹扣成本:负(net≈−9.8bps全延迟) / 判定:不过-成本/速度墙(+机制非回弹主导+与bounce安慰剂不可区分,三重) / 微观结构MR方向:按承诺不再考虑 / 已push:已确认 (commit 9e10787, origin/main)*
