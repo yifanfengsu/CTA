@@ -1,0 +1,35 @@
+{
+  "generated_utc": "2026-06-28T08:52:38.762695+00:00",
+  "deribit_endpoint": "https://www.deribit.com/api/v2/public/",
+  "coinbase_endpoint": "https://api.exchange.coinbase.com",
+  "testnet": false,
+  "assets": [
+    "BTC",
+    "ETH"
+  ],
+  "monthly_expiry_range": [
+    "(2020, 1)",
+    "(2026, 6)"
+  ],
+  "annualization": 365.0,
+  "atm_def": "strike closest to S0 at entry, fixed to expiry, no roll",
+  "iv_source": "BS-inverted from get_tradingview_chart_data last-trade close (mark not free historically); validated vs live mark_iv to <0.1vp",
+  "rv_source": "{asset}-PERPETUAL daily 08:00 UTC close-to-close, annualized x365",
+  "fees": {
+    "opt_taker": 0.0003,
+    "opt_cap": 0.125,
+    "opt_settle": 0.00015,
+    "perp_taker": 0.0005
+  },
+  "friction_note": "bid-ask from CURRENT ATM monthly chain (historical orderbook not free) -> applied to history; historical spreads likely WIDER => friction is a LOWER bound (optimistic)",
+  "friction_frozen": "data/live_friction.json (snapshot, reused across runs for reproducibility)",
+  "authenticity_pass": true,
+  "authenticity_alignment": "perp[d]=\u4ef7@(d+1)08:00 UTC(Deribit 1D close=\u6807\u7b7e+24h,\u5df2\u5b9e\u8bc1); Coinbase \u53d6 (d+1)08:00 \u5c0f\u65f6 open \u540c\u523b\u6bd4\u5bf9",
+  "authenticity_calm_median_dev_pct": 0.025,
+  "data_files": [
+    "cycles_BTC.jsonl",
+    "cycles_ETH.jsonl",
+    "summary.json",
+    "live_friction.json"
+  ]
+}

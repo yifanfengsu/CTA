@@ -1,0 +1,15 @@
+{
+  "BTC": {
+    "iv_spread_volpts": 0.8400000000000034,
+    "opt_pct_of_premium": 0.020855261441035517,
+    "perp_half_spread": 4.140255288141067e-06,
+    "n_quotes": 8
+  },
+  "ETH": {
+    "iv_spread_volpts": 1.7000000000000028,
+    "opt_pct_of_premium": 0.03741157578526237,
+    "perp_half_spread": 1.5832554899369713e-05,
+    "n_quotes": 8
+  },
+  "_measured_utc": "2026-06-28T08:48:09.107562+00:00"
+}

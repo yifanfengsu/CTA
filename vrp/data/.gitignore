@@ -1,0 +1,8 @@
+# Raw Deribit/Coinbase API response cache — large, reproducible, do not commit
+cache/
+# Large raw pulls
+*.raw.jsonl
+# Keep processed/manifest artifacts (tracked explicitly)
+!manifest.json
+!*_summary.json
+!cycles_*.jsonl

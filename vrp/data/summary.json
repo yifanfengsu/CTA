@@ -1,0 +1,454 @@
+{
+  "generated_utc": "2026-06-28T08:52:38.762695+00:00",
+  "authenticity": {
+    "endpoint": "https://www.deribit.com/api/v2/public/",
+    "testnet_flag": false,
+    "anchor_source": "Coinbase Exchange (api.exchange.coinbase.com) spot USD hourly open \u2014 \u72ec\u7acb\u4e8e Deribit \u6307\u6570",
+    "alignment": "perp[d]=\u4ef7@(d+1)08:00 UTC(Deribit 1D close=\u6807\u7b7e+24h,\u5df2\u5b9e\u8bc1); Coinbase \u53d6 (d+1)08:00 \u5c0f\u65f6 open \u540c\u523b\u6bd4\u5bf9",
+    "rows": [
+      {
+        "date": "2020-03-12",
+        "kind": "tail",
+        "asset": "BTC",
+        "deribit_perp": 5249.5,
+        "coinbase_0800": 5431.38,
+        "dev_pct": -3.349
+      },
+      {
+        "date": "2020-03-12",
+        "kind": "tail",
+        "asset": "ETH",
+        "deribit_perp": 127.3,
+        "coinbase_0800": 127.63,
+        "dev_pct": -0.259
+      },
+      {
+        "date": "2021-05-19",
+        "kind": "tail",
+        "asset": "BTC",
+        "deribit_perp": 40030.5,
+        "coinbase_0800": 40043.49,
+        "dev_pct": -0.032
+      },
+      {
+        "date": "2021-05-19",
+        "kind": "tail",
+        "asset": "ETH",
+        "deribit_perp": 2718.5,
+        "coinbase_0800": 2716.88,
+        "dev_pct": 0.06
+      },
+      {
+        "date": "2022-05-12",
+        "kind": "tail",
+        "asset": "BTC",
+        "deribit_perp": 30114.5,
+        "coinbase_0800": 30093.49,
+        "dev_pct": 0.07
+      },
+      {
+        "date": "2022-05-12",
+        "kind": "tail",
+        "asset": "ETH",
+        "deribit_perp": 2041.6,
+        "coinbase_0800": 2043.29,
+        "dev_pct": -0.083
+      },
+      {
+        "date": "2022-11-08",
+        "kind": "tail",
+        "asset": "BTC",
+        "deribit_perp": 18228.5,
+        "coinbase_0800": 18229.05,
+        "dev_pct": -0.003
+      },
+      {
+        "date": "2022-11-08",
+        "kind": "tail",
+        "asset": "ETH",
+        "deribit_perp": 1272.8,
+        "coinbase_0800": 1273.57,
+        "dev_pct": -0.06
+      },
+      {
+        "date": "2021-09-15",
+        "kind": "calm",
+        "asset": "BTC",
+        "deribit_perp": 48363.5,
+        "coinbase_0800": 48362.13,
+        "dev_pct": 0.003
+      },
+      {
+        "date": "2021-09-15",
+        "kind": "calm",
+        "asset": "ETH",
+        "deribit_perp": 3636.05,
+        "coinbase_0800": 3634.11,
+        "dev_pct": 0.053
+      },
+      {
+        "date": "2023-06-15",
+        "kind": "calm",
+        "asset": "BTC",
+        "deribit_perp": 25513.5,
+        "coinbase_0800": 25510.93,
+        "dev_pct": 0.01
+      },
+      {
+        "date": "2023-06-15",
+        "kind": "calm",
+        "asset": "ETH",
+        "deribit_perp": 1670.75,
+        "coinbase_0800": 1669.13,
+        "dev_pct": 0.097
+      },
+      {
+        "date": "2024-01-11",
+        "kind": "calm",
+        "asset": "BTC",
+        "deribit_perp": 46045.0,
+        "coinbase_0800": 46033.88,
+        "dev_pct": 0.024
+      },
+      {
+        "date": "2024-01-11",
+        "kind": "calm",
+        "asset": "ETH",
+        "deribit_perp": 2595.45,
+        "coinbase_0800": 2596.45,
+        "dev_pct": -0.039
+      },
+      {
+        "date": "2025-03-15",
+        "kind": "calm",
+        "asset": "BTC",
+        "deribit_perp": 84258.5,
+        "coinbase_0800": 84276.58,
+        "dev_pct": -0.021
+      },
+      {
+        "date": "2025-03-15",
+        "kind": "calm",
+        "asset": "ETH",
+        "deribit_perp": 1925.6,
+        "coinbase_0800": 1926.09,
+        "dev_pct": -0.025
+      },
+      {
+        "date": "2026-06-01",
+        "kind": "calm",
+        "asset": "BTC",
+        "deribit_perp": 70018.0,
+        "coinbase_0800": 70009.16,
+        "dev_pct": 0.013
+      },
+      {
+        "date": "2026-06-01",
+        "kind": "calm",
+        "asset": "ETH",
+        "deribit_perp": 1979.85,
+        "coinbase_0800": 1978.99,
+        "dev_pct": 0.043
+      }
+    ],
+    "calm_median_abs_dev_pct": 0.025,
+    "calm_max_abs_dev_pct": 0.097,
+    "all_median_abs_dev_pct": 0.041,
+    "all_max_abs_dev_pct": 3.349,
+    "n_compared": 18,
+    "pass_": true
+  },
+  "live_friction": {
+    "BTC": {
+      "iv_spread_volpts": 0.8400000000000034,
+      "opt_pct_of_premium": 0.020855261441035517,
+      "perp_half_spread": 4.140255288141067e-06,
+      "n_quotes": 8
+    },
+    "ETH": {
+      "iv_spread_volpts": 1.7000000000000028,
+      "opt_pct_of_premium": 0.03741157578526237,
+      "perp_half_spread": 1.5832554899369713e-05,
+      "n_quotes": 8
+    },
+    "_measured_utc": "2026-06-28T08:48:09.107562+00:00"
+  },
+  "by_asset": {
+    "BTC": {
+      "n_cycles": 77,
+      "iv_dvol_check": {
+        "n": 63,
+        "median_iv_minus_dvol": -4.3,
+        "corr": 0.9876
+      },
+      "gross_vp": {
+        "mean": 0.811,
+        "median": 4.4471,
+        "min": -108.5865,
+        "max": 46.161,
+        "pos_frac": 0.584,
+        "n": 77
+      },
+      "gross_var": {
+        "mean": -0.0171,
+        "median": 0.041,
+        "min": -2.4805,
+        "max": 0.7133,
+        "pos_frac": 0.584,
+        "n": 77
+      },
+      "net1_vp": {
+        "mean": -0.6881,
+        "median": 2.9283,
+        "min": -110.1069,
+        "max": 44.6205,
+        "pos_frac": 0.571,
+        "n": 77
+      },
+      "net2_vp": {
+        "mean": -1.2254,
+        "median": 2.6512,
+        "min": -110.2975,
+        "max": 44.3391,
+        "pos_frac": 0.558,
+        "n": 77
+      },
+      "opt_fric_vp_e1": {
+        "mean": 1.4991,
+        "median": 1.5192,
+        "min": 1.4471,
+        "max": 1.5434,
+        "pos_frac": 1.0,
+        "n": 77
+      },
+      "opt_fric_vp_e2": {
+        "mean": 1.3673,
+        "median": 1.3833,
+        "min": 1.3257,
+        "max": 1.4027,
+        "pos_frac": 1.0,
+        "n": 77
+      },
+      "hedge_vp": {
+        "mean": 0.6691,
+        "median": 0.6188,
+        "min": 0.2497,
+        "max": 1.5814,
+        "pos_frac": 1.0,
+        "n": 77
+      },
+      "n_hedge_mean": 30.4,
+      "worst_month_net1": "2020-02-28",
+      "worst_net1_vp": -110.1069,
+      "worst_net2_vp": -110.2975,
+      "trim_net1": {
+        "mean_all": -0.6881,
+        "mean_trim_worst1": 0.7516,
+        "drift_worst1": 1.4397,
+        "mean_trim_best1": -1.2843,
+        "mean_trim_worst3": 1.8838,
+        "drift_worst3": 2.5719,
+        "mean_trim_best3": -2.0026
+      },
+      "trim_net2": {
+        "mean_all": -1.2254,
+        "mean_trim_worst1": 0.2098,
+        "drift_worst1": 1.4352,
+        "mean_trim_best1": -1.8249,
+        "mean_trim_worst3": 1.3342,
+        "drift_worst3": 2.5595,
+        "mean_trim_best3": -2.5446
+      },
+      "trim_gross": {
+        "mean_all": 0.811,
+        "mean_trim_worst1": 2.2505,
+        "drift_worst1": 1.4394,
+        "mean_trim_best1": 0.2143,
+        "mean_trim_worst3": 3.3831,
+        "drift_worst3": 2.572,
+        "mean_trim_best3": -0.5037
+      },
+      "tail_coverage": {
+        "312_2020": {
+          "in_sample": true,
+          "cycle": "2020-02-28..2020-03-27",
+          "net1_vp": -110.1069,
+          "net2_vp": -110.2975,
+          "sig_iv": 59.924,
+          "sig_rv": 168.51
+        },
+        "519_2021": {
+          "in_sample": true,
+          "cycle": "2021-04-30..2021-05-28",
+          "net1_vp": -28.3738,
+          "net2_vp": -28.8337,
+          "sig_iv": 66.908,
+          "sig_rv": 93.738
+        },
+        "LUNA_2022": {
+          "in_sample": true,
+          "cycle": "2022-04-29..2022-05-27",
+          "net1_vp": -21.459,
+          "net2_vp": -21.6648,
+          "sig_iv": 52.461,
+          "sig_rv": 72.401
+        },
+        "FTX_2022": {
+          "in_sample": true,
+          "cycle": "2022-10-28..2022-11-25",
+          "net1_vp": -11.5716,
+          "net2_vp": -11.8196,
+          "sig_iv": 48.953,
+          "sig_rv": 59.006
+        }
+      }
+    },
+    "ETH": {
+      "n_cycles": 76,
+      "iv_dvol_check": {
+        "n": 63,
+        "median_iv_minus_dvol": -5.093,
+        "corr": 0.9835
+      },
+      "gross_vp": {
+        "mean": -3.5774,
+        "median": 0.1161,
+        "min": -89.1806,
+        "max": 51.8113,
+        "pos_frac": 0.513,
+        "n": 76
+      },
+      "gross_var": {
+        "mean": -0.0837,
+        "median": 0.0016,
+        "min": -2.3067,
+        "max": 1.3811,
+        "pos_frac": 0.513,
+        "n": 76
+      },
+      "net1_vp": {
+        "mean": -5.9372,
+        "median": -2.2699,
+        "min": -91.5916,
+        "max": 49.393,
+        "pos_frac": 0.434,
+        "n": 76
+      },
+      "net2_vp": {
+        "mean": -6.5243,
+        "median": -2.7165,
+        "min": -91.8687,
+        "max": 49.0533,
+        "pos_frac": 0.421,
+        "n": 76
+      },
+      "opt_fric_vp_e1": {
+        "mean": 2.3598,
+        "median": 2.3795,
+        "min": 2.3072,
+        "max": 2.4184,
+        "pos_frac": 1.0,
+        "n": 76
+      },
+      "opt_fric_vp_e2": {
+        "mean": 2.2278,
+        "median": 2.2435,
+        "min": 2.1857,
+        "max": 2.2747,
+        "pos_frac": 1.0,
+        "n": 76
+      },
+      "hedge_vp": {
+        "mean": 0.7191,
+        "median": 0.6951,
+        "min": 0.2645,
+        "max": 1.941,
+        "pos_frac": 1.0,
+        "n": 76
+      },
+      "n_hedge_mean": 30.4,
+      "worst_month_net1": "2020-02-28",
+      "worst_net1_vp": -91.5916,
+      "worst_net2_vp": -91.8687,
+      "trim_net1": {
+        "mean_all": -5.9372,
+        "mean_trim_worst1": -4.7952,
+        "drift_worst1": 1.1421,
+        "mean_trim_best1": -6.6749,
+        "mean_trim_worst3": -2.9056,
+        "drift_worst3": 3.0316,
+        "mean_trim_best3": -7.9042
+      },
+      "trim_net2": {
+        "mean_all": -6.5243,
+        "mean_trim_worst1": -5.3864,
+        "drift_worst1": 1.1379,
+        "mean_trim_best1": -7.2653,
+        "mean_trim_worst3": -3.4941,
+        "drift_worst3": 3.0302,
+        "mean_trim_best3": -8.494
+      },
+      "trim_gross": {
+        "mean_all": -3.5774,
+        "mean_trim_worst1": -2.436,
+        "drift_worst1": 1.1414,
+        "mean_trim_best1": -4.3159,
+        "mean_trim_worst3": -0.5463,
+        "drift_worst3": 3.0311,
+        "mean_trim_best3": -5.5458
+      },
+      "tail_coverage": {
+        "312_2020": {
+          "in_sample": true,
+          "cycle": "2020-02-28..2020-03-27",
+          "net1_vp": -91.5916,
+          "net2_vp": -91.8687,
+          "sig_iv": 84.737,
+          "sig_rv": 173.918
+        },
+        "519_2021": {
+          "in_sample": true,
+          "cycle": "2021-04-30..2021-05-28",
+          "net1_vp": -63.104,
+          "net2_vp": -64.2677,
+          "sig_iv": 84.227,
+          "sig_rv": 144.937
+        },
+        "LUNA_2022": {
+          "in_sample": true,
+          "cycle": "2022-04-29..2022-05-27",
+          "net1_vp": -44.4052,
+          "net2_vp": -44.6536,
+          "sig_iv": 59.308,
+          "sig_rv": 101.328
+        },
+        "FTX_2022": {
+          "in_sample": true,
+          "cycle": "2022-10-28..2022-11-25",
+          "net1_vp": -19.414,
+          "net2_vp": -19.7022,
+          "sig_iv": 71.038,
+          "sig_rv": 88.071
+        }
+      }
+    }
+  },
+  "verdict": {
+    "BTC": {
+      "gross_mean": 0.811,
+      "net1_mean": -0.6881,
+      "net2_mean": -1.2254,
+      "e1_pos": false,
+      "e2_pos": false,
+      "peso_drift3": 2.5595
+    },
+    "ETH": {
+      "gross_mean": -3.5774,
+      "net1_mean": -5.9372,
+      "net2_mean": -6.5243,
+      "e1_pos": false,
+      "e2_pos": false,
+      "peso_drift3": 3.0302
+    }
+  }
+}
