@@ -1,0 +1,170 @@
+{
+  "source": "data.binance.vision/futures/um/daily/aggTrades",
+  "server": "binance_production_mainnet",
+  "dataset": "aggTrades",
+  "tier": "tick_trades_no_orderbook",
+  "files": [
+    {
+      "symbol": "BTCUSDT",
+      "date": "2024-03-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2024-03-15.zip",
+      "sha256": "29c8910ec13a739db6b858b1a56c13c58092140fda944f0c576c835f83631f8b",
+      "status": "ok",
+      "n_trades": 4265593,
+      "n_shocks": 608
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2024-06-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2024-06-15.zip",
+      "sha256": "59f0e732b33fac0b0f6e3f0266ed4677c13310c6a8aaf749faeb7a5c6db49942",
+      "status": "ok",
+      "n_trades": 372184,
+      "n_shocks": 547
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2024-09-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2024-09-15.zip",
+      "sha256": "b1cc1a70eba706c4eda9cc4b3a612026a8348e77108d04a194e0158a9d14882f",
+      "status": "ok",
+      "n_trades": 704474,
+      "n_shocks": 492
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2024-12-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2024-12-15.zip",
+      "sha256": "0a44fc799bee8c7f39141a16b8ba618efaa53ba105215678d8c960904f88a2ad",
+      "status": "ok",
+      "n_trades": 1194518,
+      "n_shocks": 499
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2025-03-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2025-03-15.zip",
+      "sha256": "2da4638e71a413ba0947e12fede0341ffa10f61fe2a2259fbc2ee8f00a9d007e",
+      "status": "ok",
+      "n_trades": 570372,
+      "n_shocks": 520
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2025-06-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2025-06-15.zip",
+      "sha256": "a1f265436e3891b34f4ec55d382865174ce99cc358af71be4b6274f82e05d118",
+      "status": "ok",
+      "n_trades": 668841,
+      "n_shocks": 460
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2025-09-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2025-09-15.zip",
+      "sha256": "cf255e127e5f9dac68c2a9621f8bd38effe2af7bd584a75a81831a58206b0364",
+      "status": "ok",
+      "n_trades": 986494,
+      "n_shocks": 534
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2025-12-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2025-12-15.zip",
+      "sha256": "5f0d96a12f5406b66d531be5a09c766c47144a1bc44ec030493cb5aacfed3b2f",
+      "status": "ok",
+      "n_trades": 2183186,
+      "n_shocks": 470
+    },
+    {
+      "symbol": "BTCUSDT",
+      "date": "2026-03-15",
+      "file": "data/binance_vision/BTCUSDT/aggTrades/BTCUSDT-aggTrades-2026-03-15.zip",
+      "sha256": "ff2acc4a3e70b735b159d4da93d636cf7797300a9772b96c3c0c2472a8f348e3",
+      "status": "ok",
+      "n_trades": 1269283,
+      "n_shocks": 347
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2024-03-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2024-03-15.zip",
+      "sha256": "2da7a9ae365a9eac2d008510d3ae668525dffaddde95b4b22b48aa7c9f3a6108",
+      "status": "ok",
+      "n_trades": 2867307,
+      "n_shocks": 461
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2024-06-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2024-06-15.zip",
+      "sha256": "e1c0ec3b8a7c1575758131d73a7d9786e8131f4e32bdc8b03ce21af1a85b3995",
+      "status": "ok",
+      "n_trades": 681756,
+      "n_shocks": 445
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2024-09-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2024-09-15.zip",
+      "sha256": "edeccfbe04d85d33383ba4b05eb5dec1242b8deaa336990631bcca64ed5b35ed",
+      "status": "ok",
+      "n_trades": 628933,
+      "n_shocks": 424
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2024-12-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2024-12-15.zip",
+      "sha256": "227665a61eaa1e426474a6d5894937be3d38add16bb71dc7ef88cf5c0849e452",
+      "status": "ok",
+      "n_trades": 997255,
+      "n_shocks": 504
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2025-03-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2025-03-15.zip",
+      "sha256": "ce5e040daed88ab9df3e6cf81c848b7ca1e05ab1da09cc52b097457bdeb6bd91",
+      "status": "ok",
+      "n_trades": 673109,
+      "n_shocks": 463
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2025-06-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2025-06-15.zip",
+      "sha256": "4a058959a709d8134db8bd10e7394a246e1a147f9ef67426701d2e8626bb2bd8",
+      "status": "ok",
+      "n_trades": 950321,
+      "n_shocks": 423
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2025-09-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2025-09-15.zip",
+      "sha256": "1e4f4fa33f80c3e93a015ebc7402171d06ee61540953a7dce832038b6822bfea",
+      "status": "ok",
+      "n_trades": 1670268,
+      "n_shocks": 514
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2025-12-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2025-12-15.zip",
+      "sha256": "6d0d7cd242d08d44422a8d7ed642263433084ff47e4e0bf38ee3c23c2b938ff0",
+      "status": "ok",
+      "n_trades": 3085156,
+      "n_shocks": 485
+    },
+    {
+      "symbol": "ETHUSDT",
+      "date": "2026-03-15",
+      "file": "data/binance_vision/ETHUSDT/aggTrades/ETHUSDT-aggTrades-2026-03-15.zip",
+      "sha256": "9c60e6e0cc8f5815c82a8b89ca0b102c20886a7218612227110f624b8fed16b3",
+      "status": "ok",
+      "n_trades": 1148595,
+      "n_shocks": 325
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "n_shocks": 8521,
+  "n_placebo": 35884,
+  "offsets_ms": [
+    0,
+    100,
+    500,
+    1000,
+    2000,
+    5000,
+    10000,
+    30000,
+    60000,
+    300000
+  ],
+  "spread_floor_halfbps": 0.02400291881759105,
+  "median_impact_bps": 1.8793235628382068,
+  "mean_impact_bps": 2.775953667228002,
+  "survival_shock": {
+    "median_bps": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.009832841691821116,
+      -0.015138166040138673,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_bps": [
+      0.0,
+      -0.08260419759412416,
+      -0.13449956669395546,
+      -0.1425497734829573,
+      -0.21698641271527438,
+      -0.1929291130675036,
+      -0.19805455292821705,
+      0.004817226501622577,
+      0.08861473128932017,
+      -0.7298796937022048
+    ],
+    "frac_rebound_pos": [
+      0.0,
+      0.19927238587020302,
+      0.2899894378594062,
+      0.32789578687947424,
+      0.353831709893205,
+      0.3994836286820796,
+      0.42952705081563197,
+      0.4850369674920784,
+      0.4971247506161249,
+      0.49947189297030864
+    ]
+  },
+  "survival_placebo": {
+    "median_bps": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.00948269977674911,
+      -0.023706232368144706
+    ],
+    "mean_bps": [
+      0.0,
+      -0.012355589174489284,
+      -0.02935220483271831,
+      -0.03842907540925933,
+      -0.05305915430798309,
+      -0.0814435040069993,
+      -0.10601532268214021,
+      -0.12335539955302446,
+      -0.11603300017806444,
+      0.0003954861962767278
+    ],
+    "frac_rebound_pos": [
+      0.0,
+      0.12958421580648757,
+      0.2778954408650095,
+      0.32276223386467506,
+      0.353277226619106,
+      0.4019618771597369,
+      0.43038680191728906,
+      0.46853750975365066,
+      0.4853416564485565,
+      0.4970181696577862
+    ]
+  },
+  "mechanism": {
+    "frac_continue_5s": 0.5085083910339162,
+    "frac_continue_30s": 0.49923717873489026,
+    "median_rebound_5s_bps": -0.009832841691821116,
+    "median_rebound_30s_bps": 0.0
+  },
+  "latency_haircut": {
+    "0": {
+      "gross_mean_bps": 0.08861473128932017,
+      "gross_median_bps": 0.0,
+      "net_mean_primary_bps": -9.91138526871068,
+      "net_mean_optimistic_bps": -5.91138526871068,
+      "net_median_primary_bps": -10.0
+    },
+    "50": {
+      "gross_mean_bps": 0.1712189288834443,
+      "gross_median_bps": 0.0,
+      "net_mean_primary_bps": -9.828781071116556,
+      "net_mean_optimistic_bps": -5.8287810711165555,
+      "net_median_primary_bps": -10.0
+    },
+    "100": {
+      "gross_mean_bps": 0.1712189288834443,
+      "gross_median_bps": 0.0,
+      "net_mean_primary_bps": -9.828781071116556,
+      "net_mean_optimistic_bps": -5.8287810711165555,
+      "net_median_primary_bps": -10.0
+    },
+    "200": {
+      "gross_mean_bps": 0.22311429798327564,
+      "gross_median_bps": 0.0,
+      "net_mean_primary_bps": -9.776885702016724,
+      "net_mean_optimistic_bps": -5.776885702016724,
+      "net_median_primary_bps": -10.0
+    },
+    "500": {
+      "gross_mean_bps": 0.22311429798327564,
+      "gross_median_bps": 0.0,
+      "net_mean_primary_bps": -9.776885702016724,
+      "net_mean_optimistic_bps": -5.776885702016724,
+      "net_median_primary_bps": -10.0
+    },
+    "1000": {
+      "gross_mean_bps": 0.23116450477227746,
+      "gross_median_bps": 0.0,
+      "net_mean_primary_bps": -9.768835495227723,
+      "net_mean_optimistic_bps": -5.768835495227723,
+      "net_median_primary_bps": -10.0
+    }
+  },
+  "cost_primary_bps": 10.0,
+  "cost_optimistic_bps": 6.0,
+  "verdict": {
+    "data_gate": "PASS (tick trades obtained)",
+    "mechanism_holds": true,
+    "frac_continue_30s": 0.49923717873489026,
+    "beats_placebo_and_floor_5s": false,
+    "best_anchor_net_primary_bps": -9.776885702016724,
+    "final": "FAIL",
+    "cause": "COST/SPEED WALL (residual rebound after user latency <= trading cost)"
+  },
+  "manifest_summary": {
+    "n_files_ok": 18,
+    "n_404": 0,
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "dates": [
+      "2024-03-15",
+      "2024-06-15",
+      "2024-09-15",
+      "2024-12-15",
+      "2025-03-15",
+      "2025-06-15",
+      "2025-09-15",
+      "2025-12-15",
+      "2026-03-15"
+    ],
+    "median_spread_floor_bps": 0.02400291881759105
+  }
+}
