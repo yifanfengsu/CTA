@@ -17,13 +17,17 @@
 >    对冲腿摩擦是 `频率 × 单次成本` 的累积，一次性粗估会低估摩擦栈、把净缝算成
 >    虚假为正（peso 的成本版）。
 
-## 阶段划分
-- **阶段 A（本阶段）**：数据地基 + 净缝生死门。只判"能否干净测 ATM VRP、毛缝扣掉
-  交易摩擦（含反复对冲）后净缝还剩不剩"。**不测尾部、不测 edge 大小、不判立项、
-  不算 Sharpe。** 报告：`reports/atm_vrp_stageA_data_20260628/`。
-- 阶段 B：VRP 是否只是尾部补偿（前瞻情景）。— 未启动
-- 阶段 C：尾部压测（真正生死）。— 未启动
-- 阶段 D：精确对冲路径 P&L。— 未启动
+## 阶段划分与现状
+> **ATM VRP（月度，BTC/ETH）线已全线关闭 2026-06-28**：ETH 阶段 A 判死（无 meat，IV≈RV
+> 中位无溢价）；BTC 阶段 B 判死（剥离方向后 VRP 真伪不成立，净 edge≈0、摩擦吃掉 ~85% 的
+> direction-stripped 毛缝、且带 whipsaw 灾难尾）。未进阶段 C/D。
+
+- **阶段 A（DONE）**：数据地基 + 净缝生死门。数据可干净测（IV-DVOL corr 0.988、Coinbase 锚点）、
+  摩擦看似非主凶（基于 σ_IV−σ_RV 粗毛缝）。报告 `reports/atm_vrp_stageA_data_20260628/`。
+- **阶段 B（DONE，判死）**：用 delta-hedged（剥离方向）裁 VRP 真伪——净 edge 与零不可区分、
+  5% bootstrap 下界三档全负、whipsaw 情景 −67%spot。报告 `reports/atm_vrp_stageB_premium_truth_20260628/`。
+- 阶段 C 尾部压测 / 阶段 D 精确对冲路径：**未达到**（真伪已不成立，无需测尾部生存）。
+- 窄复活条件（记录）：maker 对冲执行降摩擦、周 ATM、skew/wing premium（数据更难）——见阶段 B 报告。
 
 ## 目录
 - `scripts/research_atm_vrp_stageA.py` — 阶段 A 主脚本（口径与判定线写死 docstring）。

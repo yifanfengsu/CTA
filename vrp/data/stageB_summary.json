@@ -1,0 +1,103 @@
+{
+  "generated_utc": "2026-06-28T10:09:28.560482+00:00",
+  "prereg_commit": "d4597b2",
+  "asset": "BTC",
+  "n_cycles": 77,
+  "gate0": {
+    "n": 77,
+    "net_logret": 1.8743,
+    "total_x": 6.52,
+    "up_months": 42,
+    "down_months": 35,
+    "up_frac": 0.545,
+    "max_drawup": 2.9585,
+    "max_drawdown": -1.3145,
+    "extreme": true,
+    "criterion": "\u5355\u5411\u6708\u5360\u6bd4>70% \u6216 |\u51c0\u03a3log|>1.0"
+  },
+  "b1_endpoint2_pct": {
+    "mean": 0.0566,
+    "median": 0.2117,
+    "min": -8.8,
+    "max": 8.616,
+    "skew": -0.085,
+    "pos": 0.506,
+    "n": 77
+  },
+  "b1_endpoint2_volpts": {
+    "mean": 0.3551,
+    "median": 0.9141
+  },
+  "b1_endpoint1_pct": {
+    "mean": -2.5862,
+    "median": 0.8105,
+    "min": -32.119,
+    "max": 13.146,
+    "skew": -0.859,
+    "pos": 0.532,
+    "n": 77
+  },
+  "bootstrap": {
+    "1": {
+      "block": 1,
+      "lb5": -0.6131,
+      "boot_mean": 0.0518,
+      "lb1": -0.8851
+    },
+    "3": {
+      "block": 3,
+      "lb5": -0.5167,
+      "boot_mean": 0.1067,
+      "lb1": -0.7747
+    },
+    "6": {
+      "block": 6,
+      "lb5": -0.4765,
+      "boot_mean": 0.0999,
+      "lb1": -0.714
+    }
+  },
+  "gate_stable": true,
+  "worst_month": {
+    "T0": "2020-02-28",
+    "pnl2_pct": -8.8002
+  },
+  "scenarios": {
+    "hist_worst_x2": {
+      "pnl_pct": -17.6,
+      "note": "\u5b9e\u6d4b\u6700\u574f\u7aef\u70b92\u6708 P&L\u00d72"
+    },
+    "upside_squeeze_+60%": {
+      "pnl_pct": -4.825,
+      "pnl_vp": -21.147,
+      "rv": 114.0,
+      "end_move": 109.5,
+      "note": "+60%\u6708+\u9ad8realized(IV\u66b4\u6da8\u540c\u65f6\u88ab\u5356\u5728\u9ad8\u4f4d)"
+    },
+    "whipsaw_pm8": {
+      "pnl_pct": -67.248,
+      "pnl_vp": -294.742,
+      "rv": 152.8,
+      "end_move": -9.2,
+      "note": "\u00b18%/\u65e5\u62bd\u63d2,\u51c0\u22480,realized\u6781\u9ad8,\u538b\u5bf9\u51b2\u8def\u5f84"
+    }
+  },
+  "breakeven": {
+    "tail_def": "bottom 10.0% (\u2264-3.89%spot)",
+    "n_tail": 8,
+    "p_hist": 0.1039,
+    "mu_normal": 0.749,
+    "mean_tail_loss": 5.913,
+    "p_breakeven": 0.1124,
+    "survives": true,
+    "note": "p*>p_hist=\u6ea2\u4ef7\u625b\u8fc7\u5386\u53f2\u5c3e\u90e8; p*<=p_hist=peso/\u53ea\u662f\u5c3e\u90e8\u8865\u507f; mean\u22480 \u5219\u5df2\u5728break-even"
+  },
+  "verdict": {
+    "mean_pos": "True",
+    "lb_nonneg": false,
+    "gate_stable": true,
+    "be_survives": true,
+    "PASS": false,
+    "conditional_on_gate0_not_extreme": false
+  }
+}
