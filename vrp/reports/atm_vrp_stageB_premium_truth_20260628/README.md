@@ -125,4 +125,4 @@ Deribit 费率下不是可货币化的 edge。**
 - **未改动文档（显式声明）**：cta_strategy `PROJECT_GUIDE.md`/`CLAUDE.md` 有意不改（VRP 独立线）；
   `vrp/README.md` 已更新阶段状态（ATM 线关闭）。
 
-**ATM VRP阶段B(BTC真伪)完成于 2026-06-28 / gate0样本方向极端(BTC×6.5,Σlog+1.87)→以端点2(剥离方向)为准 / 端点2净 mean+0.36vp median+0.91vp 近对称(skew−0.09)胜率50.6% / 毛+2.39vp,摩擦吃~85% / block bootstrap 5%下界三档全负(−0.61/−0.52/−0.48) / 情景:whipsaw−67%spot,上行squeeze−4.8%,最坏×2−17.6% / break-even razor-thin(0.112vs0.104) / B判定:不过(VRP只是方差/尾部公平补偿,peso) → ATM VRP线全线关闭(ETH StageA无meat+BTC StageB无真edge),未进StageC / 已push:[commit后回填]**
+**ATM VRP阶段B(BTC真伪)完成于 2026-06-28 / gate0样本方向极端(BTC×6.5,Σlog+1.87)→以端点2(剥离方向)为准 / 端点2净 mean+0.36vp median+0.91vp 近对称(skew−0.09)胜率50.6% / 毛+2.39vp,摩擦吃~85% / block bootstrap 5%下界三档全负(−0.61/−0.52/−0.48) / 情景:whipsaw−67%spot,上行squeeze−4.8%,最坏×2−17.6% / break-even razor-thin(0.112vs0.104) / B判定:不过(VRP只是方差/尾部公平补偿,peso) → ATM VRP线全线关闭(ETH StageA无meat+BTC StageB无真edge),未进StageC / 已push:已确认(内容commit c0e5965 → origin/main)**
