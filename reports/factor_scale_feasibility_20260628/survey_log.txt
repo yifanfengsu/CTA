@@ -1,0 +1,18 @@
+run start (UTC): 2026-06-28T11:30:04.788666+00:00
+DATA ENVIRONMENT: BINANCE-VISION-PUBLIC (production; no demo variant)
+universe: 729 USDT UM-perp symbols
+  volume probed 150/729
+  volume probed 300/729
+  volume probed 450/729
+  volume probed 600/729
+588 symbols have a 2026-05 1d file (ranked by quote volume)
+
+== full-history frontier: #coins (of all ranked) with earliest_1d_month <= start ==
+  start 2021-01: full-history coins= 63  (>=100? no; 100th coin volume-rank=None)
+  start 2022-01: full-history coins= 97  (>=100? no; 100th coin volume-rank=None)
+  start 2022-07: full-history coins=105  (>=100? YES; 100th coin volume-rank=551)
+  start 2023-01: full-history coins=116  (>=100? YES; 100th coin volume-rank=506)
+  start 2023-07: full-history coins=147  (>=100? YES; 100th coin volume-rank=404)
+  start 2024-01: full-history coins=191  (>=100? YES; 100th coin volume-rank=321)
+  start 2024-07: full-history coins=221  (>=100? YES; 100th coin volume-rank=258)
+  start 2025-01: full-history coins=306  (>=100? YES; 100th coin volume-rank=192)

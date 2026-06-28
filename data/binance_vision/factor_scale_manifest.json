@@ -1,0 +1,825 @@
+{
+  "source": "binance-vision-public-static",
+  "server": "BINANCE-PRODUCTION",
+  "datasets": [
+    "futures/um monthly klines 1d",
+    "futures/um monthly fundingRate"
+  ],
+  "window": [
+    "2022-07",
+    "2026-05"
+  ],
+  "n_pool": 100,
+  "pool_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "ZECUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "BNBUSDT",
+    "NEARUSDT",
+    "XLMUSDT",
+    "ADAUSDT",
+    "FILUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "BCHUSDT",
+    "DASHUSDT",
+    "AAVEUSDT",
+    "UNIUSDT",
+    "LTCUSDT",
+    "DOTUSDT",
+    "TRXUSDT",
+    "ICPUSDT",
+    "LITUSDT",
+    "HBARUSDT",
+    "XMRUSDT",
+    "1000SHIBUSDT",
+    "CHZUSDT",
+    "OPUSDT",
+    "STORJUSDT",
+    "ALGOUSDT",
+    "ATOMUSDT",
+    "ETCUSDT",
+    "CRVUSDT",
+    "ZENUSDT",
+    "APEUSDT",
+    "GTCUSDT",
+    "GALAUSDT",
+    "GMTUSDT",
+    "DYDXUSDT",
+    "ARUSDT",
+    "AXSUSDT",
+    "ENJUSDT",
+    "SANDUSDT",
+    "ONTUSDT",
+    "KNCUSDT",
+    "RUNEUSDT",
+    "TRBUSDT",
+    "DUSKUSDT",
+    "ENSUSDT",
+    "LPTUSDT",
+    "COMPUSDT",
+    "KSMUSDT",
+    "VETUSDT",
+    "GRTUSDT",
+    "JASMYUSDT",
+    "1000XECUSDT",
+    "API3USDT",
+    "THETAUSDT",
+    "ROSEUSDT",
+    "IMXUSDT",
+    "BATUSDT",
+    "IOTAUSDT",
+    "QTUMUSDT",
+    "MANAUSDT",
+    "SNXUSDT",
+    "KAVAUSDT",
+    "NEOUSDT",
+    "EGLDUSDT",
+    "BTCDOMUSDT",
+    "SUSHIUSDT",
+    "ALICEUSDT",
+    "PEOPLEUSDT",
+    "XTZUSDT",
+    "CHRUSDT",
+    "RSRUSDT",
+    "ZILUSDT",
+    "ANKRUSDT",
+    "MTLUSDT",
+    "MASKUSDT",
+    "ATAUSDT",
+    "1INCHUSDT",
+    "ARPAUSDT",
+    "CTSIUSDT",
+    "YFIUSDT",
+    "FLOWUSDT",
+    "C98USDT",
+    "CELOUSDT",
+    "RLCUSDT",
+    "TLMUSDT",
+    "ZRXUSDT",
+    "CVCUSDT",
+    "SKLUSDT",
+    "IOSTUSDT",
+    "WOOUSDT",
+    "RVNUSDT",
+    "ONEUSDT",
+    "BELUSDT",
+    "COTIUSDT",
+    "BANDUSDT",
+    "IOTXUSDT",
+    "ICXUSDT"
+  ],
+  "rank_metric": "2026-05 1d quote volume (USDT)",
+  "survivorship": "current-listed only; delisted coins absent; alpha optimistic",
+  "checksum": "sha256 via vision .CHECKSUM, all verified",
+  "downloaded_at": "2026-06-28T11:54:32.431388+00:00",
+  "n_files": 9400,
+  "n_ok": 9400,
+  "n_failed": 0,
+  "n_not_available_404": 15,
+  "pool": [
+    {
+      "rank": 1,
+      "symbol": "BTCUSDT",
+      "quote_volume_2026_05": 300895586095.71326,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 2,
+      "symbol": "ETHUSDT",
+      "quote_volume_2026_05": 233543520555.8025,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 3,
+      "symbol": "SOLUSDT",
+      "quote_volume_2026_05": 51500518949.1016,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 4,
+      "symbol": "ZECUSDT",
+      "quote_volume_2026_05": 36565567145.8718,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 10,
+      "symbol": "XRPUSDT",
+      "quote_volume_2026_05": 19436283961.300835,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 11,
+      "symbol": "DOGEUSDT",
+      "quote_volume_2026_05": 17610907663.069557,
+      "earliest_1d_month": "2020-07",
+      "n_months": 71
+    },
+    {
+      "rank": 12,
+      "symbol": "BNBUSDT",
+      "quote_volume_2026_05": 12360525184.585701,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 14,
+      "symbol": "NEARUSDT",
+      "quote_volume_2026_05": 9788578312.808,
+      "earliest_1d_month": "2020-10",
+      "n_months": 68
+    },
+    {
+      "rank": 21,
+      "symbol": "XLMUSDT",
+      "quote_volume_2026_05": 5693997758.66537,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 27,
+      "symbol": "ADAUSDT",
+      "quote_volume_2026_05": 4966599613.9377,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 28,
+      "symbol": "FILUSDT",
+      "quote_volume_2026_05": 4402790514.312901,
+      "earliest_1d_month": "2020-10",
+      "n_months": 68
+    },
+    {
+      "rank": 30,
+      "symbol": "LINKUSDT",
+      "quote_volume_2026_05": 3737196507.352061,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 33,
+      "symbol": "AVAXUSDT",
+      "quote_volume_2026_05": 3519034587.6669993,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 36,
+      "symbol": "BCHUSDT",
+      "quote_volume_2026_05": 2981355839.7756004,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 45,
+      "symbol": "DASHUSDT",
+      "quote_volume_2026_05": 2415039810.15139,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 49,
+      "symbol": "AAVEUSDT",
+      "quote_volume_2026_05": 2213629252.8020005,
+      "earliest_1d_month": "2020-10",
+      "n_months": 68
+    },
+    {
+      "rank": 52,
+      "symbol": "UNIUSDT",
+      "quote_volume_2026_05": 2072093809.8530004,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 57,
+      "symbol": "LTCUSDT",
+      "quote_volume_2026_05": 1945615826.05619,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 58,
+      "symbol": "DOTUSDT",
+      "quote_volume_2026_05": 1915599982.4999995,
+      "earliest_1d_month": "2020-08",
+      "n_months": 70
+    },
+    {
+      "rank": 60,
+      "symbol": "TRXUSDT",
+      "quote_volume_2026_05": 1848758075.1701097,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 62,
+      "symbol": "ICPUSDT",
+      "quote_volume_2026_05": 1804684682.8079996,
+      "earliest_1d_month": "2021-05",
+      "n_months": 61
+    },
+    {
+      "rank": 78,
+      "symbol": "LITUSDT",
+      "quote_volume_2026_05": 1326964009.87059,
+      "earliest_1d_month": "2021-02",
+      "n_months": 64
+    },
+    {
+      "rank": 80,
+      "symbol": "HBARUSDT",
+      "quote_volume_2026_05": 1303046380.12961,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 85,
+      "symbol": "XMRUSDT",
+      "quote_volume_2026_05": 1226542472.5658102,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 87,
+      "symbol": "1000SHIBUSDT",
+      "quote_volume_2026_05": 1214923581.622287,
+      "earliest_1d_month": "2021-05",
+      "n_months": 61
+    },
+    {
+      "rank": 93,
+      "symbol": "CHZUSDT",
+      "quote_volume_2026_05": 1080042581.5615,
+      "earliest_1d_month": "2021-01",
+      "n_months": 65
+    },
+    {
+      "rank": 100,
+      "symbol": "OPUSDT",
+      "quote_volume_2026_05": 1013670147.29847,
+      "earliest_1d_month": "2022-06",
+      "n_months": 48
+    },
+    {
+      "rank": 103,
+      "symbol": "STORJUSDT",
+      "quote_volume_2026_05": 982341223.5470997,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 117,
+      "symbol": "ALGOUSDT",
+      "quote_volume_2026_05": 842150603.5310501,
+      "earliest_1d_month": "2020-06",
+      "n_months": 72
+    },
+    {
+      "rank": 118,
+      "symbol": "ATOMUSDT",
+      "quote_volume_2026_05": 840009978.82068,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 120,
+      "symbol": "ETCUSDT",
+      "quote_volume_2026_05": 812013410.3075299,
+      "earliest_1d_month": "2020-01",
+      "n_months": 77
+    },
+    {
+      "rank": 131,
+      "symbol": "CRVUSDT",
+      "quote_volume_2026_05": 668290788.1163912,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 137,
+      "symbol": "ZENUSDT",
+      "quote_volume_2026_05": 633075887.587,
+      "earliest_1d_month": "2020-11",
+      "n_months": 67
+    },
+    {
+      "rank": 138,
+      "symbol": "APEUSDT",
+      "quote_volume_2026_05": 620919015.6417999,
+      "earliest_1d_month": "2022-03",
+      "n_months": 51
+    },
+    {
+      "rank": 149,
+      "symbol": "GTCUSDT",
+      "quote_volume_2026_05": 550363919.280663,
+      "earliest_1d_month": "2021-06",
+      "n_months": 60
+    },
+    {
+      "rank": 150,
+      "symbol": "GALAUSDT",
+      "quote_volume_2026_05": 548200819.7394031,
+      "earliest_1d_month": "2021-09",
+      "n_months": 57
+    },
+    {
+      "rank": 157,
+      "symbol": "GMTUSDT",
+      "quote_volume_2026_05": 508352977.56571996,
+      "earliest_1d_month": "2022-03",
+      "n_months": 51
+    },
+    {
+      "rank": 164,
+      "symbol": "DYDXUSDT",
+      "quote_volume_2026_05": 481905758.6686147,
+      "earliest_1d_month": "2021-09",
+      "n_months": 57
+    },
+    {
+      "rank": 166,
+      "symbol": "ARUSDT",
+      "quote_volume_2026_05": 477755825.03950006,
+      "earliest_1d_month": "2021-09",
+      "n_months": 57
+    },
+    {
+      "rank": 168,
+      "symbol": "AXSUSDT",
+      "quote_volume_2026_05": 469922765.16499996,
+      "earliest_1d_month": "2020-11",
+      "n_months": 67
+    },
+    {
+      "rank": 192,
+      "symbol": "ENJUSDT",
+      "quote_volume_2026_05": 366834671.5173899,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 194,
+      "symbol": "SANDUSDT",
+      "quote_volume_2026_05": 354296661.99756,
+      "earliest_1d_month": "2021-01",
+      "n_months": 65
+    },
+    {
+      "rank": 204,
+      "symbol": "ONTUSDT",
+      "quote_volume_2026_05": 309676569.95696,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 210,
+      "symbol": "KNCUSDT",
+      "quote_volume_2026_05": 292932074.9154,
+      "earliest_1d_month": "2020-06",
+      "n_months": 72
+    },
+    {
+      "rank": 220,
+      "symbol": "RUNEUSDT",
+      "quote_volume_2026_05": 278042916.78000003,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 228,
+      "symbol": "TRBUSDT",
+      "quote_volume_2026_05": 267799442.4919,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 229,
+      "symbol": "DUSKUSDT",
+      "quote_volume_2026_05": 267771859.26825997,
+      "earliest_1d_month": "2022-01",
+      "n_months": 53
+    },
+    {
+      "rank": 232,
+      "symbol": "ENSUSDT",
+      "quote_volume_2026_05": 264252835.34999996,
+      "earliest_1d_month": "2021-11",
+      "n_months": 55
+    },
+    {
+      "rank": 249,
+      "symbol": "LPTUSDT",
+      "quote_volume_2026_05": 242387016.43209997,
+      "earliest_1d_month": "2021-11",
+      "n_months": 55
+    },
+    {
+      "rank": 258,
+      "symbol": "COMPUSDT",
+      "quote_volume_2026_05": 229773672.09199998,
+      "earliest_1d_month": "2020-06",
+      "n_months": 72
+    },
+    {
+      "rank": 260,
+      "symbol": "KSMUSDT",
+      "quote_volume_2026_05": 227634216.2222,
+      "earliest_1d_month": "2020-10",
+      "n_months": 68
+    },
+    {
+      "rank": 262,
+      "symbol": "VETUSDT",
+      "quote_volume_2026_05": 225388254.14869803,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 270,
+      "symbol": "GRTUSDT",
+      "quote_volume_2026_05": 215237160.06113997,
+      "earliest_1d_month": "2020-12",
+      "n_months": 66
+    },
+    {
+      "rank": 281,
+      "symbol": "JASMYUSDT",
+      "quote_volume_2026_05": 204796437.10867605,
+      "earliest_1d_month": "2022-04",
+      "n_months": 50
+    },
+    {
+      "rank": 284,
+      "symbol": "1000XECUSDT",
+      "quote_volume_2026_05": 200334424.66188997,
+      "earliest_1d_month": "2021-09",
+      "n_months": 57
+    },
+    {
+      "rank": 286,
+      "symbol": "API3USDT",
+      "quote_volume_2026_05": 195965954.01166,
+      "earliest_1d_month": "2022-02",
+      "n_months": 52
+    },
+    {
+      "rank": 296,
+      "symbol": "THETAUSDT",
+      "quote_volume_2026_05": 177946966.09746,
+      "earliest_1d_month": "2020-05",
+      "n_months": 73
+    },
+    {
+      "rank": 305,
+      "symbol": "ROSEUSDT",
+      "quote_volume_2026_05": 167862114.74756002,
+      "earliest_1d_month": "2021-12",
+      "n_months": 54
+    },
+    {
+      "rank": 310,
+      "symbol": "IMXUSDT",
+      "quote_volume_2026_05": 158516712.1616,
+      "earliest_1d_month": "2022-02",
+      "n_months": 52
+    },
+    {
+      "rank": 312,
+      "symbol": "BATUSDT",
+      "quote_volume_2026_05": 157765149.07434997,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 326,
+      "symbol": "IOTAUSDT",
+      "quote_volume_2026_05": 149614100.9476,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 344,
+      "symbol": "QTUMUSDT",
+      "quote_volume_2026_05": 137858612.64600003,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 345,
+      "symbol": "MANAUSDT",
+      "quote_volume_2026_05": 136151362.82089996,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 360,
+      "symbol": "SNXUSDT",
+      "quote_volume_2026_05": 127450818.84664027,
+      "earliest_1d_month": "2020-08",
+      "n_months": 70
+    },
+    {
+      "rank": 362,
+      "symbol": "KAVAUSDT",
+      "quote_volume_2026_05": 124217681.32906999,
+      "earliest_1d_month": "2020-07",
+      "n_months": 71
+    },
+    {
+      "rank": 374,
+      "symbol": "NEOUSDT",
+      "quote_volume_2026_05": 115129263.13662001,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 376,
+      "symbol": "EGLDUSDT",
+      "quote_volume_2026_05": 113946483.9328,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 377,
+      "symbol": "BTCDOMUSDT",
+      "quote_volume_2026_05": 113308315.0083,
+      "earliest_1d_month": "2021-06",
+      "n_months": 60
+    },
+    {
+      "rank": 378,
+      "symbol": "SUSHIUSDT",
+      "quote_volume_2026_05": 112368908.47550002,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    },
+    {
+      "rank": 381,
+      "symbol": "ALICEUSDT",
+      "quote_volume_2026_05": 110810753.05112211,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 384,
+      "symbol": "PEOPLEUSDT",
+      "quote_volume_2026_05": 109697235.60394,
+      "earliest_1d_month": "2021-12",
+      "n_months": 54
+    },
+    {
+      "rank": 400,
+      "symbol": "XTZUSDT",
+      "quote_volume_2026_05": 102347646.6401228,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 403,
+      "symbol": "CHRUSDT",
+      "quote_volume_2026_05": 101189613.76328312,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 404,
+      "symbol": "RSRUSDT",
+      "quote_volume_2026_05": 101149107.92117201,
+      "earliest_1d_month": "2020-10",
+      "n_months": 68
+    },
+    {
+      "rank": 408,
+      "symbol": "ZILUSDT",
+      "quote_volume_2026_05": 99272848.47233002,
+      "earliest_1d_month": "2020-06",
+      "n_months": 72
+    },
+    {
+      "rank": 419,
+      "symbol": "ANKRUSDT",
+      "quote_volume_2026_05": 90908323.18090302,
+      "earliest_1d_month": "2021-01",
+      "n_months": 65
+    },
+    {
+      "rank": 420,
+      "symbol": "MTLUSDT",
+      "quote_volume_2026_05": 90177309.67490001,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 422,
+      "symbol": "MASKUSDT",
+      "quote_volume_2026_05": 89155083.69849999,
+      "earliest_1d_month": "2021-08",
+      "n_months": 58
+    },
+    {
+      "rank": 426,
+      "symbol": "ATAUSDT",
+      "quote_volume_2026_05": 87678881.44293019,
+      "earliest_1d_month": "2021-08",
+      "n_months": 58
+    },
+    {
+      "rank": 438,
+      "symbol": "1INCHUSDT",
+      "quote_volume_2026_05": 81406779.40779997,
+      "earliest_1d_month": "2020-12",
+      "n_months": 66
+    },
+    {
+      "rank": 439,
+      "symbol": "ARPAUSDT",
+      "quote_volume_2026_05": 80398069.51612002,
+      "earliest_1d_month": "2021-10",
+      "n_months": 56
+    },
+    {
+      "rank": 457,
+      "symbol": "CTSIUSDT",
+      "quote_volume_2026_05": 67404649.56136002,
+      "earliest_1d_month": "2021-10",
+      "n_months": 56
+    },
+    {
+      "rank": 462,
+      "symbol": "YFIUSDT",
+      "quote_volume_2026_05": 64881723.088,
+      "earliest_1d_month": "2020-08",
+      "n_months": 70
+    },
+    {
+      "rank": 471,
+      "symbol": "FLOWUSDT",
+      "quote_volume_2026_05": 61682892.86927702,
+      "earliest_1d_month": "2022-02",
+      "n_months": 52
+    },
+    {
+      "rank": 480,
+      "symbol": "C98USDT",
+      "quote_volume_2026_05": 58765111.323517606,
+      "earliest_1d_month": "2021-08",
+      "n_months": 58
+    },
+    {
+      "rank": 485,
+      "symbol": "CELOUSDT",
+      "quote_volume_2026_05": 57200018.367653005,
+      "earliest_1d_month": "2021-09",
+      "n_months": 57
+    },
+    {
+      "rank": 492,
+      "symbol": "RLCUSDT",
+      "quote_volume_2026_05": 55338323.47255,
+      "earliest_1d_month": "2020-07",
+      "n_months": 71
+    },
+    {
+      "rank": 496,
+      "symbol": "TLMUSDT",
+      "quote_volume_2026_05": 54337620.066927,
+      "earliest_1d_month": "2021-07",
+      "n_months": 59
+    },
+    {
+      "rank": 500,
+      "symbol": "ZRXUSDT",
+      "quote_volume_2026_05": 53048445.45825002,
+      "earliest_1d_month": "2020-06",
+      "n_months": 72
+    },
+    {
+      "rank": 503,
+      "symbol": "CVCUSDT",
+      "quote_volume_2026_05": 52423712.49589,
+      "earliest_1d_month": "2020-11",
+      "n_months": 67
+    },
+    {
+      "rank": 510,
+      "symbol": "SKLUSDT",
+      "quote_volume_2026_05": 50307028.71965,
+      "earliest_1d_month": "2020-12",
+      "n_months": 66
+    },
+    {
+      "rank": 515,
+      "symbol": "IOSTUSDT",
+      "quote_volume_2026_05": 48574438.769539,
+      "earliest_1d_month": "2020-02",
+      "n_months": 76
+    },
+    {
+      "rank": 522,
+      "symbol": "WOOUSDT",
+      "quote_volume_2026_05": 47226581.22703,
+      "earliest_1d_month": "2022-04",
+      "n_months": 50
+    },
+    {
+      "rank": 526,
+      "symbol": "RVNUSDT",
+      "quote_volume_2026_05": 47015889.23494001,
+      "earliest_1d_month": "2021-02",
+      "n_months": 64
+    },
+    {
+      "rank": 534,
+      "symbol": "ONEUSDT",
+      "quote_volume_2026_05": 43824906.12978179,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 537,
+      "symbol": "BELUSDT",
+      "quote_volume_2026_05": 41906689.9202,
+      "earliest_1d_month": "2020-11",
+      "n_months": 67
+    },
+    {
+      "rank": 538,
+      "symbol": "COTIUSDT",
+      "quote_volume_2026_05": 41577784.76834998,
+      "earliest_1d_month": "2021-03",
+      "n_months": 63
+    },
+    {
+      "rank": 543,
+      "symbol": "BANDUSDT",
+      "quote_volume_2026_05": 39138150.402210005,
+      "earliest_1d_month": "2020-07",
+      "n_months": 71
+    },
+    {
+      "rank": 547,
+      "symbol": "IOTXUSDT",
+      "quote_volume_2026_05": 38277973.156430006,
+      "earliest_1d_month": "2021-08",
+      "n_months": 58
+    },
+    {
+      "rank": 551,
+      "symbol": "ICXUSDT",
+      "quote_volume_2026_05": 36463487.27905841,
+      "earliest_1d_month": "2020-09",
+      "n_months": 69
+    }
+  ]
+}

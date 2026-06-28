@@ -1,0 +1,29 @@
+run start (UTC): 2026-06-28T11:32:33.221782+00:00
+DATA ENVIRONMENT: BINANCE-VISION-PUBLIC (production)
+pool: 100 coins, window_start<= 2022-07, klines 2022-07..2026-05
+  [400/9400]
+  [800/9400]
+  [1200/9400]
+  [1600/9400]
+  [2000/9400]
+  [2400/9400]
+  [2800/9400]
+  [3200/9400]
+  [3600/9400]
+  [4000/9400]
+  [4400/9400]
+  [4800/9400]
+  [5200/9400]
+  [5600/9400]
+  [6000/9400]
+  [6400/9400]
+  [6800/9400]
+  [7200/9400]
+  [7600/9400]
+  [8000/9400]
+  [8400/9400]
+  [8800/9400]
+  [9200/9400]
+
+download done: 9400/9400 ok, 0 failed, 15 404
+manifest -> /home/yiast/vnpy_projects/cta_strategy/data/binance_vision/factor_scale_manifest.json

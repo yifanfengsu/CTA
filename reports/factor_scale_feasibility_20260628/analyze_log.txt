@@ -1,0 +1,57 @@
+run start (UTC): 2026-06-28T11:58:07.918549+00:00
+DATA ENVIRONMENT: BINANCE-VISION-PUBLIC (production); OKX mainnet DB read-only (xval)
+pool 100 coins; window 2022-07..2026-05; survivorship=optimistic
+
+== cross-validation gate (Binance 1d vs OKX mainnet DB) ==
+  BTCUSDT    median|dev| 0.025%  max 0.054%
+  ETHUSDT    median|dev| 0.040%  max 0.060%
+  SOLUSDT    median|dev| 0.047%  max 0.062%
+  LINKUSDT   median|dev| 0.030%  max 0.058%
+  DOGEUSDT   median|dev| 0.012%  max 0.053%
+  overall median |dev| 0.030%  gate(<0.5%)=PASS
+
+funding available for 100/100 coins (CAR ENABLED)
+window epoch-days >= 19174 (2022-07); 1431 calendar days in window
+
+===== POOL K=22 (BTCUSDT..LITUSDT) =====
+  F-MOM: IC -0.0223 IR -0.074 t -2.72 (T=1347,K=22) | NULL-A mean +0.0046 p95 +0.0140 -> real pctile 0.0 p=1.000 in-noise | NULL-B p95 +0.0256 p=1.000
+  F-REV: IC +0.0305 IR +0.102 t +3.80 (T=1397,K=22) | NULL-A mean -0.0014 p95 +0.0085 -> real pctile 100.0 p=0.000 BEATS | NULL-B p95 +0.0029 p=0.000
+  F-CAR: IC +0.0185 IR +0.074 t +2.49 (T=1150,K=22) | NULL-A mean +0.0026 p95 +0.0133 -> real pctile 100.0 p=0.000 BEATS | NULL-B p95 +0.0237 p=0.165
+
+===== POOL K=50 (BTCUSDT..COMPUSDT) =====
+  F-MOM: IC -0.0283 IR -0.117 t -4.30 (T=1347,K=50) | NULL-A mean +0.0047 p95 +0.0099 -> real pctile 0.0 p=1.000 in-noise | NULL-B p95 +0.0217 p=1.000
+  F-REV: IC +0.0425 IR +0.184 t +6.88 (T=1397,K=50) | NULL-A mean -0.0025 p95 +0.0029 -> real pctile 100.0 p=0.000 BEATS | NULL-B p95 +0.0004 p=0.000
+  F-CAR: IC -0.0001 IR -0.000 t -0.02 (T=1150,K=50) | NULL-A mean -0.0001 p95 +0.0057 -> real pctile 52.0 p=0.480 in-noise | NULL-B p95 +0.0123 p=0.740
+
+===== POOL K=100 (BTCUSDT..ICXUSDT) =====
+  F-MOM: IC -0.0489 IR -0.233 t -8.35 (T=1288,K=100) | NULL-A mean +0.0030 p95 +0.0073 -> real pctile 0.0 p=1.000 in-noise | NULL-B p95 +0.0151 p=1.000
+  F-REV: IC +0.0556 IR +0.287 t +10.59 (T=1364,K=100) | NULL-A mean -0.0017 p95 +0.0020 -> real pctile 100.0 p=0.000 BEATS | NULL-B p95 +0.0015 p=0.000
+  F-CAR: IC -0.0050 IR -0.041 t -1.27 (T=955,K=100) | NULL-A mean -0.0015 p95 +0.0038 -> real pctile 12.0 p=0.880 in-noise | NULL-B p95 +0.0097 p=1.000
+
+===== LIQUIDITY STRATA (pool_100 by 2026-05 volume) =====
+  F-MOM top    (33 coins): IC -0.0277 t -3.78 | null p95 +0.0119 p=1.000 in-noise
+  F-MOM mid    (33 coins): IC -0.0497 t -7.61 | null p95 +0.0094 p=1.000 in-noise
+  F-MOM bottom (34 coins): IC -0.0762 t -11.24 | null p95 +0.0089 p=1.000 in-noise
+  F-REV top    (33 coins): IC +0.0375 t +5.35 | null p95 +0.0058 p=0.000 BEATS
+  F-REV mid    (33 coins): IC +0.0546 t +8.94 | null p95 +0.0066 p=0.000 BEATS
+  F-REV bottom (34 coins): IC +0.0729 t +11.17 | null p95 +0.0072 p=0.000 BEATS
+  F-CAR top    (33 coins): IC +0.0124 t +2.11 | null p95 +0.0097 p=0.010 BEATS
+  F-CAR mid    (33 coins): IC -0.0261 t -5.17 | null p95 +0.0033 p=1.000 in-noise
+  F-CAR bottom (34 coins): IC -0.0152 t -2.69 | null p95 +0.0063 p=1.000 in-noise
+
+===== TRADEABILITY (quintile LS, daily rebal; IC != tradeable alpha) =====
+  F-MOM pool100: gross -7.6%/yr  cost 13.6%/yr (turn 0.62/d, fee 0.060%) -> NET -21.2%/yr  NEGATIVE
+  F-MOM bottom : gross -91.2%/yr  cost 21.9%/yr (turn 0.75/d, fee 0.080%) -> NET -113.1%/yr  NEGATIVE
+  F-REV pool100: gross +16.3%/yr  cost 39.6%/yr (turn 1.81/d, fee 0.060%) -> NET -23.3%/yr  NEGATIVE
+  F-REV bottom : gross +78.3%/yr  cost 56.2%/yr (turn 1.93/d, fee 0.080%) -> NET +22.1%/yr  POSITIVE
+  F-CAR pool100: gross +16.2%/yr  cost 11.2%/yr (turn 0.51/d, fee 0.060%) -> NET +5.1%/yr  POSITIVE
+  F-CAR bottom : gross -5.2%/yr  cost 17.8%/yr (turn 0.61/d, fee 0.080%) -> NET -23.0%/yr  NEGATIVE
+
+===== VERDICT (frozen pre-registered gates) =====
+  F-MOM: IC 22->50->100 = -0.0223 -> -0.0283 -> -0.0489 (null SE 0.0027) | G1noise=0 G2tradeable=0 G3scale-up=0 -> FAIL
+  F-REV: IC 22->50->100 = +0.0305 -> +0.0425 -> +0.0556 (null SE 0.0024) | G1noise=1 G2tradeable=1 G3scale-up=1 -> PASS
+  F-CAR: IC 22->50->100 = +0.0185 -> -0.0001 -> -0.0050 (null SE 0.0032) | G1noise=0 G2tradeable=1 G3scale-up=0 -> FAIL
+
+  FINAL: PASS — large-scale factor worth the spend (flag: optimistic; needs delisted-inclusive institutional data recheck)
+wrote figures: noise_calibration_pool100.png, scale_gradient_ic.png
+run end (UTC): 2026-06-28T11:58:39.968974+00:00
