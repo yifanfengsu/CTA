@@ -264,4 +264,4 @@ A3 未干净过 → 记录：**ATM VRP 的可收溢价在 BTC 存在（中位）
 
 ---
 
-**ATM VRP阶段A数据地基完成于 2026-06-28T08:48Z / 数据可得:绿灯 / 真实性核对:通过(平静日median偏差0.025%、max0.097%,端点testnet=false,Coinbase独立锚点) / 毛缝mean:BTC+0.81vp ETH−3.58vp(中位 BTC+4.45 ETH+0.12) / 净缝:不对冲 BTC−0.69 ETH−5.94, 每日对冲 BTC−1.23 ETH−6.52 vp(BTC中位+2.65仍正→摩擦门过；ETH中位−2.72→无缝) / 剔尾(N=3)mean漂移:BTC+2.57(均值仅靠312一月即由正转负) ETH+3.03vp / 阶段A判定:ETH数据门判死(无meat,IV≈RV中位无溢价,与尾部无关)；BTC数据门+摩擦门过、净缝中位为正但pre-reg mean门仅经由"被推迟的尾部"未过→摩擦非主凶、尾部(阶段C)是,立项阶段B/C资源决策待用户裁定 / 已push:[commit后回填]**
+**ATM VRP阶段A数据地基完成于 2026-06-28T08:48Z / 数据可得:绿灯 / 真实性核对:通过(平静日median偏差0.025%、max0.097%,端点testnet=false,Coinbase独立锚点) / 毛缝mean:BTC+0.81vp ETH−3.58vp(中位 BTC+4.45 ETH+0.12) / 净缝:不对冲 BTC−0.69 ETH−5.94, 每日对冲 BTC−1.23 ETH−6.52 vp(BTC中位+2.65仍正→摩擦门过；ETH中位−2.72→无缝) / 剔尾(N=3)mean漂移:BTC+2.57(均值仅靠312一月即由正转负) ETH+3.03vp / 阶段A判定:ETH数据门判死(无meat,IV≈RV中位无溢价,与尾部无关)；BTC数据门+摩擦门过、净缝中位为正但pre-reg mean门仅经由"被推迟的尾部"未过→摩擦非主凶、尾部(阶段C)是,立项阶段B/C资源决策待用户裁定 / 已push:已确认(内容commit 7354f21 → origin/main)**
