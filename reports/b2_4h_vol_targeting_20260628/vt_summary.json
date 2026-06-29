@@ -1,0 +1,631 @@
+{
+  "prereg": {
+    "halflife_bars": 48,
+    "halflife_nbhd": [
+      24,
+      48,
+      96
+    ],
+    "sigma_target_ann": 0.65,
+    "mult_clip": [
+      0.25,
+      4.0
+    ],
+    "right_tail_min_capture": 0.7,
+    "median_hold_hours": 196,
+    "economic_anchor": "half-life \u2248 median hold \u2248 8d"
+  },
+  "OKX": {
+    "label": "OKX",
+    "base": {
+      "n": 470,
+      "net": 68194.82,
+      "gross": 84300.64,
+      "funding": -11357.03,
+      "max_dd_usd": 19268.2,
+      "calmar": 3.5392,
+      "win_rate_pct": 28.3,
+      "dollar_vol_mean": 6693.5,
+      "dollar_vol_cv": 0.341,
+      "avg_notional": 10002.1,
+      "sharpe_ann": 0.6503
+    },
+    "base_by_year": {
+      "2023": 31023.0,
+      "2024": 26432.0,
+      "2025": 8829.0,
+      "2026": 1911.0
+    },
+    "vt": {
+      "24": {
+        "halflife_bars": 24,
+        "exposure_match_k": 0.8485,
+        "vt_matched": {
+          "n": 470,
+          "net": 98331.67,
+          "gross": 115572.55,
+          "funding": -12592.33,
+          "max_dd_usd": 19044.79,
+          "calmar": 5.1632,
+          "win_rate_pct": 28.3,
+          "dollar_vol_mean": 5514.3,
+          "dollar_vol_cv": 0.0073,
+          "avg_notional": 9766.7
+        },
+        "vt_raw_net": 115894.54,
+        "vt_raw_maxdd": 22446.35,
+        "by_year_matched": {
+          "2023": 49809.0,
+          "2024": 38640.0,
+          "2025": 2677.0,
+          "2026": 7205.0
+        },
+        "right_tail_top5": {
+          "pct": 0.05,
+          "n": 23,
+          "base_net": 143048.0,
+          "vt_matched_net": 153836.0,
+          "capture_ratio": 1.0754,
+          "avg_vt_mult_on_winners": 1.2599
+        },
+        "right_tail_top1": {
+          "pct": 0.01,
+          "n": 4,
+          "base_net": 69462.0,
+          "vt_matched_net": 75915.0,
+          "capture_ratio": 1.0929,
+          "avg_vt_mult_on_winners": 1.4153
+        },
+        "clip_floor_share": 0.0,
+        "clip_cap_share": 0.0,
+        "dd_episodes_base": [
+          {
+            "depth_usd": 19268.0,
+            "dur_days": 312.3
+          },
+          {
+            "depth_usd": 18935.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 13856.0,
+            "dur_days": 85.0
+          },
+          {
+            "depth_usd": 12420.0,
+            "dur_days": 80.5
+          },
+          {
+            "depth_usd": 11927.0,
+            "dur_days": 170.7
+          }
+        ],
+        "dd_episodes_vt_matched": [
+          {
+            "depth_usd": 19045.0,
+            "dur_days": 305.7
+          },
+          {
+            "depth_usd": 15145.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 12058.0,
+            "dur_days": 85.0
+          },
+          {
+            "depth_usd": 10851.0,
+            "dur_days": 228.2
+          },
+          {
+            "depth_usd": 7676.0,
+            "dur_days": 79.8
+          }
+        ]
+      },
+      "48": {
+        "halflife_bars": 48,
+        "exposure_match_k": 0.8833,
+        "vt_matched": {
+          "n": 470,
+          "net": 95553.51,
+          "gross": 112585.17,
+          "funding": -12426.53,
+          "max_dd_usd": 19024.1,
+          "calmar": 5.0228,
+          "win_rate_pct": 28.3,
+          "dollar_vol_mean": 5739.3,
+          "dollar_vol_cv": 0.008,
+          "avg_notional": 9676.2,
+          "sharpe_ann": 0.8983
+        },
+        "vt_raw_net": 108173.64,
+        "vt_raw_maxdd": 21536.69,
+        "by_year_matched": {
+          "2023": 48411.0,
+          "2024": 35597.0,
+          "2025": 4046.0,
+          "2026": 7500.0
+        },
+        "right_tail_top5": {
+          "pct": 0.05,
+          "n": 23,
+          "base_net": 143048.0,
+          "vt_matched_net": 150072.0,
+          "capture_ratio": 1.0491,
+          "avg_vt_mult_on_winners": 1.2117
+        },
+        "right_tail_top1": {
+          "pct": 0.01,
+          "n": 4,
+          "base_net": 69462.0,
+          "vt_matched_net": 70339.0,
+          "capture_ratio": 1.0126,
+          "avg_vt_mult_on_winners": 1.2349
+        },
+        "clip_floor_share": 0.0,
+        "clip_cap_share": 0.0,
+        "dd_episodes_base": [
+          {
+            "depth_usd": 19268.0,
+            "dur_days": 312.3
+          },
+          {
+            "depth_usd": 18935.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 13856.0,
+            "dur_days": 85.0
+          },
+          {
+            "depth_usd": 12420.0,
+            "dur_days": 80.5
+          },
+          {
+            "depth_usd": 11927.0,
+            "dur_days": 170.7
+          }
+        ],
+        "dd_episodes_vt_matched": [
+          {
+            "depth_usd": 19024.0,
+            "dur_days": 305.7
+          },
+          {
+            "depth_usd": 15071.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 12352.0,
+            "dur_days": 85.0
+          },
+          {
+            "depth_usd": 10799.0,
+            "dur_days": 228.2
+          },
+          {
+            "depth_usd": 7367.0,
+            "dur_days": 79.8
+          }
+        ]
+      },
+      "96": {
+        "halflife_bars": 96,
+        "exposure_match_k": 0.9241,
+        "vt_matched": {
+          "n": 470,
+          "net": 89584.82,
+          "gross": 106444.15,
+          "funding": -12257.07,
+          "max_dd_usd": 19725.57,
+          "calmar": 4.5416,
+          "win_rate_pct": 28.3,
+          "dollar_vol_mean": 6008.8,
+          "dollar_vol_cv": 0.0082,
+          "avg_notional": 9671.4
+        },
+        "vt_raw_net": 96939.59,
+        "vt_raw_maxdd": 21345.01,
+        "by_year_matched": {
+          "2023": 45058.0,
+          "2024": 33263.0,
+          "2025": 5100.0,
+          "2026": 6164.0
+        },
+        "right_tail_top5": {
+          "pct": 0.05,
+          "n": 23,
+          "base_net": 143048.0,
+          "vt_matched_net": 146150.0,
+          "capture_ratio": 1.0217,
+          "avg_vt_mult_on_winners": 1.132
+        },
+        "right_tail_top1": {
+          "pct": 0.01,
+          "n": 4,
+          "base_net": 69462.0,
+          "vt_matched_net": 67778.0,
+          "capture_ratio": 0.9758,
+          "avg_vt_mult_on_winners": 1.1118
+        },
+        "clip_floor_share": 0.0,
+        "clip_cap_share": 0.0,
+        "dd_episodes_base": [
+          {
+            "depth_usd": 19268.0,
+            "dur_days": 312.3
+          },
+          {
+            "depth_usd": 18935.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 13856.0,
+            "dur_days": 85.0
+          },
+          {
+            "depth_usd": 12420.0,
+            "dur_days": 80.5
+          },
+          {
+            "depth_usd": 11927.0,
+            "dur_days": 170.7
+          }
+        ],
+        "dd_episodes_vt_matched": [
+          {
+            "depth_usd": 19726.0,
+            "dur_days": 305.7
+          },
+          {
+            "depth_usd": 15446.0,
+            "dur_days": 264.7
+          },
+          {
+            "depth_usd": 12595.0,
+            "dur_days": 85.0
+          },
+          {
+            "depth_usd": 10919.0,
+            "dur_days": 228.2
+          },
+          {
+            "depth_usd": 7602.0,
+            "dur_days": 79.8
+          }
+        ]
+      }
+    }
+  },
+  "Binance": {
+    "label": "Binance",
+    "base": {
+      "n": 836,
+      "net": 300752.78,
+      "gross": 362665.56,
+      "funding": -53362.16,
+      "max_dd_usd": 24270.0,
+      "calmar": 12.392,
+      "win_rate_pct": 29.07,
+      "dollar_vol_mean": 8137.5,
+      "dollar_vol_cv": 0.4599,
+      "avg_notional": 10000.8,
+      "sharpe_ann": 0.9427
+    },
+    "base_by_year": {
+      "2020": 56550.0,
+      "2021": 163960.0,
+      "2022": -3445.0,
+      "2023": 45890.0,
+      "2024": 27317.0,
+      "2025": 9443.0,
+      "2026": 1039.0
+    },
+    "vt": {
+      "24": {
+        "halflife_bars": 24,
+        "exposure_match_k": 0.9641,
+        "vt_matched": {
+          "n": 836,
+          "net": 269466.14,
+          "gross": 318924.25,
+          "funding": -41095.04,
+          "max_dd_usd": 21190.23,
+          "calmar": 12.7165,
+          "win_rate_pct": 29.07,
+          "dollar_vol_mean": 6268.3,
+          "dollar_vol_cv": 0.0116,
+          "avg_notional": 9815.6
+        },
+        "vt_raw_net": 279495.52,
+        "vt_raw_maxdd": 21978.92,
+        "by_year_matched": {
+          "2020": 64163.0,
+          "2021": 71813.0,
+          "2022": -1.0,
+          "2023": 77964.0,
+          "2024": 44993.0,
+          "2025": 3486.0,
+          "2026": 7050.0
+        },
+        "right_tail_top5": {
+          "pct": 0.05,
+          "n": 41,
+          "base_net": 425062.0,
+          "vt_matched_net": 333455.0,
+          "capture_ratio": 0.7845,
+          "avg_vt_mult_on_winners": 1.0018
+        },
+        "right_tail_top1": {
+          "pct": 0.01,
+          "n": 8,
+          "base_net": 246627.0,
+          "vt_matched_net": 147415.0,
+          "capture_ratio": 0.5977,
+          "avg_vt_mult_on_winners": 0.676
+        },
+        "clip_floor_share": 0.0036,
+        "clip_cap_share": 0.0012,
+        "dd_episodes_base": [
+          {
+            "depth_usd": 24270.0,
+            "dur_days": 545.2
+          },
+          {
+            "depth_usd": 18563.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 14437.0,
+            "dur_days": 26.0
+          },
+          {
+            "depth_usd": 13853.0,
+            "dur_days": 88.3
+          },
+          {
+            "depth_usd": 12385.0,
+            "dur_days": 80.5
+          }
+        ],
+        "dd_episodes_vt_matched": [
+          {
+            "depth_usd": 21190.0,
+            "dur_days": 304.3
+          },
+          {
+            "depth_usd": 19944.0,
+            "dur_days": 216.7
+          },
+          {
+            "depth_usd": 16709.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 13696.0,
+            "dur_days": 88.3
+          },
+          {
+            "depth_usd": 12127.0,
+            "dur_days": 228.2
+          }
+        ]
+      },
+      "48": {
+        "halflife_bars": 48,
+        "exposure_match_k": 1.016,
+        "vt_matched": {
+          "n": 836,
+          "net": 268577.38,
+          "gross": 318403.49,
+          "funding": -41512.0,
+          "max_dd_usd": 21354.6,
+          "calmar": 12.577,
+          "win_rate_pct": 29.07,
+          "dollar_vol_mean": 6607.4,
+          "dollar_vol_cv": 0.0139,
+          "avg_notional": 9758.9,
+          "sharpe_ann": 1.1274
+        },
+        "vt_raw_net": 264353.28,
+        "vt_raw_maxdd": 21018.74,
+        "by_year_matched": {
+          "2020": 59830.0,
+          "2021": 78776.0,
+          "2022": 115.0,
+          "2023": 75139.0,
+          "2024": 41923.0,
+          "2025": 5299.0,
+          "2026": 7495.0
+        },
+        "right_tail_top5": {
+          "pct": 0.05,
+          "n": 41,
+          "base_net": 425062.0,
+          "vt_matched_net": 332782.0,
+          "capture_ratio": 0.7829,
+          "avg_vt_mult_on_winners": 0.947
+        },
+        "right_tail_top1": {
+          "pct": 0.01,
+          "n": 8,
+          "base_net": 246627.0,
+          "vt_matched_net": 147918.0,
+          "capture_ratio": 0.5998,
+          "avg_vt_mult_on_winners": 0.6216
+        },
+        "clip_floor_share": 0.0036,
+        "clip_cap_share": 0.0,
+        "dd_episodes_base": [
+          {
+            "depth_usd": 24270.0,
+            "dur_days": 545.2
+          },
+          {
+            "depth_usd": 18563.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 14437.0,
+            "dur_days": 26.0
+          },
+          {
+            "depth_usd": 13853.0,
+            "dur_days": 88.3
+          },
+          {
+            "depth_usd": 12385.0,
+            "dur_days": 80.5
+          }
+        ],
+        "dd_episodes_vt_matched": [
+          {
+            "depth_usd": 21355.0,
+            "dur_days": 304.3
+          },
+          {
+            "depth_usd": 19928.0,
+            "dur_days": 216.7
+          },
+          {
+            "depth_usd": 17062.0,
+            "dur_days": 107.0
+          },
+          {
+            "depth_usd": 14192.0,
+            "dur_days": 88.3
+          },
+          {
+            "depth_usd": 12252.0,
+            "dur_days": 228.2
+          }
+        ]
+      },
+      "96": {
+        "halflife_bars": 96,
+        "exposure_match_k": 1.0803,
+        "vt_matched": {
+          "n": 836,
+          "net": 255669.4,
+          "gross": 306035.77,
+          "funding": -42025.05,
+          "max_dd_usd": 21789.11,
+          "calmar": 11.7338,
+          "win_rate_pct": 29.07,
+          "dollar_vol_mean": 7027.2,
+          "dollar_vol_cv": 0.0197,
+          "avg_notional": 9797.5
+        },
+        "vt_raw_net": 236663.76,
+        "vt_raw_maxdd": 20169.38,
+        "by_year_matched": {
+          "2020": 58924.0,
+          "2021": 75122.0,
+          "2022": -594.0,
+          "2023": 69776.0,
+          "2024": 39873.0,
+          "2025": 6525.0,
+          "2026": 6044.0
+        },
+        "right_tail_top5": {
+          "pct": 0.05,
+          "n": 41,
+          "base_net": 425062.0,
+          "vt_matched_net": 326353.0,
+          "capture_ratio": 0.7678,
+          "avg_vt_mult_on_winners": 0.877
+        },
+        "right_tail_top1": {
+          "pct": 0.01,
+          "n": 8,
+          "base_net": 246627.0,
+          "vt_matched_net": 144747.0,
+          "capture_ratio": 0.5869,
+          "avg_vt_mult_on_winners": 0.5733
+        },
+        "clip_floor_share": 0.0036,
+        "clip_cap_share": 0.0,
+        "dd_episodes_base": [
+          {
+            "depth_usd": 24270.0,
+            "dur_days": 545.2
+          },
+          {
+            "depth_usd": 18563.0,
+            "dur_days": 248.0
+          },
+          {
+            "depth_usd": 14437.0,
+            "dur_days": 26.0
+          },
+          {
+            "depth_usd": 13853.0,
+            "dur_days": 88.3
+          },
+          {
+            "depth_usd": 12385.0,
+            "dur_days": 80.5
+          }
+        ],
+        "dd_episodes_vt_matched": [
+          {
+            "depth_usd": 21789.0,
+            "dur_days": 304.3
+          },
+          {
+            "depth_usd": 19780.0,
+            "dur_days": 217.0
+          },
+          {
+            "depth_usd": 17579.0,
+            "dur_days": 264.7
+          },
+          {
+            "depth_usd": 14712.0,
+            "dur_days": 88.3
+          },
+          {
+            "depth_usd": 12540.0,
+            "dur_days": 228.2
+          }
+        ]
+      }
+    }
+  },
+  "verdict": {
+    "per_sample": {
+      "OKX": {
+        "dd_reduced": true,
+        "calmar_improved": true,
+        "return_up": true,
+        "rt5_capture": 1.0491,
+        "rt5_ok": true,
+        "dd_pct": -1.3,
+        "net_pct": 40.1
+      },
+      "Binance": {
+        "dd_reduced": true,
+        "calmar_improved": true,
+        "return_up": false,
+        "rt5_capture": 0.7829,
+        "rt5_ok": true,
+        "dd_pct": -12.0,
+        "net_pct": -10.7
+      }
+    },
+    "dual_dd_reduced": true,
+    "dual_calmar_improved": true,
+    "neighbourhood_sign_stable": {
+      "okx_dd": false,
+      "okx_calmar": true,
+      "bnc_dd": true,
+      "bnc_calmar": false,
+      "all": false
+    },
+    "right_tail_ok_both": true,
+    "return_up_both_samples": false,
+    "ADOPT": false,
+    "reason": "\u4e0d\u91c7\u7eb3 \u2014 \u98ce\u63a7\u6548\u679c\u4f9d\u8d56\u7279\u5b9a lookback\uff08\u90bb\u57df\u5185\u7b26\u53f7\u4e0d\u7a33\uff09= \u63cf\u7ebf"
+  }
+}

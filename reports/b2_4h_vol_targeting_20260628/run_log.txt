@@ -1,0 +1,20 @@
+run start (UTC): 2026-06-29T14:20:59.058962+00:00
+B2_4h-VT vol-targeting RISK-CONTROL variant — pre-registered (half-life 48 bars = 8d = median hold scale; σ_target 0.65; clip [0.25,4.0]); config_frozen UNTOUCHED
+
+===== OKX =====
+base reproduces frozen net $68,194.82 (==$68,194.82) ✓
+  hl= 24 | k=0.848 | base maxDD $19,268 -> VT $19,045 (-1%) | base net $68,195 -> VT $98,332 (+44%) | Calmar 3.54->5.16 | RT5 capture 1.08 (mult 1.26) | $vol CV 0.34->0.01
+  hl= 48 | k=0.883 | base maxDD $19,268 -> VT $19,024 (-1%) | base net $68,195 -> VT $95,554 (+40%) | Calmar 3.54->5.02 | RT5 capture 1.05 (mult 1.21) | $vol CV 0.34->0.01
+  hl= 96 | k=0.924 | base maxDD $19,268 -> VT $19,726 (+2%) | base net $68,195 -> VT $89,585 (+31%) | Calmar 3.54->4.54 | RT5 capture 1.02 (mult 1.13) | $vol CV 0.34->0.01
+
+===== Binance =====
+base reproduces frozen net $300,752.78 (==$300,752.78) ✓
+  hl= 24 | k=0.964 | base maxDD $24,270 -> VT $21,190 (-13%) | base net $300,753 -> VT $269,466 (-10%) | Calmar 12.39->12.72 | RT5 capture 0.78 (mult 1.00) | $vol CV 0.46->0.01
+  hl= 48 | k=1.016 | base maxDD $24,270 -> VT $21,355 (-12%) | base net $300,753 -> VT $268,577 (-11%) | Calmar 12.39->12.58 | RT5 capture 0.78 (mult 0.95) | $vol CV 0.46->0.01
+  hl= 96 | k=1.080 | base maxDD $24,270 -> VT $21,789 (-10%) | base net $300,753 -> VT $255,669 (-15%) | Calmar 12.39->11.73 | RT5 capture 0.77 (mult 0.88) | $vol CV 0.46->0.02
+
+===== VERDICT =====
+dual DD reduced: True | dual Calmar improved: True | neighbourhood stable: False | right-tail ok both: True | return up both: False
+ADOPT: False — 不采纳 — 风控效果依赖特定 lookback（邻域内符号不稳）= 描线
+
+run end (UTC): 2026-06-29T14:22:01.747180+00:00
