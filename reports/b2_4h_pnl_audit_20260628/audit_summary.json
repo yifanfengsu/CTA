@@ -1,0 +1,209 @@
+{
+  "audit": "B2_4h P&L cost-stack honesty (fees+slippage+funding per holding)",
+  "okx": {
+    "reconciliation": {
+      "label": "OKX B2_4h",
+      "n_trades": 470,
+      "gross_pnl": 84300.642,
+      "fees_total": -4748.7908,
+      "funding_total": -11357.0329,
+      "net_pnl": 68194.8186,
+      "gross+fee+funding": 68194.8183,
+      "identity_residual": 0.0003,
+      "frozen_net": 68194.8186,
+      "net_minus_frozen": 0.0,
+      "net_if_funding_omitted": 79551.8515,
+      "funding_share_of_gross_pct": -13.472
+    },
+    "independent_funding": {
+      "label": "OKX B2_4h",
+      "n_trades": 470,
+      "max_abs_diff_usd": 4.992e-05,
+      "sum_abs_diff_usd": 0.011899,
+      "total_settlements": 18410,
+      "mean_settlements_per_trade": 39.17,
+      "median_hold_hours": 196.0,
+      "S1_settle_vs_hold8_ratio_median": 1.0
+    },
+    "tiling_S2": {
+      "per_symbol": {
+        "BTC": {
+          "union_span_settlements": 3682,
+          "sum_per_trade_settlements": 3682,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "ETH": {
+          "union_span_settlements": 3682,
+          "sum_per_trade_settlements": 3682,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "SOL": {
+          "union_span_settlements": 3682,
+          "sum_per_trade_settlements": 3682,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "LINK": {
+          "union_span_settlements": 3682,
+          "sum_per_trade_settlements": 3682,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "DOGE": {
+          "union_span_settlements": 3682,
+          "sum_per_trade_settlements": 3682,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        }
+      },
+      "all_exact": true
+    },
+    "sign_S3": {
+      "contradictions": [],
+      "pass": true
+    },
+    "long_short_full": {
+      "long": {
+        "n": 235,
+        "gross": 89940.93,
+        "funding": -13566.31,
+        "net": 73979.29
+      },
+      "short": {
+        "n": 235,
+        "gross": -5640.29,
+        "funding": 2209.28,
+        "net": -5784.47
+      }
+    },
+    "short_full_decomp": {
+      "years": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "slice_n": 470,
+      "slice_gross": 84300.64,
+      "slice_fees": -4748.79,
+      "slice_funding": -11357.03,
+      "slice_net": 68194.82,
+      "short_n": 235,
+      "short_gross": -5640.29,
+      "short_fees": -2353.46,
+      "short_funding": 2209.28,
+      "short_net": -5784.47,
+      "short_net_if_funding_omitted": -7993.74,
+      "long_n": 235,
+      "long_gross": 89940.93,
+      "long_funding": -13566.31,
+      "long_net": 73979.29
+    }
+  },
+  "binance": {
+    "reconciliation": {
+      "label": "Binance B2_4h",
+      "n_trades": 836,
+      "gross_pnl": 362665.5636,
+      "fees_total": -8550.6166,
+      "funding_total": -53362.1634,
+      "net_pnl": 300752.7847,
+      "gross+fee+funding": 300752.7836,
+      "identity_residual": 0.0011,
+      "frozen_net": 300752.7847,
+      "net_minus_frozen": -0.0,
+      "net_if_funding_omitted": 354114.9481,
+      "funding_share_of_gross_pct": -14.714
+    },
+    "independent_funding": {
+      "label": "Binance B2_4h",
+      "n_trades": 836,
+      "max_abs_diff_usd": 4.998e-05,
+      "sum_abs_diff_usd": 0.021462,
+      "total_settlements": 33570,
+      "mean_settlements_per_trade": 40.16,
+      "median_hold_hours": 192.0,
+      "S1_settle_vs_hold8_ratio_median": 1.0
+    },
+    "tiling_S2": {
+      "per_symbol": {
+        "BTC": {
+          "union_span_settlements": 6978,
+          "sum_per_trade_settlements": 6978,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "ETH": {
+          "union_span_settlements": 6978,
+          "sum_per_trade_settlements": 6978,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "SOL": {
+          "union_span_settlements": 6281,
+          "sum_per_trade_settlements": 6281,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "LINK": {
+          "union_span_settlements": 6929,
+          "sum_per_trade_settlements": 6929,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        },
+        "DOGE": {
+          "union_span_settlements": 6404,
+          "sum_per_trade_settlements": 6404,
+          "tiling_exact": true,
+          "flip_boundary_mismatches": 0
+        }
+      },
+      "all_exact": true
+    },
+    "sign_S3": {
+      "contradictions": [],
+      "pass": true
+    },
+    "claim_2022_short": {
+      "years": [
+        2022
+      ],
+      "slice_n": 136,
+      "slice_gross": 625.57,
+      "slice_fees": -1338.76,
+      "slice_funding": -2731.76,
+      "slice_net": -3444.94,
+      "short_n": 68,
+      "short_gross": 21307.42,
+      "short_fees": -669.45,
+      "short_funding": -1702.08,
+      "short_net": 18935.89,
+      "short_net_if_funding_omitted": 20637.97,
+      "long_n": 68,
+      "long_gross": -20681.85,
+      "long_funding": -1029.67,
+      "long_net": -22380.83
+    },
+    "claim_2022_short_matches_frozen": true,
+    "claim_short_pays_off_holds": true
+  },
+  "forward_consistency": {
+    "funding_clause": "real OKX funding, 8h settlement (00/08/16 UTC), settle px = 1m close before settlement",
+    "engine_clause": "research_trend_baseline(tb) + research_trend_validation_r2(r2) imported VERBATIM, zero modification; forward accounting is a thin outer wrapper calling tb.signal_emax/positions_flip/build_trades + r2.m2m_pnl",
+    "fee_taker_per_side": 0.0005,
+    "uses_same_engine": true
+  },
+  "verdict": {
+    "funding_deducted": "per-holding-period, per-8h-settlement, by direction",
+    "okx_funding_total": -11357.0329,
+    "binance_funding_total": -53362.1634,
+    "okx_net_matches_frozen": true,
+    "binance_net_matches_frozen": true,
+    "independent_match_max_diff_usd": 4.998e-05,
+    "okx_identity_within_rounding": true,
+    "binance_identity_within_rounding": true,
+    "accounting_correct": true
+  }
+}

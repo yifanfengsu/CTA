@@ -1,0 +1,1550 @@
+{
+  "generated_utc": "2026-06-29T13:56:10.770059+00:00",
+  "purpose": "B2_4h P&L audit \u2014 funding source data provenance",
+  "okx": {
+    "server": "mainnet",
+    "demo": false,
+    "source": "OKX mainnet public REST funding-rate-history (Binance-cross-validated, data_trust_closure_20260611)",
+    "files": [
+      {
+        "path": "data/funding/okx/BTC-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "sha256": "386923dafb1075c7491070c3b1603ac481b65b5d123a54fd8fc411ed0dd1743a",
+        "rows": 3558
+      },
+      {
+        "path": "data/funding/okx/BTC-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+        "sha256": "32b72a58dfbcbf375ed88a8dd9f6eaba6f66e31e90472fabc7202855c94c20c2",
+        "rows": 216
+      },
+      {
+        "path": "data/funding/okx/DOGE-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "sha256": "1cd53c8da380673acc8c3f3de2262cabf9e115d94e1f748051701ca81d4066b9",
+        "rows": 3558
+      },
+      {
+        "path": "data/funding/okx/DOGE-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+        "sha256": "a5e5b1113a0f0cf8537f89ab9c6e7b7a7ead62f041261c554c8c17531ddcef38",
+        "rows": 216
+      },
+      {
+        "path": "data/funding/okx/ETH-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "sha256": "46748d466a7750999913c28228a52e6cbaa0fcbdc8286601ac76a76bc35f6da7",
+        "rows": 3558
+      },
+      {
+        "path": "data/funding/okx/ETH-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+        "sha256": "afba71e868da91d7a19f97f5791a111ca8e3920b5ee730a95db3432cd68c015b",
+        "rows": 216
+      },
+      {
+        "path": "data/funding/okx/LINK-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "sha256": "8ab59b572c586822b5b6f01291747f023826313cb4107bc320ae48d4fadb0f96",
+        "rows": 3558
+      },
+      {
+        "path": "data/funding/okx/LINK-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+        "sha256": "c64ac986b591e17efb6d6996419a924d6ac443d3ba39f7cc9212509f7a2eb9ca",
+        "rows": 216
+      },
+      {
+        "path": "data/funding/okx/SOL-USDT-SWAP_funding_2023-01-01_2026-03-31.csv",
+        "sha256": "b40741bd3f1ceb93087b24e7a45550bf9322174939a14db45946dc6489c59aca",
+        "rows": 3558
+      },
+      {
+        "path": "data/funding/okx/SOL-USDT-SWAP_funding_2026-04-01_2026-06-11.csv",
+        "sha256": "d6a6b545e1f81e61c506c5319a021c68284c942395ecd30283101dad6a5b0440",
+        "rows": 216
+      }
+    ]
+  },
+  "binance": {
+    "source": "data/binance_vision fundingRate (sha256-pinned static)",
+    "files": [
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-01.zip",
+        "sha256": "7f81b2f3694d13779e7e896b69d60cd61e9444d7b9f9e90df761935e1c1b76e2"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-02.zip",
+        "sha256": "6599466d108d120c64a078824326c063ed2d4335b3292e52c5e572f79166533a"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-03.zip",
+        "sha256": "eee845fde6336e29d25889563cba3d2cff2d4d640e51fb1f82ae9b28cedaee77"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-04.zip",
+        "sha256": "d009ce034d08c3dcf3e7f874b0f8b0ec76ba507bc6bb4e007e541df537bafbce"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-05.zip",
+        "sha256": "3f2b56dd6b9a42457009bb367d0adadd3cf7e2216cd325172d0089e3883125a8"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-06.zip",
+        "sha256": "30b3470ff98576578973d75e3c157a5cbf1778b11e4c26b4b4ff70a3cbb348ec"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-07.zip",
+        "sha256": "18dae7b11075fc0fba79ad47df46683415cba5d027caa69c66bc2a5c9d9b459a"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-08.zip",
+        "sha256": "e6f6d1749f674c85d4766e0eb36af6ea40d91a0674234d30df80eb9876b094e3"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-09.zip",
+        "sha256": "7ae9a3b6afb2dc06e46080582908ec8c27063b707a14c7f1e679dc991ff48032"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-10.zip",
+        "sha256": "4c55b191c101f39c7fb193a6529665dd9e83302ca21876521e4c93b3902e9fb1"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-11.zip",
+        "sha256": "676356a2d075caa51b4f8ada026e9430dc320ffd23d2343b13b7aa25324ed6d1"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2020-12.zip",
+        "sha256": "d7390f90edf54cc4ad9bbe78e2f6b291ae06ad9539f591a2d0fce445873bbd63"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-01.zip",
+        "sha256": "cff916dc4b638ec3de97828e8911cd91cf7d7a3d0836ec0175869c374e66823d"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-02.zip",
+        "sha256": "819a7b107443686adb313fc5fc223302a29f3981e1d1bd9828ad0ade65a8a8af"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-03.zip",
+        "sha256": "2125fd300848938c7b992b8f7b7b5007d5b277a4ff1ebda7da083b40242729da"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-04.zip",
+        "sha256": "9cd888e3b0a1954813d0062c2e60426fdc8e34a7f258f6838371ec67f535b028"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-05.zip",
+        "sha256": "ed934afb9cf84df6ecae742e755147333a84244836a66b51523abc66dd5f63af"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-06.zip",
+        "sha256": "7b8d9bfb8816636b800764dafb2aa2307d19166c695bfa245adbf7d01d61f766"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-07.zip",
+        "sha256": "8ab3df641d3bcf40527491f8e26d046ad2b662d1950ead9555ad32975571b7fe"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-08.zip",
+        "sha256": "7eb681cc45b94176f4b9192a62c3a1925d79031ba001cea2d8dec6ff6e5b9c35"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-09.zip",
+        "sha256": "03f25a7c25eef18d5f5b5b7bb0b664cab7a210b409f37e95a54e141808a0752d"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-10.zip",
+        "sha256": "f25820d6add687addbca3ef43bee58f70853a6da53832a0c1bc22d00dc8ec64a"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-11.zip",
+        "sha256": "e2e6b2d7218607e7e4a38137d50f553c2cfb901275c19edf567024c1cc6de85f"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2021-12.zip",
+        "sha256": "bf3ce484faf41d7dccfd38c5cc3d8de34d8297df30ab10784e874cc10fd1b310"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-01.zip",
+        "sha256": "22ee19079b620f5c6d820e7d7f8bafa7fde866d89bd664863b8bd527749c12cb"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-02.zip",
+        "sha256": "fa95088258a905c79ab79e8984d2f6f66933ec2e814dbab4ef9da89b01ab484a"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-03.zip",
+        "sha256": "4cf0883bc07f4ed4cdd3b0d8c0d166b4d15d21e666ab752f9f44401af4d6172f"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-04.zip",
+        "sha256": "57e2776cc68b3169fc9f8632dad67278f470cd453407a8ebe6c87963c8a31357"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-05.zip",
+        "sha256": "bced8a5013d09742b96682e6fd01ad4456213515a03d7586ec2b1f2689af5255"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-06.zip",
+        "sha256": "0cd0708f8903829eb46f98cf60f4b2516c986e1ccddf6620a5912b48e16baf93"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-07.zip",
+        "sha256": "29d58cce0cd45f74c6a112039835c6d9ee5a7e60e7c38c2503beb7930453a4fe"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-08.zip",
+        "sha256": "6f4f0c6c84c05694b4b4a5c085776730fd4059723eecd98ee6ffeb3fde4da811"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-09.zip",
+        "sha256": "d62cd4e13009de37add446dc4f63ead4c56dcc4955a1e60f6726bcadc5a68fa9"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-10.zip",
+        "sha256": "ad9efed10d4ca1567b865d7a158790977cec1b925395634217069df6696c8bc9"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-11.zip",
+        "sha256": "8febe5bec1a029e993bbf27490761f8c47c32849bf7dd13441b2b2f6ec1ffb51"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2022-12.zip",
+        "sha256": "4218c78331bcc4dbeb5768fa112242a880971c1f2cfd1d3f32aaa26ca34069af"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-01.zip",
+        "sha256": "05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-02.zip",
+        "sha256": "5227accd9aaa59f71f5e682abffb58be5f99573ed208ab968b1704c81ac11345"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-03.zip",
+        "sha256": "ab022adff9b853d2f33cf80154e77c770f57c3392f0bbc36564b2e2cdbd0e872"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-04.zip",
+        "sha256": "2931039d26818edc65d4faefba84945fd1ba52989dd58fb127dc3cd7a12c7fbf"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-05.zip",
+        "sha256": "5d026fece46df86293054c8c56c2c8de575d30161b82979b11831831217a246e"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-06.zip",
+        "sha256": "3ffdde6f1dc9c3c065d77ae43f3ba64d19d4cb76512d4bc1d541933d4fb2e6f7"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-07.zip",
+        "sha256": "0304baed9fd407293a8a8040b30a1b68bd344803b630d33530375b421733a930"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-08.zip",
+        "sha256": "516a8f50631c6ede6a9642f6d1590b6a22c33ba09935501d2ace8dc1396501fd"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-09.zip",
+        "sha256": "3fd9df6fd1eef33cf5fe625c27012359bc6d64a68c109305d7b44a0354f533c2"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-10.zip",
+        "sha256": "03105cc140150bffca834bcccbddc6cfee245e079d2df1759653243bd6e92448"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-11.zip",
+        "sha256": "8015d2997f8d5e757ff3707ee87800ca30a74da0129daa747b64117f07bcc186"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2023-12.zip",
+        "sha256": "8f02fdd2a2da261bbf13ab301c74bdb57fae005f19d5088e9ece5f8824c1a2a7"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-01.zip",
+        "sha256": "3e0d30870672aa8f0f937881056e3cfd55913ae5c780cd50b33f2763aa0ba58e"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-02.zip",
+        "sha256": "daf1e4901e3d6436d82ad60f90d007eb5300be8047cfef121007203a7212cde6"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-03.zip",
+        "sha256": "711dcaf2a341aedfd06447b4117b540f60adb0784c5e64a313c718e4cf092bc3"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-04.zip",
+        "sha256": "6d220b8e2815362a11d294d35dbca28568370d8295351937eceec10f2b359b85"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-05.zip",
+        "sha256": "aef8c5fdce1493fd570b5829a72f2f17c7e459483390f25544d16c2a30be592e"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-06.zip",
+        "sha256": "43fc4473820d1fb4fe340d1b1951a87555f6841aa352e684fa95d6adffce04c6"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-07.zip",
+        "sha256": "acab0593c1452660ce74a6c239fb215c1192b0a9c6e8c1689e6495de40a0174b"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-08.zip",
+        "sha256": "7003d29a43dd5f9357f838da8766834954939e22c1d80af682d9f33984f67b71"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-09.zip",
+        "sha256": "6ef23b02392b481ef9c3855434bf3644289fb6e228b4f7d9a0dfc6d3cdff1116"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-10.zip",
+        "sha256": "26db65ac8020d80ece35df79c254c5f7e24427529bcceeb2972748c4fe2d2707"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-11.zip",
+        "sha256": "e1b19cccfe2cdcba48b022790789b7b01edd86c075f39bc152e44c267d43bd51"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2024-12.zip",
+        "sha256": "069409f525ebf6370ee1c7defe475167de4b97284c5ac8e68768652968cd3dc9"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-01.zip",
+        "sha256": "df725010d55458866eb5a47e9ee708c6796c9d7e77b14c38342cea11f381815e"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-02.zip",
+        "sha256": "e918b90fb33df3a3317feea13807a892047f1ec86eeac100bdb7b3dd83285d46"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-03.zip",
+        "sha256": "a3b95cfb315641fbfddc61eb32adf2a2588afb7a3973a61f464aca007ad43e3f"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-04.zip",
+        "sha256": "01dbb7bd0135f98bd63bdde6b943cde1accc1770cabf92f68a1ec0653ced3888"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-05.zip",
+        "sha256": "e7355e2775b88009c984db1783bb8ed6b5f24ede2b52bb764151b5722d6a5e42"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-06.zip",
+        "sha256": "a1f4a40953740fa83ee9ad97776ff8325d1958654a67f1325614071a983819d4"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-07.zip",
+        "sha256": "b097dff828f6e43fece23db0d3cb98042a9d7bc19693b8cbfd051d88eb973b7b"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-08.zip",
+        "sha256": "1180129860b6e196e8d70bb9719e81573aa6b4acb423ba5ee7f82f10c836f7ab"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-09.zip",
+        "sha256": "21dc6570fc6bffad0e7b5f9e99211b82ad07c95ab4f18c3a2daa3b95ec98344c"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-10.zip",
+        "sha256": "9ecdedab6344fc4cdb154763266b8e09627a71c3cc5574cf868158b541c259c2"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-11.zip",
+        "sha256": "23735400405627d610123e3a43db3e98ae7addb93459cd670e65a7659a5f081b"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2025-12.zip",
+        "sha256": "35318b789f020b0e04c9043112480743855554e52e1d188437cbdaa67246d51d"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2026-01.zip",
+        "sha256": "fcdc796484f395830d418588a34a26baed8849dbef0ff2b56173247e493ff51f"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2026-02.zip",
+        "sha256": "80df1dd669dc1e3afc360c9da8b9a949a127fce088eedbf5bf708bd37b0a1f58"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2026-03.zip",
+        "sha256": "5c069d5e9597a44fd0e213395082e59ff223fb99c9eab3a2a5a2a5622ba7867c"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2026-04.zip",
+        "sha256": "51cdeb4de7d5ef1d4eece80b6115e391bdf7a2d0803bf9ad8371ab23340b22d3"
+      },
+      {
+        "path": "data/binance_vision/funding/BTCUSDT/BTCUSDT-fundingRate-2026-05.zip",
+        "sha256": "445b65fd6b17bfcfb5e4d035db29fad34f729fa078f0449024db42621be84e6e"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-01.zip",
+        "sha256": "0ce8da3b2ee7eceb6616efa215a2a1b1aab7b5b04becebe73634a95ec0abfa90"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-02.zip",
+        "sha256": "5a1de843dc3f098e86ca3c0979b38591d57d18664a1079588e61def93224fa06"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-03.zip",
+        "sha256": "0b9edb31ec6aedad0248d54e89b7ea5ff3cc4ab719519751db3de334caf54303"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-04.zip",
+        "sha256": "ce2208113358208182eaae41971fb5762e1794a04b4a606368416d08eea2d41b"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-05.zip",
+        "sha256": "77f5790ae26f95caee52b58317ee65d13b0eeb61f73d83482fd5d3aa153ab300"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-06.zip",
+        "sha256": "2e6af078edbe3e0df30d12d0d381652949572ce514222a257efe1f4eb145dae0"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-07.zip",
+        "sha256": "1983ad90e1d1f98eefd2c23b9eb209d26e4e2efba2f4e8b5e662e8a7d563bc56"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-08.zip",
+        "sha256": "d4e766270a078741387ba564103d285ad9a2c05c7e6df9ad0b03619248bb041f"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-09.zip",
+        "sha256": "cdee5c299c22dda85a5d5449e19250f7bc66c0d52759f9de0a49cc233520510d"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-10.zip",
+        "sha256": "47749a38b41b185d786af96bf41c796edf8ea517cf76d6d61402974c629e0239"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-11.zip",
+        "sha256": "9b02376eaa04be4ec2e201b492ef2a3c34dc61542492c715b5cea5dec5f01d36"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2020-12.zip",
+        "sha256": "f99267a3fef35dd201e76c8338be877fb52883376b4cd0acb890a1387de0b0d4"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-01.zip",
+        "sha256": "4c18c1df8904dea9770aeba5326d26b3fa9a3ffac4891f5f7125d4be2da847c0"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-02.zip",
+        "sha256": "15e9a939f253a11fc1af2858bb3844f3d39019ccf7efa66a9456f0f60afba3dd"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-03.zip",
+        "sha256": "2bcaadc8206cb8d76a26f0f3cbf97020b747545b0e75c3dd8a3b195b435478a5"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-04.zip",
+        "sha256": "2fee34e8b9b6e828d01bab0df1c67104f7a98f3c063668c8db627b802ffa5a95"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-05.zip",
+        "sha256": "21809ef6691a1441bd55ba4af4494a038d1a399ae0ae432e80cb41b47d71f3bd"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-06.zip",
+        "sha256": "8e58ccf8f52c69c55754492daafadab92d4ca8c8bd027f4532582d06e9f36063"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-07.zip",
+        "sha256": "f8f538bedf642052e428cd25f3134784de6e62a136e76f6a07ea6e79dfc9c39d"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-08.zip",
+        "sha256": "0120b284bde23d077e1e26e5e4b56fd3e2d1d82a3a7fe0e9de26825b9fc9c0db"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-09.zip",
+        "sha256": "4b4a94cdafbb8fea7762c266aa79b183700b7c9dcf7e981f7fdbe9372f2eec66"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-10.zip",
+        "sha256": "4dfb8698f6951b2c66229e1c687977eae0778bb703d6268232da2ceb3e9b5e6d"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-11.zip",
+        "sha256": "d9a7e22a237717f23d4b0505f14613359b7ea7831b23a78653a891cbbe3d521c"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2021-12.zip",
+        "sha256": "788d5c57e7cbc8e6b94ed4d7672618a85311edf1d7f0888083410d0d3389d811"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-01.zip",
+        "sha256": "9f5bd01450b05a8c5e48cdc99fa147e85c82ecf7ee7919fa543a4e6039a2b98d"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-02.zip",
+        "sha256": "9c35e30327ac8915cc1333415b7d5018425781c81918e349d26b734525fcdfe5"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-03.zip",
+        "sha256": "3de0714a2b2582029b32147815298b6e67e972e776ca3f68a4208823b4109404"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-04.zip",
+        "sha256": "7c306ac8b6275a857b064916080e0b6ec502b25a4501c84c3fd2c0b077425de3"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-05.zip",
+        "sha256": "c458330243c9d8e048ffc7168c9e3c077c01bb82b1644097a4893fee34069b78"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-06.zip",
+        "sha256": "f6f3a69b656b91500b41501a230e663ccc3c1a65f46273595b00682d8f6fabb1"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-07.zip",
+        "sha256": "17826e5591af8660a7fed74d60e24eee77c822cf0d901dd8af355a10a36699aa"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-08.zip",
+        "sha256": "a2680549de5e087566f4d323b3a812c2b9863528c6bc49b0e551cb42c381bb4d"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-09.zip",
+        "sha256": "816e4de946d9f854cc457c86ca396b9cb49b46e80cf44941b59b9ad2124f2ef8"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-10.zip",
+        "sha256": "e434c29eb544cc57ff574e38685535bb7d04703aee54bc5d52f53cea372810e6"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-11.zip",
+        "sha256": "4f4e52f176f69e99353959d287874a4d4a135b5bb4ea85514dd5a3e65958b2d7"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2022-12.zip",
+        "sha256": "8cd0e885d63b85ee602d80eaae956f9ee3e0e25db264eb5c74026a9ae0d71f4e"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-01.zip",
+        "sha256": "5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-02.zip",
+        "sha256": "7da37820c15fb08600ae668551d0b724326b8f71d761582990721059280a221b"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-03.zip",
+        "sha256": "5110b60cbbc5f26048ce02575c26444ea2ed497baed9a5609e118359e1ca3b51"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-04.zip",
+        "sha256": "fa3a3cf7c3b8285687ae8c8014eed8bc58ad3ceb33ccb62ff4298048213c0e6c"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-05.zip",
+        "sha256": "bf890ea68d979942ed296b058390eb98b0b495547fee2117d3b76d5e7f629b24"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-06.zip",
+        "sha256": "b3ddac1309f9a684f4e811776a6c09fb2239bb8d1ae0ff4bd342a1c32a5e171f"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-07.zip",
+        "sha256": "82577976d8acd886fda84179ee38c9e7ef445732c3b6a062d6ffd2a9e3cc30bf"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-08.zip",
+        "sha256": "cf749429c366cef3302a804b3e702937e5f1a77aeddc5b628dca7da547a8935a"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-09.zip",
+        "sha256": "41ac7eb67a46d14d97daec4c37e8229df5ac6b165639ad4b2c54bc7374930341"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-10.zip",
+        "sha256": "ccaf4474f0dc94adedd4330c14995f338186caa2cc9fd0d2e2c55f74cf263a5c"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-11.zip",
+        "sha256": "153ec1450eb5d999ce253e2c7ca2e81b79a523ff52dd18b14faefab8212b999b"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2023-12.zip",
+        "sha256": "91bdf41566cebb86c6f0e3646b0037de9c22e14ee2f592c5722c7e4a19c91119"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-01.zip",
+        "sha256": "5a71469b0b363886df904e784dddefc484dd943334b1fb7454713ce4ed715a4b"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-02.zip",
+        "sha256": "915fad950c48935f3875d88992b8d78290bc8a6fada44408e3ed14aef9a56670"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-03.zip",
+        "sha256": "e9c1d0f3e7e3b493277c7f826afb223482d56bdc7611144d398ac10e47307907"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-04.zip",
+        "sha256": "b54c9f05af116ccd921b32b25960ae26954c4983992d44f2390bf1de08b2c724"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-05.zip",
+        "sha256": "8350ab4d61b12ec61539611e30809039f54814213bc4c937609360b1ff28b5e0"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-06.zip",
+        "sha256": "def13f4a478c28b0111fb24c57f95fcee80e71982ed74f12e465d20d328e2275"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-07.zip",
+        "sha256": "9d236281ab6430250ad2b472cbbf03812a40aed42e73c8339fc6be55a2417a82"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-08.zip",
+        "sha256": "e17684bc761924eb5e1912c52cfa997eddeb99da303e68e28f6f37369f672b9d"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-09.zip",
+        "sha256": "ffb6e7441053137cb7ca81cc83bcdd996612f7dbb15aa2e168a7ee521f8cbbca"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-10.zip",
+        "sha256": "2124978c335473a5d9c0f0e9f238193d56c21ac7e250e065a36e9d1201beb049"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-11.zip",
+        "sha256": "636a4c7c86445c2774b4eae8598c480fcbc57de7dde5d40f6937c7fac510797c"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2024-12.zip",
+        "sha256": "11a0847e8aacb32eeb725611fda4fe6a8419c03eb0c16e14dfc3b9287e78ecc9"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-01.zip",
+        "sha256": "88c95b99d2784a7baac529fe578563d7e05038a1b8a498b2f59bf81b216fee20"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-02.zip",
+        "sha256": "9e116dd6754484a19ecc41ced40b8dfa7f62c33d41cdc3317336b1e1f043767f"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-03.zip",
+        "sha256": "62464a8bfb7ba515628acb76d3e2172d33b88805faa2e701a22537c51a17d139"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-04.zip",
+        "sha256": "7db62cb5e9f32397dacabb3d571b96397024bda3810bde0799c90f61cb773679"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-05.zip",
+        "sha256": "996aff38f046b50510301532ac5cbdca115afca971c49cb548f50e5d70e18d99"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-06.zip",
+        "sha256": "ae7ca242249ca3df06d1222a0c264fe83b18c4b2c19fe656e864f7d081d5e198"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-07.zip",
+        "sha256": "5f2d840c5669ca946529c33f6df32433c5d0cd973eb4adfd40459270c460e7f8"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-08.zip",
+        "sha256": "c3fca21c71afb4962e89f8e3d84afe5832019ed8f570ee7c7c299f2436a28b62"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-09.zip",
+        "sha256": "2fa09df245aadc73cf43f837a72c3009fcd7d10c8c4e3db48b2d1021c331841a"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-10.zip",
+        "sha256": "1ae86c5fb1f15d8792906b746cc7598ebe7e6e7194b74501db79c874e37d7e14"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-11.zip",
+        "sha256": "a3a8abb219373ec1e02e8d1a47015665d180d6130cfe1df71d2fa8fc9de59e59"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2025-12.zip",
+        "sha256": "ef9e84f53a5fa07702958c8700077c8be0a90ec8b3e25110f5611109c3c0090c"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2026-01.zip",
+        "sha256": "830cf7797ea6ecdc554ac2d9047a141df1a6a544f4ea58e7028227930462b139"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2026-02.zip",
+        "sha256": "e445f00c81a7fa8361d99b3660f24b4f58e5d952fe301d70bbc72c319bc01a77"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2026-03.zip",
+        "sha256": "9f5625846c503a1e94fcdecd2deb37dc8852e341add353fa48c2b9a0cc70df6a"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2026-04.zip",
+        "sha256": "86160f455478a8b262d96d1516f583355e6e0cec7beeb5784e69dda76f599e98"
+      },
+      {
+        "path": "data/binance_vision/funding/ETHUSDT/ETHUSDT-fundingRate-2026-05.zip",
+        "sha256": "ff926ad3fc48493c26c85af16620b19c695cc1854faa1e7f0ea2ab9fdafc2084"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2020-09.zip",
+        "sha256": "14fcf2b6183131263ea740f60641948076853ab273b030463934f6a81e01797b"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2020-10.zip",
+        "sha256": "a7712335a1ad285ef1a2a4a25309fb44c5562819f666ffd60e16b2112ca5ee2a"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2020-11.zip",
+        "sha256": "f359a0f2355b4c9d4523ac28d4b006e5ff3c1c192baeba471bbaa3cb8928db40"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2020-12.zip",
+        "sha256": "925301315c1928ded7c81a816c82a8b01c52712fcd4fd842ff68199950856b17"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-01.zip",
+        "sha256": "69ceaed5037e3560bd6f31651ba0214de913af8f0c4c25712c95cbbe1308cb97"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-02.zip",
+        "sha256": "88363d90b2bb922736556118610a8b1ddadc679b474950b69b07eb3ca9eb0253"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-03.zip",
+        "sha256": "256b24b3655ef98daa5080a509c0674fc11e7c83774869b0ae2a794cbbf2a05a"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-04.zip",
+        "sha256": "3a7fa828be00e3e352cef39ca5856c0d86077724f8d1ce576be79f302c21dd71"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-05.zip",
+        "sha256": "f9a657f15d4753cb73bf8ffd0d62405d480044162c19e1f7437608e2c1bb6694"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-06.zip",
+        "sha256": "5d97dc076126d6df30eb68185be0613a08391b18d6046da006c790b3674b0d40"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-07.zip",
+        "sha256": "d5cc6efda2474a0ea47626b8ec17b40f8b2cc21aa1338e55796f402c9173e125"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-08.zip",
+        "sha256": "36028dd0bcfa30c6be842f0ee066ffa1ae3d93082cf4aafd302d1c0a3a386ecd"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-09.zip",
+        "sha256": "2b1bbc144fed66818841e7af5f5e310adf8e2cb3b1d7643e0c1b2bb30bf421e8"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-10.zip",
+        "sha256": "0ac3fe161fe23ac8479a4a6e5fbfc38e91ae1515663d93a3fe767c351ee81187"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-11.zip",
+        "sha256": "16996f42bf6d48a5569bfecd8af6027de2298b30dca1d95381c595893de8e2e8"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2021-12.zip",
+        "sha256": "0ea2c59cde9362715dea398bd66d3325d5bdb40c39db0370977bcad0b0f67533"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-01.zip",
+        "sha256": "f3be14b01356f33f6cbde6d12ee30311ae91fc521dc78d72a0aa39db8c295053"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-02.zip",
+        "sha256": "d622a4a5cfb461e81d9cb13ebdd34b02e2d221c2ddb8d708dc4047d2f499fa96"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-03.zip",
+        "sha256": "10d3d16d74340850c2148553261dfdad7ffeb0b705f014c869fa807a1e7ddc84"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-04.zip",
+        "sha256": "f07052472753f04eb8e7fb818cf60e90e187e712f63a577741ca7ae59c63bc9e"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-05.zip",
+        "sha256": "ed42b50666e40e1489f01730f85e5efe919b9a94344e043369a459c66492a940"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-06.zip",
+        "sha256": "78249fec5212753b19ce01c2fb23ffdc3deecd29bd3ab61fb7cf70ba6c395edc"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-07.zip",
+        "sha256": "ce4c96d62e020d4b3c53bc31c248e5800a4a6eb3a6809c36509238122aa02a3a"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-08.zip",
+        "sha256": "1604d1993d0c6a7e37e2ff81a6944d7b5c0e81475e3fe475bdbdf0deaff4d847"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-09.zip",
+        "sha256": "673b50b2daec4a34da7d8a8095995ddbafa6f66bf8c2d499ba48f8050cf68565"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-10.zip",
+        "sha256": "d0436ed57e674ae3c00eeff3aa46f6e65c596892b80e5b6e8183d487c6ef3168"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-11.zip",
+        "sha256": "73fbada102584d8e19cb9594f04471f589ff37404b0cf64c0bd7cb4ac4d4a157"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2022-12.zip",
+        "sha256": "b9b8d803d985679959d21a55d08b14db331cf961442f8446eb18d723ea154567"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-01.zip",
+        "sha256": "12a401fc459341834a0d3c2f207d55e7aced058b62838f296028885ee2e52612"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-02.zip",
+        "sha256": "1173c36ad296e152ed9f954ce49fd65b7ffd8a03f270906a1e816fdbb7929f57"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-03.zip",
+        "sha256": "6a950dfbe4e75ce7e28a174d1432fed82fe08964053c618bec2be70f83ae6b61"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-04.zip",
+        "sha256": "88d1b03da4cd68774d846d5a9b7a9ba3d165a7b03855cad84a181820a2f7b297"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-05.zip",
+        "sha256": "b644431236540c0fa4573e96b9357077755d53440427fb2419e68272ea653137"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-06.zip",
+        "sha256": "63de6ffcbab1fec0b83807efde188fdafb06d4ed0f947c4df86d757f894d88c9"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-07.zip",
+        "sha256": "7323f1cf79a8dfeb78dd7bd8cd2940a7db00ee023739430435b1cc25cecadcae"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-08.zip",
+        "sha256": "87ce0395cf9d1fa9ea4849b4811d366c1867d4159f3c1a2b4a3e0656972be2a0"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-09.zip",
+        "sha256": "7a8c1135aa165e9399a274acf1f330bbf6bae594266582fc1cfc91b950f73e75"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-10.zip",
+        "sha256": "a56852237de6b69483565853858901ce7e4c611d3950d485a064bf90069958ba"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-11.zip",
+        "sha256": "1cbd9c6b802cdf035ba408c03e82aab678c2a994c2c6860386a4226ba104e252"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2023-12.zip",
+        "sha256": "debe51eb20a3b7d6093baec3b609e7a9f746c64635cfa77aa761e88e84454902"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-01.zip",
+        "sha256": "6b514b6c2bb67ff04df97d747efb9c6e4bb1bb27e889f1dc51a42ab1419a3d24"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-02.zip",
+        "sha256": "7ccaf8d60ddf07e03eba0589ec4f75abfc2a842217722aaefe996ee1bc095706"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-03.zip",
+        "sha256": "ff3041b6119af926fc55fc722332240037f1aee9b3a2db25f9cb801ba8e2992c"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-04.zip",
+        "sha256": "591e7c4993e59b60966213efd938f48420cd9b63db815240ffc070ec40470e53"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-05.zip",
+        "sha256": "cdd788722e8b85fd6c9d992e7c1c767be87afc91db5b8c07751f898b373cbf29"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-06.zip",
+        "sha256": "8da6c97d67718422a5df9a0d50e37849521fb54de87cbb3b3397e441439dfcc9"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-07.zip",
+        "sha256": "2585a0db933c70b62c87cac509de42ac09b98d370238c0d8c68249a20bd2b9a3"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-08.zip",
+        "sha256": "ef076200aab768d33f71449957f6cd9c96c0da696708a5f561b97e7a0995e8d2"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-09.zip",
+        "sha256": "7666e4d3e6ea6dd28011c508cf01421007521e98e96ea551f809836441b43ca0"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-10.zip",
+        "sha256": "dbece64e8c5bc69c487cc03c00f6a4d4da2cad9152c73860386fcdc7d2ec9d05"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-11.zip",
+        "sha256": "f53a9b637d695a251200e48929a573b4bf04cc2d99d5a3a09fe7bdca622918aa"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2024-12.zip",
+        "sha256": "bae83020ac2ccfa6dd8d1362d373a92b4d5a7e396cef52e78dc2e7d81e63f621"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-01.zip",
+        "sha256": "314888152c16bc2d846f9aaa9ea3ebeec7c67d235ef2671f1a5e6fe0a8b4dbf2"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-02.zip",
+        "sha256": "eeade74c1ca2a6dc9d78ba0d7a1ff145c323be72cfa2c09fcef9edab88baef9f"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-03.zip",
+        "sha256": "3f77a33779c946da6f3082d14fb9a5497e7e4a4e3fff4d68967e6ddf96cf99ea"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-04.zip",
+        "sha256": "6cd3fb27bae9313e15734d7214f4a83dc37a7a199cfc12c23f7777a5e27f7fd7"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-05.zip",
+        "sha256": "eb03fd0d0b31eef9ee05544ea8dcce097a807d3475f67d0a5f0859c487c5f5c3"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-06.zip",
+        "sha256": "4ccee0a6fd67cb775be49d124b9eb038f26acd09426fcb9aaf9d3de74cf3a24e"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-07.zip",
+        "sha256": "66ce38d1a8bc4bdd53af29d8ea5c72493ed48fe9894ee5e9ff4600ccec864c4f"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-08.zip",
+        "sha256": "fe9efc3abe1e4be2a2fa9a4008e6957856387f6783a06b97cac3ee271746915f"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-09.zip",
+        "sha256": "f953315124d20dab98ba710d108103fb4cf054d1535787fd76d35d6b9c18e534"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-10.zip",
+        "sha256": "d80c5be7660a950ad673a0e82488877c6ca0eb81f084d4c844320f892ad2c020"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-11.zip",
+        "sha256": "5134fdf4319d629473f8cff1e66dc74180844ae2846ab41a8128466ab3682c2f"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2025-12.zip",
+        "sha256": "01db13c460b0190736e1da019c7fcd7ea0abbf3b047e16d3aa8a9e9acec3101f"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2026-01.zip",
+        "sha256": "c53be79aae38a1f35e94880f106df4eceab57bfa74a0b5fc5852fdfabf57ab8e"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2026-02.zip",
+        "sha256": "84cb9bcf44ba1364b37db876e7c852aa1b831371556b610e2387115addec9d5f"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2026-03.zip",
+        "sha256": "75cfaea075d97779a577c3744ea63e3d83704f281806fb5f76f2d3e0f089fd2c"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2026-04.zip",
+        "sha256": "951a280e98b6d20fe4be25bf2b71f3cda1c07c7583a88cb874151e2b1fe941f1"
+      },
+      {
+        "path": "data/binance_vision/funding/SOLUSDT/SOLUSDT-fundingRate-2026-05.zip",
+        "sha256": "c13066e5f7c5d161dbebd488cbeaab1205688c6dc7f9fafcc8f94296f2c1e47b"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-01.zip",
+        "sha256": "9291d0d7c9e4e9fbb2ef7b4d0726690cf23bee93cba6cb34142a70a8266c93ef"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-02.zip",
+        "sha256": "6a1ad605bff75dde1936bcc83aca2c3cc1f018d4d64f353bd8158cdf6617ac2a"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-03.zip",
+        "sha256": "304cef44900b9e1f6cf71d2c42f3d37cdcc45ed2092585a1fcf9aa254dc4554c"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-04.zip",
+        "sha256": "c9e6bc188f2198a66a77dff8da869d6eb1a874e977b0f00ba19fecff9a302c33"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-05.zip",
+        "sha256": "bb590c2d02327d848687d183b555af93e2465d72640f5f33e12fe64597c69ec6"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-06.zip",
+        "sha256": "2bf1b6f44309d8eea370f32a56be8a65ea7834bf02dd55e2e97ff84ba940b78e"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-07.zip",
+        "sha256": "02dbc4a446238f524fd0aca6cd33477c49d635d315ea43847317a21f3a42228f"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-08.zip",
+        "sha256": "43d1cf7c435eefbb562a782e10a061634d25966f68692bdd5179d3cabc01b2c3"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-09.zip",
+        "sha256": "8e3d5d9e0a52ec404018aa1ee1a02d5ea6312d2ea6138d4d30b0f37b7e3c9e9d"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-10.zip",
+        "sha256": "c06aec69922434877684ebd634567d3130771620cbb886a11ce6ba45fa308ac2"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-11.zip",
+        "sha256": "4b4887abf66fff3637e083abfae1bfbddf3efb807fc06eacfd7bc784e88c4982"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2020-12.zip",
+        "sha256": "fe33aba2efc8327dbafa36af40c9af37cf84ecf0d9c4e22aba9ed06bd0b04307"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-01.zip",
+        "sha256": "e4499c8a0faa4612e91e73693d64e62388b9497baadae778b46f4c3f0cdb55a9"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-02.zip",
+        "sha256": "91b8bb7665ae6fc44bdee21dca5e44f326eb06055b0bdf26a267c52e8a710b7c"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-03.zip",
+        "sha256": "77bd099dc979cfab44997cac71499711edd19e39f2960c278221c1bc89fce1e4"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-04.zip",
+        "sha256": "2f434573a1c3ba9660ea19b0f98ed5033e18022cab99d5b5fac02d8a160599d4"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-05.zip",
+        "sha256": "3195e348a971cb3d80953a624a23aad4ed786fc0973ce9de2b292a8f066b612f"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-06.zip",
+        "sha256": "a8b54604cedf5906528a36e29049b126d1b69e9883a43bad5d5d253d30816b7d"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-07.zip",
+        "sha256": "27878a64244b91d5ae118ebd461b94e023df96556e9303f604f002b20c221466"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-08.zip",
+        "sha256": "e9b21c5545b4476c6f6c6c8aa3437a15413ec9e70af9a914a4ceed011fd333e6"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-09.zip",
+        "sha256": "ae7afd05c5ce1058fd17e5d4403da49baf32d6b0f9fda8150ec5e3b96706490e"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-10.zip",
+        "sha256": "c266c87a4dbb7d3e2f71842d7a7d78d384f6a6d6f716e3ae93c6365d1243ea8f"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-11.zip",
+        "sha256": "bbbf7a0a3838c1b9e381768d5ed1f4e1ab0029f7c60273e1c420b970b00e32a2"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2021-12.zip",
+        "sha256": "11788ccfa9a0e2d6ba270f031a002f0ac535a277ce6ac718806508a57f0573fa"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-01.zip",
+        "sha256": "d1b20d0ee55f77437aa22d50f725b3dea884647df1177dfdd91ff1cca7e5e6d8"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-02.zip",
+        "sha256": "2755f17e416b2a5d9a3adb2f8e114c6339a91be2fc98de3858d255a8bda8bfb5"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-03.zip",
+        "sha256": "fbe9dd5cde9c27e729e3b95506a6e3bca8fdb719ee919a0a516c189fc08bc97c"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-04.zip",
+        "sha256": "91bfda68b358bd555eb772317c00fd1677bac4769a607a565c2de95811199d84"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-05.zip",
+        "sha256": "1a73179cecaa7305759c2367a9b12fcbe9757a1573cdea1be00b20dcd1c8b820"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-06.zip",
+        "sha256": "44107ee9174a139e6f56ca33b7d5c752a8a66c645d4d02a8baa201d4e69c151d"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-07.zip",
+        "sha256": "b162eec38434e0231b5a2e38759e9604dd5bbc3071d4cc33d9de5e65c7f9a6dc"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-08.zip",
+        "sha256": "726b6fd80ce065f96ffcec2acf6e524b4796cadf78d380c531c90c8b4ba04ef0"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-09.zip",
+        "sha256": "997347551489ca09ae1b8f11134a30a8e212130fd41d8449ba60b9aa761e0ed2"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-10.zip",
+        "sha256": "b4c87a4f656657bfa70d93fb49ed7337b6b39b886ed5c8262e4e7f0a2f8aeb82"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-11.zip",
+        "sha256": "a3fcbc1c3811cfa1552edcf60b67c7f454a7b817805808de15d2854cacada808"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2022-12.zip",
+        "sha256": "e290f7de6dbd20f1004913b566339e942e2e5ca7f7a31880d872eab70818e6ef"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-01.zip",
+        "sha256": "ce4a65fab0992afc691a555f0d7071beff7108704c281171f0fa2543491e9484"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-02.zip",
+        "sha256": "877493f77949b9e40cceea41796155a72a1a454d15f360f25590ec3a62d7c599"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-03.zip",
+        "sha256": "79b93a5cd8f7ae4a6708efd994fe2175a5ec05c472ced564197624c868ebf637"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-04.zip",
+        "sha256": "e8acd937ee1b11f7630fff07440e1d16753da7108747d437c449a7d5068f0c64"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-05.zip",
+        "sha256": "c1164402237277860b302f7ef682175ad52f27f027aa6bb3daa93955f97c9aa3"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-06.zip",
+        "sha256": "5f5a79f4f614a5de1b2f6ad7616c6c2960fcc41b8593f303709791f7c830ee95"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-07.zip",
+        "sha256": "4d1cbfeb15f5b570b2cac0be1c7e64450b3652af3c6f3de97756d52a6ea1abff"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-08.zip",
+        "sha256": "adeb4fd43b0afec33e4d3bdce605ac500253759fa6dc796dc0fbb932cf40aa56"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-09.zip",
+        "sha256": "a1b94827a97d72bdf7eee204fba29b5b143c978ae3d0e6880906bd7131b13760"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-10.zip",
+        "sha256": "25271c41d8dabe5bd171ab2f89e7735d801eec25802c37a2ad31811b49a68b51"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-11.zip",
+        "sha256": "0387ba64231377e679af3450ca3404e0a8e78ae57aaeb32a763870c99d9a9e84"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2023-12.zip",
+        "sha256": "4fb2aab7d59f168c3bf8d62e5ebb3f518966ad84c35e9b603def870e099b491e"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-01.zip",
+        "sha256": "ee7c31e4df28573cfa78bac09e112191f2ed4ca2ed6a3f2aec9d43bcb0ab34b8"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-02.zip",
+        "sha256": "cb3d81d514e464571e2b1d0d1b52965dae2f9be7361eb17e579b624aa69d1028"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-03.zip",
+        "sha256": "997ee3e66fb8778e7eed6b2f587c80d112b8a5d110f7ec59c622ee66704f4f99"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-04.zip",
+        "sha256": "fd263095594d9092e8d562762242b3d73453cd53fd967a0458c4d7d1b756ca3a"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-05.zip",
+        "sha256": "57e4ff08bdd4a70e775f722f0ef8a104e937e719f6cfdd6557c9628e2ef50895"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-06.zip",
+        "sha256": "ed259e3baf5dd43e03751fdfc78b35e5978c7c7dd01a61b0dbe29d0d09b2de83"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-07.zip",
+        "sha256": "84fda29e97f5e126ab3d301d83aadd58a271b9cb7e128eae315629a43fec8040"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-08.zip",
+        "sha256": "9cb25c7b945c3e0df7f40833e46c893ab10c9e4eff1fcbbd17967fe04571332d"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-09.zip",
+        "sha256": "82f0d865cf2d02ab345c4254fe59ffeb3e5b6bae39bcb1a0d06dc67ff55a718a"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-10.zip",
+        "sha256": "a79184eb05334084cc4a294881ee74f03556ee1a48115443bd29d77d97a598c1"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-11.zip",
+        "sha256": "2d9fc1ace268513a0330a170216be245b9fbcc37ec405ba57cc11841bb8c438f"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2024-12.zip",
+        "sha256": "db162585658485f1107d4d135a8a37714b7e8b33ce99f251ab537fa7c6cf0c61"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-01.zip",
+        "sha256": "13713b66ca784964b080a68c8a944d758202e8ab454fba9bd8b42fc1c8fdb804"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-02.zip",
+        "sha256": "92d748c5583035811fa307d7f0f039d2fdcaabf59c78095ba61f24426328e77c"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-03.zip",
+        "sha256": "bb73dc71a95ee0127f66248f1912b605f8bccaaa52b318be42397b4263c42be7"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-04.zip",
+        "sha256": "17f6f5f71e62fb2478167db581286c36f298d266b5b73a18d954bfca1a61c874"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-05.zip",
+        "sha256": "7d3b60afb85860117409e2137884e2a01e45a22eb2e4d1353514244f83796002"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-06.zip",
+        "sha256": "cbdf6273e84d457b4915139e41a278629cbdfc02855e290b6d9ff34218eb36a5"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-07.zip",
+        "sha256": "56651da01247f19d5e63e6c40f8835934735e60915587068e325f2859101b7e4"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-08.zip",
+        "sha256": "3fd351cfdd3aa11d1e280740f56a0a244112862fb3a583d7600d658339060f53"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-09.zip",
+        "sha256": "5b90724992ead316299b755ec6ff59e70adb6a61dbfa93b58942470a7cf091df"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-10.zip",
+        "sha256": "b13c0df55c83c64e2a8416bd059140f2fbbea0b3b73da9461abbded358c81160"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-11.zip",
+        "sha256": "a964d712cdfecb1efeadaab133468d8658be24c420f3b91b91a51d183281fb19"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2025-12.zip",
+        "sha256": "728b6a16940b6189bb1aa97f636160e9b66b4289a8cc1296cefc802e0d0ed098"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2026-01.zip",
+        "sha256": "01e4199765b3954d6a110f498ba4dfc015b0e7f92e4b6985cbec9a56b752d66e"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2026-02.zip",
+        "sha256": "1db75bdf9189111e79c0c4e9df854bb716c14c9609462c054c8046d1e03542f0"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2026-03.zip",
+        "sha256": "f9f7bf447ea91651ae9a5f28feb1275c97445d912a958cb8f999847996411262"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2026-04.zip",
+        "sha256": "ff4c11fa47f8a0268f4194e51712a3bc4bb5672d3b1f54860e5d929114a4bf20"
+      },
+      {
+        "path": "data/binance_vision/funding/LINKUSDT/LINKUSDT-fundingRate-2026-05.zip",
+        "sha256": "06536cdd66211e1a25629a54d489493aaab6b3613b9d2207a65af44a3826da1b"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2020-07.zip",
+        "sha256": "8883b751965fb54dc57839952b5f9464b185fb40edc77db4b4489b64c52398a5"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2020-08.zip",
+        "sha256": "0e07df16593d5f42f5e4444bf3c0bb444b6e7a2b77915c288d01541438ccf6c4"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2020-09.zip",
+        "sha256": "69b12f7ed992799da5b499d5d85530f1c2c3eb46a008ed6c865bc665b1118c11"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2020-10.zip",
+        "sha256": "36d6f0bbdd37fcefe5b713dbb32049535948bae1ba2171ac21d72c1a0fa4ea81"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2020-11.zip",
+        "sha256": "674a443e6504cfa24a380bf0d66c4516522ead1251a20942bbfd8c41273135f7"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2020-12.zip",
+        "sha256": "56a43cb0a56eb0e2577c71e32767c5b88fbdcfcdbd56d7fba30fc40cce5d1918"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-01.zip",
+        "sha256": "14b52fe147a83dc23c5ddd842d33f7f5264b27e87804147812d6af2ba9fc69ac"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-02.zip",
+        "sha256": "4496cbb1847baa57ef99f94d0ee24e0cf87c1bf539244e6169882045fa9d7d48"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-03.zip",
+        "sha256": "99cb93aaa3e7144525d2453c1cd83e8d36f53480c5b0fd53f089e85a624cf5f3"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-04.zip",
+        "sha256": "fff9d943ef7f6c42e9c61a86454898058d0075398f0c812a3be229cee862153d"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-05.zip",
+        "sha256": "741175ef44e4db831b999c3adf5412ffbbad70b05e438b6658ab97269d08f6aa"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-06.zip",
+        "sha256": "ea0065cfe7289fdc0cca4e737f0568bd452619269021c3adb5ea62c23d101b43"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-07.zip",
+        "sha256": "240633e688df94bff707fb4b2bdf611f195d85fb43f638c826026b1b05965b58"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-08.zip",
+        "sha256": "0d4241ba0126c8a8f16f9a7c6d12d2b644079b6a7bc1382089572ed5b749912d"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-09.zip",
+        "sha256": "ce5ae8860526939ec03b58f61def84e7c8213cd64eb73e7f898d8925c7dfc1b5"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-10.zip",
+        "sha256": "550a727f147912b00f633f40ff005d56d2fef5024fcae3aac49d6cfaf5fb1375"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-11.zip",
+        "sha256": "47e3f6744e2bab7d64c6bc8b0be474190b7c762e09916205a117f80df45d3d95"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2021-12.zip",
+        "sha256": "a62f9d2aa4ad02e827e40d740e8cdbaa46f5b68dc3b7aec2c455e8b1aa265648"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-01.zip",
+        "sha256": "b37736ec46a47d8bd0b5a0de1be61a6f0511d86e8c045cdfc8238b247cf8a8b2"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-02.zip",
+        "sha256": "e496ee4bbe84b791550497ce6555e995582fcb507cc08e6329d3fb4ffeb5f468"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-03.zip",
+        "sha256": "fce1916d6dc4bd971cb72931e4f8477935ec489df6bb5bc22c99bcbf2abe78e6"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-04.zip",
+        "sha256": "655d57b2da463acf06a2e11f9c5d7ea8744facd5a082725cd14b4f480fc9d877"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-05.zip",
+        "sha256": "77b31f75485d3f66eef37d3cc5bc1620a1e9e93d00e47aa5391d5a6f0216b469"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-06.zip",
+        "sha256": "40f2c0ca054a31eb62372f67919ee1b402015454018026d3b15ff7faacd22f1e"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-07.zip",
+        "sha256": "ad7458419c3486565f826838da188714c6034e0f9054929fec1cb07bac64f8d6"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-08.zip",
+        "sha256": "a45c8e14d3bf26a1aa9fd60e09ff215ca459c39cba1c7d9ec24d019ad375cb8e"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-09.zip",
+        "sha256": "75ed3ada815ae4273abedeac0faee99aba67eb03ce3a467ddebd99affd69674c"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-10.zip",
+        "sha256": "ca1d8d2818fa7850ed7c511a6a04269b984c4a7e7ba8ff882e8999a028e430f4"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-11.zip",
+        "sha256": "e118ddf37bc7f2659d102595fbc6235c364621231100f57f7dd20e9e8c6ab2fd"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2022-12.zip",
+        "sha256": "c5d07f43864d7ca5fe3dbc84ab9dd1c824932fcf4750ef401f27eb2a46fb555b"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-01.zip",
+        "sha256": "49e9a7828c95398a332abecf1747724a951f012fcf2ab22b36e9a3281f8d3a49"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-02.zip",
+        "sha256": "09f036da9f150499af7f053e8a3679baeab3b1dd24cf9d655659bd809680a701"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-03.zip",
+        "sha256": "abde9a1d13799b4a412670cc0fba59fb283a5f1be8475bf1ab608dc0bd2707f4"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-04.zip",
+        "sha256": "0f15cc8b48c85f0dbdaad908836e08a085673ca4d67bd96bbca2e3910cba29ff"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-05.zip",
+        "sha256": "1c388110bc5e1a69d76c7a41e4945396427fad064a593fbf5edecae338584322"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-06.zip",
+        "sha256": "50cbca0534f27a63cc9146c22559764010fffdffeef8f48e9e8c97fbf4372ea6"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-07.zip",
+        "sha256": "2e92a749e0886d0cfba0d9ebe7061ed0abadf9fc4d16e12d2d00fed555d666dc"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-08.zip",
+        "sha256": "7cdad830df4e60545d222744d9194bbe6044bf3af32b6b1b8dcc9d0649b5aa81"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-09.zip",
+        "sha256": "b3e9ca4090ad3a7a105ece3ca234f06db8502007cbbd6c478b9a953cf87f2d40"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-10.zip",
+        "sha256": "fcaed5a50bb0720e286527ebbfa3675aab166715dfd0a0f26e8372213c53b3ce"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-11.zip",
+        "sha256": "57d8a846e36374ca253c597256c2a795561df0a316887faf1106465ee7ab09e5"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2023-12.zip",
+        "sha256": "d49fa428e457f93c96f6888b589c01372aa6b331da7578b880d103e64a8e9faf"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-01.zip",
+        "sha256": "08193c8953cef5f0366877b66391483f4076c5927d433af5fbcbb680b407767c"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-02.zip",
+        "sha256": "769f0fe177bd531b65ab9a0e15d4b3814deb241e27806f8decfd45735456a823"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-03.zip",
+        "sha256": "7c8400239b28b1e96439b229bb483cd7de8637bf58f321547f46ceee160dae61"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-04.zip",
+        "sha256": "b09c688e8f524d879b901f1cba4a15836180af254868b22feabb324268b521cf"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-05.zip",
+        "sha256": "5df5a4bb6733899a885591106626242a3aab4b5ada077b62dd44ac27d14a9e7c"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-06.zip",
+        "sha256": "c6ba303e7c28db0a2bf2f8121482c7b8813793b860d2ef22ecd08dcd95e8185e"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-07.zip",
+        "sha256": "4e9db7b8df1c75627ce56d4010fa84a93fce0162112a93696e98da5138d0f380"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-08.zip",
+        "sha256": "7b44b34f863c02066dfbcf3d343e746ea84058a5d76a94d64c256b78358b89ac"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-09.zip",
+        "sha256": "92bc33954530f8d7bcf13a41d736a9480f4082cd1220d976d4a01bdbb52452b4"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-10.zip",
+        "sha256": "c038f18bf93552ca8432d04482839ab50d5b6e903c1b63083c335d479236ba22"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-11.zip",
+        "sha256": "45d7e6671e7bb1efc2ed557fd7139135468d0bea7dbc7906fe0c8b727c2777a0"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2024-12.zip",
+        "sha256": "5b94b4960510e5e217048ee5268038d60a6dbcf45755063790f9c35602231983"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-01.zip",
+        "sha256": "be2ccf953a2fa5e84f49be601917340ba1b220b7ca42566f4066173633c80107"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-02.zip",
+        "sha256": "fa3a34848d0a10af64b9e534bf9209ac317fe0da05378d622dc9d406ca88f69d"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-03.zip",
+        "sha256": "3d9ac62d34961c5bd7b2e2b9f33abef0bcb295fdfae421bd38abab67598b2482"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-04.zip",
+        "sha256": "ef81cc81573c727ba251f68e73593322ccf16db7055de77856b4dd5cd1e7cfc8"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-05.zip",
+        "sha256": "408322bd25a392d3fb10b66ebf214e2d7c0426456bfa1d3dab79da804a511188"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-06.zip",
+        "sha256": "5a18b464cd2d6a6e106c497a5e265327762cff0ee86ebcf8fd20e0150d5a67a5"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-07.zip",
+        "sha256": "e56f1173899b2be5b35e14cdd61d6549dfed04bd2eacc1673285fbc067affe11"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-08.zip",
+        "sha256": "c73e14c91a6e44f2a7a4795c845f54f0c82fac1529dd0852c66c52175d76ff53"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-09.zip",
+        "sha256": "1105b391de748f50048b5590f6a5265fcb2a6354ec8a6ac3ba79b5ca734aa9cc"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-10.zip",
+        "sha256": "6217d0bc8ab8abe35dd0c56d18cc008e8a8e36adef2be37ed9ccbf3c91c71d0a"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-11.zip",
+        "sha256": "ea4b56653bb13210c5fbdeceb668f632b15a8fe6e7676d1afcbbcb5a019d92f4"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2025-12.zip",
+        "sha256": "8e84dea86eb7fe0cb7b2f9278f0df0479b68ae10ac9b6ade872372888769f874"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2026-01.zip",
+        "sha256": "73c2760e0bf4a5dd8af31d1f03ba1e6d213aa1ed42da17a8c537f28c7f033f44"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2026-02.zip",
+        "sha256": "5a82031b9e3009265751cf02853ded1e1649bd3c2c3c764d5e50e64edc944a6e"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2026-03.zip",
+        "sha256": "f4b2222b88d3cf518939c38a20fdd224629c3844a8d2f710c8c14e4fe9409d85"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2026-04.zip",
+        "sha256": "1a041267001c6417220e595f9c723919eec3b2e317012a8cfd22f95ac8105ceb"
+      },
+      {
+        "path": "data/binance_vision/funding/DOGEUSDT/DOGEUSDT-fundingRate-2026-05.zip",
+        "sha256": "99411bbfdc7508a498204faf9ce3f02958f484828a5ffd309b6c267b89c89ba6"
+      }
+    ]
+  }
+}

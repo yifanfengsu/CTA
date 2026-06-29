@@ -284,7 +284,10 @@ cta_strategy/
   全 gate（冻结）过堂，bootstrap CI 排除 0（B2_4h [139,623] n=836 最可信）；
   其余 6 配置（含 TSMOM 簇全部）死于 V5——慢趋势配置利润前载到单一最大
   趋势事件（B1_4h 单笔 DOGE $1.01M 占 81%）是**结构属性而非样本巧合**。
-  2022 真实熊市中 short 腿正赔付、whipsaw 让 long/flat 多亏 ~$19k →
+  2022 真实熊市中 short 腿正赔付（成本栈含逐持仓 funding，经 P&L 独立审计
+  2026-06-29 确认：2022 空头实付 funding −$1,702、赔付 +$18,936 系扣全 funding
+  后净额，冻结数字未因漏扣 funding 虚高；`reports/b2_4h_pnl_audit_20260628/`）、
+  whipsaw 让 long/flat 多亏 ~$19k →
   含 short 腿的 B2_4h 为首选形态。两所重叠期偏差仅 +1~7%。注意：此结论
   回答"信号在加密市场稳健"，不推翻组合阶段对 2023+ 日收益显著性的否定。
   [`reports/trend_dualcycle_20260611/`]
