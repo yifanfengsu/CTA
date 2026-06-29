@@ -1,0 +1,463 @@
+{
+  "meta": {
+    "utc": "2026-06-29T12:58:50.842544+00:00",
+    "seed": 20260628,
+    "symbols": [
+      "BTC",
+      "ETH"
+    ],
+    "warmup_days": 20,
+    "data_span": {
+      "BTC": {
+        "start": "2020-01-01T00:00:00+00:00",
+        "end": "2026-05-31T23:59:00+00:00",
+        "n_1m": 3373920
+      },
+      "ETH": {
+        "start": "2020-01-01T00:00:00+00:00",
+        "end": "2026-05-31T23:59:00+00:00",
+        "n_1m": 3373920
+      }
+    },
+    "n_shuffle": 200,
+    "flow_configs": [
+      {
+        "id": "F1_4h_20",
+        "tf": "4h",
+        "span": 20
+      },
+      {
+        "id": "F2_4h_50",
+        "tf": "4h",
+        "span": 50
+      },
+      {
+        "id": "F3_1h_50",
+        "tf": "1h",
+        "span": 50
+      }
+    ],
+    "price_cfg": {
+      "id": "B2_4h",
+      "tf": "4h",
+      "fast": 20,
+      "slow": 100
+    }
+  },
+  "part1_persistence": {
+    "BTC": {
+      "acf_lag1": 0.103904290637986,
+      "acf_shuffle_full_p95": 0.01520308150387805,
+      "acf_shuffle_block_p95": 0.0958960664578657,
+      "acf_beats_shuffle": true,
+      "ic_ofi_to_next_ret": 0.00944388041092704,
+      "ic_hit_rate": 0.4764885822010386,
+      "ic_shuffle_p95": 0.01659832864748154,
+      "ic_beats_shuffle": false,
+      "ic_contemporaneous": 0.5096720213628138,
+      "n_bars": 14057
+    },
+    "ETH": {
+      "acf_lag1": 0.10275238163833504,
+      "acf_shuffle_full_p95": 0.015382721629379665,
+      "acf_shuffle_block_p95": 0.10211681893820858,
+      "acf_beats_shuffle": true,
+      "ic_ofi_to_next_ret": 0.006295293375369776,
+      "ic_hit_rate": 0.4748523867112471,
+      "ic_shuffle_p95": 0.015297308314043573,
+      "ic_beats_shuffle": false,
+      "ic_contemporaneous": 0.5153999906547501,
+      "n_bars": 14057
+    },
+    "pass": false
+  },
+  "part2_price_metrics": {
+    "BTC": {
+      "net": 20726.877725493876,
+      "maxdd": 9074.355602698972,
+      "net_over_maxdd": 2.2841156587834304,
+      "n_bars": 13939,
+      "gross_abs_per_bar": 85.5131174028556
+    },
+    "ETH": {
+      "net": 40505.75678494718,
+      "maxdd": 12154.816055703559,
+      "net_over_maxdd": 3.3324862012979746,
+      "n_bars": 13939,
+      "gross_abs_per_bar": 118.5886545726999
+    }
+  },
+  "part2_price_tail10": {
+    "BTC": 2.1772268388730227,
+    "ETH": 1.7229601197993119
+  },
+  "part2_price_ntrades": {
+    "BTC": 165,
+    "ETH": 173
+  },
+  "part2_flow": {
+    "F1_4h_20": {
+      "cfg": {
+        "id": "F1_4h_20",
+        "tf": "4h",
+        "span": 20
+      },
+      "metrics": {
+        "BTC": {
+          "net": 22685.926996478316,
+          "maxdd": 11961.531194355139,
+          "net_over_maxdd": 1.8965738272023411,
+          "n_bars": 13939,
+          "gross_abs_per_bar": 82.08911795807369
+        },
+        "ETH": {
+          "net": -17339.852656577714,
+          "maxdd": 35633.61485801361,
+          "net_over_maxdd": -0.4866150326221582,
+          "n_bars": 13939,
+          "gross_abs_per_bar": 126.16165512249565
+        }
+      },
+      "tail10": {
+        "BTC": 3.995428534757599,
+        "ETH": -7.294014917525772
+      },
+      "n_trades": {
+        "BTC": 1266,
+        "ETH": 1138
+      },
+      "overlap": {
+        "BTC": {
+          "agreement": 0.4972379654207619,
+          "agreement_incl_flat": 0.4972379654207619,
+          "n_both_inmarket": 13939,
+          "n_total": 13939
+        },
+        "ETH": {
+          "agreement": 0.45031924815266516,
+          "agreement_incl_flat": 0.45031924815266516,
+          "n_both_inmarket": 13939,
+          "n_total": 13939
+        }
+      },
+      "flip_lead": {
+        "BTC": {
+          "n": 166,
+          "median_lead_h": 16.0,
+          "mean_lead_h": -0.891566265060241,
+          "frac_flow_earlier": 0.6024096385542169
+        },
+        "ETH": {
+          "n": 174,
+          "median_lead_h": 8.0,
+          "mean_lead_h": 1.5632183908045978,
+          "frac_flow_earlier": 0.5804597701149425
+        }
+      },
+      "shuffle_net": {
+        "BTC": {
+          "p50": -22755.746355006984,
+          "p95": -400.63036960366736,
+          "p05": -43433.98793380385
+        },
+        "ETH": {
+          "p50": -34600.04287377531,
+          "p95": -4261.232365875486,
+          "p05": -61213.69340739682
+        }
+      }
+    },
+    "F2_4h_50": {
+      "cfg": {
+        "id": "F2_4h_50",
+        "tf": "4h",
+        "span": 50
+      },
+      "metrics": {
+        "BTC": {
+          "net": 30886.13907138803,
+          "maxdd": 7050.784944721572,
+          "net_over_maxdd": 4.380524908011882,
+          "n_bars": 13939,
+          "gross_abs_per_bar": 84.84530531502965
+        },
+        "ETH": {
+          "net": -31627.407553765846,
+          "maxdd": 89661.89545239661,
+          "net_over_maxdd": -0.3527407868658934,
+          "n_bars": 13939,
+          "gross_abs_per_bar": 180.32353383716946
+        }
+      },
+      "tail10": {
+        "BTC": 2.87374796584696,
+        "ETH": -1.7833442389573684
+      },
+      "n_trades": {
+        "BTC": 658,
+        "ETH": 562
+      },
+      "overlap": {
+        "BTC": {
+          "agreement": 0.5293780041609871,
+          "agreement_incl_flat": 0.5293780041609871,
+          "n_both_inmarket": 13939,
+          "n_total": 13939
+        },
+        "ETH": {
+          "agreement": 0.48755290910395294,
+          "agreement_incl_flat": 0.48755290910395294,
+          "n_both_inmarket": 13939,
+          "n_total": 13939
+        }
+      },
+      "flip_lead": {
+        "BTC": {
+          "n": 166,
+          "median_lead_h": 16.0,
+          "mean_lead_h": 7.421686746987952,
+          "frac_flow_earlier": 0.5903614457831325
+        },
+        "ETH": {
+          "n": 174,
+          "median_lead_h": 8.0,
+          "mean_lead_h": -49.10344827586207,
+          "frac_flow_earlier": 0.5574712643678161
+        }
+      },
+      "shuffle_net": {
+        "BTC": {
+          "p50": -18978.51791480402,
+          "p95": 1524.0810093158775,
+          "p05": -40035.057004992756
+        },
+        "ETH": {
+          "p50": -33878.1036076013,
+          "p95": -6931.421546607246,
+          "p05": -58796.931757056045
+        }
+      }
+    },
+    "F3_1h_50": {
+      "cfg": {
+        "id": "F3_1h_50",
+        "tf": "1h",
+        "span": 50
+      },
+      "metrics": {
+        "BTC": {
+          "net": -857.5113616613708,
+          "maxdd": 23742.750084445153,
+          "net_over_maxdd": -0.036116766533425354,
+          "n_bars": 55753,
+          "gross_abs_per_bar": 40.33825801344388
+        },
+        "ETH": {
+          "net": -33178.285354424035,
+          "maxdd": 39724.60557816687,
+          "net_over_maxdd": -0.8352074204774289,
+          "n_bars": 55753,
+          "gross_abs_per_bar": 57.680872869820035
+        }
+      },
+      "tail10": {
+        "BTC": 5.917375868047515,
+        "ETH": -32.965130125811854
+      },
+      "n_trades": {
+        "BTC": 3585,
+        "ETH": 3545
+      },
+      "overlap": {
+        "BTC": {
+          "agreement": 0.4617260922591291,
+          "agreement_incl_flat": 0.4617260922591291,
+          "n_both_inmarket": 13939,
+          "n_total": 13939
+        },
+        "ETH": {
+          "agreement": 0.42011622067580173,
+          "agreement_incl_flat": 0.42011622067580173,
+          "n_both_inmarket": 13939,
+          "n_total": 13939
+        }
+      },
+      "flip_lead": {
+        "BTC": {
+          "n": 166,
+          "median_lead_h": 0.0,
+          "mean_lead_h": -2.246987951807229,
+          "frac_flow_earlier": 0.4879518072289157
+        },
+        "ETH": {
+          "n": 174,
+          "median_lead_h": 2.0,
+          "mean_lead_h": -3.5229885057471266,
+          "frac_flow_earlier": 0.5517241379310345
+        }
+      },
+      "shuffle_net": {
+        "BTC": {
+          "p50": -48636.02577045095,
+          "p95": -24451.468047767932,
+          "p05": -75160.89783125781
+        },
+        "ETH": {
+          "p50": -56304.17216918102,
+          "p95": -28445.247346719454,
+          "p05": -83909.60203159103
+        }
+      }
+    }
+  },
+  "part2c_cumflow_overlap": {
+    "BTC": {
+      "agreement": 0.5277996986871368,
+      "agreement_incl_flat": 0.5277996986871368,
+      "n_both_inmarket": 13939,
+      "n_total": 13939
+    },
+    "ETH": {
+      "agreement": 0.5130927613171676,
+      "agreement_incl_flat": 0.5130927613171676,
+      "n_both_inmarket": 13939,
+      "n_total": 13939
+    }
+  },
+  "part3a_multires_ic": {
+    "BTC": {
+      "1m": {
+        "ic": -0.00553055173023851,
+        "shuffle_p95": 0.0007643801403510274,
+        "n": 3373919
+      },
+      "5m": {
+        "ic": -0.014560044172879214,
+        "shuffle_p95": 0.002728608068280137,
+        "n": 674783
+      },
+      "15m": {
+        "ic": -0.006610094912397762,
+        "shuffle_p95": 0.0039594605612519465,
+        "n": 224927
+      },
+      "1h": {
+        "ic": 0.0006193530753160201,
+        "shuffle_p95": 0.0068508028811190055,
+        "n": 56231
+      },
+      "4h": {
+        "ic": 0.00944388041092704,
+        "shuffle_p95": 0.013795940842705285,
+        "n": 14057
+      }
+    },
+    "ETH": {
+      "1m": {
+        "ic": -0.0063977910520884775,
+        "shuffle_p95": 0.0009928925676375075,
+        "n": 3373919
+      },
+      "5m": {
+        "ic": -0.009901679670476895,
+        "shuffle_p95": 0.0024644055981275447,
+        "n": 674783
+      },
+      "15m": {
+        "ic": -0.0017090527046810578,
+        "shuffle_p95": 0.0036725125321005157,
+        "n": 224927
+      },
+      "1h": {
+        "ic": 0.0007409570476358954,
+        "shuffle_p95": 0.00813335259689766,
+        "n": 56231
+      },
+      "4h": {
+        "ic": 0.006295293375369776,
+        "shuffle_p95": 0.012987401846545005,
+        "n": 14057
+      }
+    }
+  },
+  "part3b_lag_haircut": {
+    "F1_4h_20": {
+      "BTC": {
+        "net_no_lag": 22685.926996478316,
+        "net_1bar_lag": 35211.469508286194,
+        "still_beats_price": true
+      },
+      "ETH": {
+        "net_no_lag": -17339.852656577714,
+        "net_1bar_lag": -11685.380047454428,
+        "still_beats_price": false
+      }
+    },
+    "F2_4h_50": {
+      "BTC": {
+        "net_no_lag": 30886.13907138803,
+        "net_1bar_lag": 27419.42123754291,
+        "still_beats_price": true
+      },
+      "ETH": {
+        "net_no_lag": -31627.407553765846,
+        "net_1bar_lag": -22177.209794497277,
+        "still_beats_price": false
+      }
+    },
+    "F3_1h_50": {
+      "BTC": {
+        "net_no_lag": -857.5113616613708,
+        "net_1bar_lag": 2220.900239110546,
+        "still_beats_price": false
+      },
+      "ETH": {
+        "net_no_lag": -33178.285354424035,
+        "net_1bar_lag": -25933.141085536474,
+        "still_beats_price": false
+      }
+    }
+  },
+  "part3c_subsecond": {
+    "n_sym_days": 18,
+    "horizons_s": [
+      1,
+      2,
+      5,
+      10,
+      30,
+      60
+    ],
+    "corr_flow_forward_return": {
+      "1": 0.0556546944938756,
+      "2": 0.05324288636428984,
+      "5": 0.044364081715453474,
+      "10": 0.03645318729504157,
+      "30": 0.02063963908851954,
+      "60": 0.01205382952488046
+    },
+    "corr_flow_past_return": {
+      "1": 0.30677333413494595,
+      "2": 0.2377045699953638,
+      "5": 0.1994830084583758,
+      "10": 0.18656040052425643,
+      "30": 0.16209951135477207,
+      "60": 0.1374480888532678
+    },
+    "exhaustion_wall_bps": -9.776885702016724,
+    "note": "flow->FUTURE corr concentrated sub-second + small => the 'flow earlier' lead lives in the HFT band (exhaustion: net -9.8bps every latency)."
+  },
+  "verdict": {
+    "gate1_persistence": false,
+    "gate2_dominance": false,
+    "gate2_winners": [],
+    "gate3_reachable": false,
+    "gate4_independent": true,
+    "final": "FAIL",
+    "cause": "\u7528 flow \u4ee3\u66ff\u4ef7\u683c\u65e0\u989d\u5916 edge\uff0cB2_4h \u4ef7\u683c\u4fe1\u53f7\u5df2\u8db3\u591f [flow memory real (ACF) but forward return-IC below noise floor; no flow config dominates price on both symbols (BTC mirage / ETH<shuffle)]. \u4e0d\u9000\u5316\u4e3a flow \u8fc7\u6ee4 B2_4h\uff08\u5b88\u8fb9\u754c\uff09\u3002",
+    "persistence_note": "flow ACF(lag1)~0.10 beats shuffle (real memory) BUT IC(OFI->next-ret) below the shuffle noise floor on both symbols \u2014 flow's memory is NOT forward-return-predictive; contemporaneous corr(OFI,ret)~0.51 (flow co-moves with price as the bar forms, it does not lead it).",
+    "dominance_note": "no flow config beats B2_4h on both symbols; F1/F2 positive on BTC but deeply negative on ETH (ETH even worse than its own block-shuffle p95) \u2014 the BTC win is a single-symbol mirage; flow fires 4-21x more trades than price (whipsaw).",
+    "speed_note": "flow's only genuine lead over price is sub-second: corr(flow,FUTURE ret)~+0.056@1s decaying to ~0 by 60s, vs corr(flow,PAST ret)~5x larger \u2014 the lead lives in the HFT band the order-flow-exhaustion study already closed (net -9.8bps every latency). +1-bar lag does not hurt flow => the bar-scale 'earlier' carries no edge (cf trend_faster_entry).",
+    "overlap_note": "flow vs price position agreement ~0.42-0.53 (~coin flip): flow is a GENUINELY DIFFERENT signal from the price trend, not redundant \u2014 but the difference is noise/whipsaw, not edge (different AND worse). Even integrate-then-cross (cumulative flow EMA cross) ~0.51 agreement, does not reproduce the price signal."
+  }
+}

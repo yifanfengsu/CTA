@@ -427,6 +427,21 @@ cta_strategy/
   瞬态回弹。σ∈{3,4,5} 不改变结论。**至此右偏延续结构从 4h bar 一路证到 100ms tick**：项目所有
   回归路线（单序列 5m/15m–4h + funding + 横截面 carry + 配对协整 + 订单流耗尽）同死于此一结构事实，
   强证其为**结构性、非任何单一时间尺度/信号构造的产物**。[`reports/order_flow_exhaustion_feasibility_20260628/`]
+- **Flow 信号 vs 价格信号（B2_4h）趋势捕获对照——flow（原因）不优于价格（结果），用价格即可
+  （2026-06-29）**：检验 trend≈∫(flow×impact)dt 中"读被积函数(flow)能否比读积分(price)更早/更好
+  捕获右偏延续"。Binance BTC+ETH 1m klines 2020-2026（taker_buy_volume 免费给出 bar 级 taker 失衡，
+  无需订单簿/逐笔），flow 信号 `sign(EMA(OFI_norm))` 与 B2_4h 同引擎/同窗/双样本并列对照。
+  **结论 = flow 是一个不同、更高频、更嘈杂、且更差的信号**：① flow 作为过程有真记忆
+  (ACF≈0.10>shuffle) 但**不前瞻预测收益**(IC<噪声地板)，同期 corr(OFI,ret)≈0.51（flow 与价格
+  同步发生、不领先）；② **无任何 flow 配置在两币都胜 B2_4h**——F1/F2 在 BTC 为正、ETH 深亏
+  （ETH 上 flow 比自身 block-shuffle 还差），F2 的 BTC 胜利是单币海市蜃楼；flow 成交 4–21× 于价格
+  （flow 率快速均值回归→跟随=whipsaw）；③ 方向重合度仅 ~0.45–0.53（flow **确为不同信号**，但
+  "不同≠信息"，是噪声）；④ **flow 唯一真正领先价格在亚秒**(corr 未来 +0.056@1s→0@60s，过去相关
+  是其 5×)=HFT 带、=exhaustion 已判死的 −9.8bps 同墙；bar 尺度"早 2–4 根"+1 根延迟不伤反好=不带 edge。
+  **更深的为什么：可收割的趋势是积分后的价格水位，不是 flow 率本身——积分正是把嘈杂 flow 转成
+  趋势的操作，故"结果"(price) 反而是更好的信号。** 至此**订单流方向性使用两侧全死**（fade=exhaustion /
+  follow=persistence）；右偏延续再获一证（原因也不能比结果更早够到它）。**守边界：判 flow 不如 price
+  ⇒"用价格即可"，未退化为给 B2_4h 加 flow 过滤器（第五次增强=描线）。** [`reports/flow_vs_price_trend_20260628/`]
 
 ### 已知未验证的假设（明确标注：未验证）
 

@@ -1,0 +1,47 @@
+================================================================================
+DATA ENVIRONMENT: Binance Vision UM-perp 1m klines (PRODUCTION/mainnet CDN)
+  flow layer = per-bar taker_buy_volume (no order-book depth); BTC+ETH 2020-2026
+  price baseline B2_4h on the SAME bars; engine tb/r2 verbatim; SYMBOLS={BTC,ETH}
+================================================================================
+  BTC: 1m 3,373,920 [2020-01-01..2026-05-31] | 4h 14,058 | funding 7,028
+  ETH: 1m 3,373,920 [2020-01-01..2026-05-31] | 4h 14,058 | funding 7,028
+
+== Part 1: flow persistence + predictiveness (noise-calibrated) ==
+  [1] BTC: ACF1 +0.1039 (shuf-block p95 0.0959->True) | IC(OFI->ret+1) +0.0094 hit 0.476 (shuf p95 0.0166->False) | contemp corr(OFI,ret) +0.510
+  [1] ETH: ACF1 +0.1028 (shuf-block p95 0.1021->True) | IC(OFI->ret+1) +0.0063 hit 0.475 (shuf p95 0.0153->False) | contemp corr(OFI,ret) +0.515
+  Part1 PASS (persistence beats noise, both symbols): False
+
+== Part 2: flow vs price head-to-head (same engine, BTC+ETH) ==
+  [price B2_4h] BTC: net $20,727 maxDD $9,074 net/DD 2.2841156587834304 | tail10 2.18 | n 165
+  [price B2_4h] ETH: net $40,506 maxDD $12,155 net/DD 3.3324862012979746 | tail10 1.72 | n 173
+  [F1_4h_20] BTC: net $22,686 maxDD $11,962 net/DD 1.8965738272023411 | tail10 4.00 | agree 0.497 | flowEarlier 0.6024096385542169 med_lead 16.0h | shufNet p95 $-401
+  [F1_4h_20] ETH: net $-17,340 maxDD $35,634 net/DD -0.4866150326221582 | tail10 -7.29 | agree 0.450 | flowEarlier 0.5804597701149425 med_lead 8.0h | shufNet p95 $-4,261
+  [F2_4h_50] BTC: net $30,886 maxDD $7,051 net/DD 4.380524908011882 | tail10 2.87 | agree 0.529 | flowEarlier 0.5903614457831325 med_lead 16.0h | shufNet p95 $1,524
+  [F2_4h_50] ETH: net $-31,627 maxDD $89,662 net/DD -0.3527407868658934 | tail10 -1.78 | agree 0.488 | flowEarlier 0.5574712643678161 med_lead 8.0h | shufNet p95 $-6,931
+  [F3_1h_50] BTC: net $-858 maxDD $23,743 net/DD -0.036116766533425354 | tail10 5.92 | agree 0.462 | flowEarlier 0.4879518072289157 med_lead 0.0h | shufNet p95 $-24,451
+  [F3_1h_50] ETH: net $-33,178 maxDD $39,725 net/DD -0.8352074204774289 | tail10 -32.97 | agree 0.420 | flowEarlier 0.5517241379310345 med_lead 2.0h | shufNet p95 $-28,445
+
+  [2c-diag] cumulative-flow EMA cross overlap with PRICE signal:
+    BTC: agreement(cumflow, price) = 0.528
+    ETH: agreement(cumflow, price) = 0.513
+
+== Part 3: speed test ==
+  [3a] BTC IC(OFI->ret+1) by res: 1m=-0.0055 5m=-0.0146 15m=-0.0066 1h=+0.0006 4h=+0.0094
+  [3a] ETH IC(OFI->ret+1) by res: 1m=-0.0064 5m=-0.0099 15m=-0.0017 1h=+0.0007 4h=+0.0063
+  [3b] +1-bar execution-lag haircut (enter one bar later):
+    F1_4h_20: BTC $22,686->$35,211 ETH $-17,340->$-11,685
+    F2_4h_50: BTC $30,886->$27,419 ETH $-31,627->$-22,177
+    F3_1h_50: BTC $-858->$2,221 ETH $-33,178->$-25,933
+  [3c] sub-second (aggTrades, 18 sym-days): corr(flow,FWD ret) 1s=+0.0557 2s=+0.0532 5s=+0.0444 10s=+0.0365 30s=+0.0206 60s=+0.0121
+  [3c]                                   corr(flow,PAST ret) 1s=+0.3068 2s=+0.2377 5s=+0.1995 10s=+0.1866 30s=+0.1621 60s=+0.1374
+
+== Part 4: pre-registered verdict ==
+  ① persistence beats noise (both sym): False
+  ② dominance (a config wins both sym net & net/DD, > shuffle p95): False (winners: [])
+  ③ reachable (1-bar lag survives + >=1h + not HFT-only): False
+  ④ not redundant (agreement < 0.75 both sym): True
+  FINAL: FAIL — 用 flow 代替价格无额外 edge，B2_4h 价格信号已足够 [flow memory real (ACF) but forward return-IC below noise floor; no flow config dominates price on both symbols (BTC mirage / ETH<shuffle)]. 不退化为 flow 过滤 B2_4h（守边界）。
+figures -> /home/yiast/vnpy_projects/cta_strategy/reports/flow_vs_price_trend_20260628/figures
+manifest -> /home/yiast/vnpy_projects/cta_strategy/reports/flow_vs_price_trend_20260628/manifest.json (154 klines + 18 aggTrades zips)
+
+wrote /home/yiast/vnpy_projects/cta_strategy/reports/flow_vs_price_trend_20260628/results.json
