@@ -17,6 +17,16 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+# 2026-07 重构批次4：脚本迁入 audit/scripts/；共享依赖真身在
+# scripts/（前向冻结区）与 core/data_io/，此处按新深度注入 sys.path。
+import sys as _sys
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+for _p in (str(_REPO_ROOT / "core" / "data_io"), str(_REPO_ROOT / "scripts")):
+    if _p not in _sys.path:
+        _sys.path.insert(0, _p)
+
 from history_time_utils import (
     DEFAULT_TIMEZONE,
     HistoryRange,
@@ -33,7 +43,7 @@ from history_utils import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次4：迁入 audit/scripts/，深度 1→2
 DEFAULT_DATABASE_PATH = PROJECT_ROOT / ".vntrader" / "database.db"
 DEFAULT_CONFIG_DIR = PROJECT_ROOT / "config" / "instruments"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "reports" / "research" / "extended_history_availability"

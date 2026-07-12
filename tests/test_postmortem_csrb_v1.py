@@ -238,7 +238,7 @@ class PostmortemCsrbV1Test(unittest.TestCase):
         text = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("postmortem-csrb-v1:", text)
-        self.assertIn("scripts/postmortem_csrb_v1.py", text)
+        self.assertIn("audit/scripts/postmortem_csrb_v1.py", text)
 
 
 if __name__ == "__main__":

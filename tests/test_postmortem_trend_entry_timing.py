@@ -318,7 +318,7 @@ class TrendEntryTimingPostmortemTest(unittest.TestCase):
         text = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("postmortem-trend-entry-timing:", text)
-        self.assertIn("scripts/postmortem_trend_entry_timing.py", text)
+        self.assertIn("audit/scripts/postmortem_trend_entry_timing.py", text)
 
 
 if __name__ == "__main__":

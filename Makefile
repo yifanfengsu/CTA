@@ -788,7 +788,7 @@ compare-trend-v3-extended:
 
 postmortem-trend-v3:
 	@echo "Running Trend Following V3 postmortem diagnostics"
-	$(PYTHON) scripts/postmortem_trend_following_v3.py \
+	$(PYTHON) audit/scripts/postmortem_trend_following_v3.py \
 		--train-dir "$(TREND_V3_TRAIN_DIR)" \
 		--validation-dir "$(TREND_V3_VALIDATION_DIR)" \
 		--oos-dir "$(TREND_V3_OOS_DIR)" \
@@ -850,7 +850,7 @@ research-trend-entry-timing:
 
 postmortem-trend-entry-timing:
 	@echo "Running Trend Entry Timing postmortem and breadth candidate audit"
-	$(PYTHON) scripts/postmortem_trend_entry_timing.py \
+	$(PYTHON) audit/scripts/postmortem_trend_entry_timing.py \
 		--research-dir reports/research/trend_entry_timing \
 		--trend-map-dir reports/research/trend_opportunity_map \
 		--funding-dir data/funding/okx \
@@ -876,7 +876,7 @@ research-dossier:
 
 audit-multisymbol:
 	@echo "Auditing multi-symbol data readiness"
-	$(PYTHON) scripts/audit_multisymbol_readiness.py \
+	$(PYTHON) audit/scripts/audit_multisymbol_readiness.py \
 		--start "$(START)" \
 		--end "$(END)" \
 		--interval "$(INTERVAL)" \
@@ -884,7 +884,7 @@ audit-multisymbol:
 
 audit-extended-history:
 	@echo "Auditing extended local history availability without downloading data"
-	$(PYTHON) scripts/audit_extended_history_availability.py \
+	$(PYTHON) audit/scripts/audit_extended_history_availability.py \
 		--symbols "$(SYMBOLS)" \
 		--interval "$(INTERVAL)" \
 		--timezone "$(TIMEZONE)" \
@@ -892,7 +892,7 @@ audit-extended-history:
 
 audit-external-regime:
 	@echo "Auditing external regime classifier feasibility without strategy development"
-	$(PYTHON) scripts/audit_external_regime_classifier_feasibility.py \
+	$(PYTHON) audit/scripts/audit_external_regime_classifier_feasibility.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -911,7 +911,7 @@ research-external-regime-classifier:
 
 audit-external-regime-gates:
 	@echo "Auditing external regime classifier gate consistency"
-	$(PYTHON) scripts/audit_external_regime_classifier_gates.py \
+	$(PYTHON) audit/scripts/audit_external_regime_classifier_gates.py \
 		--classifier-dir "$(EXTERNAL_REGIME_CLASSIFIER_OUTPUT_DIR)" \
 		--gate-audit-dir "$(EXTERNAL_REGIME_GATE_AUDIT_OUTPUT_DIR)"
 
@@ -928,13 +928,13 @@ research-vsvcb-v1:
 
 postmortem-vsvcb-v1:
 	@echo "Running VSVCB-v1 Phase 1 postmortem diagnostics"
-	$(PYTHON) scripts/postmortem_vsvcb_v1.py \
+	$(PYTHON) audit/scripts/postmortem_vsvcb_v1.py \
 		--research-dir reports/research/vsvcb_v1 \
 		--output-dir reports/research/vsvcb_v1_postmortem
 
 audit-derivatives-data:
 	@echo "Auditing OKX public derivatives data readiness without strategy development"
-	$(PYTHON) scripts/audit_okx_derivatives_data_readiness.py \
+	$(PYTHON) audit/scripts/audit_okx_derivatives_data_readiness.py \
 		--inst-ids "$(INST_IDS)" \
 		--ccys "BTC,ETH,SOL,LINK,DOGE" \
 		--start 2023-01-01 \
@@ -956,7 +956,7 @@ research-csrb-v1:
 
 postmortem-csrb-v1:
 	@echo "Running CSRB-v1 Phase 1 postmortem and control audit"
-	$(PYTHON) scripts/postmortem_csrb_v1.py \
+	$(PYTHON) audit/scripts/postmortem_csrb_v1.py \
 		--research-dir reports/research/csrb_v1 \
 		--output-dir reports/research/csrb_v1_postmortem
 

@@ -401,7 +401,7 @@ class AuditExtendedHistoryAvailabilityTest(unittest.TestCase):
         text = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("audit-extended-history:", text)
-        self.assertIn("scripts/audit_extended_history_availability.py", text)
+        self.assertIn("audit/scripts/audit_extended_history_availability.py", text)
 
 
 if __name__ == "__main__":

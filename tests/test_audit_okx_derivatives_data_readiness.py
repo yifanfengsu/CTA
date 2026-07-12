@@ -264,7 +264,7 @@ class AuditOkxDerivativesDataReadinessTest(unittest.TestCase):
         makefile = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("audit-derivatives-data:", makefile)
-        self.assertIn("scripts/audit_okx_derivatives_data_readiness.py", makefile)
+        self.assertIn("audit/scripts/audit_okx_derivatives_data_readiness.py", makefile)
 
 
 if __name__ == "__main__":

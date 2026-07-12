@@ -16,7 +16,7 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次4：迁入 audit/scripts/，深度 1→2
 DB_PATH = PROJECT_ROOT / ".vntrader" / "database.db"
 MANIFEST_DIR = PROJECT_ROOT / "data" / "history_manifests"
 DIAG_JSON = (

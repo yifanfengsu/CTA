@@ -243,7 +243,7 @@ class ExternalRegimeClassifierFeasibilityAuditTest(unittest.TestCase):
         makefile = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("audit-external-regime:", makefile)
-        self.assertIn("scripts/audit_external_regime_classifier_feasibility.py", makefile)
+        self.assertIn("audit/scripts/audit_external_regime_classifier_feasibility.py", makefile)
 
 
 if __name__ == "__main__":
