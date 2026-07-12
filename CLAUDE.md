@@ -8,7 +8,7 @@ test PF 0.826 / 毛利≈0，详见 `reports/MR5M_postmortem.md`）。
 - `scripts/run_mr_5m_direct.py`：MR-5m 实盘脚本，**已关停归档**。保留为工程参考
   （IOC 下单 / force_close / bills 对账等执行栈经实战验证），仍不随意修改。
 - 历史标的与参数（BTC/ETH/SOL/LINK/DOGE 5 币、LB=24/ATR=14 Wilder/止损 1.0×ATR/
-  midline 止盈）作为归档记录见 `PROJECT_GUIDE.md`，对新研究无约束力。
+  midline 止盈）作为归档记录见 `docs/PROJECT_GUIDE.md`，对新研究无约束力。
 
 ## 数据环境铁律（最高优先级，违反即停）
 - **唯一可信回测数据源：`.vntrader/database_mainnet.db`**（OKX mainnet 公开 REST 重建，
@@ -88,7 +88,7 @@ MR-5m 已关闭。当前任务：基于 `database_mainnet.db` 的新策略研究
 - 记忆见 `~/.claude/.../memory/`（mr5m-* 系列，含完整事故链记录）。
 
 ## 研究产出后维护 PROJECT_GUIDE.md
-`PROJECT_GUIDE.md` 是项目的**活文档**，反映**当前最佳认知**，不是流水账。
+`docs/PROJECT_GUIDE.md` 是项目的**活文档**，反映**当前最佳认知**，不是流水账。
 每次研究产出后，按下面流程判断并执行。
 
 **何时更新 PROJECT_GUIDE：**

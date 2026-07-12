@@ -74,6 +74,6 @@ IC≠可交易 alpha、减法陷阱（过滤看似提纯实砍好信号）、幸
 | `.claude/skills/PIPELINE.md` | 流程化（九站 + 交接物 + 闭环） |
 | `.claude/skills/*/SKILL.md` | 可执行化（四段式：位置/何时/怎么用/怎么失效） |
 | 顶层 `CLAUDE.md` | 最高约束（铁律 A/B/C、数据环境铁律——本文档的浓缩上位法） |
-| `PROJECT_GUIDE.md` | 当前最佳认知（已验证事实 / 未验证假设） |
+| `docs/PROJECT_GUIDE.md` | 当前最佳认知（已验证事实 / 未验证假设） |
 | `docs/STRATEGY_CODEX.md` | 代号图例 |
 | `docs/AGENTS.md` | 域分工与路由 |
