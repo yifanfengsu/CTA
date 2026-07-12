@@ -31,7 +31,7 @@
 - 实证之二：微观结构"回弹"= bid-ask bounce，即你要付的那个价差本身；速度墙
   内的 edge 属于付了基建门槛的人（`reports/order_flow_exhaustion_feasibility_20260628/`）。
 - 实证之三：可预测 ≠ 可货币化——RV 聚集双样本极显著，但线性载体上捕波动率
-  退化为方向（`reports/volatility_event_20260613/`）；VRP 的"溢价"剥离方向后
+  退化为方向（`research/_closed/crypto_perp/volatility_event/reports/volatility_event_20260613/`）；VRP 的"溢价"剥离方向后
   是尾部风险的公平保费（`vrp/reports/atm_vrp_stageB_*/`）。
 - 推论（选题纪律）：说不出"谁在付钱、为什么钱还在"的想法 = data mining，
   在流水线第 1 站死，零成本。
@@ -62,7 +62,7 @@ IC≠可交易 alpha、减法陷阱（过滤看似提纯实砍好信号）、幸
 - 防线的通用性：双样本 + 机制解释 + 打折 + 正偏分布四件套，连续拦截 5 次
   "看似改进"（4 次 alpha 增强 + 1 次风控变体）——防线针对的是"样本伪迹/削右尾"
   这一**通用失败模式**，与改的是 alpha 还是风控无关
-  （`reports/b2_4h_vol_targeting_20260628/` Q6.1）。
+  （`research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/` Q6.1）。
 - **结论会过时（demo 教训：结论可以整体作废），死因库、流水线、防线不会。**
   这就是为什么本仓库把方法论固化成 skills 而不只是报告。
 

@@ -1,7 +1,7 @@
 # 预注册文档模板（LOCKED，看结果前写死并单独 commit）
 
 > 提炼自 `vrp/reports/atm_vrp_stageB_premium_truth_20260628/PREREGISTRATION.md`
-> （LOCKED d4597b2 先于结果 commit）与 `reports/pairs_cointegration_20260613/`
+> （LOCKED d4597b2 先于结果 commit）与 `research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/`
 > 的置顶三段声明。使用方法：复制本模板到研究产物目录，命名 `PREREGISTRATION.md`，
 > 填完后**先于任何结果单独 commit**，hash 写进最终报告。
 

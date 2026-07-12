@@ -18,7 +18,7 @@ gate 判定（配 `noise-calibration/`）→ 第 6 站。
 - 任何配对交易/价差回归/统计套利方向的前置研究与拟合。
 - 任何"两资产长期均衡关系"类的主张（对冲组合、beta 中性腿）。
 
-**不用会犯什么错（真实案例，全部出自 `reports/pairs_cointegration_20260613/`）**：
+**不用会犯什么错（真实案例，全部出自 `research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/`）**：
 - **把假阳性当机制**：C1 报 12.48 对/窗协整显著——事后算术显示 231 对 × p<0.05
   的噪声底就是 11.55 对/窗，"存在性"仅高出噪声 8%。**没有噪声标定的协整计数
   没有意义**（该研究漏装，由 factor_scale 修复入流程）。
@@ -31,7 +31,7 @@ gate 判定（配 `noise-calibration/`）→ 第 6 站。
 
 ## 2. 怎么用
 
-代码入口：本目录 `coint_toolkit.py`（从 `scripts/research_pairs_cointegration.py`
+代码入口：本目录 `coint_toolkit.py`（从 `research/_closed/crypto_perp/pairs_cointegration/scripts/research_pairs_cointegration.py`
 提炼；EG 检验经 statsmodels 惰性 import，其余纯 numpy）。
 
 1. **价差口径**：log 价差 = `log(A) − β·log(B) − α`，β/α 由 **formation 窗 OLS**
@@ -74,6 +74,6 @@ gate 判定（配 `noise-calibration/`）→ 第 6 站。
 
 ## 素材出处
 
-- `scripts/research_pairs_cointegration.py`（滚动筛查/事件解析/基线口径全实现）
-- `reports/pairs_cointegration_20260613/README.md`（C1-C5 判定、噪声教训、条件厚度陷阱、Q4 机制分析）
+- `research/_closed/crypto_perp/pairs_cointegration/scripts/research_pairs_cointegration.py`（滚动筛查/事件解析/基线口径全实现）
+- `research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/README.md`（C1-C5 判定、噪声教训、条件厚度陷阱、Q4 机制分析）
 - `reports/factor_scale_feasibility_20260628/README.md`（噪声底算术的显式修复记录）

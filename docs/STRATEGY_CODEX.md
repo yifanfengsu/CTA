@@ -17,18 +17,18 @@
 
 | 代号 | 全称/定义 | 状态 | 关键数字 | 出处 |
 |---|---|---|---|---|
-| **B2_4h** | 4h EMA20/100 金死叉，always-in long/short，5 币各 $10k 名义 | **资源关闭（非证伪）+ 前向观察中**（VPS，零成本 sim） | 冻结净利 OKX $68,194.82 / Binance $300,752.78（含 funding，审计 PASS）；Sharpe 0.655 → deflated 0.510/0.267/0.162；验证周期 14/51/138 年 | `reports/trend_dualcycle_20260611/`、`trend_methodology_hardening_20260622/`、`b2_4h_pnl_audit_20260628/`、`forward/` |
-| **D2** | B2_4h 同信号的 long/flat 版（D 族=方向变体，非 15 基线之内） | DUAL-VALIDATED\* 后随线关闭 | 2021 牛市捕获 58%/74%；无 short 腿 | `reports/trend_dualcycle_20260611/` |
-| **B1_4h / C1_4h / C2_4h / C2_1d …** | 其余基线幸存者（EMA10/50、TSMOM 变体等） | 随线关闭 | 15 配置 Sharpe 表见方法论加固报告 Q0 | `reports/trend_baseline_20260611/` |
+| **B2_4h** | 4h EMA20/100 金死叉，always-in long/short，5 币各 $10k 名义 | **资源关闭（非证伪）+ 前向观察中**（VPS，零成本 sim） | 冻结净利 OKX $68,194.82 / Binance $300,752.78（含 funding，审计 PASS）；Sharpe 0.655 → deflated 0.510/0.267/0.162；验证周期 14/51/138 年 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_dualcycle_20260611/`、`trend_methodology_hardening_20260622/`、`research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_pnl_audit_20260628/`、`forward/` |
+| **D2** | B2_4h 同信号的 long/flat 版（D 族=方向变体，非 15 基线之内） | DUAL-VALIDATED\* 后随线关闭 | 2021 牛市捕获 58%/74%；无 short 腿 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_dualcycle_20260611/` |
+| **B1_4h / C1_4h / C2_4h / C2_1d …** | 其余基线幸存者（EMA10/50、TSMOM 变体等） | 随线关闭 | 15 配置 Sharpe 表见方法论加固报告 Q0 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_baseline_20260611/` |
 | **V1 / V1′** | 趋势验证 r1 的单笔集中度 gate / 其事后重定义版 | V1′ = **程序污点**（事后移动球门），幸存证据等级降低 | V1 通杀 15/15；V1′ 复活 5 | `reports/trend_methodology_hardening_20260622/` Q6① |
-| **B2_4h-VT** | B2_4h 的 vol-targeting 风控变体（仓位∝1/σ，EWMA hl=48bars） | **NOT ADOPTED** | 双样本相反：DD −12% 仅 Binance、收益 +40% 仅 OKX（描线）；Binance top1% 捕获 0.60 | `reports/b2_4h_vol_targeting_20260628/` |
+| **B2_4h-VT** | B2_4h 的 vol-targeting 风控变体（仓位∝1/σ，EWMA hl=48bars） | **NOT ADOPTED** | 双样本相反：DD −12% 仅 Binance、收益 +40% 仅 OKX（描线）；Binance top1% 捕获 0.60 | `research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/` |
 | **K1/K2/K3, U1/U2** | 前向系统预注册 KILL/UPGRADE gate | 冻结运行中 | K1 roll12 净<$1,296 / K2 maxDD>$32,483 / K3 7d 心跳 | `forward/gates_preregistered.md` |
 
 ## 横截面/因子线（CLOSED / NOT VIABLE）
 
 | 代号 | 全称/定义 | 状态 | 关键数字 | 出处 |
 |---|---|---|---|---|
-| **F-MOM / F-CAR / F-REV** | 横截面动量(+ret30) / carry(−funding7) / 短期反转(−ret3) | 22 币 CLOSED；100 币规模路线 NOT VIABLE | REV 毛 IC 随规模升但净 −23%/yr（流动性伪装）；CAR 规模下 washout | `reports/cross_sectional_ic_20260613/`、`factor_scale_feasibility_20260628/` |
+| **F-MOM / F-CAR / F-REV** | 横截面动量(+ret30) / carry(−funding7) / 短期反转(−ret3) | 22 币 CLOSED；100 币规模路线 NOT VIABLE | REV 毛 IC 随规模升但净 −23%/yr（流动性伪装）；CAR 规模下 washout | `research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/`、`factor_scale_feasibility_20260628/` |
 
 ## 期权/波动率线（CLOSED）
 

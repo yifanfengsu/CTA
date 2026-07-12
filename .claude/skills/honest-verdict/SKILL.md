@@ -22,7 +22,7 @@ description: 生死判决哲学——双重门（edge∧尾部生存）、左偏
 - **Sharpe 判右偏 → 采纳削右尾的变体**：vol-targeting 双样本 Sharpe 都升
   （0.65→0.90 / 0.94→1.13），但 Binance top1% 赢家被砍到 60%、2021 牛市利润
   −52%——Sharpe 给削右尾打高分，按 Sharpe 判会采纳一个砍掉趋势本体的变体
-  （出处：`reports/b2_4h_vol_targeting_20260628/` Q5，铁律 C 的干净反例样本）。
+  （出处：`research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/` Q5，铁律 C 的干净反例样本）。
 - **mean 判左偏可行性 → 越权裁了被推迟的尾部**：VRP StageA 预注册 mean 门，
   实测 BTC mean 为负纯因 312 单月 −110vp——mean 就是尾部，剔最坏 1 月即翻正。
   左偏可行性门应拆开："溢价扛过摩擦"（中位/典型月）与"均值扛过尾部"（尾部
@@ -78,7 +78,7 @@ description: 生死判决哲学——双重门（edge∧尾部生存）、左偏
 
 ## 素材出处
 
-- `reports/b2_4h_vol_targeting_20260628/README.md`（右尾捕获双层诊断、Sharpe 双升仍否决、敞口归一模板）
+- `research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/README.md`（右尾捕获双层诊断、Sharpe 双升仍否决、敞口归一模板）
 - `vrp/reports/atm_vrp_stageA_data_20260628/README.md`（左偏 mean 门元教训、剔尾敏感性表）
 - `vrp/reports/atm_vrp_stageB_premium_truth_20260628/`（双重门、gate 0 方向核对、前瞻情景三件套、剥方向≠剥尾）
 - `reports/trend_methodology_hardening_20260622/README.md`（铁律 C 全文、措辞纪律、Sortino 并列画像）

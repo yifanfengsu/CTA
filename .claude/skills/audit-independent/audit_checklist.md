@@ -1,6 +1,6 @@
 # 独立重推审计清单（模板）
 
-> 提炼自 `reports/b2_4h_pnl_audit_20260628/`。复制到审计产物目录逐项打勾。
+> 提炼自 `research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_pnl_audit_20260628/`。复制到审计产物目录逐项打勾。
 
 ## 0. 边界声明（写在报告最前，全文不删改）
 

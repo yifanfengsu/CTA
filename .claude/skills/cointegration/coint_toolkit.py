@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """cointegration skill — 配对/价差协整工具（可独立 import）。
 
-提炼自 scripts/research_pairs_cointegration.py（reports/pairs_cointegration_20260613/，
+提炼自 research/_closed/crypto_perp/pairs_cointegration/scripts/research_pairs_cointegration.py（research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/，
 原文件未修改）。EG 检验经 statsmodels 惰性 import（statsmodels 0.14.6 已在 .venv），
 其余纯 numpy。
 

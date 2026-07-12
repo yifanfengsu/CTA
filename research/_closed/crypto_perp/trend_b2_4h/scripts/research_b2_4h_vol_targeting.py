@@ -94,11 +94,25 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# 2026-07 重构批次5：脚本迁入 research/_closed/crypto_perp/trend_b2_4h/scripts/；共享依赖真身在
+# scripts/（前向冻结区）与 core/data_io/，此处按新深度注入 sys.path。
+import sys as _sys
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[5]
+for _p in (
+    str(_REPO_ROOT / "core" / "data_io"),
+    str(_REPO_ROOT / "scripts"),
+    *sorted(str(_q) for _q in (_REPO_ROOT / "research" / "_closed").glob("*/*/scripts")),
+):
+    if _p not in _sys.path:
+        _sys.path.insert(0, _p)
+
 import research_trend_baseline as tb
 import research_trend_validation as tv
 from backtest_mr_5m_compare import CONTRACT_SPECS
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[5]  # 2026-07 重构批次5：迁入 research/_closed/crypto_perp/trend_b2_4h/scripts/，深度 1→5
 OUT = PROJECT_ROOT / "reports" / "b2_4h_vol_targeting_20260628"
 
 # ── PRE-REGISTERED (fixed before results) ────────────────────────────────────

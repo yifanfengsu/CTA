@@ -38,7 +38,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[5]  # 2026-07 重构批次5：迁入 research/_closed/crypto_perp/cross_sectional/scripts/，深度 1→5
 OUT = PROJECT_ROOT / "data" / "binance_vision"
 S3 = "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision"
 CDN = "https://data.binance.vision"

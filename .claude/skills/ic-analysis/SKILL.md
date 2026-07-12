@@ -21,7 +21,7 @@ description: 横截面因子 IC 分析工序——IC≠可交易 alpha 的三道
 - **IC 显著 ≠ 能赚钱**（本项目三次实证）：F-MOM 真 alpha t=3.86 但日 IC≈0 已衰减；
   carry IC 随持有期单调增却死于参数尖峰；factor_scale REV 毛 IC 随规模升
   （+0.030→+0.056，超噪声 p=0.000）但 pool100 **净 −23%/yr**、流动层毛 −62%/yr
-  （出处：`reports/cross_sectional_ic_20260613/`、
+  （出处：`research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/`、
   `reports/factor_scale_feasibility_20260628/`）。
 - **流动性伪装漏检**：REV 的净正 alpha 全部集中在不可交易的 illiquid 底层
   （+22%/yr @ 乐观 8bps，真实小币冲击成本 30–100bps+ 会抹掉）——**edge 与
@@ -73,4 +73,4 @@ IC/分层/价差机件提炼）。
 
 - `scripts/research_factor_scale.py`（daily IC / ls_spread / 分层 / 规模梯度实现）
 - `reports/factor_scale_feasibility_20260628/README.md`（三道墙、流动性伪装、t vs 点估计、幸存者方向）
-- `reports/cross_sectional_ic_20260613/`（IC≠可交易 alpha 第一/二次实证：MOM/CAR/REV 22 币）
+- `research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/`（IC≠可交易 alpha 第一/二次实证：MOM/CAR/REV 22 币）

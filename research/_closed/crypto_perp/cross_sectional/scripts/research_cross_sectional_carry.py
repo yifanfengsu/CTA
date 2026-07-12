@@ -77,7 +77,7 @@ from research_cross_sectional_ic import (COINS, FEE, MIN_COINS, CAR_W, APY, YEAR
                                          daily_close, daily_funding, spearman,
                                          ols_alpha_beta)
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[5]  # 2026-07 重构批次5：迁入 research/_closed/crypto_perp/cross_sectional/scripts/，深度 1→5
 OUT = PROJECT_ROOT / "reports" / "cross_sectional_carry_holding_20260613"
 HOLDS = (1, 3, 5)            # 1 = anchor/reproduction (not judged); 3,5 = judged
 JUDGED = (3, 5)

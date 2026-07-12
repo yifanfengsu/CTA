@@ -98,11 +98,25 @@ import pandas as pd
 from scipy import stats
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# 2026-07 重构批次5：脚本迁入 research/_closed/crypto_perp/trend_b2_4h/scripts/；共享依赖真身在
+# scripts/（前向冻结区）与 core/data_io/，此处按新深度注入 sys.path。
+import sys as _sys
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[5]
+for _p in (
+    str(_REPO_ROOT / "core" / "data_io"),
+    str(_REPO_ROOT / "scripts"),
+    *sorted(str(_q) for _q in (_REPO_ROOT / "research" / "_closed").glob("*/*/scripts")),
+):
+    if _p not in _sys.path:
+        _sys.path.insert(0, _p)
+
 import research_trend_baseline as tb            # noqa: E402  (engines imported verbatim)
 import research_trend_validation as tv          # noqa: E402
 import research_trend_validation_r2 as r2       # noqa: E402
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[5]  # 2026-07 重构批次5：迁入 research/_closed/crypto_perp/trend_b2_4h/scripts/，深度 1→5
 OUT = PROJECT_ROOT / "reports" / "trend_methodology_hardening_20260622"
 PORT_DIR = PROJECT_ROOT / "reports" / "trend_portfolio_20260611"
 
