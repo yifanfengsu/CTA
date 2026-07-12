@@ -91,7 +91,7 @@ import pandas as pd
 import requests
 
 # ----------------------------------------------------------------------------- config
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[5]  # 2026-07 重构批次5：迁入 research/_closed/basis/basis_arbitrage/scripts/，深度 1→5
 DATA_DIR = ROOT / "data" / "basis"
 FUT_DIR = DATA_DIR / "futures"
 IDX_DIR = DATA_DIR / "index"

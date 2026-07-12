@@ -76,4 +76,4 @@ gate 判定（配 `noise-calibration/`）→ 第 6 站。
 
 - `research/_closed/crypto_perp/pairs_cointegration/scripts/research_pairs_cointegration.py`（滚动筛查/事件解析/基线口径全实现）
 - `research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/README.md`（C1-C5 判定、噪声教训、条件厚度陷阱、Q4 机制分析）
-- `reports/factor_scale_feasibility_20260628/README.md`（噪声底算术的显式修复记录）
+- `research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/README.md`（噪声底算术的显式修复记录）

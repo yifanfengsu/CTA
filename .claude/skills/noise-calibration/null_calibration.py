@@ -2,7 +2,7 @@
 """noise-calibration skill — 假阳性噪声基线工具（可独立 import）。
 
 提炼自 scripts/research_factor_scale.py 的 NULL-A/NULL-B 噪声标定实现
-（reports/factor_scale_feasibility_20260628/，原文件未修改）。
+（research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/，原文件未修改）。
 教训出处：pairs_cointegration 漏装噪声标定（231 对 × p<0.05 = 11.55 对/窗
 期望假阳性，"12.48 对 PASS"仅高出噪声底 8%）。
 

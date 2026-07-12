@@ -130,7 +130,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[5]  # 2026-07 重构批次5：迁入 research/_closed/crypto_tick/order_flow_exhaustion/scripts/，深度 1→5
 ZIP_ROOT = PROJECT_ROOT / "data" / "binance_vision"          # gitignored: **/*.zip
 OUT_DIR = PROJECT_ROOT / "reports" / "order_flow_exhaustion_feasibility_20260628"
 FIG_DIR = OUT_DIR / "figures"

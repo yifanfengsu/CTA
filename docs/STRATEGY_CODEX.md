@@ -34,7 +34,7 @@
 
 | 代号 | 全称/定义 | 状态 | 关键数字 | 出处 |
 |---|---|---|---|---|
-| **VRP ATM（StageA/B）** | Deribit BTC/ETH 月度 ATM 短跨式波动率风险溢价；端点1=不对冲、端点2=delta-hedged（剥方向） | **全线 CLOSED**（ETH StageA 无缝；BTC StageB 剥方向后 net≈0） | BTC 端点2 净 +0.36vp（≈0）、摩擦吃 ~85%、bootstrap 5% 下界三档全负、whipsaw 情景 −67%spot | `vrp/reports/atm_vrp_stage{A,B}_*/` |
+| **VRP ATM（StageA/B）** | Deribit BTC/ETH 月度 ATM 短跨式波动率风险溢价；端点1=不对冲、端点2=delta-hedged（剥方向） | **全线 CLOSED**（ETH StageA 无缝；BTC StageB 剥方向后 net≈0） | BTC 端点2 净 +0.36vp（≈0）、摩擦吃 ~85%、bootstrap 5% 下界三档全负、whipsaw 情景 −67%spot | `research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stage{A,B}_*/` |
 
 ## 早期研究代号（demo 时代，证据基础已作废，仅索引）
 

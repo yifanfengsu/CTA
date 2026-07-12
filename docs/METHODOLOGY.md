@@ -27,12 +27,12 @@
 **edge 与门槛成正比；人人可得的确定性收益只值无风险利率。**
 
 - 实证之一：期现 cash-and-carry 收敛机制 100% 可靠（合约性），但净年化 4.62%
-  < 无风险利率——机制可靠 ≠ 有肉（`reports/basis_arbitrage_feasibility_20260615/`）。
+  < 无风险利率——机制可靠 ≠ 有肉（`research/_closed/basis/basis_arbitrage/reports/basis_arbitrage_feasibility_20260615/`）。
 - 实证之二：微观结构"回弹"= bid-ask bounce，即你要付的那个价差本身；速度墙
-  内的 edge 属于付了基建门槛的人（`reports/order_flow_exhaustion_feasibility_20260628/`）。
+  内的 edge 属于付了基建门槛的人（`research/_closed/crypto_tick/order_flow_exhaustion/reports/order_flow_exhaustion_feasibility_20260628/`）。
 - 实证之三：可预测 ≠ 可货币化——RV 聚集双样本极显著，但线性载体上捕波动率
   退化为方向（`research/_closed/crypto_perp/volatility_event/reports/volatility_event_20260613/`）；VRP 的"溢价"剥离方向后
-  是尾部风险的公平保费（`vrp/reports/atm_vrp_stageB_*/`）。
+  是尾部风险的公平保费（`research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageB_*/`）。
 - 推论（选题纪律）：说不出"谁在付钱、为什么钱还在"的想法 = data mining，
   在流水线第 1 站死，零成本。
 

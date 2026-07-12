@@ -64,8 +64,8 @@ trial-ledger 终版（含中途新增配置）→ 交第 6 站 `multiple-testing
 
 ## 素材出处
 
-- `vrp/reports/atm_vrp_stageB_premium_truth_20260628/PREREGISTRATION.md`（成熟范式全文）
+- `research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageB_premium_truth_20260628/PREREGISTRATION.md`（成熟范式全文）
 - `reports/trend_methodology_hardening_20260622/README.md`（V1′ 定性 + Q0 Sharpe 未存教训 + 铁律 A/B 全文）
-- `reports/factor_scale_feasibility_20260628/README.md`（字面 gate 与综合判定分歧的透明处理）
+- `research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/README.md`（字面 gate 与综合判定分歧的透明处理）
 - `reports/MR5M_postmortem.md` §8（gate 不可事后修改条款）
 - CLAUDE.md 铁律 A

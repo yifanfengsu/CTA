@@ -3,7 +3,7 @@
 
 提炼自 scripts/research_deflated_sharpe.py（stationary bootstrap, Politis & Romano
 1994）与 scripts/research_factor_scale.py（moving-block 索引），多档下界披露范式
-提炼自 vrp/reports/atm_vrp_stageB_premium_truth_20260628/（原文件未修改）。
+提炼自 research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageB_premium_truth_20260628/（原文件未修改）。
 
 纪律：
   ① 先 acf_check 再选 iid/block——该测不该假设（B2_4h 实测 ACF≈0 的反预设发现）。

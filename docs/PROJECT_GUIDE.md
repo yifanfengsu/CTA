@@ -400,7 +400,7 @@ cta_strategy/
   空头交割腿孤立保证金最坏逆向 **+80.4%**（牛冲）、5/28 轮 >49%、安全杠杆仅 1.24×，须 cross-margin
   占满资本→资本回报压回无风险下；且肥基差与大保证金摆动同向（corr +0.43）。**唯一完美工作的是
   edge 机制本身（强制收敛 28/28 = 100%，B4 过）——机制可靠 ≠ 有肉**。判定：加密版固收，天花板在
-  无风险利率附近，不值得双腿工程。[`reports/basis_arbitrage_feasibility_20260615/`]
+  无风险利率附近，不值得双腿工程。[`research/_closed/basis/basis_arbitrage/reports/basis_arbitrage_feasibility_20260615/`]
 - **"大规模因子"路线零成本前置门——规模不带来可交易 edge，不立项（2026-06-28）**：免费
   Binance Vision 100 币日线（2022-07→2026-05，3.9yr，幸存者集合，top-K-by-vol 全历史平衡面板）
   测"把横截面三因子从 22 币扩到 100 币 alpha 是否随规模改善"。先装**噪声标定**（per-coin
@@ -416,7 +416,7 @@ cta_strategy/
   价差证据揭示，全程透明、未事后改门，方向偏保守非复活）。机构数据门槛勘察：survivor-free
   起步 Tardis ~$1–6k、机构级 Kaiko/CoinMetrics ~$10–55k/yr，判死→省下订阅 + 大工程。
   教训：**IC 基的流动性伪装门(G2)太弱须配可交易价差分层门；规模只改善毛 IC 不改善可交易
-  alpha；反转未逃右偏延续只是迁到不可交易的小币。** [`reports/factor_scale_feasibility_20260628/`]
+  alpha；反转未逃右偏延续只是迁到不可交易的小币。** [`research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/`]
 - **订单流耗尽（order-flow exhaustion）MR——前置判决性测试不过，微观结构/订单流类 MR 方向探明、
   按用户预承诺不再考虑（2026-06-28）**：项目首个机制上真正新颖的 MR——不赌"价格回归均值"，
   赌"大单冲击耗尽一侧流动性后价格从真空回弹（冲击消散）"，本应**逃出延续主导死因**。用逐笔
@@ -429,7 +429,7 @@ cta_strategy/
   扣 10bps taker 后**全延迟 net ≈ −9.8bps**——比"HFT 抢跑吃掉"更彻底：逐笔价格上根本没有可收割的
   瞬态回弹。σ∈{3,4,5} 不改变结论。**至此右偏延续结构从 4h bar 一路证到 100ms tick**：项目所有
   回归路线（单序列 5m/15m–4h + funding + 横截面 carry + 配对协整 + 订单流耗尽）同死于此一结构事实，
-  强证其为**结构性、非任何单一时间尺度/信号构造的产物**。[`reports/order_flow_exhaustion_feasibility_20260628/`]
+  强证其为**结构性、非任何单一时间尺度/信号构造的产物**。[`research/_closed/crypto_tick/order_flow_exhaustion/reports/order_flow_exhaustion_feasibility_20260628/`]
 - **Flow 信号 vs 价格信号（B2_4h）趋势捕获对照——flow（原因）不优于价格（结果），用价格即可
   （2026-06-29）**：检验 trend≈∫(flow×impact)dt 中"读被积函数(flow)能否比读积分(price)更早/更好
   捕获右偏延续"。Binance BTC+ETH 1m klines 2020-2026（taker_buy_volume 免费给出 bar 级 taker 失衡，
@@ -444,7 +444,7 @@ cta_strategy/
   **更深的为什么：可收割的趋势是积分后的价格水位，不是 flow 率本身——积分正是把嘈杂 flow 转成
   趋势的操作，故"结果"(price) 反而是更好的信号。** 至此**订单流方向性使用两侧全死**（fade=exhaustion /
   follow=persistence）；右偏延续再获一证（原因也不能比结果更早够到它）。**守边界：判 flow 不如 price
-  ⇒"用价格即可"，未退化为给 B2_4h 加 flow 过滤器（第五次增强=描线）。** [`reports/flow_vs_price_trend_20260628/`]
+  ⇒"用价格即可"，未退化为给 B2_4h 加 flow 过滤器（第五次增强=描线）。** [`research/_closed/crypto_tick/flow_vs_price/reports/flow_vs_price_trend_20260628/`]
 
 ### 已知未验证的假设（明确标注：未验证）
 
@@ -699,7 +699,7 @@ build_research_decision_dossier.py — 研究决策汇总
 - **不再研究趋势跟踪**（V2/V3 全部未通过 gate）<!-- 2026-06-11：该 demo 时代结论已被干净数据方向性证伪——经典趋势原型 15/15 过毛利 gate（筛查级），见 research/_closed/crypto_perp/trend_b2_4h/reports/trend_baseline_20260611/ -->
 - **不再研究跨币种信号**（CSRB/VSVCB/ETC 全部未通过 gate）
 - **不再碰"极端 ATR 单笔 size cap"降 v2B 回撤**（V1 硬截断 15/15 配置 PnL 全部不达标；高 ATR 笔是利润引擎非 DD 元凶，DD 切中率仅 12.5–18.8%；详见 `reports/regime/dyn_v2b_size_cap_v1_20260609/`）
-- 当前研究状态：**永续信号空间已闭环**——"永续(线性)×≤4h×零售 taker×5 币价格+funding"约束盒内，方向式/回归式/波动率式三大类单序列信号机制已全部双样本证否或证明验证不起。**完整地图、五条出路、重启索引见 `reports/perpetual_signal_space_closure_20260613.md`（阶段性收口文档，第一参照）。** 其下：MR-5m 项目已关闭；趋势线已关闭（2026-06-12 资源决策，非证伪，重启条件见 `reports/trend_line_closure_20260612.md`）；已检验未立项候选 = MR 时间尺度结构 / funding 结构 / 15m 突破回调（死因 c）/ 波动率事件（死因 b/增量线+永续线性壁，需期权载体，`research/_closed/crypto_perp/volatility_event/reports/volatility_event_20260613/`）。离盒出路中横截面/相对价值曾是唯一"约束集内、无需新载体/身份"的通顺主线，但其 IC 前置研究（2026-06-13，`research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/`）三因子全灭、**在幸存者样本上即不立项**——横截面方向就此关闭。剩余离盒出路均需改约束盒（期现基差/对冲 funding 需现货数据；做市需 maker 身份+微观结构；期权需新载体），见 `reports/perpetual_signal_space_closure_20260613.md` §5。**其中期现基差已执行前置研究并不立项（2026-06-16）：数据可得但扣费后净基差年化≈无风险、超额≈0，且空头交割腿最坏逆向+80%需 cross-margin，加密版固收薄到不值得双腿工程，见 `reports/basis_arbitrage_feasibility_20260615/` 与上「已验证的核心事实」。**<!-- 2026-06-16 更新：原"期现基差需现货数据"为未测出路，现已测：数据绿灯但无超额，不立项 -->**均值回归家族（单序列价格 + 横截面 carry + 配对价差 + funding 极端）三支/四线全部探明完毕、整体收口（2026-06-13，`research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/`）——回归式信号在永续数据上无一立项。**<!-- 2026-06-11 更新：原"唯一在跑方向：动态仓位（双账号对照实验）"随项目关闭而终止 --><!-- 2026-06-12 更新：原"新阶段为新策略研究"细化——第一条线（趋势）已走完五阶段，以资源决策关闭 -->
+- 当前研究状态：**永续信号空间已闭环**——"永续(线性)×≤4h×零售 taker×5 币价格+funding"约束盒内，方向式/回归式/波动率式三大类单序列信号机制已全部双样本证否或证明验证不起。**完整地图、五条出路、重启索引见 `reports/perpetual_signal_space_closure_20260613.md`（阶段性收口文档，第一参照）。** 其下：MR-5m 项目已关闭；趋势线已关闭（2026-06-12 资源决策，非证伪，重启条件见 `reports/trend_line_closure_20260612.md`）；已检验未立项候选 = MR 时间尺度结构 / funding 结构 / 15m 突破回调（死因 c）/ 波动率事件（死因 b/增量线+永续线性壁，需期权载体，`research/_closed/crypto_perp/volatility_event/reports/volatility_event_20260613/`）。离盒出路中横截面/相对价值曾是唯一"约束集内、无需新载体/身份"的通顺主线，但其 IC 前置研究（2026-06-13，`research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/`）三因子全灭、**在幸存者样本上即不立项**——横截面方向就此关闭。剩余离盒出路均需改约束盒（期现基差/对冲 funding 需现货数据；做市需 maker 身份+微观结构；期权需新载体），见 `reports/perpetual_signal_space_closure_20260613.md` §5。**其中期现基差已执行前置研究并不立项（2026-06-16）：数据可得但扣费后净基差年化≈无风险、超额≈0，且空头交割腿最坏逆向+80%需 cross-margin，加密版固收薄到不值得双腿工程，见 `research/_closed/basis/basis_arbitrage/reports/basis_arbitrage_feasibility_20260615/` 与上「已验证的核心事实」。**<!-- 2026-06-16 更新：原"期现基差需现货数据"为未测出路，现已测：数据绿灯但无超额，不立项 -->**均值回归家族（单序列价格 + 横截面 carry + 配对价差 + funding 极端）三支/四线全部探明完毕、整体收口（2026-06-13，`research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/`）——回归式信号在永续数据上无一立项。**<!-- 2026-06-11 更新：原"唯一在跑方向：动态仓位（双账号对照实验）"随项目关闭而终止 --><!-- 2026-06-12 更新：原"新阶段为新策略研究"细化——第一条线（趋势）已走完五阶段，以资源决策关闭 -->
 
 撤回的说法（曾被采信，已被 OOS 推翻）：
 - ~~"ATR filter 是 −72% Max DD 风控机制"~~ —— in-sample artifact，OOS 不复现，已撤回（`reports/regime/atr_filter_oos_validation_20260609/`）。

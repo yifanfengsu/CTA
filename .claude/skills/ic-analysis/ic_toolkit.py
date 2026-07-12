@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ic-analysis skill — 横截面 IC / 分层 / 可交易价差工具（可独立 import）。
 
-提炼自 scripts/research_factor_scale.py（reports/factor_scale_feasibility_20260628/，
+提炼自 scripts/research_factor_scale.py（research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/，
 原文件未修改）。
 
 核心纪律（SKILL.md 详述）：
