@@ -121,3 +121,16 @@ MR-5m 已关闭。当前任务：基于 `database_mainnet.db` 的新策略研究
 - 外科手术式——原句修订 + 必要注释。
 - 不新增长篇内容（避免文档臃肿）；不"顺手"修无关错误。
 - 单次研究典型改动 **< 30 行**，不应大幅改写文档。
+
+## 结构导航（2026-07 重构）
+
+- **新研究一律走流水线**：`.claude/skills/PIPELINE.md`（策略的一生九站装配图，
+  含死因库与闭环）。到站必用对应 skill（`.claude/skills/` 下 8 个：
+  preregistration / noise-calibration / multiple-testing / cointegration /
+  bootstrap-inference / ic-analysis / honest-verdict / audit-independent，
+  各含四段式 SKILL.md + 经冒烟自检的配套代码/模板）。
+- **四域宪法**：`data_engineering/CLAUDE.md`（数据域）、`research/CLAUDE.md`
+  （研究域）、`audit/CLAUDE.md`（审计域）；forward 域规则暂立于
+  `docs/AGENTS.md` §2（待第二批迁移落地为 forward/CLAUDE.md）。
+- **docs/ 活文档**：`docs/METHODOLOGY.md`（方法论总纲——skills 的"为什么"层）、
+  `docs/STRATEGY_CODEX.md`（策略代号图例）、`docs/AGENTS.md`（域分工与任务路由）。
