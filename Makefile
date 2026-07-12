@@ -251,7 +251,7 @@ env:
 
 doctor:
 	@echo "Running local environment doctor"
-	$(PYTHON) scripts/doctor.py
+	$(PYTHON) core/db/doctor.py
 
 inspect-okx:
 	@echo "Inspecting local OKX gateway fields without connecting"
@@ -1091,7 +1091,7 @@ ablation:
 
 test:
 	@echo "Running unittest discovery"
-	$(PYTHON) -m unittest discover -s tests -p "test_*.py"
+	$(PYTHON) -m unittest discover -s tests -t . -p "test_*.py"
 
 test-one:
 	@if [[ -z "$(strip $(TEST))" ]]; then \

@@ -3,9 +3,16 @@
 
 from __future__ import annotations
 
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Iterable
+
+# 2026-07 重构：本模块自 scripts/ 迁入 core/data_io/；其依赖 common_runtime /
+# history_time_utils 的真身仍冻结于 scripts/（前向 import 闭包），故注入路径。
+_SCRIPTS_DIR = str(Path(__file__).resolve().parents[2] / "scripts")
+if _SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, _SCRIPTS_DIR)
 
 from common_runtime import PROJECT_ROOT
 from history_time_utils import (
