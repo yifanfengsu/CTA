@@ -37,7 +37,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次3：迁入 data_engineering/scripts/，深度 1→2
 FUNDING_DIR = PROJECT_ROOT / "data" / "funding" / "okx"
 OUT = PROJECT_ROOT / "reports/regime/data_trust_closure_20260611"
 REFETCH_DIR = OUT / "funding_refetch"
@@ -69,7 +69,8 @@ def fetch(url: str, tries: int = 4) -> bytes:
 def code_audit() -> dict:
     out = {}
     for script in ("download_okx_funding_history.py", "download_okx_historical_funding_files.py"):
-        src = (PROJECT_ROOT / "scripts" / script).read_text()
+        # 2026-07 重构批次3：下载脚本迁入 data_engineering/scripts/
+        src = (PROJECT_ROOT / "data_engineering" / "scripts" / script).read_text()
         out[script] = {
             "simulated_header_hits": len(re.findall(r"x-simulated-trading", src, re.I)),
             "okx_server_env_hits": len(re.findall(r"OKX_SERVER", src)),
@@ -210,7 +211,7 @@ def main() -> int:
     result["backfill_manifest"] = {
         "source": "okx-public-rest", "server": "MAINNET",
         "endpoint": API_URL,
-        "script": "scripts/download_okx_funding_history.py (existing, audited above)",
+        "script": "data_engineering/scripts/download_okx_funding_history.py (existing, audited above)",
         "range": ["2026-04-01", "2026-06-11"],
         "files": [f"data/funding/okx/{i}{NEW_SUFFIX}" for i in INSTS],
     }

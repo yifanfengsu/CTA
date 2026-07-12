@@ -416,8 +416,9 @@ def inspect_makefile(makefile_path: Path) -> dict[str, Any]:
 def inspect_source_capabilities(project_root: Path) -> dict[str, Any]:
     """Inspect current script surfaces without executing trading or downloads."""
 
-    download_text = (project_root / "scripts" / "download_okx_history.py").read_text(encoding="utf-8")
-    verify_text = (project_root / "scripts" / "verify_okx_history.py").read_text(encoding="utf-8")
+    # 2026-07 重构批次3：download/verify 脚本迁入 data_engineering/scripts/
+    download_text = (project_root / "data_engineering" / "scripts" / "download_okx_history.py").read_text(encoding="utf-8")
+    verify_text = (project_root / "data_engineering" / "scripts" / "verify_okx_history.py").read_text(encoding="utf-8")
     trend_text = (project_root / "scripts" / "research_trend_following_v2.py").read_text(encoding="utf-8")
     makefile_text = (project_root / "Makefile").read_text(encoding="utf-8") if (project_root / "Makefile").exists() else ""
     tests_text = "\n".join(

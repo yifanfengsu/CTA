@@ -61,9 +61,9 @@ def write_makefile(path: Path, *, batch_targets: bool = True) -> None:
             [
                 ".PHONY: download-history-batch verify-history-batch\n",
                 "download-history-batch:\n",
-                "\t.venv/bin/python scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL\n",
+                "\t.venv/bin/python data_engineering/scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL\n",
                 "verify-history-batch:\n",
-                "\t.venv/bin/python scripts/verify_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL\n",
+                "\t.venv/bin/python data_engineering/scripts/verify_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL\n",
             ]
         )
     path.write_text("".join(lines), encoding="utf-8")

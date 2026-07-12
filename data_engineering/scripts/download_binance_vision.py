@@ -33,7 +33,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次3：迁入 data_engineering/scripts/，深度 1→2
 OUT_ROOT = PROJECT_ROOT / "data" / "binance_vision"
 BASE_ROOT = "https://data.binance.vision/data/futures/um/monthly"
 BASE = f"{BASE_ROOT}/klines"

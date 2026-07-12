@@ -12,7 +12,7 @@ raise SystemExit(
     "Use download_mainnet_history.py instead."
 )
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次3：迁入 data_engineering/scripts/，深度 1→2
 sys.path.insert(0, str(PROJECT_ROOT))
 load_dotenv(PROJECT_ROOT / ".env")
 

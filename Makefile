@@ -255,15 +255,15 @@ doctor:
 
 inspect-okx:
 	@echo "Inspecting local OKX gateway fields without connecting"
-	$(PYTHON) scripts/inspect_okx_gateway.py
+	$(PYTHON) data_engineering/scripts/inspect_okx_gateway.py
 
 check-okx:
 	@echo "Checking OKX connectivity for $(VT_SYMBOL) on $(SERVER)"
-	$(PYTHON) scripts/check_okx_connection.py --vt-symbol "$(VT_SYMBOL)" --server "$(SERVER)" --timeout 30
+	$(PYTHON) data_engineering/scripts/check_okx_connection.py --vt-symbol "$(VT_SYMBOL)" --server "$(SERVER)" --timeout 30
 
 download-history-dry-run:
 	@echo "Planning history download without contacting OKX or writing bars"
-	$(PYTHON) scripts/download_okx_history.py \
+	$(PYTHON) data_engineering/scripts/download_okx_history.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--interval "$(INTERVAL)" \
 		--start "$(START)" \
@@ -277,7 +277,7 @@ download-history-dry-run:
 
 download-history:
 	@echo "Downloading OKX history into local vn.py sqlite database"
-	$(PYTHON) scripts/download_okx_history.py \
+	$(PYTHON) data_engineering/scripts/download_okx_history.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--interval "$(INTERVAL)" \
 		--start "$(START)" \
@@ -295,7 +295,7 @@ download-history:
 
 repair-history:
 	@echo "Repairing missing OKX history ranges in local sqlite database"
-	$(PYTHON) scripts/download_okx_history.py \
+	$(PYTHON) data_engineering/scripts/download_okx_history.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--interval "$(INTERVAL)" \
 		--start "$(START)" \
@@ -315,7 +315,7 @@ repair-history:
 verify-history:
 	@echo "Verifying local sqlite history coverage"
 	@mkdir -p reports
-	$(PYTHON) scripts/verify_okx_history.py \
+	$(PYTHON) data_engineering/scripts/verify_okx_history.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--interval "$(INTERVAL)" \
 		--start "$(START)" \
@@ -326,14 +326,14 @@ verify-history:
 
 refresh-okx-metadata-dry-run:
 	@echo "Refreshing OKX instrument metadata report without writing config files"
-	$(PYTHON) scripts/refresh_okx_instrument_metadata.py \
+	$(PYTHON) data_engineering/scripts/refresh_okx_instrument_metadata.py \
 		--inst-ids "$(INST_IDS)" \
 		--server "$(SERVER)" \
 		--dry-run
 
 refresh-okx-metadata:
 	@echo "Refreshing OKX instrument metadata into config/instruments"
-	$(PYTHON) scripts/refresh_okx_instrument_metadata.py \
+	$(PYTHON) data_engineering/scripts/refresh_okx_instrument_metadata.py \
 		--inst-ids "$(INST_IDS)" \
 		--server "$(SERVER)" \
 		--write
@@ -341,7 +341,7 @@ refresh-okx-metadata:
 download-history-batch-dry-run:
 	@for symbol in $(SYMBOLS); do \
 		echo "Planning history download for $$symbol"; \
-		$(PYTHON) scripts/download_okx_history.py \
+		$(PYTHON) data_engineering/scripts/download_okx_history.py \
 			--vt-symbol "$$symbol" \
 			--interval "$(INTERVAL)" \
 			--start "$(START)" \
@@ -357,7 +357,7 @@ download-history-batch-dry-run:
 download-history-batch:
 	@for symbol in $(SYMBOLS); do \
 		echo "Downloading history for $$symbol"; \
-		$(PYTHON) scripts/download_okx_history.py \
+		$(PYTHON) data_engineering/scripts/download_okx_history.py \
 			--vt-symbol "$$symbol" \
 			--interval "$(INTERVAL)" \
 			--start "$(START)" \
@@ -378,7 +378,7 @@ verify-history-batch:
 		safe_symbol="$${symbol//./_}"; \
 		safe_symbol="$${safe_symbol//\//_}"; \
 		echo "Verifying history for $$symbol"; \
-		$(PYTHON) scripts/verify_okx_history.py \
+		$(PYTHON) data_engineering/scripts/verify_okx_history.py \
 			--vt-symbol "$$symbol" \
 			--interval "$(INTERVAL)" \
 			--start "$(START)" \
@@ -390,7 +390,7 @@ verify-history-batch:
 
 download-funding-dry-run:
 	@echo "Planning OKX public funding history download without writing funding CSVs"
-	$(PYTHON) scripts/download_okx_funding_history.py \
+	$(PYTHON) data_engineering/scripts/download_okx_funding_history.py \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -401,7 +401,7 @@ download-funding-dry-run:
 
 download-funding:
 	@echo "Downloading OKX public funding history"
-	$(PYTHON) scripts/download_okx_funding_history.py \
+	$(PYTHON) data_engineering/scripts/download_okx_funding_history.py \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -413,7 +413,7 @@ download-funding:
 
 verify-funding:
 	@echo "Verifying OKX funding history coverage"
-	$(PYTHON) scripts/verify_okx_funding_history.py \
+	$(PYTHON) data_engineering/scripts/verify_okx_funding_history.py \
 		--funding-dir "$(FUNDING_OUTPUT_DIR)" \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
@@ -423,7 +423,7 @@ verify-funding:
 
 verify-funding-allow-partial:
 	@echo "Verifying OKX funding history coverage; partial data is allowed only for audit/reporting"
-	$(PYTHON) scripts/verify_okx_funding_history.py \
+	$(PYTHON) data_engineering/scripts/verify_okx_funding_history.py \
 		--funding-dir "$(FUNDING_OUTPUT_DIR)" \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
@@ -442,7 +442,7 @@ import-funding-csv:
 		exit 2; \
 	fi
 	@echo "Importing manually downloaded OKX funding CSV"
-	@args=(scripts/import_okx_funding_csv.py \
+	@args=(data_engineering/scripts/import_okx_funding_csv.py \
 		--inst-id "$${INST_ID}" \
 		--output-dir "$(FUNDING_OUTPUT_DIR)" \
 		--reports-dir "$(FUNDING_REPORTS_DIR)" \
@@ -457,7 +457,7 @@ import-funding-csv:
 
 probe-funding-source:
 	@echo "Probing OKX historical market data funding source"
-	$(PYTHON) scripts/probe_okx_historical_market_data.py \
+	$(PYTHON) data_engineering/scripts/probe_okx_historical_market_data.py \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -465,7 +465,7 @@ probe-funding-source:
 
 download-funding-historical-dry-run:
 	@echo "Planning OKX historical funding file download"
-	$(PYTHON) scripts/download_okx_historical_funding_files.py \
+	$(PYTHON) data_engineering/scripts/download_okx_historical_funding_files.py \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -473,7 +473,7 @@ download-funding-historical-dry-run:
 
 download-funding-historical:
 	@echo "Downloading OKX historical funding files"
-	$(PYTHON) scripts/download_okx_historical_funding_files.py \
+	$(PYTHON) data_engineering/scripts/download_okx_historical_funding_files.py \
 		--inst-ids "$(INST_IDS)" \
 		--start "$(START)" \
 		--end "$(END)"

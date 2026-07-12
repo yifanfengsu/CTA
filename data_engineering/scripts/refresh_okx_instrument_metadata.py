@@ -15,7 +15,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次3：迁入 data_engineering/scripts/，深度 1→2
 DEFAULT_CONFIG_DIR = PROJECT_ROOT / "config" / "instruments"
 DEFAULT_OUTPUT_JSON = (
     PROJECT_ROOT

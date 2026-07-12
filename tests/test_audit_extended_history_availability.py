@@ -273,7 +273,7 @@ class AuditExtendedHistoryAvailabilityTest(unittest.TestCase):
             payload = self.run_temp_audit(root, database_path=db_path)
             command = payload["missing_ranges"][0]["suggested_download_command"]
 
-        self.assertIn("python scripts/download_okx_history.py", command)
+        self.assertIn("python data_engineering/scripts/download_okx_history.py", command)
         self.assertIn("--vt-symbol BTCUSDT_SWAP_OKX.GLOBAL", command)
         self.assertIn("--start 2025-01-01", command)
         self.assertIn("--end 2025-01-01", command)

@@ -300,7 +300,7 @@ def build_suggested_download_command(
     """Build a non-executing command suggestion for one missing range."""
 
     return (
-        "python scripts/download_okx_history.py "
+        "python data_engineering/scripts/download_okx_history.py "
         f"--vt-symbol {vt_symbol} "
         f"--interval {interval} "
         f"--start {command_date(start_dt)} "

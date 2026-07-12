@@ -24,7 +24,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # 2026-07 重构批次3：迁入 data_engineering/scripts/，深度 1→2
 DB_PATH = PROJECT_ROOT / ".vntrader" / "database_mainnet.db"
 LEGACY_DB_PATH = PROJECT_ROOT / ".vntrader" / "database.db"  # never opened here
 MANIFEST_DIR = PROJECT_ROOT / "reports/regime/mainnet_rebuild_20260610/download_manifests"

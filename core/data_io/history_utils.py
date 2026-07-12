@@ -218,7 +218,7 @@ def build_repair_command(
     """Build the recommended repair command."""
 
     return (
-        "python scripts/download_okx_history.py "
+        "python data_engineering/scripts/download_okx_history.py "
         f"--vt-symbol {vt_symbol} "
         f"--interval {interval_value} "
         f"--start {start} "

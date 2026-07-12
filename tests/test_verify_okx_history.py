@@ -146,7 +146,7 @@ class VerifyOkxHistoryTest(unittest.TestCase):
 
     def test_backtest_preflight_blocks_load_data_and_surfaces_repair_command(self) -> None:
         repair_command = (
-            "python scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL "
+            "python data_engineering/scripts/download_okx_history.py --vt-symbol BTCUSDT_SWAP_OKX.GLOBAL "
             "--interval 1m --start 2025-01-01 --end 2025-01-03 "
             "--chunk-days 3 --timezone Asia/Shanghai --resume --repair-missing --source auto"
         )
