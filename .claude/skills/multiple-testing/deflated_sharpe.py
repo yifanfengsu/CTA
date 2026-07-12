@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """multiple-testing skill — Deflated Sharpe / N 三口径 / 验证周期 / FDR（可独立 import）。
 
-提炼自 scripts/research_deflated_sharpe.py（reports/trend_methodology_hardening_20260622/，
+提炼自 scripts/research_deflated_sharpe.py（research/_closed/_synthesis/trend_methodology_hardening_20260622/，
 原文件未修改）。DSR 按 Bailey & López de Prado (2014) 原文实现，无自创变体。
 
 全部 Sharpe 计算在 DAILY 单位；年化 = 日 Sharpe × √periods_per_year（加密 365）。
@@ -11,7 +11,7 @@
     N > 1  ⇒  SR*₀ ≥ 0  ⇒  deflated Sharpe ≤ 观测 Sharpe。
 
 自检：python deflated_sharpe.py
-  复现 reports/trend_methodology_hardening_20260622/README.md 的 B2_4h 手验明细：
+  复现 research/_closed/_synthesis/trend_methodology_hardening_20260622/README.md 的 B2_4h 手验明细：
   Var(SR_d)=1.313e-4, N_eff=2.354 → SR*₀_ann≈0.145, deflated_ann≈0.510, DSR≈0.826。
 """
 from __future__ import annotations

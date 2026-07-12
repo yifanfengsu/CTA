@@ -25,7 +25,7 @@ Sharpe/日收益序列）+ 第 4 站的 bootstrap SE。
   "best-of-N"选出来的那个。原"15 年验证周期"用组合 Sharpe 0.5 + iid + 未打折，
   数值碰巧落在合理区间但方法是错的；诚实重算：deflated 0.510（有效 N 2.35）/
   0.267（名义 15）/ 0.162（扩展 ≥47），周期 14/51/138 年
-  （出处：`reports/trend_methodology_hardening_20260622/` Q2–Q4）。
+  （出处：`research/_closed/_synthesis/trend_methodology_hardening_20260622/` Q2–Q4）。
 - **双样本当打折用**：双样本答"另一样本是否成立"，打折答"选择偏差抬高了多少"，
   **互不可替代**（铁律 B 原文；B2_4h 双周期 Binance 复测缓解但不消除选择偏差，
   因 gate 体系在 OKX 上成形）。
@@ -79,5 +79,5 @@ Sharpe/日收益序列）+ 第 4 站的 bootstrap SE。
 ## 素材出处
 
 - `scripts/research_deflated_sharpe.py`（DSR/ENB/stationary bootstrap/验证周期全实现 + 预注册 docstring）
-- `reports/trend_methodology_hardening_20260622/README.md`（N 三口径、DSR 手验明细、Q4 验证周期分解、Q7 观察）
+- `research/_closed/_synthesis/trend_methodology_hardening_20260622/README.md`（N 三口径、DSR 手验明细、Q4 验证周期分解、Q7 观察）
 - CLAUDE.md 铁律 B

@@ -22,13 +22,13 @@ trial-ledger 终版（含中途新增配置）→ 交第 6 站 `multiple-testing
 **不用会犯什么错（真实案例）**：
 - **V1→V1′ 事后移动球门**：预注册集中度 gate V1 判死 15/15 后，重定义 gate 为 V1′
   复活 5 个幸存者。无论 V1′ 机制论证多有道理，这是**程序污点而非自我修正**，幸存
-  证据等级永久降低（出处：`reports/trend_methodology_hardening_20260622/` Q6①）。
+  证据等级永久降低（出处：`research/_closed/_synthesis/trend_methodology_hardening_20260622/` Q6①）。
 - **15 配置 Sharpe 未落盘**：趋势基线当年只存了净利/PF，没存 15 配置的 Sharpe 与
   日收益序列——两年后做 DSR 打折时 Var(SR) 这个硬前提缺失，被迫用冻结引擎全量重算
   （字节级保真校验后才敢用）。trial-ledger 的"可还原性"要求即由此而来
   （出处：同上 Q0）。
 - **差 0.023 不放宽**：1.5× DD gate 差 0.023 未放宽 → 顺藤摸出整条数据污染事故链。
-  预注册的价值恰恰在"想放宽的那一刻"（出处：`reports/MR5M_postmortem.md` §8）。
+  预注册的价值恰恰在"想放宽的那一刻"（出处：`research/_closed/_synthesis/MR5M_postmortem.md` §8）。
 
 ## 2. 怎么用
 
@@ -65,7 +65,7 @@ trial-ledger 终版（含中途新增配置）→ 交第 6 站 `multiple-testing
 ## 素材出处
 
 - `research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageB_premium_truth_20260628/PREREGISTRATION.md`（成熟范式全文）
-- `reports/trend_methodology_hardening_20260622/README.md`（V1′ 定性 + Q0 Sharpe 未存教训 + 铁律 A/B 全文）
+- `research/_closed/_synthesis/trend_methodology_hardening_20260622/README.md`（V1′ 定性 + Q0 Sharpe 未存教训 + 铁律 A/B 全文）
 - `research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/README.md`（字面 gate 与综合判定分歧的透明处理）
-- `reports/MR5M_postmortem.md` §8（gate 不可事后修改条款）
+- `research/_closed/_synthesis/MR5M_postmortem.md` §8（gate 不可事后修改条款）
 - CLAUDE.md 铁律 A

@@ -26,7 +26,7 @@ OKX 永续合约（+ Deribit 期权 / 期现）系统化策略研究，vnpy head
 1. 读 `CLAUDE.md`（铁律）→ `docs/PROJECT_GUIDE.md`（认知现状）→ `docs/METHODOLOGY.md`。
 2. 环境自举：`docs/BOOTSTRAP.md`；健康检查 `make doctor`，测试 `make test`。
 3. 新研究开题：一律走 `.claude/skills/PIPELINE.md` 流水线，先过
-   MR5M 复盘（`reports/MR5M_postmortem.md`）第 8 节检查清单。
+   MR5M 复盘（`research/_closed/_synthesis/MR5M_postmortem.md`）第 8 节检查清单。
 
 ## 数据环境（最高优先级）
 

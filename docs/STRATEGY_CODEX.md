@@ -8,7 +8,7 @@
 
 | 代号 | 全称/定义 | 状态 | 关键数字 | 出处 |
 |---|---|---|---|---|
-| **MR-5m** | 5m fade Donchian 均值回归（BTC/ETH/SOL/LINK/DOGE，LB=24/ATR14 Wilder/1.0×ATR 止损/midline 止盈） | **CLOSED**（mainnet 无 edge） | mainnet 全期 PF 0.81–0.85、毛利≈0；demo PF 2.06 系数据假象 | `reports/MR5M_postmortem.md` |
+| **MR-5m** | 5m fade Donchian 均值回归（BTC/ETH/SOL/LINK/DOGE，LB=24/ATR14 Wilder/1.0×ATR 止损/midline 止盈） | **CLOSED**（mainnet 无 edge） | mainnet 全期 PF 0.81–0.85、毛利≈0；demo PF 2.06 系数据假象 | `research/_closed/_synthesis/MR5M_postmortem.md` |
 | **MR-v1** | MR-5m 的 vnpy 策略化版本（含 chandelier/filter/midline 变体） | 归档（随 MR-5m） | — | `reports/research/mr_v1*/` |
 
 ## 趋势线（资源关闭，B2_4h 前向观察中）
@@ -17,10 +17,10 @@
 
 | 代号 | 全称/定义 | 状态 | 关键数字 | 出处 |
 |---|---|---|---|---|
-| **B2_4h** | 4h EMA20/100 金死叉，always-in long/short，5 币各 $10k 名义 | **资源关闭（非证伪）+ 前向观察中**（VPS，零成本 sim） | 冻结净利 OKX $68,194.82 / Binance $300,752.78（含 funding，审计 PASS）；Sharpe 0.655 → deflated 0.510/0.267/0.162；验证周期 14/51/138 年 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_dualcycle_20260611/`、`trend_methodology_hardening_20260622/`、`research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_pnl_audit_20260628/`、`forward/` |
+| **B2_4h** | 4h EMA20/100 金死叉，always-in long/short，5 币各 $10k 名义 | **资源关闭（非证伪）+ 前向观察中**（VPS，零成本 sim） | 冻结净利 OKX $68,194.82 / Binance $300,752.78（含 funding，审计 PASS）；Sharpe 0.655 → deflated 0.510/0.267/0.162；验证周期 14/51/138 年 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_dualcycle_20260611/`、`research/_closed/_synthesis/trend_methodology_hardening_20260622/`、`research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_pnl_audit_20260628/`、`forward/` |
 | **D2** | B2_4h 同信号的 long/flat 版（D 族=方向变体，非 15 基线之内） | DUAL-VALIDATED\* 后随线关闭 | 2021 牛市捕获 58%/74%；无 short 腿 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_dualcycle_20260611/` |
 | **B1_4h / C1_4h / C2_4h / C2_1d …** | 其余基线幸存者（EMA10/50、TSMOM 变体等） | 随线关闭 | 15 配置 Sharpe 表见方法论加固报告 Q0 | `research/_closed/crypto_perp/trend_b2_4h/reports/trend_baseline_20260611/` |
-| **V1 / V1′** | 趋势验证 r1 的单笔集中度 gate / 其事后重定义版 | V1′ = **程序污点**（事后移动球门），幸存证据等级降低 | V1 通杀 15/15；V1′ 复活 5 | `reports/trend_methodology_hardening_20260622/` Q6① |
+| **V1 / V1′** | 趋势验证 r1 的单笔集中度 gate / 其事后重定义版 | V1′ = **程序污点**（事后移动球门），幸存证据等级降低 | V1 通杀 15/15；V1′ 复活 5 | `research/_closed/_synthesis/trend_methodology_hardening_20260622/` Q6① |
 | **B2_4h-VT** | B2_4h 的 vol-targeting 风控变体（仓位∝1/σ，EWMA hl=48bars） | **NOT ADOPTED** | 双样本相反：DD −12% 仅 Binance、收益 +40% 仅 OKX（描线）；Binance top1% 捕获 0.60 | `research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/` |
 | **K1/K2/K3, U1/U2** | 前向系统预注册 KILL/UPGRADE gate | 冻结运行中 | K1 roll12 净<$1,296 / K2 maxDD>$32,483 / K3 7d 心跳 | `forward/gates_preregistered.md` |
 

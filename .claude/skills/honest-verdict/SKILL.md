@@ -81,6 +81,6 @@ description: 生死判决哲学——双重门（edge∧尾部生存）、左偏
 - `research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/README.md`（右尾捕获双层诊断、Sharpe 双升仍否决、敞口归一模板）
 - `research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageA_data_20260628/README.md`（左偏 mean 门元教训、剔尾敏感性表）
 - `research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageB_premium_truth_20260628/`（双重门、gate 0 方向核对、前瞻情景三件套、剥方向≠剥尾）
-- `reports/trend_methodology_hardening_20260622/README.md`（铁律 C 全文、措辞纪律、Sortino 并列画像）
-- `reports/PROJECT_FINAL_SUMMARY_20260614.md` §4（陷阱反面模式库）
+- `research/_closed/_synthesis/trend_methodology_hardening_20260622/README.md`（铁律 C 全文、措辞纪律、Sortino 并列画像）
+- `research/_closed/_synthesis/PROJECT_FINAL_SUMMARY_20260614.md` §4（陷阱反面模式库）
 - CLAUDE.md 铁律 C + 工作原则（判死判活同标准、资源关闭≠证伪）

@@ -5,7 +5,7 @@
 ## 为什么有这个文件
 
 2026-06 确认：旧库（原 `.vntrader/database.db`）是 OKX DEMO 模拟盘行情，13 个月研究
-全部建立在污染数据上（完整复盘：`reports/MR5M_postmortem.md`；修补记录：
+全部建立在污染数据上（完整复盘：`research/_closed/_synthesis/MR5M_postmortem.md`；修补记录：
 `reports/regime/vulnerability_patch_20260611/`）。该库已改名为
 **`.vntrader/database_DEMO_CONTAMINATED.db`**，仅作取证/对比基准，严禁用于回测或研究。
 

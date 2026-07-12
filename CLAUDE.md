@@ -3,7 +3,7 @@
 ## 项目
 OKX 永续合约 CTA 策略研究，vnpy 框架。
 **MR-5m 项目已关闭**（2026-06-11，mainnet 重验确认真实数据上无 edge，
-test PF 0.826 / 毛利≈0，详见 `reports/MR5M_postmortem.md`）。
+test PF 0.826 / 毛利≈0，详见 `research/_closed/_synthesis/MR5M_postmortem.md`）。
 **当前阶段：基于 `database_mainnet.db` 干净数据的新策略研究。**
 - `scripts/run_mr_5m_direct.py`：MR-5m 实盘脚本，**已关停归档**。保留为工程参考
   （IOC 下单 / force_close / bills 对账等执行栈经实战验证），仍不随意修改。
@@ -27,7 +27,7 @@ test PF 0.826 / 毛利≈0，详见 `reports/MR5M_postmortem.md`）。
   `server` 字段、新数据与外部独立源抽样交叉验证（≥3 随机日逐 bar）后才可用于研究。
 - `.env` 的 `OKX_SERVER` **不得被任何数据下载脚本隐式继承**；数据环境必须显式
   命令行指定（本次事故根因即隐式继承，见复盘第 3 节）。
-- 新研究启动门槛：`reports/MR5M_postmortem.md` 第 8 节检查清单**逐项过一遍**。
+- 新研究启动门槛：`research/_closed/_synthesis/MR5M_postmortem.md` 第 8 节检查清单**逐项过一遍**。
 
 ## 回测引擎（保真复刻实盘）
 - `scripts/backtest_mr_5m_compare.py` — 多币种/多方案对比引擎，费用/成交/指标口径与实盘 1:1：
@@ -40,7 +40,7 @@ test PF 0.826 / 毛利≈0，详见 `reports/MR5M_postmortem.md`）。
 > ⚠️ 以下结论（含全部"死胡同"清单：exit 优化全败 / 熔断器 74 配置全败 /
 > 趋势跟踪 10+ 族全败 / 过滤器 36 组合全败）**基于已确认污染的 DEMO 数据得出，
 > 在 mainnet 干净数据上的有效性未知，不再作为新研究的硬边界**。保留原文仅作
-> 历史记录与"待重验假设"的索引。详见 `reports/MR5M_postmortem.md` 第 7 节。
+> 历史记录与"待重验假设"的索引。详见 `research/_closed/_synthesis/MR5M_postmortem.md` 第 7 节。
 1. **保留全部 5 币种（方案A），DOGE 不剔除。** 移除 DOGE 抹掉 ~$78k 历史利润而 PF 几乎不变
    (1.68→1.69)。DOGE 全周期 PF 1.67（第二强），近年走强。实盘单周亏损是噪声，不可据此决策。
 2. **2024 是全市场 MR 逆风年**（所有币种该年 PF 最弱），非个别币种问题。
@@ -69,13 +69,13 @@ MR-5m 已关闭。当前任务：基于 `database_mainnet.db` 的新策略研究
 - 任何新策略线开题时必须估算验证周期（基于预期信号频率与 edge 强度估算统计判别
   所需样本长度），并确认其与可接受的资源配置匹配后才立项。验证周期超出可接受
   范围的方向，无论形态多有吸引力，不立项。（来源：趋势线关闭教训，
-  `reports/trend_line_closure_20260612.md`）
+  `research/_closed/_synthesis/trend_line_closure_20260612.md`）
 - **（铁律A）gate 事后改门根治**：涉及剔除/筛选/过滤的 gate（如集中度检验），其
   数值阈值 + "尾部交易须跨 ≥K 币、双样本均复现"这类结构要求，必须看结果前写死。
   预注册 gate 判死后，**不得通过重定义它复活死者**；要复活只能靠另一个事先写好的、
   不同的 gate。（根治 trend_validation_r2 的 V1→V1′ 事后移动球门：V1′ 系预注册 V1
   判死 15/15 后改门复活 5 幸存者，是程序污点而非"自我修正"，幸存证据等级因此降低。
-  来源：趋势研究方法论评价 2026-06-22，`reports/trend_methodology_hardening_20260622/`）
+  来源：趋势研究方法论评价 2026-06-22，`research/_closed/_synthesis/trend_methodology_hardening_20260622/`）
 - **（铁律B）多重检验打折，立项算术前置**："从 N 配置选最优"的研究，报告必须含：
   搜索配置数 N（名义 N + 因试验相关折算的有效 N）+ deflated Sharpe。验证周期用
   打折后 Sharpe 且从对自相关诚实的 bootstrap SE 反推，不用幸存者 Sharpe、不用 iid
