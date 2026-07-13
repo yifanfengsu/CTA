@@ -122,15 +122,30 @@ MR-5m 已关闭。当前任务：基于 `database_mainnet.db` 的新策略研究
 - 不新增长篇内容（避免文档臃肿）；不"顺手"修无关错误。
 - 单次研究典型改动 **< 30 行**，不应大幅改写文档。
 
-## 结构导航（2026-07 重构）
+## 结构导航（2026-07 重构，步骤2 已完成）
 
 - **新研究一律走流水线**：`.claude/skills/PIPELINE.md`（策略的一生九站装配图，
   含死因库与闭环）。到站必用对应 skill（`.claude/skills/` 下 8 个：
   preregistration / noise-calibration / multiple-testing / cointegration /
   bootstrap-inference / ic-analysis / honest-verdict / audit-independent，
   各含四段式 SKILL.md + 经冒烟自检的配套代码/模板）。
-- **四域宪法**：`data_engineering/CLAUDE.md`（数据域）、`research/CLAUDE.md`
-  （研究域）、`audit/CLAUDE.md`（审计域）；forward 域规则暂立于
-  `docs/AGENTS.md` §2（待第二批迁移落地为 forward/CLAUDE.md）。
-- **docs/ 活文档**：`docs/METHODOLOGY.md`（方法论总纲——skills 的"为什么"层）、
-  `docs/STRATEGY_CODEX.md`（策略代号图例）、`docs/AGENTS.md`（域分工与任务路由）。
+- **四域宪法**：`data_engineering/CLAUDE.md`（数据域，脚本已入
+  `data_engineering/scripts/`）、`research/CLAUDE.md`（研究域，已关线收拢于
+  `research/_closed/<market>/<line>/{scripts,reports}`，跨线综合文档在
+  `research/_closed/_synthesis/`）、`audit/CLAUDE.md`（审计域，脚本已入
+  `audit/scripts/`）；forward 域规则立于 `docs/AGENTS.md` §2
+  （`forward/` 整目录冻结，不落地域内宪法文件以保持零触碰）。
+- **docs/ 活文档**：`docs/PROJECT_GUIDE.md`（当前最佳认知，含"2026-07 新结构"
+  节 = 新目录树 + 旧→新路径速查表）、`docs/METHODOLOGY.md`（方法论总纲——
+  skills 的"为什么"层）、`docs/STRATEGY_CODEX.md`（策略代号图例）、
+  `docs/AGENTS.md`（域分工与任务路由）、`docs/BOOTSTRAP.md`（环境自举）。
+- **共享库**：`core/data_io/`、`core/db/`。⚠️ `common_runtime` 与
+  `history_time_utils` 真身冻结于 `scripts/`（前向 import 闭包），core 侧为
+  re-export 代理——新代码 import core 侧即可。
+- **⚠️ scripts/ = 前向冻结区**（11 个 .py：`forward_b2_4h.py` + 两引擎 +
+  tv/dc/基准引擎/research_mr_5m/common_runtime/history_time_utils/
+  binance_funding/research_okx_vs_binance）。零触碰；与 `forward/`、
+  `.vntrader/`、`data/`、`config/`、`strategies/`、`.env` 同为不可动资产。
+- **_archive/**：mr5m runner、demo 时代脚本（`legacy_scripts/`）与报告
+  （`legacy_reports/`，原 `reports/research/`）——污染惨案历史证据，只增不删。
+- **reports/**：存档区（regime 事故取证链原位保留 + 大宗历史产物 + 盘点报告）。
