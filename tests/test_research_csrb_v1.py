@@ -433,7 +433,7 @@ class ResearchCsrbV1Test(unittest.TestCase):
         text = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("research-csrb-v1:", text)
-        self.assertIn("scripts/research_csrb_v1.py", text)
+        self.assertIn("_archive/legacy_scripts/research_csrb_v1.py", text)
 
 
 if __name__ == "__main__":

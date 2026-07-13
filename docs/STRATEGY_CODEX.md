@@ -9,7 +9,7 @@
 | 代号 | 全称/定义 | 状态 | 关键数字 | 出处 |
 |---|---|---|---|---|
 | **MR-5m** | 5m fade Donchian 均值回归（BTC/ETH/SOL/LINK/DOGE，LB=24/ATR14 Wilder/1.0×ATR 止损/midline 止盈） | **CLOSED**（mainnet 无 edge） | mainnet 全期 PF 0.81–0.85、毛利≈0；demo PF 2.06 系数据假象 | `research/_closed/_synthesis/MR5M_postmortem.md` |
-| **MR-v1** | MR-5m 的 vnpy 策略化版本（含 chandelier/filter/midline 变体） | 归档（随 MR-5m） | — | `reports/research/mr_v1*/` |
+| **MR-v1** | MR-5m 的 vnpy 策略化版本（含 chandelier/filter/midline 变体） | 归档（随 MR-5m） | — | `_archive/legacy_reports/mr_v1*/` |
 
 ## 趋势线（资源关闭，B2_4h 前向观察中）
 
@@ -40,9 +40,9 @@
 
 | 代号 | 全称/定义 | 状态 | 出处 |
 |---|---|---|---|
-| **csrb_v1** | Crypto Session Range Breakout——亚欧美 session 切换的区间突破假设 | demo 时代归档 | `reports/research/csrb_v1/` |
-| **vsvcb_v1** | Volatility-Squeeze Volume-Confirmed Breakout——布林带宽挤压+突破 bar 放量 | demo 时代归档 | `reports/research/vsvcb_v1/` |
-| **mhf** | Adaptive Multi-Horizon CTA（`OkxAdaptiveMhfStrategy`，BTC 单标的） | demo 时代归档 | `strategies/okx_adaptive_mhf_strategy.py`、`reports/research/trend_*` |
+| **csrb_v1** | Crypto Session Range Breakout——亚欧美 session 切换的区间突破假设 | demo 时代归档 | `_archive/legacy_reports/csrb_v1/` |
+| **vsvcb_v1** | Volatility-Squeeze Volume-Confirmed Breakout——布林带宽挤压+突破 bar 放量 | demo 时代归档 | `_archive/legacy_reports/vsvcb_v1/` |
+| **mhf** | Adaptive Multi-Horizon CTA（`OkxAdaptiveMhfStrategy`，BTC 单标的） | demo 时代归档 | `strategies/okx_adaptive_mhf_strategy.py`、`_archive/legacy_reports/trend_*` |
 
 ## 通用口径缩写
 

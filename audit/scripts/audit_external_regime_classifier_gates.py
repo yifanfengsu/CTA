@@ -17,7 +17,12 @@ import sys as _sys
 from pathlib import Path as _Path
 
 _REPO_ROOT = _Path(__file__).resolve().parents[2]
-for _p in (str(_REPO_ROOT / "core" / "data_io"), str(_REPO_ROOT / "scripts")):
+# 批次6 追加：被审对象 research_external_regime_classifier（demo 时代线）已归档
+for _p in (
+    str(_REPO_ROOT / "core" / "data_io"),
+    str(_REPO_ROOT / "scripts"),
+    str(_REPO_ROOT / "_archive" / "legacy_scripts"),
+):
     if _p not in _sys.path:
         _sys.path.insert(0, _p)
 

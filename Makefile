@@ -1,6 +1,17 @@
 SHELL := /usr/bin/env bash
 .SHELLFLAGS := -euo pipefail -c
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 2026-07 重构批次6 说明：
+# - 活跃 target：test / test-one / doctor / check-okx / 数据工程类
+#   （download-*/verify-*/funding/instrument metadata → data_engineering/scripts/）
+#   / 审计类（→ audit/scripts/）。
+# - 指向 _archive/legacy_scripts/ 与 _archive/mr5m_runner/ 的研究/回测/runner
+#   类 target 均为【历史 target】（demo 时代产物，证据基础已失效，保留仅为
+#   可追溯复现）；路径已更新为归档位置，可解析但不建议运行。
+# - 前向系统不经 Makefile（VPS cron 直调 scripts/forward_b2_4h.py，勿加 target）。
+# ─────────────────────────────────────────────────────────────────────────────
+
 .DEFAULT_GOAL := help
 
 PYTHON ?= .venv/bin/python
@@ -480,7 +491,7 @@ download-funding-historical:
 
 analyze-trend-v3-funding:
 	@echo "Analyzing Trend V3 extended trades with actual OKX funding"
-	$(PYTHON) scripts/analyze_trend_v3_actual_funding.py \
+	$(PYTHON) _archive/legacy_scripts/analyze_trend_v3_actual_funding.py \
 		--funding-dir "$(FUNDING_OUTPUT_DIR)" \
 		--trend-v3-extended-dir "reports/research/trend_following_v3_extended" \
 		--compare-dir "$(TREND_V3_EXT_COMPARE_OUTPUT_DIR)" \
@@ -490,7 +501,7 @@ analyze-trend-v3-funding:
 backtest:
 	@echo "Running cost-aware backtest"
 	@args=( \
-		scripts/backtest_okx_mhf.py \
+		_archive/legacy_scripts/backtest_okx_mhf.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -508,7 +519,7 @@ backtest:
 backtest-no-cost:
 	@echo "Running no-cost backtest for gross-alpha comparison"
 	@args=( \
-		scripts/backtest_okx_mhf.py \
+		_archive/legacy_scripts/backtest_okx_mhf.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -526,7 +537,7 @@ backtest-no-cost:
 backtest-trace:
 	@echo "Running no-cost backtest with signal trace export"
 	@args=( \
-		scripts/backtest_okx_mhf.py \
+		_archive/legacy_scripts/backtest_okx_mhf.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -550,7 +561,7 @@ backtest-sanity:
 	fi
 	@echo "Running conservative min-size sanity backtest with $(SANITY_CONFIG)"
 	@args=( \
-		scripts/backtest_okx_mhf.py \
+		_archive/legacy_scripts/backtest_okx_mhf.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -572,7 +583,7 @@ analyze-alpha:
 	fi
 	@echo "Analyzing alpha diagnostics for $(REPORT_DIR)"
 	@args=( \
-		scripts/analyze_alpha_diagnostics.py \
+		_archive/legacy_scripts/analyze_alpha_diagnostics.py \
 		--report-dir "$(REPORT_DIR)" \
 	); \
 	if [[ -n "$(strip $(COMPARE_REPORT_DIR))" ]]; then args+=(--compare-report-dir "$(COMPARE_REPORT_DIR)"); fi; \
@@ -586,7 +597,7 @@ analyze-trades:
 	fi
 	@echo "Analyzing trade attribution for $(REPORT_DIR)"
 	@args=( \
-		scripts/analyze_trade_attribution.py \
+		_archive/legacy_scripts/analyze_trade_attribution.py \
 		--report-dir "$(REPORT_DIR)" \
 		--timezone "$(TIMEZONE)" \
 	); \
@@ -601,7 +612,7 @@ analyze-signals:
 	fi
 	@echo "Analyzing signal outcomes for $(REPORT_DIR)"
 	@args=( \
-		scripts/analyze_signal_outcomes.py \
+		_archive/legacy_scripts/analyze_signal_outcomes.py \
 		--report-dir "$(REPORT_DIR)" \
 		--timezone "$(TIMEZONE)" \
 		--horizons "$(HORIZONS)" \
@@ -617,7 +628,7 @@ research-entry:
 	fi
 	@echo "Researching offline entry policies for $(REPORT_DIR)"
 	@args=( \
-		scripts/research_entry_policies.py \
+		_archive/legacy_scripts/research_entry_policies.py \
 		--report-dir "$(REPORT_DIR)" \
 		--timezone "$(TIMEZONE)" \
 		--horizons "$(ENTRY_HORIZONS)" \
@@ -636,7 +647,7 @@ research-features:
 	fi
 	@echo "Researching signal features for $(REPORT_DIR)"
 	@args=( \
-		scripts/research_signal_features.py \
+		_archive/legacy_scripts/research_signal_features.py \
 		--report-dir "$(REPORT_DIR)" \
 		--timezone "$(TIMEZONE)" \
 		--horizons "$(FEATURE_HORIZONS)" \
@@ -656,7 +667,7 @@ compare-features:
 	fi
 	@echo "Comparing signal feature research across train/validation/oos"
 	@args=( \
-		scripts/compare_signal_feature_research.py \
+		_archive/legacy_scripts/compare_signal_feature_research.py \
 		--train-dir "$(TRAIN_DIR)" \
 		--validation-dir "$(VALIDATION_DIR)" \
 		--oos-dir "$(OOS_DIR)" \
@@ -667,7 +678,7 @@ compare-features:
 research-htf:
 	@echo "Researching HTF signal candidates split=$(SPLIT) output=$(HTF_OUTPUT_DIR)"
 	@args=( \
-		scripts/research_htf_signals.py \
+		_archive/legacy_scripts/research_htf_signals.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--split "$(SPLIT)" \
 		--timezone "$(TIMEZONE)" \
@@ -685,7 +696,7 @@ research-htf:
 
 compare-htf:
 	@echo "Comparing HTF signal research across train/validation/oos"
-	$(PYTHON) scripts/compare_htf_signal_research.py \
+	$(PYTHON) _archive/legacy_scripts/compare_htf_signal_research.py \
 		--train-dir "$(HTF_TRAIN_DIR)" \
 		--validation-dir "$(HTF_VALIDATION_DIR)" \
 		--oos-dir "$(HTF_OOS_DIR)" \
@@ -694,7 +705,7 @@ compare-htf:
 research-trend-v2:
 	@echo "Researching Trend Following V2 split=$(SPLIT) output=$(TREND_OUTPUT_DIR)"
 	@args=( \
-		scripts/research_trend_following_v2.py \
+		_archive/legacy_scripts/research_trend_following_v2.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--split "$(SPLIT)" \
 		--timezone "$(TIMEZONE)" \
@@ -712,7 +723,7 @@ research-trend-v2:
 
 compare-trend-v2:
 	@echo "Comparing Trend Following V2 research across train/validation/oos"
-	$(PYTHON) scripts/compare_trend_following_v2.py \
+	$(PYTHON) _archive/legacy_scripts/compare_trend_following_v2.py \
 		--train-dir "$(TREND_TRAIN_DIR)" \
 		--validation-dir "$(TREND_VALIDATION_DIR)" \
 		--oos-dir "$(TREND_OOS_DIR)" \
@@ -721,7 +732,7 @@ compare-trend-v2:
 research-trend-v3:
 	@echo "Researching Trend Following V3 split=$(SPLIT) output=$(TREND_V3_OUTPUT_DIR)"
 	@args=( \
-		scripts/research_trend_following_v3.py \
+		_archive/legacy_scripts/research_trend_following_v3.py \
 		--symbols "$(SYMBOLS)" \
 		--split "$(SPLIT)" \
 		--timezone "$(TIMEZONE)" \
@@ -745,7 +756,7 @@ research-trend-v3:
 
 compare-trend-v3:
 	@echo "Comparing Trend Following V3 research across train/validation/oos"
-	$(PYTHON) scripts/compare_trend_following_v3.py \
+	$(PYTHON) _archive/legacy_scripts/compare_trend_following_v3.py \
 		--train-dir "$(TREND_V3_TRAIN_DIR)" \
 		--validation-dir "$(TREND_V3_VALIDATION_DIR)" \
 		--oos-dir "$(TREND_V3_OOS_DIR)" \
@@ -754,7 +765,7 @@ compare-trend-v3:
 research-trend-v3-extended:
 	@echo "Researching Trend Following V3 extended split=$(EXT_SPLIT) output=$(TREND_V3_EXT_OUTPUT_DIR)"
 	@args=( \
-		scripts/research_trend_following_v3.py \
+		_archive/legacy_scripts/research_trend_following_v3.py \
 		--symbols "$(SYMBOLS)" \
 		--split-scheme extended \
 		--split "$(EXT_SPLIT)" \
@@ -779,7 +790,7 @@ research-trend-v3-extended:
 
 compare-trend-v3-extended:
 	@echo "Comparing Trend Following V3 extended research across train_ext/validation_ext/oos_ext"
-	$(PYTHON) scripts/compare_trend_following_v3.py \
+	$(PYTHON) _archive/legacy_scripts/compare_trend_following_v3.py \
 		--split-scheme extended \
 		--train-dir "$(TREND_V3_EXT_TRAIN_DIR)" \
 		--validation-dir "$(TREND_V3_EXT_VALIDATION_DIR)" \
@@ -797,7 +808,7 @@ postmortem-trend-v3:
 
 diagnose-trend-regimes:
 	@echo "Diagnosing multi-symbol trend regimes"
-	$(PYTHON) scripts/diagnose_trend_regimes.py \
+	$(PYTHON) _archive/legacy_scripts/diagnose_trend_regimes.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -807,7 +818,7 @@ diagnose-trend-regimes:
 
 research-trend-opportunity-map:
 	@echo "Building research-only Trend Opportunity Map"
-	$(PYTHON) scripts/research_trend_opportunity_map.py \
+	$(PYTHON) _archive/legacy_scripts/research_trend_opportunity_map.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -818,7 +829,7 @@ research-trend-opportunity-map:
 
 research-trend-exit-convexity:
 	@echo "Researching trend capture and exit convexity without strategy changes"
-	$(PYTHON) scripts/research_trend_capture_exit_convexity.py \
+	$(PYTHON) _archive/legacy_scripts/research_trend_capture_exit_convexity.py \
 		--trend-map-dir reports/research/trend_opportunity_map \
 		--trend-v3-dir reports/research/trend_following_v3_extended \
 		--vsvcb-dir reports/research/vsvcb_v1 \
@@ -830,7 +841,7 @@ research-trend-exit-convexity:
 
 research-trend-health-exit:
 	@echo "Researching trend health-state exits without strategy changes"
-	$(PYTHON) scripts/research_trend_health_state_exit.py \
+	$(PYTHON) _archive/legacy_scripts/research_trend_health_state_exit.py \
 		--trend-map-dir reports/research/trend_opportunity_map \
 		--trend-v3-dir reports/research/trend_following_v3_extended \
 		--funding-dir data/funding/okx \
@@ -840,7 +851,7 @@ research-trend-health-exit:
 
 research-trend-entry-timing:
 	@echo "Researching trend entry timing without strategy changes"
-	$(PYTHON) scripts/research_trend_entry_timing.py \
+	$(PYTHON) _archive/legacy_scripts/research_trend_entry_timing.py \
 		--trend-map-dir reports/research/trend_opportunity_map \
 		--trend-v3-dir reports/research/trend_following_v3_extended \
 		--funding-dir data/funding/okx \
@@ -860,7 +871,7 @@ postmortem-trend-entry-timing:
 
 research-breadth-phase15:
 	@echo "Running cross-symbol breadth acceleration Phase 1.5 diagnostics"
-	$(PYTHON) scripts/research_cross_symbol_breadth_phase15.py \
+	$(PYTHON) _archive/legacy_scripts/research_cross_symbol_breadth_phase15.py \
 		--entry-timing-dir reports/research/trend_entry_timing \
 		--postmortem-dir reports/research/trend_entry_timing_postmortem \
 		--trend-map-dir reports/research/trend_opportunity_map \
@@ -871,7 +882,7 @@ research-breadth-phase15:
 
 research-dossier:
 	@echo "Building research decision dossier"
-	$(PYTHON) scripts/build_research_decision_dossier.py \
+	$(PYTHON) _archive/legacy_scripts/build_research_decision_dossier.py \
 		--output-dir "$(RESEARCH_DOSSIER_OUTPUT_DIR)"
 
 audit-multisymbol:
@@ -901,7 +912,7 @@ audit-external-regime:
 
 research-external-regime-classifier:
 	@echo "Researching external regime classifier filters offline"
-	$(PYTHON) scripts/research_external_regime_classifier.py \
+	$(PYTHON) _archive/legacy_scripts/research_external_regime_classifier.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -917,7 +928,7 @@ audit-external-regime-gates:
 
 research-vsvcb-v1:
 	@echo "Researching VSVCB-v1 Phase 1 event study and fixed-hold benchmark"
-	$(PYTHON) scripts/research_vsvcb_v1.py \
+	$(PYTHON) _archive/legacy_scripts/research_vsvcb_v1.py \
 		--symbols "BTCUSDT_SWAP_OKX.GLOBAL,ETHUSDT_SWAP_OKX.GLOBAL,SOLUSDT_SWAP_OKX.GLOBAL" \
 		--timeframes "15m,30m,1h" \
 		--start 2023-01-01 \
@@ -944,7 +955,7 @@ audit-derivatives-data:
 
 research-csrb-v1:
 	@echo "Researching CSRB-v1 Phase 1 session breakout event study"
-	$(PYTHON) scripts/research_csrb_v1.py \
+	$(PYTHON) _archive/legacy_scripts/research_csrb_v1.py \
 		--symbols "BTCUSDT_SWAP_OKX.GLOBAL,ETHUSDT_SWAP_OKX.GLOBAL,SOLUSDT_SWAP_OKX.GLOBAL" \
 		--timeframes "15m,30m,1h" \
 		--start 2023-01-01 \
@@ -962,7 +973,7 @@ postmortem-csrb-v1:
 
 research-etc-v1:
 	@echo "Running ETC-v1 Early Trend Classifier feature discovery"
-	$(PYTHON) scripts/research_early_trend_classifier_v1.py \
+	$(PYTHON) _archive/legacy_scripts/research_early_trend_classifier_v1.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -975,7 +986,7 @@ research-etc-v1:
 
 research-etc-v1-inverse:
 	@echo "Running ETC-v1 Inverse (Sign-Flipped) Early Trend Classifier feature discovery"
-	$(PYTHON) scripts/research_early_trend_classifier_v1_inverse.py \
+	$(PYTHON) _archive/legacy_scripts/research_early_trend_classifier_v1_inverse.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -988,7 +999,7 @@ research-etc-v1-inverse:
 
 research-exit-only-bc:
 	@echo "Running Exit-Only Research: Trend Drawdown (B) + 1d Lock (C)"
-	$(PYTHON) scripts/research_exit_only_bc.py \
+	$(PYTHON) _archive/legacy_scripts/research_exit_only_bc.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -999,7 +1010,7 @@ research-exit-only-bc:
 
 research-mr-v1:
 	@echo "Running MR-v1 Mean Reversion: fade 20-bar breakouts"
-	$(PYTHON) scripts/research_mr_v1.py \
+	$(PYTHON) _archive/legacy_scripts/research_mr_v1.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -1010,7 +1021,7 @@ research-mr-v1:
 
 research-mr-v1-phase2:
 	@echo "Running MR-v1 Phase 2: parameter sweep + robustness"
-	$(PYTHON) scripts/research_mr_v1_phase2.py \
+	$(PYTHON) _archive/legacy_scripts/research_mr_v1_phase2.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -1020,7 +1031,7 @@ research-mr-v1-phase2:
 
 research-mr-v1-phase3:
 	@echo "Running MR-v1 Phase 3: formal 4h backtest"
-	$(PYTHON) scripts/backtest_mr_v1.py \
+	$(PYTHON) _archive/legacy_scripts/backtest_mr_v1.py \
 		--symbols "$(SYMBOLS)" \
 		--start 2023-01-01 \
 		--end 2026-03-31 \
@@ -1030,7 +1041,7 @@ research-mr-v1-phase3:
 
 research-mr-v1-demo:
 	@echo "Starting MR-v1 Demo on OKX DEMO"
-	$(PYTHON) scripts/run_mr_v1_demo.py \
+	$(PYTHON) _archive/mr5m_runner/run_mr_v1_demo.py \
 		--symbols "$(MR_V1_DEMO_SYMBOLS)" \
 		--server DEMO
 
@@ -1041,7 +1052,7 @@ alpha-sweep:
 	fi
 	@echo "Running guarded alpha sweep with $(SANITY_CONFIG)"
 	@args=( \
-		scripts/run_alpha_sweep.py \
+		_archive/legacy_scripts/run_alpha_sweep.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--start "$(START)" \
 		--end "$(END)" \
@@ -1068,7 +1079,7 @@ ablation:
 	if [[ -z "$$output_dir" ]]; then output_dir="reports/ablation/main_20250101_20260331"; fi; \
 	echo "Running ablation experiments with $$base_config split=$(SPLIT) output=$$output_dir"; \
 	args=( \
-		scripts/run_ablation_experiments.py \
+		_archive/legacy_scripts/run_ablation_experiments.py \
 		--vt-symbol "$(VT_SYMBOL)" \
 		--timezone "$(TIMEZONE)" \
 		--base-config "$$base_config" \

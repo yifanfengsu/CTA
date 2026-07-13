@@ -392,7 +392,7 @@ class ResearchTrendCaptureExitConvexityTest(unittest.TestCase):
         makefile = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("research-trend-exit-convexity:", makefile)
-        self.assertIn("scripts/research_trend_capture_exit_convexity.py", makefile)
+        self.assertIn("_archive/legacy_scripts/research_trend_capture_exit_convexity.py", makefile)
 
 
 if __name__ == "__main__":

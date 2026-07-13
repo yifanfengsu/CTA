@@ -406,7 +406,7 @@ class TrendEntryTimingResearchTest(unittest.TestCase):
         makefile = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("research-trend-entry-timing:", makefile)
-        self.assertIn("scripts/research_trend_entry_timing.py", makefile)
+        self.assertIn("_archive/legacy_scripts/research_trend_entry_timing.py", makefile)
 
 
 if __name__ == "__main__":

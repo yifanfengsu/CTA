@@ -21,9 +21,10 @@ data/binance_vision/**/*.zip
 # reports/ is version-controlled since 2026-06-11 (vulnerability patch):
 # postmortems, READMEs, json/jsonl/csv results are knowledge assets.
 # Only single files >50MB are excluded (listed individually below).
-reports/research/trend_capture_exit_convexity/exit_variant_trades.csv
+# (2026-07-12 重构批次6：reports/research/ → _archive/legacy_reports/，路径随迁)
+_archive/legacy_reports/trend_capture_exit_convexity/exit_variant_trades.csv
 
-# Basis-arb raw data layer (reproducible via scripts/research_basis_feasibility.py --download;
+# Basis-arb raw data layer (reproducible via research/_closed/basis/basis_arbitrage/scripts/research_basis_feasibility.py --download;
 # manifest.json stays tracked, analysis-ready series live in reports/basis_arbitrage_feasibility_*/)
 data/basis/futures/*.csv
 data/basis/index/*.csv

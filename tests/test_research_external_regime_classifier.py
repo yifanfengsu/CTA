@@ -309,7 +309,7 @@ class ResearchExternalRegimeClassifierTest(unittest.TestCase):
         makefile = (PROJECT_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn("research-external-regime-classifier:", makefile)
-        self.assertIn("scripts/research_external_regime_classifier.py", makefile)
+        self.assertIn("_archive/legacy_scripts/research_external_regime_classifier.py", makefile)
 
 
 if __name__ == "__main__":
