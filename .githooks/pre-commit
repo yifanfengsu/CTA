@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+# =============================================================================
+# cta_strategy pre-commit 防线（启用：make git-hooks）
+#
+# 四道检查（约定全文见 docs/GIT_WORKFLOW.md §5）：
+#   1. 大文件拦截（硬，>10MB）          override: GIT_ALLOW_LARGE=1
+#   2. 敏感文件/secret 拦截（硬+警告）   override: GIT_ALLOW_SECRET=1
+#   3. 前向冻结区守卫（硬，本仓库特有）  override: GIT_ALLOW_FROZEN=1
+#   4. 分支保护提示（软，仅警告）
+#
+# 设计原则：宁可漏报不误伤；每道硬检查都有显式 override（护栏不是牢笼）。
+# 检查 1 故意不依赖 .gitignore —— 320MB 误提交事故（2026-07-12，见
+# GIT_WORKFLOW.md §4）正是 ignore 路径在 git mv 后失效所致，此为独立第二道防线。
+# =============================================================================
+set -euo pipefail
+
+FAIL=0
+
+# staged 文件清单（新增/修改/复制/重命名，不含删除——删除无内容可查）
+staged_files() {
+    git diff --cached --name-only --diff-filter=ACMR
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 检查 1：大文件拦截（>10MB 硬拒绝；独立于 .gitignore）
+# ─────────────────────────────────────────────────────────────────────────────
+check_large_files() {
+    [ "${GIT_ALLOW_LARGE:-0}" = "1" ] && { echo "[pre-commit] 检查1 大文件：GIT_ALLOW_LARGE=1，跳过（请在 commit message 说明原因）"; return 0; }
+    local limit=$((10 * 1024 * 1024)) hit=0 f size
+    while IFS= read -r f; do
+        # 用 staged blob（:0:path）的真实大小，而非工作区文件
+        size=$(git cat-file -s ":0:$f" 2>/dev/null || echo 0)
+        if [ "$size" -gt "$limit" ]; then
+            printf '[pre-commit] ✗ 大文件: %s (%d MB)\n' "$f" $((size / 1024 / 1024))
+            hit=1
+        fi
+    done < <(staged_files)
+    if [ "$hit" = "1" ]; then
+        echo "[pre-commit] 拒绝：数据类文件应 gitignore + manifest 登记（sha256+来源+路径，"
+        echo "             见 docs/GIT_WORKFLOW.md §4）。确需提交请用 GIT_ALLOW_LARGE=1 git commit 显式 override。"
+        FAIL=1
+    fi
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 检查 2：敏感文件拦截（.env/*.pem/*.key/id_rsa* 硬拒绝；内容 secret 形态警告）
+# ─────────────────────────────────────────────────────────────────────────────
+check_secrets() {
+    [ "${GIT_ALLOW_SECRET:-0}" = "1" ] && { echo "[pre-commit] 检查2 敏感文件：GIT_ALLOW_SECRET=1，跳过（请在 commit message 说明原因）"; return 0; }
+    local hit=0 f base
+    while IFS= read -r f; do
+        base=$(basename "$f")
+        case "$base" in
+            .env.example) ;;                              # 模板文件放行
+            .env|.env.*|*.pem|*.key|id_rsa*)
+                printf '[pre-commit] ✗ 敏感文件: %s\n' "$f"; hit=1 ;;
+        esac
+    done < <(staged_files)
+
+    # 内容层：保守正则（key/secret/token 赋值后跟 ≥20 位裸字符串），宁可漏报不误伤变量名
+    local matches
+    matches=$(git diff --cached -U0 | grep -nE '^\+.*(api_key|apikey|api_secret|secret_key|access_token|private_key)[[:space:]]*[=:][[:space:]]*["'"'"']?[A-Za-z0-9+/_-]{20,}' || true)
+    if [ -n "$matches" ]; then
+        echo "[pre-commit] ✗ staged 内容疑似含 secret（保守匹配，可能误报）："
+        echo "$matches" | head -10
+        hit=1
+    fi
+
+    if [ "$hit" = "1" ]; then
+        echo "[pre-commit] 拒绝：凭证不入 git（.env 永久 gitignore）。确认误报请用 GIT_ALLOW_SECRET=1 显式 override。"
+        FAIL=1
+    fi
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 检查 3：前向冻结区守卫（本仓库最重要的一道；清单与 scripts/README_DATA_SOURCE.md
+#         及 research/_closed/crypto_perp/trend_b2_4h/README.md 的 11 文件清单一致）
+# ─────────────────────────────────────────────────────────────────────────────
+check_frozen_zone() {
+    [ "${GIT_ALLOW_FROZEN:-0}" = "1" ] && { echo "[pre-commit] 检查3 冻结区：GIT_ALLOW_FROZEN=1，跳过（须走 forward/ 分支 + 人工 review）"; return 0; }
+    local frozen='^(scripts/forward_b2_4h\.py|scripts/research_trend_baseline\.py|scripts/research_trend_validation_r2\.py|scripts/research_trend_validation\.py|scripts/backtest_mr_5m_compare\.py|scripts/research_mr_5m\.py|scripts/common_runtime\.py|scripts/history_time_utils\.py|scripts/binance_funding\.py|scripts/research_trend_dualcycle\.py|scripts/research_okx_vs_binance\.py|forward/|data/funding/okx/)'
+    local hits
+    # 含删除/改名也要拦（--diff-filter 留空 = 全部变更类型）
+    hits=$(git diff --cached --name-only | grep -E "$frozen" || true)
+    if [ -n "$hits" ]; then
+        echo "[pre-commit] ✗ 前向冻结区受保护，VPS 正在运行依赖以下路径："
+        echo "$hits" | sed 's/^/             /'
+        echo "[pre-commit] 拒绝：确属有意变更（如第二批迁移）请用 GIT_ALLOW_FROZEN=1 显式 override，"
+        echo "             且必须走 forward/<主题> 分支 + 用户人工 review（docs/GIT_WORKFLOW.md §2）。"
+        FAIL=1
+    fi
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 检查 4：分支保护提示（软——只警告不拦截）
+# ─────────────────────────────────────────────────────────────────────────────
+check_branch_hint() {
+    local branch nfiles renames
+    branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo '?')
+    [ "$branch" = "main" ] || return 0
+    nfiles=$(git diff --cached --name-only | wc -l)
+    renames=$(git diff --cached --name-status -M | grep -c '^R' || true)
+    if [ "$nfiles" -gt 30 ] || [ "$renames" -gt 0 ]; then
+        echo "[pre-commit] ⚠ 警告：main 上的大规模改动（${nfiles} 文件，${renames} 重命名）——"
+        echo "             结构性变更应走 restructure/<主题> 分支（docs/GIT_WORKFLOW.md §2）。仅提示，不拦截。"
+    fi
+}
+
+check_large_files
+check_secrets
+check_frozen_zone
+check_branch_hint
+
+if [ "$FAIL" = "1" ]; then
+    echo "[pre-commit] ══ 提交被拒绝（上列硬检查未过）══"
+    exit 1
+fi
+exit 0

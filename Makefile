@@ -1146,3 +1146,10 @@ tail-log:
 	fi
 	@echo "Tailing $(LOG_FILE)"
 	tail -n "$(TAIL_LINES)" -f "$(LOG_FILE)"
+
+# ─── git hooks（2026-07 版本控制模块，docs/GIT_WORKFLOW.md §5）────────────────
+.PHONY: git-hooks
+git-hooks:
+	@git config core.hooksPath .githooks
+	@echo "git hooks enabled: core.hooksPath = $$(git config core.hooksPath)"
+	@echo "pre-commit 四道检查就绪（大文件/敏感文件/前向冻结区/分支提示）"
