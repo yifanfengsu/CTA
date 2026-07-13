@@ -87,7 +87,7 @@ data_engineering ──► research ──► forward ──► (audit 只读观
 | research → forward | 冻结策略配置（config_frozen）+ 预注册 gate 文档 + 部署手册 | forward 只读挂载；research 不碰运行中的 forward |
 | forward → audit | 日报 / 记账文件 / 日志 /（未来）快照 | audit 只读；**绝不调用研究引擎重跑作"核对"**——独立重推是 audit 唯一合法核对方式（b2_4h_pnl_audit 范式） |
 | research → audit | 回测结果 / 报告 / 落盘明细（jsonl/json） | audit 只读原件，用独立代码路径重推 |
-| 任何域 → core | `import core` 提供的共享函数 | core 的修改须跑全部 tests 且向后兼容（core 域规则，宪法文件待落地；前向 re-export 冻结约束见 `core/__init__.py` 文档串） |
+| 任何域 → core | `import core` 提供的共享函数 | core 的修改须跑全部 tests 且向后兼容（`core/CLAUDE.md` §2；单向依赖与前向 re-export 冻结约束见其 §1） |
 | 任何域 → .claude/skills/ | 到 `PIPELINE.md` 对应站点调用 skill | **skill 代码不得被复制粘贴改造进域内**（防分叉——要改进 skill 就改 skill 本身并过冒烟，另行 commit） |
 | forward → live | （未激活，预留）见 §6.3 | 激活前本表不含 live 通道的任何实义条目 |
 
