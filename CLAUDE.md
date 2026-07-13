@@ -149,3 +149,4 @@ MR-5m 已关闭。当前任务：基于 `database_mainnet.db` 的新策略研究
 - **_archive/**：mr5m runner、demo 时代脚本（`legacy_scripts/`）与报告
   （`legacy_reports/`，原 `reports/research/`）——污染惨案历史证据，只增不删。
 - **reports/**：存档区（regime 事故取证链原位保留 + 大宗历史产物 + 盘点报告）。
+- **域间通信协议与交接物清单**：`docs/AGENTS.md` §6（跨域协作必读——每条域间通道的唯一合法交接物 + 违规负面清单 + live 预留节）。
