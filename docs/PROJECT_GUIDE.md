@@ -119,8 +119,8 @@ cta_strategy/
 ├── README.md            # 精简项目说明（结构导航 + 上手路径）
 ├── docs/                # 活文档：PROJECT_GUIDE / METHODOLOGY / STRATEGY_CODEX /
 │                        #   AGENTS / BOOTSTRAP / README_ARCHIVE（旧 README 存档）
-├── .claude/skills/      # 研究流水线 PIPELINE.md + 8 个到站必用 skill
-├── core/                # 共享库：data_io（含前向依赖模块的 re-export 代理）、db
+├── .claude/skills/      # 研究流水线 PIPELINE.md + 9 个 skill（8 到站必用 + 横切 financial-precision）
+├── core/                # 共享库：CLAUDE.md 宪法 + data_io（含前向依赖模块的 re-export 代理）、db
 ├── data_engineering/    # 数据域：CLAUDE.md 宪法 + scripts/（下载/校验/导入 15 个）
 ├── research/            # 研究域：CLAUDE.md 宪法 + _closed/<market>/<line>/
 │   └── _closed/         #   crypto_perp（8线）/ crypto_tick（3线）/

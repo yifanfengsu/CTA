@@ -125,9 +125,10 @@ MR-5m 已关闭。当前任务：基于 `database_mainnet.db` 的新策略研究
 ## 结构导航（2026-07 重构，步骤2 已完成）
 
 - **新研究一律走流水线**：`.claude/skills/PIPELINE.md`（策略的一生九站装配图，
-  含死因库与闭环）。到站必用对应 skill（`.claude/skills/` 下 8 个：
+  含死因库与闭环）。到站必用对应 skill（`.claude/skills/` 下 9 个：
   preregistration / noise-calibration / multiple-testing / cointegration /
-  bootstrap-inference / ic-analysis / honest-verdict / audit-independent，
+  bootstrap-inference / ic-analysis / honest-verdict / audit-independent +
+  横切 financial-precision（金额计算精度分界），
   各含四段式 SKILL.md + 经冒烟自检的配套代码/模板）。
 - **四域宪法**：`data_engineering/CLAUDE.md`（数据域，脚本已入
   `data_engineering/scripts/`）、`research/CLAUDE.md`（研究域，已关线收拢于
