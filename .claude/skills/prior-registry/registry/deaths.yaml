@@ -1,0 +1,192 @@
+# prior-registry · 死因登记（death registry）
+# ─────────────────────────────────────────────────────────────────────────
+# 每条死因来自本仓库真实研究，report 字段指向可核实的报告；numbers 已逐条回
+# 报告核对（grep 冻结数字，非凭记忆）。无法从本仓库核实的条目 verified: 待核实。
+#
+# level 三级分类学（级别决定 next_action，见 SKILL.md §2）：
+#   1 = 机制失败：该机制在本市场压根不存在（不是被吃掉）。性质：永久性。
+#       动作：进第 0 站地图作 posterior belief；冲突想法须过 Challenge Path。
+#   2 = 市场约束失败：机制存在但被约束（成本/速度/数据/流动性/效率定价）吃掉。
+#       性质：条件性——墙的位置取决于研究者条件。动作：必须记 wall_condition
+#       （跨墙所需条件）；条件变化时可重开。
+#   3 = 实现失败：研究过程自身缺陷（污染/前视/事后改门/口径错误）。性质：可预防。
+#       动作：对应一个 skill/纪律条款防重犯；不构成对该方向的判决。
+#
+# 字段：line 研究线名 · mechanism 机制 · level 级别 · keywords 匹配词（供 query）
+#   · cause 死因一句话 · numbers 关键数字（已核实） · report 报告路径
+#   · next_action 后续动作 · wall_condition（仅 L2：跨墙所需条件）
+#   · prevention（仅 L3：防重犯的 skill/纪律） · verified（缺省=已核实）
+# ─────────────────────────────────────────────────────────────────────────
+
+deaths:
+
+  # ════════════════ LEVEL 1 · 机制失败（永久，进地图） ════════════════
+
+  - line: mr_timescale
+    mechanism: 价格均值回归（单序列，多时间尺度 15m–4h × k∈{1,2,4,8,16}）
+    level: 1
+    keywords: [mean-reversion, 均值回归, reversion, 回归, MR, timescale, 时间尺度, fade, 逆势, 反转]
+    cause: "回归作为频率现象真实存在，但少数延续（趋势）尾部移动远大于多数小回归，把逆势期望整体吃成负。"
+    numbers: "回归率全尺度显著>基线，但 15m–2h median 全不过 2× 成本；唯一双样本厚度可行格 E1·4h·k=8 事件级 mean 为负（OKX −0.071% / Binance −0.110%，成本前）。分布左偏，延续尾部把期望吃负。"
+    report: research/_closed/crypto_perp/mr_timescale/reports/mr_timescale_structure_20260612/
+    next_action: "进第 0 站地图'方向区：右偏延续主导'；任何新回归式想法须过 Challenge Path（说清机制如何不同于此）。median 厚度≠可行，看 mean（条件厚度陷阱）。"
+
+  - line: funding_reversal
+    mechanism: 极端 funding 均值回归（现金流腿 + 价格腿两腿合算）
+    level: 1
+    keywords: [funding, 资金费, 费率, 资金费率, reversal, 反向, 极端, carry-reversion]
+    cause: "正极端 funding 的现金流收益被价格腿的延续尾部约 1:10 吃穿；负极端现金流≈0，合计为正仅靠 β 漂移（非可交易 edge）。"
+    numbers: "正极端 2021 牛市 1:12（价格腿 −23.69%）；负极端现金流占合计仅 1–6%，条件均值 4/5 币低于无条件漂移；幸存两格 Sharpe 0.07/0.16 → 验证周期 895 年 / 144 年。"
+    report: research/_closed/crypto_perp/funding_reversal/reports/funding_structure_20260612/
+    next_action: "回归死因归档；funding 在 ≤4h 无可货币化方向预测力（此处反向 + trend-confirm 增强两侧皆死，后者见 deaths 无独立条但记于 B2_4h 四增强）。"
+
+  - line: pairs_cointegration
+    mechanism: 价差均值回归（滚动 90/30 EG 协整，C(22,2)=231 对，无前视）
+    level: 1
+    keywords: [pairs, 配对, cointegration, 协整, spread, 价差, stat-arb, 统计套利, relative-value]
+    cause: "|z|≥2 后回归率显著低于无条件基线（反回归）；协整关系本身非平稳，价差偏离更多是关系断裂的延续——价差未逃脱右偏延续。"
+    numbers: "C3 反向：|z|≥2 后回归 17.9% < 基线 42.4%（z−13.1）；C5 破裂：715 事件 128 回归/490 发散，事件加权净 −1.50%；C2 稳定 FAIL：协整中位持续 1 窗、churn 0.91（加密协整极短命）。（C1 存在/C4 厚度 PASS 但被 C2/C3/C5 否决）"
+    report: research/_closed/crypto_perp/pairs_cointegration/reports/pairs_cointegration_20260613/
+    next_action: "MR 家族整体收口（单序列 + 横截面 carry + 配对 + funding 四支全探明，回归式信号在 5/22 币数据上无一立项）。'条件厚度陷阱'教训（C4 +13.6% 但仅 17.9% 命中）。"
+
+  - line: order_flow_exhaustion
+    mechanism: 冲击消散（impact dissipation，非价格回归）—— tick 级微观结构 MR
+    level: 1
+    keywords: [order-flow, 订单流, exhaustion, 耗竭, microstructure, 微观结构, tick, 逐笔, impact, 冲击, 消散]
+    cause: "首个机制真正新颖的 MR（赌流动性真空回弹而非价格回归），仍死于同一延续墙：大额单向扫单冲击后继续同向（信息/动量/爆仓流），非回弹；且 shock≈随机时点安慰剂，'回弹'无冲击特异信息，仅买卖价差反弹。"
+    numbers: "8,521 冲击（BTC 4,477/ETH 4,044，median impact +1.88bps）；0.1–10s 仅 20–43% 回弹（mean 负），30–300s coin-flip（49.7–49.9%）；shock vs placebo @5s 39.9% vs 40.2%（超额负，半价差底 0.024bps）；净 ≈ −9.8bps 全延迟（gross +0.09bps L=0 理想 HFT…+0.23bps L=1s，median 0.000）；σ{3,4,5} net@200ms −9.84/−9.78/−9.78。"
+    report: research/_closed/crypto_tick/order_flow_exhaustion/reports/order_flow_exhaustion_feasibility_20260628/
+    next_action: "右偏延续确认贯穿 4h→100ms tick 全尺度。机制新颖是 Challenge Path 成功范例（获准认真测），结果第五次显形判死——流程正当，非'地图变教条'。"
+
+  - line: flow_vs_price
+    mechanism: 订单流领先价格（cause vs result 趋势捕获，flow 做信号）
+    level: 1
+    keywords: [flow, 订单流, OFI, order-flow-imbalance, 失衡, lead, 领先, cause, 原因, 积分, integral]
+    cause: "flow 持续性真实但不领先价格（同期同步发生，是同一事件两视角）；可收割的趋势是积分（价格 level）而非被积函数（flow rate），积分把噪声 flow 转成趋势，故 result 才是更好的信号，cause 够不着更早。"
+    numbers: "ACF(lag1) BTC +0.104/ETH +0.103 超噪声（持续性真），但 IC(OFI→ret+1) +0.009/+0.006 < shuffle p95（不前瞻预测），hit-rate <0.5；同期 corr(OFI,ret) 0.510/0.515（同步非领先）；连'先积分再交叉'的累计-flow 构造也仅 ~0.51 一致率。"
+    report: research/_closed/crypto_tick/flow_vs_price/reports/flow_vs_price_trend_20260628/
+    next_action: "订单流方向用途两侧全死（fade=exhaustion / follow=persistence）；边界守住（未退化成 B2_4h 的 flow 过滤器）。用价格（result）不用 flow（cause）。"
+
+  - line: vrp_atm_eth
+    mechanism: 卖 ATM 波动率保险（方差风险溢价，ETH 月度 ATM 期权）
+    level: 1
+    keywords: [VRP, 波动率溢价, variance-risk-premium, ATM, 期权, options, IV, RV, 卖波动率, 卖方差, ETH]
+    cause: "ETH 毛缝中位≈0（IV≈RV，溢价压根不存在），任何合理摩擦下皆死——不是被摩擦吃掉，是根本没有溢价可收。"
+    numbers: "净缝端点2（每日对冲）ETH median −2.72vp / mean −6.52vp；variance 口径 σ_IV²−σ_RV² ETH median +0.002≈0；IV-DVOL corr 0.984（数据地基干净）。报告明记'ETH 死因是毛缝中位≈0、非摩擦'。"
+    report: research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageA_data_20260628/
+    next_action: "ETH 溢价不存在 = Level 1 永久性；BTC 溢价存在于毛缝（median +2.65vp 过 StageA）→ 进 StageB 用 delta-hedge 查真伪，见 deaths: vrp_atm_btc（分级不同）。"
+
+  - line: vol_targeting
+    mechanism: 波动率目标化增强正偏趋势策略（pos∝clip(σ_target/σ_t)，降回撤）
+    level: 1
+    keywords: [vol-targeting, 波动率目标, vol-target, 目标波动, 正偏, right-skew, 削右尾, 风控增强, sizing]
+    cause: "对结构性正偏策略，降回撤与削右尾是同一动作 = 范畴错误（永久结构真相）；B2_4h 的 DD 是跨 regime 的 whipsaw，不是高波动期超额暴露，vol-targeting 修错了病。"
+    numbers: "Sharpe 双样本都升（OKX 0.65→0.90 / Binance 0.94→1.13）仍应否决；净利 OKX +40%（描线：赢家恰在低波期被加仓）/ Binance −11%（符号翻）；Binance top1% 赢家捕获砍到 0.60、2021 牛市 −52%（$163,960→$78,776）；机制本身有效（$vol CV→0.01）但修错了病。"
+    report: research/_closed/crypto_perp/trend_b2_4h/reports/b2_4h_vol_targeting_20260628/
+    next_action: "铁律 C 的干净反例样本（Sharpe 奖励削右尾）；正偏策略永久不用 Sharpe 主判。第 5 次已知靶子增强判死（前 4：funding/ADX/faster/V1）。单样本 OKX 会误判为免费 alpha。"
+
+  # ════════════════ LEVEL 2 · 市场约束（条件性，记跨墙条件） ════════════════
+
+  - line: breakout_pullback
+    mechanism: 突破后触 50% 回撤带→延续（15m，k∈{4,8,16}）
+    level: 2
+    keywords: [breakout, 突破, pullback, 回调, retrace, 回撤, 延续, continuation-entry]
+    cause: "触带后顺势毛期望为正但薄于成本——成本墙（edge 真实存在，只是量级够不着）。"
+    numbers: "k=4 双样本显著（+0.022~0.028%）但仅约成本 1/4、距厚度线 7×；'50% 回调'是民俗：maxR 中位 0.824/0.828、41% 直接打穿(R>1.0)、触带率 87%（条件几乎不筛选）；B1 追突破两样本均为负（回调入场 > 突破确认入场，执行层）。"
+    report: research/_closed/crypto_perp/breakout_pullback/reports/breakout_pullback_15m_20260613/
+    wall_condition: "需 maker 执行 / 更低费率把成本从 ~10bps 压到 <2.5bps（毛 edge ≈ 成本 1/4 → 需成本降约 4× 才够厚度线）。"
+    next_action: "成本墙记录；条件变化（maker 返佣结构 / 更低费率层）时可用 Stage -1 粗估重估。"
+
+  - line: cross_sectional
+    mechanism: 横截面相对价值排序（22 币幸存者，MOM30/CAR7/REV3 因子）
+    level: 2
+    keywords: [cross-sectional, 横截面, factor, 因子, IC, momentum, carry, reversal, MOM, CAR, REV, 排序]
+    cause: "真 alpha 存在但太弱 + 近年衰减 + 不可交易——alpha 够不着（'伪装 BTC-beta'先验被证否，是真 alpha 但不够）。"
+    numbers: "MOM/CAR 剥离后真 alpha t3.86/2.08（beta 近对称，非 beta 伪装）；但 MOM 日 IC≈0(−0.0003,t−0.04)+近年反号，CAR 2024 后衰减(2025+ t0.70)，REV 可交易价差净 −159.4%（剥离 alpha t−2.89，'赢家继续赢'=右偏延续）。carry 持有期 3日过/5日败(G4 t1.90<2.0)=参数尖峰。"
+    report: research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/（+ .../cross_sectional_carry_holding_20260613/）
+    wall_condition: "需更强/更稳的因子源或 survivor-free 数据（当前 22 币幸存者样本偏乐观，补退市币只会更差 → 否定更稳）。carry 是唯一残留线索（记录，无动作）。"
+    next_action: "横截面出路收口；'IC ≠ 可交易 alpha'三道墙（单调性/成本后价差/流动性分层）记入 ic-analysis skill。"
+
+  - line: factor_scale
+    mechanism: 规模化横截面因子（免费 100 币，问 alpha 是否随规模 22→50→100 增强）
+    level: 2
+    keywords: [factor-scale, 规模因子, scale, 大规模, 100币, large-scale, REV, reversal, 反转, 流动性伪装, liquidity-disguise]
+    cause: "只有 REV 的毛 IC 随规模增强，但增益 = 流动性伪装（净正仅在不可交易底层小币）；规模改善毛 IC 不改善可交易 alpha——数据墙 + 流动性墙。"
+    numbers: "REV 毛 IC +0.030→+0.043→+0.056（超 block-shuffle 噪声 p0.000）；但 pool-100 净 −23%/yr（换手 1.8×/日 → 40%/yr 成本墙），净正仅底层 +22%/yr（乐观 8bps，真冲击会抹掉），流动 top 层毛 −62%/yr。MOM=reversal-signed，CAR 随广度 wash out。"
+    report: research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/
+    wall_condition: "机构级 survivor-free 数据（Tardis ~$1-6k / Kaiko-CoinMetrics ~$10-55k/yr）——但即便买到，edge 仍在不可交易小币，数据投入不合理。真跨墙需 REV 在可交易层出现正净，当前不存在。"
+    next_action: "规模路线零成本前置门判不过；教训：IC 型伪装门(G2)太弱 → 须配'可交易分层价差'证据（本次靠预注册 Part4c 判死）。"
+
+  - line: vrp_atm_btc
+    mechanism: 卖 ATM 波动率保险（BTC，delta-hedged 剥离方向后的真溢价）
+    level: 2
+    keywords: [VRP, 波动率溢价, ATM, BTC, delta-hedge, 对冲, 剥离方向, whipsaw, peso, 卖方差]
+    cause: "剥离方向（delta-hedge，真伪判据）后'溢价'几乎消失（net≈0）；delta-hedged 口径下摩擦反而吃掉大半毛缝；剩下的是 whipsaw/方差尾（peso）——摩擦墙 + 尾部补偿。"
+    numbers: "端点2 净 mean +0.36vp（≈0）、median +0.91、近对称 skew −0.09；摩擦吃掉 ~85%(均值)/~65%(中位) 的 delta-hedged 毛缝；block bootstrap 5% 下界三档全负（−0.61/−0.52/−0.48）→ 不满足预注册'下界≥0'；whipsaw ±8%/日情景 −67.2%spot（上行 squeeze 也亏）。"
+    report: research/_closed/crypto_options/vrp_atm/reports/atm_vrp_stageB_premium_truth_20260628/
+    wall_condition: "需 maker 执行把 ~2vp 摩擦（吃掉 85% 毛缝）大幅压低 + 更长/更全样本证明 whipsaw 尾是样本缺牙而非真尾。关键：'剥离方向≠剥离尾部'——方向尾换成方差尾，尾仍在。"
+    next_action: "ATM VRP 线关闭；StageA 的 +2.65vp 系方向 + 样本条件化（σ_IV−σ_RV 高估），delta-hedge 是判真伪的唯一测试。未达 Stage C。"
+
+  - line: basis_arbitrage
+    mechanism: 期现 cash-and-carry（OKX 交割合约到期收敛，28 轮 2022Q1–2025Q2）
+    level: 2
+    keywords: [basis, 基差, cash-and-carry, 期现, carry, 套利, arbitrage, 收敛, 交割, 固收]
+    cause: "收敛机制 100% 可靠（契约性）但被市场定价到无风险利率——效率定价（机制可靠 ≠ 有肉）。"
+    numbers: "B4 收敛 100%（契约性）；B2 净年化 4.62% < 无风险 5%，超额 −1.16%~+0.23%≈0（bull-dependent 0.4%→7.5%）；B3 空头交割腿最坏逆向 +80.4%（5/28>49%，corr basis↔margin +0.43，需 cross-margin 吃资本效率）。'加密版固收'肉太薄不值双腿工程。"
+    report: research/_closed/basis/basis_arbitrage/reports/basis_arbitrage_feasibility_20260615/
+    wall_condition: "需牛市高基差环境（超额随 bull 到 7.5%）或更高资本效率的 cross-margin 结构；否则超额≈0。"
+    next_action: "效率定价死因记录；可复用副产品：data-download CDN 重建过期 OKX 交割合约历史的技术（REST 清除过期合约，CDN trades 文件可重建）。"
+
+  - line: cross_exchange_arbitrage
+    mechanism: 跨交易所价差套利（价差存活时间 vs 可达延迟）
+    level: 2
+    keywords: [cross-exchange, 跨所, cross-venue, arbitrage, 套利, latency, 延迟, 速度墙]
+    cause: "未实测——先验速度墙：价差存活时间 < 零售可达延迟（与 order_flow 的延迟前置门同构）。"
+    numbers: "待核实——设计了延迟前置门（Stage -1 形态），但从未执行；无独立报告。仅在 order_flow README 作为'isomorphic to the cross-exchange-arb latency pre-gate'被引用。"
+    report: 待核实（无独立报告；设计意图见 research/_closed/crypto_tick/order_flow_exhaustion/reports/order_flow_exhaustion_feasibility_20260628/ 的延迟前置门同构声明）
+    wall_condition: "需 colo / 低延迟基建（用户已明确排除 HFT 基建）。"
+    next_action: "待核实——先验速度墙，若立项须先跑 Stage -1 延迟前置门（价差存活曲线 vs 延迟）。标'未实测'，不登记未验证的数字。"
+    verified: 待核实（无独立报告，仅设计意图/先验）
+
+  - line: onchain_frontrunning
+    mechanism: 链上信号（LP 撤离 / 聪明钱地址 / 抢跑）
+    level: 2
+    keywords: [on-chain, 链上, onchain, front-running, 抢跑, 聪明钱, smartmoney, LP, whale, mempool]
+    cause: "待核实——研究在外部 `~/whale` 独立仓库（非本仓库），本仓库不可核实其数字；先验速度墙（抢跑类）。"
+    numbers: "待核实——外部仓库 ~/whale/reports/（LP 撤离 / 聪明钱审计 / 系统审查），本仓库无法核实其冻结数字。research_catalog §6 仅给外部指针。"
+    report: 待核实（外部 ~/whale 独立仓库；本仓库 research/_closed/_synthesis/research_catalog_trend_mr_20260622.md §6 给指针，不含数字）
+    wall_condition: "待核实（外部仓库；先验速度墙——抢跑需领先执行）。"
+    next_action: "待核实——外部仓库，本仓库不登记其数字；若并入本仓库或产出本仓库报告再补全并升级为已核实。"
+    verified: 待核实（研究在外部 ~/whale 仓库，本仓库不可核实）
+
+  # ════════════════ LEVEL 3 · 实现失败（可预防，非方向判决） ════════════════
+
+  - line: mr_5m_demo_contamination
+    mechanism: "N/A（实现失败，非机制判决）—— 原策略 = 5m Donchian 通道反向 fade"
+    level: 3
+    keywords: [MR-5m, mr5m, demo, 污染, contamination, gateway, 网关, 数据环境, 模拟盘, 隐式继承]
+    cause: ".env 第 4 行 OKX_SERVER=DEMO 被下载脚本隐式继承 → 全程带 x-simulated-trading:1 → OKX 返回模拟盘 K 线 → 全库污染；13 个月研究作废。（是实现失败，不是 MR 机制失败）"
+    numbers: "5 币 × 1,791,360 根 1m/币全经 demo 路径（干净 REST 备胎 0 次 fallback）；598 合成 ramp = 可检出子集；199/205 币月 red，信号 Jaccard 0.34–0.55，demo ATR +36.7% 虚高，单笔 +$8.88→−$1.09；demo FLAT PF 2.06 的 ~99% 是数据假象（mainnet 真实 PF 0.81–0.85 毛利≈0）。"
+    report: research/_closed/crypto_perp/mr_5m/ + research/_closed/_synthesis/MR5M_postmortem.md + reports/regime/data_contamination_forensics_20260610/
+    prevention: "数据纯净核验（第 3 站：数据环境打印/manifest server 字段/独立锚点逐 bar 交叉验证）+ CLAUDE.md 数据环境铁律（唯一可信源锁定 database_mainnet.db；.env 不得被下载脚本隐式继承）。"
+    next_action: "L3 不构成对 MR 方向的判决——方向随后在 mainnet 干净数据上被四个正交构造干净重测（若当年误记为机制失败=L1，这四个重测就不会发生；误分类代价的活证据）。"
+
+  - line: forward_backfill_contamination
+    mechanism: "N/A（实现失败）—— B2_4h 前向观察样本外起点锚定"
+    level: 3
+    keywords: [forward, 前向, backfill, 回填, provenance, 溯源, 样本外, out-of-sample, 锚定, anchor, 起点]
+    cause: "forward_start 锚定为固定日期（2026-06-01）而非'首次真实运行时刻'→ 3 笔部署前 REST 一次性回填的历史行情混入样本外（时间维度错位污染，数据本身纯净）。"
+    numbers: "3 笔 entry_time 全早于 VPS 部署时刻 2026-06-21T05:30Z，均用部署时一次性回填的历史 bar 计算；manifest server=mainnet/demo=false（数据纯净，非 demo 污染），但非'系统运行时实时增量'。"
+    report: reports/forward_provenance_check_20260622/（红灯排查）+ reports/forward_restart_20260622/（清空重启 + 防回填加固，forward_start 校正为 2026-06-21T08:00Z）
+    prevention: "前向样本外须锚定'首次真实运行时刻'而非固定日期；防回填加固；forward 域零触碰纪律（Claude 仅本地开发文档，从不 SSH/触碰 VPS）。"
+    next_action: "清空重启从 VPS 真实运行起点记纯净样本外；前向观察的策略结论不因此改变（B2_4h 仍资源关闭）。与 MR-5m 同为'时间/环境维度污染'，性质 L3。"
+
+  - line: v1_prime_gate_change
+    mechanism: "N/A（实现失败）—— B2_4h 集中度 gate 的事后重定义"
+    level: 3
+    keywords: [V1, V1', gate, 改门, 移动球门, moving-goalpost, 事后, 程序污点, procedural-stain, 集中度, 复活]
+    cause: "预注册 V1（剔 top5% 后毛利为正）判死 15/15 后，r2 阶段改判定为 V1'（区分脆弱 vs 结构性集中）使 5 幸存者复活 = 看到结果后移动球门（程序污点，禁称'自我修正'）。"
+    numbers: "B2_4h 幸存证据等级因此低于呈现；deflated Sharpe 补算 0.510（有效 N 2.35，扛住打折）——但污点是逻辑事实，独立于数字：无法干净区分 V1' 是合理还是为它构造的事后合理化。唯一能洗清的是前向观察。"
+    report: research/_closed/_synthesis/trend_methodology_hardening_20260622/ + research/_closed/crypto_perp/trend_b2_4h/reports/trend_validation_r2_20260611/
+    prevention: "铁律 A（预注册 gate 判死后不得重定义复活；要复活只能靠另一个事先写好的、不同的 gate）+ preregistration skill + honest-verdict 措辞纪律（写'程序污点'不写'自我修正'）。"
+    next_action: "L3 降低 B2_4h 证据等级但不判死方向；三条批评（V1'/漏打折/Sharpe-正偏）中仅漏打折通用，已补算并固化三铁律。deflated 结论不改部署现状。"

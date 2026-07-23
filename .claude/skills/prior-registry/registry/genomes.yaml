@@ -1,0 +1,92 @@
+# prior-registry · 策略基因库（strategy genomes）
+# ─────────────────────────────────────────────────────────────────────────
+# 记录规范：记【机制】而非【参数】。EMA20/100 是实现，"延续主导"才是机制。
+# 记参数无法跨市场匹配（无法回答"这个机制在美股/期货是否适用"）；记机制才能
+# 在未来跨市场研究中复用。见 SKILL.md §3 失效模式②。
+#
+# 已活策略与已死机制的基因同样登记——后者记录"什么机制被试过、怎么死的"，
+# 是第 0 站地图 posterior belief 的数据来源。
+#
+# 字段：mechanism_name 机制名 · core 核心机制一句话 · profit_source 盈利来源
+#   · risk_shape 风险形态 · regime_ok 适用 regime · regime_fail 失效 regime
+#   · evidence 实证数字与出处 · status 当前状态 · report 报告路径
+#   · deaths_ref（死机制：关联 deaths.yaml 条目） · note（补充）
+# ─────────────────────────────────────────────────────────────────────────
+
+genomes:
+
+  # ════════════════ 活策略（当前唯一） ════════════════
+
+  - mechanism_name: 趋势跟随 / 延续收割（trend-following / behavioral persistence）
+    code: B2_4h
+    core: "顺右偏延续尾部——趋势信号金/死叉入场、信号反向出场、always-in-market、含 short 腿。EMA20/100·4h 是【实现】，机制是'延续 > 回归'（收割少数大移动远超多数小回归的那条尾）。"
+    profit_source: "收割右偏延续尾部（利润分布设计上即为尾部收割，剔 top5% 后毛利转负是该类策略的结构性特征，非缺陷）；short 腿 = 时间分散器 / 熊市保险。"
+    risk_shape: "右偏（逐笔净利偏度 9.13，右尾活在逐笔尺度，日 Sharpe 看不见）；主风险 = 跨 regime whipsaw（震荡期反复扫损）；Sharpe ~0.5 量级 → 统计验证周期长。"
+    regime_ok: "趋势 / 延续 regime。2022 真实深熊 short 腿正赔付 +$18,936，把全年净亏压到 −$3,445（vs B&H −$1,014k）。"
+    regime_fail: "震荡 / 无方向 regime（whipsaw）。近 18 个月（2025-01→2026-06）组合层无利润。DD 的本质是跨 regime whipsaw，非高波动期超额暴露（故 vol-targeting 修错病，见 deaths: vol_targeting）。"
+    evidence: "OKX 3.4y 净 $68,194.82 / PF 1.39 / n470；Binance 6y 净 $300,752.78 / PF 1.83 / n836（跨所偏差仅 +2%）；观测 Sharpe 0.655 → deflated 0.510（有效 N 2.35，Bailey-LdP 实际矩）→ 验证 14 年；池 ENB 1.72；四次增强（funding/ADX/faster/vol-targeting）全判死 = 干净提取的反证（无残余可加）。"
+    status: "资源关闭（非证伪，措辞纪律必守）+ 零成本前向观察中；U1 前向 UPGRADE gate 触发 + 用户人工确认前不上真金。"
+    report: research/_closed/crypto_perp/trend_b2_4h/ + research/_closed/_synthesis/trend_line_closure_20260612.md + research/_closed/_synthesis/trend_methodology_hardening_20260622/
+    note: "证据等级 caveat：V1' 事后改门（deaths: v1_prime_gate_change）降低幸存证据等级，唯一能洗清的是前向观察（真正未碰样本外）。跨市场复用要点：机制是'趋势延续'，可在美股/期货问'该市场是否右偏延续主导'——不是问'EMA20/100 是否有效'。"
+
+  # ════════════════ 已死机制家族（记录"什么被试过、怎么死的"） ════════════════
+
+  - mechanism_name: 均值回归 / 价格回归（mean-reversion）
+    code: MR-family
+    core: "逆势赌价格回归到均值——单序列 Donchian fade / 多时间尺度 / 横截面 carry / 配对价差 / funding 极端，五种载体。"
+    profit_source: "（假设）小幅回归的高频收割。"
+    risk_shape: "左偏——多数小赢 + 少数延续尾部大亏（与趋势镜像：同一条右偏尾，趋势收割它、回归被它吃）。"
+    regime_ok: "（无——本市场不存在可货币化回归 edge；这正是 B2_4h 的镜像证据）。"
+    regime_fail: "全 regime——右偏延续在 100ms tick → 4h bar 全尺度主导，四种正交构造三次显形三次被同一结构杀死。"
+    evidence: "MR-5m mainnet FLAT PF 0.81–0.85 毛利≈0；perpetual signal space closure：单序列/横截面/价差三切面同源（逆势负期望、顺势弱 edge、波动率无载体）。"
+    status: "家族整体探明 / 证伪（永续信号空间在约束盒内闭合）。"
+    report: research/_closed/_synthesis/perpetual_signal_space_closure_20260613.md + research/_closed/_synthesis/PROJECT_FINAL_SUMMARY_20260614.md
+    deaths_ref: [mr_timescale, funding_reversal, pairs_cointegration, order_flow_exhaustion, flow_vs_price, cross_sectional]
+
+  - mechanism_name: 卖波动率保险 / 方差风险溢价（sell volatility insurance / VRP）
+    code: VRP-family
+    core: "卖 ATM 期权收方差风险溢价（赌 IV 系统性高于 RV）。"
+    profit_source: "（假设）保险卖方赚取方差风险溢价（平时稳收保费）。"
+    risk_shape: "左偏 peso——平时稳收 + 尾部（波动爆发/whipsaw）巨亏；剥离方向后方向尾换成方差尾，尾仍在。"
+    regime_ok: "（无可货币化——ETH 无溢价；BTC 剥方向后 net≈0）。需期权载体（永续无凸性无法卖波动率）。"
+    regime_fail: "高 realized 方差 / whipsaw（BTC delta-hedged whipsaw 情景 −67%spot，上行 squeeze 也亏）。"
+    evidence: "ETH 毛缝中位≈0（IV≈RV）；BTC delta-hedged net +0.36vp（摩擦吃 85%）、5% bootstrap 下界三档全负。"
+    status: "ATM VRP 线关闭（ETH = Level 1 无溢价 / BTC = Level 2 摩擦+peso）。未达 Stage C（真实卖方运营）。"
+    report: research/_closed/crypto_options/vrp_atm/
+    deaths_ref: [vrp_atm_eth, vrp_atm_btc]
+
+  - mechanism_name: 波动率择时（volatility timing）
+    code: VOL-event
+    core: "低波状态后做多波动率（赌波动率聚集 → 低波后爆发）。"
+    profit_source: "（假设）波动率聚集物理规律 → 状态转换可预测。"
+    risk_shape: "N/A——永续线性壁：静态多+空 straddle 毛利恒零，捕波动率必退化为方向（方向频段已空）。"
+    regime_ok: "（需期权载体——edge 真实但永续不可得）。"
+    regime_fail: "永续（线性无凸性）；且方向与直觉相反——低波预测的是'平静延续'非'爆发临近'。"
+    evidence: "可预测性双样本 PASS（ΔP(高波|低波)=−0.237，5/5×2 逐格复现）但增量线负（低波条件化幅度系统性 < 无条件，5/5 双样本全负）——预测性 ≠ 可货币化。"
+    status: "探明——edge 真实但需期权载体，永续不可收割（物理基础已确证，缺的只是工具）。"
+    report: research/_closed/crypto_perp/volatility_event/reports/volatility_event_20260613/
+    note: "与 VRP 同指向'加密波动率结构真实存在但需期权载体'；期权载体上 ATM VRP 又死于无溢价/摩擦——波动率出路整体收窄。"
+
+  - mechanism_name: 横截面相对价值排序（cross-sectional relative-value）
+    code: XSEC-factor
+    core: "在币种截面上按因子（动量/carry/反转）排序做多空，赌相对强弱持续/回归。"
+    profit_source: "（假设）横截面因子的排序预测力（IC）。"
+    risk_shape: "分因子不同：MOM/CAR 弱正 alpha 但衰减；REV 强负价差（右偏延续，'赢家继续赢'）。"
+    regime_ok: "（无稳健可交易——真 alpha 存在但太弱/衰减/不可交易；carry 是唯一残留线索，记录无动作）。"
+    regime_fail: "近年（2024+）alpha 衰减；流动性伪装（净正仅不可交易小币，见 factor_scale）。"
+    evidence: "MOM/CAR 剥离后真 alpha t3.86/2.08 但日 IC≈0 / 近年衰减；REV 可交易价差净 −159.4%；规模化只改善毛 IC 不改善可交易 alpha。"
+    status: "探明——'IC ≠ 可交易 alpha'三道墙（单调性/成本后价差/流动性分层）；22 币 + 100 币两次判不过。"
+    report: research/_closed/crypto_perp/cross_sectional/reports/cross_sectional_ic_20260613/ + research/_closed/crypto_tick/factor_scale/reports/factor_scale_feasibility_20260628/
+    deaths_ref: [cross_sectional, factor_scale]
+
+  - mechanism_name: 期现基差收敛 / cash-and-carry（basis convergence）
+    code: BASIS-carry
+    core: "买现货/永续 + 卖交割合约，赌到期基差收敛（契约性收敛）。"
+    profit_source: "基差 = 交割溢价，到期必收敛（机制 100% 可靠）。"
+    risk_shape: "低方差'加密版固收'，但空头交割腿在极端行情有强逆向暴露（最坏 +80.4%）。"
+    regime_ok: "牛市高基差环境（超额随 bull 到 7.5%）。"
+    regime_fail: "常态/熊市——基差被定价到无风险利率，超额≈0。"
+    evidence: "B4 收敛 100%；B2 净年化 4.62% < 无风险 5%，超额≈0；B3 空头腿最坏逆向 +80.4%。"
+    status: "探明——效率定价，肉太薄不值双腿工程（盒外第一条非方向路线）。"
+    report: research/_closed/basis/basis_arbitrage/reports/basis_arbitrage_feasibility_20260615/
+    deaths_ref: [basis_arbitrage]
