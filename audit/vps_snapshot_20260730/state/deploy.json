@@ -1,0 +1,5 @@
+{
+  "deploy_completed_utc": "2026-06-21T06:19:01.870754+00:00",
+  "first_live_bar_close_utc": "2026-06-21T08:00:00+00:00",
+  "note": "No bar closing before first_live_bar_close_utc is EVER counted as forward sample. backfill/warmup bars (seed + REST gap-fill) are excluded from forward ledger. Gap-detection: if a cron-4h detects >4h since last live bar close, the bars in the gap are logged as missed (not forward)."
+}

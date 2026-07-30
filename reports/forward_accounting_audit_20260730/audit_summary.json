@@ -1,0 +1,89 @@
+{
+  "audit": "forward_accounting_audit_20260730",
+  "independent_of_engine": true,
+  "generated_utc": "2026-07-30T15:59Z",
+  "Q1_two_accounts": {
+    "daily_m2m_first_date": "2023-01-01",
+    "daily_m2m_last_date": "2026-07-31",
+    "n_days": 1308,
+    "nature": "FULL-HISTORY account (seeded 2023-01-01)",
+    "full_history_sum": 73614.58483792048,
+    "heartbeat_net_total_usd": 73614.58483792051,
+    "full_history_identity_abs_diff": 2.9103830456733704e-11,
+    "heartbeat_73614_is": "full-history monitoring recompute (NOT a gate input)",
+    "daily_report_2227_is": "forward slice (f_per from 2026-06-21T08:00Z)"
+  },
+  "Q2_forward_net_path": {
+    "formula": "f_per.sum(); f_per = perbar[index >= effective_forward_start] minus gaps",
+    "effective_forward_start": "2026-06-21T08:00Z (max(config,deploy), FIXED)",
+    "baseline_subtraction_hypothesis": "DISPROVEN \u2014 no subtraction in code; deploy.json has no net baseline field",
+    "jump_root_cause": "always-in 5-coin endpoint volatility + intraday partial ceil-buckets, NOT baseline jump, NOT backfill"
+  },
+  "Q3_drawdown_constant": {
+    "computed_metric": "MAX drawdown (mislabeled '\u5f53\u524d\u56de\u64a4'/current)",
+    "forward_high_water": 2430.61,
+    "high_water_date": "2026-07-02",
+    "trough": 356.32,
+    "trough_date": "2026-07-09",
+    "forward_maxdd_final": 2074.2940593522308,
+    "record_last_moved": "2026-07-09",
+    "root_cause": "early-window (07-02->07-09) max-DD record never beaten; NOT frozen anchor / NOT stalled series; LABEL defect only",
+    "true_current_dd_from_peak": 1193.82
+  },
+  "Q4_recon_vs_report": {
+    "caliber_primary": "2026-06-22 (ceil bucket ~ per-bar >=08:00Z)",
+    "forward_net_0622_final": 1236.78614931807,
+    "forward_net_0621_final": 452.1823633412231,
+    "recon_cum": {
+      "2026-07-23": 2170.61,
+      "2026-07-24": 1579.62,
+      "2026-07-29": 1370.95
+    },
+    "reported": {
+      "2026-07-23": 2294.29,
+      "2026-07-24": 2227.46,
+      "2026-07-29": 1251.67
+    },
+    "divergence_cause": "intraday partial buckets + volatile endpoint timing (NOT retroactive corruption; max-DD cent-exact)",
+    "contradiction2_resolution": "\u5f53\u65e5M2M (ceil bucket, mostly prior day) vs forward-cum cross-run delta = DIFFERENT bar sets"
+  },
+  "Q5_gate_verdict": {
+    "gates_and_display_same_source": true,
+    "gate_input_account": "forward slice f_per (same as display), NOT the $73,614 full-history number",
+    "K2_maxdd_input": 2074.2940593522308,
+    "K2_threshold": 32482.54,
+    "K2_margin": 30408.25,
+    "K2_can_misfire": false,
+    "K1_active": false,
+    "K1_reason": "forward ~1.3mo < 12mo required",
+    "bug_layer": "DISPLAY/LABEL ONLY \u2014 gate inputs correct",
+    "forward_observation_validity": "INTACT",
+    "need_to_touch_vps": false
+  },
+  "baseline_cross_check": {
+    "ledger_cumsum_through_2026-05-29": 67717.36,
+    "frozen_baseline_OKX_full_net": 68194.82,
+    "diff": -477.46,
+    "interpretation": "same order (~0.7%); diff is open-span-endpoint + ceil-boundary kind => store history == backtest history"
+  },
+  "structural_checks": {
+    "S1_contiguity": {
+      "missing_days": 0,
+      "duplicate_days": 0,
+      "verdict": "CONTIGUOUS"
+    },
+    "S2_partition": {
+      "pre_baseline": 67717.36,
+      "warmup_excluded_from_forward": 4660.44,
+      "forward": 1236.79,
+      "sum": 73614.58,
+      "full_total": 73614.58,
+      "verdict": "EXHAUSTIVE, warmup correctly excluded (anti-backfill guard works)"
+    },
+    "S3_sign": {
+      "peak_before_trough": true,
+      "maxdd_nonnegative": true
+    }
+  },
+  "data_limitations": "snapshot lacks gap_log.jsonl/positions.json/ledger_trades.jsonl; reconstruction used NO gap exclusion yet matched reported max-DD to the cent, so an undisclosed material gap is unlikely and does not change Q5"
+}
