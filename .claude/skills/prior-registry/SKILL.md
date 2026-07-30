@@ -69,7 +69,8 @@ description: 机制知识库——死因三级分类学（L1 机制失败·永�
   （方向仍待正确重测）。
 - 本仓库实例：MR-5m（demo 网关污染，13 月作废 → 数据环境铁律）；前向回填污染
   （起点锚定固定日期而非首次真实运行 → 防回填加固）；V1' 事后改门（程序污点，
-  降低 B2_4h 证据等级 → 铁律 A）。
+  降低 B2_4h 证据等级 → 铁律 A）；前向日报显示层口径不一致（MAX-DD 误标'当前'
+  + ceil 末桶'当日'滞后 → 显示口径一致性纪律；核心账与 gate 不受影响）。
 
 > **分级的意义**：Level 1/2 是关于**市场**的（前者永久、后者条件性），Level 3 是
 > 关于**研究者自己**的（可修复）。把 Level 1 当 Level 3 → 无效的"修一修再试"循环；
@@ -119,7 +120,7 @@ list_reopenable()    # 所有 Level 2 条目 + 跨墙所需条件（条件变化
 ## 素材出处
 
 - `.claude/skills/PIPELINE.md` §0 地图 + §4 死因库与闭环（本 registry 的结构化前身）
-- `registry/deaths.yaml`（17 条，L1×7/L2×7/L3×3，各带报告路径，2 条待核实）+
+- `registry/deaths.yaml`（18 条，L1×7/L2×7/L3×4，各带报告路径，2 条待核实）+
   `registry/genomes.yaml`（6 条：B2_4h 活 + MR/VRP/vol/xsec/basis 死机制家族）
 - `research/_closed/_synthesis/research_catalog_trend_mr_20260622.md`（逐报告核对台账，
   死因/冻结数字的一级来源）、`perpetual_signal_space_closure_20260613.md`、

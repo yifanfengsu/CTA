@@ -190,3 +190,13 @@ deaths:
     report: research/_closed/_synthesis/trend_methodology_hardening_20260622/ + research/_closed/crypto_perp/trend_b2_4h/reports/trend_validation_r2_20260611/
     prevention: "铁律 A（预注册 gate 判死后不得重定义复活；要复活只能靠另一个事先写好的、不同的 gate）+ preregistration skill + honest-verdict 措辞纪律（写'程序污点'不写'自我修正'）。"
     next_action: "L3 降低 B2_4h 证据等级但不判死方向；三条批评（V1'/漏打折/Sharpe-正偏）中仅漏打折通用，已补算并固化三铁律。deflated 结论不改部署现状。"
+
+  - line: forward_report_display_caliber
+    mechanism: "N/A（实现失败）—— B2_4h 前向日报的人向呈现层（非核心账、非 gate 计算）"
+    level: 3
+    keywords: [forward, 前向, 日报, display, 显示层, 呈现层, report, 标签, label, mislabel, 回撤, drawdown, max-dd, ceil, 分桶, 口径, 记账, accounting, 自相矛盾, 显示bug]
+    cause: "日报把 gate 所用的同一前向切片 f_per 以易误读方式呈现，叠加出三处看似'自相矛盾'的数字：①最大回撤(MAX-DD)被标成'当前回撤'②'当日模拟M2M'取 ceil(\"D\") 末桶（主含前一 UTC 日 bar）与跨-run 累计增量是不同 bar 集 ③always-in 5 币组合端点真实波动。诊断前的三个'跳变根源'假设（全历史−部署基线的减法提取 / 基线跳动 / 回撤序列停更或写死锚点）经独立重推逐一证伪——代码实为 f_per.sum() 直接切片求和，无减法、deploy.json 无基线字段、锚点固定、回撤是早期纪录未破的合法 MAX-DD。故本条是'显示层口径/标签'缺陷，不是核心账或提取逻辑错误。"
+    numbers: "三矛盾：前向累计 $2,294→$2,227→$1,251 逐日跳变而回撤恒定 $2,074.29；当日M2M +$2.86 而累计 −$66.83；K2 余量 $30,408 恒定。独立重推裁决：回撤 $2,074.29 = 真 MAX-DD（高水位 $2,430.61@2026-07-02 → 谷 $356.32@2026-07-09，纪录至今未破）cent 级精确复现；daily_m2m = 全历史账（2023-01-01 起 1308 天连续，SUM = heartbeat $73,614.58/484 笔，差 2.9e-11）；真前向净利 ≈ $1,236.79；gate 输入正确（K2 阈值 $32,482.54 = p95 maxDD $25,986×1.25，数百刀级显示噪声不可能触发；K1 前向 ~1.3 月 < 12 月未激活）。S1 日历连续/S2 warmup $4,660 正确排除前向窗外。"
+    report: reports/forward_accounting_audit_20260730/
+    prevention: "记账显示口径一致性纪律（面向人的报告展示的核心指标必须与 gate 判定基于同一前向切片、同一净值序列、同口径；禁显示层独立减法/提取/重算，禁名不副实的标签；追加于 docs/AGENTS.md §2 forward 域规则）+ audit-independent（独立重推区分'显示层混淆'与'gate 层污染'——本条即该反射的产物：怀疑被数据干净否证 = 与发现真问题同价值）。"
+    next_action: "关键边界：K1/K2 与日报同读 gate_status 的前向切片 f_per（不是'两套账、gate 读好账'——是同一次正确计算），故 gate 判定正确、前向观察有效性不受影响（不得据此误读为'前向数据都不可信'）。修复（重标签/改桶义，纯显示层、不碰 f_per/gate/config）留至前向系统正式迁移时一并处理，当前不碰 VPS（仅显示 bug 不值得冒断前向连续性风险）。与 forward_backfill_contamination 同母题'全历史账与前向账两口径并存'，但回填污染错在前向样本起点锚定（样本本身被时间污染，须重锚修复），本条前向样本与 gate 均正确、仅人向呈现误导（无正确性影响），表现与修复方向均不同，故分列。"
